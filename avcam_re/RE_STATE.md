@@ -174,13 +174,25 @@ ISP_apply_mode_config_a/b  or  ISP_apply_stream_pipe
 - FUN_00423bac → `DFE_apply_pipeline_registers` — 9,920 bytes, 6 tree validations + DFE block 0x68 register submit loop (cmds 0x30..0xba). Fully decompiled and renamed in Ghidra.
 
 ## Open Gate 3:2 Feasibility & 4 Software Patch Points
+
+> [!WARNING]
+> **Superseded 2026-09-26 — see `OPENGATE_PATCH_SURFACE.md`.** The four patch
+> points below were re-checked with `retool consts` and **the constants are not
+> present in code as described.** 2160 and 3376 are never encoded as Thumb
+> instruction immediates anywhere in the image; they live in packed data
+> descriptors of the form `(height << 16) | width`. The claims about 3376
+> (patch point 1) and 135 (patch point 3) are not supported by the binary at
+> all. The real 4K surface is a mode table at `0x89dae0` and a per-stream
+> config table at `0x8c4440`. Treat the list below as a hypothesis that failed
+> verification, not as a plan.
+
 1. `ISP_dimension_select` (`0x0008a5d0`): Sensor readout Y-window (change `3376` -> `4000`).
 2. `ISP_dimension_setup` (`0x0008c14e`): ISP scaler target output height (change `2160` -> `2560`).
 3. `CODECV_write_config_0x651_0x661` (`0x000c46dc`): H.264 macroblock height (`mb_height` 135 -> 160).
 4. `encode_param_validate_pack` (`0x004fb694`): Frame height assertion validator (relax `2160` limit).
 
 > [!WARNING]
-> Live flashing requires investigating DDR frame buffer RAM allocation sizes (`FUN_0069bc7e` / RTOS memory manager) to prevent RAM buffer overflow panics, ISP hardware FIFO line buffer limits, and container signature bypasses.
+> Live flashing requires investigating DDR frame buffer RAM allocation sizes (`FUN_0069bc7e` / RTOS memory manager) to prevent RAM buffer overflow panics, ISP hardware FIFO line buffer limits, and container signature bypasses. The buffer-size fields in the per-stream config table (`0x000d9700` = 890,112 at `0x8c446c`) are the concrete place to look first.
 
 ## C++ rewrites in pipeline.md
 Clean C++ rewrites of key functions:

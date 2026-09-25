@@ -15,7 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from retool import config, migrate  # noqa: E402
+from retool import config, migrate, consts  # noqa: E402
 from retool.symbols import SymDB, Symbol, VALID_NAME, _as_int  # noqa: E402
 
 FAILURES: list[str] = []
@@ -154,6 +154,48 @@ def test_scraper():
 
 
 # ---------------------------------------------------------------- real db
+def test_consts():
+    """The MOVW decoder is load-bearing: a wrong one makes a negative search
+    result meaningless (it once reported 117888 for a `movw #0x303`)."""
+    print("consts / MOVW decoder")
+    # real instruction from av-cam.bin: 'movw r3, #0x303' at 0x8a60c
+    # halfwords 0xf240 / 0x3303 -> imm16 = imm4:i:imm3:imm8 = 0:0:3:0x03
+    check(consts._thumb_movw_imm16(0xF240, 0x3303) == 0x303,
+          "decodes movw r3,#0x303 from f240/3303")
+    check(consts._thumb_movw_imm16(0xF240, 0x3303) == 771, "same, decimal 771")
+    # imm4 path: 0xf248 -> imm4=8
+    check(consts._thumb_movw_imm16(0xF248, 0x0001) == 0x8001,
+          "decodes imm4 in the top bits")
+    # i bit (imm16 bit 11)
+    check(consts._thumb_movw_imm16(0xF640, 0x0000) == 0x0800, "decodes the i bit")
+    check(consts._thumb_movw_imm16(0xF000, 0x0000) is None, "rejects non-MOVW")
+    mt = consts._thumb_movw_imm16(0xF2C0, 0x3303)
+    check(mt is not None and mt < 0, "MOVT decoded and flagged negative")
+
+    # end-to-end on a synthetic buffer
+    import struct as _s
+    buf = _s.pack("<HH", 0xF240, 0x3303) + b"\x00" * 8
+    hits = consts.scan(buf, 0, 0, len(buf), [0x303])
+    check(any(h["kind"] == "thumb-movw" and h["off"] == 0 for h in hits),
+          "scan() finds the MOVW immediate in a buffer")
+
+    # the real binary: 2160 / 3376 / 135 must NOT appear as MOVW immediates
+    cfg2 = config.load()
+    t2 = cfg2.target("avcam")
+    if t2.path.is_file():
+        data = t2.path.read_bytes()
+        for v in (2160, 3376, 135):
+            hs = consts.scan(data, t2.runtime_base, 0, len(data), [v])
+            check(not any(h["kind"].startswith("thumb-mov") for h in hs),
+                  f"{v} is never a Thumb MOVW immediate in av-cam.bin")
+
+    # packing convention the patch surface relies on
+    check(((0x08700F00 >> 16) & 0xFFFF, 0x08700F00 & 0xFFFF) == (2160, 3840),
+          "(h<<16)|w decodes 0x08700f00 as 2160x3840")
+    check(((0x0A000F00 >> 16) & 0xFFFF, 0x0A000F00 & 0xFFFF) == (2560, 3840),
+          "patched 0x0a000f00 would be 2560x3840")
+
+
 def test_real_symdb():
     print("real symbol db")
     cfg = config.load()
@@ -176,12 +218,21 @@ def test_real_symdb():
           "no filename-extension / shorthand-suffix artifacts")
     check(any(s.name == "ISP_stream_start_handler_d" for s in db.symbols),
           "shorthand '_d' expanded to full name")
+    check(any(s.name.startswith("ISP_mode_4k") for s in db.symbols),
+          "recovered the 4K video mode descriptors")
+    # The table anchor deliberately has no separate symbol: 0x89dae0 is already
+    # the first 4K mode record, and add() refuses two names at one address.
+    check(db.by_off().get(0x89DAE0) is not None,
+          "video mode table start is covered by the first mode record")
+    check(any(s.name == "CODECV_stream_cfg_table_start" for s in db.symbols),
+          "recovered the per-stream encoder config table anchor")
 
 
 def main():
     test_config()
     test_symbols()
     test_scraper()
+    test_consts()
     test_real_symdb()
     print()
     if FAILURES:

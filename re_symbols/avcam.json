@@ -741,6 +741,126 @@
    "source": "RE_STATE.md:92"
   },
   {
+   "off": 9034464,
+   "va": "0x63e63ae0",
+   "name": "ISP_mode_4k_3840_a",
+   "kind": "data",
+   "comment": "4K 2160x3840, family 2, mode id 0",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034480,
+   "va": "0x63e63af0",
+   "name": "ISP_mode_4k_3840_b",
+   "kind": "data",
+   "comment": "4K 2160x3840, family 3, mode id 0x13",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034496,
+   "va": "0x63e63b00",
+   "name": "ISP_mode_4k_4096_a",
+   "kind": "data",
+   "comment": "4K 2160x4096, family 2, mode id 1",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034512,
+   "va": "0x63e63b10",
+   "name": "ISP_mode_4k_4096_b",
+   "kind": "data",
+   "comment": "4K 2160x4096, family 3, mode id 0x14",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034528,
+   "va": "0x63e63b20",
+   "name": "ISP_mode_1080x1920",
+   "kind": "data",
+   "comment": "1080x1920, mode id 3",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034544,
+   "va": "0x63e63b30",
+   "name": "ISP_mode_1080x2048",
+   "kind": "data",
+   "comment": "1080x2048, mode id 4",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034560,
+   "va": "0x63e63b40",
+   "name": "ISP_mode_1080x960",
+   "kind": "data",
+   "comment": "1080x960, mode id 5",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034576,
+   "va": "0x63e63b50",
+   "name": "ISP_mode_480x640",
+   "kind": "data",
+   "comment": "480x640, mode id 6",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034592,
+   "va": "0x63e63b60",
+   "name": "ISP_mode_480x768",
+   "kind": "data",
+   "comment": "480x768, mode id 7",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034608,
+   "va": "0x63e63b70",
+   "name": "ISP_mode_720x1280",
+   "kind": "data",
+   "comment": "720x1280, mode id 8",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034624,
+   "va": "0x63e63b80",
+   "name": "ISP_mode_812x1440",
+   "kind": "data",
+   "comment": "812x1440, mode id 9",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034640,
+   "va": "0x63e63b90",
+   "name": "ISP_mode_920x1440",
+   "kind": "data",
+   "comment": "920x1440, mode id 0xa",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034656,
+   "va": "0x63e63ba0",
+   "name": "ISP_mode_1080x1440",
+   "kind": "data",
+   "comment": "1080x1440, mode id 0xb",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9034672,
+   "va": "0x63e63bb0",
+   "name": "ISP_mode_540x960",
+   "kind": "data",
+   "comment": "540x960, mode id 0xc",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
+   "off": 9192512,
+   "va": "0x63e8a440",
+   "name": "CODECV_stream_cfg_table_start",
+   "kind": "data",
+   "comment": "per-stream encoder config, 96-byte records; 14 carry a 2160-height word",
+   "source": "OPENGATE_PATCH_SURFACE.md"
+  },
+  {
    "off": 9648423,
    "va": "0x63ef9927",
    "name": "str_SET_PROISP_MODE",

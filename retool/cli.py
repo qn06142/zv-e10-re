@@ -19,7 +19,7 @@ import re
 import sys
 from pathlib import Path
 
-from . import __version__, config, engine, export, migrate
+from . import __version__, config, engine, export, migrate, consts
 from .symbols import SymDB
 
 
@@ -221,6 +221,45 @@ def cmd_strings(cfg, name, filt=None):
     _p(f"-- {len(ss)} strings")
 
 
+def cmd_consts(cfg, name, addr, values, whole=False):
+    """Locate immediate constants -- used to verify firmware patch points."""
+    t = cfg.target(name)
+    rz = engine.Rizin(cfg)
+    if whole:
+        start, size = 0, t.path.stat().st_size
+        label = "whole image"
+    else:
+        a = int(addr, 0)
+        fns = rz.run_project_json(t, rz.project_path(t), f"afij @ {a:#x}") or []
+        if fns:
+            f = fns[0]
+            start = int(f["offset"])
+            size = int(f["size"])
+            label = f"{f['name']} @ {start:#x} (size {size})"
+        else:
+            start, size = a, 0x200
+            label = f"raw @ {a:#x} (no function; scanning 0x200)"
+    targets = [int(v, 0) for v in values]
+    hits = consts.scan(t.path.read_bytes(), t.runtime_base, start, size, targets)
+    _p(f"scanning {label} for {[hex(v) for v in targets]}")
+    if not hits:
+        _p("  no encoding of those values found in range")
+        return
+    for h in sorted(hits, key=lambda h: (h["value"], h["off"])):
+        _p(f"  {h['off']:08x}  va {h['va']:>10}  {h['value']:>8} "
+           f"({hex(h['value'])})  {h['kind']:<12} bytes={h['bytes']}")
+
+
+def cmd_disasm(cfg, name, addr, count=40):
+    """Disassemble N instructions at a file offset (the workhorse for reading code)."""
+    t = cfg.target(name)
+    rz = engine.Rizin(cfg)
+    out = rz.run(t, f"pd {int(count)} @ {int(addr, 0):#x}", timeout=300)
+    # strip ANSI colour so it is readable in a terminal or pipe
+    out = re.sub(r"\x1b\[[0-9;]*m", "", out)
+    _p(out.rstrip())
+
+
 def cmd_all(cfg, name):
     cmd_migrate(cfg, name)
     cmd_analyze(cfg, name, force=True)
@@ -257,6 +296,13 @@ def build_parser():
     p = sub.add_parser("strings"); p.add_argument("target")
     p.add_argument("filter", nargs="?")
 
+    p = sub.add_parser("disasm"); p.add_argument("target"); p.add_argument("addr")
+    p.add_argument("-n", type=int, default=40, help="instruction count")
+
+    p = sub.add_parser("consts"); p.add_argument("target"); p.add_argument("addr")
+    p.add_argument("values", nargs="+", help="integers, e.g. 3376 0x870")
+    p.add_argument("--whole", action="store_true", help="scan the entire image")
+
     p = sub.add_parser("all"); p.add_argument("target")
     return ap
 
@@ -284,6 +330,10 @@ def main(argv=None):
             cmd_xrefs(cfg, a.target, a.addr)
         elif a.cmd == "strings":
             cmd_strings(cfg, a.target, a.filter)
+        elif a.cmd == "disasm":
+            cmd_disasm(cfg, a.target, a.addr, a.n)
+        elif a.cmd == "consts":
+            cmd_consts(cfg, a.target, a.addr, a.values, a.whole)
         elif a.cmd == "all":
             cmd_all(cfg, a.target)
     except engine.EngineError as e:
