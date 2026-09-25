@@ -1,0 +1,840 @@
+{
+ "schema": 1,
+ "target": "avcam",
+ "runtime_base": "0x635c6000",
+ "note": "Addresses are FILE OFFSETS (base 0x0). Runtime VA = off + runtime_base.",
+ "symbols": [
+  {
+   "off": 0,
+   "va": "0x635c6000",
+   "name": "LIRO_ResetHandler",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:38"
+  },
+  {
+   "off": 4,
+   "va": "0x635c6004",
+   "name": "LIRO_Header_Magic_0x04",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:39"
+  },
+  {
+   "off": 549772,
+   "va": "0x6364c38c",
+   "name": "per_cmd_param_apply",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:110"
+  },
+  {
+   "off": 550480,
+   "va": "0x6364c650",
+   "name": "ISP_command_dispatcher",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:48"
+  },
+  {
+   "off": 570252,
+   "va": "0x6365138c",
+   "name": "ISP_write_encode_param_block",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:49"
+  },
+  {
+   "off": 570852,
+   "va": "0x636515e4",
+   "name": "CODECA_AudioParamApply",
+   "kind": "auto",
+   "comment": "16 regs 0x453..0x474",
+   "source": "RE_STATE.md:97"
+  },
+  {
+   "off": 609600,
+   "va": "0x6365ad40",
+   "name": "composite_calibration",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:109"
+  },
+  {
+   "off": 641892,
+   "va": "0x63662b64",
+   "name": "ISP_table_lookup_indexed",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:52"
+  },
+  {
+   "off": 652516,
+   "va": "0x636654e4",
+   "name": "ISP_tuning_commit_and_launch",
+   "kind": "auto",
+   "comment": "writes reg 0x1e (block 0x06) + conditional ZIMA_DVENC_launch",
+   "source": "RE_STATE.md:134"
+  },
+  {
+   "off": 653032,
+   "va": "0x636656e8",
+   "name": "ISP_apply_tuning_0x40_0x54",
+   "kind": "auto",
+   "comment": "blasts 21 regs 0x40..0x54 (block 0x09 sub 0x03) from byte buf",
+   "source": "RE_STATE.md:137"
+  },
+  {
+   "off": 654872,
+   "va": "0x63665e18",
+   "name": "ISP_apply_tuning_0x7c_0x99",
+   "kind": "auto",
+   "comment": "blasts 30 regs 0x7c..0x99 from byte buf",
+   "source": "RE_STATE.md:138"
+  },
+  {
+   "off": 658156,
+   "va": "0x63666aec",
+   "name": "ISP_apply_tuning_0xf3_0xf4",
+   "kind": "auto",
+   "comment": "2 regs 0xf3,0xf4",
+   "source": "RE_STATE.md:139"
+  },
+  {
+   "off": 658248,
+   "va": "0x63666b48",
+   "name": "ISP_apply_tuning_0xf9_0xfb",
+   "kind": "auto",
+   "comment": "3 regs 0xf9..0xfb",
+   "source": "RE_STATE.md:140"
+  },
+  {
+   "off": 669112,
+   "va": "0x636695b8",
+   "name": "ISP_tuning_stage_commit",
+   "kind": "auto",
+   "comment": "orchestrates one tuning stage: setup hw ctx (PROISP_get_hw_ctx_ptr), write reg 0x1e (block 0x06), ISP_tuning_stage_apply_wrapper, ZIMA_DVENC_launch on error",
+   "source": "RE_STATE.md:133"
+  },
+  {
+   "off": 669716,
+   "va": "0x63669814",
+   "name": "ISP_tuning_stage_reset",
+   "kind": "auto",
+   "comment": "writes reg 0x4a (block 0x02), stage=0, then ISP_tuning_stage_commit",
+   "source": "RE_STATE.md:132"
+  },
+  {
+   "off": 710104,
+   "va": "0x636735d8",
+   "name": "handler_95ace1",
+   "kind": "auto",
+   "comment": "FUN_000ad5d8 <- chromaFormat string @0x95ace1 (ref @0xad972). Codec/chroma-format stage.",
+   "source": "pipeline.md:132"
+  },
+  {
+   "off": 719520,
+   "va": "0x63675aa0",
+   "name": "ISP_apply_mode_config_a_wrapper",
+   "kind": "auto",
+   "comment": "mode apply entry wrapper: init + setup + config + ISP_apply_mode_config_a",
+   "source": "RE_STATE.md:115"
+  },
+  {
+   "off": 719568,
+   "va": "0x63675ad0",
+   "name": "ISP_apply_mode_config_b",
+   "kind": "auto",
+   "comment": "mode apply entry (variant b), no return",
+   "source": "RE_STATE.md:121"
+  },
+  {
+   "off": 719984,
+   "va": "0x63675c70",
+   "name": "ISP_apply_stream_pipe",
+   "kind": "auto",
+   "comment": "counter-driven multi-stage stream/pipe apply (iterates N sub-streams via PTR_LAB_000afdd0 counter vs stage count 0xafde8), conditionally calls set_active_window",
+   "source": "RE_STATE.md:122"
+  },
+  {
+   "off": 720548,
+   "va": "0x63675ea4",
+   "name": "ISP_apply_config_conditional",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:117"
+  },
+  {
+   "off": 722884,
+   "va": "0x636767c4",
+   "name": "ISP_commit_config_block",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:116"
+  },
+  {
+   "off": 733620,
+   "va": "0x636791b4",
+   "name": "ISP_set_active_window_and_tuning",
+   "kind": "auto",
+   "comment": "TOP geometry/tuning coordinator: tracks active res/offset state (param_1[0x12fa..d]), computes output W/H (param_1[0x46e/46f] + offsets), ROI calc via FUN_006ae248, writes regs 0x185/0x191/0x1b6, calls ISP_tuning_apply_for_stream. KEY OpenGate target (active resolution programming)",
+   "source": "RE_STATE.md:111"
+  },
+  {
+   "off": 805172,
+   "va": "0x6368a934",
+   "name": "CODECA_write_config_0x668_0x681",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:98"
+  },
+  {
+   "off": 812664,
+   "va": "0x6368c678",
+   "name": "CODECV_validate_codec_type_reg_0x1c2",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:78"
+  },
+  {
+   "off": 813348,
+   "va": "0x6368c924",
+   "name": "capture_gamma",
+   "kind": "auto",
+   "comment": "",
+   "source": "pipeline.md:183"
+  },
+  {
+   "off": 813584,
+   "va": "0x6368ca10",
+   "name": "CODECV_get_scan_type_reg_0x34f",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:78"
+  },
+  {
+   "off": 967416,
+   "va": "0x636b22f8",
+   "name": "VideoEncode_ExecutionWrapper",
+   "kind": "auto",
+   "comment": "pre/post + signal ISP_WriteRegister",
+   "source": "RE_STATE.md:73"
+  },
+  {
+   "off": 975972,
+   "va": "0x636b4464",
+   "name": "VideoEncode_StateMachine",
+   "kind": "auto",
+   "comment": "7 states",
+   "source": "RE_STATE.md:72"
+  },
+  {
+   "off": 1011384,
+   "va": "0x636bceb8",
+   "name": "SDF_JPEG_CommandRouter",
+   "kind": "auto",
+   "comment": "switch on msg ids 0x1..0x502",
+   "source": "RE_STATE.md:101"
+  },
+  {
+   "off": 4319440,
+   "va": "0x639e48d0",
+   "name": "DFE_register_table",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:65"
+  },
+  {
+   "off": 4340652,
+   "va": "0x639e9bac",
+   "name": "DFE_apply_pipeline_registers",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:64"
+  },
+  {
+   "off": 4371548,
+   "va": "0x639f145c",
+   "name": "DFE_config_apply",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:65"
+  },
+  {
+   "off": 4374516,
+   "va": "0x639f1ff4",
+   "name": "DFE_ISP_apply",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:63"
+  },
+  {
+   "off": 4382288,
+   "va": "0x639f3e50",
+   "name": "DFE_core",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:63"
+  },
+  {
+   "off": 4388256,
+   "va": "0x639f55a0",
+   "name": "DFE_state_machine",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:63"
+  },
+  {
+   "off": 4400884,
+   "va": "0x639f86f4",
+   "name": "DFE_write_stage_0x2e",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:67"
+  },
+  {
+   "off": 4400992,
+   "va": "0x639f8760",
+   "name": "DFE_write_stage_0x3d",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:67"
+  },
+  {
+   "off": 4456256,
+   "va": "0x63a05f40",
+   "name": "DFE_write_stage_0x12_0x13",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:67"
+  },
+  {
+   "off": 4457200,
+   "va": "0x63a062f0",
+   "name": "DFE_get_block_id",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:66"
+  },
+  {
+   "off": 4462064,
+   "va": "0x63a075f0",
+   "name": "DFE_set_mode",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:65"
+  },
+  {
+   "off": 4462280,
+   "va": "0x63a076c8",
+   "name": "DFE_write_mode_regs_0x111_0x114",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:68"
+  },
+  {
+   "off": 4462508,
+   "va": "0x63a077ac",
+   "name": "DFE_write_motion_regs_0x16c_0x174",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:68"
+  },
+  {
+   "off": 5223508,
+   "va": "0x63ac1454",
+   "name": "encode_param_copy",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:93"
+  },
+  {
+   "off": 5223572,
+   "va": "0x63ac1494",
+   "name": "encode_param_error",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:91"
+  },
+  {
+   "off": 5223668,
+   "va": "0x63ac14f4",
+   "name": "encode_param_reset_vtable",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:94"
+  },
+  {
+   "off": 5223684,
+   "va": "0x63ac1504",
+   "name": "encode_param_init",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:89"
+  },
+  {
+   "off": 5224016,
+   "va": "0x63ac1650",
+   "name": "encode_param_setup",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:90"
+  },
+  {
+   "off": 5224084,
+   "va": "0x63ac1694",
+   "name": "encode_param_validate_pack",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:90"
+  },
+  {
+   "off": 5227472,
+   "va": "0x63ac23d0",
+   "name": "encode_param_reset_state",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:94"
+  },
+  {
+   "off": 5227488,
+   "va": "0x63ac23e0",
+   "name": "encode_param_set_default",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:89"
+  },
+  {
+   "off": 5227504,
+   "va": "0x63ac23f0",
+   "name": "encode_param_finish",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:93"
+  },
+  {
+   "off": 5228192,
+   "va": "0x63ac26a0",
+   "name": "encode_param_start",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:91"
+  },
+  {
+   "off": 5383148,
+   "va": "0x63ae83ec",
+   "name": "encode_param_submit",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:92"
+  },
+  {
+   "off": 5384912,
+   "va": "0x63ae8ad0",
+   "name": "ZIMA_DVENC_launch",
+   "kind": "auto",
+   "comment": "cmd 0xd20, ZIMA_DVENC_flush_sync (0x0069a24a)",
+   "source": "RE_STATE.md:74"
+  },
+  {
+   "off": 5622112,
+   "va": "0x63b22960",
+   "name": "matrix",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:106"
+  },
+  {
+   "off": 5631848,
+   "va": "0x63b24f68",
+   "name": "apply",
+   "kind": "auto",
+   "comment": "color temp gain computation",
+   "source": "RE_STATE.md:105"
+  },
+  {
+   "off": 5636416,
+   "va": "0x63b26140",
+   "name": "GetAWBLevel",
+   "kind": "auto",
+   "comment": "18.9MB body, largest function",
+   "source": "RE_STATE.md:104"
+  },
+  {
+   "off": 6886862,
+   "va": "0x63c575ce",
+   "name": "PROISP_CommandRouter",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:44"
+  },
+  {
+   "off": 6887546,
+   "va": "0x63c5787a",
+   "name": "PROISP_SubmitRouter",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:45"
+  },
+  {
+   "off": 6922826,
+   "va": "0x63c6024a",
+   "name": "ZIMA_DVENC_flush_sync",
+   "kind": "auto",
+   "comment": "cmd 0xd20, ZIMA_DVENC_flush_sync (0x0069a24a)",
+   "source": "RE_STATE.md:74"
+  },
+  {
+   "off": 6922942,
+   "va": "0x63c602be",
+   "name": "ISP_get_channel_id",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:82"
+  },
+  {
+   "off": 6924738,
+   "va": "0x63c609c2",
+   "name": "PROISP_get_hw_ctx_ptr",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:79"
+  },
+  {
+   "off": 6929440,
+   "va": "0x63c61c20",
+   "name": "LIROSeq_TuningBlockHandler",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:47"
+  },
+  {
+   "off": 6929458,
+   "va": "0x63c61c32",
+   "name": "LIROSeq_codec_dispatch_motion",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:86"
+  },
+  {
+   "off": 6929498,
+   "va": "0x63c61c5a",
+   "name": "LIROSeq_is_codec_active",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:86"
+  },
+  {
+   "off": 6929534,
+   "va": "0x63c61c7e",
+   "name": "PROISP_get_channel_id",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:82"
+  },
+  {
+   "off": 6930402,
+   "va": "0x63c61fe2",
+   "name": "GOP_init_param_header",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:82"
+  },
+  {
+   "off": 6930634,
+   "va": "0x63c620ca",
+   "name": "CODECV_init_peak_bitrate_header",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:81"
+  },
+  {
+   "off": 6930654,
+   "va": "0x63c620de",
+   "name": "CODECV_build_peak_bitrate_block",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:81"
+  },
+  {
+   "off": 6930794,
+   "va": "0x63c6216a",
+   "name": "CODECV_init_bitrate_header",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:80"
+  },
+  {
+   "off": 6930814,
+   "va": "0x63c6217e",
+   "name": "CODECV_build_target_bitrate_block",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:80"
+  },
+  {
+   "off": 6950738,
+   "va": "0x63c66f52",
+   "name": "LIROSeq_CommandHandler",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:46"
+  },
+  {
+   "off": 6963036,
+   "va": "0x63c69f5c",
+   "name": "tuning_table_apply",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:50"
+  },
+  {
+   "off": 6963076,
+   "va": "0x63c69f84",
+   "name": "tuning_table_apply_short",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:51"
+  },
+  {
+   "off": 6975414,
+   "va": "0x63c6cfb6",
+   "name": "ISP_tuning_stage_apply_wrapper",
+   "kind": "auto",
+   "comment": "calls ISP_apply_tuning_0x40_0x54 + buffer cmp/validate",
+   "source": "RE_STATE.md:135"
+  },
+  {
+   "off": 6976216,
+   "va": "0x63c6d2d8",
+   "name": "LIROSeq_video_stream_apply_v2",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:85"
+  },
+  {
+   "off": 6976260,
+   "va": "0x63c6d304",
+   "name": "LIROSeq_video_stream_reg_apply",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:85"
+  },
+  {
+   "off": 6981832,
+   "va": "0x63c6e8c8",
+   "name": "ISP_tuning_apply_for_stream",
+   "kind": "auto",
+   "comment": "TOP-LEVEL: builds tuning config from param struct (window/crop math via FUN_006b46xx), alloc hw ctx, calls ISP_tuning_stage_commit per stage",
+   "source": "RE_STATE.md:136"
+  },
+  {
+   "off": 7002934,
+   "va": "0x63c73b36",
+   "name": "ISP_stream_start_handler_a",
+   "kind": "auto",
+   "comment": "per-stream start: FUN_000b7590(pre) + ISP_apply_stream_pipe + FUN_000b6ef8(post), returns 1",
+   "source": "RE_STATE.md:112"
+  },
+  {
+   "off": 7002964,
+   "va": "0x63c73b54",
+   "name": "ISP_stream_start_handler_b",
+   "kind": "auto",
+   "comment": "per-stream start (variant, identical shape)",
+   "source": "RE_STATE.md:113"
+  },
+  {
+   "off": 7002994,
+   "va": "0x63c73b72",
+   "name": "ISP_stream_start_handler_c",
+   "kind": "auto",
+   "comment": "additional stream-start handlers (same family, table-dispatched)",
+   "source": "RE_STATE.md:114"
+  },
+  {
+   "off": 7003034,
+   "va": "0x63c73b9a",
+   "name": "ISP_stream_start_handler_d",
+   "kind": "auto",
+   "comment": "additional stream-start handlers (same family, table-dispatched)",
+   "source": "RE_STATE.md:114"
+  },
+  {
+   "off": 7036838,
+   "va": "0x63c7bfa6",
+   "name": "CODECV_stream_type_dispatch",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:75"
+  },
+  {
+   "off": 7070788,
+   "va": "0x63c84444",
+   "name": "CODECV_cmd_dispatch_with_motion",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:76"
+  },
+  {
+   "off": 7071904,
+   "va": "0x63c848a0",
+   "name": "VideoEncode_Start",
+   "kind": "auto",
+   "comment": "builds 272B param, GOP config, launches ZIMA DVENC",
+   "source": "RE_STATE.md:71"
+  },
+  {
+   "off": 7072646,
+   "va": "0x63c84b86",
+   "name": "CODECV_prepare_encode_ctx",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:76"
+  },
+  {
+   "off": 7073370,
+   "va": "0x63c84e5a",
+   "name": "CODECV_stream_launch_prep",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:77"
+  },
+  {
+   "off": 7089524,
+   "va": "0x63c88d74",
+   "name": "CODECV_get_ctx_bitrate_params",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:79"
+  },
+  {
+   "off": 7138372,
+   "va": "0x63c94c44",
+   "name": "CODECV_apply_hevc_param_block",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:77"
+  },
+  {
+   "off": 8294024,
+   "va": "0x63daee88",
+   "name": "ISP_WriteRegister",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:43"
+  },
+  {
+   "off": 8494494,
+   "va": "0x63ddfd9e",
+   "name": "encode_param_set_hw_ctx",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:94"
+  },
+  {
+   "off": 8494582,
+   "va": "0x63ddfdf6",
+   "name": "encode_param_init_state",
+   "kind": "auto",
+   "comment": "",
+   "source": "RE_STATE.md:92"
+  },
+  {
+   "off": 9648423,
+   "va": "0x63ef9927",
+   "name": "str_SET_PROISP_MODE",
+   "kind": "data",
+   "comment": "SET_PROISP_MODE string anchor +3 more; handler FUN_00035cec",
+   "source": "pipeline.md:103"
+  },
+  {
+   "off": 9723341,
+   "va": "0x63f0bdcd",
+   "name": "str_LIRO_RTOS_markers",
+   "kind": "data",
+   "comment": "LIRO RTOS markers string anchor; no static xref (indirect dispatch)",
+   "source": "pipeline.md:114"
+  },
+  {
+   "off": 9795666,
+   "va": "0x63f1d852",
+   "name": "str_chromaPhase",
+   "kind": "data",
+   "comment": "chromaPhase string anchor; handler FUN_000a02b4",
+   "source": "pipeline.md:113"
+  },
+  {
+   "off": 9824346,
+   "va": "0x63f2485a",
+   "name": "str_capture_gamma",
+   "kind": "data",
+   "comment": "capture_gamma string anchor; handler FUN_000c6924",
+   "source": "pipeline.md:111"
+  },
+  {
+   "off": 10136513,
+   "va": "0x63f70bc1",
+   "name": "str_DDS00",
+   "kind": "data",
+   "comment": "DDS00 string anchor; no static xref (indirect dispatch)",
+   "source": "pipeline.md:106"
+  },
+  {
+   "off": 10140301,
+   "va": "0x63f71a8d",
+   "name": "str_GInv",
+   "kind": "data",
+   "comment": "GInv string anchor; no static xref (indirect dispatch)",
+   "source": "pipeline.md:105"
+  },
+  {
+   "off": 10141980,
+   "va": "0x63f7211c",
+   "name": "str_LoadLensAberrationData",
+   "kind": "data",
+   "comment": "LoadLensAberrationData string anchor +1 more; handler FUN_0029e660",
+   "source": "pipeline.md:104"
+  },
+  {
+   "off": 10175023,
+   "va": "0x63f7a22f",
+   "name": "str_GetAWBLevel",
+   "kind": "data",
+   "comment": "GetAWBLevel string anchor; handler FUN_00000000",
+   "source": "pipeline.md:109"
+  },
+  {
+   "off": 10177108,
+   "va": "0x63f7aa54",
+   "name": "str_DFE_SET_RAWB",
+   "kind": "data",
+   "comment": "DFE_SET_RAWB string anchor; no static xref (indirect dispatch)",
+   "source": "pipeline.md:110"
+  },
+  {
+   "off": 10294800,
+   "va": "0x63f97610",
+   "name": "str_YC_OLC_gamma",
+   "kind": "data",
+   "comment": "YC OLC gamma string anchor; no static xref (indirect dispatch)",
+   "source": "pipeline.md:112"
+  },
+  {
+   "off": 10683168,
+   "va": "0x63ff6320",
+   "name": "str_shading_correction",
+   "kind": "data",
+   "comment": "shading_correction string anchor; handler FUN_0065dee0",
+   "source": "pipeline.md:107"
+  },
+  {
+   "off": 10683744,
+   "va": "0x63ff6560",
+   "name": "str_lens_shading_data",
+   "kind": "data",
+   "comment": "lens_shading_data string anchor; handler FUN_00000000",
+   "source": "pipeline.md:108"
+  }
+ ]
+}
