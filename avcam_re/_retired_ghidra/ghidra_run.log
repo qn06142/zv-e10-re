@@ -1,0 +1,2 @@
+bash: line 1: /support/analyzeHeadless.bat: No such file or directory
+EXIT=127

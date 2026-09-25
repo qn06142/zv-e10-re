@@ -1,6 +1,25 @@
 # Reverse Engineering Sony Digital Cameras
 This tool interfaces with Sony digital cameras through USB. It allows to tweak settings, dump firmware, and in some cases install custom Android apps.
 
+## Firmware binary analysis (`retool`)
+
+Static analysis of the dumped firmware images (e.g. `dumps/av-cam.bin`) is
+handled by **`retool`**, a self-contained [rizin](https://rizin.re)-based
+pipeline. It has no JDK/Ghidra dependency and is fully reproducible:
+
+```powershell
+retool.cmd doctor            # verify engine + targets
+retool.cmd analyze avcam     # build cached analysis project
+retool.cmd export avcam      # functions / calls / xrefs / strings / tables
+```
+
+Addresses are **file offsets (base 0x0)**; the runtime load address
+(`+0x635c6000` for `av-cam.bin`) is printed alongside. Renamed functions live
+in `re_symbols/*.json` with full provenance back to the notes that justify them.
+
+See **[RETOOL.md](RETOOL.md)**. This replaces the retired Ghidra setup
+(`avcam_re/_retired_ghidra/`) and the ad-hoc `disasm*.py` scripts.
+
 ## Installation
 There are two binaries:
 
