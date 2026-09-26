@@ -400,6 +400,43 @@ The `+0x114` side effect of B is moot for the same reason, though for the record
 `+0x114` has 277 accesses image-wide and 28 sites compare it against a constant,
 but **none of those is in a function that also touches the CapMgr flag triple**.
 
+### The registrar does not exist
+
+The obvious next move was to find what *does* wire the live part of the framework,
+on the assumption that if a registration mechanism exists, Motion Shot's absence
+from it is the patch site. A scan of the pointer regions for
+`{function pointer, class name}` pairs found **1607 pairs in 29 runs** — and
+appeared to include the Motion Shot classes:
+
+```
+0x1024cbc  fn 0x0fc9438  NS_SCALAR_INFRA33ScalarInfraMotionShotVideoManagerE
+0x1024cd4  fn 0x0fc9438  ...MotionShotVideoSequenceStageExecSAE
+0x1024cf8  fn 0x0fc9438  ...MotionShotVideoSequenceStageWaitSACompE
+```
+
+**That is an artifact, and the registrar does not exist.** `0x0fc9438` is the
+shared **`__si_class_type_info` vtable** — a data address, not a function. So each
+pair is an Itanium **typeinfo object**: `[0]` = own vtable, `[1]` = name. Adjacent
+typeinfo objects are indistinguishable from a `{ctor, name}` registration table
+once you scan for the pattern, and the Motion Shot classes appear simply because
+all 137 of the family's typeinfo objects sit in one array.
+
+Two tooling errors behind it, both worth recording:
+
+- **`is_code` as `offset < 0x1000000` is wrong for this image.** `0x0f00000`+ is
+  largely zero-filled (`0x0f4de48` is sixteen zero bytes) and `0x0fc0000`+ holds
+  vtables, so the test classifies data as code. The *construction* test is
+  unaffected — it searches for the exact 32-bit value, not a class — so the
+  construction verdicts above stand. The flag-table and handler-table
+  classifications that used `is_code` do not.
+- A `{code, name}` pair is not evidence of registration without first checking what
+  the "code" pointer actually is. Here it was a vtable.
+
+So the question "what instantiates the concrete layer on models that use this
+framework" is **unanswered**, and it is the right place to dig next: if the
+mechanism is in a different component rather than this image, that is consistent
+with everything above, and it would mean the answer is not in `av-cam.bin` at all.
+
 ## Verdict: there is no patch, because there is no live state to patch
 
 The last link is closed, with a positive control at every step.
