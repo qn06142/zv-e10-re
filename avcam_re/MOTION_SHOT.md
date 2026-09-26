@@ -481,6 +481,50 @@ registrar exists anywhere it is in those, and they cannot be read without
 decryption. Given that 140 MB is a plausible size for a data partition rather than
 firmware, that is the least likely place for it, but it is formally unexamined.
 
+### The flash inventory is complete; there is no hidden component
+
+Earlier I recorded `nflasha16`, `nflasha4_cmmex`, `nflasha12_cert` and
+`nflasha13` as "0% printable — encrypted or compressed… if the registrar exists
+anywhere it is in those." **That was wrong**, and measuring each partition in full
+rather than sampling one megabyte corrected it: 0% printable is what *erased*
+flash looks like, not only what encrypted data looks like.
+
+| partition | size | uniform | identified as |
+|---|---:|---:|---|
+| `nflasha16` | 140 MB | **100%** | erased — 1 distinct byte value in the whole partition, no content at all |
+| `nflasha12_cert` | 40 MB | 97.5% | `kdosfs` volume containing only a FAT boot sector |
+| `nflasha13` | 4 MB | 75% | `kdosfs` volume: `HASH/`, `HISTORY/`, `UPDATE LOG/` — the **update log** |
+| `nflasha4_cmmex` | 12 MB | 66.7% | `CMMeX` data container, 5 repeats of one record, `G46DSDS` markers; no code, no menu vocabulary |
+| `nflashaB0` / `B0_exbl` | 1 / 2 MB | 0% / 50% | `EXBL` — external **bootloader**; 400 "strings" are ARM instruction bytes, not text |
+| `nflasha6` | 16 MB | 75% | panel / LCD / EVF driver (already searched: zero hits) |
+| `nflasha1` | 7.9 MB | 11.8% | `mkfs.fat` volume (already searched: zero hits) |
+| `nflasha10_tmp` | 12 MB | 8.3% | real content (already searched: zero hits) |
+| `nflasha2_setting` | 20 MB | 50% | model binaries incl. `sa_motionshot.bin` (already searched) |
+| `nflasha5_wbi1` | 60 MB | 41.7% | real content (already searched: zero hits) |
+| `nflasha3_system` | 48 MB | 56.2% | av-cam verbatim at `+0x14000` + boot loaders + userland |
+
+So every byte of the flash is accounted for, and none of it contains the wiring.
+The only unread thing left anywhere is the `UDTRFIRM` payload in the update package.
+
+### Bonus: the installed version, from the camera's own update log
+
+`nflasha13`'s `UPDATE LOG/` records the last update performed:
+
+```
+[20110101 00:00:02]Updater: START. MODE=1 Serial
+                  Base Version: 100.102.017
+                  Body Version: 100.102.017
+                  EDISX START. / EDISX END.
+                  Darwin update START. / PFORMAT START. / PFORMAT END.
+                  DDR Training data update done. / Darwin update END.
+                  Updater: END. FIRMUP OK!
+```
+
+So the flash was written by updater `100.102.017`, which is a third version
+string alongside `dumps/version.txt`'s `30110_05.2025031501` and the update
+package's `0x0203`. Worth keeping in mind when comparing builds: they are not the
+same numbering, and the update package is the oldest of the three.
+
 ## Verdict: there is no patch, because there is no live state to patch
 
 The last link is closed, with a positive control at every step.
