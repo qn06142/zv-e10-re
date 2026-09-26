@@ -205,3 +205,72 @@ def test_vtable_address_has_no_movw_movt_pair(data):
     # a sibling that *is* constructed, for contrast
     sib = (0x0FC7850 + 4) + 0x635C6000
     assert isinstance(offsets.find_const_pairs(data, sib), list)
+
+
+@needs_dump
+def test_tbh_entries_are_doubled(data):
+    """TBH resolves `base + 2*entry`.  A x1 base lands inside the table.
+
+    The tbh at 0x317028 switches on ctx[0] (the capture mode) in ten cases.  With
+    the x2 every case target matches the address rizin labels; with x1, ctx[0]=5
+    resolves to 0x317036, which is inside the table itself.
+    """
+    tbh = 0x317028
+    assert offsets.is_tbh(hw(data, tbh), hw(data, tbh + 2)) == (3, 1)
+    base = tbh + 4
+    entries = [hw(data, base + 2 * i) for i in range(10)]
+    tgts = offsets.tbh_targets(tbh, entries)
+    # the x2 answers rizin's case labels exactly
+    assert tgts[5] == 0x317040
+    assert tgts[6] == 0x317044
+    assert tgts[7] == 0x31704A
+    assert tgts[8] == 0x317050
+    # and the x1 answer is self-evidently wrong
+    naive = [base + e for e in entries]
+    assert any(base <= t < base + 20 for t in naive)
+    assert not any(base <= t < base + 20 for t in tgts)
+
+
+@needs_dump
+def test_capture_mode_field_is_ctx_0_not_ctx_90(data):
+    """The mode the gates test is ctx[0x00]; ctx+0x90 is a different selector.
+
+    ctx+0x90 feeds the 34-way per-mode *limit* resolver (fcn.00316ef8), while the
+    capture mode is read as `ldr r3, [r5]` at 0x317022 and dispatched by the tbh at
+    0x317028.  Conflating the two is what produced the earlier wrong premise.
+    """
+    # fcn.00316ef8 reads ctx+0x90 and bounds it to 0x21 -> a 34-way tbb
+    assert offsets.ldr_str_offset(hw(data, 0x316EFE), hw(data, 0x316F00)) == \
+        ("ldr", 0, 0, 0x90)
+    # fcn.00316fd0 reads ctx[0x00] and range-checks it against 9
+    assert hw(data, 0x317022) == 0x682B          # ldr r3, [r5]
+    assert hw(data, 0x317024) == 0x2B09          # cmp r3, 9
+    assert (hw(data, 0x317026) & 0xFF00) == 0xD800   # bhi <default>
+
+
+@needs_dump
+def test_mode_helper_returns_only_zero_or_nine(data):
+    """fcn.00864566 is `return (v == 9) ? 9 : 0`.
+
+    It is the only source of a computed mode, and its result becomes both ctx[0]
+    and r4.  So the `mov r4, r0` route cannot supply 5 -- which is why r4 == 5 is
+    only reachable via ctx+0xc8.
+    """
+    assert hw(data, 0x86456A) == 0x2809           # cmp r0, 9
+    assert hw(data, 0x86456C) == 0xBF0C           # ite eq
+    assert hw(data, 0x86456E) == 0x2009           # moveq r0, 9
+    assert hw(data, 0x864570) == 0x2000           # movne r0, 0
+    assert hw(data, 0x864572) == 0x4770           # bx lr
+
+
+@needs_dump
+def test_no_literal_five_is_written_to_r4(data):
+    """None of the 19 literal assignments in fcn.00316fd0 puts 5 in r4."""
+    lits = set()
+    for o in range(0x316FD0, 0x3172C0, 2):
+        v = hw(data, o)
+        if (v & 0xFF00) == 0x2400 and ((v >> 8) & 7) == 4:
+            lits.add(v & 0xFF)
+    assert 5 not in lits
+    assert lits <= {0, 1, 6, 8, 9, 0x18, 0x1A, 0x1B, 0x1C}
+    assert len(lits) >= 7

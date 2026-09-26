@@ -1,7 +1,13 @@
 # Motion Shot: what it is, how it is gated, and why it never runs
 
 Addresses are file offsets (runtime VA = offset + `0x635c6000`). `ctx` is the
-per-capture context; `cap_mode` is `ctx[0x90]`.
+per-capture context.
+
+> **Correction to this file's own premise.** An earlier revision opened with
+> "`cap_mode` is `ctx[0x90]`". That is wrong. `ctx[0x90]` is a 0..33 selector
+> feeding the *separate* 34-way per-mode **limit resolver**; the capture mode that
+> the gates actually test is **`ctx[0x00]`**. The two were conflated. See
+> "Where the mode comes from" below.
 
 **Status: the crux is resolved.** The previous revision of this file ended on an
 open question — *nothing found writes `ctx+0x10c`*. That is now answered, and the
@@ -79,6 +85,95 @@ The three "forced off" strings sit together at `0x9b61dd`/`0x9b6204`/`0x9b622d`,
 immediately after `FW: SR_CAPMODE is changed! %x %x` (`0x9b61bc`, ref
 `0x0317018`). All three are rejections; there is no "mode on" log for any of them,
 so the arming side is silent by construction.
+
+## Where the mode comes from
+
+`fcn.00316fd0` owns all three gates, and it is the function that establishes what
+the mode is. Its entry:
+
+```
+0x316fd0  push.w {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x316fd4  mov   r5, r0              ; r5 = ctx
+0x316fda  mov   fp, r1              ; second argument
+0x316fdc  ldr   r3, [r0, 8]
+0x316fe0  cmp   r3, 0
+0x316fe2  bne.w 0x3172b4
+0x316fe6  ldr.w r4, [r0, 0xc8]      ; r4 = ctx+0xc8
+0x316ffa  cmp   r4, 0x12
+0x316ffe  bne   0x317064
+...
+0x317000  ldr   r4, [r5]            ; r4 = ctx[0]
+...
+0x317022  ldr   r3, [r5]            ; the capture mode
+0x317024  cmp   r3, 9
+0x317026  bhi   <default>
+0x317028  tbh   [pc, r3, lsl 1]      ; 10 cases
+```
+
+**`TBH` computes `base + 2*entry`, not `base + entry`.** With the ×2 every one of
+rizin's case labels matches; with ×1 five entries land inside the table, which is
+impossible. (I got this wrong twice before checking — the brute-force "which base
+looks plausible" scorer was the wrong tool.) Resolved mapping, base `0x31702c`:
+
+| `ctx[0]` | 0 | 1, 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|---|---|---|---|---|---|---|---|---|---|
+| case at | `0x317068` | `0x317056` | `0x3172c0` | `0x3172c6` | `0x317040` | `0x317044` | `0x31704a` | `0x317050` | `0x317068` |
+| `r4` becomes | 0 or 9 | 0 | 24 | 1 | **9** | 8 | 9 | 27 | 0 or 9 |
+
+The two cases that compute rather than assign both call the same 5-instruction
+helper, which returns **only 0 or 9**:
+
+```
+0x864566  ldr  r3, [r0, 0x1c]
+0x864568  ldr  r0, [r3, 0x1c]
+0x86456a  cmp  r0, 9
+0x86456c  ite  eq
+0x86456e  moveq r0, 9
+0x864570  movne r0, 0
+0x864572  bx   lr
+```
+
+and its result is both stored to `ctx[0]` (`str r0, [r5]` at `0x31706e`) and copied
+into `r4` (`mov r4, r0` at `0x31707a`).
+
+### Is `r4 == 5` reachable?
+
+This is the question the whole patch hinges on, and the answer is **yes, but only
+through one narrow route**.
+
+Every *literal* assignment to `r4` in the function is one of
+`{0, 1, 6, 8, 9, 0x18, 0x1a, 0x1b, 0x1c}` — 19 sites, **none of them 5**. The
+register-derived assignments are `mov r4, r0` with `r0 ∈ {0, 9}` (above) and
+`asrs r4, r1, 31` giving `{0, -1}`. So no case of the `tbh` yields 5.
+
+But `r4` also carries **`ctx+0xc8` verbatim** into the gate. The route is the
+`bne 0x317064` at `0x316ffe`, and the branches that reach `0x3170f8` *without*
+executing the `movs r4, 0x1b` at `0x3170f6` are at `0x3170a6`, `0x3170b0`,
+`0x3170ce` and `0x3170da`; from there `0x317108  bne 0x317128` lands on the gate.
+The only filters that route puts on `ctx+0xc8` are `!= 0x12`, `!= 0x1e` and
+`!= 8` — and **5 passes all three**.
+
+So the "motion shot is allowed" branch is live, but only when `ctx+0xc8 == 5`.
+That reframes patch A: rather than "5 never happens", the accurate statement is
+that **whether the flag survives depends on an unbounded 32-bit field**, which is
+exactly the kind of dependency you do not want to rely on. Making the clear
+unconditional removes the dependency.
+
+Corroboration that 5 is a real internal mode: the second dispatch at `0x317184`
+has a dedicated branch for it —
+
+```
+0x31718e  cmp  r4, 3
+0x317190  ble  0x3171a6        ; modes 1..3 clamp
+0x317192  cmp  r4, 5
+0x317194  bne  0x3171c2
+0x317196  b    0x3171a6        ; mode 5 clamps the same way
+0x317198  cmp  r4, 0x17
+0x31719a  beq  0x3171d2        ; mode 23 exits early
+```
+
+so the firmware does have handling for mode 5, it is simply not produced by the
+`ctx[0]` dispatch on this build.
 
 ## The flag lifecycle — the crux, resolved
 
@@ -259,12 +354,13 @@ tested predicate. That is mitigation, **not proof** — treat as unquantified.
 
 ## Open unknowns
 
-- **No code writes literal 5 to `ctx+0x90`.** All 250 `str` sites take `cap_mode`
-  from data. So whether mode 5 is reachable depends on the settings store's
-  contents, which is not established. This is the last blocker for A+B.
+- **What sets `ctx+0xc8`.** This is now the load-bearing unknown: the Motion Shot
+  flag survives the gate only when `ctx+0xc8 == 5`, and nothing found writes a
+  literal 5 to it. Until that field's origin is traced, patch A is what removes
+  the dependency.
 - What reads the global at file `0xf59a58`, and therefore what the flag ultimately
-  drives.
-- Whether `cap_mode` 5 corresponds to a mode a user can select, given there is no
+  drives. It has exactly one reference by the `ldr [pc]/add pc` idiom — the write.
+- Whether `ctx+0xc8` is something a user can influence at all, given there is no
   UI.
 - Which `SaDriver*` type the audio path needs — still a guess
   (`SaDriverLinearPhase` is unverified). Matters because `StageWaitSAComp` suggests
@@ -298,6 +394,21 @@ Recording these because each was stated as fact and was wrong.
 - ~~"`fcn.00316ef8` is where the request is armed."~~ It is a per-mode **limit
   resolver** — a 34-way `tbb` returning one value per capture mode, clamped against
   a per-mode maximum with "not supported" logging. Case 5 only *reads* `ctx+0xd4`.
+- ~~"`cap_mode` is `ctx[0x90]`."~~ Wrong. `ctx+0x90` is a 0..33 selector for the
+  separate per-mode limit resolver; the mode the gates test is `ctx[0x00]`. The
+  two were conflated, and "no code writes literal 5 to cap_mode" was an
+  observation about the wrong field.
+- ~~"Mode 5 is probably never produced, so the gate is dead."~~ Not established.
+  No literal assignment to `r4` is 5 and no `tbh` case yields it, but `r4` also
+  carries `ctx+0xc8` into the gate and 5 passes that route's only filters. The
+  branch is live-but-narrow, not dead.
+- ~~`TBH` entries are byte offsets from the table base.~~ They are **doubled**:
+  `target = base + 2*entry`. I read this wrong twice before checking it against
+  rizin's case labels, which were right all along.
+- ~~"`movs r4, r1` at 0x317038 is how mode 5 arrives."~~ That address is a `tbh`
+  table entry (0x000c) disassembled as code. Scanning for register definitions
+  inside a function containing a jump table will keep producing these; the table
+  has to be subtracted first.
 - ~~`nflasha5_wbi1` / `nflasha6` contain golf-shot and menu code.~~ Both false
   positives from binary noise (`GOLFS`, `pp 7GolfS`) and a panel driver
   respectively. `nflasha6` has 13 "menu" hits, all `PANEL*`/`PANELEVF*` test names.

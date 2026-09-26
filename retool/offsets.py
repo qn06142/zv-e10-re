@@ -23,6 +23,11 @@ Traps encoded here (each one already cost a round):
   is wrong when it is not.
 * ``add rX, pc`` is ``0x4478 | Rd`` with **Rd in bits [2:0]** -- the base already
   has bit 3 set, so ``0x447B & 0xF == 0xB``, not 3.
+* ``TBH`` jump-table entries are **doubled**: ``target = base + 2*entry``. A x1
+  base sends several entries inside the table, and the mistake is self-consistent
+  enough to look plausible; check against the disassembler's own case labels.
+* Scanning a function for register definitions will pick up jump-table entries
+  decoded as code. Subtract the table before trusting the result.
 * A PC-relative global's delta is relative to the *using* instruction, so
   searching the image for one delta value finds only that one site. Resolve every
   ``ldr rX,[pc]`` / ``add rX,pc`` pair instead.
@@ -134,6 +139,37 @@ def bl_target(hw1: int, hw2: int, addr: int) -> int | None:
     if s:
         imm -= 1 << 25
     return addr + 4 + imm
+
+
+def is_tbh(hw1: int, hw2: int) -> tuple[int, int] | None:
+    """If the pair is `tbh [pc, rM, lsl 1]`, return (rM, H); else None.
+
+    Thumb-1 TBH is 32-bit: hw1 = 1111 1000 1101 Rn, hw2 = 1111 0000 000 H Rm.
+    Rn must be PC (0b1111) for the PC-relative form.
+    """
+    if (hw1 & 0xFFF0) != 0xE8D0:
+        return None
+    if (hw1 & 0xF) != 0xF:
+        return None
+    if (hw2 & 0xF800) != 0xF000:
+        return None
+    return (hw2 & 0xF), ((hw2 >> 4) & 1)
+
+
+def tbh_targets(tbh_addr: int, entries, base: int | None = None) -> list[int]:
+    """Resolve a TBH jump table.  **The entry is doubled.**
+
+        target = base + 2 * entry
+
+    Getting this wrong is easy and self-consistent: with a x1 base, several
+    entries land *inside* the table, which should look impossible but does not
+    stop a plausible-looking answer.  The x2 reproduces every case label rizin
+    derives, so use it as the arbiter rather than a "which base looks sane"
+    search.
+    """
+    if base is None:
+        base = tbh_addr + 4
+    return [base + 2 * e for e in entries]
 
 
 # --------------------------------------------------------------------------
