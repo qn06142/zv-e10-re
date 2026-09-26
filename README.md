@@ -17,8 +17,15 @@ Addresses are **file offsets (base 0x0)**; the runtime load address
 (`+0x635c6000` for `av-cam.bin`) is printed alongside. Renamed functions live
 in `re_symbols/*.json` with full provenance back to the notes that justify them.
 
-See **[RETOOL.md](RETOOL.md)**. This replaces the retired Ghidra setup
-(`avcam_re/_retired_ghidra/`) and the ad-hoc `disasm*.py` scripts.
+**Start here: [`avcam_re/HARDWARE_OVERVIEW.md`](avcam_re/HARDWARE_OVERVIEW.md)** —
+consolidated hardware and firmware reference (topology, register-write model,
+codec split, mode table, feature system, known limits, and what is still
+unknown). Supporting detail: `REGISTER_WRITE_PATH.md`, `SUBSYSTEM_MAP.md`,
+`FEATURE_GATES.md`, `TABLE_PURPOSE_CORRECTION.md`, `MODULE_CONTRACT.md`,
+`HARDWARE_TOPOLOGY.md`.
+
+See **[RETOOL.md](RETOOL.md)** for the tooling. This replaces the retired
+Ghidra setup (`avcam_re/_retired_ghidra/`) and the ad-hoc `disasm*.py` scripts.
 
 ## Installation
 There are two binaries:
