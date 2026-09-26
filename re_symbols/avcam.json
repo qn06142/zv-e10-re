@@ -309,6 +309,30 @@
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
+   "off": 1978876,
+   "va": "0x637a91fc",
+   "name": "IMG_FuncID_enable_gate",
+   "kind": "func",
+   "comment": "ISP per-function enable check; logs \"FuncType:%x is not enable at FuncID:%x\" and returns error 0x230 when a FuncType (0x21, 0x22, ...) is gated off",
+   "source": "FEATURE_GATES.md"
+  },
+  {
+   "off": 3334088,
+   "va": "0x638f3fc8",
+   "name": "IMG_BOL310_no_imagersleep",
+   "kind": "func",
+   "comment": "model gate: ImagerSleep forcibly disabled on BOL310",
+   "source": "FEATURE_GATES.md"
+  },
+  {
+   "off": 3351760,
+   "va": "0x638f84d0",
+   "name": "IMG_stage_read_AsyncLv_BOL310_BOL473",
+   "kind": "func",
+   "comment": "sensor readout stage implemented per BOL310/BOL473 model pair",
+   "source": "FEATURE_GATES.md"
+  },
+  {
    "off": 4319440,
    "va": "0x639e48d0",
    "name": "DFE_register_table",
