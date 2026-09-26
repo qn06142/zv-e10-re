@@ -9,14 +9,42 @@ Addresses are file offsets; runtime VA = offset + `0x635c6000`.
 ## The call chain
 
 ```
-ISP_WriteRegister      0x7e8e88   (Thumb)  1,983 bl call sites
+ISP_WriteRegister      0x7e8e88   (Thumb)  4,220 bl call sites
 ISP_WriteRegister_0x68 0x7e8eb8   (Thumb)  sibling wrapper, block 0x68
   └─ core              0x44038c   (Thumb)  296 bytes -- the real implementation
        ├─ 0x44033c     (Thumb)  74 bytes  helper
        ├─ 0x7e90dc     (Thumb)  20 bytes  tiny struct init
-       ├─ 0x5223ec     (ARM)    5,004 xrefs  bit-field packer
-       └─ 0x522ad0     (ARM)              ZIMA_DVENC_launch, cmd 0xd20
+       ├─ 0x440080     (Thumb)            record build + pool push
+       ├─ memset       0x522ad0  (ARM)    5,459 xrefs  <- was misnamed
+       └─ memcpy       0x5223ec  (ARM)    5,004 xrefs  <- was misnamed
 ```
+
+## Correction: the "commit" is a memset, not a ZIMA launch
+
+This document previously recorded `0x522ad0` as `ZIMA_DVENC_launch` (command
+`0xd20`) and described it as the hardware commit. **That was wrong.** `0x522ad0`
+is the C library's ARM `memset`:
+
+```
+adds r0, #0xff        ; fill byte = 0xFF
+orr  r3, r3, r3, lsl 8
+orr  r3, r3, r3, lsl 16
+stmge ip!, {r2, r3}   ; unrolled 8-byte stores
+```
+
+5,459 xrefs is a library primitive, not a codec entry point. `0x5223ec`, named
+`encode_param_submit`, is equally `memcpy` — `ands ip, r0, #3` alignment fixup
+then unrolled `ldm`/`stm` by 16 bytes, 5,004 xrefs. Both names were auto-scraped
+with no verification; one of them had a comment that was rizin's own speculative
+"nearby string" annotation, which was mistaken for a real symbol.
+
+So at `0x4403e2` the core calls `memset(buf, 0xFF, 0x200)` — clearing a 512-byte
+buffer — and at `0x4400c4` it calls `memcpy(dst, src, n)` to copy a record. The
+hardware is **not** programmed by a commit at this point.
+
+Where the hardware *is* written is `0x45db14`, found via the register banks; see
+`REGISTER_MMIO_MAP.md`. That is a plain `str r1, [r0]` to a device address,
+followed by a read-back and a trace mirror.
 
 `0x7e8e88` is a thin wrapper: it copies six incoming stack arguments into a
 struct and tail-calls `0x44038c`. `0x7e8eb8` is the same shape but hardcodes
@@ -60,16 +88,12 @@ From `0x44038c`:
 
 So writes are **not** individual MMIO stores. They accumulate into a
 per-context shadow area, each block owning a 24-byte descriptor, and a dirty
-flag plus a per-block state byte gate when the accumulated state is committed —
-via `0x522ad0` (`ZIMA_DVENC_launch`, command `0xd20`). For block `0` the commit
-path additionally goes through `0x5223ec` with the log format
-`[file:%s][L:%d]`.
+flag plus a per-block state byte gate when the accumulated state is released —
+by clearing a 0x200-byte buffer, building a 16-byte-header record and pushing it
+to a pool at `0x440080`. The descriptor layout is in `REGISTER_MMIO_MAP.md`.
 
-This is the single most useful architectural fact for modification work: the
-hardware is programmed in **batches through a shadow/commit protocol**, not by
-poking registers. A patch that changes a value the hardware needs must change
-it in the shadow descriptor (or the code that fills it), and the commit must
-still happen.
+The actual hardware store is a separate path entirely, reached through the
+register-bank accessors rather than through this descriptor.
 
 ## Block id space
 
@@ -88,15 +112,10 @@ only a small number being real.
 
 ## The bit-field packer
 
-`0x5223ec` is called from **5,004 places** — one of the most-referenced
-functions in the image. Decoded in ARM it extracts bit ranges
-(`ands ip, r0, #3`, `ands ip, r1, #3`) and dispatches on them, with a logging
-path carrying `[file:%s][L:%d]`.
-
-This is how the firmware builds packed hardware commands: several logical
-fields get bit-sliced into one or two words here. The old notes named it
-`encode_param_submit`; the behaviour is consistent with that name (packing an
-encode/command parameter block) though the logging path is also part of it.
+**Correction:** `0x5223ec` was described here as a bit-field packer reached from
+5,004 places. It is `memcpy` — see the correction section above. The earlier
+reading came from the same auto-scraped name and was never checked against the
+instruction stream.
 
 ## What this does and does not give you
 
@@ -123,7 +142,7 @@ base. That is the concrete next target, and it is small.
 retool.cmd disasm avcam 0x7e8e88 -n 46   # the wrapper
 retool.cmd disasm avcam 0x44038c -n 40   # the core
 retool.cmd disasm avcam 0x7e8eb8 -n 20   # the 0x68 wrapper
-# ARM-mode targets -- decode with -b 32, not -b 16:
-retool.cmd disasm avcam 0x5223ec -n 12 --arm
-retool.cmd disasm avcam 0x522ad0 -n 12 --arm
+# 0x5223ec and 0x522ad0 are ARM library routines -- decode with -b 32 to see why:
+retool.cmd disasm avcam 0x5223ec -n 12 --arm   # memcpy
+retool.cmd disasm avcam 0x522ad0 -n 12 --arm   # memset
 ```

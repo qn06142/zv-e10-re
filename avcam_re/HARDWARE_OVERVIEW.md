@@ -84,12 +84,22 @@ ISP_WriteRegister       0x7e8e88  Thumb   4,220 bl call sites
 ISP_WriteRegister_0x68  0x7e8eb8  Thumb   3 calls, hardcodes block 0x68
  └─ core                0x44038c  Thumb   296 B — the implementation
       ├─ 0x44033c, 0x7e90dc          helpers
-      ├─ 0x5223ec    ARM   5,004 xrefs   bit-field packer
-      └─ 0x522ad0    ARM               ZIMA_DVENC_launch, cmd 0xd20
+       ├─ memset         0x522ad0  ARM   5,459 xrefs   (was misnamed)
+       └─ memcpy         0x5223ec  ARM   5,004 xrefs   (was misnamed)
 ```
 
+**Correction.** These two were previously named `ZIMA_DVENC_launch` and
+`encode_param_submit`, and this area's "commit" was described as going
+through them. Both are C library routines — `0x522ad0` fills `0xFF` via
+unrolled `stmge`, `0x5223ec` is `memcpy` via unrolled `ldm`/`stm`. So
+`0x4403e2` is `memset(buf, 0xFF, 0x200)`, not a hardware commit. The names
+were auto-scraped and never checked against the instruction stream; one even
+carried rizin's own speculative nearby-string comment as if it were a real
+symbol. The hardware is written by a **separate** path, through the
+register-bank accessors below, not through this descriptor.
+
 **Writes are not MMIO stores.** They accumulate in a per-context shadow and are
-committed in batches:
+released through a pool push, not a hardware commit:
 
 | access | meaning |
 |---|---|
@@ -97,7 +107,7 @@ committed in batches:
 | `ctx + 0x1908` | **pending/dirty flag** (set by the helper at `0x7e8eb0`) |
 | `ctx + ((block+0x300)<<3) + 4` | per-block state byte |
 | `ctx + block*24` | **24-byte per-block descriptor** (stride `0x18`) |
-| commit | `0x522ad0` (`ZIMA_DVENC_launch`, `0xd20`) |
+| release | `0x440080` builds a 16-byte-header record and pushes it to a pool |
 
 Consequence: **there is no register address at any file offset to patch.** The
 hardware is reached through logical register offsets that a small accessor family

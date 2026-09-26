@@ -68,10 +68,14 @@ def _resolve(root: Path, p: str | Path) -> Path:
 
 
 def load(config_path: str | Path | None = None) -> Config:
+    # Assign back to config_path, not a separate name: an earlier version bound
+    # the default to `cfg_path` inside this branch and then unconditionally did
+    # `cfg_path = Path(cfg_path)`, which raised UnboundLocalError for every
+    # explicit path and (after a partial fix) reset the default back to None.
     if config_path is None:
         env = os.environ.get("RETOOL_CONFIG")
-        cfg_path = Path(env) if env else (project_root() / "reconf.toml")
-    cfg_path = Path(cfg_path).resolve()
+        config_path = Path(env) if env else (project_root() / "reconf.toml")
+    cfg_path = Path(config_path).resolve()
     if not cfg_path.is_file():
         raise SystemExit(f"config not found: {cfg_path}")
     root = cfg_path.parent

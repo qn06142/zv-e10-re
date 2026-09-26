@@ -519,18 +519,18 @@
   {
    "off": 5383148,
    "va": "0x63ae83ec",
-   "name": "encode_param_submit",
-   "kind": "auto",
-   "comment": "",
-   "source": "RE_STATE.md:92"
+   "name": "memcpy",
+   "kind": "func",
+   "comment": "ARM memcpy, NOT encode_param_submit. ands ip,r0,#3 alignment fixup then unrolled ldm/stm by 16 bytes. 5,004 xrefs. Formerly named encode_param_submit with no comment and no verification.",
+   "source": "verified: disassembly 0x5223ec (ARM)"
   },
   {
    "off": 5384912,
    "va": "0x63ae8ad0",
-   "name": "ZIMA_DVENC_launch",
-   "kind": "auto",
-   "comment": "cmd 0xd20, ZIMA_DVENC_flush_sync (0x0069a24a)",
-   "source": "RE_STATE.md:74"
+   "name": "memset",
+   "kind": "func",
+   "comment": "ARM memset, NOT a ZIMA entry point. Fills byte 0xFF, replicates with orr lsl 8/16, unrolled stmge. 5,459 xrefs. Formerly named ZIMA_DVENC_launch on the strength of a rizin comment that was itself a guess at a nearby string.",
+   "source": "verified: disassembly 0x522ad0 (ARM)"
   },
   {
    "off": 5622112,
