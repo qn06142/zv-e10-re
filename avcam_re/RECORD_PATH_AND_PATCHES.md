@@ -248,22 +248,56 @@ it is a small, patchable enum. Related: `PROC_DOWNCONV_TYPE_SAKUHIN`,
 `PROC_DOWNCONV_TYPE_HIGHLIGHT_MOVIE_MAKER` ("Highlight Movie Maker", the auto-edit
 feature — `STATE_AUTO_EDIT_STOPPING` is in the `STATE_*` list).
 
-### A real model-gated feature: Golf Shot
+### Golf Shot — present in the build, but NOT evidence about this model
 
-`[ADF][SAN]` is **sound** analysis, and there is a complete golf-shot detector:
+There is a complete golf-shot feature in the image (84 `GOLFSHOT` strings):
 
 ```
-0x9404f4  [SAN]StartGolfShot
-0x940540  [SAN]StopGolfShot
-0x940558  [SAN]AnalyzeGolfShot
-0x93e865  [ADF][DBGCMD]SoundAnalyzer StartGolfShot
-0x93c23b  [ADF][SAN ANALYZE GOLFSHOT] SendComp() OK err %x vfc %x vfcSub %x
-0x935990  [ADF]downconvType = PROC_DOWNCONV_TYPE_SAKUHIN
+[ADF][SAN] StartGolfShot / AnalyzeGolfShot / StopGolfShot   <- sound analysis
+[GOLFSHOT]SA_BGEST    background-noise estimate
+[GOLFSHOT]SA_LPF      low-pass filter stage
+[GOLFSHOT]SA_SSP      signal processing
+FW: Stage_EncodeJpeg_GolfShot_THM      a real pipeline stage
+FW: GolfShotJpegStream                 it produces a clip
+[ADF]SAN ANALYZE GOLFSHOT SendComp() OK err %x vfc %x vfcSub %x
+[ADF]CheckShotDetectInDetectRange / shotDetectVfcSub exist|not exist
 ```
 
-ゴルフショット — golf-swing detection from audio, tied to the recording path. This
-is a concrete, identifiable feature rather than a guess, and a plausible target
-for the ZIT SA gate. **Its `is enabled` flag has not been located.**
+An earlier version of this document asserted that this is a feature the ZV-E10
+exposes. **That was not established and is withdrawn.** Golf Shot is an
+AX-series camcorder feature; its presence here says nothing about what this body
+offers, for the same reason `Stage_OpdBranch_BOL310` and
+`Stage_TDReadExecute_BOL373` say nothing about it.
+
+The build is broad and shared. Body and model codes actually present:
+
+| code | occurrences | line |
+|---|---:|---|
+| `BOL310` | 3 | mirrorless body |
+| `BOL373`, `BOL473` | 1 each | other bodies |
+| `DSC00001` | 1 | Cyber-shot compact |
+| `PX280` | 1 | PX professional camcorder |
+
+plus 92 distinct `Stage_*` names, and **no retail model identifier of any kind** —
+no `ZV-`, `ILCE-` or `DSC-` product string. A compact, a camcorder and mirrorless
+bodies coexist in one image.
+
+**Consequence for patching:** if Golf Shot is AX-only, then clearing the ZIT SA
+gate would not enable it on a ZV-E10 — the outer model gate still blocks it. It
+is a clean *illustration* of the shared-build finding and of how this firmware
+expresses model gating, but it is a poor patch target for adding a feature to
+this camera. The gate mechanism itself is unaffected.
+
+The sound-analysis driver behind the gate is named by a demangled symbol in the
+image:
+
+```
+Camera::Imager::ZitSaFunctionDriver::ZIT_SaClose()
+```
+
+with `[AIP][ZNR_EE] SetSaStart Can't Start SA, Terminate %x` showing the AIP layer
+driving it. So `ZIT SA` is a driver in the `Camera::Imager` namespace, and `SA` is
+sound analysis per the `[SAN]` logs — not "scene analysis" as first guessed.
 
 ### Video encoder parameters — the quality ceiling
 
@@ -422,11 +456,13 @@ nothing found so far connects the record state machine to the bank accessors.
 - The clip **duration** limit. `clipDurationPtm64_low/high` (`0x95ab62`,
   `0x95ab93`) and `clipFrameCounter` (`0x95af54`, referenced from `0xae086`) are
   the places to look.
-- Whether Golf Shot is gated by the ZIT SA `ctx+4` word or by its own flag.
+- Whether Golf Shot is gated by the ZIT SA `ctx+4` word or by its own flag —
+  and separately, whether this body can reach it at all (probably not, if it is
+  AX-only; see §3).
 - The `is_valid_qp_clip_*` field offsets within the `TSKVIDENC` parameter block
   — the register offsets (`0x2b5`–`0x2bf`) and context offsets (`0x2c`–`0x37`) are
   known, but which is which field is not.
-- What ZIT SA stands for, and what its FuncTypes do.
+- What the ZIT SA FuncTypes do, and which body each belongs to.
 - Any link from the record state machine to the register banks.
 
 ## 6. Confidence
@@ -442,6 +478,8 @@ nothing found so far connects the record state machine to the bank accessors.
 | `[SAN]` is sound analysis; Golf Shot is a real feature | **high** — its own log vocabulary |
 | encoder params go to block `0x68` regs `0x2a1`–`0x2c9` from `ctx+0x20`–`0x3b` | **high** — read from the instruction stream |
 | `is_valid_` flags gate the QP clamps | **medium** — the field naming is explicit, the enforcement is not read |
+| Golf Shot is compiled into this build | **high** — 84 strings, full pipeline |
+| Golf Shot is reachable on this body | **not established, and probably not** — AX-only per the model history; the build is shared |
 | `CACHE_REC_*` nine-state record lifecycle | **high** for the names; values not recovered |
 | transfer ceiling `0x321*n + 0x40/0xC0` | **high** for the formula; **unknown** what it bounds |
 | the record-start method's identity | **not established** |
