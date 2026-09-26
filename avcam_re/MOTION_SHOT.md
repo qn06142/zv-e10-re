@@ -437,6 +437,50 @@ framework" is **unanswered**, and it is the right place to dig next: if the
 mechanism is in a different component rather than this image, that is consistent
 with everything above, and it would mean the answer is not in `av-cam.bin` at all.
 
+### The wiring is not in another component either
+
+If a different component owns the registrar, that component must contain the
+framework vocabulary. Every readable flash partition was searched:
+
+| component | size | `NS_SCALAR_INFRA` | `ScalarInfra` | `MsgHandler` | `ComponentFactory` | `MotionShot` |
+|---|---:|---:|---:|---:|---:|---:|
+| **`av-cam.bin`** | 16.5 MB | **344** | **85** | **68** | **6** | **17** |
+| `nflasha3_system` | 48 MB | 344 | 85 | 68 | 6 | 17 |
+| `nflasha1` / `nflasha2_setting` / `nflasha5_wbi1` / `nflasha6` / `nflasha10_tmp` / `nflasha13` / `nflasha4_cmmex` / `nflashaB0*` | 4–60 MB | 0 | 0 | 0 | 0 | 0 |
+
+The counts are **identical term for term**, and every `nflasha3_system` hit is
+byte-identical to av-cam at `+0x14000` — verified on six sample offsets, all
+`True`. So the entire sequencing framework lives in `av-cam.bin` and nowhere else,
+and there it is not instantiated.
+
+### And the analysed image is the one in the flash
+
+`nflasha3_system` embeds av-cam at `0x14000`. The embedded copy is byte-identical
+to `dumps/av-cam.bin` except for **18 bytes**, all after offset `0xaa15a` — a
+build-stamp region, four of them word-aligned, none of them plausible pointers.
+Every offset this document cites is in the identical region:
+
+```
+identical    0x0317133  patch A
+identical    0x007f4fa  patch B
+identical    0x007f502  CapMgr ctor, ctx+0x10c := 0
+identical    0x0317140  the clear
+identical    0x033c794  the Motion Shot stage
+identical    0x03a25fc  the sink setter
+identical    0x07b9b5e  ldrb.w r0,[r0,0x23] -- the stage selector
+identical    0x07bdf92  the stage dispatcher's tbb
+identical    0x0fc7714  RcFill's vtable
+identical    0x1074ad0  the 37-entry handler table
+```
+
+So the analysis is of the build that is actually on the camera.
+
+**Not searched:** `nflasha16` (140 MB), `nflasha4_cmmex` (12 MB), `nflasha12_cert`
+(40 MB) and `nflasha13` (4 MB) are 0% printable — encrypted or compressed. If the
+registrar exists anywhere it is in those, and they cannot be read without
+decryption. Given that 140 MB is a plausible size for a data partition rather than
+firmware, that is the least likely place for it, but it is formally unexamined.
+
 ## Verdict: there is no patch, because there is no live state to patch
 
 The last link is closed, with a positive control at every step.
