@@ -400,6 +400,21 @@ The `+0x114` side effect of B is moot for the same reason, though for the record
 `+0x114` has 277 accesses image-wide and 28 sites compare it against a constant,
 but **none of those is in a function that also touches the CapMgr flag triple**.
 
+## Status: no working patch yet
+
+The success criterion is a patch that makes Motion Shot record, and **there isn't
+one.** What exists so far:
+
+- a verified but ineffective two-byte flag patch (retracted, do not flash);
+- a located, validated exclusion stack explaining why the flag cannot work;
+- and one genuine live gate — the `[obj+0x23]` stage selector, where the byte
+  value 2 picks the Motion Shot stage in seven dispatchers.
+
+The remaining gap is concrete and nameable: that byte is set by a struct copy from
+a descriptor that has not been found, and it is not yet established that any
+object owning those dispatchers is ever instantiated. Until both are answered, a
+patch would be a guess.
+
 ## Open unknowns
 
 - **How the concrete `NS_SCALAR_INFRA` layer is meant to be wired.** 115 of 137
@@ -611,6 +626,75 @@ manager, register the sequence, supply the factories) rather than a
 reimplementation. The bad news is that nothing in the existing firmware does that
 wiring, and there is no UI to drive it, so it would have to be triggered
 out-of-band.
+
+## The live lead: a one-byte stage selector
+
+This is the most concrete thing found, and it is a real gate rather than a
+bookkeeping flag.
+
+Every stage dispatcher in the `0x7b9000`–`0x7be400` family reads the same single
+byte to decide which stage to run:
+
+```
+0x007b9b5e  ldrb.w r0, [r0, 0x23]
+0x007b9b62  bx    lr
+```
+
+Each dispatcher is then a switch on that byte whose cases all pop the frame and
+tail-branch:
+
+```
+0x007bdf86  push {r4, lr}
+0x007bdf88  mov  r4, r0
+0x007bdf8a  bl   fcn.007b9b5e        <- the selector byte
+0x007bdf8e  cmp  r0, 6
+0x007bdf90  bhi  0x7bdfe4
+0x007bdf92  tbb  [pc, r0]
+   ...
+0x007bdfbe  mov r0, r4 ; pop.w {r4, lr} ; b.w 0x33c794
+```
+
+Reading the case bodies in address order (robust — the `tbb` table's alignment is
+ambiguous because `Align(PC,4)` lands *before* the table) gives **59 case bodies
+forming repeated 5-way groups**, and in **seven** of those groups the Motion Shot
+stage `0x33c794` is the target:
+
+| group | case 0 | case 1 | **case 2** | case 3 | case 4 |
+|---|---|---|---|---|---|
+| a | `0x33a294` | `0x3366d0` | **`0x33c794`** | `0x339214` | `0x329154` |
+| b | `0x33a294` | `0x3366d0` | `0x330744` | **`0x33c794`** | `0x339214`, `0x329154` |
+| c | `0x33a294` | `0x3366d0` | `0x3390d8` | **`0x33c794`** | `0x329154` |
+| e | `0x33a294` | `0x3366d0` | `0x339158` | **`0x33c794`** | `0x329154` |
+| g | `0x33a294` | `0x3366d0` | **`0x33c794`** | `0x329154` | — |
+
+`0x329154` is the last case in every group (the idle stage), and `0x33a294` /
+`0x3366d0` are the first two in every group. So the byte at `+0x23` is a small enum
+and **2 selects the Motion Shot stage** in at least two of the groups.
+
+The dispatchers are virtual methods — each has exactly one vtable slot
+(`0x1074ae0`, `0x1072814`, `0x107a994`, `0x107ae5c`).
+
+> **Correction: the stage functions *are* reachable.** A BL-only scan reported
+> "0 BL callers — NOT CALLED BY ANYTHING" for the Motion Shot stage functions.
+> That was wrong: the compiler emits these switches as **tail calls**, so
+> `0x33c794` is reached from **17 `b.w` sites** across `0x7ba72e`–`0x7be276`, and
+> the other stage functions from 4 and 1. A call-graph scan that only understands
+> `BL` will call a whole region of tail-called code dead.
+
+### What is still missing
+
+The selector byte has **no immediate-offset writer at all** — 0 sites for
+`strb rX,[rY,#0x23]`, 0 for `strh`, 0 for `str.w`. So the object is not populated
+by field assignment; it is filled by a **struct copy** from a descriptor, and that
+descriptor is where a patch would go (a single byte in a data table). It has not
+been located.
+
+Nor is it established that any instance of the objects owning these dispatchers
+exists. The vtable→class identification failed: scanning backwards from a vfn slot
+for a typeinfo pointer lands in a **neighbouring vtable** in that densely packed
+region — the one attempt returned `imola33imola_common_enc_dec_base_handlerE` for
+the stage dispatcher, which is plainly the wrong class, so no verdict is claimed
+from it. The construction test itself still reproduces its 2/2 control.
 
 ## Comparison with Golf Shot
 
