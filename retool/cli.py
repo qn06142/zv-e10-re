@@ -294,12 +294,30 @@ def cmd_consts(cfg, name, addr, values, whole=False):
            f"({hex(h['value'])})  {h['kind']:<12} bytes={h['bytes']}")
 
 
-def cmd_disasm(cfg, name, addr, count=40):
-    """Disassemble N instructions at a file offset (the workhorse for reading code)."""
+def _run_bits(rz, t, addr, count, bits):
+    """Run a `pd` with an explicit instruction width against the cached project."""
+    import subprocess
+    argv = [str(rz.bin), "-N", "-n", "-q",
+            "-a", t.arch, "-b", str(bits), "-e", f"asm.cpu={t.cpu}",
+            "-p", str(rz.project_path(t)),
+            "-c", f"pd {int(count)} @ {int(addr, 0):#x}"]
+    p = subprocess.run(argv, capture_output=True, timeout=600,
+                       encoding="utf-8", errors="replace")
+    return p.stdout
+
+
+def cmd_disasm(cfg, name, addr, count=40, bits=16):
+    """Disassemble N instructions at a file offset (the workhorse for reading code).
+
+    The cached project already records instruction width per address, so `pd`
+    picks ARM or Thumb correctly on its own. `--arm` forces 32-bit, which is
+    what you want for an address the project has not analysed. It matters:
+    read as Thumb, the ARM word 0xE92D4001 at 0x5223ec decodes as the
+    nonsense pair `ands r1, r0` / `invalid`.
+    """
     t = cfg.target(name)
     rz = engine.Rizin(cfg)
-    out = rz.run(t, f"pd {int(count)} @ {int(addr, 0):#x}", timeout=300)
-    # strip ANSI colour so it is readable in a terminal or pipe
+    out = _run_bits(rz, t, addr, count, bits)
     out = re.sub(r"\x1b\[[0-9;]*m", "", out)
     _p(out.rstrip())
 
@@ -394,6 +412,8 @@ def build_parser():
 
     p = sub.add_parser("disasm"); p.add_argument("target"); p.add_argument("addr")
     p.add_argument("-n", type=int, default=40, help="instruction count")
+    p.add_argument("--arm", action="store_true",
+                   help="decode as 32-bit ARM (this image mixes ARM and Thumb)")
 
     p = sub.add_parser("consts"); p.add_argument("target"); p.add_argument("addr")
     p.add_argument("values", nargs="+", help="integers, e.g. 3376 0x870")
@@ -431,7 +451,7 @@ def main(argv=None):
         elif a.cmd == "strings":
             cmd_strings(cfg, a.target, a.filter)
         elif a.cmd == "disasm":
-            cmd_disasm(cfg, a.target, a.addr, a.n)
+            cmd_disasm(cfg, a.target, a.addr, a.n, 32 if a.arm else 16)
         elif a.cmd == "consts":
             cmd_consts(cfg, a.target, a.addr, a.values, a.whole)
         elif a.cmd == "all":
