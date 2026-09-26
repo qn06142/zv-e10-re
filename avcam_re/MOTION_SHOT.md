@@ -400,20 +400,75 @@ The `+0x114` side effect of B is moot for the same reason, though for the record
 `+0x114` has 277 accesses image-wide and 28 sites compare it against a constant,
 but **none of those is in a function that also touches the CapMgr flag triple**.
 
-## Status: no working patch yet
+## Verdict: there is no patch, because there is no live state to patch
 
-The success criterion is a patch that makes Motion Shot record, and **there isn't
-one.** What exists so far:
+The last link is closed, with a positive control at every step.
 
-- a verified but ineffective two-byte flag patch (retracted, do not flash);
-- a located, validated exclusion stack explaining why the flag cannot work;
-- and one genuine live gate — the `[obj+0x23]` stage selector, where the byte
-  value 2 picks the Motion Shot stage in seven dispatchers.
+The stage dispatchers whose case 2 selects the Motion Shot stage are virtual
+methods — each has exactly one vtable slot. Those classes are never instantiated:
 
-The remaining gap is concrete and nameable: that byte is set by a struct copy from
-a descriptor that has not been found, and it is not yet established that any
-object owning those dispatchers is ever instantiated. Until both are answered, a
-patch would be a guess.
+| address point | literals | MOVW/MOVT | verdict |
+|---|---:|---:|---|
+| `0x1074ad0` — the 37-entry handler table holding the 7-way dispatcher | **0** | 0 | never constructed |
+| `0x1074ad4`, `0x1074adc` | 0 | 0 | never constructed |
+| dispatcher slots `0x1072814`, `0x107a994`, `0x107ae5c` | 0 in `[slot-16, slot+8)` | 0 | dead |
+| dispatchers at `0x7ba712`, `0x7ba8b0` | no vtable slot at all | — | not virtual; not reached |
+| **`ScalarInfraSequenceIf` vtable `0x1024adc` — the control** | **15** | 0 | **CONSTRUCTED** ✔ |
+| same, four further address points | 1, 19, 1, 1 | 0 | **CONSTRUCTED** ✔ |
+
+The control sits in the *same* `0x10xxxx` region as the dead table, so the zeros
+are a property of the target, not of the search.
+
+### The full exclusion stack
+
+| layer | finding | how established |
+|---|---|---|
+| front end | no Motion Shot display string anywhere, ASCII or UTF-16 | exhaustive search of every readable image |
+| CapMgr flag | `ctx+0x10c` init 0, cleared unless mode 5 | read from the instruction stream |
+| mode 5 | no literal assignment to `r4` yields 5; the `ctx+0xc8` latch is written from that same `r4` | 19 literal sites enumerated |
+| flag consumer | sets a global at `0xf59a58` that **nothing reads** | 3 negatives vs a consumed neighbour |
+| flag arming | `RcFill::vfn[6]` never constructed | construction test, 4/4 control |
+| sequencer | `MotionShotVideoManager` / `MotionShotVideoSequence` never constructed | same test; 115 of 137 concrete `NS_SCALAR_INFRA` classes unreferenced |
+| **stage dispatch** | the dispatchers that select case 2 = Motion Shot belong to classes that are never constructed | same test, 5/5 control in-region |
+
+Every layer is independently sufficient to prevent the feature, and the last one
+closes the question: the code that would *run* the Motion Shot stage is only
+reachable from objects that are never built. There is no `+0x23` byte in existence
+to set to 2, because no such object exists.
+
+**So this is not "the patch has not been found yet".** The consistent reading is
+that Motion Shot is excluded from this build at every layer, deliberately, as part
+of a shared multi-model image.
+
+Residual caveat, stated for completeness: the test would miss a vtable address
+computed arithmetically rather than loaded as a literal or `MOVW`/`MOVT`. Writing a
+constructor that way would be perverse, and the control fires on 5 address points
+in the same region, so it is not a plausible explanation for these zeros.
+
+### What enabling it would actually take
+
+All the compiled code is present — the stage functions, the `sa_func_MOTIONSHOT_*`
+entry points, the pipeline classes, and the `sa_motionshot.bin` /
+`sa_motionvideo_u0/u1.bin` neural nets in `/setting`. What is missing is the
+wiring. A port would have to:
+
+1. construct `MotionShotVideoManager` and the sequence;
+2. register the sequence in the 37-entry handler table at `0x1074ad0`;
+3. supply the missing factories (every concrete `*Factory` in the family is also
+   unreferenced);
+4. provide a trigger, since there is no UI.
+
+That is code injection, not a byte patch, and its correctness could only be
+confirmed on hardware — the failure mode cannot be predicted offline because the
+one byte the flag reaches has no reader to reason about.
+
+## Status: no working patch
+
+The success criterion was a patch that makes Motion Shot record. **There isn't
+one, and the evidence says there isn't one to find in this image.** What is banked
+is the exclusion stack above, the two retracted byte-patches with byte-level
+validation, the one-byte stage selector, and the tooling to re-check every step
+(`retool/offsets.py`, 38 tests, each anchored to a real instruction).
 
 ## Open unknowns
 
