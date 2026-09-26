@@ -9,6 +9,8 @@
     python -m retool funcs     avcam [filt]  # search functions
     python -m retool xrefs     avcam <addr>  # xrefs to an address
     python -m retool strings   avcam [filt]  # search strings
+    python -m retool globals   avcam <addr>  # PC-relative global references
+    python -m retool offsweep  avcam <off>   # stores to a struct offset + literals
     python -m retool all       avcam         # migrate+analyze+symbols+export
 """
 from __future__ import annotations
@@ -19,7 +21,8 @@ import re
 import sys
 from pathlib import Path
 
-from . import __version__, config, engine, export, migrate, consts, xrefs, subsys
+from . import (__version__, config, engine, export, migrate, consts, xrefs,
+               subsys, offsets)
 from .symbols import SymDB
 
 
@@ -306,6 +309,75 @@ def _run_bits(rz, t, addr, count, bits):
     return p.stdout
 
 
+def cmd_globals(cfg, name, addr, limit=40):
+    """Show every PC-relative reference to a global's file offset.
+
+    A PC-relative literal's delta is relative to the using instruction, so
+    searching the image for one delta value finds only that one site.  This
+    resolves the whole `ldr rX,[pc]` / `add rX,pc` space and then looks the
+    address up -- which is how the sole reference to the Motion Shot sink global
+    at 0xf59a58 was found (one site: the write).
+    """
+    t = cfg.target(name)
+    data = t.path.read_bytes()
+    table = offsets.resolve_pc_globals(data)
+    _p(f"{len(table)} distinct PC-relative globals from "
+       f"{sum(len(v) for v in table.values())} ldr/add pairs")
+    want = int(addr, 0)
+    hits = table.get(want, [])
+    _p(f"\n{len(hits)} reference(s) to 0x{want:08x}")
+    for lo, ao, rd in hits[:limit]:
+        kind = "?"
+        for q in range(ao + 2, min(ao + 14, len(data) - 2), 2):
+            h = data[q] | (data[q + 1] << 8)
+            if (h & 0xF800) == 0x7000:
+                kind = "WRITE (strb)"
+                break
+            if (h & 0xF800) == 0x7800:
+                kind = "READ (ldrb)"
+                break
+            if (h & 0xF800) == 0xF8C0:
+                kind = "WRITE (str)"
+                break
+            if (h & 0xF800) == 0xF8D0:
+                kind = "READ (ldr)"
+                break
+        _p(f"  ldr r{rd},[pc] @ 0x{lo:07x}   add r{rd},pc @ 0x{ao:07x}"
+           f"   {kind}")
+    if not hits:
+        _p("  (none -- the address may be reached another way, e.g. via a "
+           "pointer table, or a MOVW/MOVT pair)")
+
+
+def cmd_offsweep(cfg, name, off, kind=None, literals=False):
+    """List LDR/STR (immediate) accesses to a struct offset.
+
+    Handles all three Thumb-2 offset forms, including the imm8-scaled one that
+    reaches offsets up to 1020 -- an imm12-only sweep reports nothing for a field
+    at 0x10c even though it has 123 accesses.  With --literals, additionally
+    propagate the stored register's nearest preceding definition, which is what
+    isolates the single site that writes 1 to ctx+0x10c.
+    """
+    t = cfg.target(name)
+    data = t.path.read_bytes()
+    target = int(off, 0)
+    sites = list(offsets.offset_accesses(data, target, kind))
+    _p(f"{len(sites)} access(es) to +0x{target:x}"
+       + (f" ({kind})" if kind else ""))
+    for o, k, rn, rt, _ in sites:
+        _p(f"  0x{o:07x}  {k}.w r{rt}, [r{rn}, #0x{target:x}]")
+    if literals:
+        from collections import Counter
+        rows = list(offsets.constant_stores(data, target))
+        hist = Counter(v for _, _, _, v, _, _ in rows)
+        _p("\n  literal value histogram for stores: "
+           + ", ".join(f"{v}:{c}" for v, c in sorted(hist.items())))
+        _p(f"\n  {len(rows)} store(s) with a propagated literal:")
+        for o, rn, rt, v, do, how in rows:
+            _p(f"    0x{o:07x}  str.w r{rt}, [r{rn}, #0x{target:x}]"
+               f"  <- {how} #{v} @ 0x{do:07x}")
+
+
 def cmd_disasm(cfg, name, addr, count=40, bits=16):
     """Disassemble N instructions at a file offset (the workhorse for reading code).
 
@@ -419,6 +491,17 @@ def build_parser():
     p.add_argument("values", nargs="+", help="integers, e.g. 3376 0x870")
     p.add_argument("--whole", action="store_true", help="scan the entire image")
 
+    p = sub.add_parser("globals", help="PC-relative references to a global")
+    p.add_argument("target"); p.add_argument("addr")
+    p.add_argument("--limit", type=int, default=40)
+
+    p = sub.add_parser("offsweep", help="accesses to a struct offset")
+    p.add_argument("target"); p.add_argument("off")
+    p.add_argument("--ldr", dest="kind", action="store_const", const="ldr")
+    p.add_argument("--str", dest="kind", action="store_const", const="str")
+    p.add_argument("--literals", action="store_true",
+                   help="propagate each stored register's nearest definition")
+
     p = sub.add_parser("all"); p.add_argument("target")
     return ap
 
@@ -454,6 +537,10 @@ def main(argv=None):
             cmd_disasm(cfg, a.target, a.addr, a.n, 32 if a.arm else 16)
         elif a.cmd == "consts":
             cmd_consts(cfg, a.target, a.addr, a.values, a.whole)
+        elif a.cmd == "globals":
+            cmd_globals(cfg, a.target, a.addr, a.limit)
+        elif a.cmd == "offsweep":
+            cmd_offsweep(cfg, a.target, a.off, a.kind, a.literals)
         elif a.cmd == "all":
             cmd_all(cfg, a.target)
     except engine.EngineError as e:

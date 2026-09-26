@@ -1,11 +1,17 @@
-# Motion Shot: what it is and how it is gated
+# Motion Shot: what it is, how it is gated, and why it never runs
 
-Addresses are file offsets. `ctx` is the per-capture context; `cap_mode` is
-`ctx[0x90]`.
+Addresses are file offsets (runtime VA = offset + `0x635c6000`). `ctx` is the
+per-capture context; `cap_mode` is `ctx[0x90]`.
 
-**What Motion Shot is, on the evidence:** detect a moving subject and
-automatically record a clip of it. The detector is *vision*, in the face/detection
-layer, and it produces *video*:
+**Status: the crux is resolved.** The previous revision of this file ended on an
+open question — *nothing found writes `ctx+0x10c`*. That is now answered, and the
+answer is more specific than expected: **the code that sets the flag belongs to a
+class that this firmware never instantiates.**
+
+## What Motion Shot is, on the evidence
+
+Detect a moving subject and automatically record a clip of it. The detector is
+*vision*, in the face/detection layer, and it produces *video*:
 
 ```
 Camera::FC::Alg::HumanMovingArea / HumanMovingAreaImpl
@@ -26,9 +32,14 @@ says so, and it should not be assumed either way.
 setting        motion_shot_mode                  one of 221 sequencer-validated
 validator      CheckSetMotionShotMode           one of 210
 setter         SET_MOTION_SHOT_MODE[%d:]         ref 0x6590fe  -> stores to ctx+0xd4
-per-mode       fcn.00316ef8                      cap_mode (ctx[0x90], 0..33) -> value
-   case 5:     ldr.w r3, [r4, 0xd4] ; cmp r3, 1     <-- motion shot lives in cap_mode 5
-gate           ctx+0x10c  zeroed unless cap_mode == 5
+per-mode       fcn.00316ef8                      34-way tbb on cap_mode -> a limit
+   case 5:     ldr.w r3, [r4, 0xd4] ; cmp r3, 1  <-- motion shot lives in cap_mode 5
+flag init      fcn.0007f4dc  (CapMgr ctor)       ctx+0x10c := 0
+arming         RcFill::vfn[6] @ 0x7fc696         ctx+0x108 := 1 ; ctx+0x10c := 1
+                                                     <-- NEVER CALLED, see below
+gate           fcn.00316fd0                      ctx+0x10c := 0 unless cap_mode == 5
+consumer       fcn.0039eb6c                      if ctx+0x10c == 1 -> fcn.003a25fc(1)
+sink           fcn.003a25fc                      global byte @ file 0xf59a58 := 1
 entry          sa_func_MOTIONSHOT_{init,acquire,start,release,exit}
 pipeline       Stage_MotionShot_Analysis -> MotionShotVideo* -> clip
 ```
@@ -36,8 +47,8 @@ pipeline       Stage_MotionShot_Analysis -> MotionShotVideo* -> clip
 ## The capture-mode gate
 
 `ctx+0xd4` holds the mode value; `cap_mode` selects the context in which it is
-consumed. A separate function then clears the *request flag* when the capture mode
-is not the allowed one:
+consumed. A separate function clears the *request flag* when the capture mode is
+not the allowed one:
 
 ```
 0x317128  ldr.w r3, [r5, 0x10c]      ; request flag
@@ -60,42 +71,262 @@ Two siblings in the same block, same shape:
 | trinity | `ctx+0x110` | 1 | 23 | `FW: trinity mode forced off! cap_mode:%x` |
 | SpotMulti | `ctx+0xbc` | 9 | 1 | `FW: SpotMulti mode forced off! cap_mode:%x` |
 
-Only these three exist in the ~2.5 KB region — this is not a large table. Note the
-flag comparison value varies (`+0xbc` is tested against 9, not 1), so a parser that
-assumes `cmp #1` will miss gates.
+Only these three exist in the region. Note the flag comparison value varies
+(`+0xbc` is tested against 9, not 1), so a parser that assumes `cmp #1` will miss
+gates. There is **no fourth gate** — `ctx+0x114` is not gated.
 
-`fcn.00316ef8` itself is only 184 bytes — a 34-way `tbb` returning one value per
-capture mode. It does **not** set the request flags; the gate lives in a different
-function that rizin has not separately named.
+The three "forced off" strings sit together at `0x9b61dd`/`0x9b6204`/`0x9b622d`,
+immediately after `FW: SR_CAPMODE is changed! %x %x` (`0x9b61bc`, ref
+`0x0317018`). All three are rejections; there is no "mode on" log for any of them,
+so the arming side is silent by construction.
 
-## Two candidate levers
+## The flag lifecycle — the crux, resolved
 
-**A — set the mode value.** `ctx+0xd4 = 1`, which is what `case 5` tests for.
-Blunt: it changes the value the firmware believes the user selected.
+### 1. Initialised off
 
-**B — neutralise the gate.** At `0x317130`/`0x317132`, make the `cap_mode == 5`
-test always pass, so the flag is never cleared. Surgical: it changes only the
-enforcement, leaving the request itself intact.
+`fcn.0007f4dc`, the CapMgr constructor (one caller, `bl` at `0x069969e`):
 
-**B is the better shape** — it does not forge a user selection, it stops the
-firmware from vetoing a request it already received. It is also the same shape as
-the ZIT SA patch: one conditional becomes unconditional.
+```
+0x7f4ee  movs  r0, 2
+0x7f4f0  movs  r1, 1
+0x7f4f2  strh.w r0, [r3, 0x106]
+0x7f4f6  strh.w r1, [r3, 0x10a]
+0x7f4fa  movs  r1, 0
+0x7f4fc  str.w  r0, [r3, 0x110]     ; trinity := 2
+0x7f500  adds  r0, r3, 4
+0x7f502  str.w  r1, [r3, 0x10c]     ; MotionShot := 0
+0x7f506  str.w  r1, [r3, 0x114]     ; := 0
+```
 
-## The one thing that decides whether either works
+`ctx+0x110` is initialised to **2**, not 1 — so the trinity gate's `cmp #1` never
+fires on a fresh object. 0 = off, 1 = requested, other = n/a.
 
-**Nothing found so far writes `ctx+0x10c`.** The gate only ever *clears* it. If
-no code path on this body ever sets it, then neutralising the gate achieves
-nothing, and the real work is finding the writer.
+### 2. Only ever cleared by the gate
 
-So the next question is narrow and answerable: **who writes `ctx+0x10c`?** That
-is a single store instruction to find. Everything else is already mapped.
+The gate above is the only place in the validator that writes the flag, and it
+writes 0.
 
-Two secondary unknowns:
+### 3. Exactly one arming site exists — and it is dead
 
-- Which `SaDriver*` type the audio path needs — unresolved, and it matters if the
-  pipeline turns out to touch audio (`StageWaitSAComp` suggests it may).
+A constant-propagating sweep of every `str.w [Rn, #0x10c]` (123 sites, filtered by
+nearest-preceding-definition) finds exactly **two** sites that write the literal 1:
+
+| site | instruction | reachable? |
+|---|---|---|
+| `0x0475978` | `str.w r0, [r2, #0x10c]` | unrelated struct (a 0x475978–0x4762ca cluster) |
+| `0x07fc6b0` | `str.w r2, [r4, 0x10c]` | **this is the one** |
+
+```
+0x7fc696  push {r4, r5, r6, lr}      ; r4 = ctx (from r2)
+0x7fc6a6  ldrh.w r3, [r4, 0x98]
+0x7fc6aa  movs  r2, 1
+0x7fc6ac  str.w  r2, [r4, 0x108]
+0x7fc6b0  str.w  r2, [r4, 0x10c]     ; MotionShot := 1
+0x7fc6b6  ldrh.w r2, [r4, 0x94]
+```
+
+**This function has no `BL` caller anywhere in the image.** It is, however, a
+virtual function: it appears at file offset `0x0fc7730` in a vtable array, as
+`vfn[6]` of a class named **`RcFill`**.
+
+### 4. `RcFill` is never constructed
+
+This is the finding. An object constructor must load the vtable's address point
+(`vtable offset + BASE`) into the object. Searching the whole image for that
+32-bit constant — as a stored literal in both Thumb-bit states, and as a
+`MOVW`+`MOVT` pair — finds **nothing** for `RcFill`. Eight siblings in the same
+family *do* have theirs referenced and are genuinely instantiated:
+
+```
+9RcCalcDst  6RcCopy  19RcExecutionCtrlDstH  19RcExecutionCtrlDstV  16RcExecutionCtrlH
+13RcHwAccessDst  8RcResize  11RcResizeDst  12RcResizeDstH  9RcResizeH
+12RcResizeDstV
+```
+
+`RcFill` is absent from that list. So the Motion Shot arming code is **compiled in
+but never reachable**: this is a build exclusion, not missing code. Consistent
+with the rest of this image being a shared multi-model build (`BOL1G/BOL2G/BOL310/
+BOL373/BOL473/DSC00001/PX280`, no retail model string).
+
+`RcFill`'s typeinfo is at file `0x101fa1c`; `[0] = 0x6458f438` is the shared
+`__si_class_type_info` vtable (hence the whole family shares it), `[1]` is the
+name `6RcFill`, `[2]` names the base class **`RcResize`**. RTTI in this image is
+length-prefixed plain strings, *not* `_Z`-mangled — a `_Z` regex finds nothing.
+
+### 5. The consumer
+
+One function reads the flag and acts on it — `fcn.0039eb6c`, a 6-state machine
+(`tbh` at `0x39ee36`), at three sites, all identical:
+
+```
+0x39ee48  ldr.w r0, [r3, 0x10c]
+0x39ee4c  cmp   r0, 1
+0x39ee4e  bne   0x39ee54
+0x39ee50  bl    fcn.003a25fc
+```
+
+(the others are at `0x39ef9e` and `0x39f306`). `fcn.003a25fc` is a one-byte global
+setter:
+
+```
+0x3a25fc  ldr  r3, [0x3a2604]      ; delta 0xbb7456
+0x3a25fe  add  r3, pc
+0x3a2600  strb r0, [r3]            ; global @ file 0xf59a58 := 1
+0x3a2602  bx   lr
+```
+
+That global has **exactly one** reference by the `ldr [pc]/add pc` idiom — the
+write. Its reader must address the flag table by another route, so what consumes
+`0xf59a58` is still unresolved.
+
+## Why the GUI route is closed
+
+Not an assumption — the flash dump was searched. `nflasha3_system.bin` (48 MB) is a
+`0x14000` header + `av-cam.bin` verbatim at `+0x14000` + ~31 MB of boot loaders
+and userland (`Etools-NAND-BOSS-lld_171H` DMAC/LDEC, `boot.c`, glibc/`ld.so`);
+`nflasha6.bin` is the panel/LCD/EVF driver (`CDiScript::GetUIString`,
+`CMD_R_GET_UI_STRING`, `PANELEVF_*`); the only real filesystem is `nflasha13.bin`
+(`HASH/`, `HISTORY/`). `/setting` is a genuine mount (`/setting/sen/smode`,
+`/setting/mode/dmode`, `/setting/env.txt`).
+
+**There is no Motion Shot display string anywhere** — ASCII or UTF-16, in any
+readable image. Everything is a log, a validator name, or a mangled symbol. In
+`av-cam` the menu layer is an uninstantiated shell: `tcub::MenuManager` RTTI with
+**zero** references, `MenuManagerProxy`/`MenuManagerImpl`/`MenuMsgPostponer` also
+unreferenced, and a whole menu-id namespace of seven entries (`b1_menu_onoff`,
+`b1_menu_stillmode`, `b4_menu_panorama`, `b7_menu_selftimer`, `b4_menu_movie`,
+`b4_menu_active`, `b8_menu_convlens`) — none for motion shot or golf shot.
+
+So: **model present, code present, setting present, no front end, and the arming
+object excluded.** `/setting`'s load manifest does list `sa_motionshot.bin`,
+`sa_motionvideo_u0.bin`, `sa_motionvideo_u1.bin` — the detection neural nets ship on
+this camera.
+
+Caveat: `fdat_decrypted.bin` (353 MB) and `fw_dec_best.bin` returned *zero* hits for
+any of these terms, which almost certainly means those artefacts are still
+compressed rather than being evidence of absence. They are not treated as evidence
+either way.
+
+## Patch candidates
+
+All three are **one byte**, and all three were validated empirically: flip the
+byte in a copy, disassemble before and after, and confirm the only change in the
+window is the intended one.
+
+| | file offset | change | effect | risk |
+|---|---|---|---|---|
+| **A** | `0x0317133` | `d0` → `e0` | `beq 0x317144` → `b 0x317144`: the flag is **never cleared** | flag stays set in modes that cannot service motion shot |
+| **B** | `0x007f4fa` | `00` → `01` | `movs r1,#0` → `movs r1,#1`: **preset** the flag at construction | `r1` is shared with the `+0x114` store, so that field also becomes 1 |
+| **C** | `0x039ee4f` | `d0` → `e0` | the consumer's `bne` becomes unconditional: always call `fcn.003a25fc` | bypasses the mode check entirely; which of the three sites is the right one is unknown |
+
+Validation output:
+
+```
+A: 0x0317133: 0xd0 -> 0xe0
+   before: 0x00317132  beq  0x317144
+   after : 0x00317132  b    0x317144
+   6/7 instructions unchanged in the window
+
+B: 0x007f4fa: 0x00 -> 0x01
+   before: 0x0007f4fa  movs r1, 0
+   after : 0x0007f4fa  movs r1, 1
+   6/7 instructions unchanged in the window
+```
+
+Patch A is the same shape as the already-validated ZIT SA patch at `0x1e31f0`
+(`08 d0` → `08 e0`).
+
+**Recommended shape: A + B, two bytes.** Together they mean the flag is set once at
+construction and never vetoed, so the camera proceeds down its own Motion Shot path
+exactly as it would on a model where the feature is offered. The firmware's config,
+validation and init all still run; we change a *default*, not a forged state.
+
+**Why not C alone:** it is the smallest diff, but it discards the mode check rather
+than satisfying it, and the three candidate sites are in different states of a
+6-way switch with no way yet to tell which is the live one.
+
+### The `+0x114` side effect of patch B
+
+`r1` feeds both `str.w r1,[r3,0x10c]` and `str.w r1,[r3,0x114]`, and no register
+holds 1 at that point, so a single-byte edit cannot set one without the other.
+
+Mitigating evidence: `+0x114` has 277 accesses image-wide and 28 sites compare it
+against a constant, but **none of those is in a function that also touches the
+CapMgr flag triple** (`+0x10c`/`+0x110`/`+0xbc`). Within the 19 functions that do
+share that triple, `+0x114` is written and read but never compared to an immediate
+after a load. It behaves like a sibling field of the same request block, not like a
+tested predicate. That is mitigation, **not proof** — treat as unquantified.
+
+## Open unknowns
+
+- **No code writes literal 5 to `ctx+0x90`.** All 250 `str` sites take `cap_mode`
+  from data. So whether mode 5 is reachable depends on the settings store's
+  contents, which is not established. This is the last blocker for A+B.
+- What reads the global at file `0xf59a58`, and therefore what the flag ultimately
+  drives.
+- Whether `cap_mode` 5 corresponds to a mode a user can select, given there is no
+  UI.
+- Which `SaDriver*` type the audio path needs — still a guess
+  (`SaDriverLinearPhase` is unverified). Matters because `StageWaitSAComp` suggests
+  the pipeline may touch audio.
 - Whether `MS_DUMP_RAW_PRELIGHT_*` implies a sensor readout mode this body cannot
   enter. Untested.
+- The reader of `ctx+0x114` that would settle the patch-B side effect.
+
+## Withdrawn / corrected claims
+
+Recording these because each was stated as fact and was wrong.
+
+- ~~"Nothing found writes `ctx+0x10c`."~~ **Wrong.** 123 `str.w [Rn,#0x10c]` sites
+  exist. My first sweep tested `(hw2 & 0x0F00) == 0` to recognise the plain
+  imm12 form, but the 12-bit immediate occupies all of `hw2[11:0]` — **its bit 8
+  is part of the offset, not a flag** — so every access to a field at 0x100 or
+  above was silently dropped. The correct discriminator is `hw2 & 0x0800 == 0`.
+  `0x317128` is `ldr.w r3,[r5,#0x10c]` = `f8d5 310c`, the ordinary imm12 form with
+  imm12 = 0x10C. (I first "corrected" this by claiming the field used the imm8×4
+  scaled encoding; that was also wrong, and is why `retool/offsets.py` now refuses
+  the uncalibrated T3/T4 forms outright rather than guessing a scale.)
+- ~~"`ctx+0x10c` is written 0 at those sites."~~ My "writes 1" filter only matched
+  immediates of 1, so it skipped the `movs r1, 0` that overrides an earlier
+  `movs r1, 1` and made the CapMgr constructor look like the armer. The correct
+  rule is **nearest preceding definition of any value**.
+- ~~"the menu might be surfaced by a per-model filter."~~ There is no label to
+  surface. Verified by exhaustive search, not inferred.
+- ~~"the flash dump holds a per-model capability list."~~ `nflasha2_setting.bin` is
+  a container of algorithm binaries, not a settings table. Its four motion-shot hits
+  are all the `sa_motionshot.bin` filename in a load manifest.
+- ~~"`fcn.00316ef8` is where the request is armed."~~ It is a per-mode **limit
+  resolver** — a 34-way `tbb` returning one value per capture mode, clamped against
+  a per-mode maximum with "not supported" logging. Case 5 only *reads* `ctx+0xd4`.
+- ~~`nflasha5_wbi1` / `nflasha6` contain golf-shot and menu code.~~ Both false
+  positives from binary noise (`GOLFS`, `pp 7GolfS`) and a panel driver
+  respectively. `nflasha6` has 13 "menu" hits, all `PANEL*`/`PANELEVF*` test names.
+- ~~Most flash partitions are FAT.~~ A weak `0xAA55` check produced false positives
+  on six partitions. Only `nflasha13.bin` is a genuine FAT12 volume.
+
+### Tooling traps hit while doing this
+
+- LDR/STR (immediate): T2 is selected by **`hw2 & 0x0800 == 0`**, not
+  `hw2 & 0x0F00 == 0`. The immediate is a full 12 bits, so its bit 8 is offset,
+  not a flag — the wider mask hides every field at 0x100+. This is what made
+  `ctx+0x10c` look untouched.
+- Thumb-1 `B<cond>` keeps the condition in **bits [11:8]**, not [15:12]
+  (`b eq`=0xD0xx, `b ne`=0xD1xx, `b`=0xE0xx). I hand-decoded this wrong twice and
+  briefly believed rizin was emitting a wrong mnemonic.
+- `add rX, pc` is `0x4478 | Rd` with **`Rd` in bits [2:0]** — the base already has
+  bit 3 set, so `0x447B & 0xF == 0xB`, not 3. Masking with `0x44F0` matches nothing.
+- A PC-relative global's *delta* is relative to the using instruction, so searching
+  for one delta value finds only that one site. Resolve every `ldr rX,[pc]/add
+  rX,pc` pair instead — 102,754 pairs, 64,993 distinct globals in this image.
+- `[typeinfo][vfn...][0]` groups are individual `_ZTV` vtables, **not** one
+  registry array. Consecutive classes separated by a null are separate vtables, so
+  a class appearing there proves nothing about instantiation.
+- libstdc++ `__si_class_type_info` layout is `[0]`=own vtable, `[1]`=name,
+  `[2]`=base typeinfo. A shared `[0]` across a family is the typeinfo *vtable*.
+- rizin reported a 3.6 MB "function" at `0x7fc684` and zero callers for every
+  setter there; decode `BL` by hand (J1/J2 are in the **second** halfword) instead.
+- Constant propagation must use the **nearest preceding definition of any value**,
+  not "the nearest assignment of the value I want".
 
 ## Comparison with Golf Shot
 
@@ -106,12 +337,14 @@ Two secondary unknowns:
 | validator | `CheckSetMotionShotMode` | none |
 | per-mode resolution | case 5 of 34 | none |
 | capture-mode gate | `ctx+0x10c`, allows 5 | none |
+| arming object | `RcFill` — **never instantiated** | n/a |
 | entry points | `sa_func_MOTIONSHOT_*` | `sa_func_GOLFSHOT_*` |
 | sensing | vision (`HumanMovingArea`) | sound (mic) |
 
 Golf Shot has the bottom half only. Motion Shot has the whole chain, which is why
 it is the better target — and the honest caveat is that "whole chain" means
-"fully built", not "offered on this model".
+"fully built", not "offered on this model". Motion Shot's exclusion is now
+*located* rather than inferred, which is the new fact.
 
 ## Confidence
 
@@ -120,18 +353,31 @@ it is the better target — and the honest caveat is that "whole chain" means
 | Motion Shot is detect-moving-subject-then-record, via vision | **medium-high** — from the algorithm, stage and pipeline names; no prose description exists in the image |
 | mode value stored at `ctx+0xd4`, consumed in cap_mode 5 | **high** — read from the setter and `case 5` |
 | the three capture-mode gates and their allowed modes | **high** — read from the instruction stream |
-| `sa_func_MOTIONSHOT_*` entry family | **high** — names and demangled signatures present |
+| `ctx+0x10c` initialised to 0, cleared only by the gate | **high** — both sites read directly |
+| `0x7fc696` is the only arming site | **high** — exhaustive sweep of all 123 stores with constant propagation |
+| it is `RcFill::vfn[6]` | **high** — vtable slot, typeinfo name read from RTTI |
+| **`RcFill` is never instantiated** | **high** — no literal and no `MOVW`/`MOVT` for its vtable address anywhere, while 8 siblings have theirs; residual gap: an address synthesised arithmetically rather than loaded would be missed |
+| `fcn.0039eb6c` is the only consumer | **medium-high** — one function passes a `cmp`+branch test on a `+0x10c` load; a consumer branching on the value some other way would be missed |
+| the three patch bytes and their effects | **high** — each validated by before/after disassembly |
+| `cap_mode` 5 is reachable in practice | **unknown — the remaining blocker** |
 | offered on a ZV-E10 | **not established** |
-| a writer for `ctx+0x10c` exists on this body | **unknown — and it is the crux** |
 
 ## Reproducing
 
 ```
 retool.cmd disasm avcam 0x316ef8 -n 40   # the 34-way cap_mode resolver
-retool.cmd disasm avcam 0x316f08 -n 40   # its case table; case 5 reads ctx+0xd4
 retool.cmd disasm avcam 0x317128 -n 24   # the Mshot / trinity / SpotMulti gates
-retool.cmd strings avcam motion_shot_mode
-retool.cmd strings avcam MOTIONSHOT
-retool.cmd strings avcam Mshot
-retool.cmd strings avcam HumanMovingArea
+retool.cmd disasm avcam 0x7f4dc  -n 16   # the CapMgr constructor: flag := 0
+retool.cmd disasm avcam 0x7fc6a6 -n 10   # the arming site, +0x10c := 1
+retool.cmd disasm avcam 0x39ee46 -n 12   # the consumer's cmp + branch + call
+retool.cmd disasm avcam 0x3a25fc -n 6    # the global setter
+retool.cmd strings  avcam Mshot
+retool.cmd strings  avcam MOTIONSHOT
+retool.cmd strings  avcam motion_shot_mode
+retool.cmd strings  avcam HumanMovingArea
+python -m retool globals 0xf59a58         # PC-relative global resolver
+python -m retool offsweep 0x10c str       # constant-propagating offset sweep
 ```
+
+The last two are `retool/offsets.py`, added so these offsets are reproducible from
+committed tooling rather than from one-off scripts.
