@@ -58,48 +58,74 @@ The accessor is `fcn.001aabdc`:
 0x1aac12  cmp   r8, r7
 ```
 
-So the table is a **linear search keyed on two 16-bit caller-supplied values**,
-with a 16-byte stride. Record layout (little-endian, base `0x89DADE`):
+So the table is a **linear search** over a 16-byte-stride grid at `0x89DADE`,
+matched on four fields, with results memoised in a `.bss` cache. The first
+three record fields are clean and self-consistent across all 19 entries:
 
-| offset | type | meaning |
+| offset | type | value across records 0..18 |
 |---|---|---|
-| +0 | u16 | key (caller-supplied selector; 0 for every entry in this build) |
-| +2 | u16 | width |
-| +4 | u16 | height |
-| +6 | u32 | flags (1 for records 0..13, 0 for 14..18) |
-| +10 | u32 | family (2 and 3 for the two 4K readouts, 1 otherwise) |
-| +14 | u32 | mode id |
+| +0 | u16 | 0 for every record (an unused selector) |
+| +2 | u16 | width — 3840, 3840, 4096, 4096, 1920, 2048, 960, 640, 768, 1280, 1440×3, 960, 1440, 1920, 960, 720, 720 |
+| +4 | u16 | height — 2160 ×4, 1080 ×4, 480 ×2, 720, 812, 920, 1080, 540 ×5, 240, 288 |
+| +6 | u16 | flags — 1 for records 0..13, 0 for 14..18 |
+| +8, +12 | u32 | **not resolved** — see below |
 
-All 19 records, terminated by a zero record at `n=19`:
+Records 0..18 are followed by an all-zero record at n=19.
 
 ```
-  n    off     key  width height flags family  id
-   0 0x89dade     0   3840   2160     1      2   0
-   1 0x89daee     0   3840   2160     1      3  19
-   2 0x89dafe     0   4096   2160     1      2   1
-   3 0x89db0e     0   4096   2160     1      3  20
-   4 0x89db1e     0   1920   1080     1      1   3
-   5 0x89db2e     0   2048   1080     1      1   4
-   6 0x89db3e     0    960   1080     1      1   5
-   7 0x89db4e     0    640    480     1      1   6
-   8 0x89db5e     0    768    480     1      1   7
-   9 0x89db6e     0   1280    720     1      1   8
-  10 0x89db7e     0   1440    812     1      1   9
-  11 0x89db8e     0   1440    920     1      1  10
-  12 0x89db9e     0   1440   1080     1      1  11
-  13 0x89dbae     0    960    540     1      1  12
-  14 0x89dbbe     0   1440    540     0      1  14
-  15 0x89dbce     0   1920    540     0      1  15
-  16 0x89dbde     0    960    540     0      1  16
-  17 0x89dbee     0    720    240     0      1  17
-  18 0x89dbfe     0    720    288     0      1  18
-  19 0x89dc0e   -- end of table
+  n    off     key  width height flags
+   0 0x89dade     0   3840   2160     1
+   1 0x89daee     0   3840   2160     1
+   2 0x89dafe     0   4096   2160     1
+   3 0x89db0e     0   4096   2160     1
+   4 0x89db1e     0   1920   1080     1
+   5 0x89db2e     0   2048   1080     1
+   6 0x89db3e     0    960   1080     1
+   7 0x89db4e     0    640    480     1
+   8 0x89db5e     0    768    480     1
+   9 0x89db6e     0   1280    720     1
+  10 0x89db7e     0   1440    812     1
+  11 0x89db8e     0   1440    920     1
+  12 0x89db9e     0   1440   1080     1
+  13 0x89dbae     0    960    540     1
+  14 0x89dbbe     0   1440    540     0
+  15 0x89dbce     0   1920    540     0
+  16 0x89dbde     0    960    540     0
+  17 0x89dbee     0    720    240     0
+  18 0x89dbfe     0    720    288     0
+  19 0x89dc0e     0      0      0     0   (end)
 ```
 
-**Purpose, from the code:** given an output width (and a selector), return the
-height, family and mode id. It is a sensor/output **mode resolver**, not a
-generic descriptor table. The mode ids it returns are what the rest of the
-firmware uses to program the pipeline.
+**The two fields the code actually compares are the key ones for a patch
+attempt: `+2` is the width and `+4` is the height.** For the four 4K records
+(0..3) the height u16 lives at `0x89DAE2`, `0x89DAF2`, `0x89DB02`, `0x89DB12`.
+
+### Unresolved: fields +8 and +12
+
+The code reads `record[+8]` (compared against a caller register) and
+`record[+12]` (compared against a requested id, and against `0xFFFFFFFF` as an
+end-of-scan check). Under a 16-byte stride from `0x89DADE` those offsets are
+**not 4-aligned relative to the data**, and the values come out as
+`131072`, `1245184`, `65536`, … — clearly not ids. So either the record is
+longer than 16 bytes for those fields, or the record base for those accesses
+differs from the base used for the width/height match. **Not resolved.** An
+earlier version of this file claimed `family` at +10 and `mode id` at +14; that
+was a 4-aligned read that happened to produce plausible-looking small integers
+and is withdrawn.
+
+### How the resolver is called
+
+`fcn.001aabdc` is a **memoising** wrapper. It reads a cache table at
+`0xC972C8` (which is all zeros in the image — `.bss`, populated at runtime) and
+writes results to the sibling table at `0xC972C6`. On a cache miss it falls
+into a scan that walks records from the cached index upward.
+
+Its **only** call site is `0x3ab074`, which fills a struct: `family ->
+[r4+0x44]`, `mode id -> [r4+0x48]`, from `key = r4+4` and `selector = [r4]`.
+The surrounding code references DMM/OSAL memory-manager strings
+(`AsyncGetUnitMaxMemNumber`, `PowerOnUnit`, `osal_try_valloc_msg`,
+`ERR_OSAL_UIPC`, `ERR_DMM_RET_CODE`), so this consumer sizes/configures a
+memory unit. It is shared infrastructure, not specific to one direction.
 
 ### Correction to the earlier file
 
@@ -109,11 +135,20 @@ the packing is **two u16 fields (width, height)**, not one packed word — the
 apparent `(h<<16)|w` word is just how two adjacent u16 fields look in a hex
 dump. The field semantics above are correct; the framing was not.
 
-The 2160 → 2560 patch idea survives: records 0..3 carry height 2160, and
-`height` is a u16 at record offset +4, i.e. at `0x89DAE2`, `0x89DAF2`,
-`0x89DB02`, `0x89DB12`. Setting those to `0x0A00` (2560) is a 4-byte edit per
-record. **Untested on hardware**, and the buffer-size concern below still
-applies.
+The 2160 → 2560 patch idea survives, but the offset in the earlier version of
+this file was wrong. **`+2` is the width and is the field the code searches
+on.** Overwriting the 4-byte word at `0x89DAE0` (as previously advised) writes
+*both* width and height, changing the width from 3840 to 2560 — after which a
+request for width 3840 no longer matches any record and the resolver falls
+through to its miss path. To change height alone, edit the u16 at record
+offset **+4**: `0x89DAE2`, `0x89DAF2`, `0x89DB02`, `0x89DB12`
+(`0x0870` → `0x0A00`), leaving `0x89DAE0`/`0x89DAF0`/`0x89DB00`/`0x89DB10`
+(widths) untouched.
+
+**Untested on hardware.** Note also that the caller is the memory manager, so
+whatever allocates buffers for a mode is keyed off fields whose meaning is
+still unresolved — see the `+8`/`+12` gap above. That is the most likely reason
+a height edit alone changes nothing observable.
 
 ## Retracted: the "per-stream encoder config table" at `0x8c4440`
 
@@ -157,6 +192,33 @@ It belongs to a **family of enum→string getters** at `0x8f1a4`–`0x8f7e8`:
 eleven functions of the same shape (`add rX, pc` / `bx lr` tables) with table
 sizes growing 2 → 13 entries. Naming one without naming the family would be
 misleading, so all eleven are left unnamed pending a caller survey.
+
+## Encoder or decoder? (tested 2026-09-26)
+
+The hypothesis that this table belongs to the **decode** side was tested
+directly, and is **not supported** by what the code shows.
+
+The decoder functions were located via their strings and their data
+references enumerated:
+
+| function | decoder string | data bases used |
+|---|---|---|
+| `fcn.000a4178` | `DEC_REPORT_RESUME_DECODE` | 41 — **all 41 are strings, 0 are tables** |
+| `fcn.000c0520` / `fcn.000c0598` | `dec/sfmc_dec_timing_sm.cpp` | 2 each, both strings |
+| `fcn.000c069c` | `dec/sfmc_dec_timing_sm.cpp` | strings only |
+| `fcn.000a4cd8` | `play_back_mode` | 2, both strings |
+| `fcn.00095ba8`, `fcn.0009941c`, `fcn.0009ccfc`, `fcn.000a8280` | `STAE CHART TRANSITION` | strings only |
+
+So the decoder path touches **no data tables at all** through PC-relative
+addressing, and in particular not `0x89DADE`. Conversely the mode table's only
+caller (`0x3ab074`) sits in DMM/OSAL memory-manager code, which is
+direction-agnostic.
+
+**Caveat, stated plainly:** this rules out the decoder as a consumer of *this*
+table. It does not rule out a separate decode-side dimension table elsewhere
+that has not been found, and it does not explain the failed flash. The
+strongest code-based explanation for that is the width/height offset error
+above, not a wrong subsystem.
 
 ## What is still unknown
 
