@@ -59,59 +59,69 @@ The accessor is `fcn.001aabdc`:
 ```
 
 So the table is a **linear search** over a 16-byte-stride grid at `0x89DADE`,
-matched on four fields, with results memoised in a `.bss` cache. The first
-three record fields are clean and self-consistent across all 19 entries:
+terminated by a record whose mode id is `0xFFFFFFFF` (at `0x89DC1C`, which is
+exactly `0x89DADE + 16*19 + 14`). 19 records.
 
-| offset | type | value across records 0..18 |
+The struct fields are 2-byte-offset within each 16-byte record, so the code
+reaches them as `base+2` with `[r0+0], [r0+4], [r0+8], [r0+0xc]`:
+
+| record offset | type | field |
 |---|---|---|
-| +0 | u16 | 0 for every record (an unused selector) |
-| +2 | u16 | width — 3840, 3840, 4096, 4096, 1920, 2048, 960, 640, 768, 1280, 1440×3, 960, 1440, 1920, 960, 720, 720 |
-| +4 | u16 | height — 2160 ×4, 1080 ×4, 480 ×2, 720, 812, 920, 1080, 540 ×5, 240, 288 |
-| +6 | u16 | flags — 1 for records 0..13, 0 for 14..18 |
-| +8, +12 | u32 | **not resolved** — see below |
-
-Records 0..18 are followed by an all-zero record at n=19.
+| +0 | u16 | padding (0 in every record) |
+| +2 | u32 | `(height << 16) | width` |
+| +6 | u32 | flags — 1 for records 0..13, 0 for 14..18 |
+| +10 | u32 | family — 2 and 3 for the two 4K readouts, 1 otherwise |
+| +14 | u32 | mode id — 0, 19, 1, 20 for the 4K records, then 3..18 |
 
 ```
-  n    off     key  width height flags
-   0 0x89dade     0   3840   2160     1
-   1 0x89daee     0   3840   2160     1
-   2 0x89dafe     0   4096   2160     1
-   3 0x89db0e     0   4096   2160     1
-   4 0x89db1e     0   1920   1080     1
-   5 0x89db2e     0   2048   1080     1
-   6 0x89db3e     0    960   1080     1
-   7 0x89db4e     0    640    480     1
-   8 0x89db5e     0    768    480     1
-   9 0x89db6e     0   1280    720     1
-  10 0x89db7e     0   1440    812     1
-  11 0x89db8e     0   1440    920     1
-  12 0x89db9e     0   1440   1080     1
-  13 0x89dbae     0    960    540     1
-  14 0x89dbbe     0   1440    540     0
-  15 0x89dbce     0   1920    540     0
-  16 0x89dbde     0    960    540     0
-  17 0x89dbee     0    720    240     0
-  18 0x89dbfe     0    720    288     0
-  19 0x89dc0e     0      0      0     0   (end)
+  n   record   (h<<16)|w     flags family    id
+   0  0x89dade   2160x3840       1      2     0
+   1  0x89daee   2160x3840       1      3    19
+   2  0x89dafe   2160x4096       1      2     1
+   3  0x89db0e   2160x4096       1      3    20
+   4  0x89db1e   1080x1920       1      1     3
+   5  0x89db2e   1080x2048       1      1     4
+   6  0x89db3e   1080x960        1      1     5
+   7  0x89db4e    480x640        1      1     6
+   8  0x89db5e    480x768        1      1     7
+   9  0x89db6e   1280x720        1      1     8
+  10  0x89db7e    812x1440       1      1     9
+  11  0x89db8e    920x1440       1      1    10
+  12  0x89db9e   1080x1440       1      1    11
+  13  0x89dbae    540x960        1      1    12
+  14  0x89dbbe    540x1440       0      1    14
+  15  0x89dbce    540x1920       0      1    15
+  16  0x89dbde    540x960        0      1    16
+  17  0x89dbee    240x720        0      1    17
+  18  0x89dbfe    288x720        0      1    18
+  19  0x89dc0e   -- terminator: id = 0xFFFFFFFF at 0x89dc1c
 ```
 
-**The two fields the code actually compares are the key ones for a patch
-attempt: `+2` is the width and `+4` is the height.** For the four 4K records
-(0..3) the height u16 lives at `0x89DAE2`, `0x89DAF2`, `0x89DB02`, `0x89DB12`.
+**The mode ids are independently corroborated.** The sole caller tests the
+returned id against `{0, 0x13 (19), 1, 0x14 (20)}` — exactly the four 4K
+records — and sets a separate "4K" flag at `[r4+0xc0]` when it matches:
 
-### Unresolved: fields +8 and +12
+```
+0x3ab0b2  ldr  r3, [r4, 0x48]   ; id from the resolver
+0x3ab0b4  cbz  r3, ->is4k
+0x3ab0b6  cmp  r3, 0x13         ; 19
+0x3ab0ba  cmp  r3, 1
+0x3ab0be  cmp  r3, 0x14         ; 20
+0x3ab0c2  movs r2, 1            ; -> [r4+0xc0] = 1
+```
 
-The code reads `record[+8]` (compared against a caller register) and
-`record[+12]` (compared against a requested id, and against `0xFFFFFFFF` as an
-end-of-scan check). Under a 16-byte stride from `0x89DADE` those offsets are
-**not 4-aligned relative to the data**, and the values come out as
-`131072`, `1245184`, `65536`, … — clearly not ids. So either the record is
-longer than 16 bytes for those fields, or the record base for those accesses
-differs from the base used for the width/height match. **Not resolved.** An
-earlier version of this file claimed `family` at +10 and `mode id` at +14; that
-was a 4-aligned read that happened to produce plausible-looking small integers
-and is withdrawn.
+So "4K mode" is keyed on the **mode id**, not on the dimensions. That is a
+separate concept from the height field, and is the more likely real lever.
+
+### Note on two intermediate corrections in this file
+
+An earlier revision withdrew the `family`/`mode id` fields as a 4-aligned
+misread, and an earlier one still had the base as `0x89dae0` with a packed
+first word. **The original field reading was right**; only the base needed
+refining, to `0x89DADE` with the fields 2-byte-offset. The withdrawal was
+itself the error and is reversed here. Both were caught by the terminator at
+`0x89DC1C` and by the caller's id comparison, neither of which is a
+coincidence.
 
 ### How the resolver is called
 
@@ -135,20 +145,26 @@ the packing is **two u16 fields (width, height)**, not one packed word — the
 apparent `(h<<16)|w` word is just how two adjacent u16 fields look in a hex
 dump. The field semantics above are correct; the framing was not.
 
-The 2160 → 2560 patch idea survives, but the offset in the earlier version of
-this file was wrong. **`+2` is the width and is the field the code searches
-on.** Overwriting the 4-byte word at `0x89DAE0` (as previously advised) writes
-*both* width and height, changing the width from 3840 to 2560 — after which a
-request for width 3840 no longer matches any record and the resolver falls
-through to its miss path. To change height alone, edit the u16 at record
-offset **+4**: `0x89DAE2`, `0x89DAF2`, `0x89DB02`, `0x89DB12`
-(`0x0870` → `0x0A00`), leaving `0x89DAE0`/`0x89DAF0`/`0x89DB00`/`0x89DB10`
-(widths) untouched.
+The failed flash is **not** explained by an offset mistake. `+2` is a packed
+`(height << 16) | width`, so writing `0x0A000F00` over the word at `0x89DAE0`
+leaves the width (low half, `0x0F00` = 3840) untouched and only raises the
+height. That edit was structurally correct.
 
-**Untested on hardware.** Note also that the caller is the memory manager, so
-whatever allocates buffers for a mode is keyed off fields whose meaning is
-still unresolved — see the `+8`/`+12` gap above. That is the most likely reason
-a height edit alone changes nothing observable.
+What the code does explain is that this table is a **lookup consumed by the
+memory manager** (DMM/OSAL, at `0x3ab074`). Editing its height changes how
+memory is sized, not what the sensor is told to read out. The capture
+geometry is programmed elsewhere, by a register write. So the firmware ran
+normally and produced no visible change: the edit took effect, but on a field
+that does not drive the output.
+
+The more promising lever is the one the caller keys off — **the mode id**.
+Records 0..3 are ids `0, 19, 1, 20`, and the caller raises a distinct "4K" flag
+from exactly that set. Whatever programs the sensor for a 4K readout is
+downstream of that flag.
+
+Addresses, for reference: packed words at `0x89DAE0`, `0x89DAF0`, `0x89DB00`,
+`0x89DB10`; height half-words at `0x89DAE2`, `0x89DAF2`, `0x89DB02`, `0x89DB12`;
+mode ids at `0x89DAEC`, `0x89DAFC`, `0x89DB0C`, `0x89DB1C`.
 
 ## Retracted: the "per-stream encoder config table" at `0x8c4440`
 

@@ -257,7 +257,7 @@
    "va": "0x63770bdc",
    "name": "ISP_resolve_mode_by_width",
    "kind": "func",
-   "comment": "linear search of the mode table: base 0x89DADE stride 16; matches u16 key(+0), width(+2), byte(+4) and u32(+8) against caller values; memoised via a .bss cache at 0xC972C8. Fields +8 and +12 are NOT resolved.",
+   "comment": "memoised lookup of the mode table: base 0x89DADE stride 16, reads fields as base+2 +[0,4,8,0xc]; caches via .bss table at 0xC972C8, scans records on a miss comparing the mode id. Only caller 0x3ab074 is DMM/OSAL memory code.",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -769,7 +769,7 @@
    "va": "0x63e63ade",
    "name": "ISP_mode_table",
    "kind": "data",
-   "comment": "output mode table, 19 records of 16 bytes: u16 key, u16 width, u16 height, u16 flags, then 2 unresolved u32; zero record at +0x130. Only caller is DMM/OSAL memory-manager code at 0x3ab074.",
+   "comment": "output mode table, base 0x89DADE stride 16, 19 records, terminator id=0xFFFFFFFF at 0x89dc1c. Record: u16 pad, u32 (height<<16)|width @+2, u32 flags @+6, u32 family @+10, u32 mode id @+14. 4K records are ids 0,19,1,20.",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -777,7 +777,7 @@
    "va": "0x63e63aee",
    "name": "ISP_mode_4k_3840_fam3",
    "kind": "data",
-   "comment": "width 3840 height 2160, flags 1",
+   "comment": "2160x3840 flags 1 family 3 id 19 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -785,7 +785,7 @@
    "va": "0x63e63afe",
    "name": "ISP_mode_4k_4096_fam2",
    "kind": "data",
-   "comment": "width 4096 height 2160, flags 1",
+   "comment": "2160x4096 flags 1 family 2 id 1 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -793,7 +793,7 @@
    "va": "0x63e63b0e",
    "name": "ISP_mode_4k_4096_fam3",
    "kind": "data",
-   "comment": "width 4096 height 2160, flags 1",
+   "comment": "2160x4096 flags 1 family 3 id 20 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -801,7 +801,7 @@
    "va": "0x63e63b1e",
    "name": "ISP_mode_1920x1080",
    "kind": "data",
-   "comment": "width 1920 height 1080, flags 1",
+   "comment": "1080x1920 flags 1 family 1 id 3 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -809,7 +809,7 @@
    "va": "0x63e63b2e",
    "name": "ISP_mode_2048x1080",
    "kind": "data",
-   "comment": "width 2048 height 1080, flags 1",
+   "comment": "1080x2048 flags 1 family 1 id 4 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -817,7 +817,7 @@
    "va": "0x63e63b3e",
    "name": "ISP_mode_960x1080",
    "kind": "data",
-   "comment": "width 960 height 1080, flags 1",
+   "comment": "1080x960 flags 1 family 1 id 5 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -825,7 +825,7 @@
    "va": "0x63e63b4e",
    "name": "ISP_mode_640x480",
    "kind": "data",
-   "comment": "width 640 height 480, flags 1",
+   "comment": "480x640 flags 1 family 1 id 6 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -833,7 +833,7 @@
    "va": "0x63e63b5e",
    "name": "ISP_mode_768x480",
    "kind": "data",
-   "comment": "width 768 height 480, flags 1",
+   "comment": "480x768 flags 1 family 1 id 7 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -841,7 +841,7 @@
    "va": "0x63e63b6e",
    "name": "ISP_mode_1280x720",
    "kind": "data",
-   "comment": "width 1280 height 720, flags 1",
+   "comment": "1280x720 flags 1 family 1 id 8 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -849,7 +849,7 @@
    "va": "0x63e63b7e",
    "name": "ISP_mode_812x1440",
    "kind": "data",
-   "comment": "width 1440 height 812, flags 1",
+   "comment": "812x1440 flags 1 family 1 id 9 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -857,7 +857,7 @@
    "va": "0x63e63b8e",
    "name": "ISP_mode_920x1440",
    "kind": "data",
-   "comment": "width 1440 height 920, flags 1",
+   "comment": "920x1440 flags 1 family 1 id 10 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -865,7 +865,7 @@
    "va": "0x63e63b9e",
    "name": "ISP_mode_1080x1440",
    "kind": "data",
-   "comment": "width 1440 height 1080, flags 1",
+   "comment": "1080x1440 flags 1 family 1 id 11 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -873,7 +873,7 @@
    "va": "0x63e63bae",
    "name": "ISP_mode_540x960",
    "kind": "data",
-   "comment": "width 960 height 540, flags 1",
+   "comment": "540x960 flags 1 family 1 id 12 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -881,7 +881,7 @@
    "va": "0x63e63bbe",
    "name": "ISP_mode_540x1440",
    "kind": "data",
-   "comment": "width 1440 height 540, flags 0",
+   "comment": "540x1440 flags 0 family 1 id 14 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -889,7 +889,7 @@
    "va": "0x63e63bce",
    "name": "ISP_mode_540x1920",
    "kind": "data",
-   "comment": "width 1920 height 540, flags 0",
+   "comment": "540x1920 flags 0 family 1 id 15 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -897,7 +897,7 @@
    "va": "0x63e63bde",
    "name": "ISP_mode_540x960_b",
    "kind": "data",
-   "comment": "width 960 height 540, flags 0",
+   "comment": "540x960 flags 0 family 1 id 16 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -905,7 +905,7 @@
    "va": "0x63e63bee",
    "name": "ISP_mode_240x720",
    "kind": "data",
-   "comment": "width 720 height 240, flags 0",
+   "comment": "240x720 flags 0 family 1 id 17 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
@@ -913,7 +913,7 @@
    "va": "0x63e63bfe",
    "name": "ISP_mode_288x720",
    "kind": "data",
-   "comment": "width 720 height 288, flags 0",
+   "comment": "288x720 flags 0 family 1 id 18 -- record: u16 pad, u32 (h<<16)|w @+2, u32 flags @+6, u32 family @+10, u32 id @+14",
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
