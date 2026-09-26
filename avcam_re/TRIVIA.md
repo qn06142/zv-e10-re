@@ -167,15 +167,64 @@ rate overshoots.
 - **No IBIS.** Zero occurrences of `IBIS`, `PixelShift` or `PIXEL` in the image.
   Pixel Shift Multi Shot is impossible regardless of what `OPD` might mean; the
   OPD / MotionShot / BDRO stages belong to other bodies in the shared build.
-- **No 4K60.** The mode table tops out at 2160 lines, yet `2KSuperSlowMotion` and
-  `4KSuperSlowMotion[Buffering]` error paths are compiled in.
+- **High frame rates are fully implemented — a claim we got wrong.** See §13.
 - **A hard width ceiling** the module states itself: `hsiz_arc > 3520 is not
   supported!`
 - **The mode table's only consumer is the memory manager** (`0x3ab074`), which
   sizes buffers and marks 4K. It does not set sensor readout, which is why
   editing its height changes nothing observable.
 
-## 11. How we got things wrong
+## 13. High frame rates are fully implemented
+
+**We asserted the opposite and were wrong.** The claim "no 4K60 / high frame
+rates are not present" was inferred from the mode table at `0x89DADE` topping out
+at 2160 lines — but that table is the **memory-sizing** table, consumed only by
+the memory manager. It has never carried frame rates. Reading recording
+capabilities off it was the same category of mistake as editing its height and
+wondering why nothing happened.
+
+Frame rate lives somewhere else entirely, and it is thorough:
+
+```
+enc/sfmc_enc_timing_i_a1_diadem_normal_120p100p.cpp
+[TIMING120p]start_timing = %x
+[TIMING120p]vfc:0x%X,gop:%d,start_timing:0x%X,enc_pic_count:%d
+[TIMING120p][num_of_frames:%u][in_param.num_of_encode_picture:%llu][in_param.sysv_rate:%u]
+[TIMING120p][THM] unexpected marking_type(%d)
+[TIMING120p][CUT] unexpected marking_type(%d)
+
+enc/sfmc_enc_timing_i_a1_diadem_normal_240p200p.cpp
+[TIMING240p] ... the same set
+```
+
+A **dedicated timing state machine per high-frame-rate mode**, with `THM` and
+`CUT` frame-marking types — the marking that assembles a clip. Alongside the
+normal-rate ones (`[TIMING 24p]`, `[TIMING 30p]`, `[TIMING 60I]`).
+
+There is also an explicit high-speed lifecycle:
+
+```
+STATE_HS_STOPPING
+STATE_YC_PIN_WAITING_ON_HS_RECEIVED_START_COMP
+[TIMING]Waiting for YC Pin for HS.
+DEBUG:[INT SYS HS] ... register / unregister / change_mode / Cycle / PreVfc
+```
+
+and frame-rate conversion lives in the record state machine itself:
+
+```
+sfmc_enc::sfmc_enc_state_cacherec::convert_frame_rate_value(__uint8_t)
+sfmc_enc::sfmc_enc_state_normal::convert_frame_rate_value(__uint8_t)
+```
+
+The frame-rate name table carries `119_88`, `200` and `239_76` next to
+`23_976 / 29_97 / 59_94`. `HS` also appears as `MODE_HIGH_SPEED`, `tsk_syshs`,
+`int_syshs`, `SYSV][HS]`, and `Time24Hz/25Hz/30HzHighSpeedModifier`.
+
+So 120p is not merely permitted — it has its own timing module, its own state
+machine, and frame-marking for clip assembly.
+
+## 14. How we got things wrong
 
 Kept because the failure modes recur.
 
@@ -195,6 +244,9 @@ Kept because the failure modes recur.
   reported success.
 - **A template match comparing against a wildcard byte** instead of skipping it,
   which matched nothing — including its own template site.
+- **Reading recording capability off the memory-sizing table.** The mode table
+  has no frame-rate field and never did; concluding "no high frame rates" from
+  it was reading the wrong table entirely (§13).
 - **A "hardware page" histogram was published and then withdrawn** as a resolver
   artifact. The banks finally found in §6 are unrelated to those values and came
   from a different derivation.
