@@ -19,7 +19,7 @@ import re
 import sys
 from pathlib import Path
 
-from . import __version__, config, engine, export, migrate, consts, xrefs
+from . import __version__, config, engine, export, migrate, consts, xrefs, subsys
 from .symbols import SymDB
 
 
@@ -304,6 +304,51 @@ def cmd_disasm(cfg, name, addr, count=40):
     _p(out.rstrip())
 
 
+def cmd_subsystems(cfg, name, show_blocks=False):
+    """Classify functions by the subsystem their strings identify.
+
+    Coverage is limited to functions that reference a string directly (~2%),
+    and is reported rather than hidden.  Nearest-neighbour propagation was
+    tried and rejected -- see retool/subsys.py.
+    """
+    import json as _json
+    import subprocess as _sp
+    from collections import Counter as _C
+
+    t = cfg.target(name)
+    rz = engine.Rizin(cfg)
+    if not rz.has_project(t):
+        _p(f"no cached project; run: retool.cmd analyze {name}")
+        sys.exit(1)
+    raw = rz.run_project(t, rz.project_path(t), "aflj", timeout=1800)
+    funcs = _json.loads(raw[raw.find("["):])
+    data = t.path.read_bytes()
+    res = subsys.classify(data, funcs)
+    labels = res["labels"]
+    ntot, ncls = res["trusted_functions"], len(labels)
+    _p(f"coverage: {ncls}/{ntot} trusted functions ({100*ncls/ntot:.1f}%) reference a string")
+    counts = _C(v[0] for v in labels.values())
+    total = sum(counts.values())
+    _p("")
+    for k, n in counts.most_common():
+        _p(f"  {k:<14} {n:>5}  {100*n/total:>5.1f}%  " + "#" * max(1, int(40 * n / total)))
+    d, e = counts.get("DECODE", 0), counts.get("ENCODE", 0)
+    _p(f"  decode:encode = {d}:{e} = {d/max(e,1):.2f}:1  (string-identified only)")
+    if show_blocks:
+        off_of = {f["name"]: int(f["offset"]) for f in funcs}
+        from collections import defaultdict as _dd
+        blocks = _dd(_C)
+        for fn, lab in labels.items():
+            if fn in off_of:
+                blocks[off_of[fn] >> 16][lab[0]] += 1
+        _p("")
+        for b, c in sorted(blocks.items()):
+            dd, ee = c.get("DECODE", 0), c.get("ENCODE", 0)
+            if max(dd, ee) >= 3:
+                _p(f"  {b<<16:#09x}  {'DECODE' if dd > ee else 'ENCODE':<6} "
+                   f"dec={dd:<3} enc={ee:<3} of {sum(c.values())} labelled")
+
+
 def cmd_all(cfg, name):
     cmd_migrate(cfg, name)
     cmd_analyze(cfg, name, force=True)
@@ -339,6 +384,10 @@ def build_parser():
 
     p = sub.add_parser("region"); p.add_argument("target"); p.add_argument("addr")
     p.add_argument("--span", type=lambda v: int(v, 0), default=0x400)
+
+    p = sub.add_parser("subsystems"); p.add_argument("target")
+    p.add_argument("--blocks", action="store_true",
+                   help="also show which 64 KB blocks belong to decode vs encode")
 
     p = sub.add_parser("strings"); p.add_argument("target")
     p.add_argument("filter", nargs="?")
@@ -377,6 +426,8 @@ def main(argv=None):
             cmd_xrefs(cfg, a.target, a.addr)
         elif a.cmd == "region":
             cmd_region(cfg, a.target, a.addr, a.span)
+        elif a.cmd == "subsystems":
+            cmd_subsystems(cfg, a.target, a.blocks)
         elif a.cmd == "strings":
             cmd_strings(cfg, a.target, a.filter)
         elif a.cmd == "disasm":

@@ -61,6 +61,22 @@
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
+   "off": 587752,
+   "va": "0x636557e8",
+   "name": "DEC_MVC_name_get",
+   "kind": "func",
+   "comment": "enum-to-string getter returning DEC_MVC",
+   "source": "SUBSYSTEM_MAP.md"
+  },
+  {
+   "off": 587912,
+   "va": "0x63655888",
+   "name": "ENC_state_machine",
+   "kind": "func",
+   "comment": "encoder state machine / state-name table: 11 ENC_* states (ENC_IDLE, ENC_ENCODING, ENC_POSTPROC, ENC_FINALIZE, ENC_CUT, ENC_MVC); ~6x the decoder dispatcher size",
+   "source": "SUBSYSTEM_MAP.md"
+  },
+  {
    "off": 609600,
    "va": "0x6365ad40",
    "name": "composite_calibration",
@@ -189,6 +205,30 @@
    "source": "RE_STATE.md:111"
   },
   {
+   "off": 765736,
+   "va": "0x63680f28",
+   "name": "DEC_state_dispatch_b",
+   "kind": "func",
+   "comment": "second decode state dispatcher, 5 DEC_* tags",
+   "source": "SUBSYSTEM_MAP.md"
+  },
+  {
+   "off": 767548,
+   "va": "0x6368163c",
+   "name": "DEC_state_dispatch",
+   "kind": "func",
+   "comment": "decoder state dispatcher: switches on 17 distinct DEC_* log states (DEC_IDLE, DEC_FULL, DEC_EMERGENCY, ...); decoder is ~0x0a0000-0x0b0000",
+   "source": "SUBSYSTEM_MAP.md"
+  },
+  {
+   "off": 767816,
+   "va": "0x63681748",
+   "name": "DEC_state_dispatch_c",
+   "kind": "func",
+   "comment": "decode state handler, 470 bytes, 2 DEC_* tags",
+   "source": "SUBSYSTEM_MAP.md"
+  },
+  {
    "off": 805172,
    "va": "0x6368a934",
    "name": "CODECA_write_config_0x668_0x681",
@@ -219,6 +259,14 @@
    "kind": "auto",
    "comment": "",
    "source": "RE_STATE.md:78"
+  },
+  {
+   "off": 907224,
+   "va": "0x636a37d8",
+   "name": "ENC_state_handler",
+   "kind": "func",
+   "comment": "encode state handler, 8 ENC_* tags",
+   "source": "SUBSYSTEM_MAP.md"
   },
   {
    "off": 967416,
