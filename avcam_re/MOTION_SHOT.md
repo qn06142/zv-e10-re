@@ -175,6 +175,53 @@ has a dedicated branch for it —
 so the firmware does have handling for mode 5, it is simply not produced by the
 `ctx[0]` dispatch on this build.
 
+### `ctx+0xc8` is a latch of the previous mode
+
+The function's epilogue writes back exactly the four registers it loaded at entry:
+
+```
+entry   0x316fe6  ldr.w r4, [r0, 0xc8]      0x316fea  ldr.w sl, [r0, 0xc0]
+        0x316fee  ldr.w r7, [r0, 0xcc]      0x316ff2  ldr.w r6, [r0, 0xb8]
+
+exit    0x31727e  str.w sl, [r5, 0xc0]
+        0x317286  str.w r7, [r5, 0xcc]
+        0x31728e  str.w r4, [r5, 0xc8]      <-- the resolved mode, latched
+        0x317292  str.w r6, [r5, 0xb8]
+```
+
+So `ctx+0xc8` holds **the mode resolved by the previous invocation**, and it is the
+value the `cmp r4, 0x12` at `0x316ffa` branches on. Since the exit value comes from
+the same `r4` whose literal set is `{0, 1, 6, 8, 9, 0x18, 0x1a, 0x1b, 0x1c}`, the
+latch should never hold 5 either.
+
+**This is not fully closed.** `+0xc8` has 164 writers image-wide, and five
+functions write it while also touching the CapMgr flag triple
+(`fcn.000722d8`, `fcn.001b8580`, `fcn.001f8888`, `fcn.002e0dd0`, `fcn.00316fd0`).
+The identity test is weak — `0xbc` is a very common offset, and two of those five
+have function sizes rizin got badly wrong (128 KB), so "also touches" is not
+trustworthy. One of the others could write this object's `+0xc8` with a 5 from
+somewhere else entirely.
+
+### Why the ambiguity does not change the recommendation
+
+Patch A is the right call **under either hypothesis**, which is why the open
+question above is not blocking:
+
+| if… | then A is… |
+|---|---|
+| `r4 == 5` is reachable | harmless — the flag would have survived anyway when the mode is 5, and A only removes the clear in the other modes |
+| `r4 == 5` is never produced | **required** — the flag is otherwise guaranteed to be zeroed the first time any mode change runs |
+
+So A does not depend on resolving the question, and neither does the A+B
+recommendation. Patch B is required regardless, because the only arming site is
+the never-constructed `RcFill`.
+
+The residual risk that *is* real and unquantifiable: with A, the Motion Shot flag
+survives into capture modes that were never meant to service it, and the consumer
+`fcn.0039eb6c` will set the global at `0xf59a58` in those modes. What reads that
+global is unknown, so the failure mode if the patch is wrong cannot be predicted
+from the binary — it has to be observed on hardware.
+
 ## The flag lifecycle — the crux, resolved
 
 ### 1. Initialised off
@@ -354,14 +401,15 @@ tested predicate. That is mitigation, **not proof** — treat as unquantified.
 
 ## Open unknowns
 
-- **What sets `ctx+0xc8`.** This is now the load-bearing unknown: the Motion Shot
-  flag survives the gate only when `ctx+0xc8 == 5`, and nothing found writes a
-  literal 5 to it. Until that field's origin is traced, patch A is what removes
-  the dependency.
+- **What writes the CapMgr's `ctx+0xc8` besides the latch epilogue.** The identity
+  test used to constrain the 164 `+0xc8` writers is weak (see above). Not blocking,
+  because patch A is correct either way — but it is the thing to settle if anyone
+  wants to *avoid* patching rather than patch.
 - What reads the global at file `0xf59a58`, and therefore what the flag ultimately
   drives. It has exactly one reference by the `ldr [pc]/add pc` idiom — the write.
-- Whether `ctx+0xc8` is something a user can influence at all, given there is no
-  UI.
+  This is the gap that makes the failure mode of patch A unpredictable offline.
+- Whether `ctx[0]` can be anything other than 0 or 9 in practice, given
+  `fcn.00864566` only ever returns those two.
 - Which `SaDriver*` type the audio path needs — still a guess
   (`SaDriverLinearPhase` is unverified). Matters because `StageWaitSAComp` suggests
   the pipeline may touch audio.
@@ -469,8 +517,11 @@ it is the better target — and the honest caveat is that "whole chain" means
 | it is `RcFill::vfn[6]` | **high** — vtable slot, typeinfo name read from RTTI |
 | **`RcFill` is never instantiated** | **high** — no literal and no `MOVW`/`MOVT` for its vtable address anywhere, while 8 siblings have theirs; residual gap: an address synthesised arithmetically rather than loaded would be missed |
 | `fcn.0039eb6c` is the only consumer | **medium-high** — one function passes a `cmp`+branch test on a `+0x10c` load; a consumer branching on the value some other way would be missed |
+| `ctx+0xc8` is a latch of the previous resolved mode | **high** — the epilogue writes back exactly the four registers loaded at entry |
+| the latch never holds 5 | **medium** — the exit value is the same `r4` whose literal set excludes 5, but five other functions also write a `+0xc8` and the identity test separating them is weak |
 | the three patch bytes and their effects | **high** — each validated by before/after disassembly |
-| `cap_mode` 5 is reachable in practice | **unknown — the remaining blocker** |
+| patch A is correct whether or not `r4 == 5` is reachable | **high** — follows from the two rows above, by cases |
+| `ctx[0]` cannot be 5 in practice | **medium** — no `tbh` case yields `r4 = 5`, but the value also passes through `ctx+0xc8` |
 | offered on a ZV-E10 | **not established** |
 
 ## Reproducing
