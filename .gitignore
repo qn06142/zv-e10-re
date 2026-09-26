@@ -39,8 +39,10 @@ avcam_proj/
 /fuzz_dat/
 /fw/
 /fw_update/*.dat
-# root-level blobs: fdat_raw.bin, fdat_decrypted.bin, fdat_raw1024.bin,
-# fw_dec_best.bin, msc_dump.bin
+# Defence in depth.  The loose blobs (fdat_raw.bin, fdat_decrypted.bin,
+# msc_dump.bin, the av-cam patch experiments) were consolidated into /dumps/,
+# which is already ignored above.  These stay so that a future script writing a
+# large blob into the root cannot commit it by accident.
 /*.bin
 /*.dat
 /*.bak
