@@ -87,16 +87,42 @@ name, so the low bit is a variant selector (audio / no-audio), matching the
 
 ## Model-specific gating
 
-`BOL310` and `BOL473` appear as body codes with dedicated code paths:
+> **Correction (2026-09-26).** An earlier reading treated `Stage_OpdBranch_BOL310`
+> as evidence that OPD means "Optical Pixel Divider" and that BOL310 has Pixel
+> Shift. That was an inference from an acronym and it is wrong in the way that
+> matters: **this image contains zero occurrences of `IBIS`**, and Sony's Pixel
+> Shift Multi Shot is driven by the IBIS sensor-shift actuator, so it cannot
+> apply to a body without IBIS. The ZV-E10 has no IBIS. The OPD / MotionShot /
+> BDRO stages are therefore stages for *other bodies in the shared build*, not
+> features this camera can have. Do not read them as available.
 
-- `FW: ImagerSleep not available on BOL310. force replace DISABLE` — a feature
-  **actively removed** on this body, referenced from `0x32dfc8`
-- `Stage_ReadExecute_AsyncLv_BOL310_BOL473` — a sensor-readout stage
-  implemented per model pair, referenced from `0x3324d0`
-- `FW: BOL310TDReadWait) dummy SGC1 kick delayed…` — `0x3418b8`
+`BOL310`, `BOL373` and `BOL473` are Sony internal body codes. They appear in
+only three pipeline stage names plus four runtime log strings:
 
-Also `FW: ERROR: PID is not supported: %x` and `FW: Procedure is not found
-PID:%x` — a Procedure-ID dispatch table, with `EParamSetID` as its enum.
+```
+Stage_ReadExecute_AsyncLv_BOL310_BOL473
+Stage_OpdBranch_BOL310
+Stage_TDReadExecute_BOL373
+FW: ImagerSleep not available on BOL310. force replace DISABLE
+```
+
+So the firmware carries three sensor-readout implementations and selects by
+model; BOL310 additionally has `ImagerSleep` forcibly removed. **BOL310 is not
+this camera.** There is no `ZV-`/`ILCE-` string in the image, and — checked at the
+byte level — no `IBIS`, `PixelShift` or `PIXEL` occurrence anywhere in the 17 MB.
+
+Worth stating plainly: **`av-cam.bin` contains no model identifier at all.** The
+firmware version `30110_05.2025031501` comes from `dumps/version.txt`, a
+separate source, and is *not* present in this binary. That is consistent with
+the module being model-agnostic: the RTOS selects the per-body path at load
+time, so the image itself does not need to know which body it is on. Mapping
+`30110` or `BOL310` to a retail name requires Sony's model-code list, not this
+file.
+
+Practical consequence: because this binary only ever runs on one camera,
+flipping a feature gate cannot break a sibling model. There is no cross-model
+safety concern.
+
 
 ## ISP-level function gate
 
