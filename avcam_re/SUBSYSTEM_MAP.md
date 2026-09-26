@@ -17,6 +17,12 @@ that (one spans 7.6 MB) which would otherwise smear attribution image-wide.
 Every label is auditable — `retool subsystems` prints the string that justified
 each one.
 
+> **Updated after a resolver fix.** An unbounded `ldr`→`add` pairing window in
+> `retool.xrefs` fabricated some references; capping it changed the counts
+> slightly: coverage 1137 → **1107**, DECODE 225 → **219**, ENCODE 179 → **173**,
+> ratio 1.26 → **1.27**. The region separation below is unchanged
+> (`0x0a0000`/`0x0b0000` remain decode-only). Numbers here are the corrected ones.
+
 ## Coverage, and what was rejected
 
 **1,137 of 64,559 trusted functions (1.8%) reference a string directly.** The

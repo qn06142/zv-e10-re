@@ -17,7 +17,18 @@ produces confident, wrong conclusions -- in this investigation it produced two:
 a "video mode descriptor table" and a "handler vtable" that were both deltas
 to unrelated strings.  Always resolve deltas before interpreting.
 
-Verified against av-cam.bin: 111,240 references resolved image-wide.
+Two further traps, both hit during this work:
+
+* An unbounded distance between the `ldr` and the `add` that consumes it
+  fabricates references.  `add rX, pc` is also used for ordinary address
+  arithmetic, and a distant one reuses a stale pool slot.  The bogus targets
+  look precisely like hardware register addresses (odd low bits, one per
+  page), which is how a fake "MMIO map" got published.  MAX_LDR_ADD_GAP bounds it.
+* An `add rX, pc` preceded by a load from a non-literal source (a struct
+  field, a computed pointer) has no literal pool at all, and any nearby match
+  is spurious.  A *negative* result is therefore also weak evidence: this
+  module has essentially no out-of-image references, which means it never names
+  hardware addresses rather than that the scan failed.
 """
 from __future__ import annotations
 
@@ -30,6 +41,11 @@ _LDR_T1 = 0x4800   # 0100 1 000 Rt imm8      ldr Rt, [pc, #imm8*4]
 _LDR_T3_LO = 0xF85F   # 1111 1000 0101 1111    ldr.w Rt, [pc, #imm12]
 _LDR_T3_HI = 0xF89F   # ... with U=1
 _ADD_PC = 0x4478   # 0100 0100 0111 1 Rd      add Rd, pc
+
+# Maximum byte distance between a `ldr rX,[pc]` and the `add rX, pc` that
+# consumes it.  Compilers emit them adjacent; anything further apart is a
+# different instruction that happens to reuse the register.
+MAX_LDR_ADD_GAP = 12
 
 
 def _is_add_pc(hw: int) -> int | None:
@@ -66,7 +82,11 @@ def iter_references(data: bytes):
         r = _is_add_pc(hw)
         if r is not None:
             prev = last_ldr.get(r)
-            if prev is not None:
+            # The ldr and the add must be adjacent.  Without this window a
+            # distant `add rX, pc` reuses a stale pool slot and fabricates
+            # thousands of bogus "references" -- which then look exactly like
+            # hardware register addresses.
+            if prev is not None and (a - prev[0]) <= MAX_LDR_ADD_GAP:
                 ldr_a, slot = prev
                 if 0 <= slot <= len(data) - 4:
                     pc = (a + 4) & ~3

@@ -245,6 +245,17 @@ def test_xrefs_delta_resolution():
         hits = xrefs.refs_to(data, 0x89DADE, 0x140)
         check(len(hits) >= 1, "mode table at 0x89DADE has an inbound reference")
 
+        # An unbounded ldr->add window fabricates references that look exactly
+        # like hardware register addresses.  Build a case where the `add` is far
+        # from its ldr and confirm it is rejected.
+        buf = bytearray(0x40)
+        buf[0:2] = _s.pack("<H", 0x4801)      # ldr r0, [pc, #1]  -> pool @8
+        buf[8:12] = _s.pack("<I", 0x1000)
+        # padding, then `add r0, pc` far away (offset 0x30) reusing r0
+        buf[0x30:0x32] = _s.pack("<H", 0x4478)
+        far = [r for r in xrefs.iter_references(bytes(buf)) if r[1] == 0x30]
+        check(not far, "rejects an ldr/add pair beyond the adjacency window")
+
 
 def test_real_symdb():
     print("real symbol db")
