@@ -2,8 +2,9 @@
 
 Single reference for the hardware as established from `dumps/av-cam.bin`
 (17,289,388 B, SHA-free working copy). Supersedes the narrower documents:
-`HARDWARE_TOPOLOGY.md`, `REGISTER_WRITE_PATH.md`, `SUBSYSTEM_MAP.md`,
-`MODULE_CONTRACT.md`, `FEATURE_GATES.md`, `TABLE_PURPOSE_CORRECTION.md`.
+`HARDWARE_TOPOLOGY.md`, `REGISTER_WRITE_PATH.md`, `REGISTER_MMIO_MAP.md`,
+`SUBSYSTEM_MAP.md`, `MODULE_CONTRACT.md`, `FEATURE_GATES.md`,
+`TABLE_PURPOSE_CORRECTION.md`.
 
 All addresses are **file offsets**; runtime VA = offset + `0x635c6000`.
 
@@ -79,8 +80,8 @@ per-instance numbering (`GetZimaNo`).
 ## 4. Register programming — the part that matters for modification
 
 ```
-ISP_WriteRegister       0x7e8e88  Thumb   1,983 bl call sites
-ISP_WriteRegister_0x68  0x7e8eb8  Thumb   sibling, hardcodes block 0x68
+ISP_WriteRegister       0x7e8e88  Thumb   4,220 bl call sites
+ISP_WriteRegister_0x68  0x7e8eb8  Thumb   3 calls, hardcodes block 0x68
  └─ core                0x44038c  Thumb   296 B — the implementation
       ├─ 0x44033c, 0x7e90dc          helpers
       ├─ 0x5223ec    ARM   5,004 xrefs   bit-field packer
@@ -98,11 +99,13 @@ committed in batches:
 | `ctx + block*24` | **24-byte per-block descriptor** (stride `0x18`) |
 | commit | `0x522ad0` (`ZIMA_DVENC_launch`, `0xd20`) |
 
-Consequence: **there is no register address in the image to patch.** A value the
-hardware needs must be changed in the shadow descriptor or in the code that
-fills it, and the commit must still fire. The register-file base is obtained at
-runtime; no literal names it, which is why a scan for out-of-image addresses
-returns only artifacts.
+Consequence: **there is no register address at any file offset to patch.** The
+hardware is reached through logical register offsets that a small accessor family
+biases into absolute device addresses at runtime — which is exactly why a
+file-relative scan for MMIO constants finds nothing. The banks are
+**`0xF3400000`, `0xF2A30000` and `0xF2A00000`**, all outside the firmware's own
+load window; see `REGISTER_MMIO_MAP.md` for the derivation, the full accessor
+table, and the 24-byte descriptor layout.
 
 **Block id space** (recovered from the instruction stream at each call site):
 
@@ -251,20 +254,26 @@ modification is not.
 | encode/decode split (§6) | **high** — two independent methods agree |
 | register-write model (§4) | **high** — read from the code path |
 | mode table layout (§5) | **high** — terminator position and caller id check both confirm |
-| any specific register address | **none** — no MMIO literals exist; earlier "hardware page" results were a resolver bug and are withdrawn |
-| descriptor byte meanings, register-file base | **unknown** — the concrete next target |
+| register bank bases `0xF3400000` / `0xF2A30000` / `0xF2A00000` | **high** — literal-pool constants from the instruction stream; both encodings of the first checked numerically; all lie outside the load window |
+| 24-byte descriptor layout | **high** — every field from a distinct store instruction |
+| which physical block each bank drives (ISP / DFE / ZIMA) | **not established** — plausible from the call path, unproven |
+| logical register offset → register name | **not established** — no name table found yet |
 | BOL310 → retail name | **unresolvable here** — needs Sony's model-code list, not this file |
 
 ---
 
 ## 12. Where to go next
 
-1. **Descriptor layout** — the 24 bytes at `ctx + block*24`, and the register-file
-   base (follow `ctx` back to its allocation).
-2. **Feature enable bitmask** — reach `StaticFeatureConfigrator`'s vtable via its
+1. **Logical offset → register name.** The banks are known; what is missing is the
+   name for each logical offset. `0xF2A00000` and `0xF3400000` are close enough
+   that the same logical value lands in both, so a name table keyed on the offset
+   would identify which bank a call site means.
+2. **Bank → subsystem.** Nothing yet proves which bank is ISP, DFE or ZIMA. The
+   call path suggests it; the string tables could settle it.
+3. **Feature enable bitmask** — reach `StaticFeatureConfigrator`'s vtable via its
    RTTI name and follow it to the data it reads. This converts the ranked
    candidate list in `FEATURE_GATES.md` into offsets.
-3. **ISP FuncID gate** — `0x1e31fc`; what turns a FuncType on.
+4. **ISP FuncID gate** — `0x1e31fc`; what turns a FuncType on.
 
 ## Reproducing
 
