@@ -402,26 +402,24 @@ but **none of those is in a function that also touches the CapMgr flag triple**.
 
 ## Open unknowns
 
-- **What drives the Motion Shot stage sequence.** This is now the real question.
-  The stages are registered and the `sa_func` entry points are called from the stage
-  code, so the trigger is in the sequencer (`NS_SCALAR_INFRA MotionShotVideoManager`
-  / `MotionShotVideoSequence`, and the `Stage_*` exec chain) rather than in the
-  CapMgr flag. Until that path is traced, "enable Motion Shot" is a port, not a
-  patch.
-- Which stage or state must be entered, and whether the sequencer can reach it
-  without a UI — the mode dispatch yields only 0 and 9, so the sequencer's own mode
-  vocabulary is the thing to map.
-- What writes the CapMgr's `ctx+0xc8` besides the latch epilogue. Not blocking any
-  patch now, but it is what to settle if anyone wants to understand the mode
-  resolution rather than change it.
+- **How the concrete `NS_SCALAR_INFRA` layer is meant to be wired.** 115 of 137
+  classes are never instantiated, including every factory. Something must construct
+  them on models that use this framework — a registration list, a linker section, a
+  model-dependent table. Finding that is the prerequisite for any port.
+- Where the `Stage_*` names *are* consumed, given they are not in a central
+  registry. If the 92 clusters are all self-logging, the stage chain must be
+  hard-coded by vtable rather than by name.
+- Which state the `ScalarInfraSequenceIf` implementers are in on this model, given
+  none of the concrete ones is built.
+- What writes the CapMgr's `ctx+0xc8` besides the latch epilogue. Not blocking
+  anything now, but it is what to settle to understand the mode resolution.
 - Which `SaDriver*` type the audio path needs — still a guess
   (`SaDriverLinearPhase` is unverified). Matters because `StageWaitSAComp` suggests
   the pipeline may touch audio.
 - Whether `MS_DUMP_RAW_PRELIGHT_*` implies a sensor readout mode this body cannot
   enter. Untested.
-- Whether any of the 126 published flags in the `0xf59a50` table are the ones a
-  working implementation would use — i.e. whether the real feature reads a
-  different byte of that table entirely.
+- Whether the 126 published flags in the `0xf59a50` table include the one a
+  working implementation would actually use.
 
 ## Withdrawn / corrected claims
 
@@ -525,55 +523,94 @@ So the flag is set from seven places and read from none. That is a third
 independent exclusion, alongside the unconstructed `RcFill` and the mode gate — and
 it is the one that makes the byte patch pointless.
 
-## The pipeline, by contrast, is live
+## The pipeline exists but is not instantiated — the sequencer is dead
 
-This is the useful half of the result. Unlike the flag, the Motion Shot
-*implementation* is wired into reachable code:
+The Motion Shot *implementation* is all present and internally consistent: the
+stage functions exist, they load their own names for logging, and they call the
+`sa_func_*` dispatcher, which is itself live.
 
-- **Stages are registered.** All three Motion Shot stage names carry references:
-  `Stage_Motionshot.cpp` (×2, at `0x3351d0`/`0x335400`),
-  `Stage_MotionShot_Analysis` (×1, at `0x33549c`),
-  `Stage_Rcv_DistResize_MotionShotMiniYc` (×2, at `0x33c904`/`0x33c964`).
-  53 of the image's 86 `Stage_*` names are referenced at all, so this is a real
-  registry with real members, not a name pool.
-- **The `sa_func_*` dispatcher is live.** The region `0x56d000`–`0x56e000` that
-  holds the name-dispatch table is the target of **16 BL call sites**, and
-  `sa_func_MOTIONSHOT_init` / `_exit` are referenced from inside it
-  (`0x56d5c0`, `0x56d5fc`, `0x56d3fe`).
-- **The stage code calls it.** At `0x334f48`:
+```
+0x00334f48  bl    fcn.0056d50c          ; the sa_func name dispatcher
+0x00334f4c  mov   r2, r0
+0x00334f4e  cbz   r0, 0x334f5a
+0x00334f50  ldr   r0, [0x335170]        ; "FW: %s: sa_func_MOTIONSHOT_start error (%d)"
+```
 
-  ```
-  0x00334f48  bl    fcn.0056d50c          ; the sa_func dispatcher
-  0x00334f4c  mov   r2, r0
-  0x00334f4e  cbz   r0, 0x334f5a
-  0x00334f50  ldr   r0, [0x335170]        ; "FW: %s: sa_func_MOTIONSHOT_start error (%d)"
-  ```
+The `sa_func` dispatch region `0x56d000`–`0x56e000` is the target of 16 BL call
+sites, and `sa_func_MOTIONSHOT_init` / `_exit` are referenced from inside it. Three
+of those 16 callers are in the Motion Shot stage code itself.
 
-  i.e. the Motion Shot stage invokes `sa_func_MOTIONSHOT_start` by name and
-  branches on the result.
+> **Correction: "its stages are registered" was an overreach, and is withdrawn.**
+> 53 of 86 `Stage_*` names carry code references, which looked like a registry. It
+> is not: clustering all 109 references gives **92 clusters of 3–4**, every one a
+> `ldr rX,[pc]` inside an individual function. That is each stage loading *its own
+> name* for a log line. It proves the functions exist, not that a sequencer can
+> select them.
 
-So the machinery exists, is registered, and is called. `ctx+0x10c` is a dead-end
-side channel, **not** the activation path. What actually runs the feature is the
-stage sequencer (`NS_SCALAR_INFRA MotionShotVideoManager` /
-`MotionShotVideoSequence`, and the `Stage_*` exec chain), and that is driven by
-the sequencer rather than by the CapMgr flag.
+### The construction test
 
-## Why the flag was the wrong thing to chase
+A constructor must reference its class's vtable address point (`vtable offset +
+0x635c6000`) as a literal or a `MOVW`+`MOVT` pair. Absence of that reference means
+nothing in the image points at the vtable — not even a derived class's secondary
+base slot.
 
-It was the right question to start from — the gate's own log
-(`FW: Mshot mode forced off! cap_mode:%x`) names the flag, so it looks like the
-control surface. But three findings, each of which looked decisive on its own,
-all had to be checked before the patch was worth proposing:
+The test was **validated against four cases already settled independently** before
+its verdict was believed:
 
-1. the arming object is never constructed (`RcFill`);
-2. mode 5 is very likely never produced;
-3. and then, the thing that settles it — the flag's only consumer sets a byte
-   nobody reads.
+| class | established as | test says |
+|---|---|---|
+| `8RcResize` | constructed | CONSTRUCTED ✔ |
+| `11RcResizeDst` | constructed | CONSTRUCTED ✔ |
+| `12RcResizeDstH` | constructed | CONSTRUCTED ✔ |
+| `6RcFill` | dead | never constructed ✔ |
 
-The first two would each have justified a patch. Only chasing the chain to its end
-showed the whole path is a stub. Worth recording as a lesson: a "capability flag
-with a gate and a validator" looks like a control surface, and it took reading
-past the flag to see that the thing it controls controls nothing.
+4/4, so the method reproduces both known answers.
+
+| class | vtable | literals | MOVW/MOVT | verdict |
+|---|---|---|---|---|
+| `ScalarInfraMotionShotVideoSequence` | `0x0fc88c4` | 0 | 0 | **never instantiated** |
+| `ScalarInfraMotionShotVideoManager` | `0x0fc88a4` | 0 | 0 | **never instantiated** |
+| `...MotionShotVideoSequenceStageExecPost` | `0x0fc88f4` | 0 | 0 | **never instantiated** |
+| `...MotionShotVideoSequenceStageWaitSAComp` | `0x0fc88dc` | 0 | 0 | **never instantiated** |
+
+### The whole concrete layer is dead, not just Motion Shot
+
+Running the same test across every `NS_SCALAR_INFRA` typeinfo name — **137 of
+them** — splits perfectly along interface-vs-implementation:
+
+| | count | what they are |
+|---|---:|---|
+| vtable referenced | **22** | `MsgHandler`, `ComponentFactoryIf`, `ComponentFactoryBase`, `ScalarInfraSequenceIf`, `ScalarInfraSequenceStageIf`, `ScalarInfraSyncSequenceIf`, `CmdIf`, `SystemCmdIf`, `CLogFactory`, `SubsystemAccessorIf`… — **all abstract bases and interfaces** |
+| vtable not referenced | **115** | `MotionShotVideoSequence`, `MotionShotVideoManager`, `ScalarInfraSequenceJpeg`, `SequenceLiveView`, `SequenceSa`, `SequenceIdle`, every `*Factory`, every concrete `*Stage*`… — **all concrete implementations** |
+
+Not one concrete sequence or factory in the family is instantiated. That is a much
+broader fact than "Motion Shot is excluded", and it is the real shape of this build:
+**the `NS_SCALAR_INFRA` framework is present as interfaces; its concrete layer is
+compiled in but never wired up.** (Caveat on the positive side: for the 22, a
+vtable reference can come from a derived class's base slot rather than a real
+constructor, so "referenced" is the weaker claim. The 115 are unambiguous — their
+vtables are pointed at by nothing at all.)
+
+### What this means
+
+`ctx+0x10c` was never the activation path, and the sequencer that would run the
+feature is not instantiated either. So the exclusion stack is:
+
+1. no menu or front end of any kind (verified by exhaustive search);
+2. the CapMgr flag is initialised 0, cleared unless mode 5, and mode 5 is very
+   likely never produced;
+3. that flag's only consumer sets a byte nothing reads;
+4. the object that arms the flag, `RcFill`, is never instantiated;
+5. and now: **`MotionShotVideoManager` and `MotionShotVideoSequence` are never
+   instantiated either**, along with every other concrete `NS_SCALAR_INFRA` class.
+
+**Conclusion: enabling Motion Shot on this body is a port, not a patch.** The good
+news is that all the compiled code is present — the stage functions, the `sa_func`
+entry points, the pipeline classes — so a port is a wiring job (construct the
+manager, register the sequence, supply the factories) rather than a
+reimplementation. The bad news is that nothing in the existing firmware does that
+wiring, and there is no UI to drive it, so it would have to be triggered
+out-of-band.
 
 ## Comparison with Golf Shot
 
@@ -611,13 +648,16 @@ reachable trigger; Golf Shot has partial code with no demonstrated entry.
 | **`RcFill` is never instantiated** | **high** — no literal and no `MOVW`/`MOVT` for its vtable address anywhere, while 8 siblings have theirs; residual gap: an address synthesised arithmetically rather than loaded would be missed |
 | `fcn.0039eb6c` is the only consumer | **medium-high** — one function passes a `cmp`+branch test on a `+0x10c` load; a consumer branching on the value some other way would be missed |
 | **the global at `0xf59a58` is never read** | **high** — three independent negatives (1 reference vs 2 for a neighbour, 0 published literals vs 1, no getter vs 3 callers), and the array it belongs to is otherwise routinely published |
-| **the Motion Shot stages are registered** | **high** — all three names carry references; 53 of 86 `Stage_*` names are referenced |
-| **the `sa_func` dispatcher is live** | **high** — 16 BL call sites into `0x56d000`–`0x56e000` |
-| **the stage code calls it** | **high** — `bl fcn.0056d50c` at `0x334f48`, immediately followed by the `sa_func_MOTIONSHOT_start error` check |
+| the stage functions exist and call the live dispatcher | **high** — `bl fcn.0056d50c` at `0x334f48`, immediately followed by the `sa_func_MOTIONSHOT_start error` check |
+| ~~the stages are registered in a sequencer~~ | **withdrawn** — the 109 `Stage_*` references form 92 clusters of 3–4, each a function loading its own name for a log; that is not a registry |
+| the vtable-construction test is sound | **high** — reproduces 4/4 cases settled independently (3 constructed, `RcFill` dead) |
+| **`MotionShotVideoManager` / `MotionShotVideoSequence` are never instantiated** | **high** — 0 literal and 0 `MOVW`/`MOVT` references to either vtable's address point |
+| 115 of 137 `NS_SCALAR_INFRA` classes are never instantiated, and the split is exactly interface-vs-implementation | **medium-high** — the split is clean, but for the 22 "referenced" the reference may be a derived class's base slot rather than a constructor; the 115 are unambiguous |
 | `ctx+0xc8` is a latch of the previous resolved mode | **high** — the epilogue writes back exactly the four registers loaded at entry |
 | the latch never holds 5 | **medium** — the exit value is the same `r4` whose literal set excludes 5, but five other functions also write a `+0xc8` and the identity test separating them is weak |
 | the three patch bytes and their effects | **high** — each validated by before/after disassembly |
 | **the flag patches would enable the feature** | **withdrawn — they would not**; the chain they arm terminates in an unread byte |
+| **enabling Motion Shot is a port, not a patch** | **high** — five independent exclusions, the last two of them validated by a method with a 4/4 control |
 | Golf Shot's `[ADF][DBGCMD]` route is a zero-patch win | **not supported** — that command's own log string has 0 references |
 | offered on a ZV-E10 | **not established** |
 
