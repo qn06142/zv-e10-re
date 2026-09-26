@@ -1,4 +1,9 @@
-"""PC-relative data cross-references for av-cam.bin.
+"""PC-relative DATA cross-references for av-cam.bin.
+
+Resolves *data* references only -- literal pools combined with `add rX, pc`.
+It does NOT find code callers: a function is reached by `bl`/`blx`, which
+carries no literal, so querying a function address here correctly returns zero.
+Use a BL-target scan for callers.
 
 rizin's `axt` returns nothing for this image (verified even against known
 strings), so references are resolved directly.

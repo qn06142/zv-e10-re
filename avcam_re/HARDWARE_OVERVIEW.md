@@ -269,10 +269,15 @@ modification is not.
 ## Reproducing
 
 ```
-retool.cmd subsystems avcam --blocks     # encode/decode regions
-retool.cmd region    avcam 0x89dade      # is a data region referenced
-retool.cmd xrefs     avcam 0x7e8e88      # the register primitive
-retool.cmd disasm    avcam 0x44038c -n 40   # the write core
+retool.cmd subsystems avcam --blocks        # encode/decode regions
+retool.cmd region    avcam 0x89dade         # inbound refs to the mode table
+retool.cmd disasm    avcam 0x7e8e88 -n 20   # the register-write wrapper
+retool.cmd disasm    avcam 0x44038c -n 40   # the write core (shadow/commit)
 retool.cmd disasm    avcam 0x5223ec -n 12 --arm   # ARM-mode bit-field packer
-retool.cmd strings   avcam Configrator   # the enable mechanism
+retool.cmd strings   avcam Configrator      # the feature enable mechanism
 ```
+
+Note `retool xrefs` resolves **PC-relative data references** (literal pools plus
+`add rX, pc`), not code calls. It correctly reports **0** for `0x7e8e88`,
+because a function is reached by `bl` rather than by a literal — use a BL-target
+scan to find a function's callers, not `xrefs`.
