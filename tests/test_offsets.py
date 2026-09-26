@@ -274,3 +274,114 @@ def test_no_literal_five_is_written_to_r4(data):
     assert 5 not in lits
     assert lits <= {0, 1, 6, 8, 9, 0x18, 0x1A, 0x1B, 0x1C}
     assert len(lits) >= 7
+
+
+# ------------------------------------------------- the write-only sink flag
+
+def _published_va_literals(data, base, lo, hi):
+    """File offsets in [lo,hi) whose runtime VA appears as a 32-bit literal."""
+    out = set()
+    for o in range(0, len(data) - 4, 4):
+        v = int.from_bytes(data[o:o + 4], "little")
+        if lo <= (v & ~1) - base < hi:
+            out.add((v & ~1) - base)
+    return out
+
+
+@needs_dump
+def test_mshot_sink_flag_is_write_only(data):
+    """0xf59a58 is set seven times and read never -- which retires the flag patch.
+
+    The flag chain is ctx+0x10c -> fcn.0039eb6c -> fcn.003a25fc -> this byte, and
+    nothing consumes it.  Checked three ways, with a neighbour that *is* consumed
+    as the control so a negative result means something.
+    """
+    base = 0x635C6000
+    sink, neighbour = 0x0F59A58, 0x0F59A5E
+    tbl = offsets.resolve_pc_globals(data, window=24)
+
+    # 1. PC-relative references: the sink has only its own setter, the neighbour
+    #    only its getter
+    assert len(tbl.get(sink, [])) == 1
+    assert tbl[sink][0][0] == 0x03A25FC
+    assert len(tbl.get(neighbour, [])) == 1
+    assert tbl[neighbour][0][0] == 0x03A2608
+
+    # 2. published runtime-VA literals: the neighbour has one, the sink has none
+    pub = _published_va_literals(data, base, 0x0F59A50, 0x0F59B80)
+    assert neighbour in pub
+    assert sink not in pub
+    assert len(pub) > 100            # the rest of the table is routinely published
+
+    # 3. the accessor at 0x3a25fc stores a byte; the one at 0x3a2608 does not
+    assert _accessor_target(data, 0x03A25FC) == sink
+    assert _accessor_target(data, 0x03A2608) == neighbour
+    assert _accessor_stores_byte(data, 0x03A25FC)
+    assert not _accessor_stores_byte(data, 0x03A2608)
+
+
+def _accessor_target(data, at):
+    """Resolve `ldr rX,[lit]; add rX,pc` at `at` to the address it yields."""
+    rd, imm = offsets.is_ldr_pc(hw(data, at))
+    assert rd is not None, hex(at)
+    lit = at + 4 + imm
+    val = int.from_bytes(data[lit:lit + 4], "little")
+    for k in range(1, 8):
+        p = at + 2 * k
+        if offsets.is_add_pc(hw(data, p)) == rd:
+            return val + (p + 4)
+    raise AssertionError(f"no add r{rd},pc after 0x{at:x}")
+
+
+def _accessor_stores_byte(data, at):
+    """Does the accessor at `at` store a byte before returning?
+
+    The scan must stop at the accessor's `bx lr`: the literal pool immediately
+    follows, and a data word there can carry the 0x7xxx pattern that looks like
+    `strb`.  Without that bound a plain getter reports a store.
+    """
+    rd, _imm = offsets.is_ldr_pc(hw(data, at))
+    for k in range(1, 8):
+        p = at + 2 * k
+        h = hw(data, p)
+        if (h & 0xFF00) == 0x4700:        # bx lr -- accessor is over
+            return False
+        if (h & 0xFE00) == 0xBD00:        # pop {.., pc}
+            return False
+        if offsets.is_add_pc(h) == rd:
+            for q in range(p + 2, min(p + 12, len(data) - 2), 2):
+                if (hw(data, q) & 0xFF00) == 0x4700:
+                    return False
+                if (hw(data, q) & 0xF800) == 0x7000:
+                    return True
+            return False
+    return False
+
+
+@needs_dump
+def test_motion_shot_stages_are_referenced(data):
+    """The pipeline is live code, which is why the flag was the wrong target."""
+    from retool.xrefs import refs_to
+    for s in (b"Stage_Motionshot.cpp",
+              b"Stage_MotionShot_Analysis",
+              b"Stage_Rcv_DistResize_MotionShotMiniYc"):
+        i = data.find(s + b"\x00")
+        assert i > 0, s
+        refs = {r["ldr"] for r in refs_to(data, i, span=0)}
+        assert refs, f"{s.decode()} has no code reference"
+
+
+@needs_dump
+def test_stage_code_calls_the_live_sa_func_dispatcher(data):
+    """0x334f48 calls the dispatcher; 0x334f50 loads the MOTIONSHOT_start error."""
+    t = offsets.bl_target(hw(data, 0x334F48), hw(data, 0x334F4A), 0x334F48)
+    assert t == 0x056D50C
+    lit = 0x335170
+    rd, imm = offsets.is_ldr_pc(hw(data, 0x334F50))
+    assert rd is not None and 0x334F50 + 4 + imm == lit
+    name = data[lit:lit + 200].split(b"\x00")[0]
+    # the literal at 0x335170 is a PC-relative delta, so resolve it first
+    delta = int.from_bytes(data[lit:lit + 4], "little")
+    tgt = delta + (0x334F54 + 4)
+    blob = data[tgt:tgt + 200].split(b"\x00")[0]
+    assert b"sa_func_MOTIONSHOT_start" in blob, blob

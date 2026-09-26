@@ -3,6 +3,21 @@
 Addresses are file offsets (runtime VA = offset + `0x635c6000`). `ctx` is the
 per-capture context.
 
+> ## Retraction: the two-byte patch recommended below would not work
+>
+> An earlier revision recommended patching the CapMgr flag `ctx+0x10c` — preset it
+> in the constructor and stop the validator clearing it. **That recommendation was
+> wrong, and this revision withdraws it.** The chain that flag feeds ends in a
+> **write-only byte**: the flag's only effect is to set a global at file `0xf59a58`,
+> and nothing in the image reads that global. Patching the flag arms a dead end.
+>
+> What replaces it is a more useful result, though it points somewhere deeper: the
+> Motion Shot **pipeline** is live code. Its stages are registered, the
+> `sa_func_*` name dispatcher is called from 16 sites including the Motion Shot
+> stage code itself, and that stage code is reached. So `ctx+0x10c` is *not* the
+> activation path — the real one is the sequencer, and finding it is a bigger job
+> than a byte patch.
+
 > **Correction to this file's own premise.** An earlier revision opened with
 > "`cap_mode` is `ctx[0x90]`". That is wrong. `ctx[0x90]` is a 0..33 selector
 > feeding the *separate* 34-way per-mode **limit resolver**; the capture mode that
@@ -349,17 +364,17 @@ any of these terms, which almost certainly means those artefacts are still
 compressed rather than being evidence of absence. They are not treated as evidence
 either way.
 
-## Patch candidates
+## Patch candidates — all three verified, none recommended
 
 All three are **one byte**, and all three were validated empirically: flip the
 byte in a copy, disassemble before and after, and confirm the only change in the
 window is the intended one.
 
-| | file offset | change | effect | risk |
+| | file offset | change | effect | verdict |
 |---|---|---|---|---|
-| **A** | `0x0317133` | `d0` → `e0` | `beq 0x317144` → `b 0x317144`: the flag is **never cleared** | flag stays set in modes that cannot service motion shot |
-| **B** | `0x007f4fa` | `00` → `01` | `movs r1,#0` → `movs r1,#1`: **preset** the flag at construction | `r1` is shared with the `+0x114` store, so that field also becomes 1 |
-| **C** | `0x039ee4f` | `d0` → `e0` | the consumer's `bne` becomes unconditional: always call `fcn.003a25fc` | bypasses the mode check entirely; which of the three sites is the right one is unknown |
+| **A** | `0x0317133` | `d0` → `e0` | `beq 0x317144` → `b 0x317144`: the flag is never cleared | correct, **pointless** — nothing reads the result |
+| **B** | `0x007f4fa` | `00` → `01` | `movs r1,#0` → `movs r1,#1`: preset the flag at construction | correct, **pointless** — and has a side effect |
+| **C** | `0x039ee4f` | `d0` → `e0` | the consumer's `bne` becomes unconditional: always call `fcn.003a25fc` | correct, **pointless** — sets an unread byte |
 
 Validation output:
 
@@ -375,47 +390,38 @@ B: 0x007f4fa: 0x00 -> 0x01
    6/7 instructions unchanged in the window
 ```
 
-Patch A is the same shape as the already-validated ZIT SA patch at `0x1e31f0`
-(`08 d0` → `08 e0`).
+They are recorded because they are verified and because the *reason* they do not
+work is the finding. **Do not flash them expecting Motion Shot.** A, B and C
+together would leave the camera setting a `.bss` byte that nothing reads — a
+plausible-looking patch that does nothing at all, which is worse than no patch
+because it looks like progress.
 
-**Recommended shape: A + B, two bytes.** Together they mean the flag is set once at
-construction and never vetoed, so the camera proceeds down its own Motion Shot path
-exactly as it would on a model where the feature is offered. The firmware's config,
-validation and init all still run; we change a *default*, not a forged state.
-
-**Why not C alone:** it is the smallest diff, but it discards the mode check rather
-than satisfying it, and the three candidate sites are in different states of a
-6-way switch with no way yet to tell which is the live one.
-
-### The `+0x114` side effect of patch B
-
-`r1` feeds both `str.w r1,[r3,0x10c]` and `str.w r1,[r3,0x114]`, and no register
-holds 1 at that point, so a single-byte edit cannot set one without the other.
-
-Mitigating evidence: `+0x114` has 277 accesses image-wide and 28 sites compare it
-against a constant, but **none of those is in a function that also touches the
-CapMgr flag triple** (`+0x10c`/`+0x110`/`+0xbc`). Within the 19 functions that do
-share that triple, `+0x114` is written and read but never compared to an immediate
-after a load. It behaves like a sibling field of the same request block, not like a
-tested predicate. That is mitigation, **not proof** — treat as unquantified.
+The `+0x114` side effect of B is moot for the same reason, though for the record:
+`+0x114` has 277 accesses image-wide and 28 sites compare it against a constant,
+but **none of those is in a function that also touches the CapMgr flag triple**.
 
 ## Open unknowns
 
-- **What writes the CapMgr's `ctx+0xc8` besides the latch epilogue.** The identity
-  test used to constrain the 164 `+0xc8` writers is weak (see above). Not blocking,
-  because patch A is correct either way — but it is the thing to settle if anyone
-  wants to *avoid* patching rather than patch.
-- What reads the global at file `0xf59a58`, and therefore what the flag ultimately
-  drives. It has exactly one reference by the `ldr [pc]/add pc` idiom — the write.
-  This is the gap that makes the failure mode of patch A unpredictable offline.
-- Whether `ctx[0]` can be anything other than 0 or 9 in practice, given
-  `fcn.00864566` only ever returns those two.
+- **What drives the Motion Shot stage sequence.** This is now the real question.
+  The stages are registered and the `sa_func` entry points are called from the stage
+  code, so the trigger is in the sequencer (`NS_SCALAR_INFRA MotionShotVideoManager`
+  / `MotionShotVideoSequence`, and the `Stage_*` exec chain) rather than in the
+  CapMgr flag. Until that path is traced, "enable Motion Shot" is a port, not a
+  patch.
+- Which stage or state must be entered, and whether the sequencer can reach it
+  without a UI — the mode dispatch yields only 0 and 9, so the sequencer's own mode
+  vocabulary is the thing to map.
+- What writes the CapMgr's `ctx+0xc8` besides the latch epilogue. Not blocking any
+  patch now, but it is what to settle if anyone wants to understand the mode
+  resolution rather than change it.
 - Which `SaDriver*` type the audio path needs — still a guess
   (`SaDriverLinearPhase` is unverified). Matters because `StageWaitSAComp` suggests
   the pipeline may touch audio.
 - Whether `MS_DUMP_RAW_PRELIGHT_*` implies a sensor readout mode this body cannot
   enter. Untested.
-- The reader of `ctx+0x114` that would settle the patch-B side effect.
+- Whether any of the 126 published flags in the `0xf59a50` table are the ones a
+  working implementation would use — i.e. whether the real feature reads a
+  different byte of that table entirely.
 
 ## Withdrawn / corrected claims
 
@@ -487,23 +493,110 @@ Recording these because each was stated as fact and was wrong.
 - Constant propagation must use the **nearest preceding definition of any value**,
   not "the nearest assignment of the value I want".
 
+## The flag chain dead-ends in a write-only byte
+
+`ctx+0x10c` has exactly one consumer, and the chain from there is short:
+
+```
+ctx+0x10c == 1
+  -> fcn.0039eb6c, three identical sites (0x39ee48, 0x39ef9e, 0x39f306)
+  -> bl fcn.003a25fc          which is only: strb r0, [r3]   (set a global)
+  -> global byte @ file 0xf59a58 := 1
+  -> nothing.
+```
+
+`0xf59a58` is **never read**. Three independent negatives, and a contrast that
+shows the method works:
+
+| check | `0xf59a58` (Motion Shot) | `0xf59a5e` (a neighbour) |
+|---|---|---|
+| `ldr rX,[pc]` + `add rX,pc` references | **1** — its own setter, `0x3a25fc` | 1 — its getter, `0x3a2608` |
+| 32-bit runtime-VA literal anywhere in the image | **0** | 1 — at `0x100c29c` |
+| getter in the accessor cluster `0x3a25fc`–`0x3a2718` | **absent** | present, 3 BL callers |
+| BL callers of its accessor | 7 (all *setters* in `fcn.0039eb6c`) | 3 readers |
+
+The accessor cluster at `0x3a25fc`–`0x3a2718` is a flag table spanning
+`0xf59a58`–`0xf59b80`. It provides a **setter** for `+0` and **getters** for
+`+2 … +9`. 126 of that array's 304 bytes are additionally published as runtime-VA
+pointers in `.data.rel.ro`; `0xf59a58` is not among them. The whole array is
+zero-initialised (`.bss`).
+
+So the flag is set from seven places and read from none. That is a third
+independent exclusion, alongside the unconstructed `RcFill` and the mode gate — and
+it is the one that makes the byte patch pointless.
+
+## The pipeline, by contrast, is live
+
+This is the useful half of the result. Unlike the flag, the Motion Shot
+*implementation* is wired into reachable code:
+
+- **Stages are registered.** All three Motion Shot stage names carry references:
+  `Stage_Motionshot.cpp` (×2, at `0x3351d0`/`0x335400`),
+  `Stage_MotionShot_Analysis` (×1, at `0x33549c`),
+  `Stage_Rcv_DistResize_MotionShotMiniYc` (×2, at `0x33c904`/`0x33c964`).
+  53 of the image's 86 `Stage_*` names are referenced at all, so this is a real
+  registry with real members, not a name pool.
+- **The `sa_func_*` dispatcher is live.** The region `0x56d000`–`0x56e000` that
+  holds the name-dispatch table is the target of **16 BL call sites**, and
+  `sa_func_MOTIONSHOT_init` / `_exit` are referenced from inside it
+  (`0x56d5c0`, `0x56d5fc`, `0x56d3fe`).
+- **The stage code calls it.** At `0x334f48`:
+
+  ```
+  0x00334f48  bl    fcn.0056d50c          ; the sa_func dispatcher
+  0x00334f4c  mov   r2, r0
+  0x00334f4e  cbz   r0, 0x334f5a
+  0x00334f50  ldr   r0, [0x335170]        ; "FW: %s: sa_func_MOTIONSHOT_start error (%d)"
+  ```
+
+  i.e. the Motion Shot stage invokes `sa_func_MOTIONSHOT_start` by name and
+  branches on the result.
+
+So the machinery exists, is registered, and is called. `ctx+0x10c` is a dead-end
+side channel, **not** the activation path. What actually runs the feature is the
+stage sequencer (`NS_SCALAR_INFRA MotionShotVideoManager` /
+`MotionShotVideoSequence`, and the `Stage_*` exec chain), and that is driven by
+the sequencer rather than by the CapMgr flag.
+
+## Why the flag was the wrong thing to chase
+
+It was the right question to start from — the gate's own log
+(`FW: Mshot mode forced off! cap_mode:%x`) names the flag, so it looks like the
+control surface. But three findings, each of which looked decisive on its own,
+all had to be checked before the patch was worth proposing:
+
+1. the arming object is never constructed (`RcFill`);
+2. mode 5 is very likely never produced;
+3. and then, the thing that settles it — the flag's only consumer sets a byte
+   nobody reads.
+
+The first two would each have justified a patch. Only chasing the chain to its end
+showed the whole path is a stub. Worth recording as a lesson: a "capability flag
+with a gate and a validator" looks like a control surface, and it took reading
+past the flag to see that the thing it controls controls nothing.
+
 ## Comparison with Golf Shot
+
+Golf Shot is the *reverse* case, which is why it is not simply the better target:
 
 | | Motion Shot | Golf Shot |
 |---|---|---|
-| implementation | complete | complete |
-| setting | `motion_shot_mode` | none |
-| validator | `CheckSetMotionShotMode` | none |
-| per-mode resolution | case 5 of 34 | none |
-| capture-mode gate | `ctx+0x10c`, allows 5 | none |
-| arming object | `RcFill` — **never instantiated** | n/a |
-| entry points | `sa_func_MOTIONSHOT_*` | `sa_func_GOLFSHOT_*` |
-| sensing | vision (`HumanMovingArea`) | sound (mic) |
+| stages | 3 names, **all referenced** | **0** `Stage_*` names |
+| `sa_func` dispatch | live, 16 callers, called from its own stage code | names present, no `Stage_` membership |
+| pipeline log strings | referenced | mostly **0 references** — `[SAN]StartGolfShot` 0, `[SAN]StopGolfShot` 0, `[SAN]AnalyzeGolfShot` 0, `[ADF][DBGCMD]SoundAnalyzer StartGolfShot` 0, `[GOLFSHOT]SA_* Exec Err` 0, every `ALOCK_ERR` 0 |
+| setting / validator / gate | all three present | none |
+| debug-command trigger | none | `[ADF][DBGCMD]SoundAnalyzer StartGolfShot` exists but its log string has **0 references** |
 
-Golf Shot has the bottom half only. Motion Shot has the whole chain, which is why
-it is the better target — and the honest caveat is that "whole chain" means
-"fully built", not "offered on this model". Motion Shot's exclusion is now
-*located* rather than inferred, which is the new fact.
+So the earlier fallback plan — trigger Golf Shot through the `[ADF][DBGCMD]` debug
+command for a zero-patch win — **is not supported either**: that command's own
+string is unreferenced, which is the same unreachable-string pattern already in the
+recurring-failure list. A handful of Golf Shot strings do have references
+(`Stage_EncodeJpeg_GolfShot_THM` ×1, `GolfShotJpegStream` ×1, `[GOLFSHOT]FREE_ERR`
+×2, `[SAN]StopGolfShot` ×1), so parts of it are reachable, but there is no
+demonstrated entry path.
+
+Neither feature is a patch on this build. Motion Shot has a live pipeline with no
+reachable trigger; Golf Shot has partial code with no demonstrated entry.
 
 ## Confidence
 
@@ -517,11 +610,15 @@ it is the better target — and the honest caveat is that "whole chain" means
 | it is `RcFill::vfn[6]` | **high** — vtable slot, typeinfo name read from RTTI |
 | **`RcFill` is never instantiated** | **high** — no literal and no `MOVW`/`MOVT` for its vtable address anywhere, while 8 siblings have theirs; residual gap: an address synthesised arithmetically rather than loaded would be missed |
 | `fcn.0039eb6c` is the only consumer | **medium-high** — one function passes a `cmp`+branch test on a `+0x10c` load; a consumer branching on the value some other way would be missed |
+| **the global at `0xf59a58` is never read** | **high** — three independent negatives (1 reference vs 2 for a neighbour, 0 published literals vs 1, no getter vs 3 callers), and the array it belongs to is otherwise routinely published |
+| **the Motion Shot stages are registered** | **high** — all three names carry references; 53 of 86 `Stage_*` names are referenced |
+| **the `sa_func` dispatcher is live** | **high** — 16 BL call sites into `0x56d000`–`0x56e000` |
+| **the stage code calls it** | **high** — `bl fcn.0056d50c` at `0x334f48`, immediately followed by the `sa_func_MOTIONSHOT_start error` check |
 | `ctx+0xc8` is a latch of the previous resolved mode | **high** — the epilogue writes back exactly the four registers loaded at entry |
 | the latch never holds 5 | **medium** — the exit value is the same `r4` whose literal set excludes 5, but five other functions also write a `+0xc8` and the identity test separating them is weak |
 | the three patch bytes and their effects | **high** — each validated by before/after disassembly |
-| patch A is correct whether or not `r4 == 5` is reachable | **high** — follows from the two rows above, by cases |
-| `ctx[0]` cannot be 5 in practice | **medium** — no `tbh` case yields `r4 = 5`, but the value also passes through `ctx+0xc8` |
+| **the flag patches would enable the feature** | **withdrawn — they would not**; the chain they arm terminates in an unread byte |
+| Golf Shot's `[ADF][DBGCMD]` route is a zero-patch win | **not supported** — that command's own log string has 0 references |
 | offered on a ZV-E10 | **not established** |
 
 ## Reproducing
