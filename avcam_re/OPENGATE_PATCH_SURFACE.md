@@ -1,5 +1,15 @@
 # OpenGate 3:2 — verified patch surface (2026-09-26)
 
+> [!IMPORTANT]
+> **Partly superseded — read `TABLE_PURPOSE_CORRECTION.md` first.**
+> The four patch-point verdicts below are sound and still stand. But the *table
+> interpretation* in the second half was inferred from data contents and two
+> parts of it are wrong: the mode table's base is `0x89DADE` (not `0x89dae0`),
+> its resolution is two `u16` fields rather than one packed `(h<<16)|w` word,
+> and the "per-stream encoder config table" at `0x8c4440` has **no consumer**
+> and is retracted. The correction file also explains the PC-relative delta
+> trap that produced both errors.
+
 Re-examines the four patch points listed in `RE_STATE.md` using `retool`.
 **One of them is confirmed as a real descriptor table; the other three
 constants do not exist in the binary as claimed.** Addresses are file offsets;

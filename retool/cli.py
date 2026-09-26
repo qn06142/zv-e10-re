@@ -19,7 +19,7 @@ import re
 import sys
 from pathlib import Path
 
-from . import __version__, config, engine, export, migrate, consts
+from . import __version__, config, engine, export, migrate, consts, xrefs
 from .symbols import SymDB
 
 
@@ -197,14 +197,58 @@ def cmd_funcs(cfg, name, filt=None):
 
 
 def cmd_xrefs(cfg, name, addr):
+    """Cross-references TO a file offset.
+
+    Uses retool.xrefs (PC-relative delta resolution) rather than rizin's `axt`,
+    which returns nothing for this image -- verified even against strings that
+    are demonstrably referenced.  See retool/xrefs.py for why pool values are
+    deltas and must never be read as addresses.
+    """
     t = cfg.target(name)
-    rz = engine.Rizin(cfg)
     a = int(addr, 0)
-    res = rz.run_project_json(t, rz.project_path(t), f"axtj @ {a:#x}") or []
-    for r in res:
-        frm = int(r.get("from", 0))
-        _p(f"  from {frm:08x} (va {hex(frm + t.runtime_base)})  type={r.get('type')}  fn={r.get('fcn_name','')}")
-    _p(f"-- {len(res)} xref(s) to {hex(a)}")
+    data = t.path.read_bytes()
+    hits = xrefs.refs_to(data, a)
+    _p(f"references to {a:#x} (va {a + t.runtime_base:#x}): {len(hits)}")
+    for h in hits:
+        s = h["string"]
+        _p(f"  ldr {h['ldr']:08x} / add {h['add']:08x} -> {h['target']:08x}"
+           + (f"   {s!r}" if s else ""))
+    if not hits:
+        _p("  (no PC-relative reference resolves here -- reached by a computed "
+           "address, or unreferenced)")
+
+
+def cmd_region(cfg, name, addr, span=0x400):
+    """Is a data region referenced at all?  Prints the inbound-reference verdict."""
+    from array import array as _arr
+
+    t = cfg.target(name)
+    a = int(addr, 0)
+    data = t.path.read_bytes()
+    hits = xrefs.refs_to(data, a, span)
+    _p(f"region {a:#x}..{a+span:#x}: {len(hits)} inbound PC-relative reference(s)")
+    for h in hits[:40]:
+        s = h["string"]
+        _p(f"  from {h['ldr']:08x} -> {h['target']:08x}" + (f"   {s!r}" if s else ""))
+    if not hits:
+        _p("  VERDICT: nothing references this region by PC-relative addressing.")
+        rb = t.runtime_base
+        stored = []
+        n = len(data) // 4
+        arr = _arr("I")
+        arr.frombytes(data[: n * 4])
+        for i, w in enumerate(arr):
+            if a <= w < a + span or a + rb <= w < a + span + rb:
+                stored.append(i * 4)
+                if len(stored) >= 8:
+                    break
+        if stored:
+            _p(f"  but {len(stored)}+ stored word(s) look like pointers into it: "
+               + ", ".join(hex(x) for x in stored))
+            _p("  -> check with 'retool disasm' whether the storing site is code "
+               "(a delta) or data (a real pointer) before trusting it.")
+        else:
+            _p("  and no stored word (file-offset or runtime-VA form) points into it.")
 
 
 def cmd_strings(cfg, name, filt=None):
@@ -293,6 +337,9 @@ def build_parser():
 
     p = sub.add_parser("xrefs"); p.add_argument("target"); p.add_argument("addr")
 
+    p = sub.add_parser("region"); p.add_argument("target"); p.add_argument("addr")
+    p.add_argument("--span", type=lambda v: int(v, 0), default=0x400)
+
     p = sub.add_parser("strings"); p.add_argument("target")
     p.add_argument("filter", nargs="?")
 
@@ -328,6 +375,8 @@ def main(argv=None):
             cmd_funcs(cfg, a.target, a.filter)
         elif a.cmd == "xrefs":
             cmd_xrefs(cfg, a.target, a.addr)
+        elif a.cmd == "region":
+            cmd_region(cfg, a.target, a.addr, a.span)
         elif a.cmd == "strings":
             cmd_strings(cfg, a.target, a.filter)
         elif a.cmd == "disasm":

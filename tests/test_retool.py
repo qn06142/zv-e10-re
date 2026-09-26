@@ -15,7 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from retool import config, migrate, consts  # noqa: E402
+from retool import config, migrate, consts, xrefs  # noqa: E402
 from retool.symbols import SymDB, Symbol, VALID_NAME, _as_int  # noqa: E402
 
 FAILURES: list[str] = []
@@ -196,6 +196,56 @@ def test_consts():
           "patched 0x0a000f00 would be 2560x3840")
 
 
+def test_xrefs_delta_resolution():
+    """PC-relative delta resolution.
+
+    Two bugs here invalidated real conclusions before they were caught, so both
+    are pinned: a halfword index used as a byte address, and an `add rX, pc`
+    mask that could never match.  A delta also looks exactly like a pointer
+    (plausible value, often bit 0 set), which is how a "handler vtable" turned
+    out to be a list of unrelated strings.
+    """
+    print("xrefs / PC-relative delta resolution")
+    import struct as _s
+
+    # Build a real ldr+add-pc pair.
+    #   ldr r0, [pc, #imm8]  at 0x00 : base=(0+4)&~3=4, so imm8=1 -> pool at 0x08
+    #   add r0, pc           at 0x02 : PC = (0x02+4)&~3 = 0x04
+    #   pool word at 0x08 = 0x1000 -> target = 0x1000 + 0x04 = 0x1004
+    buf = bytearray(0x10)
+    buf[0:2] = _s.pack("<H", 0x4801)      # ldr r0, [pc, #1]
+    buf[2:4] = _s.pack("<H", 0x4478)      # add r0, pc
+    buf[8:12] = _s.pack("<I", 0x1000)     # pool delta
+    refs = list(xrefs.iter_references(bytes(buf)))
+    check(len(refs) == 1, "one reference resolved")
+    if refs:
+        check(refs[0][2] == 8, f"pool slot is a BYTE address (got {refs[0][2]}, want 8)")
+        check(refs[0][3] == 0x1004, f"target = delta + PC (got {refs[0][3]:#x}, want 0x1004)")
+
+    # Real instance from av-cam.bin: fcn.0008f5f8 id 0x0a
+    #   ldr @0x8f65e, add @0x8f660, pool @0x8f6cc = 0x8c4d32
+    #   PC = (0x8f660+4)&~3 = 0x8f664  ->  target 0x954396 = 'NAMESURO'
+    cfg2 = config.load()
+    t2 = cfg2.target("avcam")
+    if t2.path.is_file():
+        data = t2.path.read_bytes()
+        got = [r for r in xrefs.iter_references(data)
+               if r[0] == 0x8F65E]
+        check(len(got) == 1, "found the reference at 0x8f65e")
+        if got:
+            check(got[0][2] == 0x8F6CC, f"pool byte address 0x8f6cc (got {got[0][2]:#x})")
+            check(got[0][3] == 0x954396, f"resolves to 0x954396 (got {got[0][3]:#x})")
+            check(xrefs.read_cstring(data, got[0][3]) == "NAMESURO",
+                  "and that address holds the string 'NAMESURO'")
+        # read_cstring must return the WHOLE string even from a mid-string pointer
+        check(xrefs.read_cstring(data, 0x954397) == "NAMESURO",
+              "read_cstring walks back to the string start")
+
+        # the mode table really is referenced (this was missed while buggy)
+        hits = xrefs.refs_to(data, 0x89DADE, 0x140)
+        check(len(hits) >= 1, "mode table at 0x89DADE has an inbound reference")
+
+
 def test_real_symdb():
     print("real symbol db")
     cfg = config.load()
@@ -220,12 +270,14 @@ def test_real_symdb():
           "shorthand '_d' expanded to full name")
     check(any(s.name.startswith("ISP_mode_4k") for s in db.symbols),
           "recovered the 4K video mode descriptors")
-    # The table anchor deliberately has no separate symbol: 0x89dae0 is already
-    # the first 4K mode record, and add() refuses two names at one address.
-    check(db.by_off().get(0x89DAE0) is not None,
-          "video mode table start is covered by the first mode record")
-    check(any(s.name == "CODECV_stream_cfg_table_start" for s in db.symbols),
-          "recovered the per-stream encoder config table anchor")
+    # The mode table base is 0x89DADE (from the consumer's base+stride), not the
+    # 0x89dae0 the earlier content-only guess produced.
+    check(db.by_off().get(0x89DADE) is not None,
+          "mode table base is 0x89DADE, per the consuming code")
+    check(not db.by_off().get(0x8C4440),
+          "unverified 0x8c4440 'stream cfg table' symbol was retracted")
+    check(any(s.name == "ISP_resolve_mode_by_width" for s in db.symbols),
+          "the mode-table consumer is named")
 
 
 def main():
@@ -233,6 +285,7 @@ def main():
     test_symbols()
     test_scraper()
     test_consts()
+    test_xrefs_delta_resolution()
     test_real_symdb()
     print()
     if FAILURES:
