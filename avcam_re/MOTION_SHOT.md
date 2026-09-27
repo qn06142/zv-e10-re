@@ -1050,6 +1050,78 @@ demonstrated entry path.
 Neither feature is a patch on this build. Motion Shot has a live pipeline with no
 reachable trigger; Golf Shot has partial code with no demonstrated entry.
 
+## Confirmed against the camera itself: the 2025 front end (2026-09-27)
+
+Everything above is static analysis of the **2020 (V2.03)** package. The camera's own
+firmware has now been captured, so the front end could be checked directly rather
+than inferred across five years of drift. The verdict holds, and the reason is now
+much sharper.
+
+**Capture.** Six flash partitions the earlier local dump recorded as 0 bytes were in
+fact read failures. Re-dumped over the camera's service terminal onto the SD card:
+18 raw images, ~1.45 GB, all 27 files md5-verified end to end (checksums computed
+on the camera, re-checked on the PC). `nflasha15.img` is the 300 MB `/usr`
+partition; `nflasha7.img` is the 8 MB rootfs. Both had been 0 bytes.
+
+**A trap worth recording:** `nflasha15.img` has a byte-perfect ext2 superblock at
+`0x438` (`0xEF53`, 60,720 inodes) and is **not a filesystem**. A whole-image scan
+finds zero ext2 dirent tables. The kernel reaches this through a flash translation
+layer, so the on-flash bytes are raw file contents at flash-block-aligned offsets.
+Anything that trusted the superblock would have reported a mountable filesystem
+that does not exist. `retool/fsimage.py` carves by magic instead and reports both
+facts; `tests/test_fsimage.py` pins the distinction.
+
+**Differential result.** Carving 230 ARM ELFs (108.4 MiB) put the front end in
+`elf_05610c00.so` — 21,305,456 B, `CamUser` ×451, `ObjRenderer` ×3245. Comparing
+Motion Shot against Golf Shot *within that binary*, so no layout or base-address
+confound is possible:
+
+| layer | Golf Shot (works) | Motion Shot |
+|---|---|---|
+| `CAMERA_MODE_*` | `CAMERA_MODE_GOLFSHOT` | — absent — |
+| drive-mode enum | `L_PRM_OPEN_MODE_EE_GOLFSHOT` | — absent — |
+| renderer layout | `ACSRID_GOLFSHOT_EE_LAYOUT` | — absent — |
+| capture sequences | `PlayStart` + `CaptureStart` | `SetMotionShotMode` **only** |
+| `MSGID_` / `VALUEID_` / `MID_` | 2 / 4 / 3 | 4 / 16 / 6 |
+| record types | `STILL_REC_TYPE_GOLF_SHOT`, `_APSC_` | — absent — |
+| `CamMode*` class | `N7CamUser15CamModeGolfShotE` | **`CamModeMotionShotE` ABSENT** |
+| `view*.uxc` menu page | — absent — | `viewMotionVideo.uxc` |
+| English UI strings | **0** hits for Golf/GOLF/golf | "Motion Shot Video", "Adjust interval of track in Motion Shot Video." |
+
+The build has **13** `CamMode*` classes — Movie, Still, MovieRec, HSMovie, SHSMovie,
+SHSMovieRec, Panorama, EORec, EOE, Ready, Neutral, Base, GolfShot. Motion Shot is
+not among them, in 2025 exactly as in 2020. Five years of firmware work added no
+Motion Shot mode.
+
+**The two features fail in opposite directions**, which is why neither is a port:
+
+- Motion Shot has the *user-facing* layer and lacks the mode class. With no
+  `CamModeMotionShotE` in any build there is nothing to port **from**; adding one
+  means writing a capture pipeline.
+- Golf Shot is fully plumbed below the UI and has **no UI at all** — zero hits for
+  Golf/GOLF/golf in a 349 KB English string table, against 8 for "Sports". Its
+  missing piece is *data*, not code, which makes it the only target with a
+  plausible mechanism.
+
+**Unverified, and not claimed:** whether `CamModeGolfShotE` is ever *constructed*.
+The vtable test fails its positive control on this binary — no `.symtab`, no
+`.dynsym`, no `.dynamic`, **zero relocations** — so construction is unproven for
+every class here, not just Motion Shot. Golf Shot's code being present does not
+establish that it runs. The same stripping was seen in the 2020 `camuser.elf`, so
+this may be a deliberate shipping posture rather than an artefact.
+
+**Also not established:** where the mode-dial gate is. Both `CAMERA_MODE_GOLFSHOT`
+sites are `DefStruct` name-enumeration tables for logging, not dispatch, and no
+mode→class factory vocabulary exists in the binary.
+
+Full table, controls and negative controls: `dumps/camera_2025/GOLF_VS_MOTIONSHOT.md`.
+
+> **Caveat on a capture artefact.** `usr.tgz` on the card is **truncated** — it
+> decompresses to 76.7 % with `eof=False`, being the file from an interrupted first
+> attempt. Its md5 matched because the truncation happened *before* the camera
+> hashed it. `TREES/usr_share.tgz` and `TREES/usr_bin.tgz` are intact (449 + 48
+> files, zero broken) and are what the conclusions rest on. Delete `usr.tgz`.
+
 ## Confidence
 
 | claim | confidence |
@@ -1064,6 +1136,9 @@ reachable trigger; Golf Shot has partial code with no demonstrated entry.
 | `fcn.0039eb6c` is the only consumer | **medium-high** — one function passes a `cmp`+branch test on a `+0x10c` load; a consumer branching on the value some other way would be missed |
 | **the global at `0xf59a58` is never read** | **high** — three independent negatives (1 reference vs 2 for a neighbour, 0 published literals vs 1, no getter vs 3 callers), and the array it belongs to is otherwise routinely published |
 | the stage functions exist and call the live dispatcher | **high** — `bl fcn.0056d50c` at `0x334f48`, immediately followed by the `sa_func_MOTIONSHOT_start error` check |
+| **`CamModeMotionShotE` does not exist in the 2025 build either** | **high** — 13 `CamMode*` classes enumerated by name in the camera's own `/usr`; Motion Shot absent. Name census, no pointer resolution needed |
+| Golf Shot is fully plumbed below the UI but has no UI text | **medium-high** — full identifier set present in one binary; 0 Golf/GOLF/golf hits in a 349 KB English string table. Not proof it is unreachable: the mode dial's gate was never located |
+| whether any `CamMode*` class is *constructed* | **unverified** — the vtable test cannot be run on this binary (no `.symtab`/`.dynsym`/`.dynamic`, zero relocations); the control fails, so no verdict is claimed either way |
 | ~~the stages are registered in a sequencer~~ | **withdrawn** — the 109 `Stage_*` references form 92 clusters of 3–4, each a function loading its own name for a log; that is not a registry |
 | the vtable-construction test is sound | **high** — reproduces 4/4 cases settled independently (3 constructed, `RcFill` dead) |
 | **`MotionShotVideoManager` / `MotionShotVideoSequence` are never instantiated** | **high** — 0 literal and 0 `MOVW`/`MOVT` references to either vtable's address point |
