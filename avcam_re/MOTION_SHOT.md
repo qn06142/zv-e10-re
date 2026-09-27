@@ -506,6 +506,127 @@ flash looks like, not only what encrypted data looks like.
 So every byte of the flash is accounted for, and none of it contains the wiring.
 The only unread thing left anywhere is the `UDTRFIRM` payload in the update package.
 
+### The `UDTRFIRM` payload is now read — and it holds a component the dump never had
+
+**The crypter was identified: `AesCbcCrypter` (CXD90045).** The giveaway was cheap.
+Run every candidate generation over the *first* block and keep the one that
+yields `UDTRFIRM`; only CXD90045 does, the other eight raise `Wrong checksum`. The
+cipher is 1024-byte blocked, not the 1000-byte SHA-1 stream that
+`research/firmware/sha1_decrypt.py` implements, which is why the earlier keystream
+diverged after block 0. Now implemented standalone in
+`research/firmware/fdat_decrypt.py`, with 14 tests.
+
+**`dumps/fdat_decrypted.bin` was a false positive and everything derived from it
+was worthless.** It decoded to a flawless-looking `UDTRFIRM` header, but the CramFS
+magic was absent at `0x200` and *every* 1 MB block measured 37.1% printable —
+random. Block 0 always looks right under the wrong scheme; that is precisely why a
+valid header proved nothing. A first reimplementation of mine repeated the error in
+a subtler form by putting the IV in the last 16 bytes of the trailer instead of at
+`[-0x110:-0x100]`, and the per-block checksum is what caught it.
+
+Decoded: model `0x01030010`, version 2.03, `firmwareOffset=0x24200`,
+`firmwareSize=370,850,816`, CramFS body at `0x200` with the correct magic
+`45 3d cd 28`, and the payload is a **tar with 174 members**.
+
+**Six partitions in the flash dump were read failures, not empty partitions.**
+`nflasha7`, `nflasha11`, `nflasha15`, `nflasha17`, `nflasha18_lens` and `nflasha23`
+are all 0 bytes locally, and the package supplies real content for two of them:
+
+| partition | role (`partinf.conf`) | in our dump | in the package |
+|---|---|---:|---:|
+| `nflasha7` | **Rootfs**, 8 MB | 0 (failed) | 5,132,288 |
+| `nflasha15` | **usr**, 300 MB | 0 (failed) | 249,105,408 |
+| `nflasha3` | System (Main), 48 MB | 50,331,648 | 30,157,824 |
+| `nflasha1` | System (Updater), 8 MB | 8,323,072 | 8,323,072 |
+
+`nflasha7` turned out to be a generic busybox/glibc userland (libxtables,
+libxt_tcp) with **zero** framework or menu vocabulary — a dead end. `nflasha15` did
+not.
+
+### The front end is in `nflasha15`, not in av-cam — which is why the GUI route looked closed
+
+`nflasha15` holds a **separate camera application**: 334 ELF files, and a 21.3 MB
+ARM shared object at file `0x0c91ac00` carrying `CamUser`, `ObjRenderer`,
+`Sequence`, `MSGID` and `VALUEID` vocabulary. This is the menu and camera-mode
+layer, and it is the component whose absence from av-cam made "no Motion Shot
+display string anywhere" look like a dead end rather than a structural fact.
+
+Its headers cannot be trusted — the section table is garbage (`sh_name=142870960`),
+`.dynamic` is zeroed, and `e_entry` lands on a repeating data pattern — but the
+program headers are sane and the strings are real, so it was read at string level.
+
+**The Golf Shot / Motion Shot comparison is the clean result.** Golf Shot works on
+this camera, so its symbol set is the control:
+
+| | Golf Shot (works) | Motion Shot |
+|---|---|---|
+| message / param / value plumbing | present | **present and complete** |
+| `CamMode*` class | `N7CamUser15CamModeGolfShotE` | **absent** |
+| capture / play sequences | 14 classes | **1** (`SetMotionShotMode` only) |
+| layout cmds + `ACSRID_..._LAYOUT` | present | **absent** |
+| `OPEN_MODE_EE_GOLFSHOT`, `DefStruct::CAMERA_MODE_GOLFSHOT` | present | **absent** |
+
+Motion Shot has `MSGID_SET_MOTION_SHOT_MODE_CMD`, `MSGID_NOTIFY_MOTION_SHOT_MODE_EVT`,
+`MSGID_NOTIFY_MOTION_SHOT_RESULT_EVT`, `PARAMID_MOTION_SHOT_MODE`,
+`VALUEID_MOTION_SHOT_MODE_ON/OFF`, `VALUEID_MOTION_SHOT_SUCCESS/FAIL` and
+`NID_MOTION_SHOT_RESULT_NOTIFY` — the whole bottom half. It has none of the top
+half. This is the same shape as the av-cam verdict, arrived at independently from a
+different binary in a different layer.
+
+The layer also states the rejection explicitly:
+`CamMsgConv) ##### ERROR!!! SetMotionShotModeForLiro NON SUPPORTED MsgID[0x%04x]`
+— "Liro" being the internal model code. That is a *dispatch* rejection, so clearing
+it would silence an error message, not create a missing mode class and missing
+capture sequences. Same conclusion as the Golf Shot debug-command fallback.
+
+The 83,587-entry `cmnViewSetting*` menu schema (a data blob, outside any ELF)
+contains **zero** Motion Shot and **zero** Golf Shot entries, so neither feature is
+menu-driven.
+
+### …but Motion Shot's *user-facing strings* are present, and Golf Shot's are not
+
+Outside the code, in the string-resource table, Motion Shot has a full UI
+vocabulary and Golf Shot has almost none:
+
+```
+STRID_FUNC_MOTION_SHOT_VIDEO
+STRID_FUNC_MOTION_SHOT_VIDEO2
+STRID_FUNC_MOTION_SHOT_VIDEO_INTERVAL_ADJUSTMENT
+STRID_FUNC_MOTION_SHOT_VIDEO_INTERVAL_ADJUSTMENT_GUIDE
+STRID_INFO_MOTION_SHOT_VIDEO_CTRLPANEL_CONTROLPANEL / _PAUSE / _PLAY
+STRID_INFO_MINUTE_SEC_V, STRID_INFO_MF_DISTANCE_NUM1_DOT_NUM1_VAL_V
+… and Vietnamese text: "chọn khoảng Motion", "t.gian d.trog MotionShotVideo"
+```
+
+Golf Shot has **zero** `STRID_FUNC_*` entries and only two help-text headings
+(`JPEG GolfShot`, `JPEG GolfShot(APSC)`). So the control panel, play/pause and
+interval-adjustment strings for Motion Shot exist and are localised.
+
+**Caveat, and it is a real one:** these are `STRID_*` identifiers in what is
+probably a string table shared across a model family, so their presence proves
+Motion Shot was *built*, not that this model exposes it. It is evidence about
+Sony's intent, not a patch site.
+
+### The package is an older build, so the above is a proxy, not the camera's own code
+
+`nflasha1` from the package differs from the camera's own `nflasha1` in **79.5% of
+its bytes** (both start `NO NAME    F`; they are different FAT images of different
+firmware). `partinf.conf` is dated 2020/11/13. So the CamUser binary and the
+`STRID_*` table analysed above are the **2020 / v2.03** versions, while the camera
+runs a 2025 build. The camera's own `nflasha15` was never captured, so its current
+contents remain unknown.
+
+**What this changes:** the V2.03 av-cam has an *identical* Motion Shot vocabulary to
+the current build (344 `NS_SCALAR_INFRA`, 12 `MotionShot`, 6
+`ScalarInfraMotionShotVideoSequence`, 1 `6RcFill`) and the *same* construction
+verdicts — every Motion Shot class unreferenced in both. So the exclusion is
+longstanding rather than a regression introduced by newer firmware, which is a
+stronger result than "the 2025 build disabled it".
+
+**What it does not change:** there is still no patch. The search space grew by
+249 MB and one genuinely new component, and the answer is the same, now confirmed
+from two independent layers.
+
 ### Bonus: the installed version, from the camera's own update log
 
 `nflasha13`'s `UPDATE LOG/` records the last update performed:
@@ -615,6 +736,15 @@ validation, the one-byte stage selector, and the tooling to re-check every step
   enter. Untested.
 - Whether the 126 published flags in the `0xf59a50` table include the one a
   working implementation would actually use.
+- **What the camera's own `nflasha15` contains.** It is 0 bytes in the local dump
+  (a read failure, not an empty partition), and the 2020 package copy is the only
+  version ever examined. The current build's front end is therefore unverified; it
+  could in principle have gained a `CamModeMotionShot` since. Re-dumping
+  `nflasha7`/`nflasha15`/`nflasha11` is the cheapest way to close this, and the
+  package proves they are not empty.
+- Whether the `STRID_*` Motion Shot strings are reachable in the *current* build's
+  string table, or are vestigial entries in a family-wide table. That needs the
+  current `nflasha15`, for the same reason.
 
 ## Withdrawn / corrected claims
 
@@ -685,6 +815,27 @@ Recording these because each was stated as fact and was wrong.
   setter there; decode `BL` by hand (J1/J2 are in the **second** halfword) instead.
 - Constant propagation must use the **nearest preceding definition of any value**,
   not "the nearest assignment of the value I want".
+- A FDAT block carries at most **1020** payload bytes, not 1024 — 4 go on checksum
+  and size|endflag. Chunking a synthetic image by 1024 makes
+  `b"\xff" * (1024 - 4 - len(payload))` multiply by a *negative* count, which
+  yields an empty pad and a silently malformed block rather than an error.
+- The `AesCbcCrypter` IV is the **first** 0x10 bytes of the 0x110-byte trailer, not
+  the last 16: the reference implementation seeks to `-0x110` and then reads `0x10`,
+  so the IV lands at `[-0x110:-0x100]`. My standalone reimplementation put it at the
+  end and produced a block whose payload decrypted perfectly while its checksum
+  disagreed — the per-block checksum is the only reason that surfaced.
+- **A valid magic on the first block is not evidence of a successful decryption.**
+  `dumps/fdat_decrypted.bin` decoded to a correct `UDTRFIRM` header while every
+  subsequent block was random, because the block *size* was wrong (1000 vs 1024) and
+  keystreams that agree on block 0 diverge immediately after. Check a structure
+  further in — the CramFS magic at `0x200` — or measure printable density across
+  many blocks, not just the header.
+- `retool.xrefs.iter_references` only resolves the `ldr rX,[pc]` + `add rX,pc`
+  *delta* pattern. It cannot see `movw`/`movt` pairs, which is how string literals
+  are usually materialised, so "no references to this string" from that function
+  alone means nothing. It returned zero for every probe in the `nflasha15` CamUser
+  binary — **including the Golf Shot controls that are known to work** — which is
+  what identified the pattern gap rather than a dead string.
 
 ## The flag chain dead-ends in a write-only byte
 
