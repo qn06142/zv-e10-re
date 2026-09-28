@@ -165,13 +165,68 @@ Five bytes total. That is the deliberate choice: the engine parses this file
 normally, so the less that changes, the more clearly any visible change is
 attributable to us rather than to collateral damage.
 
-## What is still open
+## CORRECTION: `/usr` is mounted read-only
 
-- Whether the kernel mounted the root ro at runtime. The filesystem permits
-  write; the mount is the remaining unknown, and it is one `mount` command.
-- Whether the engine re-reads `color_cmn.uxc` at runtime or only at boot. If
-  boot-only, the change is still visible after a restart.
-- Whether `0x4007` (red) is semantically loaded — Sony uses red for record and
-  warning states, so recolouring it may read as an error rather than as ours.
-  `0x400c` (translucent dark grey, used in panel shading) shifts large screen
-  areas and is less likely to be mistaken for a factory state.
+The live mount table settles the open question, and it goes against the palette
+route:
+
+```
+/dev/nflasha7  /    ext2 ro,relatime,errors=continue 0 0
+/dev/nflasha15 /usr ext2 ro,relatime,errors=continue 0 0
+```
+
+`/usr/share/app` is on a **read-only mount**, so `color_cmn.uxc` cannot be
+written at runtime.
+
+### Why the offline analysis missed it
+
+`nflasha15_super.py` read the ext superblock and found
+`EXT4_FEATURE_INCOMPAT_RO_COMPAT` clear, concluding "the filesystem supports
+write... the necessary condition is met." That was accurate about what it
+measured and misleading about what it implied.
+
+The superblock feature flags describe **what the filesystem format can do**.
+The mount option describes **what the kernel did**. Only the second decides
+whether a write lands. The script did flag the mount as an outstanding unknown,
+but the framing ("necessary condition is met", "one `mount` command away") made
+it read as closer to working than it was.
+
+The kernel reports the filesystem as **ext2, not ext4** — no journal, which is
+the old-style ext2 that gets mounted read-only. That detail was available in
+the superblock output and should have been read as the warning it was.
+
+The decoded format, the verified 5-byte patch, and inode 4299 all remain correct
+and useful for a reflash. What does not survive is the idea of writing the file
+on a running camera.
+
+### Staging on the card would not have helped either
+
+`global.xdb` stores image resources as absolute `/usr/share/app` paths, so the
+engine opens them by full path rather than searching a directory list. A
+patched `color_cmn.uxc` on the SD card would simply never be read.
+
+## The writable space that does exist
+
+```
+/dev/nflasha10 /tmp      vfat rw    12 MB
+/dev/nflasha10 /etc      vfat rw    12 MB
+/dev/nflasha3  /system   vfat rw    48 MB
+/dev/nflasha2  /setting  vfat rw    20 MB
+/dev/nflasha18 /lens     vfat rw    20 MB
+/dev/nflasha12 /cert     vfat rw    40 MB
+/dev/nflasha11 /log      vfat rw   500 MB
+```
+
+The camera plainly has a partition-write path: `up.sh` mounts nflasha1 vfat
+read-write and writes to it, and `change_mode.sh` writes `/setting/mode/dmode`
+to change the boot mode.
+
+## Options, assessed
+
+| | option | assessment |
+|---|--------|------------|
+| A | remount `/usr` rw | **Not advised.** ext2 with no journal, entire UI on it, and a write fault leaves the camera unbootable. The one option that can brick the device. |
+| B | reflash nflasha15 | Viable. Full 300 MB image on the card, 5-byte patch, exact restore. Single-partition file edit. Needs a working partition-write path. |
+| C | bind/overlay mount | Needs privileges the service shell may not have, and would not survive a reboot. |
+| D | LD_PRELOAD / gdbserver | Lowest device risk, off writable `/setting`, but means writing and debugging our own `.so` — back to the hard problem rather than a clean resource edit. |
+| E | `logo.bin` swap | Same read-only problem: it is on `/usr` too. |
