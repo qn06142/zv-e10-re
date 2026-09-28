@@ -2,6 +2,8 @@ asn1crypto
 axmlparserpy==0.0.4
 certifi
 comtypes; sys_platform == 'win32'
+libusb; sys_platform == 'win32'
+libusb1
 pycparser==2.17 # https://github.com/eliben/pycparser/issues/291
 pycryptodomex
 pyinstaller
