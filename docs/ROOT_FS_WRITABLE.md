@@ -1,5 +1,31 @@
 # The root filesystem is writable — the palette route is live
 
+> ## ✅ CONFIRMED WORKING — 2026-09-28
+>
+> **The live-view framing guide lines changed from grey/white to blue.**
+>
+> ```
+> baseline   f468bd3e72ca4e5b948a1c9f1f35c0a1   (matched the card copy exactly)
+> remount    /dev/nflasha15 /usr ext2 rw,relatime,errors=continue
+> staged     9474c2846a1a952179a2408018ff0295   (312 B, verified before writing)
+> write      9474c2846a1a952179a2408018ff0295   (read back = matches)
+> cleanup    9474c2846a1a952179a2408018ff0295   (still intact after rm)
+> ```
+>
+> The change that showed is **`0x400c`: `333333` @ 80% alpha → `0000dd` @ 80%
+> alpha** — the translucent panel grey, which is what the framing guides use.
+> That is the "large screen area" target rather than a small accent, exactly as
+> predicted, and it is why the effect is unmissable.
+>
+> What this proves, end to end: the `.uxc` container is decoded, the engine
+> re-reads `color_cmn.uxc` at boot, the palette ids resolve against it, and a
+> 5-byte edit to a 312-byte file on a filesystem that was mounted `ro` changes
+> what the camera draws on its LCD.
+>
+> No patched firmware, no `av-cam.bin`, no ioctl struct, no message id, no
+> driver. The engine opened a file it already opens; we supplied different bytes
+> in a format it already parses.
+
 Answers open question 1 in `UI_RESOURCES.md`, which had been blocking the
 whole approach and could previously only be settled by a live `mount` that
 kept getting consumed by the USB wedge.
