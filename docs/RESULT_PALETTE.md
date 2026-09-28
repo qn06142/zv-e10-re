@@ -1,3 +1,36 @@
+### Correction: `0x400c` is referenced 14,721 times, not once
+
+An intermediate note claimed that palette id `0x400c` appeared in "exactly one
+view file across all 299". That was a search error on my part: the scan excluded
+`image_*.uxc` as well as `string_*.uxc`, and the `image_*` files are where the
+bulk of the id references live.
+
+Counting every non-`string_*` file:
+
+| id | rgba | hits |
+|----|------|------|
+| `0x4000` | `000000` | 39,497 |
+| `0x4010` | `dd5500` | 33,989 |
+| `0x4020` | `dddddd` | 23,092 |
+| `0x4008` | `00dd00` | 21,353 |
+| `0x400a` | `cccccc` @80 | 17,329 |
+| `0x4002` | `000000` @99 | 17,074 |
+| **`0x400c`** | **`333333` @80** | **14,721** |
+| … | | |
+| `0x401b` | `000000` @cc | 468 |
+
+All 28 ids appear. `0x400c` is the 7th most referenced. There is no puzzle and
+no missing-bridge problem — the ids are used heavily throughout the `image_*`
+atlases and the screens.
+
+This also retires the "indirect lookup" reading. The value `333333` @ 80% does
+appear in `image_cmn_43.uxc` at three offsets, but that file is 27 MB of raster
+data where a repeating 4-byte pattern is unremarkable; those are pixel
+coincidences, not a style carrying the guide colour.
+
+So the direct-lookup reading is the well-supported one: the UI resolves colours
+through palette ids, and `0x400c` is one of the most widely used.
+
 # Result: the camera's UI palette is ours
 
 **2026-09-28. The live-view framing guide lines changed from grey/white to blue.**
