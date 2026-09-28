@@ -130,6 +130,41 @@ are TLV chains (`1f 02 80 55 02 08 00`, `1b 57 22 04 01 0e 08`), not a fixed
 stride, and the dominant 60-byte period yields only a 1%-dense slot. That is
 fine — the patch does not need the widget layout, only the palette file.
 
+## Final patch target: blue (0x4009)
+
+Sony's palette in `color_cmn.uxc` is entirely warm — white, five alphas of
+black, three greys, orange (`0x4010`/`0x4011`), yellow (`0x4013`), and red
+(`0x4007`) for record and warning states. **Nothing needs a saturated blue.**
+That makes `0x4009` the best target on both counts: it appears wherever a blue
+accent would, and a garish blue cannot be read as a factory state, a warning,
+or a fault.
+
+`0x4007` (red) was explicitly rejected: Sony uses red for record and warning
+states, so recolouring it would read as an error condition rather than as our
+work — the opposite of the intent.
+
+```
+blue    id 0x4009  00 00 dd ff -> 00 ff ff ff   @ 0x00a4..0x00a7
+grey33  id 0x400c  33 33 33 80 -> 00 00 dd 80   @ 0x00bc..0x00bf
+
+length unchanged: 312 bytes
+5 byte(s) changed, all inside rgba quads -- no id or const touched
+patched file re-parses: 28 records, all ids and consts intact
+
+out:     sha256 ad5e093ba1b00f2ffba1bb07c61df4beb29efdd030ac59eba8575d0d92c4d46c
+restore: sha256 0bcce3983df45ac38e888f556e4f359c06e51ff8550e5e69b239d7b486dc485b
+```
+
+`0x400c` is the translucent dark grey used in panel shading. Included because it
+is the one entry that can shift a *large* screen area rather than a small
+accent, so the effect shows even on a screen with no blue accent. It is a
+subtle shift; if a strict single-quad patch is wanted, drop it and the file
+still round-trips.
+
+Five bytes total. That is the deliberate choice: the engine parses this file
+normally, so the less that changes, the more clearly any visible change is
+attributable to us rather than to collateral damage.
+
 ## What is still open
 
 - Whether the kernel mounted the root ro at runtime. The filesystem permits
