@@ -189,6 +189,137 @@ Note for whoever picks this up: `.data.rel.ro` is 621 KB of ~155,000 fully
 relocated pointers and is readable as it stands. If any vtable in this binary is
 statically visible, it is in there, not in the GOT.
 
+## 4c. The widget system is named and enumerated
+
+This is the most useful thing found in the stretch, and it is not about geometry.
+
+`.data.rel.ro` is 621,088 bytes and fully relocated, so unlike the GOT it is
+readable as it stands. Scanning it for maximal runs of consecutive `.text`
+pointers — that is, for vtables — gives:
+
+| section | runs of >= 6 consecutive .text pointers |
+|---|---:|
+| `.data.rel.ro` | **1,943** |
+| `.rodata` | 35 |
+
+`.rodata` cannot contain a vtable, so its 35 runs are the rate at which adjacent
+words merely look like code addresses. The ratio is 55x, so the 1,943 are real
+structures. The most common run length is 11 (799 runs), then 8 (464) and 12
+(373) — the shape of a C++ vtable with a shared prefix.
+
+What they point at is the payoff for identification. The runs are full of named
+UI code:
+
+```
+PAS_BtnBase::cast
+PAS_MenuListTab::openLevel2Popup
+PAS_ExtFlashReceiverSetItem::setInformation
+LayoutableWidgetBaseCustom::setDispLevel
+WrapperFocusArea
+CmnSettingNodeUtil::invalidatWidgets
+CmnFnWrapper::GetShutterspeedValue
+ViewRootRemoteToInstance
+```
+
+**Every widget class in the camera is identified by name**, and its vtable is
+readable. Combined with the 2,385 exported symbols and the named geometry
+methods below, a UI element can be tied to a class without guessing.
+
+Named geometry methods that exist, exported:
+
+```
+PAS_IconLevelBarAndSetting::setbarPosSize
+PAS_IconLevelBarAndSetting::setPlusPosSize
+PAS_IconLevelBarAndSetting::setMinusPosSize
+PAS_IconLevelBarAndSetting::setChannelPosSize
+PAS_IconLevelBarAndSetting::setVolValuePosSize
+PAS_ZoneArea_C::setIconPosition
+PAS_ZoneArea_C::setIconSize
+PAS_Index::convContentIDToPosID
+ACT_IconExternalFlashCompensationAll::setCordinatesOnExternalFlashLayout(int)
+```
+
+`convContentIDToPosID` is the PosID converter referred to in earlier notes.
+Note the shape of the `PAS_*` methods: each widget class hard-codes its own
+positions rather than consulting a general layout API, so there is no single
+`setRect` to find. Positions arrive as data and each widget applies them.
+
+## 4d. The layout names exist, but only in the symbol table
+
+162 exported symbols carry layout identifiers — `CMN_M_REC_EVF_FOCUSCONTROL_LR`,
+`CMN_M_PLAY_MOVIE_WITH_FOOTER`, `CMN_DIALOG_BACKGROUND`,
+`LAYOUT_ID_43_5W_SET_COMMON_EDITBOX` and 130 more, across `LG_master_camera`,
+`LG_master_network`, `LG_master_browser` and `LG_master_other`. If those names
+were in the resource files, every screen would have a name and the "which .uxc
+is which" problem would be solved outright.
+
+They are not. Checked directly, with a control:
+
+| | in `viewUnified2.so` | in the 299 view files |
+|---|---:|---:|
+| each of 133 extracted tokens | **exactly 1** | **0** |
+
+One occurrence in the binary is the symbol table entry itself, so the finder
+works; zero in 79,656,916 bytes of view files means the names are compile-time
+identifiers only. **The resource files are anonymous.** This is the load-bearing
+negative for the whole GUI-reshaping goal, and it is worth stating plainly: any
+approach that relies on the files naming their own screens cannot work.
+
+## 4e. There is no keyed four-field reader anywhere, and the rect is withdrawn
+
+The arity-4 class at 0x677010 has one key. If it were a rect deserialised from a
+stream, a keyed function filling `0x14/0x18/0x1c/0x20` would exist. Searching
+all thirteen engine libraries — 45 MB of `.text`, 157,528 recovered functions —
+finds **12** keyed four-field functions:
+
+| library | address | fields | keys |
+|---|---|---|---|
+| libObj.so | 0x00860a20 | 0x14,0x18,0x1c,0x20 | `1259d900..` |
+| libObj.so | 0x00d9f504 | 0x14,0x18,0x1c,0x20 | `9a6b6300..` |
+| libObj.so | 0x00197430 | 0x18,0x1c,0x20,0x24 | `bb81c800..` |
+| libObj.so | 0x001f4518 | 0x58,0x5c,0x60,0x64 | `7eab2301..` |
+| libObj.so | 0x0020b170 | 0x4c,0x50,0x54,0x58 | 5 keys |
+| libObj.so | 0x0039e160 | 0x18,0x1c,0x20,0x24 | `72046901..` |
+| libObj.so | 0x00d72e74 | 0x28,0x2c,0x30,0x34 | `9a766300..` |
+| libmpr.so | 0x0063f9c8 | 0x14,0x18,0x1c,0x20 | `60a6aa00..` |
+| libmpr.so | 0x00655cec | 0x24,0x28,0x2c,0x30 | `d0a3ac00..` |
+| libmpr.so | 0x006b9bcc | 0x28,0x2c,0x30,0x34 | `49b9aa00..` |
+| libmpr.so | 0x00874d98 | 0x1c,0x20,0x24,0x28 | 2 keys |
+| viewUnified2.so | 0x00677010 | 0x14,0x18,0x1c,0x20 | `38f85c32..` |
+
+Both tests are calibrated. The shape detector reproduces viewUnified2.so's known
+arity-4 class at 0x677010, and the key-reachability test finds its known key
+`38f85c32..` — the first version of that test scanned each candidate's own body
+for a call to itself and so reported "none" for everything, including the pair
+that was already established. A control that can only print "none" is not a
+control.
+
+**All 12 are constructors.** Disassembled, each zeroes the four fields and then
+initialises sub-objects:
+
+```
+libObj.so 0x00860a20
+  str  r6, [r0, #0x14] / [r0,#0x18] / [r0,#0x1c] / [r0,#0x20]
+  add.w r0, r0, #0x24
+  bl    #0x85f6bc          ; sub-object init
+  bl    #0x86b98c
+```
+
+The initial classifier called them non-constructors because they do not call
+`0x1872c8` — that is a *viewUnified2-specific* base constructor, so its absence
+means nothing about the other libraries. Reading the code corrected it.
+
+**So the "four-field property = rect" identification is withdrawn.** A class
+with four word fields and one key is a keyed four-word value type. There is no
+evidence it is a rectangle, and no evidence of how a rect would be encoded,
+because no code in any engine library reads four values from a stream into a
+keyed object. The four fields are filled by direct stores from whatever builds
+the object, and that builder is not identified.
+
+This is the honest end of the geometry thread by static means. The engine does
+not describe how geometry is decoded, because in the binary it does not decode
+it — it is either done at run time or done by a caller this pass has not found.
+
 ## 5. Two claims withdrawn
 
 Recorded because both were nearly mistaken for confirmations.
