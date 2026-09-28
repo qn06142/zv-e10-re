@@ -1,35 +1,21 @@
-### Correction: `0x400c` is referenced 14,721 times, not once
+### Retraction: the `0x400c` hit counts
 
-An intermediate note claimed that palette id `0x400c` appeared in "exactly one
-view file across all 299". That was a search error on my part: the scan excluded
-`image_*.uxc` as well as `string_*.uxc`, and the `image_*` files are where the
-bulk of the id references live.
+Two earlier notes here were wrong and are withdrawn:
 
-Counting every non-`string_*` file:
+1. **"appears in exactly one view file across all 299"** — a search error. The
+   scan excluded `image_*.uxc` as well as `string_*.uxc`.
+2. **"14,721 references across the `image_*` atlases"** — a raw byte-pair count
+   with no structural validation. Verified: 14,720 raw hits, **zero** inside a
+   structural word, spread across a 27 MB bitmap atlas where a two-byte pattern
+   carries no meaning. A null model puts chance at 113 expected, i.e. 2.5×.
 
-| id | rgba | hits |
-|----|------|------|
-| `0x4000` | `000000` | 39,497 |
-| `0x4010` | `dd5500` | 33,989 |
-| `0x4020` | `dddddd` | 23,092 |
-| `0x4008` | `00dd00` | 21,353 |
-| `0x400a` | `cccccc` @80 | 17,329 |
-| `0x4002` | `000000` @99 | 17,074 |
-| **`0x400c`** | **`333333` @80** | **14,721** |
-| … | | |
-| `0x401b` | `000000` @cc | 468 |
+Both counts are about the byte pair `0c 40` existing, not about colour. See
+`VIEW_FORMAT_SOLVED.md` for the full working.
 
-All 28 ids appear. `0x400c` is the 7th most referenced. There is no puzzle and
-no missing-bridge problem — the ids are used heavily throughout the `image_*`
-atlases and the screens.
-
-This also retires the "indirect lookup" reading. The value `333333` @ 80% does
-appear in `image_cmn_43.uxc` at three offsets, but that file is 27 MB of raster
-data where a repeating 4-byte pattern is unremarkable; those are pixel
-coincidences, not a style carrying the guide colour.
-
-So the direct-lookup reading is the well-supported one: the UI resolves colours
-through palette ids, and `0x400c` is one of the most widely used.
+**The hardware result is unaffected.** The guides do follow palette entry
+`0x400c` — the magenta control proves it. What changed is the understanding of
+the path: no view property carries a colour id, so the palette ids are held by
+the rendering code rather than named in the resources.
 
 # Result: the camera's UI palette is ours
 
