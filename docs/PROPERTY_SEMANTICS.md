@@ -119,6 +119,76 @@ means the occurrence is a *declaration*, not an instance — the same trap as th
 **So the file-side read is still open.** The values for this key are not
 adjacent to it, and locating them needs the index mechanism, not a scan.
 
+## 4b. There is no four-field reader in viewUnified2.so, and the dispatch table is not in the file
+
+Two results, both negative, both with a reason rather than a shrug.
+
+**No four-field reader.** A census of every function in the library for a
+contiguous four-word payload run — not restricted to the 0x1872c8 family this
+time, and with the byte-field case included so the boolean is detected — finds
+the shape **231 functions** in total across all arities:
+
+| arity | functions | call the base ctor |
+|---:|---:|---:|
+| 1 | 213 | 87 |
+| 2 | 12 | 7 |
+| 3 | 2 | 0 |
+| **4** | **1** | **1** |
+| 5 | 1 | 0 |
+| 7 | 1 | 0 |
+| 11 | 1 | 0 |
+
+The single four-field function is the constructor at 0x677010. So the reader is
+not in this library in a form this detector can see. The candidates are: it is in
+another library (`viewUnified6.so`, `libObj.so`, `libSysDef.so`); or the four
+fields are filled by four separate callers; or it writes them by block copy,
+`stmia`, or a vector store, none of which produce four individual `str`
+instructions.
+
+**The class dispatch table cannot be read from the file.** Every constructor
+installs its class entry the same way:
+
+```
+ldr  r5, [pc, #p]     ; a pc-relative offset
+add  r5, pc
+ldr  r3, [pc, #q]     ; a slot index
+ldr  r3, [r5, r3]     ; r3 = table[base + index]
+adds r3, #8           ; skip two header slots, the usual address-point fixup
+str  r3, [r4]         ; store at the object head
+```
+
+Hand-computing this for the four classes puts all four on the same base,
+`0xC1A3AE`, and the section table says where that is:
+
+| section | addr | size |
+|---|---|---|
+| `.data.rel.ro` | 0x00b82698 | 0x00097c20 |
+| `.dynamic` | 0x00c1a2b8 | 0x000000f8 |
+| **`.got`** | **0x00c1a3b0** | **0x0000d758** |
+
+`0xC1A3AE` is two bytes below `.got`, and all four slots (`0xC2625E`,
+`0xC2068A`, `0xC1F216`, `0xC21EF2`) are inside `.got`. Two of them read as zero
+on disk, which is what an unrelocated GOT looks like.
+
+The obvious escape is `.rel.dyn`, and it is present: 1,283,752 bytes, divisible
+by 8 and not by 12, so `SHT_REL` with 160,373 entries, and `.dynsym` has 4,181
+symbols — enough to resolve a `GLOB_DAT` statically. **But not one of those
+160,373 relocations targets any of the four slots.** They are almost entirely
+for `.data.rel.ro`. So the class dispatch entries are written at load time by a
+mechanism the file does not record.
+
+Consequence: the reader cannot be reached from the static binary by following
+the class entry. Two routes remain, and both are outside what the file supports:
+
+- a **runtime dump** of `.got` from the live process, which the existing
+  `arm_probe.py` / `pagewalk.py` / `pagemap_probe.py` work is aimed at;
+- the other engines, `viewUnified6.so` and `libObj.so`, where the reader may
+  live outright.
+
+Note for whoever picks this up: `.data.rel.ro` is 621 KB of ~155,000 fully
+relocated pointers and is readable as it stands. If any vtable in this binary is
+statically visible, it is in there, not in the GOT.
+
 ## 5. Two claims withdrawn
 
 Recorded because both were nearly mistaken for confirmations.
