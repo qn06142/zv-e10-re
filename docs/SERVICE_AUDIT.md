@@ -146,11 +146,9 @@ crw-rw-rw-    1,  5  zero
              plus /dev/uipc, /dev/console, and vcsa2..9, vcsa18, vcsa19
 ```
 
-## Kernel modules — 24 loaded, 103 available
+## Kernel modules — 47 loaded, 103 in /usr/kmod
 
-Loaded: `devno dmac ldec emmc osal_utm osal_uipc utimer backup osal_ulogio
-input udate usb_buspwr hdmi cec wlanMemoryAllocator usbg_storage wlanIrq compat
-cfg80211 mmc_core mmcioWrapper bcmdhd`
+See "Correction: 47 modules are loaded, not 24" below for the authoritative list and load order.
 
 `/usr/kmod/` holds 103 `.ko` files including `liro.ko`, `mcmn_drv.ko`,
 `ms_drv.ko`, `accel.ko`, `mag.ko`. **`/sbin/insmod` and `/sbin/rmmod` are
@@ -313,21 +311,131 @@ surface would be reachable in normal mode, not here.
 Also noted: `/usr/upgrade` appears in init's mount table but **does not exist on
 the running camera** — `ls: /usr/upgrade/: No such file or directory`.
 
+## Correction: 47 modules are loaded, not 24
+
+The earlier figure came from `/proc/modules` **as rendered on the console**, and
+the shell wrapper truncates console output at 25 lines. Reading the same file
+through a filter that emits one line gives the true count:
+
+```
+/tmp/sd/tools/busybox-armel cat /proc/modules | cut -d' ' -f1 | tr '\n' ' '
+```
+
+47 modules, in load order:
+
+```
+devno dmac ldec emmc osal_utm osal_uipc utimer backup osal_ulogio input udate
+indctr i2c sircs stream stream2 usb_portMonitor usbg_sen usb_extcmd kikilog
+dmm upm grm_ma grm_gles accel mag compass mcmn_drv ms_drv mmc_drv
+usbg_stillimage dma330 codec_drv liro usbg_buspower usb_darwin usb_buspwr hdmi
+cec wlanMemoryAllocator usbg_storage wlanIrq compat cfg80211 mmc_core
+mmcioWrapper bcmdhd
+```
+
+`/sys/module/` additionally lists 108 entries, including built-ins.
+
+**`liro` is loaded**, which closes the attribution gap — but note *where* in the
+order: it comes **after `codec_drv`**, which is the last module `init` insmods.
+So `liro`, `usbg_stillimage`, `usbg_buspower` and `usb_darwin` are loaded by a
+later stage, not by `init`.
+
+This is the fourth time in this project that a console-truncated read was taken
+for a complete one (after `find` silently returning nothing, after `cmp -l`
+producing no output, and after a `MARK_` filter hiding three surviving markers).
+The rule that follows: **never trust a count taken from wrapped console output —
+re-read through a filter that emits one line, or read the wrapper's log file.**
+
+## Gap 4 closed: im.elf loads the firmware
+
+`/usr/bin/im.elf` (23,240 B) contains the literal string:
+
+```
+fn=/system/av-cam.bin load=1 debug=1
+```
+
+That is a module-parameter format string. `im.elf` is what insmods `liro` and
+points it at the firmware, with **`debug=1`**. It also references `/dev/dnflasha3`
+and `/system`, and links `libosal_uipc.so`, and carries a second string
+`stm_system`.
+
+So the load chain is:
+
+```
+ssboot.bin (bootloader, /system/sabin)
+  -> vmlinux + initrd, root=/dev/ram0
+  -> /sbin/init          mounts partitions, insmods /kmod/* then /usr/kmod/*
+  -> im.elf              insmod liro fn=/system/av-cam.bin load=1 debug=1
+  -> bootin.elf          mounts /tmp/lt as tmpfs, references LIRO
+  -> launch_shell.elf    unmounts /initrd and /dev/ram0, frees the ramdisk,
+                         execs /bin/ash --login
+```
+
+`launch_shell.elf` is only 5,140 bytes and does **not** load the firmware — its
+functions are `reopen_fds`, `do_umount`, `shell_loop`, `do_freeramdisk`, and its
+only paths are `/dev/ttycons`, `/dev/console`, `/initrd`, `/dev/ram0`,
+`/bin/ash`. `bootin.elf` (15,336 B) references `LIRO` and runs
+`/bin/mount -t tmpfs none /tmp/lt`, which does not exist in service mode.
+
+`ldec.ko` is **not** in `/usr/kmod`. `init` loads it from `/kmod/ldec.ko`, which
+is on the ramdisk and is freed after boot — so it cannot be dumped from a running
+camera. That also explains why the `ldec` greps found nothing: the file is not on
+the flash at all.
+
+The live liro module exposes one parameter, `liro_resume_async` (value 0), and
+`refcnt` 0.
+
+## Staged for offline analysis
+
+Pulled to `/tmp/sd/RE_DUMP/audit/` on the card, because the terminal is lossy at
+volume and these are too large to push through it:
+
+| file | size | why |
+|---|---|---|
+| `Backup.bin` | 1,235,740 | the `BK4` settings store — format unparsed |
+| `DmmConfig.bin` | 78,120 | shared-memory config for the `dmm` module |
+| `init` | 28,580 | the boot recipe as a binary, not just its strings |
+| `liro.ko` | 65,212 | the firmware loader, and it runs with `debug=1` |
+
+`im.elf` and `bootin.elf` are already in the local dumps, which is how the
+`fn=/system/av-cam.bin` string was found.
 ## Not covered — the honest gaps
 
-1. **The `BK4` format in `Backup.bin`.** Header is structured but unparsed. The
-   `libIMDB` index is the obvious way in and has not been applied.
+Gaps 1, 4, 5 and 7 are closed above. What remains:
+
+1. **The `BK4` format in `Backup.bin`.** Header is structured but unparsed.
+   `Backup.bin` is staged on the card; the `libIMDB` index
+   (`IMDB_find_entry`, `IMDB_get_entries`, `IMDB_find_target_bit`) is the
+   obvious way in.
 2. **`/proc/osal/uipc` write grammar.** The most promising unexplored knob; the
    node is read-write and the module has `__k_cmd_debug`.
 3. **Usage strings for most binaries.** `sen.elf` with no arguments produces no
    prompt and appears to block; needs a per-binary timeout.
-4. **What loads `av-cam.bin`.** Not `init`, and not found in `launch_shell.elf`
-   or `ldec.ko` by grep.
-5. **Which library provides which `Obj*` group**, and whether the compressed
-   `/system` variant exists.
-6. **`camuser.elf`** (21,305,528 B) is a container with an unreadable section
+4. **Which library provides which `Obj*` group**, and whether the compressed
+   `/system` variant exists — `init` carries
+   `mounting compressed /system failed(%d), trying vfat`.
+5. **`camuser.elf`** (21,305,528 B) is a container with an unreadable section
    table; unidentified.
-7. **`liro` attribution** — 139 threads, no loaded `liro.ko` despite one existing
-   in `/usr/kmod`.
-8. **`tmonitor`** at `0xF00000`, 32 KB, currently masked off — a kernel-side
-   facility that has not been looked at.
+6. **`ldec.ko`** is unrecoverable — it lives on the ramdisk at `/kmod/ldec.ko`,
+   which is freed after boot, so it cannot be dumped from a running camera.
+7. **`liro.ko` internals.** Staged on the card. It loads the firmware with
+   `debug=1`, so it may expose a debug interface that has not been looked for.
+8. **`tmonitor`** at `0xF00000`, 32 KB, currently masked off — a kernel module
+   is loaded under that name, so the facility exists and is unused.
+9. **`DmmConfig.bin`** — the shared-memory layout for the `dmm` module, staged
+   on the card, unparsed.
+
+## A pattern worth recording
+
+Four claims in this project were wrong because a truncated or filtered read was
+taken for a complete one:
+
+| what | how it misled |
+|---|---|
+| `/proc/modules` read off the console | wrapper caps output at 25 lines; "24 loaded" was really 47 |
+| `find` on the toolbelt busybox | silently returned nothing, so "no archive exists" was unfounded |
+| `cmp -l` on the camera | produced no output through the wrapper; the differing-byte count was never obtained |
+| a `MARK_` grep over marker files | hid three surviving markers whose contents were `M3`/`M4`, nearly producing a false negative |
+
+The rule: **never trust a count or an absence taken from wrapped console output.**
+Re-read through a filter that emits a single line, or read the wrapper's log
+file, which keeps everything.
