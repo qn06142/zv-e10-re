@@ -1,11 +1,14 @@
 """Shared Thumb helpers for the av-cam.bin work.
 
-Centralising these because the same bug bit three separate analyses:
-capstone reports `pop.w` / `ldmia.w`, NOT `pop` / `ldmia`.  A walk that
-stopped on `mnemonic == 'pop'` never stopped, ran past the end of a function,
-and silently attributed every following function's instructions and call
-targets to the function before it.  That produced a fake "calls memcpy twice"
-signal and a fake 136-instruction function.
+Centralising these because the same bug bit three separate analyses: an
+epilogue test that matched only the bare mnemonic missed the wide encodings,
+never stopped, ran past the end of a function, and silently attributed every
+following function's instructions and call targets to the function before it.
+That produced a fake "calls memcpy twice" signal and a fake 136-instruction
+function.  is_return() below matches on the mnemonic *stem* so it is correct
+whatever spelling the installed capstone uses -- 5.0.7 normalises the wide form
+to `pop`, older builds emit `pop.w`, and a `== 'pop'` test is right on one and
+wrong on the other.  See docs/RE_METHOD.md.
 """
 import struct
 
@@ -41,9 +44,13 @@ def is_return(ins):
 
     Two traps this has to avoid:
 
-    1. capstone emits `pop.w`, `ldmia.w`, `ldmdb.w` -- matching the bare
-       mnemonic misses every wide form and the walk runs off the end of the
-       function, attributing the next functions' code to this one.
+    1. The epilogue may be spelled `pop`, `pop.w`, `ldmia`, `ldmia.w` or
+       `ldmdb`, and which spelling comes out depends on the capstone build --
+       5.0.7 reports `pop` for both the narrow and the wide encoding.  A test
+       on the bare mnemonic therefore works on one version and misses every
+       wide form on another, and the walk then runs off the end of the
+       function, attributing the next functions' code to this one.  Hence the
+       stem.
 
     2. `pc` merely APPEARING in the operand string is not a return.  Every
        PC-relative literal load prints as `ldr r3, [pc, #0x10c]`.  So for

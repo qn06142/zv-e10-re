@@ -4,6 +4,11 @@ Produced by `research/firmware/elf_catalog.py` over 648 ELF files in the dumps.
 Everything below comes from ELF headers and symbol tables — no disassembly. The
 full 520-name export list is in `research/firmware/libobj_exports.txt`.
 
+Where a claim here did need the code read rather than just the tables — the
+`libIMDB.so` manifest, the `im.elf` control plane, the scenario message
+layout — the method and its traps are in
+[RE_METHOD.md](RE_METHOD.md).
+
 ## Why inventory before conclusions
 
 Three load-bearing claims in this project were inherited rather than checked, and

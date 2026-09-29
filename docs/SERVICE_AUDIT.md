@@ -839,7 +839,6 @@ the SD card. The demonstration above was chosen precisely because
 `scenario.elf` does **not** `dlopen` the plugin. `libtestcmd.so` imports no
 `dlopen` and no `dlsym` — only `osal_*`. `testcmd_run_scenario` (440 bytes)
 builds a message and sends it:
-
 ```
 message header, 16 bytes
   +0x00  0x00940021
@@ -860,13 +859,16 @@ descriptor struct that `testcmd_sndmsg`/`testcmd_rcvmsg` use is `u32 id` at
 source id written back at `+0x14`. Return codes are `0xfffffb01`–`0xfffffb06`
 and `0xfffffc00`/`0xfffffc01`.
 
-So the scenario name is a **UIPC message payload, and the `dlopen` happens on
+so the scenario name is a **UIPC message payload, and the `dlopen` happens on
 the far side** — in a peer that is not loaded in service mode. That is why
 `scenario.elf` is fire-and-forget and why the 35 plugins in `/usr/scenario/`
 never ran. The name is also truncated at 32 bytes by that `memcpy`, and
 validation is only "no spaces", so a 32-character name containing `../` is
 accepted by the sender — whether the receiver joins it into a path is the
 question that would make this an injection rather than a message.
+
+*How this was read, and the four decoding traps involved, is in
+[RE_METHOD.md](RE_METHOD.md).*
 
 ## The bus has two disjoint node spaces
 
