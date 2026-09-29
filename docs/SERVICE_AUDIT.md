@@ -543,6 +543,12 @@ somewhere that is not on any mounted filesystem.
 
 ## The unmounted partitions
 
+`libObj.so` carries a build-time device table that lists all 32
+`/dev/nflasha*` nodes the imaging layer knows about, plus seven
+`/nondev/` pseudo-devices with no kernel node behind them. That accounts for
+the partitions that kept appearing with nothing in the mount table referring
+to them. See [IMCFG_BLOCK.md](IMCFG_BLOCK.md).
+
 Raw header reads, since `mount` refused them all with `EINVAL` even with explicit
 `-t cramfs` and `-t ext2`:
 

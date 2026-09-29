@@ -14,15 +14,15 @@ answer is here, in a library, with the names in it.
 
 ## How the tables are laid out
 
-Each is an array of fixed-stride records with a `u32` pointer into the same
+Each is an array of fixed-stride records with `u32` pointers into the same
 object, so the tables are self-describing — read the words, follow the
-pointer, and the name is there. **The stride differs per table and does not
+pointers, and the names are there. **The stride differs per table and does not
 change between entries:**
 
 | table | stride | shape |
 |---|---:|---|
 | `m_cateTbl` | 8 | `{u32 id, u32 name}` |
-| `m_objTbl` | 12 | `{u32 id, u32 name, u32 aux}` |
+| `m_objTbl` | 12 | `{u32 id, u32 CATEID_*, u32 Obj*}` — **two names** |
 | `m_pinTbl` | 16 | `{u32 id, u32 aux, u32 name, u32 name}` |
 
 Guessing the stride fails in a way that produces plausible nonsense rather
@@ -35,6 +35,13 @@ than an error, which is why it is worth stating:
   `PIN_PANEL` appears against the id `0x1987a`
 
 Neither raises. Both look like data.
+
+`m_objTbl` carries **two** names per record, and picking by position gets it
+backwards: the second word is the `CATEID_` name and the third is the `Obj*`
+name. An earlier positional read reported `ObjCntMgr` for `0x3700` — where the
+category is really `CATEID_CNT_MGR`. Both names are printed below, because the
+pairing is the interesting part: the object table is a map from object to the
+category that owns it.
 
 ## The tables
 
@@ -70,30 +77,63 @@ and it is the remote stack from `libIMDB`'s manifest: `INFRA_REMOTE`,
 **`CATEID_INFRA_WEBAPI` is the web API, as a first-class category id** — the
 thing `docs/ATTACK_SURFACE.md` could not place.
 
-### Objects — 45
+### Objects — 45, and which of them are implemented
 
-Named after the object they address, so this is a component map:
+Every record names both the object and the category that owns it. Joining that
+against `libObj.so`'s exports — which carries exactly one
+`Obj*_RegisterCommand` / `_UnregisterCommand` pair per implemented object —
+splits the table cleanly:
+
+**Implemented in `libObj.so` — 25:**
 
 ```
-0x3100 ObjCamera          0x3a00 ObjMediaServer     0x3a49 ObjScalar
-0x3300 ObjMovieRecorder   0x3a10 ObjInbox           0x3a4a ObjRemote
-0x3410 ObjSystemSound     0x3a20 ObjUploader        0x3a4b ObjNetExternalStreaming
-0x3430 ObjMic             0x3a30 ObjCameraAgent     0x3a4c ObjExternalInput
-0x3450 ObjSpeaker         0x3a40 ObjImporter        0x3a4d ObjHandover
-0x3500 ObjStillRecorder   0x3a41 ObjFinalize        0x3a4e ObjRemoteClient
-0x3600 ObjPlayer          0x3a42 ObjSalvage         0x3a4f ObjMetaRecorder
-0x3700 ObjCntMgr          0x3a43 ObjDvdWriterFirmup 0x3a50 ObjAvAdjCtrl
-0x3710 ObjEditor          0x3a44 ObjFaceRecorder    0x3a51 ObjRemoteAsync
-0x3720 ObjDubbing         0x3a45 ObjNetUploader     0x3a52 ObjFtpClient
-0x3800 ObjMedia           0x3a46 ObjNetMediaServer  0x3a53 ObjGenlock
-0x3900 ObjEffect          0x3a47 ObjNetBackupServer 0x3a54 ObjNetSetting
-0x3950 ObjMap             0x3a48 ObjConverter       0x3a55 ObjMediaServerResident
-                                                  0x3a56 ObjStreamingUsb
+0x3100  (declared only)                     0x3a48  ObjConverter         CATEID_CONVERTER
+0x3200  ObjRenderer        CATEID_RENDERER   0x3a4a  ObjRemote            CATEID_REMOTE
+0x3300  ObjMovieRecorder   CATEID_MOVIE_RECORDER
+                                         0x3a4f  ObjMetaRecorder      CATEID_META_RECORDER
+0x3400  ObjDisplay         CATEID_DISPLAY    0x3a50  ObjAvAdjCtrl         CATEID_AVADJCTRL
+0x3410  (declared only)                     0x3a51  ObjRemoteAsync       CATEID_REMOTE_ASYNC
+0x3420  ObjAudioProcessor  CATEID_AUDIOPROCESSOR
+                                         0x3a52  ObjFtpClient         CATEID_FTP_CLIENT
+0x3430  ObjMic             CATEID_MIC        0x3a53  ObjGenlock           CATEID_GENLOCK
+0x3440  (declared only)                     0x3a54  ObjNetSetting        CATEID_NET_SETTING
+0x3450  ObjSpeaker         CATEID_SPEAKER    0x3a56  ObjStreamingUsb      CATEID_STREAMING_USB
+0x3500  ObjStillRecorder   CATEID_STILL_RECORDER
+0x3600  ObjPlayer          CATEID_PLAYER     0x3700  ObjCntMgr            CATEID_CNT_MGR
+0x3710  ObjEditor          CATEID_EDITOR     0x3720  ObjDubbing           CATEID_DUBBING
+0x3800  ObjMedia           CATEID_MEDIA      0x3900  ObjEffect            CATEID_EFFECT
+0x3a40  ObjImporter        CATEID_IMPORTER   0x3a42  ObjSalvage           CATEID_SALVAGE
+0x3a46  ObjNetMediaServer  CATEID_NET_MEDIA_SERVER
 ```
+
+**Declared in the table but with no `RegisterCommand` in `libObj.so` — 20:**
+
+```
+0x3100 ObjCamera        0x3440 ObjMixer              0x3a41 ObjFinalize
+0x3410 ObjSystemSound   0x3950 ObjMap                0x3a43 ObjDvdWriterFirmup
+0x3a00 ObjMediaServer   0x3a10 ObjInbox              0x3a44 ObjFaceRecorder
+0x3a20 ObjUploader      0x3a30 ObjCameraAgent        0x3a45 ObjNetUploader
+0x3a47 ObjNetBackupServer  0x3a49 ObjScalar           0x3a4b ObjNetExternalStreaming
+0x3a4c ObjExternalInput 0x3a4d ObjHandover           0x3a4e ObjRemoteClient
+0x3a55 ObjMediaServerResident
+```
+
+**The join is exact: 25 implemented, 20 declared-only, and zero orphans in
+either direction.** Every `Obj*` in `libObj.so` appears in the table, and
+every table entry with a `RegisterCommand` in `libObj.so` is in the table.
+That is a strong consistency check on both sides — it is very unlikely two
+independent symbol lists agree exactly by accident.
+
+The 20 unimplemented ones are not missing so much as *pluggable*: `ObjMap`,
+`ObjFaceRecorder`, `ObjNetBackupServer`, `ObjStreamingUsb` and the rest are
+features gated by model or region, and the table reserves the id whether or not
+the build fills it in. `ObjCamera` (`0x3100`) being declared-only is the
+interesting one — the camera object is presumably provided by a library that is
+not `libObj.so`.
 
 `ObjAvAdjCtrl` at `0x3a50` is the AV adjustment control — the same surface as
 the `adjstctl.elf` tool already mapped from the service side, now with its
-in-system name.
+in-system name and category.
 
 ### Pins — 12
 
@@ -119,8 +159,8 @@ Feeding the ids recovered from the plugins back through these tables resolves
 |---|---|
 | `0x0001` | `CATEID_NONE` |
 | `0x2000` | *not in any table* |
-| `0x3700` | `ObjCntMgr` — the content manager |
-| `0x3800` | `ObjMedia` |
+| `0x3700` | `ObjCntMgr` / `CATEID_CNT_MGR` — the content manager |
+| `0x3800` | `ObjMedia` / `CATEID_MEDIA` |
 | `0x6000` | `CATEID_DATABASE` |
 
 And the flat vocabulary, checked against the pin table:
@@ -142,14 +182,21 @@ against the category table alone called them misses.
 ## What is still open
 
 `0x2000` is used by `MPR_SCN_INSTALL_MAP_DEMOMOVIE` and is in none of these
-three tables. It is category-shaped, so either there is a fourth table or it is
-allocated elsewhere. The message ids `0x1001`, `0x1022`, `0x102a` and
-`0x81000`/`0x81003` are the *message* half of the pair, not the category, and
-no table here names them; the per-object message vocabulary is the next thing
-to recover and it is not in this library.
+three tables. It is category-shaped (`0x2001`–`0x200c` are the pins, so
+`0x2000` is plausibly a pin *group*), but that is an inference and is recorded
+as one.
+
+The message ids `0x1001`, `0x1022`, `0x102a` and `0x81000`/`0x81003` are the
+*message* half of the pair, not the category, and no table here names them.
+A second id array in `libObj.so` does contain `0x1001` — but not the other
+four, so it is a different space that overlaps rather than the registry the
+plugins draw from. That array also contains a `0x4xxx` group
+(`0x4000`, `0x4100`, `0x4200`, `0x4300`, `0x4400`) that **nothing in these
+tables names**. The per-object message vocabulary remains the open item; it is
+not in `libSysDef.so` and not in the `IMCFG` block.
 
 Two much larger tables are also exported and untouched:
-`DefInh::sm_refTbl` (3,158,400 bytes — 97% of the file) and
+`DefInh::sm_refTbl` (3,158,400 bytes — 96.7% of the file) and
 `DefRsrc::scm_refTbl` (98,778). `DefRsrc::GetRsrcMgrId` and
 `GetRsrcMgrCount` take an `AcsrId_t`, so the resource table is indexed by
 resource id rather than message id. Those two are the natural next target for

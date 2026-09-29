@@ -31,13 +31,13 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 SYSDEF = ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libSysDef.so"
 
 TABLES = [
-    # (mangled suffix, label, record stride in bytes)
+    # (mangled suffix, label, record stride in bytes, which name to show)
     #
     # The strides differ, and guessing them fails in a way that produces
     # plausible-looking nonsense rather than an error:
     #
     #   m_cateTbl  8   {u32 id, u32 name}
-    #   m_objTbl  12   {u32 id, u32 name, u32 aux}
+    #   m_objTbl  12   {u32 id, u32 cate_name, u32 obj_name}
     #   m_pinTbl  16   {u32 id, u32 aux, u32 name, u32 name}
     #
     # The name pointer is the first u32 in the range that points into the
@@ -45,9 +45,14 @@ TABLES = [
     # 8 the pin table yields "\x7fELF" (the ELF header at vaddr 0) and at 12
     # it interleaves the id column with the name column, so "PIN_PANEL"
     # appears against the id 0x1987a.
-    ("m_cateTbl", "MWF::MwfTbl::m_cateTbl  (categories)", 8),
-    ("m_objTbl", "MWF::MwfTbl::m_objTbl   (objects)", 12),
-    ("m_pinTbl", "MWF::MwfTbl::m_pinTbl   (pins)", 16),
+    #
+    # m_objTbl carries TWO names per record, and picking by position gets it
+    # backwards: the second word is the CATEID_ name and the third is the Obj*
+    # name, so a positional read reports "ObjCntMgr" for 0x3700 when the
+    # category is really CATEID_CNT_MGR.
+    ("m_cateTbl", "MWF::MwfTbl::m_cateTbl  (categories)", 8, "CATEID_"),
+    ("m_objTbl", "MWF::MwfTbl::m_objTbl   (objects)", 12, "Obj"),
+    ("m_pinTbl", "MWF::MwfTbl::m_pinTbl   (pins)", 16, "PIN_"),
 ]
 
 
@@ -96,13 +101,18 @@ class Obj:
         return None, None, None
 
     def pairs(self, vaddr, size, stride=8):
-        """Yield (id, aux, name) for an array of fixed-stride records.
+        """Yield (id, name, aux) for an array of fixed-stride records.
 
-        The name pointer is identified positionally per table rather than
-        guessed, because the three tables order their fields differently:
-        cate is {id, name}, obj is {id, name, aux}, pin is {id, aux, name,
-        name}.  Anything that resolves to printable ASCII is the name; the
-        remaining non-id word is the aux.
+        The name pointer is identified by what it resolves to, not by position,
+        because the tables carry two different string kinds and the earlier
+        positional guess picked the wrong one: m_objTbl's records are
+        {id, CATEID_*, Obj*} and reading the second word as the name yields
+        "ObjCntMgr" for 0x3700 when the category name is CATEID_CNT_MGR.
+
+        So: a pointer resolving to a CATEID_ string is the category name, one
+        resolving to an Obj* string is the object name, and PIN_* is a pin.
+        The other pointer is returned as aux.  Callers that only want the
+        subsystem name should prefer whichever matches their table.
         """
         o = self.v2o(vaddr)
         if o is None:
@@ -111,15 +121,23 @@ class Obj:
             words = list(struct.unpack_from("<%dI" % (stride // 4),
                                             self.data, o + i))
             cid = words[0]
-            name = None
-            aux = None
+            strs = []
             for w in words[1:]:
                 s = self.cstr(w)
-                if s and name is None and all(32 <= ord(c) < 127 for c in s):
-                    name = s
-                elif w != cid and aux is None:
-                    aux = w
-            yield cid, aux, name
+                strs.append(s if (s and all(32 <= ord(c) < 127 for c in s))
+                            else None)
+            yield cid, strs, words
+
+
+def pick(strs, prefix):
+    """The string in this record matching a name prefix, else the first."""
+    for s in strs:
+        if s and s.startswith(prefix):
+            return s
+    for s in strs:
+        if s:
+            return s
+    return None
 
 
 def main():
@@ -130,19 +148,22 @@ def main():
     print("libSysDef.so  %d bytes, %d exports\n" % (len(o.data), len(o.sym)))
 
     out = []
-    for suffix, label, stride in TABLES:
+    for suffix, label, stride, want in TABLES:
         name, vaddr, size = o.find(suffix)
         if not name:
             print("%-40s NOT FOUND" % label)
             continue
+        rows = [(cid, pick(strs, want), [s for s in strs if s])
+                for cid, strs, _w in o.pairs(vaddr, size, stride)]
+        rows = [r for r in rows if r[1]]
         n = size // stride
         print("=== %s ===" % label)
-        print("    %s  %d entries, %d bytes, %d-byte records\n"
-              % (name, n, size, stride))
-        rows = list(o.pairs(vaddr, size, stride))
-        for cid, aux, nm in rows:
-            extra = "" if aux is None else "  aux=0x%08x" % aux
-            print("  0x%08x  %-34s%s" % (cid, nm, extra))
+        print("    %s  %d records of %d bytes, %d named\n"
+              % (name, n, stride, len(rows)))
+        for cid, nm, both in rows:
+            other = [s for s in both if s != nm]
+            extra = ("   also: " + ", ".join(other)) if other else ""
+            print("  0x%08x  %-28s%s" % (cid, nm, extra))
         print()
         out.append((label, rows, stride))
 
@@ -156,14 +177,15 @@ def main():
                 if cat is not None:
                     mwf_cats.add(cat)
         if mwf_cats and out:
-            tables = {st: (lbl, rows) for lbl, rows, st in out}
             known = {}
-            for st, (lbl, rows) in tables.items():
-                for cid, _a, nm in rows:
-                    known.setdefault(cid, []).append("%s=%s" % (lbl.split()[1], nm))
+            for _lbl, rows, _st in out:
+                for cid, nm, _both in rows:
+                    known.setdefault(cid, []).append(nm)
             print("=== cross-check: ids used by the scenario plugins ===")
             for c in sorted(mwf_cats):
-                print("  0x%08x  %s" % (c, ", ".join(known.get(c, ["(unknown)"]))))
+                names = known.get(c)
+                print("  0x%08x  %s" % (c, ", ".join(names) if names
+                                       else "(unknown)"))
             print()
             print("  %d of %d resolved" % (sum(1 for c in mwf_cats if c in known),
                                            len(mwf_cats)))
@@ -177,16 +199,15 @@ def main():
                 for (m, v), n in w.items():
                     if m == "movw" and v >= 0x100:
                         flat[v] = flat.get(v, 0) + n
-            pinrows = next(rows for st, (lbl, rows) in tables.items() if st == 16) \
-                if 'tables' in dir() else []
+            pinrows = next((rows for lbl, rows, st in out if st == 16), [])
             if pinrows:
-                pinids = {cid for cid, _a, _n in pinrows}
+                pinids = {cid for cid, _nm, _b in pinrows}
                 hits = sorted(v for v in flat if v in pinids)
                 print()
                 print("=== the flat 0x0xx/0x1xx/0x2xx vocabulary vs the pin table ===")
                 print("  %d distinct immediates; %d are pin ids:" % (len(flat), len(hits)))
                 for v in hits:
-                    nm = next(n for cid, _a, n in pinrows if cid == v)
+                    nm = next(nm for cid, nm, _b in pinrows if cid == v)
                     print("    0x%04x  %-22s %d use(s)" % (v, nm, flat[v]))
         except Exception as e:                                # pragma: no cover
             print("pin cross-check skipped: %s" % e)
