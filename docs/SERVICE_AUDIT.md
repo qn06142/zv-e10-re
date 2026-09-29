@@ -398,6 +398,82 @@ volume and these are too large to push through it:
 
 `im.elf` and `bootin.elf` are already in the local dumps, which is how the
 `fn=/system/av-cam.bin` string was found.
+## The finding that reframes everything: bootmode is NORM
+
+`init` decides its mode from three sources, all of which are now known:
+
+| source | read by | state on the camera |
+|---|---|---|
+| `/setting/sen/smode` | `check_forced_senser` | **does not exist** (`/setting/sen/` absent) |
+| `/setting/mode/dmode` | `check_bootmode` | **absent** (`/setting/mode/` is empty) |
+| `/proc/udm/upm_bootmode` | `check_bootmode` | **`NORM`** |
+| kernel cmdline | `parse_cmdline` | no `senser`/`usbj`/`kmcenv`/`is_*` parameter |
+
+`BOOTMODE=NORM`, no forcing file, no kernel parameter — and yet only the launcher
+is running: no camera application in `comm`, `LMSGQ` and `LSEM` empty, the
+scenario runner silent, and no TCP listener.
+
+**So the application is not being suppressed by a mode flag. It is being
+suppressed by the service USB connection itself.**
+
+That closes the loop on every dead end in this session, and it is worth stating
+plainly because it was not obvious and cost the whole afternoon:
+
+- **The icon-font patch produced no visible change because the process that draws
+  labels was never running.** The file was patched and md5-verified at the exact
+  path the application reads; the application simply was not there to read it.
+- The same applies to `OPENCODE` in the string table. Every "check" of it was a
+  `md5sum` on a camera that had no UI to show it.
+- The UIPC bus is empty because nothing on the application side is connected to
+  it — not because the bus is broken.
+- `scenario.elf` returning 0 is consistent with a message queued to an endpoint
+  nobody is listening on, exactly as the empty `LMSGQ` predicted.
+
+The PC's own enumeration lists `Windows-MSC`, `Windows-MTP`,
+`libusb-MSC`, `libusb-MTP` and vendor-specific backends, so the camera
+exposes an ordinary USB device personality as well as the service terminal.
+The hypothesis to test is that **service-mode USB and normal USB are mutually
+exclusive**, and that in normal mode the application runs.
+
+If that holds, the right sequence for everything found in this audit is: make
+file changes through the service shell, power down, remove the service cable,
+power on, and let the camera boot into the application. The UIPC bus, the
+scenario plugins, the PTP/MTP server, `libInfraRemote` and the HTTP surface all
+become live at once, and `/setting` and `/system` are persistent and writable so
+the changes survive.
+
+**This is a hypothesis, not a result.** It has not been tested, because testing it
+means giving up the shell for the duration.
+
+## Also found: a malloc/alloc tracer
+
+`/usr/tool/` is not empty:
+
+```
+-rwxrwxrwx  LeakCheck              689
+-rwxrwxrwx  LeakTracer.so       31,128
+lrwxrwxrwx  libjemalloc.so   -> libjemalloc_tsh.so.1
+lrwxrwxrwx  libjemalloc_tsh.so -> libjemalloc_tsh.so.1
+-rwxrwxrwx  libjemalloc_tsh.so.1  115,504
+```
+
+`LeakTracer.so` exports `malloc`, `free`, `realloc`, `lt_malloc`, `lt_calloc`,
+`new_slot`, `del_slot` — an interposing allocator that tracks every allocation by
+slot. And `init` contains the conditional `LD_PRELOAD` machinery for exactly this
+kind of thing:
+
+```
+LD_PRELOAD=/usr/tool/libsonyefence.so
+LD_PRELOAD=/usr/tool/libduma.so
+DUMA_MALLOC_0_STRATEGY=1  DUMA_PROTECT_FREE=1  DUMA_ALIGNMENT=4
+DUMA_OUTPUT_FILE=/root/dumaLog.txt
+```
+
+So the camera ships with `libduma.so` (a malloc debugger) and
+`libsonyefence.so` (an electric-fence allocator) and `init` will `LD_PRELOAD`
+either of them depending on its checks. `/usr/tool/` is on the persistent,
+writable `/usr` partition, so which allocator the application runs under is a
+file-level decision, not a rebuild.
 ## Not covered — the honest gaps
 
 Gaps 1, 4, 5 and 7 are closed above. What remains:
