@@ -100,9 +100,32 @@ of them, because assuming the common one silently annotates nothing:
 The reliable way to resolve a stub to a symbol is **not** to assume
 stub-order == relocation-order. It is to decode the stub's
 `ldr pc, [ip, #imm]!`, compute the GOT address it lands on, and look *that* up
-in `.rel.plt` / `.rel.dyn`. `annotate.py:plt_map()` does this. The
-order-assuming version annotated calls with the wrong symbol names, which is
-worse than no annotation at all.
+in `.rel.plt` / `.rel.dyn`. `annotate.py:plt_map()` does this.
+
+### The mask that silently returns nothing
+
+Writing the `ldr` test as a single mask against `0xE5BCC000` is wrong, and
+fails in a way that produces **an empty map and no error**. Two separate
+mistakes, both of which look correct:
+
+- That constant pins the *register field* along with the instruction, so the
+  common `e5bcf...` encoding (Rn = ip) does not match. Only `e5bcc...` would.
+- W is bit 21 of the encoding, not bit 20.
+
+Test the fields instead — P=24, U=23, B=22 (must be 0), W=21, L=20 required
+set; Rn=ip and Rt=pc checked separately:
+
+    LDR_PC_IP_MASK = (1 << 24) | (1 << 23) | (1 << 21) | (1 << 20)
+
+and **do not include the condition field**. A fourth attempt masked with
+`0x0F000000`, which is bits 24–27 (P and U), not bits 28–31 — so it compared
+P/U against the constant `0x0E000000` and never matched. All four wrong versions
+fail silently, which is the real hazard: `plt_map()` returning `{}` reads as
+"this object has no PLT" rather than "my predicate is wrong".
+
+Sanity check that catches it: on `AVBB_SCN_START_HDMI.so` the correct answer
+is 122 entries, and the first `.rel.plt` slot is `0xab00` — which the
+hand-computed GOT address of the first stub reproduces exactly.
 
 ## 4. vaddr is not file offset
 

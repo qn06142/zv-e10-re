@@ -557,6 +557,10 @@ None of these is the `/usr/share/app` source.
 
 ## The scenario runner is fire-and-forget
 
+*The 35 plugins themselves have since been decoded — their command vocabulary
+is in [SCENARIO_VOCAB.md](SCENARIO_VOCAB.md). What follows is about the
+runner, which remains unusable.*
+
 Verified properly rather than by eye. The first attempt was confounded: the pty
 echoes input, so a 32-byte `ABCDEF…` payload appeared to come back as a "reply".
 Re-run with `stty -echo` first:

@@ -79,26 +79,47 @@ def plt_map(f, data, segs):
         return ((imm >> rot) | (imm << (32 - rot))) & 0xFFFFFFFF
 
     out = {}
-    for sname in (".plt", ".plt.got", ".plt.sec"):
-        plt = f.get_section_by_name(sname)
-        if not plt:
+    for sname in (".plt", ".plt.got", ".plt.sec", ".text"):
+        sec = f.get_section_by_name(sname)
+        if not sec:
             continue
-        po, pv, n = plt["sh_offset"], plt["sh_addr"], plt["sh_size"]
+        po, pv, n = sec["sh_offset"], sec["sh_addr"], sec["sh_size"]
+        # .text is scanned too because the linker can emit the thunks inline
+        # instead of into .plt; only matches that land on a real GOT slot count.
         i = 0
         while po + i + 8 <= po + n:
             w = struct.unpack_from("<3I", data, po + i)
             base = pv + i + 8                      # ARM: pc reads addr + 8
+            # The ldr must be `ldr pc, [ip, #imm]!` -- a pre-indexed, writeback,
+            # word load from ip into pc.  Test the ARM single-data-transfer bit
+            # positions directly: P=24, U=23, B=22 (must be 0, word), W=21,
+            # L=20, then Rn=ip and Rt=pc.
+            #
+            # No condition check.  Three earlier versions of this predicate were
+            # wrong in ways that produced an empty result rather than an error:
+            # one pinned the register field (rejecting the common e5bcf...
+            # encoding), one used bit 21 for W when it is bit 21 *of the field*
+            # but the mask was written as if for bit 20, and one masked the
+            # condition with 0x0F000000, which is bits 24-27, not 28-31 -- so
+            # it compared against P/U rather than cond.  All three fail silently.
+            # Requiring only the bits that must be 1, and the two registers,
+            # is enough: the GOT-slot lookup filters false positives.
+            LDR_PC_IP_MASK = (1 << 24) | (1 << 23) | (1 << 21) | (1 << 20)
+
+            def is_ldr_pc_ip(wd):
+                return ((wd & LDR_PC_IP_MASK) == LDR_PC_IP_MASK
+                        and not (wd & (1 << 22))          # B=0, word not byte
+                        and ((wd >> 16) & 0xF) == 0xC      # Rn = ip
+                        and ((wd >> 12) & 0xF) == 0xF)     # Rt = pc
             # 8-byte form:  add ip, sp/pc, #A ; ldr pc, [ip, #B]!
-            if (w[0] & 0xFFFFF000) in (0xE28CC000, 0xE28FC000) and \
-               (w[1] & 0xFFFFF000) == 0xE5BCC000:
+            if (w[0] & 0xFFFFF000) in (0xE28CC000, 0xE28FC000) and is_ldr_pc_ip(w[1]):
                 gip = (base + ror8(w[0]) + (w[1] & 0xFFF)) & 0xFFFFFFFF
                 if gip in got:
                     out[pv + i] = got[gip]
             # 12-byte form: add ip,pc,#A ; add ip,ip,#B,20 ; ldr pc,[ip,#C]!
             elif po + i + 12 <= po + n and \
                  (w[0] & 0xFFFFF000) == 0xE28FC000 and \
-                 (w[1] & 0xFFFFF000) == 0xE28CC000 and \
-                 (w[2] & 0xFFFFF000) == 0xE5BCC000:
+                 (w[1] & 0xFFFFF000) == 0xE28CC000 and is_ldr_pc_ip(w[2]):
                 gip = (base + ror8(w[0]) + ror8(w[1]) + (w[2] & 0xFFF)) & 0xFFFFFFFF
                 if gip in got:
                     out[pv + i] = got[gip]
