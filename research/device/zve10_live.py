@@ -301,20 +301,181 @@ USAGE = """usage:
   zve10.py shell "cmd" ["cmd2" ...] | -f file.txt
   zve10.py pull <remote> <out>          (files < 8MB, verified)
   zve10.py dumpfw                       (capture all flash partitions to the SD card)
+
+options:
+  --timeout SECONDS   bound the whole session (default 240)
+  -r, --retries N     on a wedged handshake, power-cycle the USB device and
+                      retry, instead of demanding a manual replug (default 1)
+  --no-retry          do not retry; fail immediately
 """
 
 
+def _recycle_usb() -> bool:
+    """Power-cycle the camera's USB device so the next attempt starts clean.
+
+    The wedge is: a session that dies mid-handshake leaves the camera
+    enumerating as 0x0336 (service) and half-authenticated.  The next run
+    then finds a device that will not complete auth, which is why every
+    failure used to cost a manual replug.  Disabling and re-enabling the
+    device node forces a re-enumeration from the power-on state (0x0d95).
+
+    Needs the device node to be disable-able, which requires elevation; if
+    it is not available the caller falls back to telling the user to replug.
+    """
+    import subprocess
+    devs = [d.InstanceId for d in _pnp_devices()
+            if d.InstanceId and d.InstanceId.startswith(r"USB\VID_054C")]
+    if not devs:
+        return False
+    ok = False
+    # Hard, SHORT timeouts.  This runs inside the watchdog thread, and the
+    # watchdog is the thing that is supposed to bound the session -- a 60 s
+    # subprocess here made a 150 s timeout actually take 280 s, which is the
+    # opposite of the point.  8 s is ample for a pnputil call.
+    for inst in devs:
+        for verb, args in (("disable", ["/restart-device"]),
+                           ("enable", ["/restart-device"])):
+            if verb == "disable":
+                args = ["/remove-device"]
+            try:
+                r = subprocess.run(["pnputil"] + args + [inst],
+                                   capture_output=True, text=True, timeout=8)
+                _p("  pnputil %-8s -> %s" % (verb, (r.stdout or r.stderr).strip()[:80]))
+                ok = ok or r.returncode == 0
+            except subprocess.TimeoutExpired:
+                _p("  pnputil %-8s -> timed out after 8s" % verb)
+            except Exception as e:                        # noqa: BLE001
+                _p("  pnputil %-8s -> %s" % (verb, e))
+    return ok
+
+
+def _pnp_devices():
+    """Enumerate PnP devices as objects with .InstanceId, via PowerShell."""
+    import subprocess
+    script = ("Get-PnpDevice -ErrorAction SilentlyContinue | "
+              "Where-Object { $_.InstanceId -like '*VID_054C*' } | "
+              "Select-Object -ExpandProperty InstanceId")
+    try:
+        r = subprocess.run(["powershell", "-NoProfile", "-Command", script],
+                           capture_output=True, text=True, timeout=8)
+        out = r.stdout
+    except Exception:                                    # noqa: BLE001
+        return []
+
+    class _D:
+        def __init__(self, i):
+            self.InstanceId = i
+    return [_D(x.strip()) for x in out.splitlines() if x.strip()]
+
+
+def _run_session(cmd, rest) -> None:
+    _SESS["cmd"], _SESS["rest"] = cmd, rest
+    senserShellCommand(complete=_complete)   # mode switch + auth, then run
+
+
+_RETRIES = {"n": 0}
+
+
+def _watchdog(seconds: int) -> None:
+    """Hard wall-clock bound on the whole session.
+
+    senserShellCommand() blocks on a mode switch + auth handshake against a
+    device that may be wedged from a previous killed session.  It has no
+    internal deadline, so an unresponsive device turns into an indefinite
+    CPU spin -- observed burning 821 s of CPU across a 30-minute call.
+
+    On Windows, signal.alarm does not exist, so use a daemon thread and
+    os._exit, which also forces the USB handles to be released.
+    """
+    import threading
+    import time
+
+    def _fire():
+        _p("")
+        _p("=" * 68)
+        _p("TIMEOUT after %d s.  The camera did not complete the handshake." % seconds)
+        _p("This is the known wedge: a killed session leaves the camera in")
+        _p("service mode and the next one cannot authenticate.")
+        if _RETRIES["n"] > 0:
+            _p("Recycling the USB device and retrying (%d attempt(s) left)..."
+               % _RETRIES["n"])
+            _RETRIES["n"] -= 1
+            if _recycle_usb():
+                _p("USB device reset.  Retrying the session.")
+                _p("=" * 68)
+                sys.stdout.flush()
+                time.sleep(8)
+                try:
+                    _run_session(_SESS["cmd"], _SESS["rest"])
+                except Exception as e:                       # noqa: BLE001
+                    _p("retry failed: %s" % e)
+                    sys.stdout.flush()
+                    os._exit(4)
+                sys.stdout.flush()
+                os._exit(0)
+            _p("Could not reset the USB device (needs an elevated shell).")
+        _p("FIX: unplug the camera and replug it, then retry.")
+        _p("=" * 68)
+        sys.stdout.flush()
+        os._exit(3)
+
+    # Timer, not Thread: a bare Thread(target=_fire) runs _fire IMMEDIATELY
+    # and kills the session instantly, which is not a timeout at all.
+    t = threading.Timer(seconds, _fire)
+    t.daemon = True
+    t.start()
+
+
 def main(argv: list[str]) -> int:
-    if not argv:
+    # --timeout SECONDS bounds the whole session (default 240)
+    # -r/--retries N  power-cycle the USB device and retry on a wedged
+    #                 handshake, so a failure no longer costs a manual replug
+    timeout = 240
+    retries = 1
+    rest_all = list(argv)
+
+    def _take(flag):
+        nonlocal rest_all
+        if flag in rest_all:
+            i = rest_all.index(flag)
+            if i + 1 >= len(rest_all):
+                _p("%s needs a value" % flag)
+                return None
+            v = rest_all[i + 1]
+            del rest_all[i:i + 2]
+            return v
+        return None
+
+    v = _take("--timeout") or _take("-T")
+    if v is not None:
+        try:
+            timeout = int(v)
+        except ValueError:
+            _p("--timeout value %r is not an integer" % v)
+            return 1
+    v = _take("--retries") or _take("-r")
+    if v is not None:
+        try:
+            retries = int(v)
+        except ValueError:
+            _p("--retries value %r is not an integer" % v)
+            return 1
+    if "--no-retry" in rest_all:
+        rest_all.remove("--no-retry")
+        retries = 0
+
+    if not rest_all:
         _p(USAGE)
         return 1
-    cmd, rest = argv[0], argv[1:]
+    cmd, rest = rest_all[0], rest_all[1:]
     if cmd not in ("scan", "shell", "pull", "dumpfw"):
         _p(USAGE)
         return 1
     _preflight()
-    _SESS["cmd"], _SESS["rest"] = cmd, rest
-    senserShellCommand(complete=_complete)   # mode switch + auth, then run
+    _RETRIES["n"] = retries
+    _p("session watchdog armed: %d s, retries: %d" % (timeout, retries))
+    _watchdog(timeout)
+    _run_session(cmd, rest)
     return 0
 
 

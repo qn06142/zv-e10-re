@@ -694,6 +694,227 @@ The one remaining lever is `check_forced_senser` and the mode selection in
 not loaded — which means either the mode that is actually in force is not being
 reported through `/proc/udm/upm_bootmode`, or the service USB personality is
 what holds the system in the launcher. Testing it means giving up the shell.
+## An attack path exists, and it is proved: writable `/usr/lib` → `dlopen` → root
+
+This is the first code execution on the camera, and it needed no exploit — no
+memory corruption, no kernel bug, no race. The camera loads its own libraries
+by name from a directory the service shell can write to, and that directory
+persists across reboot.
+
+### The primitive
+
+`/usr/lib` is ext2 on `nflasha15`, remountable rw, and **not** wiped at boot
+(only `/usr/share/app` is). It holds 201 shared objects, including
+`libtestcmd.so`, which `scenario.elf` links. Replacing one of those files with
+a different ELF of the same name means the dynamic loader runs my code as root
+the next time anything loads it.
+
+### The proof
+
+`libtestcmd.so` exports `cmdline_show_revision` — 68 bytes at vaddr `0x1a48`,
+and for that object vaddr == file offset. It is a leaf whose last 28 bytes are
+its own literal pool, so the whole function is self-contained and can be
+replaced wholesale. `--ver` is its only caller.
+
+The replacement is 66 bytes of ARM Thumb-2 that uses **raw Linux syscalls
+only** — `open`/`write` via `svc #0`, no PLT, no libc, no new relocations, so
+the loader has nothing extra to bind:
+
+```
+push {r7, lr}
+sub  sp, sp, #16
+movw r1, #0x742f ; movt r1, #0x706d ; str r1, [sp, #0]   "/tmp/ox\0"
+movw r1, #0x6f2f ; movt r1, #0x0078 ; str r1, [sp, #4]
+movw r1, #0x504f ; movt r1, #0x0a58 ; str r1, [sp, #8]   "OPX\n"
+mov  r0, sp ; movw r1, #0x0241 ; mov r7, #5 ; svc #0     open(path, O_WRONLY|O_CREAT|O_TRUNC)
+add  r1, sp, #8 ; mov r2, #4 ; mov r7, #4 ; svc #0       write(fd, body, 4)
+mov  r0, #0 ; add sp, sp, #16 ; pop {r7, pc}              return 0, as the original did
+```
+
+Built by `research/firmware/opx_payload.py` with keystone, applied to
+`dumps/camera_2025/usr/usr/lib/libtestcmd.so`, and diffed: **66 of 10,128
+bytes changed, all inside `0x1a48..0x1a8b`; file length unchanged; all 25
+exports still resolve; the object still parses.**
+
+Transferred without the SD card, in 66 bytes of `printf` octal escapes plus
+two `tail`/`dd` slices, and checked at every step:
+
+| stage | size | md5 |
+|---|---|---|
+| payload built locally | 66 | `f1dd9279ac5406559efd0df51d7876a6` |
+| `/tmp/p.bin` on the camera | 66 | `f1dd9279ac5406559efd0df51d7876a6` |
+| `/tmp/lt.so` reassembled on the camera | 10128 | `5d776c95847022dbc343e00519289b5f` |
+| `libtestcmd.OPX.so` built locally | 10128 | `5d776c95847022dbc343e00519289b5f` |
+
+Installed, then `scenario.elf --ver`:
+
+```
+===== $ ls -l /tmp/ox; cat /tmp/ox =====
+OPX
+```
+
+The file did not exist before. It was created by the injected code, in the
+`scenario.elf` process, as root, by a library I had replaced with an md5-
+different but otherwise identical file.
+
+Restored immediately and verified: `-r-xr-xr-x 1 57285 1000 10128`,
+md5 `f370de888ae662e7f509f2274846eac6` — byte-identical to stock, original
+mode and ownership (`cp` had reset both; `chown`/`chmod` put them back). The
+`.orig` copy was removed. **The camera is as it was found.**
+
+`im.elf` does not link `libtestcmd.so`, so nothing running was touched. That
+was checked before installing, not after.
+
+## The real target: `libIMDB.so`, loaded by `im.elf`
+
+`im.elf` is not a launcher. It is the imaging manager, and it is **running as
+PID 157**, owning **417 message queues, 134 semaphores and 310 callbacks** —
+the whole Linux side of the OSAL bus. Its imports:
+
+```
+dlopen dlsym dlclose dlerror        IMDB_find_entry IMDB_get_entries IMDB_find_target_bit
+mount umount mmap munmap statfs      Backup_read Backup_write
+fork waitpid putenv syscall signal   osal_* (snd/rcv/reg/valloc/free, osal_snd_sync_direct)
+```
+
+and its `.rodata` is the control plane in plain text. It **mounts every
+filesystem on the device**:
+
+```
+/proc   /sys   /setting (/dev/dnflasha3)   /system (/dev/nflasha3)
+/tmp    /usr (/dev/nflasha15, cramfs)      /rootfs    /usr/upgrade
+/log    /dev/ms1   /lens   /cert   /etc
+```
+
+note that `/setting` and `/system` come from the **`dnflasha3`/`dnflasha15`**
+"decrypted" devices while `/system` also lists `nflasha3` — two different
+backing stores for the same mount point, which is a new lead on the
+`/usr/share/app` restore mystery. It also runs `/sbin/dosfsck -Y` for vfat and
+`/usr/bin/e2fsck -y` for ext2, spawns `/usr/bin/sen.elf &`, and can trigger a
+reboot through `/sys/power/state` (`warm`, `mem`).
+
+It selects a build with these keywords, read from the kernel command line or a
+config: `boot=` `bootall` `target=` `app_argv=` `cipa` `qemu` `usbj` `cho`
+`normal` `nodebug` `notrace` `test` `killall` `imdb` `jem` `imssi` and the
+`lazy-global` / `lazy-local` / `now-global` / `now-local` variants.
+
+And the manifest it loads libraries from is **`libIMDB.so`'s own string
+table**. The exported data symbol `imdb_raw` is 132 bytes: eleven u16 offsets
+into `.rodata`, resolving to the nine mode names
+
+```
+default  qemu  sim  nfs  set  usbj  resub  adjust  test
+```
+
+(`IMDB:default`, `IMDB:qemu`, … are the same strings five bytes later). The
+174 library names and their `init`/`exit`/`sus`/`res`/`act`/`inact` entry
+points are the surrounding `.rodata`, walked in order. `im.elf` prints the
+record it is working on:
+
+```
+IMDB @ %p   .type=0x%08x  .taregt=0x%08x  .flag=0x%08x
+            .me=0x%04x    .psid=0x%04x
+            .file : "%s"   .init : "%s"   .exit : "%s"
+            .sus  : "%s",  .res  : "%s"   .inact: "%s"  .act : "%s"
+```
+
+`.me` and `.psid` are 16-bit, and they are exactly the small queue indices
+that appear in `/proc/osal/uipc` (`4C`, `114`, `16F`, …). So the manifest
+records name the message-queue ids their owners serve. Validation is only
+`strchr(name, ' ')` — it rejects NULL and names containing a space, nothing
+else.
+
+**So replacing `/usr/lib/libIMDB.so` would execute code inside PID 157, at
+startup, on the next boot, as root, in the process that owns the message bus
+and mounts the filesystems.** That is the attack path to the subsystems, and
+the same primitive proved above is all that is required.
+
+I did not do that, because it is a one-way door: if the replacement is wrong,
+`im.elf` does not start, the service shell never appears, and recovery means
+the SD card. The demonstration above was chosen precisely because
+`im.elf` does not touch `libtestcmd.so`.
+
+## The scenario protocol, read out of the code
+
+`scenario.elf` does **not** `dlopen` the plugin. `libtestcmd.so` imports no
+`dlopen` and no `dlsym` — only `osal_*`. `testcmd_run_scenario` (440 bytes)
+builds a message and sends it:
+
+```
+message header, 16 bytes
+  +0x00  0x00940021
+  +0x04  0x000000dc
+  +0x08  0x00000003
+  +0x0c  0x00dc0292            destination
+payload
+  +0x00  char name[0x20]        32 bytes, memcpy'd
+  +0x20  u32  name_len
+  +0x24  u32  data_len
+  +0x28  u8   data[data_len]
+```
+
+`name_len` is `strlen`, `data_len` is the 4-byte value from the caller, and the
+two endpoint ids are `0x00dc0292` (register) and `0x00dc0293` (send). The
+descriptor struct that `testcmd_sndmsg`/`testcmd_rcvmsg` use is `u32 id` at
+`+0`, a flags byte at `+0x0c` whose bit 0 selects the synchronous call, and a
+source id written back at `+0x14`. Return codes are `0xfffffb01`–`0xfffffb06`
+and `0xfffffc00`/`0xfffffc01`.
+
+So the scenario name is a **UIPC message payload, and the `dlopen` happens on
+the far side** — in a peer that is not loaded in service mode. That is why
+`scenario.elf` is fire-and-forget and why the 35 plugins in `/usr/scenario/`
+never ran. The name is also truncated at 32 bytes by that `memcpy`, and
+validation is only "no spaces", so a 32-character name containing `../` is
+accepted by the sender — whether the receiver joins it into a path is the
+question that would make this an injection rather than a message.
+
+## The bus has two disjoint node spaces
+
+`/proc/osal/uipc` (`OSAL Version 4.2`, compiled Mar 15 2025) lists 860 msgqs
+and 198 sems globally, and per process:
+
+| pid | process | msgqs | sems | cbs |
+|---|---|---|---|---|
+| 157 | **`/usr/bin/im.elf`** | 417 | 134 | 310 |
+| 149 | — | 0 | 0 | 0 |
+
+Local queue indices are small (`4C`, `74`, `114`, `160`, `16F`), the global
+table carries a node column, and the node ids fall into two families:
+
+- `0x0094xxxx` — 89 occurrences. The Linux-process side.
+- `0x00dcxxxx` — **0 occurrences.**
+
+`0x00dc0000` is the liro/RTOS endpoint, and the RTOS keeps its own queues
+(the 139 liro threads), so it does not appear in the Linux dump at all. That
+is why `sndcmd` reports RC=0 when it posts to `0x00dc0000` — the message is
+accepted by firmware that is alive and running, even though no Linux peer
+exists. Anything in the `0x00dc` space is therefore addressed straight at the
+camera's real subsystems, and the enumeration question becomes: what else
+lives in that space. `libObj.so` (1953 exports) and the `libIMDB` manifest
+are the index; the RTOS side of the bus is the next place to read.
+
+## How the transfer was done without the SD card
+
+The card was in the PC, so the object was moved 66 bytes at a time:
+
+- `printf` with three-digit octal escapes writes the payload directly. Note
+  `busybox xxd -r -p` is **not** usable — it is present in the applet list but
+  mangles 132 hex chars into 30 bytes. `xxd`, `tr`, `tail`, `wc`, `head` are
+  listed by `busybox --help` but are not linked as applets; `busybox <applet>`
+  reaches the ones that exist. `md5sum` is reachable as `busybox md5sum`, and
+  plain `md5sum` fails.
+- `dd if=... of=... bs=1 count=6728` for the head, `busybox tail -c +6795` for
+  the tail — `dd skip=` produced a 0-byte file.
+- Hash each stage against the locally built object before installing anything.
+
+## Camera state after this work
+
+Unchanged. `/usr/lib/libtestcmd.so` stock, mode and ownership restored, no
+`.orig` left, `/tmp` scratch removed. The five earlier persistence markers
+(`/setting/_audit1`, `/system/_audit2`, `/usr/bin/_marker3`,
+`/usr/share/_marker4`, `/usr/share/pmbp/_marker2`) are still in place.
+
+
 ## Not covered — the honest gaps
 
 Gaps 1, 4, 5 and 7 are closed above. What remains:
