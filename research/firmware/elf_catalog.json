@@ -303,6 +303,37 @@
    "cmdline_read_data_from_file"
   ]
  },
+ "dumps\\camera_2025\\setting_system\\init": {
+  "size": 28580,
+  "class": "ELF32",
+  "type": "EXEC",
+  "machine": "ARM",
+  "entry": 36313,
+  "stripped": false,
+  "needed": [
+   "libgcc_s.so.1",
+   "libc.so.6"
+  ],
+  "soname": null,
+  "exp_func": 0,
+  "exp_obj": 5,
+  "imports": 54,
+  "c_exports": []
+ },
+ "dumps\\camera_2025\\setting_system\\liro.ko": {
+  "size": 65212,
+  "class": "ELF32",
+  "type": "REL",
+  "machine": "ARM",
+  "entry": 0,
+  "stripped": false,
+  "needed": [],
+  "soname": null,
+  "exp_func": 0,
+  "exp_obj": 0,
+  "imports": 0,
+  "c_exports": []
+ },
  "dumps\\camera_2025\\usr\\usr\\bin\\GPIO2SDIO.elf": {
   "size": 3932,
   "class": "ELF32",
