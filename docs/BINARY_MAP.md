@@ -188,3 +188,117 @@ Named, enumerable, and dispatched by name. `MPR_SCN_SET_FACTORY_MODE` and
    continues, and it is in a file we have.
 4. The scenario plugins are a named, enumerable command surface, which is a much
    better place to look for "reach another subsystem" than a forged library.
+
+## Correction: the main firmware is on this kernel
+
+An earlier note said the camera UI runs on a different CPU from the service
+terminal, inferred from `ls -l /proc/*/exe` showing no application. That
+inference was wrong, and the reason is a measurement bug: `ls -l /proc/*/exe`
+silently skips anything it cannot read, so of 263 processes only 8 distinct
+executables appeared. Reading `/proc/*/comm` instead, which is world-readable,
+shows the real picture:
+
+```
+uipc_dumper      PID 93, stack size 8192  -> a kernel thread
+RMCMND-UIPC   x2
+ULOGIO_LOGREC x2
+liro-kliro_91 .. liro-kliro_99, and 139 threads named liro-*
+```
+
+**139 `liro` threads.** LIRO is the RTOS that `av-cam.bin` implements, loaded by
+the `liro.ko` module — so the "main firmware" is running on this same kernel as
+kernel threads, not on a separate processor. It is reachable; it was simply not
+visible through the one procfs field that was being filtered on permission.
+
+## The live bus: /proc/osal/uipc
+
+`osal_uipc.ko` (38,960 B) creates a procfs directory with three nodes:
+
+```
+-r--------  1 0 0  0  /proc/osal/minfo
+-rw-------  1 0 0  0  /proc/osal/uipc
+-rw-------  1 0 0  0  /proc/osal/ulogio
+```
+
+The module's strings name the handlers — `__k_uipc_proc_read`,
+**`__k_uipc_proc_write`**, `__k_cmd_debug`, and the dump routines `msgq_dump`,
+`fblock_dump`, `vpool_dump`, `bsem_dump`, plus `uipc_dumper` as the kernel
+thread that services it. So the bus is both observable and configurable.
+
+Read live:
+
+```
+OSAL Version 4.2
+Compiled at Mar 15 2025 03:07:32
+proxy threads=4
+log async=1
+log sync=0
+mia=off
+
+====Global Info====
+[] Resource
+msgqs   860
+sems    198
+msgs    16
+cbs     1168
+misc    377
+- fblock        (83744) free=202688
+- normal vblock (5568)  698e0000 128512
+- realtime vblock
+   139(8064)  69800020 8192      <- id(count) address size
+   13A(35424) 69802020 81568
+   E(896)     69816020 4096
+   ...
+SEM   A=8192 F=8192
+BMSGQ A=4096 F=4096
+MSGQ  A=4096 F=4096
+[] GSEM   [] GMSGQ   [] LMSGQ   [] LSEM
+- dynamic ids
+====Process 149====   ====Process 157====
+```
+
+`LMSGQ` and `LSEM` — the live queue and semaphore tables — are **empty**, which
+is consistent with the bus being idle in service mode. The `- realtime vblock`
+entries carry non-zero counts for a handful of ids (0x139, 0x13A, 0xE, 0x3F,
+0x414E, …), so something is allocated even though no queue is attached.
+
+`log async` / `log sync` / `mia` are printed as settings and the node is
+writable, which is the obvious next thing to try: enable sync logging, run a
+scenario, and read back the actual message ids. **Not done yet** — it is a write
+into a kernel interface whose command grammar is not known, and guessing at a
+`__k_cmd_debug` parser is not a good use of the only shell we have.
+
+## The scenario runner is a real, name-addressed interface
+
+`/usr/bin/scenario.elf` is live and self-documenting:
+
+```
+Usage: /usr/bin/scenario.elf <options> [scenario_name] [size]:[data] ...
+        scenario_name
+                specified scenario name like below
+                        /usr/scenario/xxxx.so
+```
+
+The plugin directory is `/usr/scenario/` (35 `.so` files) — **not**
+`/usr/share/scenario/`, which is what the dump path suggested and which does not
+exist on the camera.
+
+It shares the `[size]:[data]` convention with `sndcmd.elf`, because both go
+through `libtestcmd.so` (`cmdline_show_usage`, `testcmd_run_scenario`). Each
+plugin is a thin shim whose only job is to send one message: for example
+`MPR_SCN_EXEC_FACTORY_MODE.so` contains
+`Mpr::If::ExecMprUtility(MPR::UtilityCmdId, void*)` and nothing else of substance.
+
+Verified live:
+
+| command | result |
+|---|---|
+| `scenario.elf MPR_SCN_GET_TOTAL_LOG 4:00000000` | exit 0 |
+| `scenario.elf NOSUCH_SCENARIO` | non-zero exit |
+
+The bogus name failing is the control that matters: the runner really does
+resolve and load the named plugin, so `LOG_OK` is not merely "the binary
+exited cleanly". It does **not** yet prove the message reached the application —
+exit 0 is equally consistent with a message queued to an endpoint nobody is
+listening on, which is what an empty `LMSGQ` predicts.
+
