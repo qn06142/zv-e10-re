@@ -52,13 +52,83 @@ WRITE = 3072          # bytes per writeTerminal call
 SETTLE = 0.02         # pause between writes, so the pty can drain
 
 
-def drain(raw, seconds=0.4):
-    """read and discard, so the device's output buffer does not back up"""
+def stream_to(raw, remote, payload, label):
+    """base64 `payload` into `remote` through the terminal's stdin.
+
+    The decoder is the toolbelt busybox, not the camera's own shell.  That
+    distinction is the whole reason the first attempt failed: the camera runs
+    BusyBox 1.34.1 ash, but built without a base64 applet, so `base64 -d` was
+    "not found" and the 446-character probe was typed into a dead prompt as
+    shell commands rather than being decoded.  Anything typed at a prompt that
+    is not consuming stdin is executed, so a missing decoder is not a quiet
+    failure -- it is a different and much worse one.
+    """
+    b64 = base64.b64encode(payload)
+    lines = [b64[i:i + 76] for i in range(0, len(b64), 76)]
+    text = b'\n'.join(lines) + b'\n'
+    cmd(raw, 'rm -f %s' % remote)
+    cmd(raw, '%s base64 -d > %s' % (BB, remote))
+    # Nothing can be checked between starting the decoder and sending Ctrl-D: the
+    # shell is blocked inside base64 reading stdin, so any command typed in that
+    # window is fed to base64 as data and lands in the output file.  An earlier
+    # version tried `ls -l` here to prove the decoder had started, and quietly
+    # corrupted its own payload.  The probe and the md5 afterwards are the checks.
+    t0 = time.time()
+    sent = 0
+    for i in range(0, len(text), WRITE):
+        raw.writeTerminal(text[i:i + WRITE])
+        sent += min(WRITE, len(text) - i)
+        time.sleep(SETTLE)
+        if sent % (WRITE * 40) < WRITE:
+            raw.readTerminal()          # keep the output side drained
+            print('  %6.1f%%  %d/%d chars'
+                  % (100.0 * sent / len(text), sent, len(text)), flush=True)
+    raw.writeTerminal(CTRL_D)
+    time.sleep(2.0)
+    drain(raw, 2.0)
+    print('  %s: %d chars in %.0fs' % (label, sent, time.time() - t0))
+    return sent
+
+
+def camera_md5(raw, path, tries=4):
+    """read the md5 back, retrying.
+
+    The reply can arrive late: the decoder has only just been interrupted by
+    Ctrl-D, and the shell needs a moment to unwind before it will run anything
+    else.  Asking once and reporting "no md5" conflates a slow reply with a
+    failed transfer, so it asks again and prints whatever came back either way.
+    """
+    for i in range(tries):
+        out = cmd(raw, '%s md5sum %s' % (BB, path), 2.5)
+        txt = out.decode('latin1', 'replace') if isinstance(out, bytes) else str(out)
+        for tok in txt.split():
+            if len(tok) == 32 and all(c in '0123456789abcdef' for c in tok):
+                return tok
+        print('  md5 attempt %d got no hash; terminal said: %r'
+              % (i + 1, txt[:200]))
+    return None
+
+
+def drain(raw, seconds=0.4, extend=0.6):
+    """read until quiet, and RETURN what came back.
+
+    The first version of this function read and discarded, and fell off the end
+    returning None.  Every caller that parsed the result therefore saw the
+    string 'None' and concluded the transfer had failed, when the bytes had in
+    fact arrived correctly -- the same 512-byte payload verified exactly when
+    the equivalent loop in diag_stream.py was written to accumulate.  Silently
+    dropping the evidence is worse than the bug it hid.
+    """
+    buf = b''
     end = time.time() + seconds
     while time.time() < end:
         d = raw.readTerminal()
-        if not d:
+        if d:
+            buf += d
+            end = time.time() + extend
+        else:
             time.sleep(0.01)
+    return buf
 
 
 def cmd(raw, c, settle=1.2):
@@ -101,51 +171,43 @@ def main():
             raw.writeTerminal(b'\n')
             drain(raw, 1.0)
             # echo off: a pty echoes stdin, and the echoed stream would fill the
-            # device's output buffer rather than the input one
-            cmd(raw, 'stty -echo')
-            staged = remote + '.xz.b64'
-            print('staging %s' % staged)
-            cmd(raw, 'rm -f %s %s.xz' % (staged, remote))
-            cmd(raw, 'base64 -d > %s' % staged)
-            print('streaming...')
-            t0 = time.time()
-            sent = 0
-            for i in range(0, len(stream), WRITE):
-                raw.writeTerminal(stream[i:i + WRITE])
-                sent += min(WRITE, len(stream) - i)
-                time.sleep(SETTLE)
-                if sent % (WRITE * 40) < WRITE:
-                    raw.readTerminal()          # keep the output side drained
-                    print('  %6.1f%%  %d/%d chars'
-                          % (100.0 * sent / len(stream), sent, len(stream)),
-                          flush=True)
-            print('  %6.1f%%  %d/%d chars in %.0fs'
-                  % (100.0 * sent / len(stream), sent, len(stream),
-                     time.time() - t0))
-            print('closing stdin (Ctrl-D)')
-            raw.writeTerminal(CTRL_D)
-            time.sleep(2.0)
-            drain(raw, 3.0)
-            cmd(raw, 'stty echo')
-            print('decoding and decompressing on the camera')
-            cmd(raw, '%s base64 -d %s && rm -f %s' % (BB, staged, staged), 3.0)
-            cmd(raw, '%s xz -d -k -f %s.xz && rm -f %s.xz' % (BB, remote, remote), 4.0)
+            # device's output buffer rather than the input one.  stty has to come
+            # from the toolbelt: the camera's own ash has neither stty nor
+            # base64, and that is what made the first attempt type 446 base64
+            # characters at a live prompt as shell commands.
+            cmd(raw, '%s stty -echo' % BB)
+
+            # Probe before committing to the real payload.  A decoder that is
+            # missing, or a pty that will not take the stream, costs 45 seconds
+            # to discover with the small file and an hour with the font.
+            probe = bytes(range(256)) * 2
+            print('probing the stream with 512 bytes')
+            stream_to(raw, remote + '.probe', probe, 'probe')
+            got = camera_md5(raw, remote + '.probe')
+            cmd(raw, 'rm -f %s' % (remote + '.probe'))
+            want_probe = hashlib.md5(probe).hexdigest()
+            print('  probe want %s' % want_probe)
+            print('  probe got  %s' % got)
+            if got != want_probe:
+                print('PROBE FAILED -- not streaming the real file')
+                return False
+
+            staged = remote + '.xz'
+            print('streaming %s' % staged)
+            stream_to(raw, staged, comp, 'payload')
+            print('checking the staged size')
+            cmd(raw, '%s wc -c < %s' % (BB, staged), 2.0)
+            print('decompressing on the camera')
+            cmd(raw, '%s xz -d -k -f %s && rm -f %s' % (BB, staged, staged), 6.0)
             print('verifying')
-            out = cmd(raw, '%s md5sum %s' % (BB, remote), 3.0)
-            txt = out.decode('latin1', 'replace') if isinstance(out, bytes) else str(out)
-            print(txt.strip())
-            got = None
-            for tok in txt.split():
-                if len(tok) == 32 and all(c in '0123456789abcdef' for c in tok):
-                    got = tok
-                    break
+            got = camera_md5(raw, remote)
             print()
             print('want md5 %s' % want)
             print('got  md5 %s' % got)
             if got == want:
                 print('MATCH')
             else:
-                print('MISMATCH -- the font on the card is not the local file')
+                print('MISMATCH -- the file on the card is not the local file')
             return got == want
         finally:
             dev.setTerminalEnable(False)
