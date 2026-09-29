@@ -1,3 +1,27 @@
-text=auto
-*.hdr binary
+# Normalise line endings on checkin so diffs stay clean across platforms.
+# Without this, git rewrites LF -> CRLF in the working tree on Windows and
+# every script shows a spurious whole-file diff.
+* text=auto eol=lf
+
+# Windows-only helpers: keep CRLF, PowerShell is unhappy without it.
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Device command transcripts are pasted verbatim off a serial console, which
+# emits CRLF.  Store them as-is so what is in the file is what was sent.
+scripts/*.txt text eol=crlf
+verify/*.txt text eol=crlf
+
+# Binary, never touched.
+*.so binary
+*.elf binary
+*.ko binary
+*.bin binary
 *.dat binary
+*.ttf binary
+*.xz binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.pdf binary
