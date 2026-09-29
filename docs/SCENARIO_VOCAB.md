@@ -165,6 +165,16 @@ later lookup for `"r2"` then misses and the id silently falls back to the
 category value — `0x1022` gets reported as `0x3700`, which looks like a
 plausible answer and is simply wrong.
 
+## The ids are named in libSysDef.so
+
+Every id above can be resolved, because `libSysDef.so` exports the three MWF
+tables they are drawn from — categories, objects and pins, with the names
+inline. **`0x2004`, the most common id in the whole vocabulary at 76 uses, is
+`PIN_SOUND`**; `0x3700` is `ObjCntMgr` and `0x3800` is `ObjMedia`.
+
+The tables, the layout, and the cross-check are in
+[MWF_TABLES.md](MWF_TABLES.md).
+
 ## These are not the bus ids
 
 Worth being explicit, because it is where the earlier work stalled. The one
