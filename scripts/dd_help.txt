@@ -1,0 +1,2 @@
+busybox dd --help 2>&1 | busybox tee /tmp/ddhelp.txt
+busybox cat /tmp/ddhelp.txt

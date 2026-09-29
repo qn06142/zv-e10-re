@@ -1,0 +1,4 @@
+# Reboot and read back the patched byte to verify persistence
+busybox echo REBOOTING_NOW
+busybox reboot
+busybox echo REBOOT_SENT

@@ -1,0 +1,7 @@
+busybox echo "cp applet test:"; busybox cp 2>&1 | busybox head -1
+busybox echo "=== /log/lens_* currently ==="; busybox ls /log/lens_* 2>/dev/null | busybox wc -l
+busybox echo "=== re-stage via cat redirect ==="
+for f in $(busybox cat /log/lenslist.txt); do
+  busybox cat /lens/$f > /log/lens_$f
+done
+busybox echo "staged $(busybox ls /log/lens_*.bin | busybox wc -l) to /log"

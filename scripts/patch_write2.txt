@@ -1,0 +1,7 @@
+busybox dd if=/tmp/sd/av-cam.patched.bin of=/system/av-cam.bin bs=512 2>&1
+busybox echo DD_RC=$?
+busybox sync
+busybox echo SYNC_DONE
+busybox md5sum /system/av-cam.bin
+busybox xxd -s 0xff44c8 -l 2 /system/av-cam.bin
+busybox echo WRITE_VERIFY_DONE

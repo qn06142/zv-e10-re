@@ -1,0 +1,1 @@
+busybox cp /tmp/sd/av-cam-text-mod.bin /system/av-cam.bin; busybox echo CP_DONE_RC=$?

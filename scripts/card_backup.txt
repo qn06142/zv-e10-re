@@ -1,0 +1,6 @@
+# Backup original + stage patched file on SD card (safe, /tmp/sd only)
+busybox dd if=/system/av-cam.bin of=/tmp/sd/av-cam.orig bs=512 status=none
+busybox echo "orig->card rc=$?"
+busybox wc -c /tmp/sd/av-cam.orig
+busybox md5sum /tmp/sd/av-cam.orig
+busybox echo CARD_BACKUP_DONE

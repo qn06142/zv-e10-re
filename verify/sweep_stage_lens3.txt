@@ -1,0 +1,7 @@
+busybox echo "cp applet?"; busybox cp 2>&1 | busybox head -1
+busybox rm -f /log/lens_*.bin
+for f in $(busybox cat /log/lenslist.txt); do
+  busybox cat /lens/$f > /log/lens_$f
+done
+busybox echo "staged count: $(busybox ls /log/lens_*.bin | busybox wc -l)"
+busybox ls -l /log/lens_*.bin | busybox head -3

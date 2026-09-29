@@ -1,0 +1,10 @@
+# Minimal in-place revert: flip the 2 patched bytes back to original (30 0d = 3376)
+# offset 0xff44c8 = 16711752
+printf '\x30\x0d' > /tmp/rev.bin
+busybox dd if=/tmp/rev.bin of=/system/av-cam.bin bs=1 seek=16711752 status=none
+busybox echo REVERT_RC=$?
+busybox sync
+busybox echo SYNC_DONE
+busybox xxd -s 0xff44c8 -l 2 /system/av-cam.bin
+busybox md5sum /system/av-cam.bin
+busybox echo REVERT_VERIFY_DONE

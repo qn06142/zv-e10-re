@@ -1,0 +1,8 @@
+busybox rm -f /log/lenslist.txt
+busybox ls /lens > /log/lenslist.txt
+busybox echo "listed $(busybox wc -l < /log/lenslist.txt) lensfiles"
+# copy each to /log with a flat name (staging, survives service-mode drop)
+for f in $(busybox cat /log/lenslist.txt); do
+  busybox cp /lens/$f /log/lens_$f
+done
+busybox echo "staged $(busybox ls /log/lens_*.bin | busybox wc -l) to /log"
