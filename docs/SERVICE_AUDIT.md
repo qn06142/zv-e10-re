@@ -474,6 +474,116 @@ So the camera ships with `libduma.so` (a malloc debugger) and
 either of them depending on its checks. `/usr/tool/` is on the persistent,
 writable `/usr` partition, so which allocator the application runs under is a
 file-level decision, not a rebuild.
+## The application, and where it is not
+
+Two 21 MB files, and they are not the same thing. The hypothesis that they were
+— they are 72 bytes apart in size — was tested and **refuted**: 20,214,068 of
+21,305,456 bytes differ. Size similarity was a bad proxy.
+
+`camuser.elf` (21,305,528) is **the application executable**:
+
+| evidence | result |
+|---|---|
+| `main` | present (30 occurrences) |
+| `_start` | present (49) |
+| `/lib/ld-linux.so.3` | present — it has a dynamic linker |
+| `libc.so.6`, `libstdc++.so.6` | linked |
+| `libObj` | referenced — **it links libObj.so** |
+| `Application_System_Init` | present |
+| `libosal_uipc.so` | not linked directly |
+
+`libObj.so` (21,305,456) is a **library, not a program**: `e_type=ET_DYN`,
+`e_entry=0x10fee0`, but **no `main`, no `_start`, and no `.interp`**. It is
+`dlopen`ed by `camuser.elf`. So the shape is:
+
+```
+camuser.elf            the application program
+  -> libObj.so         21 MB object/command registry, 1,953 exports
+       -> viewUnified2..8.so, CautionConfig.so, libmpr.so, libInfraRemote.so
+  -> libc, libstdc++
+```
+
+`camuser.elf`'s section table cannot be walked by pyelftools
+(`expected 4, found 0`), which is why it read as a container earlier; a raw byte
+search shows it is an ordinary dynamically-linked ARM ELF.
+
+**And it is not on the running camera.** A `find /usr /system /setting -size
++15000k` returns exactly four files:
+
+```
+/usr/lib/libObj.so              21,305,456
+/usr/lib/CautionConfig.so       17,694,160
+/usr/share/app/image_cmn_43.uxc >15,000,000
+/system/av-cam.bin              17,289,388
+```
+
+No 21 MB executable anywhere on the mounted filesystems, and the initrd is only
+8 MB (`initrd=0x700000,8M`) so it cannot hold one. **So in service mode the
+application program is simply not deployed on this filesystem.** The most likely
+explanation — and it is a hypothesis, not a result — is that the main firmware
+pushes it across at boot through the `dmm` shared-memory manager configured by
+`/setting/DmmConfig.bin`, rather than it being read from flash.
+
+## Corrections to earlier notes in this project
+
+**`find` on the toolbelt busybox works.** It was dismissed twice on bad evidence.
+The control `find /usr/bin -name 'crypter.elf'` matches correctly. The two
+failures had mundane causes: `-maxdepth` appears to be unsupported by this build
+(so it errored to `/dev/null`), and `-xdev` from `/` does not cross into `/usr`,
+so `find / -xdev` legitimately found nothing. The tool was fine; the invocations
+were wrong.
+
+**`/usr/share/app` is not restored from `av-cam.bin`.** Searching the firmware
+for `Sony_DI_Icons`, `fontlist`, `share/app`, `.uxc`, `string_english_f`,
+`image_cmn`, `FONT_ICONS` and the Compressed-ROMFS magic returns **zero hits for
+all of them**. So whatever rewrites the font at boot is not the main firmware.
+That question is still open, and it is now a sharper one: the directory holds
+81 MB of resources including a single 15 MB `.uxc`, and it is restored from
+somewhere that is not on any mounted filesystem.
+
+## The unmounted partitions
+
+Raw header reads, since `mount` refused them all with `EINVAL` even with explicit
+`-t cramfs` and `-t ext2`:
+
+| partition | size | first bytes | what it is |
+|---|---|---|---|
+| nflasha4 | 12,288 | `CMMeX` | unknown; "CMM" is also the `dmm` shared-memory manager's name |
+| nflasha5 | 61,440 | `WBI1` | **warm boot image** — matches `wbi_cmpr.waddr`/`warm.mode=2` on the cmdline |
+| nflasha16 | 143,360 | all zero | allocated but empty |
+| nflasha24, nflasha25 | — | `No such device or address` | device nodes exist, backing does not |
+
+None of these is the `/usr/share/app` source.
+
+## The scenario runner is fire-and-forget
+
+Verified properly rather than by eye. The first attempt was confounded: the pty
+echoes input, so a 32-byte `ABCDEF…` payload appeared to come back as a "reply".
+Re-run with `stty -echo` first:
+
+```
+/tmp/sd/tools/busybox-armel stty -echo; echo ECHO_OFF_DONE      -> ECHO_OFF_DONE
+/usr/bin/scenario.elf MPR_SCN_GET_CONTENT_COUNT 16:4142…; echo SCEN_RC_DONE
+                                                               -> SCEN_RC_DONE
+```
+
+**No output at all.** And `/setting/ulogio.bin` is byte-identical before and
+after (md5 `a401b16a…`). So there is no reply on stdout and none in the log; the
+data buffer is not an in/out channel. Combined with an empty `LMSGQ`, the
+scenario path currently sends into a void — the application that would answer is
+not running.
+
+## Staged on the card, for offline analysis
+
+`/tmp/sd/RE_DUMP/audit/` — too large for the terminal, which loses bytes at
+volume (it dropped 162 of 355,344 characters on a 266 KB payload):
+
+| file | size | why |
+|---|---|---|
+| `Backup.bin` | 1,235,740 | the `BK4` settings store, format unparsed |
+| `DmmConfig.bin` | 78,120 | shared-memory layout for the `dmm` module |
+| `init` | 28,580 | the boot recipe as a binary, not just its strings |
+| `liro.ko` | 65,212 | the firmware loader, and it runs with `debug=1` |
 ## Not covered — the honest gaps
 
 Gaps 1, 4, 5 and 7 are closed above. What remains:
