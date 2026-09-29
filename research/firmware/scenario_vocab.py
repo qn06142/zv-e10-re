@@ -38,6 +38,7 @@ import collections
 import pathlib
 import sys
 
+import cpp_demangle
 from capstone import CS_ARCH_ARM, CS_MODE_THUMB, Cs
 from elftools.elf.elffile import ELFFile
 
@@ -46,6 +47,22 @@ from annotate import load, load_segs, v2o  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SCEN = ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "scenario"
+
+
+def demangle(name):
+    """Itanium C++ name -> readable form, or the original if it will not budge.
+
+    cxxfilt is useless here: it shells out to a C++ demangler that is not
+    installed, and fails with 'Cannot find any of libraries'. cpp_demangle is
+    pure python and works.  Local symbols like _Z19SndDataFlowMsgAsyncP... are
+    not always well-formed, hence the fallback.
+    """
+    if not name.startswith("_Z"):
+        return name
+    try:
+        return cpp_demangle.demangle(name)
+    except Exception:
+        return name
 
 
 def immediates(path):

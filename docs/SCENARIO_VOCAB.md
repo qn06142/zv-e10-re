@@ -11,8 +11,8 @@ Two RPC frameworks appear, and that split is itself a finding:
 
 | framework | plugins | shape |
 |---|---:|---|
-| `DataflowInfra*` | 18 | raw OSAL messages; `SendASync(unsigned int, DataflowInfraMsg*)` — destination id is an argument |
-| `MWF::*` | 8 | the object/message framework: `ObjIf`, `ObjMsg`, `EventSender`/`Receiver`, pins, signals |
+| `DataflowInfra*` | 18 | raw OSAL messages; `SendASync(unsigned int, DataflowInfraMsg*)` — one id, in `r0` |
+| `MWF::*` | 8 | the object/message framework: `ObjIf`, `ObjMsg`, `EventSender`/`Receiver`, pins, signals; **two** ids, a category and a message id |
 | neither (thin) | 9 | dispatch to the above, or straight to `libtestcmd`/`libIMDB` calls |
 
 The AVBB/CAMERA plugins are `DataflowInfra`; the MPR ones are `MWF`. The two
@@ -103,6 +103,67 @@ dataflow and processor routing (`PinConnect_VDF_to_HDMI`,
 `PinConnect_ADF_to_HDMI`, `CheckPinUnConnectADF_to_HDMI` are all imported by
 name), `PIN_*` is the pin graph, and the `0x8xxx` group tracks the audio path
 across the `START`/`STOP` pairs.
+
+## The MWF half is two-dimensional
+
+The `DataflowInfra` plugins pass one id to `SendASync`. The `MWF` plugins do
+not — they construct an `MWF::ObjMsg`, and its constructor takes **two** ids:
+
+    MWF::ObjMsg::ObjMsg(unsigned int, unsigned int)
+
+which the framework reads back with `GetCategoryId()` and `GetMessageId()`. So
+the MWF command space is a category/message pair, and
+`research/firmware/mwf_ids.py` recovers 14 construction sites across the MPR
+plugins:
+
+| plugin | category | message |
+|---|---:|---:|
+| `MPR_FORMAT` | `0x0001` | `0x1` ×3 |
+| `MPR_INSTALL_MAP_DEMOMOVIE` | `0x2000` | `0x1` ×4 |
+| `MPR_FORMAT` | `0x3800` | `0x1` |
+| `MPR_FORMAT` | `0x3700` | `0x1`, `0x1022` |
+| `MPR_GET_CONTENT_COUNT` | `0x3700` | `0x102a` |
+| `MPR_GET_CONTENT_COUNT` | `0x6000` | `0x1001`, `0x81000`, `0x81003` |
+
+Five categories, and four of them are round: `0x2000`, `0x3700`, `0x3800`,
+`0x6000`. That is a subsystem allocation table, not a hash.
+
+### The two frameworks cross-validate
+
+Three of the MWF message ids — `0x1001`, `0x1022`, `0x102a` — also appear in
+the flat `movw` sweep that found the `DataflowInfra` vocabulary, and they were
+recovered by completely separate means: one from a `MWF::ObjMsg` constructor's
+arguments, the other from a `movw` immediate sweep. `0x1022` and `0x102a` were
+seen only in `MPR_SCN_FORMAT` and `MPR_SCN_GET_CONTENT_COUNT` by the first
+method, and only in those two by the second.
+
+That agreement is the strongest evidence in this document that the vocabulary
+is being read correctly rather than pattern-matched. `0x81000` and `0x81003` do
+*not* appear in the flat sweep, which is consistent: they are MWF-specific, in
+the `0x8xxxx` range that the `DataflowInfra` plugins use for the audio path.
+
+### Recovering the arguments
+
+The call site is straightforward once the PLT resolves:
+
+    18c0  add  r0, sp, #0x238      ; the ObjMsg being constructed
+    18c4  mov.w r1, #0x3800        ; category
+    18c8  movs  r2, #1             ; message id
+    18d0  bl   0x1300              ; -> MWF::ObjMsg::ObjMsg(uint, uint)
+
+But across the 14 sites the two arguments are set in four different ways, and
+missing any one of them silently reports `(reg)` or the wrong value:
+
+- `mov.w r1, #0x3800` and `movs r2, #1` — plain immediates
+- `movw r2, #0x1022` — a 16-bit form
+- `ldr r2, [pc, #0x158]` — a literal-pool load
+- `mov r2, r1` — the id copied out of the category register
+
+The `movw` case has a trap worth naming: capstone's `op_str` is `"r2, #0x1022"`,
+so splitting on `#` yields the register `"r2,"` **with a trailing comma**. Every
+later lookup for `"r2"` then misses and the id silently falls back to the
+category value — `0x1022` gets reported as `0x3700`, which looks like a
+plausible answer and is simply wrong.
 
 ## These are not the bus ids
 
