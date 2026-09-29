@@ -1,6 +1,9 @@
 import struct, os
 
-base = r"C:\Users\Minhsnguhoa\pmca-re\dumps"
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
+base = (ROOT_REPO / 'dumps').as_posix()
 for f in ["VX8900_lensfile.bin","VX9101_lensfile.bin"]:
     d = open(os.path.join(base,f),"rb").read()
     print("=== %s (size=%d) ===" % (f, len(d)))

@@ -1,7 +1,10 @@
 import os, re, collections
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM
 
-FW = r"C:\Users\Minhsnguhoa\pmca-re\fw"
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
+FW = (ROOT_REPO / 'fw').as_posix()
 av = open(os.path.join(FW, "av-cam.bin"), "rb").read()
 N = len(av)
 

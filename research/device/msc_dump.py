@@ -8,6 +8,9 @@ the mounted FAT16 volume. This is a read-only copy -- no writes, no unlock.
 """
 import ctypes, sys, os
 
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
 PD = r'\\.\PhysicalDrive2'
 h = ctypes.windll.kernel32.CreateFileW(
     PD, 0x80000000,  # GENERIC_READ
@@ -28,7 +31,7 @@ size = ctypes.c_longlong.from_buffer_copy(out).value
 print('PhysicalDrive2 total size: %d bytes (%.2f MB)' % (size, size/1e6))
 
 # Dump the whole thing (29MB is small; do it in 1MB chunks, read-only)
-out_path = r'C:\Users\Minhsnguhoa\pmca-re\msc_dump.bin'
+out_path = (ROOT_REPO / 'msc_dump.bin').as_posix()
 CHUNK = 65536
 read = 0
 with open(out_path, 'wb') as f:

@@ -1,10 +1,13 @@
 import sys, struct, zlib
-sys.path.insert(0, r"C:\Users\Minhsnguhoa\pmca-re\fwtool_ma1co_repo")
+sys.path.insert(0, (ROOT_REPO / 'fwtool_ma1co_repo').as_posix())
 from fwtool.sony import dat as D
 from Crypto.Cipher import AES
 
-DAT = r"C:\Users\Minhsnguhoa\pmca-re\fw_update\FirmwareData_ZVE10V203.dat"
-OUT = r"C:\Users\Minhsnguhoa\pmca-re\fdat_decrypted.bin"
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
+DAT = (ROOT_REPO / 'fw_update/FirmwareData_ZVE10V203.dat').as_posix()
+OUT = (ROOT_REPO / 'fdat_decrypted.bin').as_posix()
 
 df = D.readDat(open(DAT,"rb"))
 fdat = df.firmwareData.read()

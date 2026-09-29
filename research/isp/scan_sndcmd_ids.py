@@ -1,5 +1,8 @@
 import os, re
-TOOLS = r"C:\Users\Minhsnguhoa\pmca-re\tools"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+TOOLS = (ROOT_REPO / 'tools').as_posix()
 for fn in ("sndcmd.elf","testcmd.elf","rcvcmd.elf"):
     data = open(os.path.join(TOOLS, fn), "rb").read()
     print("=== %s (%d bytes) ===" % (fn, len(data)))

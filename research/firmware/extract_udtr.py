@@ -1,5 +1,5 @@
 import os, sys, io
-ROOT = r"C:\Users\Minhsnguhoa\pmca-re"
+ROOT = ROOT_REPO.as_posix()
 REPO = os.path.join(ROOT, "fwtool_ma1co_repo")
 UDT = os.path.join(ROOT, "tools", "udtrbody.bin")
 OUT = os.path.join(ROOT, "udtrbody_extract")
@@ -9,6 +9,9 @@ data = open(UDT,"rb").read()
 print("size", len(data), "magic", data[:4].hex())
 
 from fwtool.archive import cramfs as C
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 with open(UDT,"rb") as f:
     gen = C.readCramfs(f)
     os.makedirs(OUT, exist_ok=True)

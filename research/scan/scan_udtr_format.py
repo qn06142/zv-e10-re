@@ -1,5 +1,5 @@
 import os, sys, io
-ROOT = r"C:\Users\Minhsnguhoa\pmca-re"
+ROOT = ROOT_REPO.as_posix()
 REPO = os.path.join(ROOT, "fwtool_ma1co_repo")
 UDT = os.path.join(ROOT, "tools", "udtrbody.bin")
 sys.path.insert(0, REPO)
@@ -36,6 +36,9 @@ for name, mod in mods.items():
 # Also: ROMFS heuristic - file entries are 16-byte aligned; try to find readable
 # filename strings + their following data. ROMFS node = 16B header then name\0.
 import re
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 strs = [s.decode("latin1","replace") for s in re.findall(rb"[ -~]{4,}", data)]
 # the known filenames
 for fn in ["libupdaterbody.so","startupdate.sh","body_common.sh","pformat.elf","chkfirm.sh"]:

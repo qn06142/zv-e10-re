@@ -1,11 +1,14 @@
 import usb.backend.libusb1 as lb
 import usb.core, usb.util, struct, glob, sys, time, threading
 
-DLL = glob.glob(r"C:\Users\Minhsnguhoa\pmca-re\.venv\Lib\site-packages\libusb\_platform\windows\x86_64\libusb-1.0.dll")[0]
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
+DLL = glob.glob((ROOT_REPO / '.venv/Lib/site-packages/libusb/_platform/windows/x86_64/libusb-1.0.dll').as_posix())[0]
 be = lb.get_backend(find_library=lambda x: DLL)
 
 VID, PID_UPDATER = 0x054c, 0x0994
-OUT_LOG = r"C:\Users\Minhsnguhoa\pmca-re\updater_probe_log.txt"
+OUT_LOG = (ROOT_REPO / 'updater_probe_log.txt').as_posix()
 
 def log(*a):
     line = " ".join(str(x) for x in a)
@@ -70,7 +73,7 @@ def probe(dev):
             log("  vendor op=0x%02x status=%s len=%d%s hex=%s" % (op, st, len(d), tag, d[:24].hex()))
             if st==0:
                 hits.append((op, d))
-                open(r"C:\Users\Minhsnguhoa\pmca-re\vendor_0x%02x.bin" % op, "wb").write(d)
+                open((ROOT_REPO / 'vendor_0x%02x.bin').as_posix() % op, "wb").write(d)
     log("VENDOR HITS (status0, returned data):", [hex(o) for o,_ in hits])
     usb.util.release_interface(dev, 0)
 

@@ -2,7 +2,7 @@ import os, sys
 from elftools.elf.elffile import ELFFile
 from elftools.elf.sections import SymbolTableSection
 
-SO = r"C:\Users\Minhsnguhoa\pmca-re\udtrbody_extract\bodylib\libupdaterbody.so"
+SO = (ROOT_REPO / 'udtrbody_extract/bodylib/libupdaterbody.so').as_posix()
 with open(SO,"rb") as f:
     e = ELFFile(f)
     print("type:", e.header['e_type'], "machine:", e.header['e_machine'])
@@ -22,6 +22,9 @@ with open(SO,"rb") as f:
 # also interesting strings
 data = open(SO,"rb").read()
 import re
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 strs = [s.decode("latin1","replace") for s in re.findall(rb"[ -~]{5,}", data)]
 print("\n=== notable strings ===")
 for s in sorted(set(strs)):

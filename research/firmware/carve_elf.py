@@ -1,6 +1,6 @@
 import struct
 
-d = open(r"C:\Users\Minhsnguhoa\pmca-re\fdat_decrypted.bin","rb").read()
+d = open((ROOT_REPO / 'fdat_decrypted.bin').as_posix(),"rb").read()
 N = len(d)
 print("image size:", N)
 
@@ -53,5 +53,8 @@ while True:
 print("total ELF candidates:", len(hits))
 # save list
 import json
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 json.dump([{"off":o,"bits":b,"arch":a,"type":t,"est":e} for (o,b,a,t,e) in hits],
-          open(r"C:\Users\Minhsnguhoa\pmca-re\elf_hits.json","w"), indent=2)
+          open((ROOT_REPO / 'elf_hits.json').as_posix(),"w"), indent=2)

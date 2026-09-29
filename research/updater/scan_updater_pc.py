@@ -1,5 +1,8 @@
 import os, re
-UP = r"C:\Users\Minhsnguhoa\pmca-re\fw_update\updater"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+UP = (ROOT_REPO / 'fw_update/updater').as_posix()
 for fn in ("FirmwareUpdaterEg.exe","FirmwareUpdaterImg.dll"):
     data = open(os.path.join(UP, fn),"rb").read()
     print("=== %s (%d bytes) ===" % (fn, len(data)))

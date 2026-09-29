@@ -1,5 +1,8 @@
 import os, re
-TOOLS = r"C:\Users\Minhsnguhoa\pmca-re\tools"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+TOOLS = (ROOT_REPO / 'tools').as_posix()
 for name in ("testcmd.elf", "sndcmd.elf", "rcvcmd.elf", "crypter.elf"):
     data = open(os.path.join(TOOLS, name), "rb").read()
     print("\n================ %s (%d B) ================" % (name, len(data)))

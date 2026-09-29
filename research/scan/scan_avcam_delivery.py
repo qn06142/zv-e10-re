@@ -1,5 +1,8 @@
 import os, re
-ROOT = r"C:\Users\Minhsnguhoa\pmca-re\fw"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+ROOT = (ROOT_REPO / 'fw').as_posix()
 data = open(os.path.join(ROOT, "av-cam.bin"), "rb").read()
 strs = [s.decode("latin1","replace") for s in re.findall(rb"[ -~]{4,}", data)]
 print("av-cam.bin strings:", len(strs))

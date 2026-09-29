@@ -1,5 +1,8 @@
 import os, re
-ROOT = r"C:\Users\Minhsnguhoa\pmca-re"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+ROOT = ROOT_REPO.as_posix()
 bins = open(os.path.join(ROOT, "bin.txt")).read().splitlines()
 apps = open(os.path.join(ROOT, "app.txt")).read().splitlines()
 allb = bins + apps

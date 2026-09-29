@@ -17,6 +17,9 @@ This is READ-ONLY analysis of already-pulled plaintext files.
 """
 import struct, sys, os
 
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
 def parse(path):
     d = open(path, "rb").read()
     if d[:2] != b"LF":
@@ -51,7 +54,7 @@ def parse(path):
     return info, sections
 
 if __name__ == "__main__":
-    base = r"C:\Users\Minhsnguhoa\pmca-re\dumps"
+    base = (ROOT_REPO / 'dumps').as_posix()
     files = [f for f in os.listdir(base) if f.endswith("lensfile.bin")]
     for f in sorted(files):
         info, sections = parse(os.path.join(base, f))

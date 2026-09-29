@@ -1,6 +1,9 @@
 import struct, tarfile, io, gzip, zlib
 
-d = open(r"C:\Users\Minhsnguhoa\pmca-re\fdat_decrypted.bin","rb").read()
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
+d = open((ROOT_REPO / 'fdat_decrypted.bin').as_posix(),"rb").read()
 assert d[0:8]==b"UDTRFIRM", d[0:16]
 # FDAT_IMAGE_HEADER starts at offset 0 now (4-byte header stripped per block)
 h = d

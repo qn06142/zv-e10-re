@@ -1,11 +1,14 @@
 import os, re
 from elftools.elf.elffile import ELFFile  # not PE; use pefile-like manual parse instead
-UP = r"C:\Users\Minhsnguhoa\pmca-re\fw_update\updater\FirmwareUpdaterImg.dll"
+UP = (ROOT_REPO / 'fw_update/updater/FirmwareUpdaterImg.dll').as_posix()
 data = open(UP,"rb").read()
 print("size", len(data))
 
 # This is a PE (not ELF). Parse PE imports + strings manually.
 import struct
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 # DOS header
 assert data[:2] == b"MZ", "not MZ"
 pe_off = struct.unpack_from("<I", data, 0x3c)[0]

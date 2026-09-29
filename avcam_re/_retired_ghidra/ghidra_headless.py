@@ -1,10 +1,13 @@
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 # Ghidra headless analyzer for ZV-E10 av-cam.bin (run via analyzeHeadless).
 # Sets image base 0x635c6000, auto-analyzes, dumps functions/xrefs/strings to JSON.
 # Usage: analyzeHeadless <project_dir> avcam -import <av-cam.bin> -postScript ghidra_headless.py -scriptPath <dir>
 # Or place in Ghidra script dir and run "Analyze" then this as post-script.
 
 BASE = 0x635c6000
-OUT  = r"C:\Users\Minhsnguhoa\pmca-re\avcam_re\out\ghidra_analysis.json"
+OUT  = (ROOT_REPO / 'avcam_re/out/ghidra_analysis.json').as_posix()
 
 def main():
     from ghidra.app.util.headless import HeadlessAnalyzer  # noqa (headless ctx)

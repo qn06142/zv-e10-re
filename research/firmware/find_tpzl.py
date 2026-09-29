@@ -1,7 +1,10 @@
 import struct, sys
 from Crypto.Cipher import AES
 
-RAW = r"C:\Users\Minhsnguhoa\pmca-re\fdat_raw.bin"
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
+RAW = (ROOT_REPO / 'fdat_raw.bin').as_posix()
 KEY = bytes.fromhex("E3B0C44298FC1C149AFBF4C8996FB924")
 TARGET = b"TPZL"
 FW_OFF = 0x24200  # from header

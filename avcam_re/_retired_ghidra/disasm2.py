@@ -12,9 +12,12 @@ import capstone
 from capstone import CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_THUMB, CS_OP_MEM, CS_OP_IMM
 from capstone.arm import ARM_REG_PC, ARM_REG_LR, ARM_REG_SP
 
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
 BASE = 0x635c6000
-SRC  = r"C:\Users\Minhsnguhoa\pmca-re\dumps\av-cam.bin"
-OUT  = r"C:\Users\Minhsnguhoa\pmca-re\avcam_re\out"
+SRC  = (ROOT_REPO / 'dumps/av-cam.bin').as_posix()
+OUT  = (ROOT_REPO / 'avcam_re/out').as_posix()
 os.makedirs(OUT, exist_ok=True)
 d = open(SRC,"rb").read(); N=len(d)
 def off2va(o): return BASE+o

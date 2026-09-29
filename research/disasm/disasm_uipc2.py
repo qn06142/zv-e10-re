@@ -2,7 +2,10 @@ import os
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM
 from elftools.elf.elffile import ELFFile
 from elftools.elf.sections import SymbolTableSection
-K = r"C:\Users\Minhsnguhoa\pmca-re\kmod\osal_uipc.ko"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+K = (ROOT_REPO / 'kmod/osal_uipc.ko').as_posix()
 elf = ELFFile(open(K, "rb"))
 text = elf.get_section_by_name(".text")
 code = text.data(); base = text["sh_addr"]

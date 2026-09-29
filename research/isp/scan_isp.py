@@ -1,6 +1,6 @@
 import struct, zlib, io, tarfile
 
-d = open(r"C:\Users\Minhsnguhoa\pmca-re\fdat_decrypted.bin","rb").read()
+d = open((ROOT_REPO / 'fdat_decrypted.bin').as_posix(),"rb").read()
 print("image size:", len(d))
 
 # 1) broad scan for tar magic / ELF / ISP-ish strings anywhere
@@ -41,6 +41,9 @@ except Exception as e:
 # try lz77-ish: nex-hack lz77_inflate — no std lib; skip
 # try treating fw as a nested FDAT (recursive decrypt): AES-ECB static key again
 from Crypto.Cipher import AES
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 KEY=bytes.fromhex("E3B0C44298FC1C149AFBF4C8996FB924")
 def dec_aes(b):
     o=bytearray()

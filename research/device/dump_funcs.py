@@ -1,8 +1,11 @@
 import os, struct
 import pefile
 from capstone import Cs, CS_ARCH_X86, CS_MODE_32
-UP = r"C:\Users\Minhsnguhoa\pmca-re\fw_update\updater\FirmwareUpdaterEg.exe"
-OUT = r"C:\Users\Minhsnguhoa\pmca-re\disasm_funcs.txt"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+UP = (ROOT_REPO / 'fw_update/updater/FirmwareUpdaterEg.exe').as_posix()
+OUT = (ROOT_REPO / 'disasm_funcs.txt').as_posix()
 pe = pefile.PE(UP)
 text = [s for s in pe.sections if s.Name.rstrip(b"\x00")==b".text"][0]
 code = bytes(text.get_data()); base = pe.OPTIONAL_HEADER.ImageBase; va0 = base + text.VirtualAddress

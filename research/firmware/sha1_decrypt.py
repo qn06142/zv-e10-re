@@ -1,5 +1,8 @@
 import hashlib
 
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
 KEY = bytes([
     0x8D,0xE5,0xA8,0x56,0xD2,0xEE,0x76,0xE0,0x6C,0x45,0xDD,0x9F,0x57,0x12,0xC6,0x3A,
     0x0A,0xDB,0x05,0xC1,0xAF,0x80,0x8F,0xC3,0x97,0x7B,0x21,0x87,0x75,0x22,0x69,0xDE,
@@ -28,7 +31,7 @@ def sha1_stream_decrypt(data: bytes) -> bytes:
     return bytes(out)
 
 def main():
-    raw = open(r"C:\Users\Minhsnguhoa\pmca-re\fdat_raw.bin","rb").read()
+    raw = open((ROOT_REPO / 'fdat_raw.bin').as_posix(),"rb").read()
     print("raw fdat size:", len(raw))
     dec = sha1_stream_decrypt(raw)
     print("decrypted size:", len(dec))
@@ -57,7 +60,7 @@ def main():
     print("UDTRFIRM at:", stripped.find(b"UDTRFIRM"))
 
     if idx >= 0:
-        open(r"C:\Users\Minhsnguhoa\pmca-re\fdat_dec_sha1.bin","wb").write(stripped)
+        open((ROOT_REPO / 'fdat_dec_sha1.bin').as_posix(),"wb").write(stripped)
         print("WROTE fdat_dec_sha1.bin")
 
 if __name__ == "__main__":

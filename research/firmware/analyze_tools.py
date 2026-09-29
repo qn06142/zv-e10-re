@@ -1,5 +1,8 @@
 import os, re, collections
-TOOLS = r"C:\Users\Minhsnguhoa\pmca-re\tools"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+TOOLS = (ROOT_REPO / 'tools').as_posix()
 for name in ("bk.elf", "adjstctl.elf"):
     data = open(os.path.join(TOOLS, name), "rb").read()
     strs = [s.decode("latin1", "replace") for s in re.findall(rb"[ -~]{4,}", data)]

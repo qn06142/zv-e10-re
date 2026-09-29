@@ -1,5 +1,5 @@
 import os, re
-TOOLS = r"C:\Users\Minhsnguhoa\pmca-re\tools"
+TOOLS = (ROOT_REPO / 'tools').as_posix()
 data = open(os.path.join(TOOLS, "udtrbody.bin"), "rb").read()
 print("udtrbody.bin:", len(data), "bytes; magic", data[:4].hex())
 
@@ -24,6 +24,9 @@ if offs:
 
 # 4) entropy of whole file sections to see if ANY part is uncompressed
 import math
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 def ent(b):
     if not b: return 0
     from collections import Counter

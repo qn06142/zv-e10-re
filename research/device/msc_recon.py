@@ -11,7 +11,10 @@ The dump is the 29MB user partition, but we check thoroughly anyway:
 """
 import re, struct, os
 
-PATH = r'C:\Users\Minhsnguhoa\pmca-re\msc_dump.bin'
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
+PATH = (ROOT_REPO / 'msc_dump.bin').as_posix()
 data = open(PATH, 'rb').read()
 N = len(data)
 print('size: %d (%.2f MB)' % (N, N/1e6))

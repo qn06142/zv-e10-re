@@ -1,9 +1,12 @@
 import os
-TOOLS = r"C:\Users\Minhsnguhoa\pmca-re\tools"
+TOOLS = (ROOT_REPO / 'tools').as_posix()
 data = open(os.path.join(TOOLS, "adjstctl.elf"), "rb").read()
 print("size", len(data), "magic", data[:4])
 # ELF32 ARM header parse
 import struct
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 e_machine = struct.unpack_from("<H", data, 18)[0]
 e_entry = struct.unpack_from("<I", data, 24)[0]
 e_phoff = struct.unpack_from("<I", data, 28)[0]

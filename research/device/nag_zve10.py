@@ -1,5 +1,9 @@
+import pathlib
 import sys
-sys.path.insert(0, r"C:\Users\Minhsnguhoa\AppData\Local\hermes\skills\reverse-engineering\camera-usb-re\scripts")
+# nag_reboot lives beside this script.  The old sys.path pointed into a
+# per-user skills directory that only existed on the original machine, and the
+# repository root does not help either -- the module is not a package member.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import nag_reboot
 nag_reboot.nag_reboot(
     title="Replug the ZV-E10",

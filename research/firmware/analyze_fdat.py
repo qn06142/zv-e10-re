@@ -1,9 +1,9 @@
 import os, sys
-sys.path.insert(0, r"C:\Users\Minhsnguhoa\pmca-re\fwtool_ma1co_repo")
+sys.path.insert(0, (ROOT_REPO / 'fwtool_ma1co_repo').as_posix())
 from fwtool.sony import dat as D
 from fwtool.io import FilePart
 
-DAT = r"C:\Users\Minhsnguhoa\pmca-re\fw_update\FirmwareData_ZVE10V203.dat"
+DAT = (ROOT_REPO / 'fw_update/FirmwareData_ZVE10V203.dat').as_posix()
 import io
 with open(DAT, "rb") as f:
     df = D.readDat(f)
@@ -31,6 +31,9 @@ print("contains FirmwareBody / BodyUdtr / av_udtr:",
 # entropy of FDAT head vs tail to see if encrypted
 import math
 from collections import Counter
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 def ent(b):
     if not b: return 0
     c=Counter(b); n=len(b)

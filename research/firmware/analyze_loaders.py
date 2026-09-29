@@ -1,7 +1,10 @@
 import os
 from elftools.elf.elffile import ELFFile
 from elftools.elf.sections import SymbolTableSection
-ROOT = r"C:\Users\Minhsnguhoa\pmca-re\kmod"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+ROOT = (ROOT_REPO / 'kmod').as_posix()
 for name in ("liro.ko", "dmm.ko"):
     elf = ELFFile(open(os.path.join(ROOT, name), "rb"))
     print("\n==== %s ====" % name)

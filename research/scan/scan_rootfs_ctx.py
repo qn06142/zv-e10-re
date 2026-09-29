@@ -1,5 +1,8 @@
 import os, re
-ROOT = r"C:\Users\Minhsnguhoa\pmca-re"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+ROOT = ROOT_REPO.as_posix()
 data = open(os.path.join(ROOT, "fw", "initrd.img"), "rb").read()
 for n in (b"uipc", b"osal_uipc"):
     print("=== context for %r ===" % n)

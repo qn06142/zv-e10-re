@@ -1,5 +1,8 @@
 import os, re
-TOOLS = r"C:\Users\Minhsnguhoa\pmca-re\tools"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+TOOLS = (ROOT_REPO / 'tools').as_posix()
 data = open(os.path.join(TOOLS, "crypter.elf"), "rb").read()
 print("crypter.elf %d bytes" % len(data))
 # any osal_id-like hex constants

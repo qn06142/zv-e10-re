@@ -1,9 +1,12 @@
 import os, sys, io, struct, random
-sys.path.insert(0, r"C:\Users\Minhsnguhoa\pmca-re\fwtool_ma1co_repo")
+sys.path.insert(0, (ROOT_REPO / 'fwtool_ma1co_repo').as_posix())
 from fwtool.sony import dat as D
 from fwtool.io import FilePart, ChunkedFile
 
-ROOT = r"C:\Users\Minhsnguhoa\pmca-re"
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
+ROOT = ROOT_REPO.as_posix()
 REAL = os.path.join(ROOT, "fw_update", "FirmwareData_ZVE10V203.dat")
 OUTDIR = os.path.join(ROOT, "fuzz_dat")
 os.makedirs(OUTDIR, exist_ok=True)

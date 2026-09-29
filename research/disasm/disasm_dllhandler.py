@@ -2,7 +2,10 @@ import os, re
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM
 from elftools.elf.elffile import ELFFile
 from elftools.elf.sections import SymbolTableSection
-TOOLS = r"C:\Users\Minhsnguhoa\pmca-re\tools"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+TOOLS = (ROOT_REPO / 'tools').as_posix()
 LOAD_VADDR = 0x8000
 f = open(os.path.join(TOOLS, "crypter.elf"), "rb"); data = f.read()
 elf = ELFFile(f)

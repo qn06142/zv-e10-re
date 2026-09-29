@@ -1,5 +1,8 @@
 import os, re
-ROOT = r"C:\Users\Minhsnguhoa\pmca-re\fw"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+ROOT = (ROOT_REPO / 'fw').as_posix()
 data = open(os.path.join(ROOT, "av-cam.bin"), "rb").read()
 print("av-cam.bin: %d bytes" % len(data))
 # update / firmware / body / SDF-ish strings

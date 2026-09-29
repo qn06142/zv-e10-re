@@ -1,6 +1,9 @@
 import pefile
 from capstone import Cs, CS_ARCH_X86, CS_MODE_32
-UP = r"C:\Users\Minhsnguhoa\pmca-re\fw_update\updater\FirmwareUpdaterEg.exe"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+UP = (ROOT_REPO / 'fw_update/updater/FirmwareUpdaterEg.exe').as_posix()
 pe = pefile.PE(UP)
 s = [x for x in pe.sections if x.Name.rstrip(b'\x00')==b'.text'][0]
 va0 = pe.OPTIONAL_HEADER.ImageBase + s.VirtualAddress   # 0x401000

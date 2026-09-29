@@ -1,5 +1,8 @@
 import os, re, struct
-UP = r"C:\Users\Minhsnguhoa\pmca-re\fw_update\updater"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+UP = (ROOT_REPO / 'fw_update/updater').as_posix()
 
 def parse_pe(path):
     data = open(path,"rb").read()

@@ -1,5 +1,8 @@
 import os, re
-ROOT = r"C:\Users\Minhsnguhoa\pmca-re"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+ROOT = ROOT_REPO.as_posix()
 FW = os.path.join(ROOT, "fw")
 targets = ["initrd.img", "vmlinux.bin", "bonobo.bin"]
 needles = [b"testcmd", b"libosal_uipc", b"CMD_ID_SDF", b"SDF_EXEC", b"osal_uipc",

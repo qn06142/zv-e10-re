@@ -2,7 +2,10 @@ import os
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM
 from elftools.elf.elffile import ELFFile
 from elftools.elf.sections import SymbolTableSection
-ROOT = r"C:\Users\Minhsnguhoa\pmca-re\kmod"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+ROOT = (ROOT_REPO / 'kmod').as_posix()
 K = os.path.join(ROOT, "liro.ko")
 elf = ELFFile(open(K, "rb"))
 text = elf.get_section_by_name(".text"); code = text.data(); base = text["sh_addr"]

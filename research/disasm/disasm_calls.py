@@ -1,7 +1,10 @@
 import os
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM
 
-BOOT = r"C:\Users\Minhsnguhoa\pmca-re\dumps\bootrom"
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
+BOOT = (ROOT_REPO / 'dumps/bootrom').as_posix()
 br = open(BOOT, "rb").read()
 md = Cs(CS_ARCH_ARM, CS_MODE_ARM)
 

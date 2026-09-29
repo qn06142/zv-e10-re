@@ -1,5 +1,8 @@
 import os, re, collections
-FW = r"C:\Users\Minhsnguhoa\pmca-re\fw"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+FW = (ROOT_REPO / 'fw').as_posix()
 av = open(os.path.join(FW, "av-cam.bin"), "rb").read()
 strs = [s.decode("latin1", "replace") for s in re.findall(rb'[ -~]{4,}', av)]
 blob = " ".join(strs)

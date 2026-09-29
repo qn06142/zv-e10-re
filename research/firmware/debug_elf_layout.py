@@ -1,6 +1,9 @@
 import os, struct
 from elftools.elf.elffile import ELFFile
-TOOLS = r"C:\Users\Minhsnguhoa\pmca-re\tools"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+TOOLS = (ROOT_REPO / 'tools').as_posix()
 for name in ("sndcmd.elf", "crypter.elf"):
     elf = ELFFile(open(os.path.join(TOOLS, name), "rb"))
     print("\n==== %s ====" % name)

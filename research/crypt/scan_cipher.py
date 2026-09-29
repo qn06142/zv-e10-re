@@ -1,5 +1,8 @@
 import os, re
-ROOT = r"C:\Users\Minhsnguhoa\pmca-re"
+
+import pathlib
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+ROOT = ROOT_REPO.as_posix()
 FW = os.path.join(ROOT, "fw")
 # search all dumped firmware blobs for crypto/algorithm identifiers
 targets = ["av-cam.bin","vmlinux.bin","initrd.img","bonobo.bin","dfe_dat.bin",
