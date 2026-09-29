@@ -61,6 +61,11 @@ avcam_proj/
 # Sony's PC-side updater, shipped as-is next to the firmware image.
 /fw_update/updater/
 
+# ---- output written by the helper scripts in scripts/ ----
+# Each writes next to itself, so they stay out of the repo root.
+/scripts/fmt_result.txt
+/scripts/fixreader_final.txt
+
 # ---- session logs ----
 # Written by research/device/zve10_retry.py into the repo root and /logs.
 # Transient by nature: one file per serial session.
