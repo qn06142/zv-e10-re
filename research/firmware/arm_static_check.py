@@ -56,8 +56,14 @@ def main(name):
     chk('entry == vaddr(CODE_OFF)', entry == VADDR + CODE_OFF, '0x%08x' % entry)
 
     md = Cs(CS_ARCH_ARM, CS_MODE_ARM | CS_MODE_LITTLE_ENDIAN)
-    ins = list(md.disasm(img[CODE_OFF:CODE_OFF + 1024], entry))
-    chk('code decodes', len(ins) > 8, '%d instructions' % len(ins))
+    # Disassemble the WHOLE segment, not a fixed 1024-byte window: a binary
+    # that outgrows the window produces branch targets that look like they land
+    # outside the code, which reads as a failure when it is really just an
+    # incomplete decode.
+    seg = img[CODE_OFF:CODE_OFF + pfsz]
+    ins = list(md.disasm(seg, entry))
+    chk('code decodes', len(ins) > 8, '%d instructions from %d bytes'
+        % (len(ins), len(seg)))
 
     # 1. banned scratch registers
     bad = []
