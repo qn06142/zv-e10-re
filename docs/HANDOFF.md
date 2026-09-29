@@ -197,15 +197,70 @@ Ordered by value. None are guesses; each is stated with what is known.
 1. **The plugin message vocabulary is still unnamed.** `0x1022`, `0x102a`,
    `0x81000`, `0x81003` are message ids, not categories, and no table names
    them. The IMCFG id array contains `0x1001` but *not* the others, so it is a
-   different space that overlaps. Each object registers its own commands, so
-   the registry is in `libObj.so` per-object — start at
-   `ObjMedia_RegisterCommand` (vaddr `0xa3ea25`, Thumb bit set, so decode at
-   `0xa3ea24`; 12 bytes, one `bl`).
+   different space that overlaps. `ObjMedia_RegisterCommand` (vaddr
+   `0xa3ea24`, Thumb; 12 bytes) is a misleading lead: it calls
+   `MonLib::MonCmdAdd` to register the `OM` monitor command, not an MWF message
+   handler. See the progress note below for the mappings confirmed so far.
+
+   On that lead: `ObjMedia_RegisterCommand` is `push {r7,lr}` / `add r7,sp` /
+   `bl 0xa3e8ec` / `movs r0,#0` / `pop`, and `0xa3e8ec` is a **static**
+   function — no `.dynsym` symbol covers it, and the `blx` inside it targets
+   `0x10af78` and `0x10c7e0`, which are also unexported. So the call chain
+   cannot be resolved by symbol lookup and has to be read. It does confirm your
+   reading: the function loads a string at `0x10afcc1`, which is `<id>`, and
+   the strings around it are the monitor command set —
+
+       OM_InOutPullout  OM_InOutInsert  OM_ChangeTarget
+       "Object Media Command"  "Monitor Output"  "InOut Media"
+       AllInfo  MMgrMediaInfo  EventCheck  Eject  FileSystemMount
+       Unmount  Temperature  Drop  "Eye-Fi {iseyefi/init/fin}"
+       "PC Remote Event {start/stop/active/inact}"  SetMedia
+
+   That is a **debug/monitor command table**, keyed by name and registered
+   through `MonLib::MonCmdAdd(char const*, bool (*)(int, char**), char const*)`
+   — a name, a handler taking `(argc, argv)`, and a help string. So these are a
+   text command interpreter, not the MWF message bus. Worth knowing before
+   anyone spends time looking here for MWF ids.
+
+### Progress on item 1 (2026-09-30)
+
+- `ObjCntMgr` category `0x3700`, message `0x1022` is the format request. The
+  `MPR_SCN_FORMAT` call site constructs that pair, and the matching `libObj.so`
+  dispatch branch handles the format path.
+- `ObjCntMgr` category `0x3700`, message `0x102a` is the content-count command.
+  `MPR_SCN_GET_CONTENT_COUNT` constructs the pair, adds `ContentType` param
+  `0x1005`, and calls `MWF::ObjIf::IssueCommandSync`; `libObj.so` has the
+  corresponding dispatch branch.
+- In the same scenario flow, database category `0x6000` messages `0x81000` and
+  `0x81003` are successive phases of a content-count transaction. `0x81000`
+  carries the media id and content-type-related parameters. `0x81003` uses a
+  value returned by that phase; the scenario then sends `0x1001` to retrieve
+  the count. `NetDbIf::getContentType` also uses `0x81003` with a different
+  parameter shape, so its canonical message name and receiver are not
+  established yet.
+- A library-wide scan for additional MWF call sites was started but interrupted
+  before it returned results; it provides no conclusion. The exact names and
+  receiver registrations for `0x81000`/`0x81003` remain open.
+
+Re-running `mwf_ids.py` reproduces all six (category, message) pairs quoted
+above, so the id arithmetic is verifiable independently of this note:
+
+    MPR_SCN_FORMAT            cat=0x3700 msg=0x1022   0x1ce4
+    MPR_SCN_GET_CONTENT_COUNT cat=0x3700 msg=0x102a   0x15ae
+    MPR_SCN_GET_CONTENT_COUNT cat=0x6000 msg=0x81000  0x1660
+    MPR_SCN_GET_CONTENT_COUNT cat=0x6000 msg=0x81003  0x179e
+    MPR_SCN_GET_CONTENT_COUNT cat=0x6000 msg=0x1001   0x1866
+
 2. **A `0x4xxx` id family exists and nothing names it.** Seen in the IMCFG
    array: `0x4000 0x4100 0x4200 0x4300 0x4400`.
 3. **`0x2000`** is used by `MPR_SCN_INSTALL_MAP_DEMOMOVIE` and is in none of the
-   three MWF tables. Pins are `0x2001`–`0x200c`, so it is plausibly a pin
-   *group* — that is an inference, not a finding.
+   three MWF tables. **Resolved: it is a message category, not a pin group.**
+   In `ObjIfWrapper::ConnectObject` and `::DisconnectObject` the pattern is
+   `add r0, sp, #<msg> ; mov r1, #0x2000 ; movs r2, #1 ; bl ObjMsg::ObjMsg` —
+   the same (category, message) pair shape as everywhere else, with message id
+   `0x1`. So the pair is `(0x2000, 0x1)`, four occurrences in that one plugin.
+   The category has no entry in `m_cateTbl`, so it is allocated outside that
+   table; what it names is still unknown.
 4. **`DefInh::sm_refTbl`** (3,158,400 B, 96.7% of `libSysDef.so`) and
    **`DefRsrc::scm_refTbl`** (98,778 B) are exported and untouched. Indexed by
    `AcsrId_t`, so resource id rather than message id.

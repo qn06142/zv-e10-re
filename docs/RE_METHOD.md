@@ -231,10 +231,35 @@ session and needed a manual replug.
 pool, so the whole function can be replaced wholesale. A function whose pool
 is shared or external cannot.
 
+## 9. Identifying a (category, message) pair without a symbol
+
+A category id is often not in any named table, so it has to be recognised
+structurally. The reliable signature is the argument shape of
+`MWF::ObjMsg::ObjMsg(uint, uint)` — **r0 is the object being constructed, not
+an id**; the ids are r1 and r2:
+
+    3a00  add  r0, sp, #0x38     ; the ObjMsg
+    3a04  mov  r1, #0x2000       ; category
+    3a08  movs r2, #1            ; message id
+    3a0c  str  r3, [sp, #0x40]
+    3a10  bl   <ObjMsg::ObjMsg>
+
+Concretely, in `MPR_SCN_INSTALL_MAP_DEMOMOVIE.so`, this pattern appears four
+times inside `ObjIfWrapper::ConnectObject` and `::DisconnectObject` and is
+what established that `0x2000` is a *category* rather than the pin-group id
+the numbering suggested.
+
+What gives it away against a false positive: `MWF::ObjIf::ConnectPin` and
+`::CreateObject` take **already-built** `ObjMsg*` arguments, so a call to
+either of those with a bare literal in r1 is not the pair — the literal is set
+into a struct earlier. Check which function is being called before reading
+its arguments as ids.
+
 ## What this bought
 
-`docs/SERVICE_AUDIT.md` and `docs/BINARY_MAP.md` hold the findings. The point
-of this note is that none of them required guessing: every protocol, ID,
-mount table and message layout above came out of a symbol table, a literal
-pool or an import list, and each is reproducible by re-running the scripts
-named at the top.
+`docs/SERVICE_AUDIT.md`, `docs/BINARY_MAP.md`, `docs/SCENARIO_VOCAB.md`,
+`docs/MWF_TABLES.md` and `docs/IMCFG_BLOCK.md` hold the findings. The point of
+this note is that none of them required guessing: every protocol, id, mount
+table and message layout above came out of a symbol table, a literal pool or an
+import list, and each is reproducible by re-running the scripts named at the
+top.
