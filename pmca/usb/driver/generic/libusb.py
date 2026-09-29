@@ -40,9 +40,26 @@ class VendorSpecificContext(_UsbContext):
   super(VendorSpecificContext, self).__init__('vendor-specific', USB_CLASS_VENDOR_SPECIFIC, GenericUsbDriver)
 
 
+def _getBackend():
+ """Return a usb backend that can actually see AND claim the device.
+
+ On Windows a camera bound with Zadig to libusb-win32 must be driven through
+ the libusb0 backend: the default libusb-1.0 backend can often ENUMERATE it but
+ fails to claim_interface ('The requested resource is in use'). So prefer
+ libusb0 whenever it can see a Sony device, and only fall back to the default."""
+ try:
+  import usb.backend.libusb0 as _lu0
+  b = _lu0.get_backend()
+  if b and list(usb.core.find(find_all=True, backend=b, idVendor=0x054c)):
+   return b
+ except Exception:
+  pass
+ return None
+
+
 def _listDevices(vendor, classType):
  """Lists all detected USB devices"""
- for dev in usb.core.find(find_all=True, idVendor=vendor):
+ for dev in usb.core.find(find_all=True, idVendor=vendor, backend=_getBackend()):
   interface = next((interface for config in dev for interface in config), None)
   if interface and interface.bInterfaceClass == classType:
    yield UsbDeviceHandle(dev, dev.idVendor, dev.idProduct)
