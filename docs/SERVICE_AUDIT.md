@@ -584,6 +584,116 @@ volume (it dropped 162 of 355,344 characters on a 266 KB payload):
 | `DmmConfig.bin` | 78,120 | shared-memory layout for the `dmm` module |
 | `init` | 28,580 | the boot recipe as a binary, not just its strings |
 | `liro.ko` | 65,212 | the firmware loader, and it runs with `debug=1` |
+## libIMDB.so is the application manifest
+
+`libIMDB.so` (37,044 B) exports only `IMDB_find_entry`, `IMDB_get_entries`,
+`IMDB_find_target_bit` and one data symbol, `imdb_raw` — which reads as a
+database. It is not a settings index. Its string table is **the complete load
+manifest for the camera application**, in order, naming each library and the
+`init` / `suspend` / `resume` entry points to call on it.
+
+Extracted: **174 libraries, 16 kernel modules, 22 absolute paths.** The full
+list is in `research/firmware/app_manifest.txt`.
+
+The order is the boot order, and the head of it is the interesting part:
+
+```
+libIMDB.so               the manifest itself
+libosal_uipc.so          the message bus
+libosal_utm.so
+libosal_ulogio.so
+libInfraInterchipDatatrans.so
+libNVM.so                NVM_Initialize          <- the settings store
+libbackup.so             backup_user_suspend
+libSaveLoadSettings.so   infra_saveLoadSettings_init
+libbkdmn.so              BkDmn_init
+libOnDemandLoader.so     odl_init                <- the plugin loader
+libInfraKikiLogGenerator.so  libInfraAccessLog.so ...
+```
+
+Two application entry points appear in it:
+
+- **`appFw.so` -> `Application_System_Init`** — the same symbol `libObj.so` exports
+- **`gui.so` -> `DPro_App_UI_init` / `_sus` / `_resume`** — the UI
+
+and the remote stack, which is what the earlier "no listening socket" finding was
+about, is all here and all initialised from this one list:
+
+```
+libInfraRemote.so            InfraRemote_Init
+libInfraRemoteControlNet.so  InfraRemoteControlNet_Init
+libInfraWebApi.so            InfraNetWebApi_init        <- the web API
+libInfraWebApiClient.so      InfraWebApiClient_init
+libInfraRemoteCtrlCGI.so     InfraRemoteCtrlCGI_Init
+libInfraRemoteCtrlProxy.so   InfraRemoteCtrlProxy_Init
+libInfraLiveViewClient.so    LiveViewClient_init
+libInfraNetLiveStreaming.so  InfraNetLiveStreaming_Init
+libInfraOpusLiveStreaming.so / libInfraRtmpLiveStreaming.so / libInfraUstream.so
+libInfraFtpClient.so  libInfraFileTransfer.so  libInfraSavonaServer.so
+```
+
+The manifest also names six mode strings — `IMDB:default`, `IMDB:qemu`,
+`IMDB:nfs`, `IMDB:set`, `IMDB:USBJ`, `IMDB:RE-SUB` — plus bare `usbj`, `resub`,
+`adjust`, `test`. So the same binary builds the service, factory and normal
+images, selected by mode.
+
+## The application is not deployed on the service filesystem
+
+This is the finding that ends the search. Of the 174 libraries the manifest
+names, the ones actually present in `/usr/lib` are the **assets**:
+
+```
+/usr/lib/libObj.so          21,305,456
+/usr/lib/CautionConfig.so   17,694,160
+/usr/lib/viewUnified2.so    14,284,732
+/usr/lib/libmpr.so          13,021,036
+/usr/lib/libInfraRemote.so   8,708,516
+```
+
+and the ones that would **drive** them are absent:
+
+| file | manifest symbol | on the camera |
+|---|---|---|
+| `appFw.so` | `Application_System_Init` | **absent** |
+| `gui.so` | `DPro_App_UI_init` | **absent** |
+| `libNVM.so` | `NVM_Initialize` | **absent** |
+| `libSaveLoadSettings.so` | `infra_saveLoadSettings_init` | **absent** |
+| `libInfraWebApi.so` | `InfraNetWebApi_init` | **absent** |
+
+Also absent: everything the manifest names under `/usr/local/lib/`
+(`libVssApp.so`, `AdjChkConfig.so`, `libVssAppMain.so` — `/usr/local/lib` is
+empty), and `/usr/bin/WebApiLauncher.sh`, `/usr/bin/qsi.elf`,
+`/usr/bin/network.sh`, and every `/kmod/*.ko` (those are on the ramdisk, which
+is freed after boot).
+
+**So the service filesystem carries the camera's rendering engine, its view
+layer and its 81 MB of resources, but not the application that uses them.** The
+program, the settings store and the web API are simply not there. That is not a
+permissions problem or a mount problem — the files do not exist.
+
+It ties together every dead end in this session:
+
+- The patched icon font produced no visible change because `gui.so` — the thing
+  that draws labels — is not installed.
+- `OPENCODE` likewise. Every check of it was an `md5sum` on a camera with no UI.
+- The UIPC bus is empty, the scenario runner is silent, and there is no TCP
+  listener, because none of the peers on the other end of those interfaces are
+  loaded.
+- `libOnDemandLoader` explains the 313 "orphaned" shared objects: they are a
+  plugin set, and in service mode nothing loads them.
+
+**The housekeeping core cannot reach the camera application, because the
+application is not on its filesystem.** Everything reachable from here is
+diagnostic: the message bus, the settings NVRAM, the bootloader, the firmware
+image, the service tools and 47 kernel modules. That is a real and fairly
+complete surface — but it is a different machine from the one that draws the
+screen.
+
+The one remaining lever is `check_forced_senser` and the mode selection in
+`init`. `BOOTMODE=NORM` already, no forcing file present, yet the application is
+not loaded — which means either the mode that is actually in force is not being
+reported through `/proc/udm/upm_bootmode`, or the service USB personality is
+what holds the system in the launcher. Testing it means giving up the shell.
 ## Not covered — the honest gaps
 
 Gaps 1, 4, 5 and 7 are closed above. What remains:
