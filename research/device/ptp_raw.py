@@ -14,13 +14,16 @@ Single session: opens the interface once, never resets/closes it mid-run
 import sys, json, struct, threading, queue
 import usb.core, usb.util
 
+import pathlib
+REPO = pathlib.Path(__file__).resolve().parents[2]
+
 VENDOR = 0x054c
 PRODUCT = 0x094b
 SONY_OPS = [0x9801, 0x9802, 0x9803, 0x9805]
 TYPE_CMD, TYPE_DATA, TYPE_RESP = 1, 2, 3
 TIMEOUT = 3000
 
-JSON_PATH = 'C:/Users/Minhsnguhoa/pmca-re/ptp_raw_results.json'
+JSON_PATH = (REPO / 'ptp_raw_results.json').as_posix()
 RES = {'device': 'Sony DSC W830', 'captures': {}}
 
 def save():

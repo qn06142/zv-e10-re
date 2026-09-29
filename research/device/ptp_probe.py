@@ -15,6 +15,9 @@ import sys, json, threading, queue, traceback
 from pmca.commands import usb as cu
 from pmca.usb import MtpDevice
 
+import pathlib
+REPO = pathlib.Path(__file__).resolve().parents[2]
+
 # driver selection: 'native' (WPD, wedges) or 'libusb' (WinUSB-bound, owns session)
 DRIVER = 'libusb' if '-d' in sys.argv and 'libusb' in sys.argv else 'native'
 if '-d' in sys.argv:
@@ -36,7 +39,7 @@ PTP = {
 }
 
 RESULTS = {'device': 'Sony DSC W830 (VID 054c PID 094b)', 'probes': {}}
-JSON_PATH = 'C:/Users/Minhsnguhoa/pmca-re/ptp_probe_results.json'
+JSON_PATH = (REPO / 'ptp_probe_results.json').as_posix()
 
 def save():
     with open(JSON_PATH, 'w') as f:
@@ -80,7 +83,7 @@ def main():
             r, di = cam.driver.sendReadCommand(PTP['GetDeviceInfo'], [])
             RESULTS['deviceinfo'] = {'rc': hex(r), 'len': len(di)}
             if len(di):
-                with open('C:/Users/Minhsnguhoa/pmca-re/di_dump.bin', 'wb') as f:
+                with open((REPO / 'di_dump.bin').as_posix(), 'wb') as f:
                     f.write(di)
                 RESULTS['deviceinfo']['saved'] = 'di_dump.bin'
             RESULTS['probes']['get_device_info'] = {'rc': hex(r), 'len': len(di)}

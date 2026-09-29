@@ -13,8 +13,11 @@ from pmca.commands import usb as cu
 from pmca.usb import MtpDevice
 from pmca.usb.driver.generic import MtpDriver
 
+import pathlib
+REPO = pathlib.Path(__file__).resolve().parents[2]
+
 TNAME = {1:'CMD',2:'DATA',3:'RESP'}
-JSON_PATH = 'C:/Users/Minhsnguhoa/pmca-re/ptp_argsweep_results.json'
+JSON_PATH = (REPO / 'ptp_argsweep_results.json').as_posix()
 RES = {'awake_ops': [0x9806, 0x9807, 0x9808], 'probes': {}}
 
 def tolerant(drv, code, args, max_packets=3):

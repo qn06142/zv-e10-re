@@ -10,6 +10,9 @@ from pmca.commands import usb as cu
 from pmca.usb import MtpDevice
 from pmca.usb.driver.generic import MtpDriver
 
+import pathlib
+REPO = pathlib.Path(__file__).resolve().parents[2]
+
 ORIG_READ = MtpDriver._readPtp
 TNAME = {1:'CMD',2:'DATA',3:'RESP'}
 
@@ -18,7 +21,7 @@ def traced_read(self):
     return t, c, tx, d
 MtpDriver._readPtp = traced_read
 
-JSON_PATH = 'C:/Users/Minhsnguhoa/pmca-re/ptp_9805_sweep.json'
+JSON_PATH = (REPO / 'ptp_9805_sweep.json').as_posix()
 RES = {'op': 0x9805, 'results': {}}
 
 def tolerant(drv, code, args, max_packets=3):

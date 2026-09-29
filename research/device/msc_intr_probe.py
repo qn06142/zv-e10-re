@@ -10,9 +10,12 @@ Run via run_after_reboot.py (needs a fresh plug; may wedge the handle).
 """
 import sys, json, usb.core, usb.util
 
+import pathlib
+REPO = pathlib.Path(__file__).resolve().parents[2]
+
 VID, PID = 0x054c, 0x08b3
 TIMEOUT = 2000
-JSON_PATH = 'C:/Users/Minhsnguhoa/pmca-re/msc_intr_results.json'
+JSON_PATH = (REPO / 'msc_intr_results.json').as_posix()
 RES = {'reads': []}
 
 def eprint(*a):

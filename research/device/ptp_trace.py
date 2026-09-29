@@ -15,6 +15,9 @@ from pmca.commands import usb as cu
 from pmca.usb import MtpDevice
 from pmca.usb.driver.generic import MtpDriver
 
+import pathlib
+REPO = pathlib.Path(__file__).resolve().parents[2]
+
 CAP = []
 ORIG_WRITE = MtpDriver._writePtp
 ORIG_READ = MtpDriver._readPtp
@@ -36,7 +39,7 @@ def traced_read(self):
 MtpDriver._writePtp = traced_write
 MtpDriver._readPtp = traced_read
 
-JSON_PATH = 'C:/Users/Minhsnguhoa/pmca-re/ptp_trace_results.json'
+JSON_PATH = (REPO / 'ptp_trace_results.json').as_posix()
 RES = {'device': 'Sony DSC W830', 'ops': {}}
 
 def tolerant_read(drv, code, args, max_packets=3):

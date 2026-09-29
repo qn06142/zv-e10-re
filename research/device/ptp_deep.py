@@ -15,9 +15,12 @@ from pmca.commands import usb as cu
 from pmca.usb import MtpDevice
 from pmca.usb.driver.generic import MtpDriver
 
+import pathlib
+REPO = pathlib.Path(__file__).resolve().parents[2]
+
 TNAME = {1:'CMD',2:'DATA',3:'RESP'}
 
-JSON_PATH = 'C:/Users/Minhsnguhoa/pmca-re/ptp_deep_results.json'
+JSON_PATH = (REPO / 'ptp_deep_results.json').as_posix()
 RES = {'op_9805': {}, 'op_9801': {}, 'op_9802': {}, 'op_9803': {}}
 
 def tolerant(drv, code, args, max_packets=3):

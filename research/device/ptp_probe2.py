@@ -14,6 +14,9 @@ import sys, json, threading, queue, traceback
 from pmca.commands import usb as cu
 from pmca.usb import MtpDevice
 
+import pathlib
+REPO = pathlib.Path(__file__).resolve().parents[2]
+
 # driver selection: 'native' (WPD, wedges) or 'libusb' (WinUSB-bound, owns session)
 DRIVER = 'libusb' if '-d' in sys.argv and 'libusb' in sys.argv else 'native'
 if '-d' in sys.argv:
@@ -21,7 +24,7 @@ if '-d' in sys.argv:
     if i + 1 < len(sys.argv):
         DRIVER = sys.argv[i + 1]
 
-JSON_PATH = 'C:/Users/Minhsnguhoa/pmca-re/ptp_probe2_results.json'
+JSON_PATH = (REPO / 'ptp_probe2_results.json').as_posix()
 RES = {'device': 'Sony DSC W830', 'probes': {}}
 
 def save():

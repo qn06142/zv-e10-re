@@ -8,8 +8,11 @@ on a working camera. Enumerate-only, non-destructive.
 """
 import usb.core, usb.util, json, sys
 
+import pathlib
+REPO = pathlib.Path(__file__).resolve().parents[2]
+
 VID = 0x054c
-JSON_PATH = 'C:/Users/Minhsnguhoa/pmca-re/usb_ids_results.json'
+JSON_PATH = (REPO / 'usb_ids_results.json').as_posix()
 RES = {'devices': [], 'all_sony_pids': []}
 
 def eprint(*a):

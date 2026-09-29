@@ -16,11 +16,14 @@ import sys, json, struct, time
 import usb.core
 import usb.util
 
+import pathlib
+REPO = pathlib.Path(__file__).resolve().parents[2]
+
 VID, PID = 0x054c, 0x08b3
 OUT = None
 IN = None
 TIMEOUT = 2000
-JSON_PATH = 'C:/Users/Minhsnguhoa/pmca-re/msc_scsi_results.json'
+JSON_PATH = (REPO / 'msc_scsi_results.json').as_posix()
 
 def eprint(*a):
     print(*a); sys.stdout.flush()
