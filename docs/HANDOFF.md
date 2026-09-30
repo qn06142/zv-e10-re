@@ -47,6 +47,7 @@ The RE arc is a chain — each step needed the previous one:
 | `docs/SERVICE_AUDIT.md` | 44 KB. The service-mode audit. Attack path, mounts, persistence, init recipe |
 | `docs/SCENARIO_VOCAB.md` | 96-value id vocabulary; DataflowInfra vs MWF; the two cross-validate on 3 ids |
 | `docs/MWF_TABLES.md` | 33 categories, 45 objects, 12 pins; which are implemented |
+| `docs/MWF_MESSAGE_VOCABULARY.md` | Full recovered MWF message vocabulary: libMWF, NetDbIf, APICD, ObjCntMgr, ObjPlayer, ObjFaceRecorder |
 | `docs/IMCFG_BLOCK.md` | 70 device names incl. all 32 `nflasha`; 7 `/nondev/` pseudo-devices; 16-id array |
 | `docs/RE_METHOD.md` | **Read this first.** The decoding traps, all verified |
 | `docs/FLASH_ICON_FONT.md` | The patched icon font and its transport |
@@ -76,11 +77,12 @@ Headline results:
 ### Read these binaries
 
 ```powershell
-# the four extraction tools, all run clean with no arguments
+# the five extraction tools, all run clean with no arguments
 & ".venv\Scripts\python.exe" -B research\firmware\sysdef_tables.py    # MWF tables -> names
 & ".venv\Scripts\python.exe" -B research\firmware\imcfg_block.py     # device table + id array
 & ".venv\Scripts\python.exe" -B research\firmware\scenario_vocab.py  # flat movw/movt sweep
 & ".venv\Scripts\python.exe" -B research\firmware\mwf_ids.py         # MWF category/message pairs
+& ".venv\Scripts\python.exe" -B research\firmware\mwf_catalog.py     # Full recovered message vocabulary
 
 # annotated disassembly: <elf> <symbol>
 & ".venv\Scripts\python.exe" -B research\firmware\annotate.py `
@@ -194,73 +196,43 @@ right one. Full detail in `docs/RE_METHOD.md`.
 
 Ordered by value. None are guesses; each is stated with what is known.
 
-1. **The plugin message vocabulary is still unnamed.** `0x1022`, `0x102a`,
-   `0x81000`, `0x81003` are message ids, not categories, and no table names
-   them. The IMCFG id array contains `0x1001` but *not* the others, so it is a
-   different space that overlaps. `ObjMedia_RegisterCommand` (vaddr
-   `0xa3ea24`, Thumb; 12 bytes) is a misleading lead: it calls
-   `MonLib::MonCmdAdd` to register the `OM` monitor command, not an MWF message
-   handler. See the progress note below for the mappings confirmed so far.
-
-   On that lead: `ObjMedia_RegisterCommand` is `push {r7,lr}` / `add r7,sp` /
-   `bl 0xa3e8ec` / `movs r0,#0` / `pop`, and `0xa3e8ec` is a **static**
-   function — no `.dynsym` symbol covers it, and the `blx` inside it targets
-   `0x10af78` and `0x10c7e0`, which are also unexported. So the call chain
-   cannot be resolved by symbol lookup and has to be read. It does confirm your
-   reading: the function loads a string at `0x10afcc1`, which is `<id>`, and
-   the strings around it are the monitor command set —
-
-       OM_InOutPullout  OM_InOutInsert  OM_ChangeTarget
-       "Object Media Command"  "Monitor Output"  "InOut Media"
-       AllInfo  MMgrMediaInfo  EventCheck  Eject  FileSystemMount
-       Unmount  Temperature  Drop  "Eye-Fi {iseyefi/init/fin}"
-       "PC Remote Event {start/stop/active/inact}"  SetMedia
-
-   That is a **debug/monitor command table**, keyed by name and registered
-   through `MonLib::MonCmdAdd(char const*, bool (*)(int, char**), char const*)`
-   — a name, a handler taking `(argc, argv)`, and a help string. So these are a
-   text command interpreter, not the MWF message bus. Worth knowing before
-   anyone spends time looking here for MWF ids.
-
-### Progress on item 1 (2026-09-30)
-
-- `ObjCntMgr` category `0x3700`, message `0x1022` is the format request. The
-  `MPR_SCN_FORMAT` call site constructs that pair, and the matching `libObj.so`
-  dispatch branch handles the format path.
-- `ObjCntMgr` category `0x3700`, message `0x102a` is the content-count command.
-  `MPR_SCN_GET_CONTENT_COUNT` constructs the pair, adds `ContentType` param
-  `0x1005`, and calls `MWF::ObjIf::IssueCommandSync`; `libObj.so` has the
-  corresponding dispatch branch.
-- In the same scenario flow, database category `0x6000` messages `0x81000` and
-  `0x81003` are successive phases of a content-count transaction. `0x81000`
-  carries the media id and content-type-related parameters. `0x81003` uses a
-  value returned by that phase; the scenario then sends `0x1001` to retrieve
-  the count. `NetDbIf::getContentType` also uses `0x81003` with a different
-  parameter shape, so its canonical message name and receiver are not
-  established yet.
-- A library-wide scan for additional MWF call sites was started but interrupted
-  before it returned results; it provides no conclusion. The exact names and
-  receiver registrations for `0x81000`/`0x81003` remain open.
-
-Re-running `mwf_ids.py` reproduces all six (category, message) pairs quoted
-above, so the id arithmetic is verifiable independently of this note:
-
-    MPR_SCN_FORMAT            cat=0x3700 msg=0x1022   0x1ce4
-    MPR_SCN_GET_CONTENT_COUNT cat=0x3700 msg=0x102a   0x15ae
-    MPR_SCN_GET_CONTENT_COUNT cat=0x6000 msg=0x81000  0x1660
-    MPR_SCN_GET_CONTENT_COUNT cat=0x6000 msg=0x81003  0x179e
-    MPR_SCN_GET_CONTENT_COUNT cat=0x6000 msg=0x1001   0x1866
+1. **The plugin message vocabulary is RESOLVED.**
+   Full catalog and mappings documented in `docs/MWF_MESSAGE_VOCABULARY.md` and
+   verifiable via `research/firmware/mwf_catalog.py`:
+   - `libMWF.so` core tables extracted:
+     - `m_baseMsgTbl` (12 lifecycle commands: `0x1002` `MSGID_START_OBJ_CMD`, `0x1003` `MSGID_STOP_OBJ_CMD`, `0x1008` `MSGID_RESUME_OBJ_CMD`, `0x1009` `MSGID_SUSPEND_OBJ_CMD`, etc.)
+     - `m_pinMsgTbl` (11 pin IPC commands: `0x1000` `MSGID_OPEN`, `0x1001` `MSGID_CLOSE`, `0x1002` `MSGID_DELIVER`, `0x1003` `MSGID_NOTIFY`, `0x2000` `MSGID_REQ_OPEN`, `0x3000` `MSGID_CONNECT`, `0x3001` `MSGID_DISCONNECT`)
+     - `m_pinParamTbl` (`0x1000` `PARAMID_PIN_TYPE`, `0x1001` `PARAMID_PIN_NUMBER`, `0x1002` `PARAMID_PIN_DIRECTION`, `0x1003` `PARAMID_PIN_DATA`)
+     - `m_pinDirTbl` (`0` `PIN_IN`, `1` `PIN_OUT`, `2` `PIN_INOUT`)
+   - `ObjCntMgr` (`0x3700`): Message names recovered from `ObjCntMgr::ParseObjCommand` in `libObj.so`:
+     - `0x1022` = `MSGID_FORMAT_CMD` (completion `0x1023` = `MSGID_FORMAT_CMP`, progress `0x1024` = `MSGID_FORMAT_PROGRESS_EVT`)
+     - `0x102a` = `MSGID_SET_CONTENT_TARGET_CMD` (configures content type targets)
+     - `0x100a` = `MSGID_GET_FORMAT_TIME_CMD` (`0x100b` = `MSGID_GET_FORMAT_TIME_CMP`)
+     - `0x1026` = `MSGID_UNLOAD_EVT`
+     - `0x103c` = `MSGID_CREATE_APP_STRUCTURE_CMD`
+     - Filesystem events: `0x10000013` `MSGID_MOUNT_EVT`, `0x10000014` `MSGID_UNMOUNT_EVT`, `0x1000001e` `MSGID_FSYS_FORMAT_CMD`
+   - Database category (`0x6000`, `CATEID_DATABASE`):
+     - Mapped 48 client API methods in `libNetContUtil.so` (`NetContUtil::NetDbIf`):
+       - `0x81000`: `createRootHandle` / `createChildHandle` (Handle creation for media/types)
+       - `0x81002`: Handle inspection/properties (`getObjectNum`, `getMediaId`, `getContentTypeCombiOfHandle`, `getGroupCondOfHandle`)
+       - `0x81003`: Item attributes/metadata query (`getContentType`, `getItemDate`, `getDirectoryName`, `getItemAttribute`)
+       - `0x1001`: `destroyHandle` (releases handle; in `MPR_SCN_GET_CONTENT_COUNT`, `0x1001` was destroying the handle, not reading count)
+       - `0x2000`–`0x2009`: Content List management (`createContentsList`, `destroyContentsList`, `addContentToList`, etc.)
+     - Mapped underlying database command table (`APICD_*` in `libObj.so` at `0x13ec720`, stride 72, 58 records: `0x1000` `APICD_CREATE_HNDL`, `0x1022` `APICD_GET_CONTENT_PROPERTY`, `0x1024` `APICD_GET_CONTENT_EXTENT`, `0x1036` `APICD_GET_CONTENT_FILE_TYPE`, `0x103c` `APICD_GET_CONTENT_PROFILE`, `0x2001` `APICD_CONTENTLIST_DESTROY_ID`, etc.)
+   - `ObjPlayer` (`0x3600`): 69 command/event records recovered from `DefObjPlayer` table at `0x1365b00` in `libObj.so` (`0x1000` `MSGID_PB_START_CMD`, `0x1022` `MSGID_GET_PB_POSITION_CMD`, `0x102a` `MSGID_CLEAR_CONV_CACHE_INSTANCE_CMD`, `0x2000` `MSGID_INTERNAL_PB_STOP_EVT`, etc.)
+   - `ObjFaceRecorder` (`0x3a44`): 29-entry dispatch table recovered at `0x13dc504` in `libObj.so` (`0x6500` `MSGID_SYNC_REQ_RECORDED_FACE_NUM_CMD`, `0x7500` `MSGID_SET_FACE_FRAME_CMD`, `0x7502` `MSGID_FACE_RECORD_CMD`, etc.)
+   - `ObjCamera` (`0x3100`): 1,138-entry message vocabulary recovered at `0x1378b58` in `libObj.so` (`MSGID_EE_START_EVT`, `MSGID_STILL_LOCK_EVT`, `MSGID_SYNC_ZOOM_DRIVE_CMD`, etc.)
 
 2. **A `0x4xxx` id family exists and nothing names it.** Seen in the IMCFG
    array: `0x4000 0x4100 0x4200 0x4300 0x4400`.
-3. **`0x2000`** is used by `MPR_SCN_INSTALL_MAP_DEMOMOVIE` and is in none of the
-   three MWF tables. **Resolved: it is a message category, not a pin group.**
-   In `ObjIfWrapper::ConnectObject` and `::DisconnectObject` the pattern is
-   `add r0, sp, #<msg> ; mov r1, #0x2000 ; movs r2, #1 ; bl ObjMsg::ObjMsg` —
-   the same (category, message) pair shape as everywhere else, with message id
-   `0x1`. So the pair is `(0x2000, 0x1)`, four occurrences in that one plugin.
-   The category has no entry in `m_cateTbl`, so it is allocated outside that
-   table; what it names is still unknown.
+3. **`0x2000` is RESOLVED.**
+   Category `0x2000` is `CATEID_PIN` (the outer category for pin descriptor messages).
+   In `MWF::ParamDump::ConvMessageId`, any message with `category == 0x2000` is
+   routed to `MWF::MwfTbl::PinMsg2Name`.
+   The `(0x2000, 1)` message in `MPR_SCN_INSTALL_MAP_DEMOMOVIE.so` is the standard
+   MWF Pin specification message passed to `MWF::ObjIf::GetPin`, `ConnectPin`,
+   and `DisconnectPin`, configured with parameters `PARAMID_PIN_TYPE` (`0x1000`),
+   `PARAMID_PIN_NUMBER` (`0x1001`), and `PARAMID_PIN_DIRECTION` (`0x1002`).
 4. **`DefInh::sm_refTbl`** (3,158,400 B, 96.7% of `libSysDef.so`) and
    **`DefRsrc::scm_refTbl`** (98,778 B) are exported and untouched. Indexed by
    `AcsrId_t`, so resource id rather than message id.
