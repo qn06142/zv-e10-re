@@ -250,7 +250,13 @@ Ordered by value. None are guesses; each is stated with what is known.
 
 ## 6. Camera state
 
-**Unchanged, verified.** `/usr/lib/libtestcmd.so` is stock md5
+**Not currently connected.** As of 2026-09-30 `zve10_retry.py` reports "No
+devices found" and the link never comes up. Everything in this document that
+needs the device is blocked on that; nothing else is. See
+[BLOCKERS.md](BLOCKERS.md) for what each piece needs the hardware for, and for
+the offline work that does not.
+
+State when last verified (before it was unplugged): `/usr/lib/libtestcmd.so` is stock md5
 `f370de888ae662e7f509f2274846eac6`, mode `-r-xr-xr-x 1 57285 1000`, original
 ownership (`cp` had reset both; `chown`/`chmod` put them back). The `.orig`
 copy was removed and `/tmp` scratch cleaned. Five persistence markers from
