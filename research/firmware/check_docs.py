@@ -8,6 +8,10 @@ usable if its links work.  Both fail silently, so both are checked here:
   2. every ``[text](file.md)`` link target still resolves
   3. every ``[text](#anchor)`` matches a heading's GitHub slug in that file
 
+Scans ``docs/`` **and the top-level markdown at the repository root**
+(``README.md``, ``CREDITS.md``), because a broken link in the README is the first
+thing a visitor hits and the least likely to be noticed.
+
 Run before and after a restructure and diff the two reports.  The md5-set
 fingerprint is the number to compare; it is order-independent by construction.
 """
@@ -19,6 +23,10 @@ import unicodedata
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 DOCS = ROOT / "docs"
+
+# The repository root, not just docs/: README.md and CREDITS.md live there and
+# are the first thing anyone reads.
+ROOT_MD = [ROOT / "README.md", ROOT / "CREDITS.md"]
 
 MD5 = re.compile(r"\b[0-9a-f]{32}\b")
 LINK = re.compile(r"\[([^\]]*)\]\(([^)]+)\)")
@@ -43,11 +51,20 @@ def slug(text):
     return "#" + text.strip().lower().replace(" ", "-")
 
 
+def targets():
+    """Every markdown file whose links are worth checking."""
+    out = sorted(DOCS.rglob("*.md"))
+    for p in ROOT_MD:
+        if p.exists() and p not in out:
+            out.append(p)
+    return out
+
+
 def scan():
     md5s = set()
     links = []
     n_anchor = 0
-    for p in sorted(DOCS.rglob("*.md")):
+    for p in targets():
         text = p.read_text(encoding="utf-8", errors="replace")
         md5s |= set(MD5.findall(text))
 
@@ -67,7 +84,7 @@ def scan():
 
 def main():
     md5s, links, n_anchor = scan()
-    print("docs tree: %d .md files" % len(list(DOCS.rglob("*.md"))))
+    print("markdown scanned: %d files (docs/ plus repo root)" % len(targets()))
     print("distinct md5 values: %d" % len(md5s))
     print()
 
