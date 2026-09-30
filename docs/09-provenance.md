@@ -60,8 +60,9 @@ stock library produced `5d776c95847022dbc343e00519289b5f`, matching the copy tha
 was committed. The evidence is the recipe and the two hashes, not Sony's bytes.
 Both are now recorded in `PATCHED_OBJECTS.md`, and the binary is untracked.
 
-> **The blob is still reachable in history** at `f8dfbc7e`. `git rm --cached`
-> only removes it from the tip. See [§6](#6-what-is-still-in-history).
+> **The blob was still reachable in history** at `f8dfbc7e` after the tip was
+> cleaned, so it was purged from history too before publishing. See
+> [§6](#6-history-was-rewritten-before-publishing).
 
 ## 4. Upstream `ma1co/Sony-PMCA-RE` — pre-existing
 
@@ -101,27 +102,57 @@ duplicated here.
 | `LICENSE.txt` | MIT, ma1co 2015 |
 | `.venv*/`, `.tools/`, `re_out/`, `out/` | local environments and regenerable analysis caches |
 
-## 6. What is still in history
+## 6. History was rewritten before publishing
 
-`research/firmware/libtestcmd.OPX.so` was committed in `8b7e0f1` and is gone
-from the tip, but `git cat-file -p f8dfbc7e` still returns it. Removing a blob
-from history means rewriting every commit from that point on, which:
+`research/firmware/libtestcmd.OPX.so` was committed in `8b7e0f1`. It was
+removed from the tip in `ca041bd`, but that alone leaves the blob reachable —
+`git cat-file -p f8dfbc7e` still returns it, and GitHub serves old commits over
+HTTP. **A HEAD-only removal is not isolation.**
 
-- rewrites ~150 commits, including all of ma1co's upstream history, so merging
-  with upstream afterwards becomes painful;
-- is irreversible for those SHAs;
-- is only worth doing if this fork is about to be published somewhere public,
-  since the exposure today is confined to a local 3.2 MB `.git`.
+So it was purged from history as well, before anything was published:
 
-`git filter-repo --path research/firmware/libtestcmd.OPX.so --invert-paths` is
-the command, and `git filter-repo --analyze` will show what else it would touch
-first. **Deliberately not run** — it is a history rewrite on a repo with a live
-upstream remote, and that is a decision to make deliberately rather than as
-cleanup.
+```
+git filter-repo --path research/firmware/libtestcmd.OPX.so --invert-paths --force
+```
 
-Note also that `.git` is only 3.2 MB because the ignore rules for `/dumps/`,
-`/fw/` and friends were in place from the start. The working tree is 8.4 GB; none
-of it was ever committed.
+This rewrote every commit, so **all SHAs from `8b7e0f1` onward changed.** A
+pre-rewrite backup was taken first and is kept **outside** the repository:
+
+```
+%TEMP%\pmca-re-prepublish.bundle     2.56 MB, contains the old history
+```
+
+Verified after the rewrite:
+
+| | before | after |
+|---|---:|---:|
+| commits | 369 | 369 |
+| tracked files | 631 | 631 |
+| `HEAD` tree entries | 631 | 631, byte-identical |
+| docs md5-set fingerprint | `070a0f50…` | `070a0f50…` |
+
+The `HEAD` trees being identical is correct rather than suspicious: the `.so` had
+already left the tip in `ca041bd`, so the rewrite only removed it from the
+commits *behind* the tip. The check that matters is:
+
+```
+git cat-file -t f8dfbc7e                  -> fatal: could not get object info
+git log --all --name-only | grep libtestcmd  -> nothing
+```
+
+`git filter-repo` also removed the `origin` remote as a safety measure, which is
+why no remote is configured now.
+
+The full sweep of **every** non-text path ever committed to this repository:
+
+```
+updatershell/fdat/*.dat    12 files   upstream ma1co, published 2021 under MIT
+research/firmware/libtestcmd.OPX.so     removed
+```
+
+No firmware image, partition dump, `.uxc` UI resource, `.ttf` or `.ltt` font has
+ever been committed. The ignore rules were in place from the first commit. `.git`
+is 2.91 MB; the working tree is 8.4 GB and none of it was ever committed.
 
 ## 7. The rule going forward
 
