@@ -1,15 +1,25 @@
-# What is actually on the camera, and how it links together
+# 03 — Binaries: what is on the camera and how it links together
 
 Produced by `research/firmware/elf_catalog.py` over 648 ELF files in the dumps.
-Everything below comes from ELF headers and symbol tables — no disassembly. The
-full 520-name export list is in `research/firmware/libobj_exports.txt`.
+Everything in the catalog sections comes from ELF headers and symbol tables — no
+disassembly. The full 520-name export list is in
+`research/firmware/libobj_exports.txt`.
 
-Where a claim here did need the code read rather than just the tables — the
-`libIMDB.so` manifest, the `im.elf` control plane, the scenario message
-layout — the method and its traps are in
-[RE_METHOD.md](RE_METHOD.md).
+Related: [01-hardware.md](01-hardware.md) · [02-service-shell.md](02-service-shell.md) ·
+[04-messaging.md](04-messaging.md) · [05-formats.md](05-formats.md) ·
+[06-method.md](06-method.md)
 
-## Why inventory before conclusions
+- [ELF catalog](#elf-catalog)
+- [The spine: libosal_uipc.so](#the-spine-libosal_uipcso)
+- [The application: libObj.so](#the-application-libobjso)
+- [The plugin architecture](#the-plugin-architecture)
+- [Other subsystems, by their own exports](#other-subsystems-by-their-own-exports)
+- [av-cam.bin: the RTOS command engine](#av-cambin-the-rtos-command-engine)
+- [VDF, the display subsystem](#vdf-the-display-subsystem)
+- [The live bus: /proc/osal/uipc](#the-live-bus-procosaluipc)
+- [Negative results](#negative-results)
+
+## ELF catalog
 
 Three load-bearing claims in this project were inherited rather than checked, and
 all three were wrong: that `av-cam.bin` was encrypted, that `libupdatercommon.so`
@@ -178,13 +188,14 @@ Named, enumerable, and dispatched by name. `MPR_SCN_SET_FACTORY_MODE` and
   `/usr/bin` also carries `iperf`, `tcpdump`, `openssl`, `wpa_supplicant`,
   `bsa_server` (Bluetooth), `ud_send_lsi.elf`, `ud_datcnv.elf`.
 
-## What the map changes
+## What the catalog establishes
 
 1. The camera application is not unreachable. It is `libObj.so` plus
    `viewUnified2..8.so` plus `CautionConfig.so`, all present locally and all
    unstripped enough to read. `dumps/v203/camuser.elf` (21,305,528 B) is the
-   matching application binary, though it is one of the files whose section table
-   is unreadable, so it is a container rather than a plain ELF.
+   matching application binary. (Its section table is unreadable by pyelftools —
+   `expected 4, found 0` — which is why an earlier pass saw a container. A raw
+   byte search shows an ordinary dynamically-linked ARM ELF.)
 2. The service side is not the odd one out. `libosal_uipc` with 166 dependents is
    how the service tools and the application talk, and it is a documented-enough
    API surface to use rather than reverse.
@@ -194,7 +205,7 @@ Named, enumerable, and dispatched by name. `MPR_SCN_SET_FACTORY_MODE` and
 4. The scenario plugins are a named, enumerable command surface, which is a much
    better place to look for "reach another subsystem" than a forged library.
 
-## Correction: the main firmware is on this kernel
+### Negative results
 
 An earlier note said the camera UI runs on a different CPU from the service
 terminal, inferred from `ls -l /proc/*/exe` showing no application. That
@@ -214,6 +225,223 @@ liro-kliro_91 .. liro-kliro_99, and 139 threads named liro-*
 the `liro.ko` module — so the "main firmware" is running on this same kernel as
 kernel threads, not on a separate processor. It is reachable; it was simply not
 visible through the one procfs field that was being filtered on permission.
+
+## av-cam.bin: the RTOS command engine
+
+Extracted offline from `fw/av-cam.bin` (161,595 strings) with `cmd_surface.py`. No
+camera needed.
+
+**`CMD_ID_SDF_*` — the top-level command namespace (12):** `CMD_ID_SDF_ALL`,
+`_CANCEL`, `_CLOSE`, **`_EXEC`**, `_INPUT`, `_OPEN`, `_OUTPUT`, `_PAUSE`,
+`_RESTART`, `_START`, `_STOP`, `_UNKNOWN`.
+
+**`SDF_*` — 57 subsystem codes**, and the error/state families show this is a real
+execution engine rather than a naming artefact:
+
+```
+SDF_ERR_*        OK PARAM TIMEOUT MEMORY HW_TROUBLE NOT_SUPPORTED
+                 REQ_OVERFLOW UNEXPECTED UNIQUEID SDS SET_PARAM CANCEL_*
+SDF_INTRA_ERR_*  the same family plus JPEG_QVALUE ENCODE_SIZE_OVER
+                 EXTENT SA PIN_CONNECT
+SDF_RECMODE_*    STILL_REC OPAL_DUAL_REC HW_DUAL_REC
+```
+
+So SDF is a media / still / codec pipeline engine with an
+`OPEN -> INPUT/OUTPUT -> EXEC -> START -> STOP/CANCEL/RESTART/CLOSE` lifecycle.
+**`EXEC` feeds it data or commands to run** — the obvious target, and the open
+question is what it accepts as its target/argument and whether that is validated.
+
+**164 `Exec*` dispatch symbols**, in families:
+
+```
+ExecApi*   ExecApiExecBaseSetting, ExecApiExecIdtVerification, ExecApiNotify*,
+           ExecApiStart*, ExecApiCancel*                    external API entry points
+ExecSens*  ExecSensCmd, ExecSensComp, ExecSensMsg           sensor subsystem
+ExecSdf*   ExecSdfMsg, ExecSdfMsgParallel, ExecPinSdfMsg     SDF pipeline messages
+ExecJpeg*  ExecJpegOpen/Close/Ready/Encode/TanzEncode        JPEG pipeline
+ExecMovie* ExecMovieCodecMsg, ExecMovieCodecResponse          movie codec
+ExecRc*    ExecRcAcquire/Release/Resize/DistCorrection*      recomposition / zoom
+ExecTanz*  ExecTanzaku, ExecTanzSrcDistCalc, ExecTanzRcDistCalc*
+ExecVfx*   ExecVfxEffect*, ExecVfxStart/Open/Close          video effects
+ExecPin*   ExecPinCmd/Get/MsgResponce/Send/YCPin*           pin and connection management
+           ExecConnect/ExecDisconnect/ExecRequestConnect/ExecRequestDisconnect
+           ExecCmd, ExecSendCommand, ExecReceive, ExecMain, Execute*, ExecTrigger
+ExecGuard/ExecGard/ExecPathSequenceGard/ExecTimeTypeGard    GARD = guarded exec
+```
+
+Plus ~98 `*Handler` symbols (`ExecModeHandler`, `ExecRawDevHandler`,
+`ExecReleaseHandler`) and several hundred `*Msg` symbols (`Proc*ProcMsg*`,
+`*MsgSet*`, `*MsgChk*`) — the IPC message names.
+
+> **Negative result.** **No numeric opcode table exists in the plaintext strings**
+> — only symbolic names. The actual command ids live in code, so mapping
+> `ID -> handler` requires reading the dispatch switch, which needs either the
+> decrypted body or the plaintext loader stub that still references the handler
+> table. The 4 KB LIRO header plus any plaintext init code is where to look.
+
+`ExecGuard` / `ExecGard` suggest Sony added guarded-execution wrappers — probably
+after an earlier bug — which implies exec validation was already a known soft
+spot.
+
+## VDF, the display subsystem
+
+`VDF` = "Video Display Framework", a message-driven display subsystem inside
+`/system/av-cam.bin`. 361 `N3VDF*` mangled RTTI names plus long
+`virtual VDF::VDF_ERR VDF::Class::Method(...)` strings. Those second ones are
+**log strings, not RTTI names** — and they are the useful ones, because they are
+referenced pc-relative from real code and therefore resolve to genuine function
+addresses by name.
+
+**Load base `0x635C6000`**, solved from RTTI name pointers (375/400 validated)
+and independently corroborated by the ORIL init table. Runtime address = file
+offset + `0x635C6000`.
+
+### The pc-relative string reference encoding
+
+`av-cam.bin` is a **raw binary, not an ELF** (`0a 00 00 ea 4f 52 49 4c` — ARM code
+then `ORIL`) and carries no relocations. A pointer to a string or table is built
+in two instructions:
+
+```
+ldr  rX, [pc, #imm]      ; pool word is a FILE offset, not an address
+add  rX, pc              ; rX = pool + pc  ->  the file offset
+```
+
+Two conventions, and getting either wrong silently yields zero matches:
+
+1. **Do not apply the load base.** The pool word and `addr` are both file
+   offsets; their sum is already the target. Subtracting `BASE` shifts every key
+   by 6.4 MB.
+2. **`pc` is the raw `addr + 4`, not `Align(PC,4)`.** ARM's architecture says
+   `ADD (register)` reads `Align(PC,4)`, but this toolchain's encoded literal is
+   `target - (addr+4)`. Using the aligned value lands 2 bytes low.
+
+Both are implemented and regression-tested in `thumb.pcrel_strrefs`, against
+three independently-anchored ground truths.
+
+### Resolved methods
+
+`research/firmware/vdf_methods.py` resolves 35 of 36 signature strings (the 36th is
+a duplicate `SystemCmdNotfound::Execute` key, not a real miss):
+
+| method | file offset | insn |
+|---|---|---|
+| `VdfDisplayCmdSetOsdAlpha::Execute` | `0x00150A9C` | 74 |
+| `VdfDisplayCmdSetOsdAlpha::Activate` | `0x0015091E` | 1 (thin) |
+| `VdfDisplayCmdSetPanelOsdLuminance::Execute` | `0x00151360` | 75 |
+| `VdfDisplayCmdSetPanelOutPin::Execute` | `0x00151450` | 386 |
+| `VdfDisplayCmdSetPanelReverse::Activate` | `0x00151CBA` | 52 |
+| `VdfSrvcDrawOsdManager::Execute` | `0x00178892` | 86 |
+| `VdfInputCmdUpdateYuv::Execute` | `0x001681A0` | 32 |
+| `SystemCmdPinSend::Execute` | `0x00184938` | 468 |
+| `SystemCmdSysv::Execute` | `0x00185534` | 331 |
+| `SystemCmdDebug::Execute` | `0x001803AE` | 1447 |
+
+`SetPanelBrightness` has no `Execute` signature string, but `0x00150BA8` (313
+insn, 30 calls) is adjacent to the `SetOsdAlpha` pair and behaves identically in
+shape. Treat that identification as **strong but not string-proven**.
+
+### Why a panel command cannot simply be called
+
+`SetOsdAlpha::Execute` (`0x00150A9C`) and `SetPanelBrightness::Execute`
+(`0x00150BA8`) share a shape:
+
+```
+push {r4,r5,r6,r7,lr}
+ldr  r3, [r3, #8]            ; arg3 (SubsystemAccessorIf*) -> vtable slot 2
+blx  r3
+ldrb r2, [r5, #1]            ; the value, a byte in the command object
+...
+ldr.w r3, [r3, #0x44c]       ; more subsystem vtable slots
+ldr.w r3, [r3, #0x454]
+ldr.w r3, [r3, #0x45c]
+ldr.w r3, [r3, #0x6cc]
+ldr.w r3, [r3, #0x858]
+```
+
+A display command needs **two live interface objects** — a `MsgAccessorIf*` and a
+`SubsystemAccessorIf*` — and reaches the panel handle through a chain of virtual
+calls at vtable offsets `0x44c / 0x454 / 0x45c / 0x4bc / 0x4d4 / 0x670 / 0x6cc /
+0x858`. The vtable is therefore >`0x858` bytes and its methods must return valid
+subsystem pointers. **Fabricating those from an injected stub is not a safe
+experiment: a wrong pointer there is a hard hang, not a visible effect.**
+
+The message-post helper is `0x0072F47C`:
+
+```
+push {r0,r1,r4,r5,r6,lr}
+str  r3, [sp]
+movs r0, #3
+mov  r1, r6 / r2, r5 / r3, r4
+bl   0x17B388                ; the msgpump
+```
+
+Callers pass `r0 = 0xEEEEEEEE` as a "no sender" sentinel, `r1 = value`, `r2 =
+context pointer`, `r3 = command id` (e.g. `0x5D8`, `0x51`). This is the
+legitimate path, but the command id and payload layout are per-subsystem and would
+have to be reconstructed exactly.
+
+### The brightness path is a table lookup, not a register write
+
+In `SetPanelBrightness::Execute` (`0x00150BA8`):
+
+```
+0x00150BEA  ldr   r3, [pc, #0x378]     ; -> 0x0087D7E4
+0x00150BEC  ldrb  r2, [r5, #1]         ; brightness value, an INDEX
+0x00150BEE  add   r3, pc
+0x00150BF0  ldr.w r3, [r3, r2, lsl #2] ; curve = table[brightness]
+0x00150BF4  str   r3, [sp, #0x18]
+0x00150BF6  strb  r3, [sp, #0x21]
+```
+
+The table at file `0x0087D7E4` is 16.16 fixed point, incrementing by `0x10000` per
+entry in 16-entry rows — a colour/scale LUT, **not** a monotone brightness curve,
+so editing it would not do the obvious thing.
+
+**Writability is unproven.** The image is not an ELF, so there are no section
+headers and which byte ranges are writable cannot be determined offline. It would
+have to be established at runtime before any data patch — and a data patch to a
+misidentified table is exactly the kind of unquantified side effect that bricks a
+device.
+
+> **Negative result: vtable slots do not identify methods.** The vtables at
+> `0x00FBB0F8` etc. are real — they decode cleanly at `(stored & ~1) - BASE`
+> (every entry carries the Thumb bit), slot `[-1]` matches the typeinfo address
+> exactly, and they are spaced on 32-byte boundaries with a `0x00000000`
+> terminator. But the per-class slots do **not** line up with the string-resolved
+> method addresses: `SetPanelReverse` slot `[5]` is `0x0071E632` while its
+> `Activate` is `0x00151CBA`. An earlier claim that "slot `[5]` == `Execute`" was
+> a single coincidence with `SetOsdAlpha` and is wrong. **Slot index is
+> unidentified.**
+
+### Negative result: there is no CPU-visible framebuffer
+
+The display is descriptor-driven (APL/AIC + XDMAC + HME) and the panel is fed by a
+private `ldec` driver. Four independent lines of evidence, each checked against a
+positive control:
+
+- `0x6AA00000` is a hardware aperture that **wedges the CPU on a single-byte
+  read** (reproduced 3x).
+- `MemTotal` is 128 MB against a claimed 1 GB window.
+- `/proc/iomem` shows no sensor/ISP or display framebuffer region.
+- The decode-path hook we own, `0xA9F90`, is a **ring-buffer index refill**
+  (`ldr r5,[r4,#4]` / `cmp` against a limit / `str r0,[r4,#4]`) — no decoded
+  pixels pass through it.
+
+`ldec` is **not** in any on-disk module. `/proc/modules` gives it 10,106 bytes
+with flag `(P)` = statically allocated core, so its code is linked into the kernel
+image. `dmm.ko` (85,588 B), `stream.ko` and `stream2.ko` were all pulled and
+checked: no ldec symbols. `init` loads `ldec.ko` from `/kmod/ldec.ko`, which is on
+the ramdisk and is **freed after boot**, so it cannot be dumped from a running
+camera at all.
+
+`stream.ko` / `stream2.ko` do export `stream_mmap`, and `stream2`'s walks a
+5-entry table in `.data` at `0x8c` calling `remap_pfn_range` per entry. Not a
+display surface — a scatter-gather buffer mapper. Noted, not pursued.
+
+Reaching a visible display effect therefore requires a full VDF message
+transaction with valid subsystem interface pointers, or a runtime-proven writable
+data symbol. Neither is available offline, and guessing is a hang risk.
 
 ## The live bus: /proc/osal/uipc
 
@@ -274,6 +502,11 @@ into a kernel interface whose command grammar is not known, and guessing at a
 `__k_cmd_debug` parser is not a good use of the only shell we have.
 
 ## The scenario runner is a real, name-addressed interface
+
+(`/usr/bin/scenario.elf` does not `dlopen` the plugin — the `dlopen` happens on
+the far side of the message bus. That is in
+[04-messaging.md](04-messaging.md). What follows is the runner's own live
+behaviour.)
 
 `/usr/bin/scenario.elf` is live and self-documenting:
 

@@ -19,7 +19,7 @@ Two things this file deliberately does NOT claim:
     exactly, but the per-class slots do NOT line up with the Execute/Activate
     addresses found here (SetPanelReverse slot[5] = 0x0071E632, its Activate
     is 0x00151CBA).  Treat slot index as unidentified.
-  * that a panel command can be called.  See docs/VDF_FINDINGS.md.
+  * that a panel command can be called.  See 03-binaries.md.
 """
 import re
 import struct

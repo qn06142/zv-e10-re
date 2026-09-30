@@ -19,7 +19,7 @@ work mapped a plugin to a subsystem, because the ids are not stored as data --
 they are immediates inside the code, passed to SendASync at the call site.
 So they have to be read out of the disassembly.
 
-Method, and why each step is needed (see docs/RE_METHOD.md):
+Method, and why each step is needed (see 06-method.md):
   1. Thumb: .dynsym sets bit 0 on st_value.  Decode at st_value & ~1 or the
      output is fictional.
   2. Resolve the PLT so `SendASync` is recognisable at the call site.  The PLT

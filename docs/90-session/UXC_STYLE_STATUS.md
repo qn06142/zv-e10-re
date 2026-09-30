@@ -1,3 +1,10 @@
+
+> **SESSION RECORD - not a reference.** This is a dated log of how a finding was
+> reached. Anything still true of it has been extracted into the topic docs; do
+> not cite this file as fact. Kept for provenance only, so that a retracted
+> claim is not silently re-derived.
+>
+> Current documentation: [docs/README.md](../README.md)
 # Status: palette works; `style_cmn.uxc` is NOT decoded
 
 Recording this because two failed attempts are on record in the repo and a

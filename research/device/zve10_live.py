@@ -9,7 +9,7 @@ when it changes mode:
 
     0x0d95  MSC / mass storage   -- the power-on state
     0x0336  senser / service     -- reached via senserShellCommand()'s mode switch
-    0x0994  updater              -- documented in docs/LENS_PROTOCOL.md
+    0x0994  updater              -- documented in 08-camera-interfaces.md
 
 Binding libusb-win32 (or WinUSB) to one PID does NOT carry over to the others: each
 gets a fresh device instance with its own Service value.  Expect to run Zadig once

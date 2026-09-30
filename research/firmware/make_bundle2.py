@@ -34,7 +34,7 @@ include whole:
   libIMDB.so        37,044     turns out to be a kernel module loader, not a
                                command-id table.  Names 16 .ko paths.
   libtestcmd.so     10,128     Sony's testcmd/uipc message interface, decoded
-                               in docs/TESTCMD_INTERFACE.md.
+                               in 08-camera-interfaces.md.
   sndcmd.elf / rcvcmd.elf / testcmd.elf   the uipc CLI tools
   ko_stream.ko       3,384     stream_mmap, stream_ioctl (not a display surface)
   ko_stream2.ko      4,144     same, larger ioctl

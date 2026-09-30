@@ -1,3 +1,10 @@
+
+> **SESSION RECORD - not a reference.** This is a dated log of how a finding was
+> reached. Anything still true of it has been extracted into the topic docs; do
+> not cite this file as fact. Kept for provenance only, so that a retracted
+> claim is not silently re-derived.
+>
+> Current documentation: [docs/README.md](../README.md)
 # ZV-E10 — display surfaces and the framebuffer hunt
 
 Status: **the framebuffer hunt is closed. It does not exist in CPU-visible
@@ -58,7 +65,7 @@ don't get repeated:
 ## Why VDF is not a route to a visible effect
 
 35 of 36 VDF `Execute`/`Activate` methods resolve by name (see
-`docs/VDF_FINDINGS.md`), but every display command takes two live interface
+`docs/03-binaries.md`), but every display command takes two live interface
 objects and reaches the panel through subsystem vtable slots `0x44c`–`0x858`.
 Calling one from injected code is a hang risk, not a visible effect.
 

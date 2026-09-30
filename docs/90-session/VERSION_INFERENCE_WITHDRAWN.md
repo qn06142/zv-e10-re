@@ -1,3 +1,10 @@
+
+> **SESSION RECORD - not a reference.** This is a dated log of how a finding was
+> reached. Anything still true of it has been extracted into the topic docs; do
+> not cite this file as fact. Kept for provenance only, so that a retracted
+> claim is not silently re-derived.
+>
+> Current documentation: [docs/README.md](../README.md)
 The Version-screen inference is withdrawn: a null model refuted it
 
 Date: 2026-09-28. Negative result, recorded because the claim it removes was made

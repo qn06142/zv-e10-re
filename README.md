@@ -1,6 +1,20 @@
 # Reverse Engineering Sony Digital Cameras
 This tool interfaces with Sony digital cameras through USB. It allows to tweak settings, dump firmware, and in some cases install custom Android apps.
 
+## Where the knowledge lives
+
+| | |
+|---|---|
+| **[`docs/README.md`](docs/README.md)** | the ZV-E10 reverse-engineering writeup: platform, service shell, binaries, messaging, formats, method, modification, interfaces |
+| [`docs/agents/STATE.md`](docs/agents/STATE.md) | **one page, self-contained** — state of play, blockers, traps. Start here. |
+| [`docs/agents/REFERENCE.md`](docs/agents/REFERENCE.md) | **one page, self-contained** — the measured facts: hashes, offsets, id tables, format layouts |
+| [`avcam_re/`](avcam_re/HARDWARE_OVERVIEW.md) | `av-cam.bin` internals: hardware topology, register model, ISP/codec pipeline |
+| [`research/README.md`](research/README.md) | the analysis scripts, indexed |
+
+`docs/` holds the granular per-subject reference; `docs/agents/` holds the
+consolidated views. `docs/90-session/` is a quarantine of dated session logs and
+is not cited as fact.
+
 ## Firmware binary analysis (`retool`)
 
 Static analysis of the dumped firmware images (e.g. `dumps/av-cam.bin`) is

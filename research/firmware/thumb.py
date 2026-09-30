@@ -8,7 +8,7 @@ That produced a fake "calls memcpy twice" signal and a fake 136-instruction
 function.  is_return() below matches on the mnemonic *stem* so it is correct
 whatever spelling the installed capstone uses -- 5.0.7 normalises the wide form
 to `pop`, older builds emit `pop.w`, and a `== 'pop'` test is right on one and
-wrong on the other.  See docs/RE_METHOD.md.
+wrong on the other.  See 06-method.md.
 """
 import struct
 

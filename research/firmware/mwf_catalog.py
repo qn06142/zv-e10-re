@@ -196,7 +196,7 @@ def dump_obj_face_recorder_table():
     print()
     print("  Pointer table containing them is at ~0x13dc660, but the record")
     print("  layout is NOT established -- stride and field order both unknown.")
-    print("  Not guessing: see docs/MWF_MESSAGE_VOCABULARY.md section 7 for the")
+    print("  Not guessing: see 04-messaging.md section 7 for the")
     print("  names, which were read by hand rather than by this parser.")
 
 def main():

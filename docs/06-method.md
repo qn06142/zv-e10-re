@@ -1,15 +1,33 @@
-# Reading these binaries: the parts that are easy to get wrong
+# 06 — Method: reading these binaries without fooling yourself
 
 Every finding in this project that concerns code was read out of an ELF rather
 than guessed at. That is only possible because the objects are ordinary ARM
 ELF32 files with full symbol tables — no packing, no stripping, no encryption.
-This note records the decoding traps that cost real time, each one verified
-against the actual files rather than recalled.
+
+**Every trap in this list fails silently.** A mis-set mask, a mis-guessed stride
+or a mis-typed byte returns a plausible wrong answer rather than an error. That is
+the single most important thing to know about working in this repo.
 
 The subjects: `libtestcmd.so`, `libIMDB.so`, `im.elf` (all in `/usr/bin` and
 `/usr/lib` on the camera, and mirrored in `dumps/camera_2025/`), plus the
-`av-cam.bin` RTOS image. Tools: `research/firmware/annotate.py`,
-`thumb.py`, `arm_helper.py`, `elf_catalog.py`, `opx_payload.py`.
+`av-cam.bin` RTOS image. Tools: `research/firmware/annotate.py`, `thumb.py`,
+`arm_helper.py`, `elf_catalog.py`, `opx_payload.py`.
+
+## The traps
+
+1. [These are Thumb, and the symbol table says so](#1-these-are-thumb-and-the-symbol-table-says-so)
+2. [Reading past a function's end](#2-reading-past-a-functions-end)
+3. [PLT stubs are ARM, even in a Thumb library](#3-plt-stubs-are-arm-even-in-a-thumb-library)
+4. [vaddr is not file offset](#4-vaddr-is-not-file-offset)
+5. [Literal pools are the value, not the code](#5-literal-pools-are-the-value-not-the-code)
+6. [Imports say what a binary does](#6-imports-say-what-a-binary-does-and-it-is-the-cheapest-evidence-there-is)
+7. [`imdb_raw` is an offset table](#7-imdb_raw-is-an-offset-table-and-132-bytes-of-it-are-the-whole-key-list)
+8. [Assembling without a compiler](#8-assembling-without-a-compiler)
+9. [Identifying a (category, message) pair without a symbol](#9-identifying-a-category-message-pair-without-a-symbol)
+
+Plus two that are about the data rather than the code: table strides
+([04-messaging.md](04-messaging.md)) and null models
+([05-formats.md](05-formats.md)).
 
 ## 1. These are Thumb, and the symbol table says so
 
@@ -165,7 +183,7 @@ then `u32 name_len` at `+0x20`, `u32 data_len` at `+0x24`, payload at `+0x28`.
 None of that is in any header; it is only visible as the literals the code
 loads. `annotate.py` decodes each `ldr`-from-pool and, where the loaded word
 points at printable data, prints the string — which is how
-`docs/SERVICE_AUDIT.md` got the scenario message layout.
+`docs/02-service-shell.md` got the scenario message layout.
 
 ## 6. Imports say what a binary does, and it is the cheapest evidence there is
 
@@ -257,9 +275,8 @@ its arguments as ids.
 
 ## What this bought
 
-`docs/SERVICE_AUDIT.md`, `docs/BINARY_MAP.md`, `docs/SCENARIO_VOCAB.md`,
-`docs/MWF_TABLES.md` and `docs/IMCFG_BLOCK.md` hold the findings. The point of
-this note is that none of them required guessing: every protocol, id, mount
-table and message layout above came out of a symbol table, a literal pool or an
-import list, and each is reproducible by re-running the scripts named at the
-top.
+Every protocol, id, mount table and message layout in
+[02](02-service-shell.md), [03](03-binaries.md), [04](04-messaging.md),
+[05](05-formats.md) and [07](07-modification.md) came out of a symbol table, a
+literal pool or an import list. **None of it required guessing**, and all of it is
+reproducible by re-running the scripts named at the top.

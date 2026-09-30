@@ -1,3 +1,10 @@
+
+> **SESSION RECORD - not a reference.** This is a dated log of how a finding was
+> reached. Anything still true of it has been extracted into the topic docs; do
+> not cite this file as fact. Kept for provenance only, so that a retracted
+> claim is not silently re-derived.
+>
+> Current documentation: [docs/README.md](../README.md)
 # Handoff: ZV-E10 reverse engineering
 
 State as of the last commit. Written for an agent picking this up cold.
@@ -19,7 +26,7 @@ cd D:\02_Development_And_Projects\pmca-re
 | commit | what |
 |---|---|
 | `8b7e0f1` | Proved an attack path: writable `/usr/lib` → `dlopen` → root code exec |
-| `25e4cc7` | Documented how these binaries are read (`docs/RE_METHOD.md`); corrected a stale capstone claim |
+| `25e4cc7` | Documented how these binaries are read (`docs/06-method.md`); corrected a stale capstone claim |
 | `51496f3`, `d761327`, `552712c` | Repo cleanup: made 78 scripts path-independent, `.gitattributes`, `.gitignore` |
 | `0da94a3` | Decoded the 35 scenario plugins' command vocabulary |
 | `7104fda` | Recovered the MWF category/message pairs from the MPR plugins |
@@ -44,13 +51,13 @@ The RE arc is a chain — each step needed the previous one:
 
 | doc | contents |
 |---|---|
-| `docs/SERVICE_AUDIT.md` | 44 KB. The service-mode audit. Attack path, mounts, persistence, init recipe |
-| `docs/SCENARIO_VOCAB.md` | 96-value id vocabulary; DataflowInfra vs MWF; the two cross-validate on 3 ids |
-| `docs/MWF_TABLES.md` | 33 categories, 45 objects, 12 pins; which are implemented |
-| `docs/MWF_MESSAGE_VOCABULARY.md` | Full recovered MWF message vocabulary: libMWF, NetDbIf, APICD, ObjCntMgr, ObjPlayer, ObjFaceRecorder |
-| `docs/IMCFG_BLOCK.md` | 70 device names incl. all 32 `nflasha`; 7 `/nondev/` pseudo-devices; 16-id array |
-| `docs/RE_METHOD.md` | **Read this first.** The decoding traps, all verified |
-| `docs/FLASH_ICON_FONT.md` | The patched icon font and its transport |
+| `docs/02-service-shell.md` | 44 KB. The service-mode audit. Attack path, mounts, persistence, init recipe |
+| `docs/04-messaging.md` | 96-value id vocabulary; DataflowInfra vs MWF; the two cross-validate on 3 ids |
+| `docs/04-messaging.md` | 33 categories, 45 objects, 12 pins; which are implemented |
+| `docs/04-messaging.md` | Full recovered MWF message vocabulary: libMWF, NetDbIf, APICD, ObjCntMgr, ObjPlayer, ObjFaceRecorder |
+| `docs/04-messaging.md` | 70 device names incl. all 32 `nflasha`; 7 `/nondev/` pseudo-devices; 16-id array |
+| `docs/06-method.md` | **Read this first.** The decoding traps, all verified |
+| `docs/07-modification.md` | The patched icon font and its transport |
 
 Headline results:
 
@@ -139,7 +146,7 @@ Camera-side essentials:
 ## 4. The traps — this is the part that will bite you
 
 Every one of these **fails silently**: a wrong answer looks exactly like a
-right one. Full detail in `docs/RE_METHOD.md`.
+right one. Full detail in `docs/06-method.md`.
 
 1. **These objects are Thumb.** `.dynsym` sets bit 0 of `st_value`; all 25
    `STT_FUNC` in `libtestcmd.so` are odd. Decode at `st_value & ~1`. Decoding
@@ -197,7 +204,7 @@ right one. Full detail in `docs/RE_METHOD.md`.
 Ordered by value. None are guesses; each is stated with what is known.
 
 1. **The plugin message vocabulary is RESOLVED.**
-   Full catalog and mappings documented in `docs/MWF_MESSAGE_VOCABULARY.md` and
+   Full catalog and mappings documented in `docs/04-messaging.md` and
    verifiable via `research/firmware/mwf_catalog.py`:
    - `libMWF.so` core tables extracted:
      - `m_baseMsgTbl` (12 lifecycle commands: `0x1002` `MSGID_START_OBJ_CMD`, `0x1003` `MSGID_STOP_OBJ_CMD`, `0x1008` `MSGID_RESUME_OBJ_CMD`, `0x1009` `MSGID_SUSPEND_OBJ_CMD`, etc.)
@@ -253,7 +260,7 @@ Ordered by value. None are guesses; each is stated with what is known.
 **Not currently connected.** As of 2026-09-30 `zve10_retry.py` reports "No
 devices found" and the link never comes up. Everything in this document that
 needs the device is blocked on that; nothing else is. See
-[BLOCKERS.md](BLOCKERS.md) for what each piece needs the hardware for, and for
+[agents/STATE.md](agents/STATE.md) for what each piece needs the hardware for, and for
 the offline work that does not.
 
 State when last verified (before it was unplugged): `/usr/lib/libtestcmd.so` is stock md5

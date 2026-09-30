@@ -1,3 +1,10 @@
+
+> **SESSION RECORD - not a reference.** This is a dated log of how a finding was
+> reached. Anything still true of it has been extracted into the topic docs; do
+> not cite this file as fact. Kept for provenance only, so that a retracted
+> claim is not silently re-derived.
+>
+> Current documentation: [docs/README.md](../README.md)
 ### Retraction: the `0x400c` hit counts
 
 Two earlier notes here were wrong and are withdrawn:
@@ -10,7 +17,7 @@ Two earlier notes here were wrong and are withdrawn:
    carries no meaning. A null model puts chance at 113 expected, i.e. 2.5×.
 
 Both counts are about the byte pair `0c 40` existing, not about colour. See
-`VIEW_FORMAT_SOLVED.md` for the full working.
+`05-formats.md` for the full working.
 
 **The hardware result is unaffected.** The guides do follow palette entry
 `0x400c` — the magenta control proves it. What changed is the understanding of

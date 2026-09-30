@@ -1,6 +1,6 @@
 """Settle the palette route's blocker: which partitions can actually be written?
 
-The open question from docs/UI_RESOURCES.md is whether /usr/share/app is
+The open question from 05-formats.md is whether /usr/share/app is
 writable.  It has been unanswered because the only way to answer it was a live
 `mount`, and every session has been consumed by the USB wedge instead.  But
 F: has the raw flash images, so the question can be answered offline.

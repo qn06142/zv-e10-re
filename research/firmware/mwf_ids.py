@@ -24,7 +24,7 @@ use.
 Traps, all of which fail silently rather than raising:
   * Thumb: decode at st_value & ~1.
   * The PLT is ARM even so, and plt_map() must resolve it or no call site can
-    be identified at all -- see docs/RE_METHOD.md.
+    be identified at all -- see 06-method.md.
   * r0 is the *object* being constructed, not an id. Only r1 and r2 are ids.
 """
 import collections

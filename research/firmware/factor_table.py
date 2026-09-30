@@ -59,8 +59,8 @@ a camera adjustment table where some factors are one number (a gain, an offset)
 and others are a per-sensor or per-mode block of 64+ values.
 
 So: geometry recovered, semantics not.  This is a camera adjustment table, a
-different axis from everything in docs/SCENARIO_VOCAB.md and
-docs/MWF_MESSAGE_VOCABUL.md.
+different axis from everything in 04-messaging.md and
+04-messaging.md.
 """
 import collections
 import pathlib

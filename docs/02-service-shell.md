@@ -1,28 +1,43 @@
-﻿# Audit: what the service shell can reach
+# 02 — The service-mode environment: what the shell can reach
 
-Run against a live ZV-E10 in service mode. Passes are scripted in
-`research/device/audit_surface.py` and their raw output is filed under
+Everything reachable from the authenticated root shell, as measured. Passes are
+scripted in `research/device/audit_surface.py`; raw output is filed under
 `%TEMP%\opencode\app_res\audit\`.
 
-## Why this was done as an audit
+**The service filesystem carries the camera's rendering engine, its view layer and
+its 81 MB of resources, but not the application that uses them.** `camuser.elf`,
+`gui.so`, `appFw.so`, `libNVM.so` and `libInfraWebApi.so` are named by the
+manifest and simply not present. That single fact explains most of what looks
+like a dead end below.
 
-Three claims about the *extent* of the reachable surface have now been
-overturned by measurement, each in the direction of assuming less was reachable
-than actually was:
+Related: [01-hardware.md](01-hardware.md) ·
+[03-binaries.md](03-binaries.md) · [04-messaging.md](04-messaging.md) ·
+[07-modification.md](07-modification.md) · [08-camera-interfaces.md](08-camera-interfaces.md)
 
-- `av-cam.bin` was recorded as encrypted; it is 2,459 of 4,221 4K blocks below
-  6.5 bits/byte and the readable region spans the whole file.
-- `/usr/bin` was recorded as read-only squashfs; it is ext2 and
-  `mount -o remount,rw /usr` works.
-- The camera firmware was inferred to be on a different CPU, from
-  `ls -l /proc/*/exe` showing no application — but `ls -l` skips entries it
-  cannot read, and of 263 processes only 8 executables appeared. `/proc/*/comm`
-  shows 139 `liro-kliro_*` threads on this kernel.
+- [Filesystems](#filesystems)
+- [Persistence](#persistence)
+- [The settings store](#the-settings-store-setting)
+- [The firmware partition](#the-firmware-partition-system)
+- [Processes, devices, modules](#processes-devices-modules)
+- [Commands and plugins](#commands-and-plugins)
+- [procfs](#procfs)
+- [av-cam.bin is the live firmware image](#av-cambin-is-the-live-firmware-image)
+- [The boot chain](#the-boot-chain)
+- [Network surface: nothing is listening](#network-surface-nothing-is-listening)
+- [im.elf loads the firmware](#imelf-loads-the-firmware)
+- [Boot mode](#boot-mode)
+- [Allocator and preload hooks](#allocator-and-preload-hooks)
+- [camuser.elf and libObj.so](#camuserelf-and-libobjso)
+- [The application is not deployed](#the-application-is-not-deployed)
+- [Code execution: writable /usr/lib -> dlopen -> root](#code-execution-writable-usrlib--dlopen--root)
+- [im.elf: the real target](#imelf-the-real-target)
+- [Negative results](#negative-results-find-and-the-usrshareapp-source)
+- [Gaps](#gaps)
 
-So the remaining risk is not "what else is there" but "what was never looked at".
-This records coverage, so gaps are visible.
+## Filesystems
 
-## Filesystems — 11 mounts, and only `/` is read-only
+Eleven mounts. Only `/` is read-only, and it is a ramdisk, so that costs
+nothing.
 
 | mount | device | fs | access | holds |
 |---|---|---|---|---|
@@ -42,7 +57,7 @@ Mounting the card needs `mkdir -p /tmp/sd; mount /dev/mmca1 /tmp/sd`.
 `/proc/partitions` calls it `mmca10p1`; `/dev/mmcca1` is a different controller
 and does not work.
 
-## Persistence — tested with one reboot
+## Persistence
 
 Marker files were planted in six directories and checked after `reboot -f`:
 
@@ -118,7 +133,9 @@ is `/dev/backup` (251,208) with the `backup` module loaded.
         dir  sabin/
 ```
 
-## Processes — 263
+## Processes, devices, modules
+
+### Processes — 263
 
 ```
 139  liro-kliro_*        the LIRO RTOS (av-cam.bin), on this kernel
@@ -146,16 +163,19 @@ crw-rw-rw-    1,  5  zero
              plus /dev/uipc, /dev/console, and vcsa2..9, vcsa18, vcsa19
 ```
 
-## Kernel modules — 47 loaded, 103 in /usr/kmod
+### Kernel modules — 47 loaded, 103 in `/usr/kmod`
 
-See "Correction: 47 modules are loaded, not 24" below for the authoritative list and load order.
+The authoritative list and load order is under
+[the 47 loaded modules](#the-47-loaded-modules-in-load-order).
 
 `/usr/kmod/` holds 103 `.ko` files including `liro.ko`, `mcmn_drv.ko`,
 `ms_drv.ko`, `accel.ko`, `mag.ko`. **`/sbin/insmod` and `/sbin/rmmod` are
 present**, so modules can be loaded. Note `liro.ko` is in `/usr/kmod` yet the
 running `liro` threads are not attributed to a loaded module — worth resolving.
 
-## Commands — 49 in /usr/bin, 7 in /usr/sbin, 17 in /sbin
+## Commands and plugins
+
+### Commands — 49 in `/usr/bin`, 7 in `/usr/sbin`, 17 in `/sbin`
 
 Documented CLIs, read live:
 
@@ -181,7 +201,7 @@ plus scripts `compat_firmware.sh`, `doemparse.sh`, `swap_prepare.sh`,
 block. Usage strings for the remaining binaries were not captured because of it;
 they need one at a time with a timeout.
 
-## Plugins
+### Plugins
 
 - `/usr/scenario/` — 35 `.so`, each exporting exactly `scenario_run`, dispatched
   by name through `scenario.elf`. Includes `MPR_SCN_SET_FACTORY_MODE`,
@@ -200,7 +220,7 @@ sections. `LMSGQ` and `LSEM` are empty, so the bus is idle in service mode. The
 module also has `__k_uipc_proc_write` and `__k_cmd_debug`, so the node is
 writable — the command grammar is unknown and has not been probed.
 
-## Gap 5 closed: /system is the firmware's home
+## av-cam.bin is the live firmware image
 
 `/system/av-cam.bin` has md5 `cdcae9d4fdbf66a33704a4c7564e346d`, **byte-identical
 to the `fw/av-cam.bin` this project has been analysing.** The file is on a
@@ -229,7 +249,7 @@ masked off.
 `idt_cam.bin` (176,528), `sa_dfdet.bin` (156,292). And
 `/system/lensbin_lensproperty/LensAberrationData.bin` is 161,766 bytes.
 
-## The boot recipe: /sbin/init is readable
+## The boot chain
 
 `/sbin/init` is a 28,580-byte **ELF** (not a shell script), and its string table
 is a complete, readable description of the boot. It loads modules in this order,
@@ -286,7 +306,7 @@ not yet identified. `ldec.ko` is loaded third, immediately after `dmac.ko`, whic
 makes it the most likely candidate — "ldec" for LIRO decoder — but that is a guess
 from position, not evidence.
 
-## Gap 1 closed: there is no network surface right now
+## Network surface: nothing is listening
 
 ```
 26: p2p-p2p0-0   inet 192.168.122.1/16   scope global
@@ -311,7 +331,7 @@ surface would be reachable in normal mode, not here.
 Also noted: `/usr/upgrade` appears in init's mount table but **does not exist on
 the running camera** — `ls: /usr/upgrade/: No such file or directory`.
 
-## Correction: 47 modules are loaded, not 24
+### The 47 loaded modules, in load order
 
 The earlier figure came from `/proc/modules` **as rendered on the console**, and
 the shell wrapper truncates console output at 25 lines. Reading the same file
@@ -345,7 +365,7 @@ producing no output, and after a `MARK_` filter hiding three surviving markers).
 The rule that follows: **never trust a count taken from wrapped console output —
 re-read through a filter that emits one line, or read the wrapper's log file.**
 
-## Gap 4 closed: im.elf loads the firmware
+## im.elf loads the firmware
 
 `/usr/bin/im.elf` (23,240 B) contains the literal string:
 
@@ -384,21 +404,10 @@ the flash at all.
 The live liro module exposes one parameter, `liro_resume_async` (value 0), and
 `refcnt` 0.
 
-## Staged for offline analysis
-
-Pulled to `/tmp/sd/RE_DUMP/audit/` on the card, because the terminal is lossy at
-volume and these are too large to push through it:
-
-| file | size | why |
-|---|---|---|
-| `Backup.bin` | 1,235,740 | the `BK4` settings store — format unparsed |
-| `DmmConfig.bin` | 78,120 | shared-memory config for the `dmm` module |
-| `init` | 28,580 | the boot recipe as a binary, not just its strings |
-| `liro.ko` | 65,212 | the firmware loader, and it runs with `debug=1` |
-
 `im.elf` and `bootin.elf` are already in the local dumps, which is how the
 `fn=/system/av-cam.bin` string was found.
-## The finding that reframes everything: bootmode is NORM
+
+## Boot mode
 
 `init` decides its mode from three sources, all of which are now known:
 
@@ -413,17 +422,15 @@ volume and these are too large to push through it:
 is running: no camera application in `comm`, `LMSGQ` and `LSEM` empty, the
 scenario runner silent, and no TCP listener.
 
-**So the application is not being suppressed by a mode flag. It is being
-suppressed by the service USB connection itself.**
+**The application is not being suppressed by a mode flag. It is being suppressed
+by the service USB connection itself.** Every apparently-inert result follows from
+that one fact:
 
-That closes the loop on every dead end in this session, and it is worth stating
-plainly because it was not obvious and cost the whole afternoon:
-
-- **The icon-font patch produced no visible change because the process that draws
-  labels was never running.** The file was patched and md5-verified at the exact
-  path the application reads; the application simply was not there to read it.
-- The same applies to `OPENCODE` in the string table. Every "check" of it was a
-  `md5sum` on a camera that had no UI to show it.
+- **A patched icon font produces no visible change because the process that draws
+  labels is never running.** The file can be patched and md5-verified at the exact
+  path the application reads; the application is simply not there to read it.
+- The same holds for `OPENCODE` in the string table, and for `9.9.99.99999` in
+  `DeviceInfo.xml`. A whole-file `md5sum` is not evidence that a string is drawn.
 - The UIPC bus is empty because nothing on the application side is connected to
   it — not because the bus is broken.
 - `scenario.elf` returning 0 is consistent with a message queued to an endpoint
@@ -432,20 +439,18 @@ plainly because it was not obvious and cost the whole afternoon:
 The PC's own enumeration lists `Windows-MSC`, `Windows-MTP`,
 `libusb-MSC`, `libusb-MTP` and vendor-specific backends, so the camera
 exposes an ordinary USB device personality as well as the service terminal.
-The hypothesis to test is that **service-mode USB and normal USB are mutually
-exclusive**, and that in normal mode the application runs.
+**Hypothesis, untested:** service-mode USB and normal USB are mutually exclusive,
+and the application runs in normal mode.
 
-If that holds, the right sequence for everything found in this audit is: make
-file changes through the service shell, power down, remove the service cable,
-power on, and let the camera boot into the application. The UIPC bus, the
-scenario plugins, the PTP/MTP server, `libInfraRemote` and the HTTP surface all
-become live at once, and `/setting` and `/system` are persistent and writable so
-the changes survive.
+If that holds, the sequence is: make file changes through the service shell,
+power down, remove the service cable, power on, let the camera boot into the
+application. The UIPC bus, the scenario plugins, the PTP/MTP server,
+`libInfraRemote` and the HTTP surface all become live at once, and `/setting`
+and `/system` are persistent and writable so the changes survive.
 
-**This is a hypothesis, not a result.** It has not been tested, because testing it
-means giving up the shell for the duration.
+**Testing it means giving up the shell for the duration.**
 
-## Also found: a malloc/alloc tracer
+## Allocator and preload hooks
 
 `/usr/tool/` is not empty:
 
@@ -474,7 +479,7 @@ So the camera ships with `libduma.so` (a malloc debugger) and
 either of them depending on its checks. `/usr/tool/` is on the persistent,
 writable `/usr` partition, so which allocator the application runs under is a
 file-level decision, not a rebuild.
-## The application, and where it is not
+## camuser.elf and libObj.so
 
 Two 21 MB files, and they are not the same thing. The hypothesis that they were
 — they are 72 bytes apart in size — was tested and **refuted**: 20,214,068 of
@@ -524,7 +529,7 @@ explanation — and it is a hypothesis, not a result — is that the main firmwa
 pushes it across at boot through the `dmm` shared-memory manager configured by
 `/setting/DmmConfig.bin`, rather than it being read from flash.
 
-## Corrections to earlier notes in this project
+## Negative results: `find`, and the `/usr/share/app` source
 
 **`find` on the toolbelt busybox works.** It was dismissed twice on bad evidence.
 The control `find /usr/bin -name 'crypter.elf'` matches correctly. The two
@@ -547,7 +552,7 @@ somewhere that is not on any mounted filesystem.
 `/dev/nflasha*` nodes the imaging layer knows about, plus seven
 `/nondev/` pseudo-devices with no kernel node behind them. That accounts for
 the partitions that kept appearing with nothing in the mount table referring
-to them. See [IMCFG_BLOCK.md](IMCFG_BLOCK.md).
+to them. The device table is in [04-messaging.md](04-messaging.md).
 
 Raw header reads, since `mount` refused them all with `EINVAL` even with explicit
 `-t cramfs` and `-t ext2`:
@@ -563,9 +568,8 @@ None of these is the `/usr/share/app` source.
 
 ## The scenario runner is fire-and-forget
 
-*The 35 plugins themselves have since been decoded — their command vocabulary
-is in [SCENARIO_VOCAB.md](SCENARIO_VOCAB.md). What follows is about the
-runner, which remains unusable.*
+*The 35 plugins themselves are decoded — their command vocabulary is in
+[04-messaging.md](04-messaging.md). What follows is about the runner.*
 
 Verified properly rather than by eye. The first attempt was confounded: the pty
 echoes input, so a 32-byte `ABCDEF…` payload appeared to come back as a "reply".
@@ -583,17 +587,18 @@ data buffer is not an in/out channel. Combined with an empty `LMSGQ`, the
 scenario path currently sends into a void — the application that would answer is
 not running.
 
-## Staged on the card, for offline analysis
+## Staged for offline analysis
 
-`/tmp/sd/RE_DUMP/audit/` — too large for the terminal, which loses bytes at
-volume (it dropped 162 of 355,344 characters on a 266 KB payload):
+On the SD card at `/tmp/sd/RE_DUMP/audit/`, because the terminal is lossy at
+volume — it dropped 162 of 355,344 characters on a 266 KB payload:
 
 | file | size | why |
 |---|---|---|
 | `Backup.bin` | 1,235,740 | the `BK4` settings store, format unparsed |
 | `DmmConfig.bin` | 78,120 | shared-memory layout for the `dmm` module |
-| `init` | 28,580 | the boot recipe as a binary, not just its strings |
+| `init` | 28,580 | the boot chain as a binary, not just its strings |
 | `liro.ko` | 65,212 | the firmware loader, and it runs with `debug=1` |
+
 ## libIMDB.so is the application manifest
 
 `libIMDB.so` (37,044 B) exports only `IMDB_find_entry`, `IMDB_get_entries`,
@@ -647,7 +652,7 @@ The manifest also names six mode strings — `IMDB:default`, `IMDB:qemu`,
 `adjust`, `test`. So the same binary builds the service, factory and normal
 images, selected by mode.
 
-## The application is not deployed on the service filesystem
+## The application is not deployed
 
 This is the finding that ends the search. Of the 174 libraries the manifest
 names, the ones actually present in `/usr/lib` are the **assets**:
@@ -676,16 +681,15 @@ empty), and `/usr/bin/WebApiLauncher.sh`, `/usr/bin/qsi.elf`,
 `/usr/bin/network.sh`, and every `/kmod/*.ko` (those are on the ramdisk, which
 is freed after boot).
 
-**So the service filesystem carries the camera's rendering engine, its view
+**The service filesystem carries the camera's rendering engine, its view
 layer and its 81 MB of resources, but not the application that uses them.** The
 program, the settings store and the web API are simply not there. That is not a
 permissions problem or a mount problem — the files do not exist.
 
-It ties together every dead end in this session:
+Consequences:
 
-- The patched icon font produced no visible change because `gui.so` — the thing
-  that draws labels — is not installed.
-- `OPENCODE` likewise. Every check of it was an `md5sum` on a camera with no UI.
+- A patched icon font cannot appear, because `gui.so` — the thing that draws
+  labels — is not installed. The same for the string table and `DeviceInfo.xml`.
 - The UIPC bus is empty, the scenario runner is silent, and there is no TCP
   listener, because none of the peers on the other end of those interfaces are
   loaded.
@@ -704,7 +708,7 @@ The one remaining lever is `check_forced_senser` and the mode selection in
 not loaded — which means either the mode that is actually in force is not being
 reported through `/proc/udm/upm_bootmode`, or the service USB personality is
 what holds the system in the launcher. Testing it means giving up the shell.
-## An attack path exists, and it is proved: writable `/usr/lib` → `dlopen` → root
+## Code execution: writable `/usr/lib` → `dlopen` → root
 
 This is the first code execution on the camera, and it needed no exploit — no
 memory corruption, no kernel bug, no race. The camera loads its own libraries
@@ -775,7 +779,7 @@ mode and ownership (`cp` had reset both; `chown`/`chmod` put them back). The
 `im.elf` does not link `libtestcmd.so`, so nothing running was touched. That
 was checked before installing, not after.
 
-## The real target: `libIMDB.so`, loaded by `im.elf`
+## im.elf: the real target
 
 `im.elf` is not a launcher. It is the imaging manager, and it is **running as
 PID 157**, owning **417 message queues, 134 semaphores and 310 callbacks** —
@@ -834,17 +838,17 @@ records name the message-queue ids their owners serve. Validation is only
 `strchr(name, ' ')` — it rejects NULL and names containing a space, nothing
 else.
 
-**So replacing `/usr/lib/libIMDB.so` would execute code inside PID 157, at
-startup, on the next boot, as root, in the process that owns the message bus
-and mounts the filesystems.** That is the attack path to the subsystems, and
-the same primitive proved above is all that is required.
+**Replacing `/usr/lib/libIMDB.so` would execute code inside PID 157, at startup,
+on the next boot, as root, in the process that owns the message bus and mounts
+the filesystems.** That is the attack path to the subsystems, and the primitive
+proved above is all that is required.
 
-I did not do that, because it is a one-way door: if the replacement is wrong,
-`im.elf` does not start, the service shell never appears, and recovery means
-the SD card. The demonstration above was chosen precisely because
-`im.elf` does not touch `libtestcmd.so`.
+**This is a one-way door and has deliberately not been done.** If the replacement
+is wrong, `im.elf` does not start, the service shell never appears, and recovery
+means the SD card. The `libtestcmd.so` demonstration above was chosen precisely
+because `im.elf` does not touch that file.
 
-## The scenario protocol, read out of the code
+### The scenario protocol, read out of the code
 
 `scenario.elf` does **not** `dlopen` the plugin. `libtestcmd.so` imports no
 `dlopen` and no `dlsym` — only `osal_*`. `testcmd_run_scenario` (440 bytes)
@@ -878,9 +882,9 @@ accepted by the sender — whether the receiver joins it into a path is the
 question that would make this an injection rather than a message.
 
 *How this was read, and the four decoding traps involved, is in
-[RE_METHOD.md](RE_METHOD.md).*
+[06-method.md](06-method.md).*
 
-## The bus has two disjoint node spaces
+### The bus has two disjoint node spaces
 
 `/proc/osal/uipc` (`OSAL Version 4.2`, compiled Mar 15 2025) lists 860 msgqs
 and 198 sems globally, and per process:
@@ -919,15 +923,7 @@ The card was in the PC, so the object was moved 66 bytes at a time:
   the tail — `dd skip=` produced a 0-byte file.
 - Hash each stage against the locally built object before installing anything.
 
-## Camera state after this work
-
-Unchanged. `/usr/lib/libtestcmd.so` stock, mode and ownership restored, no
-`.orig` left, `/tmp` scratch removed. The five earlier persistence markers
-(`/setting/_audit1`, `/system/_audit2`, `/usr/bin/_marker3`,
-`/usr/share/_marker4`, `/usr/share/pmbp/_marker2`) are still in place.
-
-
-## Not covered — the honest gaps
+## Gaps
 
 Gaps 1, 4, 5 and 7 are closed above. What remains:
 
@@ -953,7 +949,7 @@ Gaps 1, 4, 5 and 7 are closed above. What remains:
 9. **`DmmConfig.bin`** — the shared-memory layout for the `dmm` module, staged
    on the card, unparsed.
 
-## A pattern worth recording
+## Negative results: truncated reads
 
 Four claims in this project were wrong because a truncated or filtered read was
 taken for a complete one:

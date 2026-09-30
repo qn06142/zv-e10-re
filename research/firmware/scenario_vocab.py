@@ -30,7 +30,7 @@ Note these are NOT the 0x00dc0000 osal_id family.  That is the endpoint the
 message.  Two different layers, and conflating them is what made the earlier
 "sndcmd needs an osal_id" question look unanswerable.
 
-Method and its traps: see docs/RE_METHOD.md.  In short, the objects are Thumb
+Method and its traps: see 06-method.md.  In short, the objects are Thumb
 (.dynsym sets bit 0), the PLT is ARM even so, and resolving a stub requires
 decoding its `ldr pc, [ip, #imm]!` to find the GOT word.
 """

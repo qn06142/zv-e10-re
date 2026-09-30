@@ -1,3 +1,10 @@
+
+> **SESSION RECORD - not a reference.** This is a dated log of how a finding was
+> reached. Anything still true of it has been extracted into the topic docs; do
+> not cite this file as fact. Kept for provenance only, so that a retracted
+> claim is not silently re-derived.
+>
+> Current documentation: [docs/README.md](../README.md)
 # Remaining blockers to RE, and to issuing our own commands
 
 Answering the question directly. Short version: **RE is not blocked, command
@@ -19,7 +26,7 @@ the device is blocked on plugging it back in — nothing else.
 ### What is already done
 
 We have **arbitrary code execution as root on the camera**, demonstrated and
-then restored (`docs/HANDOFF.md` §1, `docs/SERVICE_AUDIT.md`). Not theorised:
+then restored (`docs/agents/STATE.md` §1, `docs/02-service-shell.md`). Not theorised:
 a 66-byte Thumb-2 payload of raw `svc #0` syscalls was injected into
 `/usr/lib/libtestcmd.so`, `/tmp/ox` appeared containing `OPX`, and the library
 was restored to stock md5 with its original mode and ownership.
@@ -56,7 +63,7 @@ will answer.
 **4. The message bus is addressable but not yet writable from our side.**
 `0x00dc0000` is the liro/RTOS endpoint and `sndcmd.elf` posts to it with RC=0,
 so firmware accepts messages. The MWF message format is now known in detail
-(`docs/MWF_MESSAGE_VOCABULARY.md`), but that is the *Linux-side* framework.
+(`docs/04-messaging.md`), but that is the *Linux-side* framework.
 The RTOS-side format in `av-cam.bin` is a separate, unsolved problem — and
 `sndcmd` posting successfully does not establish that a message does anything.
 
