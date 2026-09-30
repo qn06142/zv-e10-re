@@ -86,9 +86,18 @@ def dump_apicd_database_table():
     data = p.read_bytes()
 
     print("\n" + "=" * 80)
-    print("3. DATABASE DISPATCH TABLE (libObj.so APICD_* at 0x13ec720, stride 72)")
+    print("3. DATABASE DISPATCH TABLE (libObj.so APICD_* at 0x13ec720, stride 36)")
     print("=" * 80)
 
+    # Record layout is {u32 id, u32 name_vaddr, ...} at stride 36 (0x24).
+    #
+    # This was read as stride 72 and reported "58 APICD records".  That is the
+    # classic off-by-stride failure: the walk starts correctly and the
+    # name-pointer sanity check still passes, so it looks like it is working --
+    # but it steps over every second record.  The 58 are the even-indexed half,
+    # missing APICD_DESTROY_HNDL, APICD_GET_ITEM_ATTRIBUTE,
+    # APICD_GET_RESUME_POS and 55 others.  The real count is 115, and the ids
+    # are contiguous from 0x1000, which is the check that gives it away.
     records = []
     pos = 0x13ec720
     while pos < 0x13ed800:
@@ -101,7 +110,7 @@ def dump_apicd_database_table():
         if not name.startswith('APICD_'):
             break
         records.append((pos, mid, name))
-        pos += 0x48
+        pos += 0x24
 
     print(f"Total APICD records: {len(records)}")
     for off, mid, name in records:
@@ -165,16 +174,30 @@ def dump_obj_face_recorder_table():
     print("6. OBJ_FACE_RECORDER (0x3a44) DISPATCH TABLE (libObj.so at 0x13dc504, stride 24)")
     print("=" * 80)
 
-    pos = 0x13dc504
-    for _ in range(29):
-        mid = int.from_bytes(data[pos:pos+4], 'little')
-        reply_id = int.from_bytes(data[pos+4:pos+8], 'little')
-        saddr = int.from_bytes(data[pos+12:pos+16], 'little')
-        zero = data.find(b'\x00', saddr)
-        name = data[saddr:zero].decode('ascii', 'replace')
-        rep_str = f"-> reply 0x{reply_id:x}" if reply_id and reply_id != 0x750e else ""
-        print(f"  0x{mid:08x}  {name:<40} {rep_str}")
-        pos += 24
+    # This loop used to run a fixed 29 iterations and print whatever came out.
+    # Two problems: the offset is wrong, and nothing checked that a record's
+    # name pointer actually pointed at a string.  At 0x13dc504 word 0 is
+    # 0x00001000 and word 3 resolves to MSGID_OPEN -- i.e. this is a different
+    # table, and it was being printed under a FaceRecorder heading.
+    #
+    # The real face table is near 0x13dc660: that is where a pointer to
+    # MSGID_NOTIFY_FACE_DETECTED_EVT lives, and 0x13dc678 holds a pointer to
+    # MSGID_FACE_RECORD_CMD.  Its record layout is not established, so rather
+    # than guess at a stride and emit plausible garbage, this stops and says so.
+    FACE_MSGID_STRINGS = (
+        b'MSGID_FACE_RECORD_CMD', b'MSGID_NOTIFY_FACE_DETECTED_EVT',
+        b'MSGID_ALL_FACE_DELETE_CMD', b'MSGID_FACE_PRIORITY_CHANGE_CMD',
+    )
+    print("  Face MSGID_* strings present in libObj.so:")
+    for want in FACE_MSGID_STRINGS:
+        i = data.find(want)
+        print("    %-36s %s" % (want.decode(), ("at offset 0x%x" % i) if i >= 0 else "ABSENT"))
+
+    print()
+    print("  Pointer table containing them is at ~0x13dc660, but the record")
+    print("  layout is NOT established -- stride and field order both unknown.")
+    print("  Not guessing: see docs/MWF_MESSAGE_VOCABULARY.md section 7 for the")
+    print("  names, which were read by hand rather than by this parser.")
 
 def main():
     dump_mwf_core_tables()

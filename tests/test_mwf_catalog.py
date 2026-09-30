@@ -79,6 +79,62 @@ class TestMwfCatalog(unittest.TestCase):
         self.assertEqual(mid_22, 0x1022)
         self.assertEqual(data[saddr_22:z22], b"APICD_GET_CONTENT_PROPERTY")
 
+    def _apicd_records(self, data, stride):
+        """Walk the APICD table at a candidate stride. Returns [(id, name)]."""
+        out = []
+        pos = 0x13EC720
+        while pos < 0x13ED800:
+            mid = int.from_bytes(data[pos : pos + 4], "little")
+            saddr = int.from_bytes(data[pos + 4 : pos + 8], "little")
+            if not (0x1000000 <= saddr <= 0x1200000):
+                break
+            z = data.find(b"\x00", saddr)
+            name = data[saddr:z].decode("ascii", "replace")
+            if not name.startswith("APICD_"):
+                break
+            out.append((mid, name))
+            pos += stride
+        return out
+
+    def test_apicd_stride_is_36_not_72(self):
+        """Regression: stride 72 silently reads every second record.
+
+        Reading at 72 still starts at the right place and every name pointer
+        still resolves to an APICD_ string, so it looks like it works -- it
+        reports 58 records instead of 115 and pairs each id with the wrong
+        name further along. APICD_DESTROY_HNDL and friends vanish silently.
+
+        The check that catches it is contiguity: at the correct stride the ids
+        run 0x1000, 0x1001, 0x1002 with no gaps. At 72 they skip odd indices.
+        """
+        p = REPO / "dumps" / "engine" / "libObj.so"
+        if not p.exists():
+            self.skipTest(f"{p} not found")
+        data = p.read_bytes()
+
+        good = self._apicd_records(data, 36)
+        bad = self._apicd_records(data, 72)
+
+        self.assertEqual(len(good), 115, "stride 36 should yield 115 records")
+        self.assertEqual(good[0], (0x1000, "APICD_CREATE_HNDL"))
+        self.assertEqual(good[1], (0x1001, "APICD_DESTROY_HNDL"))
+
+        # the odd-indexed names must be present at the right stride and absent
+        # from the wrong one -- that is exactly what the stride bug dropped
+        self.assertIn((0x1001, "APICD_DESTROY_HNDL"), good)
+        self.assertIn((0x1003, "APICD_GET_ITEM_ATTRIBUTE"), good)
+        self.assertIn((0x1005, "APICD_GET_RESUME_POS"), good)
+
+        # contiguity: 0x1000..0x1016 must all be present
+        ids = {i for i, _ in good}
+        for want in range(0x1000, 0x1017):
+            self.assertIn(want, ids, f"0x{want:x} missing from the APICD table")
+
+        # and the wrong stride really does miss them, so this test has teeth
+        bad_ids = {i for i, _ in bad}
+        self.assertNotIn(0x1001, bad_ids)
+        self.assertLess(len(bad), len(good))
+
 
 if __name__ == "__main__":
     unittest.main()

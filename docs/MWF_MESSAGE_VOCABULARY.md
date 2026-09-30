@@ -146,23 +146,56 @@ The 48 client methods in `libNetContUtil.so` map to specific message IDs:
 | `0x6000` | `0x82008` | `getHandleFromContentList`, `createRootHandleOfList` |
 
 ### 4.2 Underlying Database Command Table (`APICD_*` in `libObj.so`)
-Located at offset `0x13ec720`, stride 72 bytes:
+
+Located at file offset `0x13ec720`, record layout `{u32 id, u32 name_vaddr, …}`
+at **stride 36 (0x24)**. The table holds **115 records**, contiguous from
+`0x1000`.
+
+> **Correction.** The stride was originally given as 72, which reads every
+> *second* record. Because the walk starts correctly and the name-pointer
+> sanity check still passes, it looks like it is working — it just reports the
+> even-indexed half, 58 records, and pairs each id with the wrong name further
+> along. `APICD_DESTROY_HNDL`, `APICD_GET_ITEM_ATTRIBUTE`,
+> `APICD_GET_RESUME_POS` and 55 others were missing entirely. The giveaway is
+> that the ids come out with gaps; at the correct stride they are contiguous.
+> Fixed in `mwf_catalog.py`, and the count is asserted in the test.
 
 | Command ID | APICD Symbol Name |
 |---|---|
 | `0x00001000` | `APICD_CREATE_HNDL` |
+| `0x00001001` | `APICD_DESTROY_HNDL` |
 | `0x00001002` | `APICD_GET_HNDL_ATTRIBUTE` |
+| `0x00001003` | `APICD_GET_ITEM_ATTRIBUTE` |
 | `0x00001004` | `APICD_SET_RESUME_POS` |
+| `0x00001005` | `APICD_GET_RESUME_POS` |
 | `0x00001006` | `APICD_CLEAR_RESUME_POS` |
+| `0x00001007` | `APICD_SET_CONTENT_POS` |
 | `0x00001008` | `APICD_GET_CONTENT_POS` |
+| `0x00001009` | `APICD_CLEAR_CONTENT_POS` |
 | `0x0000100a` | `APICD_GET_CREATED_HNDL_PARAM` |
+| `0x0000100b` | `APICD_CONV_HNDL2ENTRYID` |
+| `0x0000100c` | `APICD_REG_AVAILABLE_MEDIA` |
+| `0x0000100d` | `APICD_UNREG_AVAILABLE_MEDIA` |
+| `0x0000100e` | `APICD_COPY_HNDL` |
+| `0x0000100f` | `APICD_GET_HNDL_STATUS` |
+| `0x00001010` | `APICD_REG_NOTIFY_TARGET` |
+| `0x00001011` | `APICD_UNREG_NOTIFY_TARGET` |
+| `0x00001012` | `APICD_BEGIN_CHANGE_HNDL_STATUS` |
+| `0x00001013` | `APICD_RUN_CHANGE_HNDL_STATUS` |
+| `0x00001014` | `APICD_END_CHANGE_HNDL_STATUS` |
+| `0x00001015` | `APICD_SET_CONTENT_CONDITION` |
+| `0x00001016` | `APICD_REPORT_LOAD_COMPLETE` |
 | `0x0000101e` | `APICD_GET_DCF_FILE_TYPE` |
 | `0x00001020` | `APICD_SYNC_CONV_ENTRYID2ITEMNO` |
+| `0x00001021` | `APICD_CREATE_PARENT_HNDL` |
 | `0x00001022` | `APICD_GET_CONTENT_PROPERTY` |
 | `0x00001024` | `APICD_GET_CONTENT_EXTENT` |
 | `0x00001026` | `APICD_GET_EVENT_RANGE` |
-| `0x0000102a` | `APICD_END_GET_LOCATION_ITEM_IN_RACTANGLE` |
+| `0x0000102a` | `APICD_END_GET_LOCATION_ITEM_IN_RECTANGLE` |
+| `0x0000102c` | `APICD_GET_ITEM_ATTRIBUTE_WITH_PARAM` |
 | `0x00001036` | `APICD_GET_CONTENT_FILE_TYPE` |
+| `0x00001038` | `APICD_BEGIN_UPDATE_HNDL` |
+| `0x00001039` | `APICD_END_UPDATE_HNDL` |
 | `0x0000103c` | `APICD_GET_CONTENT_PROFILE` |
 | `0x00001046` | `APICD_CONV_HNDL2ENTRYID_LIST` |
 | `0x00001048` | `APICD_CHECK_CONTENT_EXIST` |
@@ -236,7 +269,26 @@ Recovered from `ObjCntMgr::ParseObjCommand`:
 
 ## 7. Face Recorder (`0x3a44`, `ObjFaceRecorder`)
 
-Dispatch table at `0x13dc504` in `libObj.so` (29 entries):
+29 entries. The names below are correct — the four `MSGID_*FACE*` strings are
+present in `libObj.so` at offsets `0xf03a41`–`0xf03bcc` — but **the table
+geometry is not established and is not claimed here.**
+
+Two things are known and worth recording so this is not re-derived wrongly:
+
+- Pointer references to `MSGID_NOTIFY_FACE_DETECTED_EVT` and
+  `MSGID_FACE_RECORD_CMD` occur at file offsets `0x13dc660` and `0x13dc678`,
+  so the table is near `0x13dc660`, not `0x13dc504`.
+- At `0x13dc504` — the address previously given — word 0 is `0x00001000` and
+  word 3 resolves to `MSGID_OPEN`. That is a **different table**: the base
+  message table again, not the face dispatcher.
+
+The earlier parser read a fixed 29 records from `0x13dc504` without checking
+that a record's name pointer pointed at a string, so it printed three rows
+(`MSGID_NOTIFY_FACE_DETECTED_EVT`, `MSGID_NOTIFY_FACE_LIST_DISPLAY_EVT`,
+`MSGID_NOTIFY_FACE_LIST_DISPLAY_END_EVT`) under a FaceRecorder heading that
+were in fact from elsewhere. `mwf_catalog.py` now reports the four strings, the
+correct neighbourhood, and explicitly declines to parse rather than emit
+guessed rows.
 
 | Message ID | Command / Event Name | Reply ID |
 |---|---|---|
