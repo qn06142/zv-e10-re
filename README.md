@@ -11,6 +11,12 @@ This tool interfaces with Sony digital cameras through USB. It allows to tweak s
 | [`avcam_re/`](avcam_re/HARDWARE_OVERVIEW.md) | `av-cam.bin` internals: hardware topology, register model, ISP/codec pipeline |
 | [`research/README.md`](research/README.md) | the analysis scripts, indexed |
 
+**No camera binary, firmware image or UI resource is committed here.** Everything
+under `dumps/`, `fw/` and `udtrbody_extract/` is git-ignored; the findings drawn
+from them are not. See [`docs/09-provenance.md`](docs/09-provenance.md) for the
+copyright boundary and [`docs/90-session/`](docs/90-session/) for the quarantined
+session logs.
+
 `docs/` holds the granular per-subject reference; `docs/agents/` holds the
 consolidated views. `docs/90-session/` is a quarantine of dated session logs and
 is not cited as fact.

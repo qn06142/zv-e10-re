@@ -6,8 +6,14 @@ Two kinds of document live here, and they are kept separate on purpose.
 
 | | for | when |
 |---|---|---|
-| `01`–`08` + this file | humans | working a subject in depth; every table, every derivation |
+| `01`–`09` + this file | humans | working a subject in depth; every table, every derivation |
 | [`agents/`](agents/) | an agent picking the thread back up | you need the whole state on one page and must not have to open eight files |
+
+**No camera binary, firmware image or UI resource is committed to this
+repository.** Patched objects are reproducible from a tracked script plus a file
+you pull off your own camera; the recipes are in
+[`../research/firmware/PATCHED_OBJECTS.md`](../research/firmware/PATCHED_OBJECTS.md)
+and the boundary is in [09-provenance.md](09-provenance.md).
 
 `90-session/` is a **quarantine**: dated session logs kept for provenance. Nothing
 there is cited as fact — it exists so that a retracted claim is not silently
@@ -33,6 +39,7 @@ Start here:
 | 06 | [method.md](06-method.md) | the nine decoding traps, and why they all fail silently |
 | 07 | [modification.md](07-modification.md) | what is writable, the applied and verified changes, the updater door, the file transport |
 | 08 | [camera-interfaces.md](08-camera-interfaces.md) | USB modes, the shell bridge, the raw tunnel, the lens protocol, `sndcmd`/`rcvcmd` |
+| 09 | [provenance.md](09-provenance.md) | the copyright boundary: what is ours, what is upstream, what is Sony's |
 
 ## Conventions used throughout
 

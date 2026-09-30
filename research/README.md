@@ -16,11 +16,18 @@ Current firmware analysis lives elsewhere and is not duplicated here:
 | `results/` | JSON result data from the probes |
 | `logs/` | Captured probe output |
 
+**No camera binary or firmware image is tracked in this repository.** Every script
+here takes one as an *input* from the git-ignored `dumps/` tree and emits
+inventories, tables or documentation. Patched objects are reproducible from a
+tracked script plus a file you pull off your own camera — the recipes and hashes
+are in [`firmware/PATCHED_OBJECTS.md`](firmware/PATCHED_OBJECTS.md), and the
+boundary is spelled out in [`docs/09-provenance.md`](../docs/09-provenance.md).
+
 ## Layout
 
 | Directory | Files | Purpose |
 |---|---:|---|
-| `research/firmware/` | 203 | Firmware image structure: format analysis, carving, decompression, decryption, payload extraction. |
+| `research/firmware/` | 211 | Firmware image structure: format analysis, carving, decompression, decryption, payload extraction. |
 | `research/device/` | 51 | Talking to the camera over USB: PTP/MTP, mass storage, enumeration, card and firmware pulling. The only group that needs a physical ZV-E10 attached. |
 | `research/disasm/` | 19 | Per-subsystem disassembly. Superseded for `av-cam.bin` by the `retool` package, kept for the other images. |
 | `research/crypt/` | 7 | Brute-force and cryptanalysis of the update/crypter paths. |
@@ -55,7 +62,7 @@ Running `retool` is unaffected: see `RETOOL.md`.
 Listed by original filename, because the notes in `docs/` refer to the
 scripts by bare name.
 
-<details><summary><code>research/firmware/</code> — 203 files</summary>
+<details><summary><code>research/firmware/</code> — 211 files</summary>
 
 
 - `analyze_adj_usage.py`
@@ -92,6 +99,7 @@ scripts by bare name.
 - `cave_reach.py`
 - `cave_scan.py`
 - `cave_sound.py`
+- `check_docs.py`
 - `check_stamp.py`
 - `check_vanilla.py`
 - `cluster_6b40.py`
@@ -114,6 +122,7 @@ scripts by bare name.
 - `engine_names3.py`
 - `extract_fw.py`
 - `extract_udtr.py`
+- `factor_table.py`
 - `fb_detect.py`
 - `fdat_decrypt.py`
 - `find_base.py`
@@ -150,6 +159,7 @@ scripts by bare name.
 - `icon_targets.py`
 - `icon_targets_verified.py`
 - `im_elf.py`
+- `imcfg_block.py`
 - `imdb_table.py`
 - `kpageflags_walk.py`
 - `ldec_dis.py`
@@ -168,6 +178,8 @@ scripts by bare name.
 - `mod_module.py`
 - `mod_strings.py`
 - `mount_assessment.py`
+- `mwf_catalog.py`
+- `mwf_ids.py`
 - `nflasha15_super.py`
 - `obj_names.py`
 - `opx_payload.py`
@@ -192,6 +204,8 @@ scripts by bare name.
 - `regress_pcrel.py`
 - `resolve_dispatch.py`
 - `ringbuf.py`
+- `scenario_ids.py`
+- `scenario_vocab.py`
 - `sha1_decrypt.py`
 - `stage_busybox.py`
 - `stream_ko.py`
@@ -199,6 +213,7 @@ scripts by bare name.
 - `surf_geom.py`
 - `surf_id.py`
 - `surf_render.py`
+- `sysdef_tables.py`
 - `testcmd_dis.py`
 - `testcmd_elf.py`
 - `testcmd_gram.py`

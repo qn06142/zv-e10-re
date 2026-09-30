@@ -85,7 +85,36 @@ avcam_proj/
 /tools/*.elf
 /tools/*.bin
 
-# research/firmware/libtestcmd.OPX.so stays tracked on purpose.  It is nominally
-# a build output of opx_payload.py, but it is the exact object whose md5 was
-# verified on the camera, so it is evidence rather than a rebuildable
-# intermediate.
+# ---- anything that IS Sony's code, anywhere under research/ ----
+# research/firmware/libtestcmd.OPX.so was tracked until ada8383-era for a while
+# on the argument that it was "evidence".  It is not: opx_payload.py rebuilds it
+# byte-for-byte from the stock library, and that was verified (stock
+# f370de888ae662e7f509f2274846eac6 -> patched 5d776c95847022dbc343e00519289b5f).
+# Keeping the binary only made Sony's redistributed.
+#
+# The regeneration recipe, the stock hash and the patched hash are recorded in
+# research/firmware/PATCHED_OBJECTS.md, so the evidence survives without the
+# bytes.  Do not weaken this rule to save a file that a script can rebuild.
+/research/**/*.so
+/research/**/*.elf
+/research/**/*.ko
+/research/**/*.bin
+/research/**/*.ttf
+/research/**/*.uxc
+/research/**/*.uxb
+/research/**/*.xdb
+
+# ---- test and lint caches ----
+/.pytest_cache/
+/.mypy_cache/
+/.ruff_cache/
+**/__pycache__/
+
+# ---- the retired Ghidra project's own scratch, under its new name ----
+# .gitignore covers /avcam_re/ghidra_proj/ but the directory was renamed to
+# _retired_ghidra/ when Ghidra was dropped, so its outputs stopped matching.
+/avcam_re/_retired_ghidra/ghidra_proj/
+/avcam_re/_retired_ghidra/out/
+
+# ---- failed-run logs from the retired Ghidra tool ----
+/avcam_re/_retired_ghidra/*.log
