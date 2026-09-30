@@ -24,6 +24,7 @@ The subjects: `libtestcmd.so`, `libIMDB.so`, `im.elf` (all in `/usr/bin` and
 7. [`imdb_raw` is an offset table](#7-imdb_raw-is-an-offset-table-and-132-bytes-of-it-are-the-whole-key-list)
 8. [Assembling without a compiler](#8-assembling-without-a-compiler)
 9. [Identifying a (category, message) pair without a symbol](#9-identifying-a-category-message-pair-without-a-symbol)
+10. [Check the ELF header parse before believing the file](#10-check-the-elf-header-parse-before-believing-the-file)
 
 Plus two that are about the data rather than the code: table strides
 ([04-messaging.md](04-messaging.md)) and null models
@@ -272,6 +273,28 @@ What gives it away against a false positive: `MWF::ObjIf::ConnectPin` and
 either of those with a bare literal in r1 is not the pair — the literal is set
 into a struct earlier. Check which function is being called before reading
 its arguments as ids.
+
+## 10. Check the ELF header parse before believing the file
+
+An early parse of `libtestcmd.so` read header fields at the **wrong offsets**,
+and reported `e_type = 0x280013` and 44 unnamed PLT stubs.
+
+That output reads exactly like a packed or obfuscated binary, and it was nearly
+acted on as one. The file was a completely ordinary `.so`: ELF32 `ET_DYN`, 25
+sections, 24 named functions at exact addresses. Nothing was packed, and nothing
+was stripped.
+
+The tell was in the numbers themselves. `e_type` is a 16-bit field and no valid
+value has bit 0x280000 set — a magic number like that is a *parse* failure, not
+a file-format fact. And "44 PLT stubs with no symbol" is the signature of
+reading the dynamic symbol table from the wrong base, not of stripped symbols.
+
+**Sanity-check the header against the spec's own legal values before drawing any
+conclusion about the file.** It is the cheapest check in this document and it
+was skipped.
+
+This is the general shape of every trap on this list: the output is
+self-consistent, plausible, and wrong.
 
 ## What this bought
 

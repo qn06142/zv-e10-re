@@ -1,6 +1,20 @@
 # Reverse Engineering Sony Digital Cameras
 This tool interfaces with Sony digital cameras through USB. It allows to tweak settings, dump firmware, and in some cases install custom Android apps.
 
+## Credits and AI disclosure
+
+This is a fork of **[ma1co/Sony-PMCA-RE](https://github.com/ma1co/Sony-PMCA-RE)**
+(MIT, © 2015 ma1co), extended with ZV-E10 reverse engineering, and it leans on
+earlier public work by **Erik Smit**
+([nex-hack](https://github.com/erik-smit/nex-hack)) among others.
+
+**The reverse engineering was carried out with AI coding agents** — Hermes Agent,
+OpenCode, Antigravity and Codex. What that means for how much to trust the
+results, what is machine-checked versus hardware-verified versus merely inferred,
+and the four confident-wrong-answer bugs this project's own history produced and
+caught, is set out in **[`CREDITS.md`](CREDITS.md)**. Please read that before
+relying on anything here.
+
 ## Where the knowledge lives
 
 | | |

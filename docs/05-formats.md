@@ -1,8 +1,12 @@
 # 05 — Formats: the UXC container, view files, and the palette
 
-The file formats under `/usr/share/app/`. Everything here round-trips, so it can
-be checked rather than argued about. This consolidates six documents now in
-`90-session/_merge-*.md`.
+The file formats under `/usr/share/app/`. The layouts here are derived from the
+files rather than assumed, and the container arithmetic is verified across all
+302 `.uxc` files. This consolidates six documents now in `90-session/`.
+
+**One caveat up front, because it is the kind that hides:** the palette's
+byte-exact round trip does **not** prove its field boundaries are right. See
+[Negative results](#negative-results) below.
 
 All sizes below are the real files in `dumps/camera/app/`.
 
@@ -141,6 +145,8 @@ parsing-strictness difference, not a format disagreement.)
   colour list. The round-trip test is what catches confusing the two.
 - `uxc_color.py` parses, re-emits, and asserts byte equality before it will
   produce a patched variant. Verified: 312 bytes re-emitted, byte-exact match.
+  **But see [Negative results](#negative-results) — that test cannot fail, so it
+  is not evidence for the layout.**
 - A single-quad patch changes 2 bytes at offsets `0x94, 0x96` (id `0x4007`,
   red → `ff00ff`). One offset is a colour channel, the other is the *next*
   record's id field, which is how a mis-sized edit corrupts a neighbour rather
@@ -349,6 +355,36 @@ exact filename matches. The tokens inside them do:
 The two vocabularies are separate — short view names versus long layout names —
 but a substring join is usable. `CMN_M_REC_EVF_FOCUSCONTROL_LR` almost certainly
 means `viewFocusControl.uxc`. **This is a heuristic and is labelled as one.**
+
+## Negative results
+
+**The palette round trip cannot fail, and therefore proves nothing about the
+layout.** `uxc_color.py` printed *"BYTE-EXACT MATCH — container decoded"*. The
+test parses into records, re-packs the same fields, and re-concatenates the
+untouched prefix — the exact inverse of the parse. **It returns the input for
+*any* stride that divides the body evenly.**
+
+So it proves the codec loses nothing. It does not prove the field boundaries are
+right. A stride of 4, 2, or 1 would pass just as cleanly.
+
+What actually supports the 8-byte stride is circumstantial but mutually
+reinforcing, and it is the thing to check if anyone revisits this:
+
+- the `u16` at `+0` steps `0x4000`…`0x4022` at exactly stride 8;
+- `0x4023` (the `control` high-water mark at `0x0c`) sits exactly one past the
+  last id, which only happens if the record count and stride are both right;
+- the bytes at `+4..+7` are the only plausible UI colours in the file — and the
+  magenta control later proved they *are* the colours.
+
+The load-bearing evidence is the third item: the hardware result, not the round
+trip.
+
+**A negative from a sample too small to be informative.** An early palette scan
+covered five tiny boot screens, found no palette ids, and nearly ruled out the
+whole approach. Against the full 291-screen set, **197 files reference the
+`0x4000`-range ids, 2,245 clean hits**. The negative was a sampling artefact.
+
+**Do not re-derive either of these.** Both cost a full pass each.
 
 ## Open
 
