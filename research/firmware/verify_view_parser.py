@@ -34,9 +34,12 @@ defensible either way.
 import struct
 import tarfile
 from collections import Counter
+import pathlib
 from pathlib import Path
 
-TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz')
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
+TGZ = ROOT_REPO / 'dumps' / 'camera_2025' / 'usr_share_app.tgz'
 DESC_WORDS = [(0, 0x7e, 'hi'), (1, 0, '0'), (2, 0, '0'), (3, 2, '2'),
               (4, 0, '0'), (5, 9, '9'), (6, 0, '0'), (7, 0x38, '38')]
 

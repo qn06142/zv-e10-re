@@ -24,13 +24,16 @@ Two things this file deliberately does NOT claim:
 import re
 import struct
 import sys
+import pathlib
 from pathlib import Path
+
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 
 sys.path.insert(0, str(Path(__file__).parent))
 from thumb import mkdis, pcrel_strrefs, walk, calls_of, is_prologue         # noqa: E402
 
 BASE = 0x635C6000
-av = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\av-cam.bin.bak').read_bytes()
+av = (ROOT_REPO / 'dumps' / 'av-cam.bin.bak').read_bytes()
 md = mkdis()
 
 print('=== pc-relative reference map ===')

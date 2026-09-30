@@ -45,15 +45,37 @@ and sat next to the `pmca` package. Two consequences:
 
 - The scripts in `common/` are imported by name. Their importers carry a
   one-line `sys.path` bootstrap; do not remove it.
-- Paths are resolved from the script's own location, via a
-  `ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]` bootstrap, so the
-  tree runs from wherever it is checked out. The bootstrap is named
-  `ROOT_REPO` and not `REPO` because several of these scripts already use
-  `REPO` for something else — a vendored tool path, usually.
+- **Path portability is partial, and here is the honest split.** Of the 317
+  scripts in this tree, **82 resolve their inputs** from their own location via
+  a `ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]` bootstrap and run
+  from any checkout. **152 still hardcode an absolute path** to either
+  `D:\02_Development_And_Projects\pmca-re` or the harness temp directory, so they
+  only run on the machine that wrote them. 83 take no path at all.
 
-`research/firmware/fix_hardcoded_paths.py` is the tool that did the rewrite.
-It is idempotent, skips itself, self-tests its own quoting, and compile-checks
-every file it touches, so it is safe to re-run if more paths turn up.
+  The tools **cited in `docs/` are all in the portable set** — `annotate.py`,
+  `sysdef_tables.py`, `mwf_catalog.py`, `mwf_ids.py`, `scenario_vocab.py`,
+  `imcfg_block.py`, `factor_table.py`, `cmd_surface.py`, `elf_catalog.py`,
+  `vdf_methods.py`, `uxc_color.py`, `verify_view_parser.py`, `testcmd_elf.py`,
+  `testcmd_thumb.py`, `zve10_retry.py`, `lens_query.py`, `scan_lensfirm2.py`,
+  `check_docs.py`. Following the documentation works on a fresh checkout. The
+  unpinned remainder are one-shot exploration scripts, kept as the working
+  record rather than as a supported interface.
+
+  The bootstrap is named `ROOT_REPO` and not `REPO` because several scripts
+  already use `REPO` for something else — a vendored tool path, usually. Six
+  scripts use the shorter `ROOT` instead; both are load-bearing, so do not
+  rename either.
+
+`research/firmware/fix_hardcoded_paths.py` performs the rewrite. It is
+idempotent, skips itself, self-tests its own quoting, and compile-checks every
+file it touches, so it is safe to re-run if more paths turn up.
+
+**But note its scope honestly:** it rewrites literals matching the *previous*
+machine's home (`C:\Users\Minhsnguhoa\pmca-re`), not the current repo root or
+the harness temp directory. It has therefore been re-run against the paths that
+actually appear now, but a further pass over the 152 remaining scripts has not
+been done. Extending the tool to cover `D:\02_Development_And_Projects\pmca-re`
+is the obvious next step if the whole tree needs to be portable.
 
 Running `retool` is unaffected: see `RETOOL.md`.
 

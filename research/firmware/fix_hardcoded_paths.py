@@ -1,10 +1,27 @@
-"""Make the research scripts path-independent.
+"""Rewrite hardcoded repo paths into a location-independent bootstrap.
 
-The tree was written on a machine whose home was C:/Users/Minhsnguhoa and many
-scripts hardcoded it, so they could not run anywhere else -- including here.
-They now resolve against the repo root via
-``Path(__file__).resolve().parents[2]``, which is what elf_catalog.py and
-icon_opx.py already did.
+WHAT THIS ACTUALLY COVERS -- read this before trusting the docstring's older,
+looser claim that "the tree" is path-independent.
+
+The tree was written on a machine whose home was ``C:/Users/Minhsnguhoa`` and
+many scripts hardcoded it, so they could not run anywhere else.  Those literals
+resolve against the repo root via
+``ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]``, which is what
+``elf_catalog.py`` and ``icon_opx.py`` already did.
+
+That is the *only* class of literal this tool matches.  It does **not** touch:
+
+* ``D:\\02_Development_And_Projects\\pmca-re`` -- the current machine's repo root
+* the harness temp directory (``%TEMP%\\opencode``)
+
+Those two are still hardcoded in 152 of the 317 scripts in ``research/``.  The
+portable set is 82, and it contains every tool cited in ``docs/``, so the
+documentation works on a fresh checkout; the rest are one-shot exploration
+scripts kept as a working record.  Extending ``OLD_FORWARD``/``OLD_BACK`` below
+to cover the two paths above is the obvious next step if the whole tree needs to
+be portable -- but do that deliberately and in small batches, because a bulk
+rewrite of scripts nobody has run recently is how a working record quietly
+becomes a broken one.
 
 Both spellings occur in the wild: ``"C:/Users/.../pmca-re/out"`` and the raw
 form ``r"C:\\Users\\...\\pmca-re\\out"``, and some scripts store the bare repo

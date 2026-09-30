@@ -40,9 +40,12 @@ container that cannot round-trip byte-exactly is not decoded, and any patch
 built on top of it would be a guess.
 """
 import struct
+import pathlib
 from pathlib import Path
 
-SRC = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\app\color_cmn.uxc')
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+
+SRC = ROOT_REPO / 'dumps' / 'camera' / 'app' / 'color_cmn.uxc'
 REC = 8
 HDR = 0x58
 ATTR = 0x3a09

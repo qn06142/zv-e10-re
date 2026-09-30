@@ -26,11 +26,14 @@ cmdline_read_data_from_ibfile (0x1670) for the binary path.
 """
 import re
 import struct
+import pathlib
 from pathlib import Path
+
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_LITTLE_ENDIAN
 
-SO = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\libtestcmd.so')
+SO = ROOT_REPO / 'dumps' / 'camera' / 'libtestcmd.so'
 img = SO.read_bytes()
 md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_LITTLE_ENDIAN)
 md.detail = False
