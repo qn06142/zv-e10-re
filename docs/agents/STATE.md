@@ -159,6 +159,26 @@ What it does **not** give is the LiRo kernel image: every LiRo wait channel is
 absent from both `vmlinux.bin` (Linux only) and `av-cam.bin`. Finding that binary
 is now a distinct open item.
 
+### The `/dev/dmpgles2` ioctl is not a display door — settled
+
+Its ABI is recovered: **17 commands, all `_IOC(dir, 0x82, nr, 4)`**, argument a
+pointer to one `u32`, recovered by `research/firmware/sugilite_ioctl.py` and pinned
+by `tests/test_sugilite_ioctl.py`. Detail in [`REFERENCE.md`](REFERENCE.md) §16b.
+
+The load-bearing negative: **exactly one** of the 17 reaches the hardware, and it
+is not a register write — `nr=15` writes the *fixed* value `0x20000001` to the
+*fixed* BAR offset `0xC0`, and only when the caller passes exactly 1. The other 38
+register writes in the module are in `sugilite_register_init` (21), clock
+gating, and the ISR — kernel-internal.
+
+The module also contains a complete **12-byte OSAL request/reply RPC into the
+RTOS** (unsymbolised, 416 bytes, endpoints `0x008f013a` / `0x00910042` /
+`0x008f0313`) — but **nothing branches to it and it has no symbol**, so no
+pointer can reach it either. Unreachable from user space by any path.
+
+So the drawing route is `libObj.so`'s exported `GRM_*` set, not the ioctl. The
+remaining gap on that route is still the VDF OSD push entry point.
+
 ## Open offline, by value
 
 1. **The RTOS message format in `av-cam.bin` (17,289,388 B, on disk).** What
@@ -230,6 +250,9 @@ the time goes.
 # session log is truncated by the next command
 & ".venv\Scripts\python.exe" -B research\firmware\tmonitor.py
 
+# the /dev/dmpgles2 ioctl ABI; pure file reader, no camera needed
+& ".venv\Scripts\python.exe" -B research\firmware\sugilite_ioctl.py
+
 & ".venv\Scripts\python.exe" -m pytest -q
 & ".venv\Scripts\python.exe" -B research\firmware\check_docs.py   # docs integrity
 ```
@@ -267,6 +290,11 @@ derivations is in [`../06-method.md`](../06-method.md); the ones that bite most:
 | `zve10_shell.log` is scratch | `zve10_shell.py` opens it with mode **`"w"`**, so **every session truncates the last one**. A whole `tmonitor` trace was extracted, summarised, and then destroyed by the next three commands. Capture anything worth keeping into a tracked artefact **on the spot**, and make the capture the first command of the session. |
 | a symbol name is not an identity | the trace emitted `0x60293424` as both `tty_insert_flip_string_fixed_flag` and `tty_insert_flip_string_fixed_fl`. `vmlinux.bin` has only the long one, so the short is a clipped copy. Group by address. |
 | `\S+` drops names with spaces | `-profile user TC::VD_Seq S cpu:0` — a task name containing a space. Matching the name as `\S+` loses the record. Anchor on the trailing `cpu:N` instead. |
+| a count is not a value check | recovering the ioctl table with the literal pool read at `addr+4` instead of `addr+8` still printed **17 commands** — the right number, all the wrong values. The pool is contiguous, so every site yields a different constant. Only comparing the recovered *set* catches it. Verified by mutation. |
+| ARM PC is `addr+8` | in the ioctl's compare chain, `addr+size` reads the pool one word early and yields *instruction words* as command constants (`0x0a000055` is `mov ip,sp`). |
+| ARM immediates are `imm8 ROR 2*rot` | `add r3,r3,#0xc0000004` is really `#0x11, 30`. Read the decoded operand, never capstone's printed text — the printed form is the effective value and is fine, but a hand-rolled regex on the text is not. |
+| GCC refines one register across compares | `cmp r1,r3; beq E; add r3,r3,#K; cmp r1,r3; beq E2`. Clearing `r3` after the first `cmp` recovers 7 of 17 commands. Symbolic execution with a `seen` set shared across paths recovers 1. A single forward scan gets all 17. |
+| no symbol means no pointer | the module's 12-byte RTOS RPC has no symbol *and* no branch to it. Either fact alone would be weak; together they make it unreachable. |
 
 The `E&ject`, log-truncation and `\S+` rows are the same family: the operation
 appears to run and reports nothing, or reports a plausible result — which is

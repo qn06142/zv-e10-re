@@ -1055,3 +1055,150 @@ must be the capture.
 The trace is also >25 lines, so it arrives on the console with its middle elided
 (`[1002 lines omitted, see zve10_shell.log]`). Read the log, and give the read a
 session to itself.
+
+## 16b. The `/dev/dmpgles2` ioctl ABI
+
+Recovered from `grm_gles.ko` by `research/firmware/sugilite_ioctl.py`, pinned by
+`tests/test_sugilite_ioctl.py` (26 tests). The module is on the card at
+`/usr/kmod/grm_gles.ko`, 15,648 bytes; `sugilite_ioctl` is **2,584 bytes** of ARM
+code at `.text+0x8e4`.
+
+> **Correction.** An earlier note described this as *"jump-table dispatch"*. It is
+> not. GCC compiled the switch as a **binary search over literal-pool
+> constants**: `ldr r3,[pc,#X]`, an optional `add/sub r3,r3,#K`, `cmp r1,r3`, then
+> `beq`/`bhi`/`blo`. The consequence is that the command table has to be recovered
+> by reading the literal pool, and three separate mistakes each lose commands
+> silently — see [the traps](#traps-in-recovering-the-table).
+
+### The ABI
+
+**17 commands, every one of them `_IOC(dir, 0x82, nr, 4)`.** One type byte, and
+the argument is a pointer to a single `u32` in all 17 cases — there are no
+structs and no pointers-to-structs on this interface.
+
+| cmd | dir | nr | handler | what it does |
+|---|---|---:|---|---|
+| `0x80048200` | R/W | `0x00` | `0xa0c` | return `priv+0xec` |
+| `0xc0048201` | RD | `0x01` | `0xa34` | read field at `priv+0x104` |
+| `0xc0048202` | RD | `0x02` | `0xa74` | **indexed** read: `priv[index]`, or `0x80000000` |
+| `0xc0048203` | RD | `0x03` | `0xabc` | blocking alloc/clear — `__aeabi_idiv`, `memset`, `schedule_timeout` under `rt_spin_lock` |
+| `0x40048204` | WRT | `0x04` | `0xd8c` | bare field store, **calls nothing** |
+| `0x80048205` | R/W | `0x05` | `0xd94` | write field at `priv+0x104` |
+| `0x80048206` | R/W | `0x06` | `0xdb8` | write field at `priv+0x108` |
+| `0x80048207` | R/W | `0x07` | `0xddc` | write, no `priv` offset |
+| `0xc0048208` | RD | `0x08` | `0xe00` | `rt_spin_lock`-guarded read of `priv+0x48` |
+| `0xc0048209` | RD | `0x09` | `0xe60` | same, second variant |
+| `0x8004820a` | R/W | `0x0a` | `0xec8` | write `priv+0x48` |
+| `0xc004820c` | RD | `0x0c` | `0xeec` | read, no `priv` offset |
+| `0xc004820d` | RD | `0x0d` | `0xf2c` | **the only synchronous wait** — `wait_for_completion_interruptible_timeout`, `complete_all`, `completion_done`, `printk` |
+| `0xc004820f` | RD | `0x0f` | `0x121c` | **the only hardware write** — see below |
+| `0xc0048211` | RD | `0x11` | `0x115c` | `down_interruptible` — **acquire** |
+| `0xc0048212` | RD | `0x12` | `0x11bc` | `up` — **release** |
+| `0x80048263` | R/W | `0x63` | `0x1268` | outlier `nr`; read, no `priv` offset |
+
+`nr` is dense over `0x00`–`0x12` with holes at `0x0b`, `0x0e`, `0x10`, plus the
+outlier `0x63`. `nr=17`/`nr=18` are a lock/unlock pair; `nr=13` waits on a
+completion that `sugilite_open` and `sugilite_release` are what actually
+`complete_all` — so it is a rendezvous on another process opening or closing the
+device, not a hardware wait.
+
+### Only one command reaches the hardware, and it is not a register write
+
+`nr=15` is the sole handler that calls `sugilite_iowrite32`. Its body:
+
+```asm
+bl   __get_user_4          ; read one u32 from the caller
+cmp  r2, #1                ; ... and it had better be exactly 1
+cmpls r0, #0
+movne r5, #1               ; otherwise return 1, do nothing
+ldr  r1, [r4, #0xf8]       ; priv->bar_base, the remapped GPE BAR
+orr  r0, r2, #0x20000000   ; r0 = 0x20000001  -- FIXED
+str  r2, [r4, #0xf0]       ; priv->last_command = 1
+add  r1, r1, #0xc0         ; bar + 0xC0       -- FIXED offset
+bl   sugilite_iowrite32
+```
+
+It takes neither the register offset nor the value from the caller. It is a
+single fixed kick — *write `0x20000001` to BAR+`0xC0`, if you pass 1* — not a
+poke-the-hardware door.
+
+Where the register programming actually lives, by call site:
+
+| function | `sugilite_iowrite32` | |
+|---|---:|---|
+| `sugilite_register_init` | **21** | the driver programs the GPE at init |
+| `sugilite_clock_up_internal` | 6 | clock gating, with 5 reads |
+| `sugilite_interrupt` | 5 | the ISR acks/masks, with 2 reads |
+| `init_module` | 3 | |
+| `sugilite_clock_down_internal` | 3 | |
+| `sugilite_ioctl` | **1** | `nr=15`, above |
+
+All kernel-internal and out of reach from user space. **This is the load-bearing
+negative: the ioctl cannot drive the display.**
+
+### The RTOS door exists, and is unreachable
+
+All five `osal_*` message calls in the module — `osal_valloc_msg_wait` ×2,
+`osal_snd_msg`, `osal_snd_sync_msg`, `osal_snd_sync_direct` ×2, `osal_free_msg` —
+fall **outside every sized function**. They occupy an unsymbolised 416-byte run at
+`.text+0x744`–`0x8e4`, containing two thin clock thunks and one real function:
+
+```
+subs r5, r0, #0 ; ldreq r4, [pc,#..]   ; NULL arg -> return -1024 (0xfffffc00)
+osal_valloc_msg_wait(id, &msg, 0x2c, 0)  ; 44-byte message
+strh #2, [r6] ; strh #0x80, [r6,#2]      ; header words
+str  #0x0c, [r6,#8]                      ; payload length 12
+memcpy(r6+0x18, arg, 0xc)                ; 12 bytes of caller payload
+osal_snd_msg(id, msg)
+  ... on failure:
+osal_valloc_msg_wait(ack, &msg, 0x20, 0)
+osal_snd_sync_msg(...) ; osal_free_msg(...)
+```
+
+So the module contains a complete **12-byte request/reply RPC into the RTOS**.
+Three raw endpoint constants sit unrelocated in the literal pool:
+`0x008f013a`, `0x00910042`, `0x008f0313`.
+
+**It cannot be called.** Two independent facts, and either alone would be weak:
+
+1. **No branch in `.text` targets it.** A scan of every `b`/`bl` in the module
+   finds zero reaching `0x744`–`0x8e4`.
+2. **It has no symbol**, so no relocated function pointer can target it either —
+   in `ET_REL` a pointer needs a symbol to relocate against.
+
+So it is dead code in this object, or belongs to a build variant. Either way it is
+not a door. Worth re-testing against `/proc/kallsyms` on a live camera, where the
+module's symbols have real addresses and an indirect caller could exist.
+
+### Verdict
+
+The ioctl is a **thin 4-byte scalar control surface**: 17 commands, one type
+byte, one hardware command that is a fixed kick, a lock/unlock pair, and a
+rendezvous wait. It is not a display door, and Route B cannot become one.
+
+The drawing API is `libObj.so`'s **exported** `GRM_*` set — 517 demangled
+exports including `GRM_gpermRectblit` at `0x684087` — which is already resident in
+`im.elf` with the node open. That is the route worth taking.
+
+### Traps in recovering the table
+
+Four mistakes, each of which returned a *plausible* table rather than an error.
+Established by mutation, not assumed:
+
+| trap | effect | caught by |
+|---|---|---|
+| literal pool read at `addr+size`, not `addr+8` | reads **instruction words** as commands (`0x0a000055` is `mov ip,sp`) | exact command **set** only — the *count* stays 17 |
+| immediates read from printed text | `add r3,r3,#0xc0000004` is really `#0x11, 30` (`imm8 ROR 2*rot`) | exact command set only |
+| `r3` cleared after each `cmp` | loses the cumulative chain: **7 of 17** | the count |
+| symbolic execution with a shared `seen` set | prunes blocks entered from a different predecessor: **1 of 17** | the count |
+
+Plus two non-numeric ones: a literal pool word that is a **relocation** is a
+symbol address and must invalidate `r3` rather than be used as a constant; and
+`cmp; bne DEFAULT; b HANDLER` also encodes equality, because the `bne` leaves the
+equal case to fall through.
+
+The lesson worth keeping: **the command count is a structural statistic and cannot
+detect a value error.** Mutating the PC offset to `addr+4` still printed "17
+commands recovered" — the pool is contiguous, so every site yields a different
+constant and the chain still produces one entry per comparison. Only comparing the
+recovered *set* against the expected one discriminates.

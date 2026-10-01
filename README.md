@@ -30,6 +30,16 @@ message-bus primitives — at addresses. `mask=0` in the kernel command line mea
 nothing is masked out; the facility had been recorded as idle and unused, which
 was wrong.
 
+**What the graphics path actually is.** Not OpenGL. `libObj.so` carries a
+196-entry table of GL ES 2.0 / EGL entry-point *names* — including 8 `*DMP`
+vendor extensions — and exports **none** of them; no `libGLESv2.so` or `libEGL.so`
+exists, and nothing in 650 catalogued ELFs exports the GL API. The renderer is
+DMP SUGILITE silicon behind `/dev/dmpgles2`. That driver's ioctl is a 17-command,
+4-byte-scalar control surface in which exactly one command reaches the hardware,
+and it is a fixed kick rather than a register write — the register programming is
+kernel-internal. The drawing API is `libObj.so`'s 517 exported `GRM_*` symbols,
+already resident in the imaging manager.
+
 **The camera's command vocabulary.** The scenario plugins' message ids are
 immediates in code, not data; sweeping `movw`/`movt` across all 35 recovered 96
 distinct values, which `libSysDef.so`'s self-describing tables then name. The
@@ -63,12 +73,12 @@ live process that is not the application.
 | [`docs/agents/REFERENCE.md`](docs/agents/REFERENCE.md) | **one page, self-contained** — the measured facts: hashes, offsets, id tables, format layouts |
 | [`docs/README.md`](docs/README.md) | the granular per-subject reference, `01`–`09` |
 | [`avcam_re/HARDWARE_OVERVIEW.md`](avcam_re/HARDWARE_OVERVIEW.md) | `av-cam.bin` internals: topology, register model, ISP/codec pipeline |
-| [`research/README.md`](research/README.md) | 321 analysis scripts, indexed |
+| [`research/README.md`](research/README.md) | 322 analysis scripts, indexed |
 
 Every load-bearing claim is reproducible by a tracked script:
 
 ```powershell
-& ".venv\Scripts\python.exe" -B -m pytest -q      # 109 pass, 12 skip (need the SD card)
+& ".venv\Scripts\python.exe" -B -m pytest -q      # 139 pass, 8 skip (need artefacts only the card/camera can supply)
 & ".venv\Scripts\python.exe" -B research\firmware\check_docs.py
 ```
 
