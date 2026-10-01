@@ -272,7 +272,11 @@ IMDB @ %p   .type=0x%08x  .taregt=0x%08x  .flag=0x%08x
 `/proc/osal/uipc`. So the manifest records name the message-queue ids their owners
 serve.
 
-## 7. The application is not deployed
+## 7. The application is not deployed — but its engine is resident
+
+The *entry point* is absent; the machinery underneath is loaded and in use. Both
+halves are measured; read the first half for the absences, the subsection below
+for what is actually running.
 
 Present in `/usr/lib` — the **assets**:
 
@@ -303,6 +307,73 @@ is the program: `main` (30), `_start` (49), `/lib/ld-linux.so.3`, `libc.so.6`,
 `libstdc++.so.6`, links `libObj`, exports `Application_System_Init`. Its section
 table is unreadable by pyelftools (`expected 4, found 0`) but a raw byte search
 shows an ordinary dynamically-linked ARM ELF.
+
+### But the engine is not dormant — `im.elf` holds it open
+
+Measured on the device. `libIMDB.so` is a *static* manifest: it names 174
+libraries `im.elf` **may** load. Reading `/proc/157/maps` gives the subset that is
+**actually resident** while the service shell is up — **97**, and the engine is in
+it. Capture with `research/device/im_runtime_manifest.py`, which writes
+`research/firmware/im_runtime_manifest.txt`:
+
+```sh
+busybox grep -o '/usr/lib/[a-zA-Z0-9_.-]*' /proc/157/maps | busybox sort -u
+```
+
+| | in `/proc/157/maps` |
+|---|---:|
+| `libObj.so` | 3 mappings |
+| `viewUnified2.so`, `viewUnified6.so` | 6 |
+| `libMWF.so` | 3 |
+| `libSysDef.so` | 3 |
+| distinct `/usr/lib` libraries | **97** |
+| open file descriptors | 98 |
+
+`viewUnified2` and `viewUnified6` only, **not all seven** engines — consistent with
+one screen class being active rather than the whole family mapped. The application
+entry points from the table above (`appFw.so`, `gui.so`, `libNVM.so`,
+`libInfraWebApi.so`) are still absent; the correction is only about what *underneath*
+is running.
+
+**`im.elf` is also the graphics client.** It holds the DMP/SUGILITE node open:
+
+```sh
+$ busybox grep grm /proc/modules
+grm_ma     19628  0  -  Live 0x5f3f0000 (P)
+grm_gles    9304  2  -  Live 0x5f3f8000 (P)      # refcount 2
+
+$ busybox ls -l /dev/dmp*
+crwxrwxrwx  1 0 0  248,  29 Feb 23  2018 /dev/dmpgles2
+
+$ for p in /proc/[0-9]*; do ls -l $p/fd 2>/dev/null | busybox grep -q dmpgles && echo $p; done
+/proc/157                                       # = /usr/bin/im.elf, fd 31
+```
+
+`grm_gles` at **refcount 2** with the node open by `im.elf` is the mechanism behind
+the observed SD-media playback on the LCD in service mode. It also means the DMP 2D
+engine (`GRM_gpermRectblit`, `DMP_2D_RectBlitParams`, `utilDMP2D_rectBlitDraw`) and
+the VDF OSD port (`vdf_if_port_send_update`) are resident in a live process that is
+**not** the application — which is what makes an OSD injection a concrete option
+rather than a guess. `/proc/iomem` names no `dmp`/`sugi` region, so the BAR remap is
+recorded by the driver's own `!!! GPE HW: bar remapped 0x%08x->0%p` string instead.
+
+> **Correction.** An earlier reading of this section said the service filesystem
+> carries the engine "but not the application that uses them", implying the engine
+> sat unused. Wrong implication: **`libObj.so` is mapped into a running process**,
+> along with two UI engines and the whole MWF framework. What is absent is the
+> application *entry point*, not the machinery underneath.
+
+> **Capture caveat — three distinct silent failures, all recorded in
+> `tests/test_im_manifest.py`.** Each produced a *plausible empty result*, not an
+> error:
+>
+> 1. reading `zve10_retry.py` stdout, which elides the middle of a session with
+>    `[11 lines omitted, see zve10_shell.log]` — read `zve10_shell.log` instead;
+> 2. issuing the 97-line listing in the same session as a scan of `/proc/*/fd` across
+>    263 processes — the flood drops the *next* command's output, so the two need
+>    separate sessions;
+> 3. `$$` in `/proc/$$/maps`, which PowerShell expands before the string reaches the
+>    camera — use the literal pid.
 
 ## 7a. The library set, by class
 

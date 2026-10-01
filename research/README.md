@@ -28,7 +28,7 @@ boundary is spelled out in [`docs/09-provenance.md`](../docs/09-provenance.md).
 | Directory | Files | Purpose |
 |---|---:|---|
 | `research/firmware/` | 213 | Firmware image structure: format analysis, carving, decompression, decryption, payload extraction. |
-| `research/device/` | 51 | Talking to the camera over USB: PTP/MTP, mass storage, enumeration, card and firmware pulling. The only group that needs a physical ZV-E10 attached. |
+| `research/device/` | 52 | Talking to the camera over USB: PTP/MTP, mass storage, enumeration, card and firmware pulling. The only group that needs a physical ZV-E10 attached. |
 | `research/disasm/` | 19 | Per-subsystem disassembly. Superseded for `av-cam.bin` by the `retool` package, kept for the other images. |
 | `research/crypt/` | 7 | Brute-force and cryptanalysis of the update/crypter paths. |
 | `research/diag/` | 7 | Diagnostics: offset, padding and size checks on carved regions. |
@@ -303,7 +303,7 @@ scripts by bare name.
 
 </details>
 
-<details><summary><code>research/device/</code> — 51 files</summary>
+<details><summary><code>research/device/</code> — 52 files</summary>
 
 
 - `audit_surface.py`
@@ -313,6 +313,7 @@ scripts by bare name.
 - `dump_helper2.py`
 - `dump_text.py`
 - `enum_usb.py`
+- `im_runtime_manifest.py`
 - `msc_diag.py`
 - `msc_dump.py`
 - `msc_intr_probe.py`

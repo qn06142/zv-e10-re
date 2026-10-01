@@ -1,0 +1,114 @@
+# Libraries actually mapped into im.elf (PID 157) in service mode,
+# ZV-E10 fw 2.02/2.03.  Captured 2026-10-01 by
+# research/device/im_runtime_manifest.py.
+#
+# Read live from /proc/157/maps, not inferred from libIMDB.so's
+# static manifest:
+#
+#   busybox grep -o '/usr/lib/[a-zA-Z0-9_.-]*' /proc/157/maps | busybox sort -u
+#
+# Ground truth: libIMDB.so names 174 libraries it MAY load; this is
+# the subset resident while the service shell is up.
+#
+# im.elf also holds /dev/dmpgles2 open (fd 31) -- it is the client
+# for the DMP SUGILITE graphics path (grm_gles.ko), which is why
+# the LCD still plays SD media in service mode with no application.
+#
+# count: 97
+/usr/lib/CameraOnDemandSaver.so
+/usr/lib/CautionConfig.so
+/usr/lib/CautionRsrcConfig.so
+/usr/lib/dataflowInfraFramework.so
+/usr/lib/libAK8975.so
+/usr/lib/libBTAdjust.so
+/usr/lib/libBTUtils.so
+/usr/lib/libBackupManager.so
+/usr/lib/libBizFw.so
+/usr/lib/libBizFw2.so
+/usr/lib/libBusPower.so
+/usr/lib/libEMG.so
+/usr/lib/libExternalCommand.so
+/usr/lib/libGOConnectionManager.so
+/usr/lib/libIMDB.so
+/usr/lib/libInfraAccessLog.so
+/usr/lib/libInfraAccessLogWrapper.so
+/usr/lib/libInfraAirplaneMode.so
+/usr/lib/libInfraBluetooth.so
+/usr/lib/libInfraBluetoothCore.so
+/usr/lib/libInfraBluetoothLowEnergy.so
+/usr/lib/libInfraCacheMgr.so
+/usr/lib/libInfraCameraProfile.so
+/usr/lib/libInfraDevInfoSender.so
+/usr/lib/libInfraExtBackupCommunicator.so
+/usr/lib/libInfraExtCmdSvc.so
+/usr/lib/libInfraFsys.so
+/usr/lib/libInfraHdmi.so
+/usr/lib/libInfraHttpClient.so
+/usr/lib/libInfraHttpClientUtil.so
+/usr/lib/libInfraIPTC.so
+/usr/lib/libInfraIPsec.so
+/usr/lib/libInfraKikiLogGenerator.so
+/usr/lib/libInfraKikiLogSender.so
+/usr/lib/libInfraLensCommunicator.so
+/usr/lib/libInfraMediaCommon.so
+/usr/lib/libInfraMediaDetect.so
+/usr/lib/libInfraMediaMount.so
+/usr/lib/libInfraMscServer.so
+/usr/lib/libInfraMtpServer.so
+/usr/lib/libInfraNetConnectionManager.so
+/usr/lib/libInfraNetConnectionManagerEther.so
+/usr/lib/libInfraNetDeviceInfo.so
+/usr/lib/libInfraNetInitializer.so
+/usr/lib/libInfraPtpControl.so
+/usr/lib/libInfraPtpExtCmd.so
+/usr/lib/libInfraRemote.so
+/usr/lib/libInfraSKD.so
+/usr/lib/libInfraUsbCmn.so
+/usr/lib/libJiritsu.so
+/usr/lib/libMWF.so
+/usr/lib/libNetCommon.so
+/usr/lib/libNetContUtil.so
+/usr/lib/libNetService.so
+/usr/lib/libObj.so
+/usr/lib/libOnDemandLoader.so
+/usr/lib/libResourceBluetooth.so
+/usr/lib/libRsrcHotshoe.so
+/usr/lib/libSKDWrapperManager.so
+/usr/lib/libSysDef.so
+/usr/lib/libUsbBusPower.so
+/usr/lib/libUsbControl.so
+/usr/lib/libWlanAdjust.so
+/usr/lib/libWlanControlCommon.so
+/usr/lib/libWlanResource.so
+/usr/lib/libbackup.so
+/usr/lib/libclema.so
+/usr/lib/libcompassutil.so
+/usr/lib/libcrypto.so.3
+/usr/lib/libcurl.so.4.8.0
+/usr/lib/libdig_level.so
+/usr/lib/libexpat.so.1.6.11
+/usr/lib/libgps_rsrc.so
+/usr/lib/libjemalloc_ds.so.1
+/usr/lib/libjsoncpp.so.23
+/usr/lib/libmintx.so
+/usr/lib/libmpr.so
+/usr/lib/libmprctrl.so
+/usr/lib/libmprdummy.so
+/usr/lib/libosal_uipc.so
+/usr/lib/libosal_ulogio.so
+/usr/lib/libosal_utm.so
+/usr/lib/libpro00.so
+/usr/lib/libptp.so
+/usr/lib/libsencore.so
+/usr/lib/libssh2.so.1.0.1
+/usr/lib/libssl.so.3
+/usr/lib/libstdc
+/usr/lib/libtestcmd.so
+/usr/lib/libupdatermedia.so
+/usr/lib/libupdatertalk.so
+/usr/lib/libupdaterufp.so
+/usr/lib/libusbcmd.so
+/usr/lib/libutil_date.so
+/usr/lib/libz.so.1.2.11
+/usr/lib/viewUnified2.so
+/usr/lib/viewUnified6.so

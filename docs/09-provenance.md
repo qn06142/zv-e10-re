@@ -27,6 +27,7 @@ Inventories of Sony binaries, not Sony binaries:
 research/firmware/elf_catalog.json     648 ELFs: name, size, e_type, DT_NEEDED
 research/firmware/prop_table.tsv       property keys -> type
 research/firmware/app_manifest.txt     the 174-library load order
+research/firmware/im_runtime_manifest.txt  the 97 libraries actually resident in im.elf
 research/firmware/libobj_exports.txt   520 export names
 ```
 
@@ -146,7 +147,7 @@ why no remote is configured now.
 The full sweep of **every** non-text path ever committed to this repository:
 
 ```
-updatershell/fdat/*.dat    12 files   upstream ma1co, published 2021 under MIT
+updatershell/fdat/*.dat    12 paths over history, 6 present   upstream ma1co, published 2021 under MIT
 research/firmware/libtestcmd.OPX.so     removed
 ```
 

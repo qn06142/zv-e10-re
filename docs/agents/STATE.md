@@ -35,26 +35,27 @@ fire-and-forget, no TCP listener, and **a patched icon font cannot appear becaus
 | run our own code as root | **done, proved** |
 | persistent code execution at boot | blocked on a deliberate decision + the camera |
 | command the RTOS subsystems | blocked on the RTOS message format |
-| command the application | blocked: not deployed, and boot mode unexplained |
+| command the application | blocked: entry point absent, and boot mode unexplained — but the engine underneath is **resident and in use**, so this is narrower than it was |
 | observe the firmware | `tmonitor` is writable and idle (`mask=0`) — untested |
 | offline RE | **not blocked**; everything below can proceed with the camera disconnected |
 
-## The camera is disconnected — this gates all device work
+## The camera is attached
 
-```
-Looking for Sony devices
-No devices found. Please make sure that the camera is connected.
-*** link never came up after every attempt ***
-```
+`research/device/zve10_retry.py` reaches the service shell, `/proc/modules` lists
+**47** modules, and the imaging manager is PID 157. Device work is unblocked;
+everything below that was gated on the camera being present is now live.
 
-`research/device/zve10_retry.py` cannot reach it. Nothing else is waiting on
-anything except the camera being present.
+**Camera state:** unchanged and as found. `libtestcmd.so` stock
+(`f370de888ae662e7f509f2274846eac6`), mode and ownership restored, no `.orig`
+left, `/tmp` scratch removed. The five persistence markers are still in place
+(`/setting/_audit1`, `/system/_audit2`, `/usr/bin/_marker3`, `/usr/share/_marker4`,
+`/usr/share/pmbp/_marker2`). `libIMDB.so` has **not** been touched.
 
-**Last known camera state:** unchanged and as found. `libtestcmd.so` stock, mode
-and ownership restored, no `.orig` left, `/tmp` scratch removed. The five
-persistence markers are still in place (`/setting/_audit1`, `/system/_audit2`,
-`/usr/bin/_marker3`, `/usr/share/_marker4`, `/usr/share/pmbp/_marker2`).
-`libIMDB.so` has **not** been touched.
+**The SD card does not release.** It stays mounted with `OperationalStatus:
+Unknown` and a blank volume label, and an eject never completes. Reads still work,
+so dumps can be taken, but the card is not being handed back — and recovery from
+the `libIMDB.so` one-way door depends on it. Treat "card confirmed working" as
+unproven.
 
 ---
 
@@ -122,6 +123,13 @@ the camera present **and a deliberate decision**, not more analysis.
    entries landing inside the file.
 6. **The palette is authoritative**, proved on hardware by a colour that appears
    nowhere in Sony's palette.
+7. **The engine is not dormant.** `libIMDB.so` names 174 libraries `im.elf` *may*
+   load; `/proc/157/maps` shows **97** actually resident, including `libObj.so`,
+   `libMWF.so`, `libSysDef.so` and two of the seven `viewUnified*` engines. What is
+   absent is the application *entry point*, not the machinery. `im.elf` also holds
+   `/dev/dmpgles2` open (fd 31) with `grm_gles` at refcount 2, so the DMP 2D engine
+   and the VDF OSD port are reachable in a live process that is not the application
+   — which makes an OSD injection a concrete option.
 
 Details in [`REFERENCE.md`](REFERENCE.md).
 
@@ -199,6 +207,9 @@ the time goes.
 # the only camera link; one command per arg
 & ".venv\Scripts\python.exe" research\device\zve10_retry.py "ls -l /usr/lib"
 
+# what is really resident in im.elf; two sessions, do not merge them
+& ".venv\Scripts\python.exe" -B research\device\im_runtime_manifest.py
+
 & ".venv\Scripts\python.exe" -m pytest -q
 & ".venv\Scripts\python.exe" -B research\firmware\check_docs.py   # docs integrity
 ```
@@ -230,6 +241,15 @@ derivations is in [`../06-method.md`](../06-method.md); the ones that bite most:
 | console output | the shell wrapper truncates at 25 lines. **Never trust a count or an absence from wrapped console output** — re-read through a filter that emits one line, or read `zve10_shell.log`. |
 | `dd` on this busybox | **no `conv=notrunc`.** Any `dd of=<live file>` truncates the target to the write offset. Use `cp`. |
 | base64 by hand | a single mistyped character once decoded to `0000` at the *id field of the next record*. Generate chunks programmatically; hash on the camera **before** writing. |
+| link is lossy at volume | a scan of `/proc/*/fd` across 263 processes floods the serial link and the **next** command's output arrives empty. Put the noisy query and the bulky query in **separate** sessions. |
+| `$$` never survives | PowerShell expands it, so `/proc/$$/maps` arrives as `/proc/<pc-pid>/maps` and reports nothing. Use the literal pid. |
+
+The last two are what made the runtime manifest return an empty list three times
+before it worked, each time as a *plausible empty result* rather than an error.
+Pinned by `tests/test_im_manifest.py`, which intercepts the tool's `run` and
+asserts on the commands it really issues — a text search for `$$` in the source
+would find it in the comment that documents the trap, and fail for the wrong
+reason.
 
 ## House rules that were violated before they were learned
 

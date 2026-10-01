@@ -34,11 +34,18 @@ palette was proved authoritative on hardware by a colour that appears nowhere in
 Sony's palette. The view files provably contain **no** colour field — 2.5×
 chance over 211,844 windows — so that line of attack is closed, cheaply.
 
-**Why the application seems missing.** `BOOTMODE=NORM`, no forcing file, no
-kernel flag, yet no application is loaded. The application core
-(`appFw.so`, `gui.so`, `libNVM.so`, `libInfraWebApi.so`) is named by the load
-manifest and simply is not on the filesystem. That one fact explains most of what
-initially looked like a dead end.
+**Why the application seems missing — and what is actually running.**
+`BOOTMODE=NORM`, no forcing file, no kernel flag, yet no application is loaded.
+The application core (`appFw.so`, `gui.so`, `libNVM.so`, `libInfraWebApi.so`) is
+named by the load manifest and simply is not on the filesystem.
+
+But the *entry point* is what is missing, not the machinery. The load manifest
+names 174 libraries `im.elf` may load; `/proc/<im.elf>/maps` shows **97** actually
+resident, including `libObj.so`, `libMWF.so`, `libSysDef.so` and two of the seven
+`viewUnified*` engines. And `im.elf` itself holds `/dev/dmpgles2` open with
+`grm_gles` at refcount 2 — which is the mechanism behind the LCD still playing SD
+media in service mode. The DMP 2D engine and the VDF OSD port therefore sit in a
+live process that is not the application.
 
 ## Start here
 
@@ -48,12 +55,12 @@ initially looked like a dead end.
 | [`docs/agents/REFERENCE.md`](docs/agents/REFERENCE.md) | **one page, self-contained** — the measured facts: hashes, offsets, id tables, format layouts |
 | [`docs/README.md`](docs/README.md) | the granular per-subject reference, `01`–`09` |
 | [`avcam_re/HARDWARE_OVERVIEW.md`](avcam_re/HARDWARE_OVERVIEW.md) | `av-cam.bin` internals: topology, register model, ISP/codec pipeline |
-| [`research/README.md`](research/README.md) | 317 analysis scripts, indexed |
+| [`research/README.md`](research/README.md) | 320 analysis scripts, indexed |
 
 Every load-bearing claim is reproducible by a tracked script:
 
 ```powershell
-& ".venv\Scripts\python.exe" -B -m pytest -q      # 68 pass, 4 skip (need the SD card)
+& ".venv\Scripts\python.exe" -B -m pytest -q      # 86 pass, 12 skip (need the SD card)
 & ".venv\Scripts\python.exe" -B research\firmware\check_docs.py
 ```
 

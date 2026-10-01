@@ -733,52 +733,101 @@ images, selected by mode.
 
 ## The application is not deployed
 
-### But the display pipeline is alive — narrower than "everything is absent"
+### But the display pipeline is alive — and `im.elf` is what drives it
 
-**Observed by the author, not yet measured here, and worth confirming when the
-camera is next attached: in service mode the LCD falls back to playing back media
-from the SD card.**
+Measured on the device, 2026-10-01. Three checks, and the third answered
+everything.
 
-That matters, because it separates two things this document had been running
-together. The *display* pipeline works in service mode — something decodes SD
-media, composes it and drives the panel. What is absent is specifically the
-**camera application**: `camuser.elf`, `appFw.so`, `gui.so`, `libNVM.so`,
-`libInfraWebApi.so`.
+**1. The node exists and the modules are loaded.**
 
-So the correct reading of the "application is not deployed" finding is not
-"nothing is running". It is:
+```
+$ busybox ls -l /dev/dmp*
+crwxrwxrwx  1 0 0  248,  29 Feb 23  2018 /dev/dmpgles2
+
+$ busybox grep grm /proc/modules
+grm_ma     19628  0  -  Live 0x5f3f0000 (P)
+grm_gles    9304  2  -  Live 0x5f3f8000 (P)
+```
+
+`grm_gles` is loaded with **refcount 2**. `grm_ma` sits alongside it.
+
+**2. Something holds it open — and it is PID 157.**
+
+```
+$ busybox ls -l /proc/*/fd/ 2>/dev/null | busybox grep dmpgles
+lrwx------  1 0 0  64  Jan  1 00:13  31 -> /dev/dmpgles2
+
+$ for p in /proc/[0-9]*; do ls -l $p/fd 2>/dev/null | busybox grep -q dmpgles && echo $p; done
+/proc/157
+
+$ cat /proc/157/comm
+im.elf
+$ ls -l /proc/157/exe
+/proc/157/exe -> /usr/bin/im.elf
+```
+
+**`im.elf` — the imaging manager — is the live client for the DMP/SUGILITE
+graphics path.** It owns the message bus, mounts every filesystem, *and* drives
+the display.
+
+**3. And `libObj.so` is mapped into it.**
+
+| | in `/proc/157/maps` |
+|---|---:|
+| `libObj.so` | 3 |
+| `viewUnified2.so`, `viewUnified6.so` | 6 |
+| `libMWF.so` | 3 |
+| `libSysDef.so` | 3 |
+| distinct `/usr/lib` libraries | **97** |
+| open file descriptors | 98 |
+
+Captured with
+
+```sh
+busybox grep -o '/usr/lib/[a-zA-Z0-9_.-]*' /proc/157/maps | busybox sort -u
+```
+
+and stored as **`research/firmware/im_runtime_manifest.txt`**.
+
+> **A ground-truth runtime manifest**, and a better instrument than
+> `libIMDB.so`'s static one. The manifest names 174 libraries it *may* load; this
+> is the subset resident while the service shell is up. The difference is the
+> finding: it is 97, and it includes the engine.
+
+> **Correction.** This document previously said *"the service filesystem carries
+> the camera's rendering engine, its view layer and its 81 MB of resources, but
+> not the application that uses them."* Wrong in its implication.
+> **`libObj.so` is not a dormant asset — it is mapped into a running process**,
+> together with two of the seven UI engines and the whole MWF framework. What is
+> absent is the application *entry point* (`camuser.elf`, `gui.so`, `appFw.so`,
+> `libNVM.so`), not the machinery underneath.
+
+Only `viewUnified2` and `viewUnified6` are resident, not all seven — consistent
+with one screen class being active rather than the whole engine family loaded.
+
+### What this does to the picture
 
 | | service mode |
 |---|---|
-| display pipeline | **running** — SD playback on the LCD |
-| DMP/SUGILITE graphics path | loaded (`grm_gles.ko` in the 47), client unconfirmed |
-| camera application | absent |
+| display pipeline | **running** — `im.elf` on `/dev/dmpgles2`, SD playback on the LCD |
+| UI engine | **loaded** — `viewUnified2/6`, `libObj.so`, `libMWF`, `libSysDef` |
+| camera application entry point | absent |
 | sensor / imaging | idle — nothing drives `msen_drv.ko` |
 | UIPC bus | idle — `LMSGQ`/`LSEM` empty |
 | network | one DHCP socket |
 
-That is a much more tractable system than "the machine is dead", and it is why
-an OSD injection is worth considering: the compositing path is evidently up
-without the application, so the question becomes whether the DMP 2D engine
-(`GRM_gpermRectblit`, `DMP_2D_RectBlitParams`, `utilDMP2D_rectBlitDraw`) and the
-VDF OSD port (`vdf_if_port_send_update(update_osd_record*, int*)`) can be
-reached from a process that is *not* the application.
+It also explains the screen. The author observes the LCD falling back to SD
+playback, and `im.elf` holding the graphics node is the mechanism.
 
-**Three checks would settle it**, and all three need service mode:
+**And it makes an OSD injection a real option rather than a fantasy.** The DMP 2D
+engine (`GRM_gpermRectblit`, `DMP_2D_RectBlitParams`, `utilDMP2D_rectBlitDraw`)
+and the VDF OSD port (`vdf_if_port_send_update(update_osd_record*, int*)`) live
+in `libObj.so`, which is **already resident in a live process with the graphics
+node open**. Nothing about the display path requires the application.
 
-```sh
-busybox ls -l /dev/dmp*                      # is the node there?
-busybox grep -c grm /proc/modules            # is the module loaded?
-busybox grep -i dmp /proc/iomem              # did the BAR remap succeed?
-# and the decisive one: which process has the node open
-busybox ls -l /proc/*/fd/ 2>/dev/null | busybox grep dmp
-```
-
-The last one names the process that is driving the display right now, which is
-the entry point to the whole path. `libObj.so` also exports
-`GRM_bitmapGetPhysicalAddress` and `GRM_screenGetOnBitmap`, so if the answer is
-a process with `libObj.so` mapped, the application library is in use after all
-and the "not deployed" finding needs narrowing further.
+`/proc/iomem` shows no `dmp` or `sugi` region, so the remapped BAR is not named
+that way there; the driver's own `!!! GPE HW: bar remapped 0x%08x->0%p` string is
+the better record of it.
 
 ### The absence itself
 
