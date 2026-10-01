@@ -2,14 +2,28 @@
 
 This repository exists because other people built the things it stands on. The
 ZV-E10-specific reverse engineering in `docs/`, `avcam_re/` and `research/` is the
-new work. Everything under `pmca/` and most of `updatershell/` is not ours, and
-this file says whose it is.
+new work.
 
-## Upstream — the code this is built on
+**This file credits two different categories, and they are not the same thing:**
+
+| | |
+|---|---|
+| **[Contributors](#upstream--code-in-this-repository)** | their **code is in this repository** — they authored the commits and the files |
+| **[Sources](#prior-art--consulted-not-contributed)** | we **read and cited** their public work; **nothing of theirs is in this tree** |
+
+Only the first group contributed to this repository. The second are credited for
+prior art, which is a different kind of debt and should not be read as
+contribution.
+
+---
+
+# Contributors
+
+## Upstream — code in this repository
 
 **[`ma1co/Sony-PMCA-RE`](https://github.com/ma1co/Sony-PMCA-RE)** — MIT License,
 © 2015 ma1co. This repository is a fork of it, and `LICENSE.txt` is theirs
-unchanged.
+unchanged. They authored **260 of the 368 commits** here.
 
 Carried over from upstream:
 
@@ -57,7 +71,16 @@ republished here.
 — consumed correctly as a git submodule at `updatershell/platform`, pointing at
 `85bcb54`. Not vendored, so not forked.
 
-## Prior art — read, cited, not vendored
+## Prior art — consulted, not contributed
+
+**Nothing in this section is a contribution to this repository.** These projects
+were read, cited, and checked out locally for reference. No source from any of
+them was copied into this tree, and none of their authors appear in this
+repository's commit history.
+
+They are credited because the work here would not have been possible without
+them, and because leaving out the debt would be dishonest — not because they
+contributed to this.
 
 These are checked out locally and git-ignored. They informed the work and are
 credited here rather than copied in, because copying them would fork someone
@@ -84,7 +107,9 @@ analysable with IDA on a sibling body.
 A firmware-image unpacker for FDAT updates, ported from nex-hack's `fwtool` and
 extended to the models this project targets.
 
-## Hardware and firmware
+---
+
+# What was reverse engineered
 
 Reverse engineered from a **Sony ZV-E10**, firmware 2.02/2.03, kernel
 `3.0.27_nl-rt106+`. No Sony source, binary or resource is redistributed here —

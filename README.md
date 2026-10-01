@@ -115,12 +115,18 @@ The boundary, including the one upstream exception, is in
 
 ## Credits and AI disclosure
 
-Attribution for the code this builds on is in
-**[`CREDITS.md`](CREDITS.md)**: ma1co's `Sony-PMCA-RE` and its four other
-contributors, **Erik Smit**'s [nex-hack](https://github.com/erik-smit/nex-hack)
-(the foundational public Sony NEX reverse-engineering work, and the direct
-ancestor of the unpacking here), `steelcnn`'s copy, `fwtool.py`, and
-`OpenMemories-Platform`.
+Two different things are credited in **[`CREDITS.md`](CREDITS.md)**, and they are
+deliberately kept apart:
+
+- **Code in this repository** — `pmca/`, `updatershell/`, the entry points and the
+  CI configs are upstream's, from **[ma1co/Sony-PMCA-RE](https://github.com/ma1co/Sony-PMCA-RE)**
+  (MIT, © 2015 ma1co) and its four other contributors. They authored 260 of the
+  368 commits here.
+- **Prior art consulted, not vendored** — nothing of
+  **[Erik Smit's nex-hack](https://github.com/erik-smit/nex-hack)** or
+  `steelcnn/nex-hack` is in this tree. They are credited because their public
+  work was read and cited while working out the Sony firmware unpacking and
+  `av-cam` structure, not because they contributed anything to this repository.
 
 **The reverse engineering was carried out with AI coding agents** — Hermes Agent,
 OpenCode, Antigravity and Codex. That file also sets out what the results do and
