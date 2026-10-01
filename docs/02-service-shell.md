@@ -733,6 +733,55 @@ images, selected by mode.
 
 ## The application is not deployed
 
+### But the display pipeline is alive — narrower than "everything is absent"
+
+**Observed by the author, not yet measured here, and worth confirming when the
+camera is next attached: in service mode the LCD falls back to playing back media
+from the SD card.**
+
+That matters, because it separates two things this document had been running
+together. The *display* pipeline works in service mode — something decodes SD
+media, composes it and drives the panel. What is absent is specifically the
+**camera application**: `camuser.elf`, `appFw.so`, `gui.so`, `libNVM.so`,
+`libInfraWebApi.so`.
+
+So the correct reading of the "application is not deployed" finding is not
+"nothing is running". It is:
+
+| | service mode |
+|---|---|
+| display pipeline | **running** — SD playback on the LCD |
+| DMP/SUGILITE graphics path | loaded (`grm_gles.ko` in the 47), client unconfirmed |
+| camera application | absent |
+| sensor / imaging | idle — nothing drives `msen_drv.ko` |
+| UIPC bus | idle — `LMSGQ`/`LSEM` empty |
+| network | one DHCP socket |
+
+That is a much more tractable system than "the machine is dead", and it is why
+an OSD injection is worth considering: the compositing path is evidently up
+without the application, so the question becomes whether the DMP 2D engine
+(`GRM_gpermRectblit`, `DMP_2D_RectBlitParams`, `utilDMP2D_rectBlitDraw`) and the
+VDF OSD port (`vdf_if_port_send_update(update_osd_record*, int*)`) can be
+reached from a process that is *not* the application.
+
+**Three checks would settle it**, and all three need service mode:
+
+```sh
+busybox ls -l /dev/dmp*                      # is the node there?
+busybox grep -c grm /proc/modules            # is the module loaded?
+busybox grep -i dmp /proc/iomem              # did the BAR remap succeed?
+# and the decisive one: which process has the node open
+busybox ls -l /proc/*/fd/ 2>/dev/null | busybox grep dmp
+```
+
+The last one names the process that is driving the display right now, which is
+the entry point to the whole path. `libObj.so` also exports
+`GRM_bitmapGetPhysicalAddress` and `GRM_screenGetOnBitmap`, so if the answer is
+a process with `libObj.so` mapped, the application library is in use after all
+and the "not deployed" finding needs narrowing further.
+
+### The absence itself
+
 This is the finding that ends the search. Of the 174 libraries the manifest
 names, the ones actually present in `/usr/lib` are the **assets**:
 
