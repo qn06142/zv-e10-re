@@ -304,6 +304,43 @@ is the program: `main` (30), `_start` (49), `/lib/ld-linux.so.3`, `libc.so.6`,
 table is unreadable by pyelftools (`expected 4, found 0`) but a raw byte search
 shows an ordinary dynamically-linked ARM ELF.
 
+## 7a. The library set, by class
+
+From `research/firmware/elf_catalog.json` (650 entries, 591 distinct basenames,
+2,790 DT_NEEDED edges). Reproduce with `research/firmware/dep_graph.py`; pinned
+by `tests/test_dep_graph.py`.
+
+| class | count | what it is |
+|---|---:|---|
+| carved fragments | 231 | ELFs recovered from a raw image dump (`elf_XXXXXXXX.so`); **not files the camera has** |
+| degenerate | 134 | no imports, no DT_NEEDED, no exports — `camuser.elf`, `libJiritsu.so` |
+| **readable shared objects** | **165** | real `ET_DYN` libraries |
+| readable executables | 61 | |
+| readable relocatables | 0 | |
+
+The four classes partition the 591 basenames exactly.
+
+**`123` of the 165 readable shared objects are `DT_NEEDED` by nothing:**
+
+| | count |
+|---|---:|
+| scenario plugins, `dlopen`ed by name | 35 |
+| `libInfra*` / `viewUnified*`, loaded by `libOnDemandLoader` | 40 |
+| distro runtime and updater tools | 48 |
+
+> **Corrected.** An earlier figure said *"313 of 391 shared objects"*. It does
+> not reproduce: 313 counted the carved and degenerate classes as libraries.
+
+Most depended-upon: **`libosal_uipc.so` 166**, `libbackup.so` 68, `libosal_utm.so`
+41, `libMWF.so` 29, `libtestcmd.so` 20.
+
+Two traps this exposes. `libObj.so` appears **twice** with opposite outcomes — an
+81,920-byte truncated decoy that yields nothing, and the real 21,305,456-byte
+file with 1,904 exports — so a basename must count as readable if *any* copy
+parsed. And `libJiritsu.so` (114,688 B) **is** on the camera, which answers the
+open question in `05-formats.md`, but it is degenerate, so real member names need
+the binary and therefore the device.
+
 ## 8. The command vocabulary
 
 Two id spaces, and conflating them is what stalled the work:

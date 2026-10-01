@@ -207,9 +207,20 @@ they need one at a time with a timeout.
   by name through `scenario.elf`. Includes `MPR_SCN_SET_FACTORY_MODE`,
   `MPR_SCN_EXEC_FACTORY_MODE`, `MPR_SCN_FORMAT`, `MPR_SCN_EXEC_WIFI_TEST`,
   `CAMERA_SCN_MOVIE_REC_START`, and the `AVBB_SCN_START/STOP_*` family.
-- 391 shared objects catalogued, 313 not `DT_NEEDED` by anything — loaded at
-  runtime by `libOnDemandLoader.so` (`OnDemandLoaderInitialize`), each attaching
-  via its `Obj*_RegisterCommand`.
+- **165 readable shared objects**, of which **123 are not `DT_NEEDED` by
+  anything** — 35 are the scenario plugins, 40 are the `libInfra*`/`viewUnified*`
+  block loaded by `libOnDemandLoader.so` (`OnDemandLoaderInitialize`), and 48 are
+  distro runtime and updater tools. Each library attaches via its
+  `Obj*_RegisterCommand`.
+
+  > **Corrected figure.** An earlier count said *"391 shared objects catalogued,
+  > 313 not DT_NEEDED"*. That total included two classes of entry which are not
+  > shared objects at all: **231 carved fragments** recovered from a raw image
+  > dump (`elf_XXXXXXXX.so`, `*_0xXXXXXXXX.bin`), which the camera does not have
+  > as files, and **134 degenerate entries** carrying no imports, no `DT_NEEDED`
+  > and no exports — `camuser.elf` among them, whose section table is unreadable.
+  > Reproduce with `research/firmware/dep_graph.py`; the counts are pinned by
+  > `tests/test_dep_graph.py`.
 
 ## procfs
 
@@ -693,8 +704,9 @@ Consequences:
 - The UIPC bus is empty, the scenario runner is silent, and there is no TCP
   listener, because none of the peers on the other end of those interfaces are
   loaded.
-- `libOnDemandLoader` explains the 313 "orphaned" shared objects: they are a
-  plugin set, and in service mode nothing loads them.
+- `libOnDemandLoader` explains the orphaned shared objects: 40 of the 123 are
+  the `libInfra*`/`viewUnified*` block, a plugin set that in service mode nothing
+  loads.
 
 **The housekeeping core cannot reach the camera application, because the
 application is not on its filesystem.** Everything reachable from here is

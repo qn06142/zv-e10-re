@@ -391,8 +391,17 @@ whole approach. Against the full 291-screen set, **197 files reference the
 1. **Semantic names for the raw class ids and property keys.** The blocker is
    named precisely: `libJiritsuUIView.so` is not in the archive, and it was not
    in the `/usr` tree either — the engine family is `viewUnified2..8.so` plus
-   `libSysDef.so` and `libObj.so`. If a Jiritsu library exists under another
-   name, its `.dynsym` is the fastest route to real member names.
+   `libSysDef.so` and `libObj.so`.
+
+   > **This lead is closed as far as the catalog can close it.** There *is* a
+   > Jiritsu library on the camera — `/usr/lib/libJiritsu.so`, 114,688 B — so the
+   > premise "if one exists under a different name" is answered. But its catalog
+   > entry is **degenerate**: no imports, no `DT_NEEDED`, no exports, and no
+   > `stripped` flag, which is the signature of a file whose ELF structure the
+   > parser could not walk. The same class as `camuser.elf`. Nothing can be read
+   > out of it without the binary itself, so **this needs the device**, not more
+   > offline analysis. Pinned by
+   > `tests/test_dep_graph.py::test_jiritsu_lead_is_closed_offline`.
 2. **The style TLV** (lever 2): layout solved, record length not.
 3. **`area_check_data.dat`** (1.2 MB, magic `UXAC`) is untouched.
 4. The engine is a **family of seven**, one per screen class, and

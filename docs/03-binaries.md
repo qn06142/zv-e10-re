@@ -1,6 +1,6 @@
 # 03 — Binaries: what is on the camera and how it links together
 
-Produced by `research/firmware/elf_catalog.py` over 648 ELF files in the dumps.
+Produced by `research/firmware/elf_catalog.py` over 650 ELF files in the dumps.
 Everything in the catalog sections comes from ELF headers and symbol tables — no
 disassembly. The full 520-name export list is in
 `research/firmware/libobj_exports.txt`.
@@ -130,12 +130,31 @@ are the two generic view constructors.
 
 ## The plugin architecture
 
-**313 of 391 shared objects are not `NEEDED` by anything in the dumps.** They are
-not orphans; they are `dlopen`ed at runtime. `libOnDemandLoader.so`
+**123 of the 165 readable shared objects are not `NEEDED` by anything.** They
+are not orphans; they are `dlopen`ed at runtime. `libOnDemandLoader.so`
 (`OnDemandLoaderInitialize`, `odl_init`, `odl_res`, `odl_sus`) is the mechanism,
 and the uniform `Obj*_RegisterCommand` / `_UnregisterCommand` pairs are how each
 one attaches and detaches. So the library set is a plugin set, and a file being
-unreferenced by any `DT_NEEDED` means nothing at all.
+unreferenced by any `DT_NEEDED` means nothing at all. The 123 break down as 35
+scenario plugins, 40 in the `libInfra*`/`viewUnified*` block that
+`libOnDemandLoader` accounts for, and 48 that are distro runtime
+(`libnl-*`, strongswan, curl, opus, zlib) or updater-side tools.
+
+> **Corrected figure.** This used to read *"313 of 391 shared objects"*, and the
+> 313 does not reproduce. The 591 catalog basenames partition into **231 carved
+> fragments** — ELFs recovered from a raw image dump, not files the camera has —
+> **134 degenerate entries** with no imports, no `DT_NEEDED` and no exports
+> (`camuser.elf` among them), **165 readable shared objects**, and **61 readable
+> executables**. Counting the first two classes as shared objects is what
+> produced 313. Reproduce with `research/firmware/dep_graph.py`; pinned by
+> `tests/test_dep_graph.py::test_orphan_count_is_123_not_313`.
+
+One trap worth naming, because it is the same shape as the ones in
+[06-method.md](06-method.md): `libObj.so` appears **twice** in the catalog with
+opposite outcomes — an 81,920-byte truncated decoy that yields nothing, and the
+real 21,305,456-byte file under `dumps/engine/` carrying 1,904 exports. A count
+keyed on basename must treat a name as readable if *any* copy parsed, or the
+real library is discarded along with the decoy.
 
 The 59 `*_SCN_*.so` plugins in `/usr/share/scenario` are the visible face of this,
 each exporting exactly `scenario_run`, driven by `/usr/bin/scenario.elf`:
@@ -539,4 +558,17 @@ resolve and load the named plugin, so `LOG_OK` is not merely "the binary
 exited cleanly". It does **not** yet prove the message reached the application —
 exit 0 is equally consistent with a message queued to an endpoint nobody is
 listening on, which is what an empty `LMSGQ` predicts.
+
+## Tools
+
+```powershell
+& ".venv\Scripts\python.exe" -B research\firmware\elf_catalog.py   # build the ELF inventory
+& ".venv\Scripts\python.exe" -B research\firmware\dep_graph.py     # DT_NEEDED graph, orphans, entry classes
+```
+
+`dep_graph.py` reads only `research/firmware/elf_catalog.json`, which is tracked,
+so it runs on a fresh checkout with **no camera binaries present**. It classifies
+every basename as carved / degenerate / readable, shows that the classes
+partition exactly, and splits the DT_NEEDED orphans into the three groups above.
+Pinned by `tests/test_dep_graph.py`.
 
