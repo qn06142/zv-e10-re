@@ -22,6 +22,14 @@ process owning 417 message queues — is the interesting target and has
 deliberately *not* been touched, because a malformed replacement costs the
 service shell and the only way back is an SD card.
 
+**A live view of the RTOS.** `/proc/tmonitor` returns a ~50 ms window of the
+real-time scheduler: 60+ tasks, wait channels with **kernel addresses**, a
+`MODULE::task` map from the firmware's modules to their work, and an IRQ
+hot-spot profile. It names `osal_rcv_msg_tmo` and `osal_wai_sem_tmo` — the RTOS
+message-bus primitives — at addresses. `mask=0` in the kernel command line means
+nothing is masked out; the facility had been recorded as idle and unused, which
+was wrong.
+
 **The camera's command vocabulary.** The scenario plugins' message ids are
 immediates in code, not data; sweeping `movw`/`movt` across all 35 recovered 96
 distinct values, which `libSysDef.so`'s self-describing tables then name. The
@@ -55,12 +63,12 @@ live process that is not the application.
 | [`docs/agents/REFERENCE.md`](docs/agents/REFERENCE.md) | **one page, self-contained** — the measured facts: hashes, offsets, id tables, format layouts |
 | [`docs/README.md`](docs/README.md) | the granular per-subject reference, `01`–`09` |
 | [`avcam_re/HARDWARE_OVERVIEW.md`](avcam_re/HARDWARE_OVERVIEW.md) | `av-cam.bin` internals: topology, register model, ISP/codec pipeline |
-| [`research/README.md`](research/README.md) | 320 analysis scripts, indexed |
+| [`research/README.md`](research/README.md) | 321 analysis scripts, indexed |
 
 Every load-bearing claim is reproducible by a tracked script:
 
 ```powershell
-& ".venv\Scripts\python.exe" -B -m pytest -q      # 86 pass, 12 skip (need the SD card)
+& ".venv\Scripts\python.exe" -B -m pytest -q      # 109 pass, 12 skip (need the SD card)
 & ".venv\Scripts\python.exe" -B research\firmware\check_docs.py
 ```
 

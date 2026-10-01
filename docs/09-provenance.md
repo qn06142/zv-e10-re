@@ -28,6 +28,7 @@ research/firmware/elf_catalog.json     648 ELFs: name, size, e_type, DT_NEEDED
 research/firmware/prop_table.tsv       property keys -> type
 research/firmware/app_manifest.txt     the 174-library load order
 research/firmware/im_runtime_manifest.txt  the 97 libraries actually resident in im.elf
+research/firmware/tmonitor_trace.txt   the /proc/tmonitor RTOS trace
 research/firmware/libobj_exports.txt   520 export names
 ```
 

@@ -253,8 +253,10 @@ cxd900x0.bam=N   xrstreq=1   wdt.mode=1   ip=off
 **`/` is a ramdisk** (`root=/dev/ram0`), which is why `/bin` and `/initrd` read as
 empty and why `/` being read-only costs nothing. `/usr`, `/system`, `/setting`,
 `/lens`, `/log`, `/cert` are flash partitions. The kernel also publishes log and
-trace buffer addresses, and `tmonitor` is a 32 KB region at `0xF00000` currently
-masked off.
+trace buffer addresses, and `tmonitor` is a 32 KB region at `0xF00000` whose
+`mask=0` means nothing is masked out — it is live, and
+`busybox cat /proc/tmonitor` returns an RTOS scheduler trace
+([`agents/REFERENCE.md`](agents/REFERENCE.md) §16a).
 
 `/system/sabin/` holds `ssboot.bin` (11,280), `ssboot_any.bin` (9,648),
 `idt_cam.bin` (176,528), `sa_dfdet.bin` (156,292). And
@@ -1122,8 +1124,10 @@ Gaps 1, 4, 5 and 7 are closed above. What remains:
    which is freed after boot, so it cannot be dumped from a running camera.
 7. **`liro.ko` internals.** Staged on the card. It loads the firmware with
    `debug=1`, so it may expose a debug interface that has not been looked for.
-8. **`tmonitor`** at `0xF00000`, 32 KB, currently masked off — a kernel module
-   is loaded under that name, so the facility exists and is unused.
+8. **`tmonitor`** at `0xF00000`, 32 KB. ~~Currently masked off, facility exists
+   and is unused.~~ **Resolved — it works.** `mask=0` means *nothing masked out*,
+   not "off". `busybox cat /proc/tmonitor` returns a live ~50 ms RTOS scheduler
+   trace; see [`agents/REFERENCE.md`](agents/REFERENCE.md) §16a.
 9. **`DmmConfig.bin`** — the shared-memory layout for the `dmm` module, staged
    on the card, unparsed.
 

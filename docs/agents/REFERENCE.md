@@ -40,7 +40,9 @@ cxd900x0.bam=N   xrstreq=1   wdt.mode=1   ip=off
 ```
 
 `/` is a **ramdisk**, so `/bin` and `/initrd` read empty and `/` being read-only
-costs nothing. `tmonitor` is a 32 KB region at `0xF00000`, currently masked off.
+costs nothing. `tmonitor` is a 32 KB region at `0xF00000`, and `mask=0` means
+**nothing is masked out** — the most permissive setting, not "off". It works: see
+[§16a](#16a-proctmonitor--the-rtos-task-trace).
 
 ## 2. Mount table
 
@@ -917,3 +919,139 @@ total length at offset **`0x2c`**.
 
 `libtestcmd.so` is version 1.7, built Mar 15 2025. GCC 4.5.1, glibc 2.4, Thumb.
 It disassembles offline with full section headers — unlike `av-cam.bin`.
+
+## 16a. `/proc/tmonitor` — the RTOS task trace
+
+`tmonitor` was recorded as "writable and idle (`mask=0`) — untested". It is
+neither idle nor untested: **reading `/proc/tmonitor` returns a working trace of
+the RTOS scheduler**, and `mask=0` means *no module is masked out* — the most
+permissive setting, not a disable.
+
+```sh
+busybox cat /proc/tmonitor
+```
+
+Each read is a fresh **~50 ms live window**, not a stored snapshot: successive
+reads start at t=499 s, 1064 s, 1204 s, 1245 s and give different counts. Raw
+capture in `research/firmware/tmonitor_trace.txt`, produced by
+`research/firmware/tmonitor.py`, pinned by `tests/test_tmonitor.py`.
+
+Three record forms:
+
+```
+[  499.413651 ] -sched next:2016 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) \
+                                task:liro-kliro_66 cpu:2 prio:147
+[  499.414091 ] -profile user irq:129,9 cpu:1
+[  499.476338 ] -profile user CPM::JudPrm cpu:0
+```
+
+### Two kernels, one machine
+
+`liro-kliro_*` tasks are the RTOS, hosted on Linux threads. The wait channels
+name **both** kernels, and their addresses separate cleanly:
+
+| space | range | examples |
+|---|---|---|
+| **LiRo** (RTOS kernel + its modules) | `0x5f0d`–`0x5f5xxxx` | `trcv_mbf`, `twai_flg`, `tslp_tsk`, `osal_*`, `tx_thread`, `hdmi_workqueue` |
+| **Linux** | `0x60xxxxxx` and up | `run_ksoftirqd`, `irq_thread`, `hrtimer_nanosleep`, `poll_schedule_timeout`, `do_wait` |
+
+The split is at `0x60000000` and it is not fitted to the labels — every symbol on
+each side is independently recognisable, with no exceptions. Cross-checked
+against `/proc/modules`, which puts `grm_ma` at `0x5f3f0000` and `grm_gles` at
+`0x5f3f8000`, inside the LiRo range.
+
+### The RTOS message primitives, addressed
+
+The two the offline work wanted are in the trace, with addresses:
+
+| symbol | base | what it is |
+|---|---:|---|
+| `osal_rcv_msg_tmo` | `0x5f0484ec` | receive a message, with timeout — **the RTOS message bus** |
+| `osal_wai_sem_tmo` | `0x5f049ac4` | wait on a semaphore, with timeout |
+| `trcv_mbf` | `0x5f4dfe34` | the dominant wait channel: message-buffer receive |
+| `twai_flg` | `0x5f4deab4` | flag/semaphore wait |
+| `tslp_tsk` | `0x5f4ddf80` | task sleep |
+| `utimer_res_sleep` | `0x5f054bd8` | RTOS timer |
+
+`trcv_mbf` alone accounts for roughly a quarter of all blocked-task samples, so
+the RTOS spends most of its time waiting on message buffers. That is the
+primitive `sndcmd.elf` drives.
+
+### Module → task map
+
+`-profile user` records carry `MODULE::task` names — a direct map from
+`av-cam.bin`'s modules to the work they do. **15 module prefixes, 30 task names**,
+in three spellings that must not be normalised: `LC::HS_Mai` (two colons),
+`ALL:HS_Mai` (one), `K_AFMAP` (none).
+
+| prefix | tasks | |
+|---|---|---|
+| `LC` | 6 | `HS_Mai`, `HS_Smp`, `VD_Pos`, `VD_Pos_PR`, `VD_Pre`, `BNB_Wai` |
+| `ALL` | 4 | `VD_Drv`, `VD_Pos`, `VD_Pre`, `HS_Mai` |
+| `TC` | 4 | `VD_Pos`, `VD_Pos_PR`, `HS3_Mai_1`, `HS3_Mai_2`, `VD_Seq S` |
+| `EC`, `YC`, `FW`, `LM` | 2 each | `FS_Chk`, `UpdAcs`, … |
+| `CA`, `CPM`, `IDT`, `IM`, `LENS`, `MEC`, `SR` | 1 each | `JudPrm`, `OPD_TOP`, `HS3_Mai`, `VD_Drv` |
+
+`HS_Mai` / `HS3_Mai` / `HS_Smp` recur across `LC`, `TC`, `EC`, `YC` and `LENS`, so
+the same handler name is instantiated per module. `FW::UpdAcs` and `CPM::JudPrm`
+are firmware-update related.
+
+### IRQ hot spots
+
+The same records report `irq:<n>,<count>`. Two IRQs dominate, stably across
+windows:
+
+| irq | total | |
+|---:|---:|---|
+| 84 | ~1,275 | |
+| 201 | ~1,166 | |
+| 158, 204, 83, 215, 101 … | 319 and below | a clear step down to third |
+
+Top two together outweigh all the others combined (2,441 vs 1,968). The claim is
+dominance plus a gap, not a ratio — successive windows give top-two sums of 2441,
+2487 and 2746 against a tail steady near 1970, so `top2 > rest` holds but
+`top2 > 2 × rest` does not.
+
+### Three traps in this one node
+
+1. **`wchan:0(0)` is information.** It means runnable, and it is the largest
+   single group. Dropping it biases every wait statistic towards blocked tasks.
+2. **Symbol names are not identities.** Address `0x60293424` is emitted as both
+   `tty_insert_flip_string_fixed_flag` (33 chars) and
+   `tty_insert_flip_string_fixed_fl` (31) — the short one a strict prefix of the
+   long one, same offsets. `vmlinux.bin` settles it: the long name is
+   NUL-terminated in the kernel table, the short form has no exact hit at all, so
+   **the trace emitted a clipped copy of a real name**. Group by address.
+   This is one occurrence, not a clip width — 31 and 33 do not fit a 32-byte
+   buffer, and no other address in the window carries two names.
+3. **A task name can contain a space** — `TC::VD_Seq S`. Matching the name as
+   `\S+` drops the record on the floor.
+
+### What it does not give: the LiRo kernel image
+
+The trace names *and* addresses its symbols, so nothing is lost. But the images on
+disk cannot resolve the LiRo side, and this is a checked negative rather than an
+assumption:
+
+| image | `trcv_mbf`, `tslp_tsk`, `osal_rcv_msg_tmo`, `tx_thread`, `hdmi_workqueue`, `utimer_res_sleep` |
+|---|---|
+| `vmlinux.bin` (4.1 MB) | **0 hits** — it is the Linux kernel only |
+| `av-cam.bin` (17.3 MB) | **0 hits** |
+
+`av-cam.bin` does contain `twai_flg` (1 exact hit) and `osal_wai_sem_tmo` (2),
+which are the symbols firmware *modules* call rather than ones the kernel defines.
+So the LiRo kernel binary — which defines the trace's most interesting wait
+channels — is in neither image. Locating it is a separate problem.
+
+### Capture hygiene
+
+`zve10_shell.py` opens `zve10_shell.log` with mode **`"w"`**, so every session
+**truncates** the previous one. `zve10_shell.log` is a per-session scratch file,
+not a cumulative record. An extraction of this trace was summarised from the log
+and then destroyed by the next three commands — which is why `tmonitor.py` writes
+the trace to a tracked artefact on the spot, and why the first read of a session
+must be the capture.
+
+The trace is also >25 lines, so it arrives on the console with its middle elided
+(`[1002 lines omitted, see zve10_shell.log]`). Read the log, and give the read a
+session to itself.

@@ -27,7 +27,7 @@ boundary is spelled out in [`docs/09-provenance.md`](../docs/09-provenance.md).
 
 | Directory | Files | Purpose |
 |---|---:|---|
-| `research/firmware/` | 213 | Firmware image structure: format analysis, carving, decompression, decryption, payload extraction. |
+| `research/firmware/` | 214 | Firmware image structure: format analysis, carving, decompression, decryption, payload extraction. |
 | `research/device/` | 52 | Talking to the camera over USB: PTP/MTP, mass storage, enumeration, card and firmware pulling. The only group that needs a physical ZV-E10 attached. |
 | `research/disasm/` | 19 | Per-subsystem disassembly. Superseded for `av-cam.bin` by the `retool` package, kept for the other images. |
 | `research/crypt/` | 7 | Brute-force and cryptanalysis of the update/crypter paths. |
@@ -84,7 +84,7 @@ Running `retool` is unaffected: see `RETOOL.md`.
 Listed by original filename, because the notes in `docs/` refer to the
 scripts by bare name.
 
-<details><summary><code>research/firmware/</code> — 213 files</summary>
+<details><summary><code>research/firmware/</code> — 214 files</summary>
 
 
 - `analyze_adj_usage.py`
@@ -244,6 +244,7 @@ scripts by bare name.
 - `testcmd_parse.py`
 - `testcmd_thumb.py`
 - `thumb.py`
+- `tmonitor.py`
 - `trace_bool.py`
 - `trace_bool2.py`
 - `trace_version.py`

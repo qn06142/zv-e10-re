@@ -1,0 +1,2172 @@
+# /proc/tmonitor trace, Sony ZV-E10 fw 2.02/2.03, service mode.
+# Captured from the device by research/firmware/tmonitor.py:
+#
+#   busybox cat /proc/tmonitor
+#
+# proc interface of the module configured by the command-line parameters
+# tmonitor.addr=0xF00000 tmonitor.size=0x8000 tmonitor.mask=0
+#
+# mask=0 is NOT 'disabled' -- it means no module is masked out, i.e. the
+# most permissive setting. The trace is complete.
+#
+# Records: 664 sched, 357 profile-user, 6 other
+# (the raw block below also carries kernel console noise and blank
+#  lines; `other` is everything non-blank that is not one of the two
+#  record forms)
+# window:  t=1566.604 .. 1566.659 s
+# tasks:   64 distinct
+# modules: 30 distinct module::task names
+#
+# Each read is a fresh ~46 ms live window, so counts vary between reads
+# and the absolute timestamps are per-read. The wchan base addresses and
+# the module::task names are the stable parts.
+#
+## RTOS module -> task names
+
+    ALL::VD_Drv
+    ALL::VD_Pos
+    ALL::VD_Pre
+    ALL:HS_Mai
+    CA::VD_Pre
+    CPM::JudPrm
+    EC::HS_Mai
+    EC::VD_Pre
+    FW::DFS_Chk
+    FW::UpdAcs
+    IDT::OPD_TOP
+    IM::VD_Pre
+    K_AFMAP
+    LC::BNB_Wai
+    LC::HS_Mai
+    LC::HS_Smp
+    LC::VD_Pos
+    LC::VD_Pos_PR
+    LC::VD_Pre
+    LENS::HS3_Mai
+    LM::VD_Pos
+    LM::VD_Pre
+    MEC::VD_Drv
+    SR::VD_Pre
+    TC::HS3_Mai_1
+    TC::HS3_Mai_2
+    TC::VD_Pos
+    TC::VD_Pos_PR
+    YC::HS_Mai
+    YC::VD_Pre
+
+## wait channels, by symbol
+
+base = min(address - offset), so it is the symbol's own address and is
+stable across reads. Offsets are call sites and do vary.
+
+| symbol | base address | space | records | call-site offsets |
+|---|---:|---|---:|---|
+| `0` | `0x00000000` | liro | 286 | `0x0` |
+| `trcv_mbf` | `0x5f4dfe34` | liro | 152 | `0x238` |
+| `osal_rcv_msg_tmo` | `0x5f0484ec` | liro | 63 | `0x124,0x138` |
+| `tx_thread` | `0x5f0ae5b0` | liro | 28 | `0xdc,0x198` |
+| `poll_schedule_timeout` | `0x601d04a8` | linux | 24 | `0x44` |
+| `irq_thread` | `0x60173ea4` | linux | 23 | `0x1c0` |
+| `run_ksoftirqd` | `0x6013ab80` | linux | 21 | `0x74` |
+| `twai_flg` | `0x5f4deab4` | liro | 13 | `0x134` |
+| `svc_preempt` | `0x6010dab4` | linux | 9 | `0x8` |
+| `tslp_tsk` | `0x5f4ddf80` | liro | 6 | `0x80` |
+| `hrtimer_nanosleep` | `0x60153ca4` | linux | 6 | `0x94` |
+| `hwtimer_schedule_timeout` | `0x601258c0` | linux | 4 | `0x54` |
+| `__k_4u_wait_cb` | `0x5f045e88` | liro | 4 | `0x164` |
+| `hdmi_workqueue` | `0x5f513644` | liro | 4 | `0x64` |
+| `utimer_res_sleep` | `0x5f054bd8` | liro | 3 | `0x10` |
+| `osal_wai_sem_tmo` | `0x5f049ac4` | liro | 3 | `0xf8` |
+| `hdmi_inter_req_queue` | `0x5f514f8c` | liro | 2 | `0x70` |
+| `futex_wait_queue_me` | `0x6015d290` | linux | 2 | `0xe8` |
+| `tty_flip_buffer_push` | `0x6029305c` | linux | 2 | `0x20` |
+| `tty_insert_flip_string_fixed_flag` | `0x60293424` | linux | 2 | `0x34` |
+| `__k_user_msg_cb` | `0x5f046538` | liro | 1 | `0x9c` |
+| `__migrate_disable` | `0x6012c31c` | linux | 1 | `0x7c` |
+| `__migrate_enable` | `0x6012c150` | linux | 1 | `0x130` |
+| `tty_insert_flip_string_fixed_fl` | `0x60293424` | linux | 1 | `0x34` |
+| `try_to_wake_up` | `0x6012f77c` | linux | 1 | `0x354` |
+| `remove_wait_queue` | `0x6014fb68` | linux | 1 | `0x20` |
+| `do_wait` | `0x60137c9c` | linux | 1 | `0x180` |
+
+## IRQ hot spots
+
+| irq | total |
+|---:|---:|
+| 84 | 1275 |
+| 201 | 1166 |
+| 158 | 319 |
+| 83 | 285 |
+| 204 | 241 |
+| 215 | 153 |
+| 229 | 130 |
+| 101 | 128 |
+| 159 | 98 |
+| 153 | 85 |
+| 155 | 69 |
+| 157 | 67 |
+| 156 | 63 |
+| 98 | 59 |
+| 160 | 56 |
+| 216 | 49 |
+| 99 | 44 |
+| 202 | 43 |
+| 129 | 36 |
+| 35 | 26 |
+| 102 | 17 |
+
+## raw trace
+
+```
+===== $ busybox cat /proc/tmonitor =====
+busybox cat /proc/tmonitor
+[  1566.604434 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.604467 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.604469 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.604472 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.604478 ] -sched next:000 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.604479 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.604480 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.604482 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.606064 ] -profile user irq:84,14 cpu:0
+
+[  1566.606068 ] -sched next:1995 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.606349 ] -profile user irq:84,42 cpu:0
+
+[  1566.606363 ] -profile user irq:215,11 cpu:0
+
+[  1566.606457 ] -profile user irq:201,45 cpu:0
+
+[  1566.606558 ] -sched next:000 < prev:1995 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.606562 ] -profile user irq:102,6 cpu:1
+
+[  1566.606627 ] -sched next:095 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.606627 ] -profile user irq:158,21 cpu:0
+
+[  1566.606656 ] -sched next:000 < prev:095 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:UTIMER0 cpu:1 prio:7
+
+[  1566.607137 ] -profile user irq:156,10 cpu:2
+
+[  1566.607147 ] -sched next:2041 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.607173 ] -sched next:000 < prev:2041 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/2 cpu:2 prio:123
+
+[  1566.607556 ] -profile user irq:84,6 cpu:0
+
+[  1566.607608 ] -profile user irq:159,13 cpu:1
+
+[  1566.607612 ] -sched next:1921 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.607625 ] -sched next:000 < prev:1921 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_43 cpu:1 prio:146
+
+[  1566.608436 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.608440 ] -profile user irq:84,51 cpu:0
+
+[  1566.608451 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.608452 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.608455 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.608458 ] -profile user K_AFMAP cpu:2
+
+[  1566.608464 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.608464 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.608465 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.608466 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.608467 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.608486 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.608488 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.608502 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.608519 ] -profile user irq:201,40 cpu:0
+
+[  1566.608555 ] -profile user irq:84,5 cpu:0
+
+[  1566.608771 ] -profile user irq:84,10 cpu:0
+
+[  1566.608776 ] -sched next:1995 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.608790 ] -sched next:000 < prev:1995 state:2 wchan:hwtimer_schedule_timeout+54(60125914) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.608875 ] -sched next:1995 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.608881 ] -profile user FW::UpdAcs cpu:0
+
+[  1566.608905 ] -sched next:1987 < prev:1995 state:0 wchan:0(0) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.608907 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.608910 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.608918 ] -sched next:000 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.608918 ] -sched next:1995 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.608919 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.608920 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.608955 ] -profile user LC::VD_Pos_PR cpu:0
+
+[  1566.608974 ] -profile user TC::VD_Pos_PR cpu:0
+
+[  1566.608976 ] -profile user CPM::JudPrm cpu:0
+
+[  1566.608980 ] -profile user LC::VD_Pos cpu:0
+
+[  1566.608982 ] -profile user LM::VD_Pos cpu:0
+
+[  1566.608985 ] -profile user TC::VD_Pos cpu:0
+
+[  1566.609003 ] -profile user IDT::OPD_TOP cpu:0
+
+[  1566.609009 ] -profile user ALL::VD_Pos cpu:0
+
+[  1566.609031 ] -sched next:1946 < prev:1995 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.609037 ] -profile user FW::DFS_Chk cpu:0
+
+[  1566.609047 ] -profile user MEC::VD_Drv cpu:0
+
+[  1566.609058 ] -profile user ALL::VD_Drv cpu:0
+
+[  1566.609074 ] -sched next:000 < prev:1946 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_100 cpu:0 prio:143
+
+[  1566.609101 ] -profile user irq:158,16 cpu:0
+
+[  1566.609107 ] -sched next:1930 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.609129 ] -sched next:000 < prev:1930 state:2 wchan:tslp_tsk+80(5f4de000) task:liro-kliro_55 cpu:0 prio:126
+
+[  1566.609383 ] -profile user irq:160,18 cpu:2
+
+[  1566.609389 ] -profile user irq:153,20 cpu:0
+
+[  1566.609397 ] -sched next:2002 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.609471 ] -sched next:004 < prev:2002 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_192 cpu:0 prio:134
+
+[  1566.609493 ] -sched next:1935 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.609522 ] -sched next:000 < prev:1935 state:1 wchan:osal_rcv_msg_tmo+138(5f048624) task:liro-kliro_56 cpu:1 prio:109
+
+[  1566.609536 ] -profile user irq:216,9 cpu:1
+
+[  1566.609574 ] -sched next:000 < prev:004 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/0 cpu:0 prio:123
+
+[  1566.610057 ] -profile user irq:84,6 cpu:0
+
+[  1566.610512 ] -profile user irq:84,37 cpu:0
+
+[  1566.610525 ] -profile user irq:215,11 cpu:0
+
+[  1566.610605 ] -profile user irq:201,40 cpu:0
+
+[  1566.610891 ] -profile user irq:158,17 cpu:0
+
+[  1566.610895 ] -sched next:390 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.610945 ] -sched next:000 < prev:390 state:1 wchan:utimer_res_sleep+10(5f054be8) task:I-InputRepeat cpu:3 prio:0
+
+[  1566.611356 ] -profile user irq:157,10 cpu:3
+
+[  1566.611365 ] -sched next:2045 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.611387 ] -sched next:000 < prev:2045 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/3 cpu:3 prio:123
+
+[  1566.612604 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.612608 ] -profile user irq:84,48 cpu:0
+
+[  1566.612619 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.612621 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.612625 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.612634 ] -sched next:1976 < prev:2000 state:0 wchan:0(0) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.612637 ] -profile user K_AFMAP cpu:2
+
+[  1566.612641 ] -profile user irq:158,18 cpu:0
+
+[  1566.612643 ] -profile user TC::HS3_Mai_1 cpu:2
+
+[  1566.612644 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.612646 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.612648 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.612648 ] -sched next:097 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.612667 ] -profile user irq:201,21 cpu:0
+
+[  1566.612679 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.612681 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.612687 ] -sched next:160 < prev:097 state:2 wchan:__k_user_msg_cb+9c(5f0465d4) task:UTIMER2 cpu:3 prio:7
+
+[  1566.612690 ] -sched next:159 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.612700 ] -sched next:164 < prev:159 state:1 wchan:__k_4u_wait_cb+164(5f045fec) task:uipc_proxy_1 cpu:0 prio:6
+
+[  1566.612708 ] -sched next:2000 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.612710 ] -profile user LC::HS_Smp cpu:2
+
+[  1566.612714 ] -sched next:158 < prev:164 state:1 wchan:__k_4u_wait_cb+164(5f045fec) task:uipc_proxy_3 cpu:0 prio:6
+
+[  1566.612718 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.612722 ] -sched next:000 < prev:158 state:1 wchan:__k_4u_wait_cb+164(5f045fec) task:uipc_proxy_0 cpu:0 prio:6
+
+[  1566.612760 ] -sched next:097 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.612762 ] -sched next:000 < prev:160 state:1 wchan:__k_4u_wait_cb+164(5f045fec) task:uipc_proxy_2 cpu:3 prio:6
+
+[  1566.612785 ] -sched next:000 < prev:097 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:UTIMER2 cpu:0 prio:7
+
+[  1566.612875 ] -profile user LENS::HS3_Mai cpu:2
+
+[  1566.612874 ] -profile user irq:204,26 cpu:1
+
+[  1566.612877 ] -profile user TC::HS3_Mai_2 cpu:2
+
+[  1566.613003 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.613030 ] -sched next:1948 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.613042 ] -sched next:000 < prev:1948 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_68 cpu:3 prio:111
+
+[  1566.613050 ] -profile user irq:204,25 cpu:1
+
+[  1566.613074 ] -sched next:1976 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.613069 ] -profile user irq:155,13 cpu:1
+
+[  1566.613094 ] -sched next:1946 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.613098 ] -sched next:2016 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.613099 ] -sched next:1987 < prev:1946 state:0 wchan:0(0) task:liro-kliro_100 cpu:0 prio:143
+
+[  1566.613106 ] -sched next:1993 < prev:2016 state:0 wchan:0(0) task:liro-kliro_48 cpu:3 prio:126
+
+[  1566.613107 ] -sched next:2037 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.613111 ] -sched next:2000 < prev:2037 state:0 wchan:0(0) task:ksoftirqd/1 cpu:1 prio:123
+
+[  1566.613113 ] -sched next:1946 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.613122 ] -sched next:2016 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.613123 ] -sched next:2037 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.613123 ] -sched next:000 < prev:1946 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_100 cpu:0 prio:143
+
+[  1566.613125 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.613157 ] -sched next:689 < prev:2037 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/1 cpu:1 prio:123
+
+[  1566.613178 ] -sched next:000 < prev:689 state:1 wchan:hrtimer_nanosleep+94(60153d38) task:bsa_server cpu:1 prio:0
+
+[  1566.613387 ] -sched next:000 < prev:2016 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_48 cpu:2 prio:126
+
+[  1566.613558 ] -profile user irq:129,12 cpu:1
+
+[  1566.613563 ] -sched next:1976 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.613666 ] -sched next:000 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.613831 ] -profile user irq:204,25 cpu:1
+
+[  1566.613836 ] -sched next:1976 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.613893 ] -sched next:1948 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.613900 ] -sched next:000 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.614035 ] -sched next:000 < prev:1948 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_68 cpu:3 prio:111
+
+[  1566.614680 ] -profile user irq:84,34 cpu:0
+
+[  1566.614693 ] -profile user irq:215,10 cpu:0
+
+[  1566.614754 ] -profile user irq:201,22 cpu:0
+
+[  1566.615613 ] -profile user irq:159,11 cpu:1
+
+[  1566.615618 ] -sched next:1921 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.615898 ] -sched next:000 < prev:1921 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_43 cpu:1 prio:146
+
+[  1566.616743 ] -profile user irq:35,9 cpu:2
+
+[  1566.616792 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.616801 ] -profile user irq:83,68 cpu:0
+
+[  1566.616810 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.616812 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.616814 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.616815 ] -profile user K_AFMAP cpu:2
+
+[  1566.616823 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.616825 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.616827 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.616898 ] -profile user irq:201,66 cpu:0
+
+[  1566.616907 ] -profile user LM::VD_Pre cpu:2
+
+[  1566.616957 ] -profile user IM::VD_Pre cpu:2
+
+[  1566.616962 ] -profile user EC::VD_Pre cpu:2
+
+[  1566.616982 ] -profile user LC::VD_Pre cpu:2
+
+[  1566.617028 ] -sched next:2002 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.617037 ] -profile user SR::VD_Pre cpu:2
+
+[  1566.617037 ] -sched next:1997 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.617048 ] -sched next:000 < prev:2002 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_192 cpu:0 prio:134
+
+[  1566.617050 ] -sched next:000 < prev:1997 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_88 cpu:1 prio:125
+
+[  1566.617086 ] -profile user CA::VD_Pre cpu:2
+
+[  1566.617096 ] -profile user YC::VD_Pre cpu:2
+
+[  1566.617113 ] -profile user ALL::VD_Pre cpu:2
+
+[  1566.617127 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.617137 ] -profile user irq:156,10 cpu:2
+
+[  1566.617166 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.617168 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.617195 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.617197 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.617250 ] -profile user irq:83,17 cpu:0
+
+[  1566.617251 ] -sched next:1947 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.617318 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.617331 ] -profile user TC::VD_Seq S cpu:3
+
+[  1566.617353 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.617358 ] -sched next:1993 < prev:1947 state:0 wchan:0(0) task:liro-kliro_101 cpu:3 prio:143
+
+[  1566.617362 ] -sched next:2041 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.617364 ] -sched next:2012 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.617371 ] -sched next:1947 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.617377 ] -sched next:000 < prev:2012 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_203 cpu:1 prio:67
+
+[  1566.617380 ] -sched next:000 < prev:1947 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_101 cpu:3 prio:143
+
+[  1566.617386 ] -sched next:000 < prev:2041 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/2 cpu:2 prio:123
+
+[  1566.617527 ] -sched next:1959 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.617536 ] -sched next:1960 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.617543 ] -sched next:1965 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.617585 ] -sched next:1961 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.617687 ] -sched next:1963 < prev:1965 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_83 cpu:1 prio:98
+
+[  1566.617716 ] -sched next:1962 < prev:1963 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_84 cpu:1 prio:85
+
+[  1566.617716 ] -sched next:000 < prev:1961 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_81 cpu:0 prio:86
+
+[  1566.617762 ] -sched next:1964 < prev:1962 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_82 cpu:1 prio:84
+
+[  1566.617795 ] -sched next:000 < prev:1964 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_85 cpu:1 prio:83
+
+[  1566.617927 ] -sched next:2002 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.617952 ] -sched next:000 < prev:1959 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_79 cpu:3 prio:97
+
+[  1566.617960 ] -sched next:000 < prev:1960 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_80 cpu:2 prio:107
+
+[  1566.618002 ] -sched next:000 < prev:2002 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_192 cpu:0 prio:134
+
+[  1566.618865 ] -profile user irq:84,46 cpu:0
+
+[  1566.618879 ] -profile user irq:215,11 cpu:0
+
+[  1566.618976 ] -profile user irq:201,47 cpu:0
+
+[  1566.619117 ] -profile user irq:158,18 cpu:0
+
+[  1566.619123 ] -sched next:1930 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.619145 ] -sched next:000 < prev:1930 state:2 wchan:tslp_tsk+80(5f4de000) task:liro-kliro_55 cpu:0 prio:126
+
+[  1566.619384 ] -profile user irq:153,14 cpu:0
+
+[  1566.619393 ] -sched next:004 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.619489 ] -sched next:000 < prev:004 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/0 cpu:0 prio:123
+
+[  1566.619553 ] -profile user irq:216,11 cpu:1
+
+[  1566.619851 ] -profile user irq:158,22 cpu:0
+
+[  1566.619857 ] -sched next:098 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.619890 ] -sched next:2049 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.619891 ] -sched next:000 < prev:098 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:UTIMER3 cpu:0 prio:7
+
+[  1566.619953 ] -sched next:2048 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.619956 ] -sched next:000 < prev:2049 state:2 wchan:hdmi_workqueue+64(5f5136a8) task:hdmi_workqueue cpu:3 prio:0
+
+[  1566.619982 ] -sched next:2049 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.619989 ] -sched next:000 < prev:2048 state:2 wchan:hdmi_inter_req_queue+70(5f514ffc) task:hdmi_inter_req_ cpu:1 prio:0
+
+[  1566.620029 ] -sched next:000 < prev:2049 state:2 wchan:hdmi_workqueue+64(5f5136a8) task:hdmi_workqueue cpu:3 prio:0
+
+[  1566.620087 ] -profile user irq:98,16 cpu:1
+
+[  1566.620104 ] -profile user irq:99,14 cpu:1
+
+[  1566.620145 ] -profile user irq:101,38 cpu:1
+
+[  1566.620147 ] -sched next:2018 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.620151 ] -sched next:1889 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.620163 ] -sched next:000 < prev:2018 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_131 cpu:2 prio:31
+
+[  1566.620177 ] -sched next:1890 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.620184 ] -sched next:2014 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.620193 ] -sched next:1918 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.620202 ] -sched next:1892 < prev:1890 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_4 cpu:3 prio:148
+
+[  1566.620235 ] -sched next:1894 < prev:1918 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_40 cpu:0 prio:130
+
+[  1566.620237 ] -sched next:1899 < prev:1889 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_2 cpu:1 prio:151
+
+[  1566.620261 ] -sched next:1921 < prev:1899 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_19 cpu:1 prio:150
+
+[  1566.620282 ] -sched next:1909 < prev:1921 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_43 cpu:1 prio:146
+
+[  1566.620325 ] -sched next:1926 < prev:1894 state:0 wchan:0(0) task:liro-kliro_10 cpu:0 prio:128
+
+[  1566.620345 ] -sched next:1897 < prev:1892 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_5 cpu:3 prio:128
+
+[  1566.620378 ] -sched next:2022 < prev:1909 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_30 cpu:1 prio:137
+
+[  1566.620379 ] -sched next:1894 < prev:1926 state:1 wchan:osal_wai_sem_tmo+f8(5f049bbc) task:liro-kliro_50 cpu:0 prio:153
+
+[  1566.620390 ] -sched next:000 < prev:2014 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_15 cpu:2 prio:128
+
+[  1566.620416 ] -sched next:000 < prev:1897 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_13 cpu:3 prio:128
+
+[  1566.620419 ] -sched next:000 < prev:2022 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_61 cpu:1 prio:129
+
+[  1566.620461 ] -sched next:000 < prev:1894 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_10 cpu:0 prio:128
+
+[  1566.620572 ] -profile user irq:202,13 cpu:0
+
+[  1566.620576 ] -sched next:1926 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.620597 ] -sched next:000 < prev:1926 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_50 cpu:0 prio:153
+
+[  1566.620956 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.620960 ] -profile user irq:84,56 cpu:0
+
+[  1566.620973 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.620977 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.620980 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.620983 ] -profile user K_AFMAP cpu:2
+
+[  1566.620987 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.620990 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.620991 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.620993 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.620995 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.621047 ] -profile user irq:201,49 cpu:0
+
+[  1566.621102 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.621104 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.621124 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.621156 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.621158 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.621161 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.621167 ] -sched next:000 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.621169 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.621169 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.621171 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.621361 ] -profile user irq:157,14 cpu:3
+
+[  1566.621371 ] -sched next:2045 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.621415 ] -sched next:2064 < prev:2045 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/3 cpu:3 prio:123
+
+[  1566.621607 ] -sched next:382 < prev:2064 state:1 wchan:osal_rcv_msg_tmo+138(5f048624) task:psm_dig_level_m cpu:3 prio:0
+
+[  1566.621814 ] -sched next:000 < prev:382 state:1 wchan:futex_wait_queue_me+e8(6015d378) task:HotshoeResource cpu:3 prio:0
+
+[  1566.622746 ] -profile user irq:84,13 cpu:0
+
+[  1566.622751 ] -sched next:1995 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.623034 ] -profile user irq:84,44 cpu:0
+
+[  1566.623050 ] -profile user irq:215,12 cpu:0
+
+[  1566.623071 ] -profile user irq:155,15 cpu:1
+
+[  1566.623081 ] -sched next:2037 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.623119 ] -sched next:689 < prev:2037 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/1 cpu:1 prio:123
+
+[  1566.623131 ] -profile user irq:201,46 cpu:0
+
+[  1566.623144 ] -sched next:000 < prev:689 state:1 wchan:hrtimer_nanosleep+94(60153d38) task:bsa_server cpu:1 prio:0
+
+[  1566.623253 ] -sched next:000 < prev:1995 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.624241 ] -profile user irq:84,7 cpu:0
+
+[  1566.624288 ] -profile user irq:159,14 cpu:1
+
+[  1566.624292 ] -sched next:1921 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.624306 ] -sched next:000 < prev:1921 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_43 cpu:1 prio:146
+
+[  1566.625121 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.625124 ] -profile user irq:84,50 cpu:0
+
+[  1566.625135 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.625136 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.625142 ] -profile user K_AFMAP cpu:2
+
+[  1566.625142 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.625148 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.625148 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.625149 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.625150 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.625158 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.625169 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.625170 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.625183 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.625205 ] -profile user irq:201,42 cpu:0
+
+[  1566.625239 ] -profile user irq:84,5 cpu:0
+
+[  1566.625455 ] -profile user irq:84,10 cpu:0
+
+[  1566.625460 ] -sched next:1995 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.625475 ] -sched next:000 < prev:1995 state:2 wchan:hwtimer_schedule_timeout+54(60125914) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.625555 ] -sched next:1995 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.625561 ] -profile user FW::UpdAcs cpu:0
+
+[  1566.625586 ] -sched next:1987 < prev:1995 state:0 wchan:0(0) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.625587 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.625590 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.625598 ] -sched next:000 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.625598 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.625598 ] -sched next:1995 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.625601 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.625636 ] -profile user LC::VD_Pos_PR cpu:0
+
+[  1566.625655 ] -profile user TC::VD_Pos_PR cpu:0
+
+[  1566.625657 ] -profile user CPM::JudPrm cpu:0
+
+[  1566.625661 ] -profile user LC::VD_Pos cpu:0
+
+[  1566.625663 ] -profile user LM::VD_Pos cpu:0
+
+[  1566.625666 ] -profile user TC::VD_Pos cpu:0
+
+[  1566.625685 ] -profile user IDT::OPD_TOP cpu:0
+
+[  1566.625691 ] -profile user ALL::VD_Pos cpu:0
+
+[  1566.625713 ] -sched next:1946 < prev:1995 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.625720 ] -profile user FW::DFS_Chk cpu:0
+
+[  1566.625731 ] -profile user MEC::VD_Drv cpu:0
+
+[  1566.625743 ] -profile user ALL::VD_Drv cpu:0
+
+[  1566.625759 ] -sched next:000 < prev:1946 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_100 cpu:0 prio:143
+
+[  1566.626055 ] -profile user irq:160,19 cpu:2
+
+[  1566.626059 ] -sched next:2002 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.626134 ] -sched next:000 < prev:2002 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_192 cpu:0 prio:134
+
+[  1566.626560 ] -profile user irq:102,5 cpu:1
+
+[  1566.626628 ] -profile user irq:158,22 cpu:0
+
+[  1566.626633 ] -sched next:096 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.626662 ] -sched next:000 < prev:096 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:UTIMER1 cpu:0 prio:7
+
+[  1566.626740 ] -profile user irq:84,6 cpu:0
+
+[  1566.627134 ] -profile user irq:156,8 cpu:2
+
+[  1566.627143 ] -sched next:2041 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.627168 ] -sched next:000 < prev:2041 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/2 cpu:2 prio:123
+
+[  1566.627195 ] -profile user irq:84,37 cpu:0
+
+[  1566.627208 ] -profile user irq:215,10 cpu:0
+
+[  1566.627287 ] -profile user irq:201,40 cpu:0
+
+[  1566.629131 ] -profile user irq:158,16 cpu:0
+
+[  1566.629137 ] -sched next:1930 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.629158 ] -sched next:000 < prev:1930 state:2 wchan:tslp_tsk+80(5f4de000) task:liro-kliro_55 cpu:0 prio:126
+
+[  1566.629287 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.629291 ] -profile user irq:84,47 cpu:0
+
+[  1566.629301 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.629304 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.629307 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.629318 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.629316 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.629318 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.629322 ] -sched next:1976 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.629325 ] -profile user K_AFMAP cpu:2
+
+[  1566.629330 ] -profile user TC::HS3_Mai_1 cpu:2
+
+[  1566.629333 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.629335 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.629351 ] -profile user irq:201,21 cpu:0
+
+[  1566.629362 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.629364 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.629384 ] -profile user irq:153,15 cpu:0
+
+[  1566.629391 ] -profile user LC::HS_Smp cpu:2
+
+[  1566.629394 ] -sched next:004 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.629395 ] -sched next:000 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.629484 ] -sched next:000 < prev:004 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/0 cpu:0 prio:123
+
+[  1566.629558 ] -profile user LENS::HS3_Mai cpu:2
+
+[  1566.629560 ] -profile user irq:204,25 cpu:1
+
+[  1566.629560 ] -profile user TC::HS3_Mai_2 cpu:2
+
+[  1566.629570 ] -profile user irq:216,8 cpu:1
+
+[  1566.629696 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.629720 ] -sched next:1948 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.629732 ] -sched next:000 < prev:1948 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_68 cpu:3 prio:111
+
+[  1566.629736 ] -profile user irq:204,25 cpu:1
+
+[  1566.629740 ] -sched next:1976 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.629764 ] -sched next:2016 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.629766 ] -sched next:000 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.629788 ] -sched next:1946 < prev:2016 state:0 wchan:0(0) task:liro-kliro_48 cpu:0 prio:126
+
+[  1566.629792 ] -sched next:1987 < prev:1946 state:0 wchan:0(0) task:liro-kliro_100 cpu:0 prio:143
+
+[  1566.629793 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.629795 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.629807 ] -sched next:1946 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.629809 ] -sched next:2016 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.629810 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.629810 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.629818 ] -sched next:000 < prev:1946 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_100 cpu:0 prio:143
+
+[  1566.630071 ] -sched next:000 < prev:2016 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_48 cpu:2 prio:126
+
+[  1566.630241 ] -profile user irq:129,9 cpu:1
+
+[  1566.630245 ] -sched next:1976 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.630344 ] -sched next:000 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.630510 ] -profile user irq:204,25 cpu:1
+
+[  1566.630514 ] -sched next:1976 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.630571 ] -sched next:1948 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.630578 ] -sched next:000 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.630718 ] -sched next:000 < prev:1948 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_68 cpu:3 prio:111
+
+[  1566.630957 ] -profile user irq:158,16 cpu:0
+
+[  1566.630961 ] -sched next:390 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.631008 ] -sched next:000 < prev:390 state:1 wchan:utimer_res_sleep+10(5f054be8) task:I-InputRepeat cpu:3 prio:0
+
+[  1566.631357 ] -profile user irq:157,11 cpu:3
+
+[  1566.631366 ] -profile user irq:84,38 cpu:0
+
+[  1566.631368 ] -sched next:2045 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.631378 ] -profile user irq:215,10 cpu:0
+
+[  1566.631399 ] -sched next:000 < prev:2045 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/3 cpu:3 prio:123
+
+[  1566.631457 ] -profile user irq:201,25 cpu:0
+
+[  1566.632291 ] -profile user irq:159,10 cpu:1
+
+[  1566.632295 ] -sched next:1921 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.632581 ] -sched next:000 < prev:1921 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_43 cpu:1 prio:146
+
+[  1566.633067 ] -profile user irq:155,10 cpu:1
+
+[  1566.633078 ] -sched next:2037 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.633099 ] -sched next:1935 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.633118 ] -sched next:689 < prev:2037 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/1 cpu:1 prio:123
+
+[  1566.633138 ] -sched next:000 < prev:1935 state:1 wchan:osal_rcv_msg_tmo+138(5f048624) task:liro-kliro_56 cpu:0 prio:109
+
+[  1566.633139 ] -sched next:000 < prev:689 state:1 wchan:hrtimer_nanosleep+94(60153d38) task:bsa_server cpu:1 prio:0
+
+[  1566.633427 ] -profile user irq:35,8 cpu:2
+
+[  1566.633479 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.633490 ] -profile user irq:83,73 cpu:0
+
+[  1566.633498 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.633499 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.633500 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.633501 ] -profile user K_AFMAP cpu:2
+
+[  1566.633512 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.633513 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.633513 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.633589 ] -profile user irq:201,70 cpu:0
+
+[  1566.633593 ] -profile user LM::VD_Pre cpu:2
+
+[  1566.633644 ] -profile user IM::VD_Pre cpu:2
+
+[  1566.633649 ] -profile user EC::VD_Pre cpu:2
+
+[  1566.633668 ] -profile user LC::VD_Pre cpu:2
+
+[  1566.633716 ] -sched next:2002 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.633724 ] -sched next:1997 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.633725 ] -profile user SR::VD_Pre cpu:2
+
+[  1566.633736 ] -sched next:000 < prev:2002 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_192 cpu:0 prio:134
+
+[  1566.633736 ] -sched next:000 < prev:1997 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_88 cpu:1 prio:125
+
+[  1566.633773 ] -profile user CA::VD_Pre cpu:2
+
+[  1566.633782 ] -profile user YC::VD_Pre cpu:2
+
+[  1566.633797 ] -profile user ALL::VD_Pre cpu:2
+
+[  1566.633811 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.633830 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.633832 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.633858 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.633860 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.633935 ] -profile user irq:83,18 cpu:0
+
+[  1566.633936 ] -sched next:1947 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.633979 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.634011 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.634020 ] -sched next:1993 < prev:1947 state:0 wchan:0(0) task:liro-kliro_101 cpu:3 prio:143
+
+[  1566.634023 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.634026 ] -sched next:000 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.634032 ] -sched next:1947 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.634038 ] -profile user TC::VD_Seq S cpu:3
+
+[  1566.634061 ] -sched next:2012 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.634066 ] -sched next:000 < prev:1947 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_101 cpu:3 prio:143
+
+[  1566.634074 ] -sched next:000 < prev:2012 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_203 cpu:1 prio:67
+
+[  1566.634213 ] -sched next:1959 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.634222 ] -sched next:1960 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.634230 ] -sched next:1965 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.634273 ] -sched next:1961 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.634380 ] -sched next:1963 < prev:1965 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_83 cpu:1 prio:98
+
+[  1566.634403 ] -sched next:1964 < prev:1963 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_84 cpu:1 prio:85
+
+[  1566.634405 ] -sched next:1962 < prev:1961 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_81 cpu:0 prio:86
+
+[  1566.634437 ] -sched next:000 < prev:1964 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_85 cpu:1 prio:83
+
+[  1566.634452 ] -sched next:000 < prev:1962 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_82 cpu:0 prio:84
+
+[  1566.634608 ] -sched next:2002 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.634643 ] -sched next:000 < prev:1960 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_80 cpu:2 prio:107
+
+[  1566.634644 ] -sched next:000 < prev:1959 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_79 cpu:3 prio:97
+
+[  1566.634683 ] -sched next:000 < prev:2002 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_192 cpu:0 prio:134
+
+[  1566.635549 ] -profile user irq:84,46 cpu:0
+
+[  1566.635564 ] -profile user irq:215,13 cpu:0
+
+[  1566.635646 ] -profile user irq:201,47 cpu:0
+
+[  1566.636774 ] -profile user irq:98,20 cpu:1
+
+[  1566.636790 ] -profile user irq:99,13 cpu:1
+
+[  1566.636833 ] -profile user irq:101,41 cpu:1
+
+[  1566.636836 ] -sched next:2018 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.636840 ] -sched next:1889 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.636853 ] -sched next:000 < prev:2018 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_131 cpu:2 prio:31
+
+[  1566.636868 ] -sched next:1890 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.636873 ] -sched next:2014 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.636883 ] -sched next:1918 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.636896 ] -sched next:1892 < prev:1890 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_4 cpu:3 prio:148
+
+[  1566.636927 ] -sched next:1894 < prev:1918 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_40 cpu:0 prio:130
+
+[  1566.636928 ] -sched next:1899 < prev:1889 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_2 cpu:1 prio:151
+
+[  1566.636953 ] -sched next:1921 < prev:1899 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_19 cpu:1 prio:150
+
+[  1566.636975 ] -sched next:1909 < prev:1921 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_43 cpu:1 prio:146
+
+[  1566.637018 ] -sched next:1926 < prev:1894 state:0 wchan:0(0) task:liro-kliro_10 cpu:0 prio:128
+
+[  1566.637040 ] -sched next:1897 < prev:1892 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_5 cpu:3 prio:128
+
+[  1566.637071 ] -sched next:2022 < prev:1909 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_30 cpu:1 prio:137
+
+[  1566.637074 ] -sched next:1894 < prev:1926 state:1 wchan:osal_wai_sem_tmo+f8(5f049bbc) task:liro-kliro_50 cpu:0 prio:153
+
+[  1566.637089 ] -sched next:000 < prev:2014 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_15 cpu:2 prio:128
+
+[  1566.637107 ] -sched next:000 < prev:1897 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_13 cpu:3 prio:128
+
+[  1566.637114 ] -sched next:000 < prev:2022 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_61 cpu:1 prio:129
+
+[  1566.637138 ] -profile user irq:156,11 cpu:2
+
+[  1566.637149 ] -sched next:2041 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.637154 ] -sched next:000 < prev:1894 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_10 cpu:0 prio:128
+
+[  1566.637174 ] -sched next:000 < prev:2041 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/2 cpu:2 prio:123
+
+[  1566.637262 ] -profile user irq:202,13 cpu:0
+
+[  1566.637266 ] -sched next:1926 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.637287 ] -sched next:000 < prev:1926 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_50 cpu:0 prio:153
+
+[  1566.637635 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.637639 ] -profile user irq:84,52 cpu:0
+
+[  1566.637651 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.637655 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.637659 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.637662 ] -profile user K_AFMAP cpu:2
+
+[  1566.637666 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.637668 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.637670 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.637673 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.637673 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.637721 ] -profile user irq:201,43 cpu:0
+
+[  1566.637779 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.637781 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.637803 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.637835 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.637837 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.637840 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.637846 ] -sched next:000 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.637847 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.637848 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.637850 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.639145 ] -profile user irq:158,16 cpu:0
+
+[  1566.639150 ] -sched next:1930 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.639171 ] -sched next:000 < prev:1930 state:2 wchan:tslp_tsk+80(5f4de000) task:liro-kliro_55 cpu:0 prio:126
+
+[  1566.639384 ] -profile user irq:153,15 cpu:0
+
+[  1566.639393 ] -sched next:004 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.639432 ] -profile user irq:84,15 cpu:0
+
+[  1566.639440 ] -sched next:1995 < prev:004 state:0 wchan:0(0) task:ksoftirqd/0 cpu:0 prio:123
+
+[  1566.639580 ] -profile user irq:216,10 cpu:1
+
+[  1566.639716 ] -profile user irq:84,43 cpu:0
+
+[  1566.639730 ] -profile user irq:215,11 cpu:0
+
+[  1566.639810 ] -profile user irq:201,44 cpu:0
+
+[  1566.639925 ] -sched next:004 < prev:1995 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.640010 ] -sched next:000 < prev:004 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/0 cpu:0 prio:123
+
+[  1566.640053 ] -sched next:095 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.640054 ] -profile user irq:158,23 cpu:0
+
+[  1566.640086 ] -sched next:2049 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.640089 ] -sched next:000 < prev:095 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:UTIMER0 cpu:1 prio:7
+
+[  1566.640145 ] -sched next:2048 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.640148 ] -sched next:000 < prev:2049 state:2 wchan:hdmi_workqueue+64(5f5136a8) task:hdmi_workqueue cpu:3 prio:0
+
+[  1566.640172 ] -sched next:2049 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.640180 ] -sched next:000 < prev:2048 state:2 wchan:hdmi_inter_req_queue+70(5f514ffc) task:hdmi_inter_req_ cpu:1 prio:0
+
+[  1566.640220 ] -sched next:000 < prev:2049 state:2 wchan:hdmi_workqueue+64(5f5136a8) task:hdmi_workqueue cpu:3 prio:0
+
+[  1566.640923 ] -profile user irq:84,6 cpu:0
+
+[  1566.640978 ] -profile user irq:159,12 cpu:1
+
+[  1566.640982 ] -sched next:1921 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.640994 ] -sched next:000 < prev:1921 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_43 cpu:1 prio:146
+
+[  1566.641359 ] -profile user irq:157,13 cpu:3
+
+[  1566.641369 ] -sched next:2045 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.641404 ] -sched next:382 < prev:2045 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/3 cpu:3 prio:123
+
+[  1566.641616 ] -sched next:000 < prev:382 state:1 wchan:futex_wait_queue_me+e8(6015d378) task:HotshoeResource cpu:3 prio:0
+
+[  1566.641806 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.641810 ] -profile user irq:84,53 cpu:0
+
+[  1566.641821 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.641821 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.641826 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.641827 ] -profile user K_AFMAP cpu:2
+
+[  1566.641833 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.641833 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.641835 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.641835 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.641841 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.641853 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.641855 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.641868 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.641893 ] -profile user irq:201,44 cpu:0
+
+[  1566.641922 ] -profile user irq:84,6 cpu:0
+
+[  1566.642139 ] -profile user irq:84,10 cpu:0
+
+[  1566.642144 ] -sched next:1995 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.642159 ] -sched next:000 < prev:1995 state:2 wchan:hwtimer_schedule_timeout+54(60125914) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.642192 ] -profile user irq:229,10 cpu:0
+
+[  1566.642197 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.642243 ] -sched next:1995 < prev:067 state:0 wchan:0(0) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.642250 ] -profile user FW::UpdAcs cpu:0
+
+[  1566.642271 ] -sched next:1987 < prev:1995 state:0 wchan:0(0) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.642273 ] -sched next:2000 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.642277 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.642285 ] -sched next:000 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.642285 ] -sched next:1995 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.642288 ] -sched next:000 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.642290 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.642326 ] -profile user LC::VD_Pos_PR cpu:0
+
+[  1566.642344 ] -profile user TC::VD_Pos_PR cpu:0
+
+[  1566.642346 ] -profile user CPM::JudPrm cpu:0
+
+[  1566.642351 ] -profile user LC::VD_Pos cpu:0
+
+[  1566.642352 ] -profile user LM::VD_Pos cpu:0
+
+[  1566.642355 ] -profile user TC::VD_Pos cpu:0
+
+[  1566.642374 ] -profile user IDT::OPD_TOP cpu:0
+
+[  1566.642379 ] -profile user ALL::VD_Pos cpu:0
+
+[  1566.642402 ] -sched next:1946 < prev:1995 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.642409 ] -profile user FW::DFS_Chk cpu:0
+
+[  1566.642420 ] -profile user MEC::VD_Drv cpu:0
+
+[  1566.642431 ] -profile user ALL::VD_Drv cpu:0
+
+[  1566.642447 ] -sched next:067 < prev:1946 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_100 cpu:0 prio:143
+
+[  1566.642471 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.642522 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.642671 ] -sched next:3099 < prev:000 state:0 wchan:0(0) task:swapper/1 cpu:1 prio:0
+
+[  1566.642743 ] -profile user irq:160,19 cpu:2
+
+[  1566.642744 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.642748 ] -sched next:2002 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.642815 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.642826 ] -sched next:000 < prev:2002 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_192 cpu:0 prio:134
+
+[  1566.642898 ] -sched next:3098 < prev:3099 state:1 wchan:tty_flip_buffer_push+20(6029307c) task:ash cpu:1 prio:0
+
+[  1566.642940 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.642944 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.642961 ] -profile user irq:229,8 cpu:0
+
+[  1566.642965 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.642967 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.642993 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.643043 ] -sched next:3098 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.643072 ] -profile user irq:155,15 cpu:1
+
+[  1566.643073 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.643083 ] -sched next:2037 < prev:3098 state:0 wchan:0(0) task:usbgtertx cpu:1 prio:0
+
+[  1566.643112 ] -sched next:689 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.643114 ] -sched next:3098 < prev:2037 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/1 cpu:1 prio:123
+
+[  1566.643134 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.643136 ] -sched next:000 < prev:689 state:1 wchan:hrtimer_nanosleep+94(60153d38) task:bsa_server cpu:3 prio:0
+
+[  1566.643156 ] -profile user irq:229,6 cpu:0
+
+[  1566.643160 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.643163 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.643183 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.643236 ] -sched next:3098 < prev:3099 state:1 wchan:svc_preempt+8(6010dabc) task:ash cpu:1 prio:0
+
+[  1566.643264 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.643265 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.643288 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.643306 ] -profile user irq:229,5 cpu:0
+
+[  1566.643310 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.643331 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.643358 ] -sched next:3098 < prev:3099 state:1 wchan:svc_preempt+8(6010dabc) task:ash cpu:1 prio:0
+
+[  1566.643385 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.643386 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.643408 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.643423 ] -profile user irq:84,6 cpu:0
+
+[  1566.643483 ] -sched next:3098 < prev:3099 state:1 wchan:svc_preempt+8(6010dabc) task:ash cpu:1 prio:0
+
+[  1566.643494 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+198(5f0ae748) task:usbgtertx cpu:1 prio:0
+
+[  1566.643514 ] -profile user irq:229,5 cpu:0
+
+[  1566.643518 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.643542 ] -sched next:3098 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.643544 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.643570 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.643581 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.643631 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.643698 ] -sched next:3098 < prev:3099 state:1 wchan:__migrate_disable+7c(6012c398) task:ash cpu:1 prio:0
+
+[  1566.643709 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+198(5f0ae748) task:usbgtertx cpu:1 prio:0
+
+[  1566.643737 ] -profile user irq:229,5 cpu:0
+
+[  1566.643741 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.643765 ] -sched next:3098 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.643766 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.643793 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.643802 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.643853 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.643889 ] -profile user irq:84,47 cpu:0
+
+[  1566.643904 ] -profile user irq:215,13 cpu:0
+
+[  1566.643921 ] -sched next:3098 < prev:3099 state:1 wchan:__migrate_enable+130(6012c280) task:ash cpu:1 prio:0
+
+[  1566.643932 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+198(5f0ae748) task:usbgtertx cpu:1 prio:0
+
+[  1566.644005 ] -profile user irq:201,52 cpu:0
+
+[  1566.644014 ] -profile user irq:229,7 cpu:0
+
+[  1566.644020 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.644048 ] -sched next:3098 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.644051 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.644077 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+198(5f0ae748) task:usbgtertx cpu:1 prio:0
+
+[  1566.644101 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.644106 ] -profile user irq:229,5 cpu:0
+
+[  1566.644110 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.644136 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.644136 ] -sched next:3098 < prev:3099 state:1 wchan:svc_preempt+8(6010dabc) task:ash cpu:1 prio:0
+
+[  1566.644157 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.644168 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.644175 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.644181 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.644247 ] -profile user irq:229,5 cpu:0
+
+[  1566.644249 ] -sched next:3098 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.644251 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.644261 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+198(5f0ae748) task:usbgtertx cpu:1 prio:0
+
+[  1566.644273 ] -sched next:3098 < prev:3099 state:1 wchan:svc_preempt+8(6010dabc) task:ash cpu:1 prio:0
+
+[  1566.644276 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.644279 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.644293 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.644306 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.644312 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.644329 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.644384 ] -profile user irq:229,5 cpu:0
+
+[  1566.644388 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.644396 ] -sched next:3098 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.644409 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.644423 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.644425 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.644449 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.644466 ] -profile user irq:229,5 cpu:0
+
+[  1566.644469 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.644490 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.644526 ] -sched next:3098 < prev:3099 state:1 wchan:tty_insert_flip_string_fixed_flag+34(60293458) task:ash cpu:1 prio:0
+
+[  1566.644527 ] -profile user irq:229,5 cpu:0
+
+[  1566.644531 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.644548 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.644554 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.644560 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.644577 ] -profile user irq:229,5 cpu:0
+
+[  1566.644581 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.644583 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.644602 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.644651 ] -sched next:3098 < prev:3099 state:1 wchan:svc_preempt+8(6010dabc) task:ash cpu:1 prio:0
+
+[  1566.644678 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.644679 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.644701 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.644747 ] -profile user irq:229,5 cpu:0
+
+[  1566.644751 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.644772 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.644776 ] -sched next:3098 < prev:3099 state:1 wchan:svc_preempt+8(6010dabc) task:ash cpu:1 prio:0
+
+[  1566.644803 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.644805 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.644826 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.644840 ] -profile user irq:229,5 cpu:0
+
+[  1566.644844 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.644864 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.644895 ] -sched next:3098 < prev:3099 state:1 wchan:tty_insert_flip_string_fixed_flag+34(60293458) task:ash cpu:1 prio:0
+
+[  1566.644922 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.644922 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.644945 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.644951 ] -profile user irq:229,5 cpu:0
+
+[  1566.644955 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.644975 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.645020 ] -sched next:3098 < prev:3099 state:1 wchan:svc_preempt+8(6010dabc) task:ash cpu:1 prio:0
+
+[  1566.645047 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.645049 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.645060 ] -profile user irq:229,5 cpu:0
+
+[  1566.645063 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.645069 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.645084 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.645137 ] -sched next:3098 < prev:3099 state:1 wchan:svc_preempt+8(6010dabc) task:ash cpu:1 prio:0
+
+[  1566.645164 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.645166 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.645186 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.645262 ] -sched next:3098 < prev:3099 state:1 wchan:tty_insert_flip_string_fixed_fl+34(60293458) task:ash cpu:1 prio:0
+
+[  1566.645272 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+198(5f0ae748) task:usbgtertx cpu:1 prio:0
+
+[  1566.645312 ] -profile user irq:229,5 cpu:0
+
+[  1566.645316 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.645340 ] -sched next:3098 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.645341 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.645368 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.645371 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.645409 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.645478 ] -sched next:3098 < prev:3099 state:1 wchan:tty_flip_buffer_push+20(6029307c) task:ash cpu:1 prio:0
+
+[  1566.645488 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+198(5f0ae748) task:usbgtertx cpu:1 prio:0
+
+[  1566.645556 ] -profile user irq:229,5 cpu:0
+
+[  1566.645560 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.645573 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.645579 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.645585 ] -sched next:3098 < prev:3099 state:1 wchan:try_to_wake_up+354(6012fad0) task:ash cpu:1 prio:0
+
+[  1566.645585 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.645606 ] -sched next:000 < prev:161 state:2 wchan:remove_wait_queue+20(6014fb88) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.645613 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.645626 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.645684 ] -sched next:3098 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.645695 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+198(5f0ae748) task:usbgtertx cpu:1 prio:0
+
+[  1566.645714 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.645733 ] -profile user irq:229,5 cpu:0
+
+[  1566.645733 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.645736 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.645761 ] -sched next:3098 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.645762 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.645788 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.645796 ] -sched next:3098 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.645806 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+198(5f0ae748) task:usbgtertx cpu:1 prio:0
+
+[  1566.645832 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.645866 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.645973 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.645977 ] -profile user irq:84,50 cpu:0
+
+[  1566.645986 ] -profile user irq:229,6 cpu:0
+
+[  1566.645993 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.645994 ] -sched next:2000 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.645997 ] -sched next:1993 < prev:161 state:0 wchan:0(0) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.646006 ] -sched next:1976 < prev:2000 state:0 wchan:0(0) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.646008 ] -profile user K_AFMAP cpu:2
+
+[  1566.646009 ] -sched next:067 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.646013 ] -profile user TC::HS3_Mai_1 cpu:2
+
+[  1566.646015 ] -sched next:161 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.646016 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.646019 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.646039 ] -profile user irq:201,23 cpu:0
+
+[  1566.646045 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.646047 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.646064 ] -profile user irq:229,3 cpu:0
+
+[  1566.646067 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.646077 ] -profile user LC::HS_Smp cpu:2
+
+[  1566.646082 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.646093 ] -sched next:2000 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.646107 ] -sched next:3098 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.646131 ] -sched next:161 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.646147 ] -sched next:3099 < prev:3098 state:1 wchan:tx_thread+dc(5f0ae68c) task:usbgtertx cpu:1 prio:0
+
+[  1566.646151 ] -sched next:000 < prev:161 state:1 wchan:poll_schedule_timeout+44(601d04ec) task:ULOGIOD_MAIN cpu:3 prio:0
+
+[  1566.646156 ] -profile user irq:158,4 cpu:0
+
+[  1566.646163 ] -profile user irq:229,5 cpu:0
+
+[  1566.646167 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.646190 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.646244 ] -profile user LENS::HS3_Mai cpu:2
+
+[  1566.646246 ] -profile user TC::HS3_Mai_2 cpu:2
+
+[  1566.646256 ] -profile user irq:229,5 cpu:0
+
+[  1566.646260 ] -profile user irq:204,28 cpu:1
+
+[  1566.646261 ] -sched next:067 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.646272 ] -sched next:000 < prev:067 state:1 wchan:irq_thread+1c0(60174064) task:irq/229-dwc3 cpu:0 prio:129
+
+[  1566.646388 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.646423 ] -sched next:1948 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.646438 ] -sched next:000 < prev:1948 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_68 cpu:3 prio:111
+
+[  1566.646445 ] -profile user irq:204,33 cpu:1
+
+[  1566.646452 ] -sched next:1976 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.646487 ] -sched next:3099 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.646490 ] -sched next:1946 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.646495 ] -sched next:1987 < prev:1946 state:0 wchan:0(0) task:liro-kliro_100 cpu:0 prio:143
+
+[  1566.646498 ] -sched next:2000 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.646501 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.646513 ] -sched next:1946 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.646513 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.646513 ] -sched next:2016 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.646515 ] -sched next:3099 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.646523 ] -sched next:000 < prev:1946 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_100 cpu:0 prio:143
+
+[  1566.646562 ] -profile user irq:102,6 cpu:1
+
+[  1566.646630 ] -profile user irq:158,23 cpu:0
+
+[  1566.646635 ] -sched next:097 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.646667 ] -sched next:000 < prev:097 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:UTIMER2 cpu:0 prio:7
+
+[  1566.646794 ] -sched next:000 < prev:2016 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_48 cpu:2 prio:126
+
+[  1566.646947 ] -profile user irq:129,15 cpu:1
+
+[  1566.646954 ] -sched next:1976 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.647070 ] -sched next:3099 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.647137 ] -profile user irq:156,10 cpu:2
+
+[  1566.647148 ] -sched next:2041 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.647175 ] -sched next:000 < prev:2041 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/2 cpu:2 prio:123
+
+[  1566.647236 ] -profile user irq:204,29 cpu:1
+
+[  1566.647241 ] -sched next:1976 < prev:3099 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.647302 ] -sched next:1948 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.647313 ] -sched next:3099 < prev:1976 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_99 cpu:1 prio:149
+
+[  1566.647463 ] -sched next:000 < prev:1948 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_68 cpu:3 prio:111
+
+[  1566.648056 ] -profile user irq:84,44 cpu:0
+
+[  1566.648069 ] -profile user irq:215,11 cpu:0
+
+[  1566.648135 ] -profile user irq:201,28 cpu:0
+
+[  1566.648138 ] -sched next:3120 < prev:3099 state:1 wchan:do_wait+180(60137e1c) task:ash cpu:1 prio:0
+
+[  1566.648992 ] -profile user irq:159,18 cpu:1
+
+[  1566.649000 ] -sched next:1921 < prev:3120 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.649164 ] -profile user irq:158,19 cpu:0
+
+[  1566.649172 ] -sched next:1930 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.649199 ] -sched next:000 < prev:1930 state:2 wchan:tslp_tsk+80(5f4de000) task:liro-kliro_55 cpu:0 prio:126
+
+[  1566.649341 ] -sched next:3120 < prev:1921 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_43 cpu:1 prio:146
+
+[  1566.649390 ] -profile user irq:153,21 cpu:0
+
+[  1566.649405 ] -sched next:004 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.649437 ] -sched next:1935 < prev:3120 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.649472 ] -sched next:3120 < prev:1935 state:1 wchan:osal_rcv_msg_tmo+138(5f048624) task:liro-kliro_56 cpu:1 prio:109
+
+[  1566.649528 ] -sched next:000 < prev:004 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/0 cpu:0 prio:123
+
+[  1566.649606 ] -profile user irq:216,11 cpu:1
+
+[  1566.650111 ] -profile user irq:35,9 cpu:2
+
+[  1566.650181 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.650193 ] -profile user irq:83,92 cpu:0
+
+[  1566.650205 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.650207 ] -profile user K_AFMAP cpu:2
+
+[  1566.650207 ] -sched next:2000 < prev:3120 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.650209 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.650224 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.650226 ] -sched next:3120 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.650307 ] -profile user irq:201,87 cpu:0
+
+[  1566.650311 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.650315 ] -profile user LM::VD_Pre cpu:2
+
+[  1566.650375 ] -profile user IM::VD_Pre cpu:2
+
+[  1566.650381 ] -profile user EC::VD_Pre cpu:2
+
+[  1566.650403 ] -profile user LC::VD_Pre cpu:2
+
+[  1566.650455 ] -sched next:2002 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.650469 ] -profile user SR::VD_Pre cpu:2
+
+[  1566.650469 ] -sched next:1997 < prev:3120 state:0 wchan:0(0) task:ash cpu:1 prio:0
+
+[  1566.650479 ] -sched next:000 < prev:2002 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_192 cpu:0 prio:134
+
+[  1566.650485 ] -sched next:3120 < prev:1997 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_88 cpu:1 prio:125
+
+[  1566.650526 ] -profile user CA::VD_Pre cpu:2
+
+[  1566.650536 ] -profile user YC::VD_Pre cpu:2
+
+[  1566.650554 ] -profile user ALL::VD_Pre cpu:2
+
+[  1566.650567 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.650590 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.650592 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.650618 ] -profile user irq:83,17 cpu:0
+
+[  1566.650619 ] -sched next:1947 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.650625 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.650627 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.650718 ] -profile user TC::VD_Seq S cpu:3
+
+[  1566.650749 ] -sched next:2012 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.650751 ] -sched next:000 < prev:1947 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_101 cpu:3 prio:143
+
+[  1566.650760 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.650766 ] -sched next:3120 < prev:2012 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_203 cpu:1 prio:67
+
+[  1566.650796 ] -sched next:2000 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.650799 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.650807 ] -sched next:000 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.650810 ] -sched next:3120 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.650812 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.650976 ] -sched next:1959 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.650987 ] -sched next:1960 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.651000 ] -sched next:1965 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.651025 ] -profile user irq:158,20 cpu:0
+
+[  1566.651070 ] -sched next:1961 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.651193 ] -sched next:1963 < prev:1965 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_83 cpu:1 prio:98
+
+[  1566.651223 ] -sched next:000 < prev:1961 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_81 cpu:0 prio:86
+
+[  1566.651223 ] -sched next:1962 < prev:1963 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_84 cpu:1 prio:85
+
+[  1566.651280 ] -sched next:1964 < prev:1962 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_82 cpu:1 prio:84
+
+[  1566.651321 ] -sched next:3120 < prev:1964 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_85 cpu:1 prio:83
+
+[  1566.651368 ] -profile user irq:157,19 cpu:3
+
+[  1566.651385 ] -sched next:2045 < prev:1959 state:0 wchan:0(0) task:liro-kliro_79 cpu:3 prio:97
+
+[  1566.651429 ] -sched next:2002 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.651438 ] -sched next:1959 < prev:2045 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/3 cpu:3 prio:123
+
+[  1566.651468 ] -sched next:000 < prev:1960 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_80 cpu:2 prio:107
+
+[  1566.651517 ] -sched next:000 < prev:2002 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_192 cpu:0 prio:134
+
+[  1566.651648 ] -sched next:689 < prev:1959 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_79 cpu:3 prio:97
+
+[  1566.651693 ] -sched next:390 < prev:689 state:1 wchan:hrtimer_nanosleep+94(60153d38) task:bsa_server cpu:3 prio:0
+
+[  1566.651762 ] -sched next:000 < prev:390 state:1 wchan:utimer_res_sleep+10(5f054be8) task:I-InputRepeat cpu:3 prio:0
+
+[  1566.652246 ] -profile user irq:84,59 cpu:0
+
+[  1566.652267 ] -profile user irq:215,18 cpu:0
+
+[  1566.652360 ] -profile user irq:201,66 cpu:0
+
+[  1566.653074 ] -profile user irq:155,16 cpu:1
+
+[  1566.653092 ] -sched next:2037 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.653169 ] -sched next:362 < prev:2037 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/1 cpu:1 prio:123
+
+[  1566.653262 ] -sched next:3120 < prev:362 state:1 wchan:hrtimer_nanosleep+94(60153d38) task:monio(input) cpu:1 prio:0
+
+[  1566.653461 ] -profile user irq:98,23 cpu:1
+
+[  1566.653480 ] -profile user irq:99,17 cpu:1
+
+[  1566.653532 ] -profile user irq:101,49 cpu:1
+
+[  1566.653538 ] -sched next:2018 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.653540 ] -sched next:1889 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.653558 ] -sched next:000 < prev:2018 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_131 cpu:2 prio:31
+
+[  1566.653573 ] -sched next:1890 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.653576 ] -sched next:2014 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.653590 ] -sched next:1918 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.653605 ] -sched next:1892 < prev:1890 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_4 cpu:3 prio:148
+
+[  1566.653636 ] -sched next:1899 < prev:1889 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_2 cpu:1 prio:151
+
+[  1566.653642 ] -sched next:1894 < prev:1918 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_40 cpu:0 prio:130
+
+[  1566.653665 ] -sched next:1921 < prev:1899 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_19 cpu:1 prio:150
+
+[  1566.653690 ] -sched next:1909 < prev:1921 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_43 cpu:1 prio:146
+
+[  1566.653759 ] -sched next:1926 < prev:1894 state:0 wchan:0(0) task:liro-kliro_10 cpu:0 prio:128
+
+[  1566.653783 ] -sched next:1897 < prev:1892 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_5 cpu:3 prio:128
+
+[  1566.653821 ] -sched next:2022 < prev:1909 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_30 cpu:1 prio:137
+
+[  1566.653823 ] -sched next:000 < prev:1926 state:1 wchan:osal_wai_sem_tmo+f8(5f049bbc) task:liro-kliro_50 cpu:0 prio:153
+
+[  1566.653823 ] -sched next:1894 < prev:2014 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_15 cpu:2 prio:128
+
+[  1566.653870 ] -sched next:000 < prev:1897 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_13 cpu:3 prio:128
+
+[  1566.653876 ] -sched next:3120 < prev:2022 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_61 cpu:1 prio:129
+
+[  1566.653932 ] -sched next:000 < prev:1894 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_10 cpu:2 prio:128
+
+[  1566.654011 ] -profile user irq:202,17 cpu:0
+
+[  1566.654017 ] -sched next:1926 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.654043 ] -sched next:000 < prev:1926 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:liro-kliro_50 cpu:0 prio:153
+
+[  1566.654335 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.654336 ] -profile user irq:84,65 cpu:0
+
+[  1566.654355 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.654363 ] -sched next:2000 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.654365 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.654366 ] -profile user K_AFMAP cpu:2
+
+[  1566.654375 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.654377 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.654382 ] -sched next:3120 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.654382 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.654421 ] -profile user irq:201,49 cpu:0
+
+[  1566.654426 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.654507 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.654510 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.654533 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.654575 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.654579 ] -sched next:2000 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.654581 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.654583 ] -sched next:000 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.654590 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.654595 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.654596 ] -sched next:3120 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.656120 ] -profile user irq:84,19 cpu:0
+
+[  1566.656130 ] -sched next:1995 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.656402 ] -profile user irq:84,46 cpu:0
+
+[  1566.656418 ] -profile user irq:215,12 cpu:0
+
+[  1566.656517 ] -profile user irq:201,51 cpu:0
+
+[  1566.656810 ] -profile user irq:158,29 cpu:0
+
+[  1566.656818 ] -sched next:098 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.656825 ] -sched next:000 < prev:1995 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.656854 ] -sched next:122 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.656865 ] -sched next:3120 < prev:098 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:UTIMER3 cpu:1 prio:7
+
+[  1566.656877 ] -sched next:000 < prev:122 state:1 wchan:osal_rcv_msg_tmo+124(5f048610) task:UPM_TSK_NML cpu:3 prio:0
+
+[  1566.657141 ] -profile user irq:156,14 cpu:2
+
+[  1566.657156 ] -sched next:2041 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.657196 ] -sched next:000 < prev:2041 state:1 wchan:run_ksoftirqd+74(6013abf4) task:ksoftirqd/2 cpu:2 prio:123
+
+[  1566.657610 ] -profile user irq:84,9 cpu:0
+
+[  1566.657701 ] -profile user irq:159,20 cpu:1
+
+[  1566.657710 ] -sched next:1921 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.657728 ] -sched next:3120 < prev:1921 state:2 wchan:twai_flg+134(5f4debe8) task:liro-kliro_43 cpu:1 prio:146
+
+[  1566.658505 ] -sched next:1944 < prev:000 state:0 wchan:0(0) task:swapper/2 cpu:2 prio:0
+
+[  1566.658506 ] -profile user irq:84,66 cpu:0
+
+[  1566.658527 ] -sched next:1987 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.658534 ] -sched next:2000 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.658537 ] -profile user K_AFMAP cpu:2
+
+[  1566.658537 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.658543 ] -profile user YC::HS_Mai cpu:2
+
+[  1566.658546 ] -profile user EC::HS_Mai cpu:2
+
+[  1566.658552 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.658553 ] -sched next:3120 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.658568 ] -profile user LC::BNB_Wai cpu:2
+
+[  1566.658570 ] -profile user LC::HS_Mai cpu:2
+
+[  1566.658591 ] -profile user ALL:HS_Mai cpu:2
+
+[  1566.658602 ] -profile user irq:201,58 cpu:0
+
+[  1566.658612 ] -profile user irq:84,6 cpu:0
+
+[  1566.658617 ] -sched next:000 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.658828 ] -profile user irq:84,15 cpu:0
+
+[  1566.658835 ] -sched next:1995 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.658852 ] -sched next:000 < prev:1995 state:2 wchan:hwtimer_schedule_timeout+54(60125914) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.658977 ] -sched next:1995 < prev:000 state:0 wchan:0(0) task:swapper/0 cpu:0 prio:0
+
+[  1566.658985 ] -profile user FW::UpdAcs cpu:0
+
+[  1566.659014 ] -sched next:1987 < prev:1995 state:0 wchan:0(0) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.659022 ] -sched next:2000 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.659024 ] -sched next:1993 < prev:000 state:0 wchan:0(0) task:swapper/3 cpu:3 prio:0
+
+[  1566.659025 ] -sched next:1995 < prev:1987 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_113 cpu:0 prio:147
+
+[  1566.659030 ] -sched next:000 < prev:1944 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_66 cpu:2 prio:147
+
+[  1566.659038 ] -sched next:000 < prev:1993 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_121 cpu:3 prio:147
+
+[  1566.659040 ] -sched next:3120 < prev:2000 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_104 cpu:1 prio:147
+
+[  1566.659073 ] -profile user LC::VD_Pos_PR cpu:0
+
+[  1566.659096 ] -profile user TC::VD_Pos_PR cpu:0
+
+[  1566.659099 ] -profile user CPM::JudPrm cpu:0
+
+[  1566.659104 ] -profile user LC::VD_Pos cpu:0
+
+[  1566.659106 ] -profile user LM::VD_Pos cpu:0
+
+[  1566.659110 ] -profile user TC::VD_Pos cpu:0
+
+[  1566.659136 ] -profile user IDT::OPD_TOP cpu:0
+
+[  1566.659144 ] -profile user ALL::VD_Pos cpu:0
+
+[  1566.659179 ] -profile user irq:158,19 cpu:0
+
+[  1566.659182 ] -sched next:1930 < prev:3120 state:0 wchan:0(0) task:busybox cpu:1 prio:0
+
+[  1566.659192 ] -sched next:1946 < prev:1995 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_123 cpu:0 prio:146
+
+[  1566.659200 ] -profile user FW::DFS_Chk cpu:0
+
+[  1566.659209 ] -sched next:3120 < prev:1930 state:2 wchan:tslp_tsk+80(5f4de000) task:liro-kliro_55 cpu:1 prio:126
+
+[  1566.659214 ] -profile user MEC::VD_Drv cpu:0
+
+[  1566.659227 ] -profile user ALL::VD_Drv cpu:0
+
+[  1566.659246 ] -sched next:000 < prev:1946 state:2 wchan:trcv_mbf+238(5f4e006c) task:liro-kliro_100 cpu:0 prio:143
+
+/usr/share/app # 
+```

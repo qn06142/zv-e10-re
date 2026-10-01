@@ -36,7 +36,7 @@ fire-and-forget, no TCP listener, and **a patched icon font cannot appear becaus
 | persistent code execution at boot | blocked on a deliberate decision + the camera |
 | command the RTOS subsystems | blocked on the RTOS message format |
 | command the application | blocked: entry point absent, and boot mode unexplained — but the engine underneath is **resident and in use**, so this is narrower than it was |
-| observe the firmware | `tmonitor` is writable and idle (`mask=0`) — untested |
+| observe the firmware | **done** — `/proc/tmonitor` returns a live ~50 ms RTOS trace; `mask=0` means unmasked, not off |
 | offline RE | **not blocked**; everything below can proceed with the camera disconnected |
 
 ## The camera is attached
@@ -147,7 +147,17 @@ Details in [`REFERENCE.md`](REFERENCE.md).
 | 2 | boot mode | `BOOTMODE=NORM`, no forcing file, no kernel flag — yet the application is not loaded. Either the reported mode is wrong or the service USB personality holds the system in the launcher. **Testing means giving up the shell.** This is the actual reason the subsystems are unreachable, and the one open question no amount of offline RE will answer. |
 | 3 | `/proc/osal/uipc` write grammar | the node is read-write and the module has `__k_cmd_debug`, but the command grammar is unknown and it is a write into a kernel interface |
 | 4 | host-tunnel code for `GetLensVersion` | must be determined live; read-only once found |
-| 5 | `tmonitor` | 32 KB at `0xF00000`, `mask=0`, a kernel module loaded under that name. Cheapest untried observation knob. |
+
+**`tmonitor` is no longer a blocker.** It was listed here as the cheapest untried
+observation knob, and reading `/proc/tmonitor` settles it: a live ~50 ms RTOS
+trace, ~650 sched and ~370 profile records per read, 60+ tasks, 15 module
+prefixes, and the RTOS message primitives `osal_rcv_msg_tmo` (`0x5f0484ec`) and
+`osal_wai_sem_tmo` (`0x5f049ac4`) with addresses. `mask=0` meant *nothing masked
+out*, not "off". Detail in [`REFERENCE.md`](REFERENCE.md) §16a.
+
+What it does **not** give is the LiRo kernel image: every LiRo wait channel is
+absent from both `vmlinux.bin` (Linux only) and `av-cam.bin`. Finding that binary
+is now a distinct open item.
 
 ## Open offline, by value
 
@@ -216,6 +226,10 @@ the time goes.
 # what is really resident in im.elf; two sessions, do not merge them
 & ".venv\Scripts\python.exe" -B research\device\im_runtime_manifest.py
 
+# the live RTOS trace; writes the artefact on the spot, because the
+# session log is truncated by the next command
+& ".venv\Scripts\python.exe" -B research\firmware\tmonitor.py
+
 & ".venv\Scripts\python.exe" -m pytest -q
 & ".venv\Scripts\python.exe" -B research\firmware\check_docs.py   # docs integrity
 ```
@@ -250,16 +264,21 @@ derivations is in [`../06-method.md`](../06-method.md); the ones that bite most:
 | link is lossy at volume | a scan of `/proc/*/fd` across 263 processes floods the serial link and the **next** command's output arrives empty. Put the noisy query and the bulky query in **separate** sessions. |
 | `$$` never survives | PowerShell expands it, so `/proc/$$/maps` arrives as `/proc/<pc-pid>/maps` and reports nothing. Use the literal pid. |
 | shell verbs hide the `&` | the eject verb is `E&ject` — the accelerator sits **mid-word**, so matching `Eject` finds nothing and a first eject attempt silently never happens. Match `-like '*ject*'`, and hold the `Verbs()` collection rather than re-enumerating it (a second call returns a different set). |
+| `zve10_shell.log` is scratch | `zve10_shell.py` opens it with mode **`"w"`**, so **every session truncates the last one**. A whole `tmonitor` trace was extracted, summarised, and then destroyed by the next three commands. Capture anything worth keeping into a tracked artefact **on the spot**, and make the capture the first command of the session. |
+| a symbol name is not an identity | the trace emitted `0x60293424` as both `tty_insert_flip_string_fixed_flag` and `tty_insert_flip_string_fixed_fl`. `vmlinux.bin` has only the long one, so the short is a clipped copy. Group by address. |
+| `\S+` drops names with spaces | `-profile user TC::VD_Seq S cpu:0` — a task name containing a space. Matching the name as `\S+` loses the record. Anchor on the trailing `cpu:N` instead. |
 
-The link-flood and `$$` rows are what made the runtime manifest return an empty list
-three times before it worked, each time as a *plausible empty result* rather than
-an error. Pinned by `tests/test_im_manifest.py`, which intercepts the tool's `run`
-and asserts on the commands it really issues — a text search for `$$` in the source
-would find it in the comment that documents the trap, and fail for the wrong
-reason.
+The `E&ject`, log-truncation and `\S+` rows are the same family: the operation
+appears to run and reports nothing, or reports a plausible result — which is
+indistinguishable from it not having worked. Pinned by
+`tests/test_tmonitor.py` and `tests/test_im_manifest.py`. The latter intercepts
+the tool's `run` and asserts on the commands it really issues, because a text
+search for `$$` in the source finds it in the comment that documents the trap and
+fails for the wrong reason.
 
-The `E&ject` row is the same family: the operation appears to run and reports
-nothing, which is indistinguishable from it not having run.
+The link-flood and `$$` rows are what made the runtime manifest return an empty
+list three times before it worked, each time as a *plausible empty result* rather
+than an error.
 
 ## House rules that were violated before they were learned
 
