@@ -51,11 +51,17 @@ left, `/tmp` scratch removed. The five persistence markers are still in place
 (`/setting/_audit1`, `/system/_audit2`, `/usr/bin/_marker3`, `/usr/share/_marker4`,
 `/usr/share/pmbp/_marker2`). `libIMDB.so` has **not** been touched.
 
-**The SD card does not release.** It stays mounted with `OperationalStatus:
-Unknown` and a blank volume label, and an eject never completes. Reads still work,
-so dumps can be taken, but the card is not being handed back — and recovery from
-the `libIMDB.so` one-way door depends on it. Treat "card confirmed working" as
-unproven.
+**The SD card releases its dataset but not its device node.** Disk 2
+(`Generic Mass-Storage`, FAT32 59 GB, drive `F:`, label `PMCA`) starts as
+`OperationalStatus: Unknown` with an apparently stuck mount. Reads are fine —
+831 files reachable — so dumps are still possible. The shell's `E&ject` verb takes
+the disk to `IsOffline=True` / `No Media`, which is the storage layer letting go,
+but the USB device stays enumerated (`Status=OK`) and the `F:`/`E:` letters remain
+as phantom volume records. Non-admin cannot finish it; `fsutil volume dismount`
+and `mountvol /p` both no-op silently. Closing Explorer does not help — no window
+holds it. **Physical removal after the offline transition is very likely safe, but
+that is inference, not a measurement**; it is confirmed only by the card
+re-enumerating on the next attach.
 
 ---
 
@@ -243,13 +249,17 @@ derivations is in [`../06-method.md`](../06-method.md); the ones that bite most:
 | base64 by hand | a single mistyped character once decoded to `0000` at the *id field of the next record*. Generate chunks programmatically; hash on the camera **before** writing. |
 | link is lossy at volume | a scan of `/proc/*/fd` across 263 processes floods the serial link and the **next** command's output arrives empty. Put the noisy query and the bulky query in **separate** sessions. |
 | `$$` never survives | PowerShell expands it, so `/proc/$$/maps` arrives as `/proc/<pc-pid>/maps` and reports nothing. Use the literal pid. |
+| shell verbs hide the `&` | the eject verb is `E&ject` — the accelerator sits **mid-word**, so matching `Eject` finds nothing and a first eject attempt silently never happens. Match `-like '*ject*'`, and hold the `Verbs()` collection rather than re-enumerating it (a second call returns a different set). |
 
-The last two are what made the runtime manifest return an empty list three times
-before it worked, each time as a *plausible empty result* rather than an error.
-Pinned by `tests/test_im_manifest.py`, which intercepts the tool's `run` and
-asserts on the commands it really issues — a text search for `$$` in the source
+The link-flood and `$$` rows are what made the runtime manifest return an empty list
+three times before it worked, each time as a *plausible empty result* rather than
+an error. Pinned by `tests/test_im_manifest.py`, which intercepts the tool's `run`
+and asserts on the commands it really issues — a text search for `$$` in the source
 would find it in the comment that documents the trap, and fail for the wrong
 reason.
+
+The `E&ject` row is the same family: the operation appears to run and reports
+nothing, which is indistinguishable from it not having run.
 
 ## House rules that were violated before they were learned
 
