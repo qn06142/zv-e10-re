@@ -32,7 +32,7 @@ Start here:
 | | doc | what it settles |
 |---|---|---|
 | 01 | [hardware.md](01-hardware.md) | SoC, the two operating systems, firmware images, how to dump one, Windows gotchas |
-| 02 | [service-shell.md](02-service-shell.md) | everything reachable from the root shell: mounts, persistence, boot chain, `im.elf`, code execution |
+| 02 | [service-shell.md](02-service-shell.md) | everything reachable from the root shell: mounts, persistence, boot chain, `im.elf`, code execution, the `grm_*` DMP/SUGILITE graphics path |
 | 03 | [binaries.md](03-binaries.md) | the ELF inventory, the plugin architecture, the `av-cam.bin` RTOS command engine, VDF display |
 | 04 | [messaging.md](04-messaging.md) | the bus, the id spaces, `libSysDef.so` tables, the MWF and scenario vocabularies, the APICD registry |
 | 05 | [formats.md](05-formats.md) | the `.uxc` container, view files, `global.xdb`, the string table, the colour palette |

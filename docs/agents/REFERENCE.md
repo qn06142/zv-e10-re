@@ -17,7 +17,7 @@ round-trips or md5-verifies. For *how* any of it was obtained see
 | Userspace | BusyBox 1.34.1 ash |
 | Wi-Fi/BT | Broadcom BCM4339, driver `bcmdhd`; `bt_firm.hcd` = `"BCM4339 37.4MHz Sony DI 152H-0178"` |
 | Storage | raw NAND via `nflasha*` nodes; SD via `/dev/mmca1` |
-| UI renderer | `grm_ma.ko` + `grm_gles.ko` — **OpenGL ES** |
+| UI path | `grm_gles.ko` (SUGILITE chardev+MMIO over PCIe) + `grm_ma.ko` (DMP memory allocator); `libObj.so` opens `/dev/dmpgles2` and uses DMP's EGL extensions. **GLES2 is the API; the renderer is DMP silicon, not the A9s** |
 
 **Two operating systems on one SoC.** Linux is the housekeeping OS (USB, Wi-Fi/BT,
 HDMI/CEC, SD/MMC, GUI, buttons, IR). The camera — sensor, ISP, AF, AE, AWB, encode —

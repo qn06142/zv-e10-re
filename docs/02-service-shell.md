@@ -278,18 +278,86 @@ with parameters:
 /usr/kmod/kikilog.ko
 /usr/kmod/dmm.ko    DmmConfig=/setting/DmmConfig.bin
 /usr/kmod/upm.ko  /usr/kmod/nfc.ko
-/usr/kmod/grm_ma.ko  /usr/kmod/grm_gles.ko      <- graphics / OpenGL ES
+/usr/kmod/grm_ma.ko  /usr/kmod/grm_gles.ko      <- DMP SUGILITE graphics path
 /usr/kmod/accel.ko  /usr/kmod/mag.ko  /usr/kmod/compass.ko
 /usr/kmod/mcmn_drv.ko  /usr/kmod/ms_drv.ko  /usr/kmod/mmc_drv.ko
 /usr/kmod/sata_drv.ko  /usr/kmod/msen_drv.ko    <- sensor
 /usr/kmod/dma330.ko  /usr/kmod/codec_drv.ko
 ```
 
-Two things fall out of that list. **`grm_ma.ko` and `grm_gles.ko` are the
-renderer** — the UI draws through OpenGL ES, which is what `libObj.so`'s
-`GRM_bitmap*` and `GRM_fbrmPrepareUpdateYUV` exports talk to, and therefore where
-`TextRM_drawText` ultimately lands. And `msen_drv.ko` is the sensor driver, so the
-capture path is reachable in principle.
+Two things fall out of that list. `grm_gles.ko` is the graphics path, and
+`msen_drv.ko` is the sensor driver, so the capture path is reachable in
+principle.
+
+> **Corrected — this entry previously said "`grm_ma.ko` and `grm_gles.ko` are the
+> renderer, the UI draws through OpenGL ES". That was an inference from the
+> letters in a filename and it is wrong in a way that matters.** Read from the
+> modules themselves (`research/firmware/grm_modules.py`):
+>
+> **`grm_gles.ko` is a character-device and MMIO driver for DMP's SUGILITE
+> imaging coprocessor.** Its own `.modinfo` reads
+> `description=SUGILITE Driver`, `author=DMP/Sony`, `version=0.6`. Its symbols
+> are `sugilite_open`, `sugilite_ioctl` (2,584 B — the bulk of it),
+> `sugilite_mmap`, `sugilite_interrupt`, `sugilite_clock_up_internal`,
+> `sugilite_clock_down_internal`, and `sugilite_ioread8/16/32` /
+> `iowrite8/16/32` register accessors. It logs
+> `!!! GPE HW: bar remapped 0x%08x->0%p size %x` — **BAR** remapping is a PCIe
+> concept, so SUGILITE is a separate chip on a PCIe link, not an on-chip block.
+> Its `.text` is **6,092 bytes**, three orders of magnitude too small to be any
+> kind of GL implementation. Sources: `sugi_hw.c` and `sugi_dev.c`.
+>
+> **`grm_ma.ko` is the matching memory allocator**, not a renderer: a `mspace_*`
+> zone allocator (`mspace_malloc`, `mspace_free`, `mspace_memalign`,
+> `mspace_mallinfo`, …) plus `ma_dmm_open_send_recv`,
+> `ma_findbyphys_impl` / `ma_list_findbyphys`, `ma_compact_*`, and
+> `ma_cache_flush_impl` / `ma_cache_invalidate_impl`. That is what lets a
+> Linux-side buffer be addressed by the DMP chip — physical/logical translation
+> and cache maintenance. It exports `udif_MA_MOD_NAME`. Sources: `allocator.c`,
+> `dmm_if.c`, `compact.c`, `list.c`.
+>
+> Both build under `BuildWorkSpace/**Guiengine_161H**/driver/` — Sony's GUI
+> engine for this platform.
+>
+> **The UI *API* is GLES2; the renderer is not on the Cortex-A9s.**
+> `libObj.so` is the only userspace consumer of either module. It opens
+> **`/dev/dmpgles2`** (and reports `"failed to open sugilite device"` if that
+> fails), and carries DMP's EGL extensions: `eglAsyncSwapBuffersDMP`,
+> `eglSuspendDMP`, `eglResumeDMP`, `eglSetHardwareStateDMP`,
+> `eglDrawFrameModeDMP`, `eglQueryFrameDMP`, `eglInvalidateImageDMP`,
+> `eglQueryDisplayDMP`, plus `EGL_KHR_image` and `EGL_DMP_display_query`.
+> So `libObj.so` is the GL *client*; the GLES2 implementation runs on the DMP
+> chip, reached through `grm_gles.ko`.
+>
+> Two supporting negatives, both checked properly:
+>
+> - **No library in `/usr/lib` links GLES or EGL.** 201 files, zero. So the
+>   implementation cannot be a Linux shared object.
+> - `libObj.so` also contains a `dmpNative::` layer — `vdf_if_port_send_exec/
+>   mute/update/break`, `FbContainer`, `WindowImpl::begin_swap`, `CmdProcessorDmm`,
+>   `OSDPin`, `YC1Pin`, `SenserCommunicator*`, `UIPCMsg::send`. That is the
+>   bridge to the **VDF display port** analysed in [03-binaries.md](03-binaries.md)
+>   and to the same MWF pin vocabulary (`OSDPin`, `YC1Pin`).
+>
+> **A trap worth recording, because it went into this file before the test
+> caught it.** Counting files that "contain GLES" gives three different wrong
+> answers depending on how loosely you match:
+>
+> | filter | files |
+> |---|---:|
+> | case-insensitive raw bytes (PowerShell `-match`) | **10** |
+> | case-sensitive raw bytes | 2 — `libObj.so`, `wpa_supplicant` |
+> | + printable ASCII run of ≥4 chars | 2 — unchanged |
+> | + word boundaries | **1** — `libObj.so` |
+>
+> PowerShell's `-match` is case-insensitive, which is what produced the 10; it
+> matches lowercase `gles` anywhere. `wpa_supplicant` survives the second filter
+> because its MIT licence text literally contains those capitals in
+> "NEGL**IGL**ENCE". Only `libObj.so` is a real hit.
+>
+> The chain is pinned by
+> `tests/test_grm_modules.py::test_gles_hits_are_not_byte_coincidences`, so an
+> intermediate stage's number cannot be quoted as a finding again. Same shape as
+> the `0x400c` count: a search that cannot fail, reported as a result.
 
 Its mount table names a filesystem not otherwise visible: **`/usr/upgrade`** on
 nflasha9, with `/usr` as ext2 on nflasha15. It also carries the string
