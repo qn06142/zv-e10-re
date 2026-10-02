@@ -298,6 +298,7 @@ derivations is in [`../06-method.md`](../06-method.md); the ones that bite most:
 | ARM immediates are `imm8 ROR 2*rot` | `add r3,r3,#0xc0000004` is really `#0x11, 30`. Read the decoded operand, never capstone's printed text — the printed form is the effective value and is fine, but a hand-rolled regex on the text is not. |
 | GCC refines one register across compares | `cmp r1,r3; beq E; add r3,r3,#K; cmp r1,r3; beq E2`. Clearing `r3` after the first `cmp` recovers 7 of 17 commands. Symbolic execution with a `seen` set shared across paths recovers 1. A single forward scan gets all 17. |
 | no symbol means no pointer | the module's 12-byte RTOS RPC has no symbol *and* no branch to it. Either fact alone would be weak; together they make it unreachable. |
+| never quote the docs fingerprint in full | `check_docs.py` scans the docs for 32-hex-digit strings and hashes that set, so writing the full fingerprint into a doc **adds it to its own input** and changes it. Quote it truncated (`070a0f50…`), as `09-provenance.md` does. Writing it in full moved the fingerprint to `4bf7d909…`. |
 
 The `E&ject`, log-truncation and `\S+` rows are the same family: the operation
 appears to run and reports nothing, or reports a plausible result — which is

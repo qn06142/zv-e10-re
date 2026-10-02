@@ -1,4 +1,3 @@
-
 > **SESSION RECORD - not a reference.** This is a dated log of how a finding was
 > reached. Anything still true of it has been extracted into the topic docs; do
 > not cite this file as fact. Kept for provenance only, so that a retracted
@@ -7,281 +6,248 @@
 > Current documentation: [docs/README.md](../README.md)
 # Handoff: ZV-E10 reverse engineering
 
-State as of the last commit. Written for an agent picking this up cold.
+State as of `b6d56a6`. Written for an agent picking this up cold.
 
 **Repo:** `D:\02_Development_And_Projects\pmca-re` · **Python:** `.venv\Scripts\python.exe`
-(always pass `-B` to skip stale bytecode) · **Tests:** 69 pass, ~60 s
-**Git:** clean tree, 8 commits this session
+(always pass `-B` to skip stale bytecode) · **Tests:** 139 pass / 8 skip with the
+camera attached, 135 / 12 without · **Commits:** 118 · **Scripts:** 322
+**Git:** clean tree, `qn06142 <90816999+qn06142@users.noreply.github.com>`, pushed
+to `github.com/qn06142/zv-e10-re`, default branch `master`.
 
 ```powershell
 cd D:\02_Development_And_Projects\pmca-re
-& ".venv\Scripts\python.exe" -B research\firmware\sysdef_tables.py
-& ".venv\Scripts\python.exe" -m pytest -q
+& ".venv\Scripts\python.exe" -B -m pytest -q
+& ".venv\Scripts\python.exe" -B research\firmware\check_docs.py   # md5-set fingerprint
 ```
+
+`check_docs.py` must not be edited — its md5-set fingerprint is a regression pin
+for the docs restructure.
+
+> **Never quote that fingerprint in full.** `check_docs.py` scans the docs for
+> 32-hex-digit strings and hashes the resulting set, so writing the full value
+> into any doc *adds it to its own input* and changes it. `09-provenance.md`
+> truncates it (`070a0f50…`), which is why that has stayed stable. Writing the
+> full value here moved the fingerprint `070a0f50…` → `4bf7d909…`.
 
 ---
 
-## 1. What was done, in order
+## 1. The short version
 
-| commit | what |
-|---|---|
-| `8b7e0f1` | Proved an attack path: writable `/usr/lib` → `dlopen` → root code exec |
-| `25e4cc7` | Documented how these binaries are read (`docs/06-method.md`); corrected a stale capstone claim |
-| `51496f3`, `d761327`, `552712c` | Repo cleanup: made 78 scripts path-independent, `.gitattributes`, `.gitignore` |
-| `0da94a3` | Decoded the 35 scenario plugins' command vocabulary |
-| `7104fda` | Recovered the MWF category/message pairs from the MPR plugins |
-| `27d5d8d` | Named every id in that vocabulary, from `libSysDef.so` |
-| `56235e5` | Joined the object table to `libObj.so`; found the IMCFG device table |
+Four modifications were applied and verified, plus root code execution. Only
+`DeviceInfo.xml` is still patched; the other three are back to stock because
+`/usr/share/app` is boot-wiped. The palette was the only one ever *seen* to work.
 
-The RE arc is a chain — each step needed the previous one:
+The reason nothing further has landed is not analysis. Every remaining door is
+one-way with SD-card recovery, and the card does not release cleanly. The
+bottleneck is a card eject.
 
-1. **`scenario.elf` does not `dlopen` the plugins.** `libtestcmd.so` imports no
-   `dlopen`/`dlsym`, only `osal_*`. It sends the name over the UIPC bus; the
-   peer that would load the plugin is not running in service mode. So the
-   plugins had to be read directly.
-2. **Their message ids are immediates, not data.** Sweeping `movw`/`movt`
-   across all 35 gave 96 values. Anchored against five
-   `HDMI::PAYLOAD<MSG<id,1>>` template ids carried in mangled names — 2 of 5
-   matched an immediate in exactly the right plugin.
-3. **`libSysDef.so` names them.** Three exported MWF tables, self-describing.
-4. **The object table joins to `libObj.so`** exactly: 25 implemented, 20
-   declared-only, zero orphans.
+---
 
-## 2. Findings, by file
+## 2. What was done this session, in order
 
-| doc | contents |
-|---|---|
-| `docs/02-service-shell.md` | 44 KB. The service-mode audit. Attack path, mounts, persistence, init recipe |
-| `docs/04-messaging.md` | 96-value id vocabulary; DataflowInfra vs MWF; the two cross-validate on 3 ids |
-| `docs/04-messaging.md` | 33 categories, 45 objects, 12 pins; which are implemented |
-| `docs/04-messaging.md` | Full recovered MWF message vocabulary: libMWF, NetDbIf, APICD, ObjCntMgr, ObjPlayer, ObjFaceRecorder |
-| `docs/04-messaging.md` | 70 device names incl. all 32 `nflasha`; 7 `/nondev/` pseudo-devices; 16-id array |
-| `docs/06-method.md` | **Read this first.** The decoding traps, all verified |
-| `docs/07-modification.md` | The patched icon font and its transport |
+1. **Corrected the "application is not deployed" claim.** `im.elf` holds
+   `/dev/dmpgles2` on fd 31, `grm_gles` is loaded at refcount 2, and 97 of the 174
+   libraries `libIMDB.so` names are genuinely mapped — including `libObj.so`,
+   `libMWF.so`, `libSysDef.so` and `viewUnified2/6`. The engine was never dormant;
+   only the application *entry point* is missing.
+   → `research/device/im_runtime_manifest.py`, `research/firmware/im_runtime_manifest.txt`
+2. **`/proc/tmonitor` is live**, not masked off. `mask=0` means nothing is masked
+   out. It returns a ~50 ms RTOS scheduler trace: 60+ tasks, wait channels with
+   kernel addresses, 15 `MODULE::task` prefixes, IRQ hot spots.
+   → `research/firmware/tmonitor.py`, `research/firmware/tmonitor_trace.txt`
+3. **Recovered the `/dev/dmpgles2` ioctl ABI**: 17 commands, all
+   `_IOC(dir, 0x82, nr, 4)`. Ruled the ioctl out as a display door.
+   → `research/firmware/sugilite_ioctl.py`
+4. **Ejected the SD card's dataset** — disk 2 to `IsOffline` / `No Media`. The
+   device node stays present; non-admin cannot finish.
+5. **Audited all four modifications** against their stated baselines.
 
-Headline results:
+---
 
-- **Attack path (proved, not theorised).** `/usr/lib` is ext2 on `nflasha15`,
-  remountable rw, and *not* wiped at boot. Replace a `.so` there and the loader
-  runs it as root. Demonstrated with a 66-byte Thumb-2 payload of raw `svc #0`
-  syscalls injected into `libtestcmd.so`'s `cmdline_show_revision`; marker file
-  appeared; restored and md5-verified.
-- **`libIMDB.so` is the application manifest.** 174 libraries, 16 kernel
-  modules, 22 paths. `imdb_raw` is 132 bytes of `u16` offsets naming nine
-  modes. `im.elf` (PID 157) `dlopen`s what it names — that is the real target,
-  and it is a one-way door (if it breaks, the service shell never appears).
-- **The application core is not deployed.** `appFw.so`, `gui.so`, `libNVM.so`,
-  `libInfraWebApi.so` are all absent. The service filesystem has the rendering
-  engine and the assets, not the program.
-- **Two bus namespaces.** `0x0094xxxx` = Linux (89 hits), `0x00dcxxxx` = the
-  liro/RTOS endpoint (**0** hits in the Linux dump — the RTOS keeps its own
-  queues). `sndcmd` returning RC=0 means the firmware accepted the message.
-- **`0x2004` = `PIN_SOUND`**, the most common id in the whole vocabulary at 76
-  uses.
+## 3. Findings by area
 
-## 3. Tooling
+### The display path is not OpenGL
 
-### Read these binaries
+`libObj.so` carries a **196-entry table of GL ES 2.0 / EGL entry-point names** at a
+uniform 48-byte stride, preceded by `"OpenGL ES2.0"` and `"EGL"` slots. It exports
+**none** of them — 0 `gl*` and 0 `egl*` across 650 catalogued ELFs, and no
+`libGLESv2.so` / `libEGL.so` exists. The 8 `*DMP` entries are the real vendor
+surface: `eglQueryDisplayDMP`, `eglAsyncSwapBuffersDMP`, `eglDrawFrameModeDMP`,
+`eglQueryFrameDMP`, `eglInvalidateImageDMP`, `eglSuspendDMP`, `eglResumeDMP`,
+`eglSetHardwareStateDMP`.
+
+The renderer is DMP SUGILITE silicon. The drawing API is `libObj.so`'s **517
+exported `GRM_*` symbols** — `GRM_gpermRectblit` at `0x684087`, plus
+`GRM_bitmapCreate`, `GRM_bitmapGetPhysicalAddress`, `GRM_screenGetOnBitmap`.
+
+### The ioctl is a thin scalar surface
+
+`sugilite_ioctl`, 2,584 bytes at `.text+0x8e4`. Dispatch is a **binary search over
+literal-pool constants**, not a jump table.
+
+**Exactly one** of the 17 commands reaches hardware, and it is not a register
+write: `nr=15` writes the fixed value `0x20000001` to the fixed BAR offset `0xC0`,
+only if the caller passes exactly 1. The module's other 38 register writes are in
+`sugilite_register_init` (21), clock gating and the ISR. `nr=17`/`nr=18` are
+`down`/`up`. `nr=13` is the only completion wait, and what completes it is
+`open`/`close` on the device.
+
+The module also holds a complete **12-byte OSAL request/reply RPC into the RTOS**
+— unsymbolised, 416 bytes at `.text+0x744`, endpoints `0x008f013a` / `0x00910042`
+/ `0x008f0313` — which is **unreachable**: nothing branches to it *and* it has no
+symbol, so no pointer can target it either.
+
+### Two kernels, cleanly separated
+
+Wait channels from `tmonitor` name both kernels. The split is at `0x60000000`,
+not fitted to the labels:
+
+| space | range | examples |
+|---|---|---|
+| LiRo (RTOS + modules) | `0x5f0d`–`0x5f5xxxxx` | `trcv_mbf` `0x5f4dfe34`, `osal_rcv_msg_tmo` `0x5f0484ec`, `osal_wai_sem_tmo` `0x5f049ac4`, `twai_flg`, `tslp_tsk`, `hdmi_workqueue` |
+| Linux | `0x60xxxxxx`+ | `run_ksoftirqd`, `irq_thread`, `hrtimer_nanosleep`, `do_wait` |
+
+Cross-checked against `/proc/modules`: `grm_ma` `0x5f3f0000`, `grm_gles`
+`0x5f3f8000`. **The LiRo kernel image is in neither `vmlinux.bin` (Linux only) nor
+`av-cam.bin`** — a checked negative, so the LiRo addresses cannot be symbolised
+offline.
+
+### Modification audit
+
+| mod | reproducible | notes |
+|---|---|---|
+| `DeviceInfo.xml` | **no** | never staged; a 517-byte pull from the device |
+| `string_english_f.uxc` | yes | `staged/strings/…RESTORE` / `…OPENCODE` |
+| `Sony_DI_Icons.ttf` | yes | every claimed figure verified at glyph level |
+| `color_cmn.uxc` | yes | plus the blue build |
+
+Font, verified by parsing rather than by byte diff: 1732 glyphs either side,
+**exactly 138 outlines replaced**, **1594 of 1594** non-target glyphs identical,
+cmap 1,684 identical, 0 advance widths moved. The dump's copy is the patched font
+plus 5,328 B of sfft zero-padding — not a torn write.
+
+---
+
+## 4. Corrections made this session
+
+These matter: two were errors of my own, and the docs were right.
+
+1. **"The palette — worked, then was reverted."** It was not reverted; it read
+   `c169428e`, byte-identical to `MAGENTA_BUILD`, at the last check.
+2. **The blue build is not a single-entry edit.** Entry `0x4009` also changes,
+   `0000ddff` → `00ffffff`, alongside `0x400c`. Rebuild from
+   `color_cmn.STOCK.uxc` for a clean one-entry control.
+3. **I read a post-modification dump as stock**, twice — once for the palette,
+   once for the font — and concluded "these files are unrelated" both times. The
+   palette control was sound all along (`ff00ff` occurs **0 times** in stock).
+   Byte-diffing across a recompiled font is meaningless; table offsets shift.
+   → recorded as a method note in `07-modification.md`.
+4. **`README.md` carried a wrong test count** (109/12). Verified by stashing and
+   re-running at HEAD: it was 113/8.
+5. **`sugilite_ioctl` was described as jump-table dispatch.** It is a binary
+   search over literal-pool constants.
+
+---
+
+## 5. Tooling added
 
 ```powershell
-# the five extraction tools, all run clean with no arguments
-& ".venv\Scripts\python.exe" -B research\firmware\sysdef_tables.py    # MWF tables -> names
-& ".venv\Scripts\python.exe" -B research\firmware\imcfg_block.py     # device table + id array
-& ".venv\Scripts\python.exe" -B research\firmware\scenario_vocab.py  # flat movw/movt sweep
-& ".venv\Scripts\python.exe" -B research\firmware\mwf_ids.py         # MWF category/message pairs
-& ".venv\Scripts\python.exe" -B research\firmware\mwf_catalog.py     # Full recovered message vocabulary
+# live: what is actually resident in im.elf  (two sessions, do not merge them)
+& ".venv\Scripts\python.exe" -B research\device\im_runtime_manifest.py
 
-# annotated disassembly: <elf> <symbol>
-& ".venv\Scripts\python.exe" -B research\firmware\annotate.py `
-    dumps\camera_2025\usr\usr\lib\libtestcmd.so testcmd_run_scenario
-& ".venv\Scripts\python.exe" -B research\firmware\annotate.py `
-    dumps\engine\libObj.so ObjMedia_RegisterCommand
+# live: the /proc/tmonitor RTOS trace; writes the artefact on the spot
+& ".venv\Scripts\python.exe" -B research\firmware\tmonitor.py
 
-& ".venv\Scripts\python.exe" -B research\firmware\elf_catalog.py      # 648-ELF inventory
+# offline: the /dev/dmpgles2 ioctl ABI; pure file reader, no camera needed
+& ".venv\Scripts\python.exe" -B research\firmware\sugilite_ioctl.py
 ```
 
-`annotate.py` resolves PLT stubs to symbol names, decodes literal pools to
-`u32`, and names branch targets. Requires a symbol that exists — the symbol
-must be in `.dynsym`/`.symtab` with a nonzero size, or it raises `KeyError`.
+New tests: `tests/test_im_manifest.py` (8), `tests/test_tmonitor.py` (23),
+`tests/test_sugilite_ioctl.py` (26).
 
-Importable helpers (used by the tools above):
+---
 
-- `annotate.plt_map(f, data, segs)` → `{stub_vaddr: symbol_name}`
-- `annotate.v2o(segs, vaddr)` → file offset, via `PT_LOAD`
-- `scenario_vocab.immediates(path)` → `({mnemonic: u16} counts, {u32: count})`
-- `sysdef_tables.Obj(path)` → `.pairs(vaddr, size, stride)` yields
-  `(id, [names], words)`
-- `cpp_demangle.demangle(name)` — use this, **not** `cxxfilt`, which shells out
-  to a C++ demangler that isn't installed and fails
+## 6. The traps — this is the part that will bite you
 
-### Talk to the camera
+**Every trap in this project fails silently.** The full list with derivations is
+in [`../06-method.md`](../06-method.md). The ones added or sharpened recently:
 
-The SD card is in the PC, not the camera. Service mode gives a root shell over
-the USB serial console; `/usr/share/app` is the cwd.
+| trap | consequence |
+|---|---|
+| **`zve10_shell.py` opens `zve10_shell.log` with mode `"w"`** | **every session truncates the last one.** A whole `tmonitor` trace was extracted, summarised, then destroyed by the next three commands. Capture into a tracked artefact *on the spot*, and make the capture the first command of the session. |
+| the link is lossy at volume | a scan of `/proc/*/fd` across 263 processes floods it and the **next** command's output arrives empty. Noisy query and bulky query need separate sessions. |
+| `$$` never survives | PowerShell expands it, so `/proc/$$/maps` becomes `/proc/<pc-pid>/maps`. Use the literal pid. |
+| the shell verb is `E&ject` | accelerator mid-word, so matching `Eject` finds nothing and the eject silently never runs. Hold the `Verbs()` collection; a second call returns a different set. |
+| `Set-Content -Encoding UTF8` | adds a UTF-8 BOM. It got into three docs. Check `BOM=` when editing with PowerShell. |
+| **a count is not a value check** | with the literal pool read at `addr+4` instead of `addr+8`, the ioctl tool still printed **17 commands** — right number, all wrong values. The pool is contiguous. Only comparing the recovered *set* catches it. |
+| ARM PC is `addr+8` | `addr+size` reads the pool one word early and yields *instruction words* as constants (`0x0a000055` is `mov ip,sp`). |
+| ARM immediates are `imm8 ROR 2*rot` | `add r3,r3,#0xc0000004` is really `#0x11, 30`. Read the decoded operand. |
+| GCC refines one register across compares | `cmp r1,r3; beq E; add r3,r3,#K; cmp r1,r3; beq E2`. Clearing `r3` after the first `cmp` recovers 7 of 17 commands; symbolic execution with a shared `seen` set recovers 1. |
+| no symbol means no pointer | the RTOS RPC has no symbol *and* no branch to it. Either alone is weak; together they prove it unreachable. |
+| `\S+` drops names with spaces | `-profile user TC::VD_Seq S cpu:0`. Anchor on the trailing `cpu:N`. |
+| a symbol name is not an identity | `0x60293424` is emitted as both `tty_insert_flip_string_fixed_flag` and the 31-char `..._fixed_fl`. `vmlinux.bin` has only the long one, NUL-terminated. One occurrence, not a 32-char clip width. |
+| `wchan:0(0)` means runnable | and it is the largest group. Dropping it biases every wait statistic towards blocked tasks. |
+| `PowerShell -match` is case-insensitive | produced a bogus "10 files contain GLES". Use case-sensitive bytes. |
+| the camera shell has no `base64`/`stty`/`md5sum`/`head` | use `busybox <applet>`; `head: applet not found`. Commands ~1022 chars wrap and corrupt. PowerShell eats `$` (`RC=\True`). |
 
-```powershell
-# one command per arg; accepts a run only when a prompt returns
-& ".venv\Scripts\python.exe" research\device\zve10_retry.py `
-    "ls -l /usr/lib/libtestcmd.so" "busybox md5sum /usr/lib/libtestcmd.so"
-```
+---
 
-**Read the log, not the console.** The wrapper truncates console at 25 lines
-and writes the whole session to `zve10_shell.log` in the repo root. Four
-claims in this project were wrong purely from trusting the console.
+## 7. Open items, highest value first
 
-Camera-side essentials:
+1. **Fix the SD card.** Disk 2 is `IsOffline` with phantom `F:`/`E:` letters.
+   Non-admin cannot finish it; needs `Disable-PnpDevice` or `mountvol /p` as
+   admin. **This is the reason not to take `libIMDB.so`, and it blocks everything.**
+2. **Then take `libIMDB.so` deliberately**, with the card confirmed as recovery.
+   Executes at startup inside PID 157 — the process that owns 417 message queues
+   and holds the graphics node. One-way: a malformed replacement costs the shell.
+3. **Pull `/usr/share/pmbp/DeviceInfo.xml`** (517 B, reads `9b2d8cc0`) to close the
+   only reproducibility gap.
+4. **Boot mode.** `BOOTMODE=NORM`, no forcing file, no kernel flag, yet the
+   application is not loaded. Testing means giving up the shell.
+5. **The VDF OSD push entry point.** `vdf_if_port_send_update`,
+   `utilDMP2D_rectBlitDraw` and `DMP_2D_Initialize` are **not** dynamic symbols in
+   any of 179 scanned user-space ELFs — strings only. `libObj.so`'s `.symtab` is
+   stripped. This is the gap on the `GRM_*` route.
+6. **Locate the LiRo kernel image.** In neither `vmlinux.bin` nor `av-cam.bin`.
+7. `sugilite_ioctl` on a live camera: `/proc/kallsyms` gives authoritative
+   addresses, and an indirect caller to the RPC path could exist there.
+8. Offline, by value: the RTOS message format in `av-cam.bin`;
+   `DefInh::sm_refTbl` id→record index; `DefRsrc::scm_refTbl`; the `0x4xxx` id
+   family; `ObjFaceRecorder` dispatch; `BK4` format; the style TLV.
 
-- BusyBox 1.34.1 ash. `xxd`, `tr`, `tail`, `wc`, `head` are **listed by
-  `busybox --help` but not linked** — use `busybox <applet>`, which does work
-  for `md5sum`, `tail`, `dd`, `od`.
-- `xxd -r -p` is unusable: mangles 132 hex chars into 30 bytes. Use
-  `printf '\200\265...'` (3-digit octal) to write binary, and
-  `busybox tail -c +N` / `dd bs=1 count=N` to slice.
-- Mount the card by hand: `mkdir -p /tmp/sd; mount /dev/mmca1 /tmp/sd`
-  (`/dev/mmcca1` is a different controller and fails).
-- `/usr` is ext2 on `nflasha15`; `mount -o remount,rw /usr` works and persists.
-- `dd` has no `conv=notrunc` — any `dd of=<live file>` truncates. Use `cp`.
-- PowerShell eats `$` in camera commands; `echo RC=$?` arrives as `RC=\True`.
+---
 
-## 4. The traps — this is the part that will bite you
+## 8. Camera and card state
 
-Every one of these **fails silently**: a wrong answer looks exactly like a
-right one. Full detail in `docs/06-method.md`.
+**The camera link is intermittent.** It has dropped mid-session more than once;
+`zve10_retry.py` reports `No devices found` / `link never came up` after six
+attempts. Treat every device fact here as *true at the check that produced it*.
 
-1. **These objects are Thumb.** `.dynsym` sets bit 0 of `st_value`; all 25
-   `STT_FUNC` in `libtestcmd.so` are odd. Decode at `st_value & ~1`. Decoding
-   at the odd address in ARM mode gives a full, evenly sized, *fictional*
-   instruction stream that does not fail.
+At the last successful check: 47 modules in `/proc/modules`; PID 157 = `im.elf`;
+`/dev/dmpgles2` present; `string_english_f.uxc` and `Sony_DI_Icons.ttf` back to
+stock; `color_cmn.uxc` at the magenta build; `DeviceInfo.xml` still patched.
 
-2. **PLT stubs are ARM even in a Thumb library**, in three encodings (12-byte,
-   8-byte, inline in `.text`). To resolve one, decode its
-   `ldr pc, [ip, #imm]!`, compute the GOT address, look *that* up in
-   `.rel.plt`. **Do not assume stub order == relocation order.** Writing the
-   `ldr` test as a single mask against `0xE5BCC000` is wrong twice: it pins the
-   register field so the common `e5bcf...` encoding never matches, and W is
-   bit 21 not 20. Four wrong versions were tried, all returning `{}` — which
-   reads as "this object has no PLT". Sanity check: `AVBB_SCN_START_HDMI.so`
-   must give **122** entries.
+**SD card:** disk 2, `Generic-Mass-Storage`, FAT32 59 GB, was `F:`, label `PMCA`.
+The dataset is released (`IsOffline=True`, `No Media`); the USB device node stays
+enumerated and the drive letters linger as phantom volume records.
 
-3. **capstone's `op_str` for `movw r2, #0x1022` leaves a trailing comma** on
-   the register name. Split on `#` and every later lookup for `"r2"` misses,
-   so the id silently falls back to the category: `0x1022` reported as `0x3700`.
+**Do not take `libIMDB.so` or `udtrbody.bin` without a deliberate decision and a
+confirmed recovery path.**
 
-4. **`pop` may be spelled `pop.w`.** Match `mnemonic.split('.')[0]`. On
-   capstone 5.0.7 the wide form reports as `pop`, so `== 'pop'` happens to
-   work *here* and breaks on a build that spells it otherwise. Don't "fix"
-   `thumb.py` — it's already correct.
+---
 
-5. **`pc` in `op_str` is not a return.** Every PC-relative literal load prints
-   as `ldr r3, [pc, #0x10c]`. Check the destination register, not the text.
+## 9. House rules that were violated before they were learned
 
-6. **vaddr ≠ file offset.** The shortcut holds for the two `.so` files and is
-   **wrong for `im.elf`** (off by 0x8000). Always go through `PT_LOAD`.
-
-7. **Table strides differ and lie.** `libSysDef.so`: `m_cateTbl` 8,
-   `m_objTbl` 12, `m_pinTbl` 16. At the wrong stride `m_pinTbl` yields
-   `\x7fELF` (it followed a zero to vaddr 0) or interleaves id and name
-   columns. `m_objTbl` records carry **two** names — `{id, CATEID_*, Obj*}` —
-   so a positional read reports `ObjCntMgr` where the category is
-   `CATEID_CNT_MGR`.
-
-8. **Array bounds: the two ends are inconsistent.** In a walk that stops on a
-   predicate, the forward end lands on the first word that *failed* while the
-   backward end lands on the first word *included*. `(hi - lo)//4 + 1` pulls
-   the rejected word back in — this put `0x46434d49` (`IMCF`, the first four
-   bytes of a marker) into an id list that read as 17 entries instead of 16.
-
-9. **Watch for truncated dumps.** `dumps/camera_2025/usr/usr/lib/libObj.so`
-   is **81,920 bytes** and does not parse; the real 21 MB one is
-   `dumps/engine/libObj.so`. Check size before believing an `ELFParseError`
-   is a real finding.
-
-10. **`cxxfilt` is useless here** — it shells out to a binary that isn't
-    installed. Use `cpp_demangle`.
-
-## 5. Open items
-
-Ordered by value. None are guesses; each is stated with what is known.
-
-1. **The plugin message vocabulary is RESOLVED.**
-   Full catalog and mappings documented in `docs/04-messaging.md` and
-   verifiable via `research/firmware/mwf_catalog.py`:
-   - `libMWF.so` core tables extracted:
-     - `m_baseMsgTbl` (12 lifecycle commands: `0x1002` `MSGID_START_OBJ_CMD`, `0x1003` `MSGID_STOP_OBJ_CMD`, `0x1008` `MSGID_RESUME_OBJ_CMD`, `0x1009` `MSGID_SUSPEND_OBJ_CMD`, etc.)
-     - `m_pinMsgTbl` (11 pin IPC commands: `0x1000` `MSGID_OPEN`, `0x1001` `MSGID_CLOSE`, `0x1002` `MSGID_DELIVER`, `0x1003` `MSGID_NOTIFY`, `0x2000` `MSGID_REQ_OPEN`, `0x3000` `MSGID_CONNECT`, `0x3001` `MSGID_DISCONNECT`)
-     - `m_pinParamTbl` (`0x1000` `PARAMID_PIN_TYPE`, `0x1001` `PARAMID_PIN_NUMBER`, `0x1002` `PARAMID_PIN_DIRECTION`, `0x1003` `PARAMID_PIN_DATA`)
-     - `m_pinDirTbl` (`0` `PIN_IN`, `1` `PIN_OUT`, `2` `PIN_INOUT`)
-   - `ObjCntMgr` (`0x3700`): Message names recovered from `ObjCntMgr::ParseObjCommand` in `libObj.so`:
-     - `0x1022` = `MSGID_FORMAT_CMD` (completion `0x1023` = `MSGID_FORMAT_CMP`, progress `0x1024` = `MSGID_FORMAT_PROGRESS_EVT`)
-     - `0x102a` = `MSGID_SET_CONTENT_TARGET_CMD` (configures content type targets)
-     - `0x100a` = `MSGID_GET_FORMAT_TIME_CMD` (`0x100b` = `MSGID_GET_FORMAT_TIME_CMP`)
-     - `0x1026` = `MSGID_UNLOAD_EVT`
-     - `0x103c` = `MSGID_CREATE_APP_STRUCTURE_CMD`
-     - Filesystem events: `0x10000013` `MSGID_MOUNT_EVT`, `0x10000014` `MSGID_UNMOUNT_EVT`, `0x1000001e` `MSGID_FSYS_FORMAT_CMD`
-   - Database category (`0x6000`, `CATEID_DATABASE`):
-     - Mapped 48 client API methods in `libNetContUtil.so` (`NetContUtil::NetDbIf`):
-       - `0x81000`: `createRootHandle` / `createChildHandle` (Handle creation for media/types)
-       - `0x81002`: Handle inspection/properties (`getObjectNum`, `getMediaId`, `getContentTypeCombiOfHandle`, `getGroupCondOfHandle`)
-       - `0x81003`: Item attributes/metadata query (`getContentType`, `getItemDate`, `getDirectoryName`, `getItemAttribute`)
-       - `0x1001`: `destroyHandle` (releases handle; in `MPR_SCN_GET_CONTENT_COUNT`, `0x1001` was destroying the handle, not reading count)
-       - `0x2000`–`0x2009`: Content List management (`createContentsList`, `destroyContentsList`, `addContentToList`, etc.)
-     - Mapped underlying database command table (`APICD_*` in `libObj.so` at `0x13ec720`, stride 72, 58 records: `0x1000` `APICD_CREATE_HNDL`, `0x1022` `APICD_GET_CONTENT_PROPERTY`, `0x1024` `APICD_GET_CONTENT_EXTENT`, `0x1036` `APICD_GET_CONTENT_FILE_TYPE`, `0x103c` `APICD_GET_CONTENT_PROFILE`, `0x2001` `APICD_CONTENTLIST_DESTROY_ID`, etc.)
-   - `ObjPlayer` (`0x3600`): 69 command/event records recovered from `DefObjPlayer` table at `0x1365b00` in `libObj.so` (`0x1000` `MSGID_PB_START_CMD`, `0x1022` `MSGID_GET_PB_POSITION_CMD`, `0x102a` `MSGID_CLEAR_CONV_CACHE_INSTANCE_CMD`, `0x2000` `MSGID_INTERNAL_PB_STOP_EVT`, etc.)
-   - `ObjFaceRecorder` (`0x3a44`): 29-entry dispatch table recovered at `0x13dc504` in `libObj.so` (`0x6500` `MSGID_SYNC_REQ_RECORDED_FACE_NUM_CMD`, `0x7500` `MSGID_SET_FACE_FRAME_CMD`, `0x7502` `MSGID_FACE_RECORD_CMD`, etc.)
-   - `ObjCamera` (`0x3100`): 1,138-entry message vocabulary recovered at `0x1378b58` in `libObj.so` (`MSGID_EE_START_EVT`, `MSGID_STILL_LOCK_EVT`, `MSGID_SYNC_ZOOM_DRIVE_CMD`, etc.)
-
-2. **A `0x4xxx` id family exists and nothing names it.** Seen in the IMCFG
-   array: `0x4000 0x4100 0x4200 0x4300 0x4400`.
-3. **`0x2000` is RESOLVED.**
-   Category `0x2000` is `CATEID_PIN` (the outer category for pin descriptor messages).
-   In `MWF::ParamDump::ConvMessageId`, any message with `category == 0x2000` is
-   routed to `MWF::MwfTbl::PinMsg2Name`.
-   The `(0x2000, 1)` message in `MPR_SCN_INSTALL_MAP_DEMOMOVIE.so` is the standard
-   MWF Pin specification message passed to `MWF::ObjIf::GetPin`, `ConnectPin`,
-   and `DisconnectPin`, configured with parameters `PARAMID_PIN_TYPE` (`0x1000`),
-   `PARAMID_PIN_NUMBER` (`0x1001`), and `PARAMID_PIN_DIRECTION` (`0x1002`).
-4. **`DefInh::sm_refTbl`** (3,158,400 B, 96.7% of `libSysDef.so`) and
-   **`DefRsrc::scm_refTbl`** (98,778 B) are exported and untouched. Indexed by
-   `AcsrId_t`, so resource id rather than message id.
-5. **Boot mode.** `BOOTMODE=NORM`, no `/setting/sen/smode`, no `dmode`, no
-   kernel flag — yet the app is not loaded. Either the reported mode is wrong or
-   the service USB personality itself holds the system in the launcher. Testing
-   costs the shell; the SD card is the recovery route.
-6. **Reachable but untested:** the `tmonitor` RTOS tracer (16 writable
-   params; `mask=0`, `autostop_tasklist=N`; `autostop_tasklist=Y` plus a dump
-   path would give the firmware's task list), and the `BK4` settings format in
-   `/setting/Backup.bin` (1,235,740 B, md5 `bdc524e5cdcf3b290aed1c9271ccf921`,
-   staged on the card as `F:\RE_DUMP\audit\Backup.bin`). An earlier snapshot
-   `Backup.bak` was referred to in earlier notes but is **not** in the dumps or
-   on the card — treat it as unverified until produced from the device.
-
-## 6. Camera state
-
-**Not currently connected.** As of 2026-09-30 `zve10_retry.py` reports "No
-devices found" and the link never comes up. Everything in this document that
-needs the device is blocked on that; nothing else is. See
-[agents/STATE.md](agents/STATE.md) for what each piece needs the hardware for, and for
-the offline work that does not.
-
-State when last verified (before it was unplugged): `/usr/lib/libtestcmd.so` is stock md5
-`f370de888ae662e7f509f2274846eac6`, mode `-r-xr-xr-x 1 57285 1000`, original
-ownership (`cp` had reset both; `chown`/`chmod` put them back). The `.orig`
-copy was removed and `/tmp` scratch cleaned. Five persistence markers from
-earlier work remain in place: `/setting/_audit1`, `/system/_audit2`,
-`/usr/bin/_marker3`, `/usr/share/_marker4`, `/usr/share/pmbp/_marker2`.
-
-The SD card (`PMCA`, was `F:`) holds `F:\RE_DUMP\` with the audit files and the
-patched/stock fonts.
-
-## 7. House rules that were violated before they were learned
-
-- **Verify every number before it goes in a doc.** Four claims in this project
-  were wrong from trusting truncated or mis-strided output. Two of my own
-  commits in this session shipped a wrong number and had to be corrected
-  (`0x110` in `START_HDMI_INPUT`; the two-names-per-record layout).
-- **A negative result needs a positive control.** "0 IDs found" means the
-  predicate is wrong until proven otherwise — see trap 2, where an empty
-  `plt_map` nearly produced a completely wrong conclusion.
-- **Prefer formats that round-trip** over inferences about unreadable code.
-- **Same-length edits, and label unquantified side effects.**
-- **Never** `dd of=<live file>`; never leave a patched library installed.
+- **A claim about a byte pattern needs a computed chance rate.**
+- **A claim about a "constant" needs a cardinality check.**
+- **Structural checks do not always discriminate.** Two passed on a wrong
+  `data_start`.
+- **Negative results are results.** Record them, with the null model.
+- **Diff at the level the claim is about** — content hash for a whole file, glyph
+  outlines for a font, palette entries for a palette — **and establish which side
+  of the diff is the baseline before reading anything into it.** Learned twice.
+- **Unquantified side effects get labelled, not omitted.** Same-length edits are
+  preferred because they cannot move an offset.
+- **A function that silently drops its evidence is worse than the bug it hides.**
+- **A verification check has to be shown to discriminate.** Mutate the thing and
+  confirm the test fails; do not assume a count or an invariant is load-bearing.
