@@ -78,7 +78,7 @@ live process that is not the application.
 Every load-bearing claim is reproducible by a tracked script:
 
 ```powershell
-& ".venv\Scripts\python.exe" -B -m pytest -q      # 139 pass, 8 skip (need artefacts only the card/camera can supply)
+& ".venv\Scripts\python.exe" -B -m pytest -q      # 139 pass, 8 skip with the camera attached; 135/12 without
 & ".venv\Scripts\python.exe" -B research\firmware\check_docs.py
 ```
 

@@ -254,7 +254,7 @@ directory is being served from elsewhere — which is the more interesting resul
 Restore: copy the stock file back to `/tmp/sd/Sony_DI_Icons.STOCK.ttf`, remount
 `/usr` rw, `cp` it into place, verify md5 `1dffdb46…`.
 
-### 4. The palette — worked, then was reverted
+### 4. The palette — worked, and the magenta build is still live
 
 `color_cmn.uxc` palette id `0x400c`, `333333`@80a → `0000dd`@80a, changed the
 live-view framing guides from grey to blue. Then `ff00ff`@80a made the guides
@@ -266,10 +266,33 @@ The staging pipeline, every stage hash-verified on the camera:
 
 | stage | md5 | size |
 |---|---|---:|
-| baseline (matched the card copy exactly) | `f468bd3e72ca4e5b948a1c9f1f35c0a1` | 312 B |
+| baseline | `f468bd3e72ca4e5b948a1c9f1f35c0a1` | 312 B |
 | staged on the card, verified before writing | `9474c2846a1a952179a2408018ff0295` | 312 B |
 | after `remount,rw /usr` and write, read back | `9474c2846a1a952179a2408018ff0295` | 312 B |
 | after `rm`, still intact | `9474c2846a1a952179a2408018ff0295` | 312 B |
+
+The palette record format is 8 bytes: `id` (u16 LE), 2 flag bytes, then RGBA.
+Stock entry `0x400c` is `33333380` — grey.
+
+| build | bytes differing from stock | entries changed |
+|---|---:|---|
+| blue | 5 | **`0x4009`** `0000ddff`→`00ffffff`, **and** `0x400c` `33333380`→`0000dd80` |
+| magenta | 4 | `0x400c` only → `ff00ffff` |
+
+**The blue build is not a single-entry edit.** It also carries an unmentioned
+change to entry `0x4009`. The grey→blue result still stands — `0x400c` is the
+cause — but anyone re-running it as a one-entry control must rebuild from
+`color_cmn.STOCK.uxc` and set `0x400c` alone, or reproduce the co-edit
+deliberately.
+
+`ff00ff` occurs **zero** times in stock and once in the magenta build. That is
+what the magenta control rests on: an out-of-palette colour appearing on the LCD
+cannot be explained by anything except entry `0x400c`.
+
+The magenta build was **live on the camera at the last check** —
+`/usr/share/app/color_cmn.uxc` read `c169428e…`, byte-identical to
+`color_cmn.MAGENTA_BUILD.uxc`. It was not reverted. Live view should show magenta
+framing guides until the next boot wipes `/usr/share/app`.
 
 ```
 remount  /dev/nflasha15 /usr ext2 rw,relatime,errors=continue
@@ -303,6 +326,49 @@ Restored to stock md5 `f370de888ae662e7f509f2274846eac6`, mode
 `libtestcmd.so` was used rather than `libIMDB.so` **precisely to avoid the
 one-way door** — `libtestcmd.so` is not linked by `im.elf`, so a malformed
 library cannot stop the application from starting.
+
+## Are these reproducible? An artefact audit
+
+Each mod above states an original and a patched whole-file md5. Matching those
+hashes against every file in the tree answers whether the claim can be re-checked
+without the device:
+
+| mod | original on disk | patched on disk | |
+|---|---|---|---|
+| `DeviceInfo.xml` | absent | absent | only the live copy on the camera; pull it |
+| `string_english_f.uxc` | `staged/strings/…RESTORE` | `staged/strings/…OPENCODE` | reproducible |
+| `Sony_DI_Icons.ttf` | `staged/fonts/…STOCK.ttf` | `staged/fonts/Sony_DI_Icons.ttf` | reproducible |
+| `color_cmn.uxc` | `staged/palette/…STOCK.uxc` | `staged/palette/…MAGENTA_BUILD.uxc` | reproducible, plus the blue build |
+
+`DeviceInfo.xml` is the only gap: the patched file was written straight to the
+camera and never staged, so the repo cannot reproduce it. It read
+`9b2d8cc0…` on the device at the last check and is 517 bytes, so this is a pull
+when the camera is next attached, not a rebuild.
+
+**Verify the font by glyph, not by byte.** The three font files show 593,252
+differing bytes between stock and patched, which looks total — but the font was
+recompiled, so table offsets shifted and byte comparison is meaningless. Parsed
+properly, all three agree with every number claimed above:
+
+| | claimed | measured |
+|---|---:|---:|
+| glyphs | 1732 → 1732 | 1732 → 1732 |
+| glyph outlines replaced | 138 | **138** |
+| non-target glyphs identical | 1594 of 1594 | **1594 of 1594** |
+| cmap entries | 1,684, identical | 1,684, identical |
+| advance widths moved | 0 | 0 |
+
+The dump's copy is the patched font plus **5,328 bytes of sfnt zero-padding** —
+not a torn write. All three parse, and 0 of 1732 glyph outlines differ between
+the dump and the patched build.
+
+> **Method note, learned twice the hard way.** Two audits in this project
+> concluded "these files are unrelated" from a byte diff and were wrong both
+> times: once by assuming a post-modification dump was stock, once by comparing
+> across a rebuild. Diff at the level the claim is about — content hash for a
+> whole file, glyph outlines for a font, palette entries for a palette — and
+> establish which side of the diff is the baseline before reading anything into
+> it.
 
 ## The transport that carries large files
 

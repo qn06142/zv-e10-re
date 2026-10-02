@@ -39,11 +39,14 @@ fire-and-forget, no TCP listener, and **a patched icon font cannot appear becaus
 | observe the firmware | **done** — `/proc/tmonitor` returns a live ~50 ms RTOS trace; `mask=0` means unmasked, not off |
 | offline RE | **not blocked**; everything below can proceed with the camera disconnected |
 
-## The camera is attached
+## The camera is attached — verify before relying on it
 
-`research/device/zve10_retry.py` reaches the service shell, `/proc/modules` lists
-**47** modules, and the imaging manager is PID 157. Device work is unblocked;
-everything below that was gated on the camera being present is now live.
+`research/device/zve10_retry.py` reaches the service shell when the camera is
+present, `/proc/modules` lists **47** modules, and the imaging manager is PID 157.
+**It is intermittently absent** — the link has dropped mid-session more than once,
+and `zve10_retry.py` reports `No devices found` / `link never came up` after six
+attempts. Treat every device fact in this document as *"true at the check that
+produced it"*, and re-verify before building on it.
 
 **Camera state:** unchanged and as found. `libtestcmd.so` stock
 (`f370de888ae662e7f509f2274846eac6`), mode and ownership restored, no `.orig`
