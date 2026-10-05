@@ -37,10 +37,21 @@ unsigned int strlen(const char* s);
 #define O_RDWR      00000002
 #define O_CREAT     00000100
 #define O_APPEND    00002000
+#define O_SYNC      00010000
 
 #define PROT_READ   0x1
 #define PROT_WRITE  0x2
 #define PROT_EXEC   0x4
+#define MAP_SHARED  0x01
+#define MAP_FAILED  ((void*)-1)
+#define NULL        ((void*)0)
+
+#define FB_PHYS_ADDR 0x3f3ec000
+#define FB_SIZE      0x00401000
+
+int pthread_create(void* thread, void* attr, void* (*start_routine)(void*), void* arg);
+void* mmap(void* addr, unsigned int length, int prot, int flags, int fd, unsigned int offset);
+int munmap(void* addr, unsigned int length);
 
 #define SYS_ARM_cacheflush 0xf0002
 
@@ -49,6 +60,9 @@ unsigned int strlen(const char* s);
 #define OFF_LIBOBJ_REC_ASPECT   0x978bea
 #define OFF_LIBOBJ_SEQ_ASPECT   0x2d229c
 #define OFF_LIBOBJ_LV_TABLE     0xeb0f26
+
+static unsigned long g_base_libobj = 0;
+static unsigned long g_base_libmpr = 0;
 
 __attribute__((visibility("default")))
 void* arch_phys_to_cache(void* p) {
@@ -82,6 +96,11 @@ static void log_msg(const char* msg) {
     }
 }
 
+static int g_current_aspect = 1; // Default 16:9
+static int g_osd_banner_enabled = 1;
+static int g_hotkey_code = 111; // Default KEY_DELETE
+static int g_hotkey_enabled = 0;
+
 static void load_config(int* p_enable) {
     *p_enable = 1;
     void* fp = fopen("/setting/opengate.conf", "r");
@@ -93,8 +112,74 @@ static void load_config(int* p_enable) {
         if (sscanf(line, "enable=%d", &val) == 1) {
             *p_enable = val;
         }
+        if (sscanf(line, "osd_banner=%d", &val) == 1) {
+            g_osd_banner_enabled = val;
+        }
+        if (strstr(line, "hotkey=C1")) {
+            g_hotkey_enabled = 1;
+            g_hotkey_code = 46; // Example for C
+        } else if (strstr(line, "hotkey=trash")) {
+            g_hotkey_enabled = 1;
+            g_hotkey_code = 111; // Example for DEL
+        }
     }
     fclose(fp);
+}
+
+static void blit_osd_banner(int aspect_mode) {
+    int fd = open("/dev/mem", O_RDWR | O_SYNC);
+    if (fd < 0) return;
+
+    void* fb = mmap(NULL, FB_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, FB_PHYS_ADDR);
+    if (fb == MAP_FAILED) {
+        close(fd);
+        return;
+    }
+
+    unsigned int* ptr32 = (unsigned int*)fb;
+    int banner_pixels = 640 * 40;
+
+    // Magenta (0x00FF00FF) for 3:2, Cyan (0x0000FFFF) for 16:9
+    unsigned int color = (aspect_mode == 0) ? 0x00FF00FF : 0x0000FFFF;
+
+    if (banner_pixels * 4 < FB_SIZE) {
+        for (int i = 0; i < banner_pixels; i++) {
+            ptr32[i] = color;
+        }
+    }
+
+    munmap(fb, FB_SIZE);
+    close(fd);
+}
+
+static void apply_dynamic_aspect(int val);
+
+static void* input_thread_func(void* arg) {
+    const char* path = (const char*)arg;
+    int fd = open(path, O_RDONLY);
+    if (fd < 0) return (void*)0;
+
+    struct {
+        long time_sec;
+        long time_usec;
+        unsigned short type;
+        unsigned short code;
+        unsigned int value;
+    } ev;
+
+    while (read(fd, &ev, sizeof(ev)) == sizeof(ev)) {
+        if (ev.type == 1 && ev.value == 1) { // EV_KEY down
+            if (ev.code == g_hotkey_code) {
+                g_current_aspect = (g_current_aspect == 0) ? 1 : 0;
+                apply_dynamic_aspect(g_current_aspect);
+                if (g_osd_banner_enabled) {
+                    blit_osd_banner(g_current_aspect);
+                }
+            }
+        }
+    }
+    close(fd);
+    return (void*)0;
 }
 
 static int find_lib_base(const char* lib_name, unsigned long* p_base, unsigned long* p_size) {
@@ -169,20 +254,20 @@ int opengate_apply_patch(void) {
     }
 
     /* 1. Discover library virtual addresses */
-    unsigned long base_libobj = 0, size_libobj = 0;
-    if (find_lib_base("libObj.so", &base_libobj, &size_libobj) < 0) {
+    unsigned long size_libobj = 0;
+    if (find_lib_base("libObj.so", &g_base_libobj, &size_libobj) < 0) {
         log_msg("[opengate] ERROR: libObj.so not found in maps!\n");
         return -1;
     }
 
-    unsigned long base_libmpr = 0, size_libmpr = 0;
-    if (find_lib_base("libmpr.so", &base_libmpr, &size_libmpr) < 0) {
+    unsigned long size_libmpr = 0;
+    if (find_lib_base("libmpr.so", &g_base_libmpr, &size_libmpr) < 0) {
         log_msg("[opengate] ERROR: libmpr.so not found in maps!\n");
         return -1;
     }
 
     snprintf(buf, sizeof(buf), "[opengate] Found libObj.so at 0x%08lx, libmpr.so at 0x%08lx\n",
-             base_libobj, base_libmpr);
+             g_base_libobj, g_base_libmpr);
     log_msg(buf);
 
     int patch_errors = 0;
@@ -192,7 +277,7 @@ int opengate_apply_patch(void) {
      * Target: 0x5422e6: tst.w r2, #0x2b (12 f0 2b 0f) -> #0x2f (12 f0 2f 0f)
      * Permits Aspect enum 2 (3:2) without error 5 rejection.
      * ------------------------------------------------------------- */
-    unsigned long va_mpr_whitelist = base_libmpr + OFF_LIBMPR_WHITELIST;
+    unsigned long va_mpr_whitelist = g_base_libmpr + OFF_LIBMPR_WHITELIST;
     const unsigned char cur_mpr_whitelist = *(volatile unsigned char*)(va_mpr_whitelist + 2);
     if (cur_mpr_whitelist == 0x2b) {
         const unsigned char patch_mpr[1] = { 0x2f };
@@ -209,67 +294,10 @@ int opengate_apply_patch(void) {
     }
 
     /* -------------------------------------------------------------
-     * Patch 2: libObj.so ConvertRecFormat 4K Aspect Assignment (0x978bea)
-     * Target: movs r2, #1 (01 22) -> movs r2, #2 (02 22)
-     * Forces 4K video recording to select Aspect 2 (3:2 Open Gate).
+     * Dynamic patches applied in Bkup_Read intercept.
+     * We just initialize with 16:9 so we have a known state,
+     * or we can just let Bkup_Read intercept handle it!
      * ------------------------------------------------------------- */
-    unsigned long va_obj_rec = base_libobj + OFF_LIBOBJ_REC_ASPECT;
-    const unsigned short cur_obj_rec = *(volatile unsigned short*)va_obj_rec;
-    if (cur_obj_rec == 0x2201) {
-        const unsigned char patch_obj_rec[2] = { 0x02, 0x22 };
-        if (patch_bytes(va_obj_rec, patch_obj_rec, 2, "libObj_4K_rec_aspect_3_2") < 0) {
-            patch_errors++;
-        }
-    } else if (cur_obj_rec == 0x2202) {
-        log_msg("[opengate] libObj 4K rec aspect already patched (r2=2).\n");
-    } else {
-        snprintf(buf, sizeof(buf), "[opengate] WARNING: Unexpected opcode at libObj rec aspect (0x%04x)!\n",
-                 cur_obj_rec);
-        log_msg(buf);
-        patch_errors++;
-    }
-
-    /* -------------------------------------------------------------
-     * Patch 3: libObj.so InfraMovieEncoderSeqSetAspect (0x2d229c)
-     * Target: movs r3, #1 (01 23) -> movs r3, #2 (02 23)
-     * Direct encoder configuration aspect packet payload.
-     * ------------------------------------------------------------- */
-    unsigned long va_obj_seq = base_libobj + OFF_LIBOBJ_SEQ_ASPECT;
-    const unsigned short cur_obj_seq = *(volatile unsigned short*)va_obj_seq;
-    if (cur_obj_seq == 0x2301) {
-        const unsigned char patch_obj_seq[2] = { 0x02, 0x23 };
-        if (patch_bytes(va_obj_seq, patch_obj_seq, 2, "libObj_seq_aspect_3_2") < 0) {
-            patch_errors++;
-        }
-    } else if (cur_obj_seq == 0x2302) {
-        log_msg("[opengate] libObj seq aspect already patched (r3=2).\n");
-    } else {
-        snprintf(buf, sizeof(buf), "[opengate] WARNING: Unexpected opcode at libObj seq aspect (0x%04x)!\n",
-                 cur_obj_seq);
-        log_msg(buf);
-        patch_errors++;
-    }
-
-    /* -------------------------------------------------------------
-     * Patch 4: libObj.so Live View Aspect Ratio Map Table (0xeb0f26)
-     * Target: table[4] (16:9 ratio entry) = 0x02 (Case 2: 3840x2160)
-     * Patched: 0x01 (Case 1: 3240x2160 3:2 Open Gate Canvas)
-     * ------------------------------------------------------------- */
-    unsigned long va_obj_lv = base_libobj + OFF_LIBOBJ_LV_TABLE;
-    const unsigned char cur_obj_lv = *(volatile unsigned char*)va_obj_lv;
-    if (cur_obj_lv == 0x02) {
-        const unsigned char patch_obj_lv[1] = { 0x01 };
-        if (patch_bytes(va_obj_lv, patch_obj_lv, 1, "libObj_live_view_canvas_3240") < 0) {
-            patch_errors++;
-        }
-    } else if (cur_obj_lv == 0x01) {
-        log_msg("[opengate] libObj live view canvas table already patched (Case 1).\n");
-    } else {
-        snprintf(buf, sizeof(buf), "[opengate] WARNING: Unexpected value in live view table (0x%02x)!\n",
-                 cur_obj_lv);
-        log_msg(buf);
-        patch_errors++;
-    }
 
     if (patch_errors == 0) {
         log_msg("==========================================================\n"
@@ -284,10 +312,82 @@ int opengate_apply_patch(void) {
     }
 }
 
+static void apply_dynamic_aspect(int val) {
+    if (g_base_libobj == 0) return;
+
+    unsigned long va_obj_rec = g_base_libobj + OFF_LIBOBJ_REC_ASPECT;
+    unsigned long va_obj_seq = g_base_libobj + OFF_LIBOBJ_SEQ_ASPECT;
+    unsigned long va_obj_lv = g_base_libobj + OFF_LIBOBJ_LV_TABLE;
+
+    if (val == 0) {
+        // 3:2 Open Gate
+        patch_bytes(va_obj_rec, (const unsigned char*)"\x02\x22", 2, "libObj_4K_rec_aspect_3_2");
+        patch_bytes(va_obj_seq, (const unsigned char*)"\x02\x23", 2, "libObj_seq_aspect_3_2");
+        patch_bytes(va_obj_lv,  (const unsigned char*)"\x01", 1, "libObj_live_view_canvas_3240");
+    } else if (val == 1) {
+        // 16:9 Stock
+        patch_bytes(va_obj_rec, (const unsigned char*)"\x01\x22", 2, "libObj_4K_rec_aspect_16_9");
+        patch_bytes(va_obj_seq, (const unsigned char*)"\x01\x23", 2, "libObj_seq_aspect_16_9");
+        patch_bytes(va_obj_lv,  (const unsigned char*)"\x02", 1, "libObj_live_view_canvas_3840");
+    }
+}
+
+static int (*orig_Bkup_Read)(int, void*) = 0;
+
+__attribute__((visibility("default")))
+int _ZN13BackupManager9Bkup_ReadEiPv(int attr_id, void* out_val) {
+    if (!orig_Bkup_Read) {
+        if (g_base_libobj == 0) {
+            unsigned long size = 0;
+            find_lib_base("libObj.so", &g_base_libobj, &size);
+        }
+        if (g_base_libobj) {
+            // libObj.so offset for _ZN13BackupManager9Bkup_ReadEiPv is 0x168320
+            // +1 for Thumb mode
+            orig_Bkup_Read = (int (*)(int, void*))(g_base_libobj + 0x168320 + 1);
+        }
+    }
+
+    if (!orig_Bkup_Read) {
+        return -1; // Fallback error
+    }
+
+    int ret = orig_Bkup_Read(attr_id, out_val);
+
+    if (attr_id == 0x1070012 || attr_id == 0x10703b2) {
+        if (out_val) {
+            int val = *(int*)out_val;
+            g_current_aspect = val;
+            apply_dynamic_aspect(val);
+        }
+    }
+
+    return ret;
+}
+
 __attribute__((constructor))
 void opengate_init(void) {
     if (!is_target_process()) {
         return;
     }
     opengate_apply_patch();
+
+    // Read the setting once at startup to initialize memory correctly
+    int val = 1; // Default to 16:9 if we can't read it
+    if (g_base_libobj) {
+        if (!orig_Bkup_Read) {
+            orig_Bkup_Read = (int (*)(int, void*))(g_base_libobj + 0x168320 + 1);
+        }
+        if (orig_Bkup_Read) {
+            orig_Bkup_Read(0x1070012, &val);
+        }
+    }
+    g_current_aspect = val;
+    apply_dynamic_aspect(val);
+
+    if (g_hotkey_enabled) {
+        void* thread1; pthread_create(&thread1, NULL, input_thread_func, (void*)"/dev/input/event0");
+        void* thread2; pthread_create(&thread2, NULL, input_thread_func, (void*)"/dev/input/event1");
+        void* thread3; pthread_create(&thread3, NULL, input_thread_func, (void*)"/dev/input/event2");
+    }
 }
