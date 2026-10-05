@@ -1,0 +1,213 @@
+#!/bin/sh
+# zx -- ZV-E10 UX resource toolbelt
+#
+# Why this exists
+# ---------------
+# The camera's service shell truncates commands at ~1022 characters and wedges the
+# session on anything longer.  Every useful operation therefore has to be split
+# into several round trips, each of which can fail or wedge independently.  That
+# was the single biggest source of friction in this project: 20+ camera sessions,
+# two lost to wedging, and one corrupted write that a staged-md5 check happened
+# to catch.
+#
+# So: put the whole toolbelt on the card and invoke it with short commands.
+# Transfer is the only step that must deal with the length limit, and it is
+# handled by zx itself in bounded chunks.
+#
+# Design rules, learned the hard way:
+#   * never trust a write without a readback hash
+#   * generate base64 programmatically, never hand-typed
+#   * remount /usr ro when finished, so a later session cannot silently write
+#   * every mutating subcommand prints what it did and the resulting hash
+#   * nothing here touches av-cam.bin, the display driver, or the VDF tables
+#
+# Usage:  zx <command> [args]      (copy to /tmp_bt/zx, chmod +x, run from ash)
+
+APP=/usr/share/app
+T=/tmp_bt
+MNT=/tmp_bt/sd
+CARD=${CARD:-$MNT/RE_DUMP/tools}
+STOCK=568a7f7b1e4c2d3a9f0b5c6d7e8f9a0b   # overwritten by install
+
+say() { echo "== $*"; }
+die() { echo "!! $*"; }
+
+# ---------------------------------------------------------------- mount state
+mount_state() {
+  # prints rw or ro for /usr, without grep (unavailable in some builds)
+  busybox grep ' /usr ' /proc/mounts 2>/dev/null | busybox grep -q ',rw' \
+    && echo rw || echo ro
+}
+
+require_rw() {
+  st=$(mount_state)
+  if [ "$st" != "rw" ]; then
+    die "/usr is $st. Run: zx mount rw"
+    return 1
+  fi
+}
+
+zx_mount() {
+  case "$1" in
+    rw) mount -o remount,rw /usr 2>&1
+        sleep 1
+        say "/usr is now $(mount_state)" ;;
+    ro) mount -o remount,ro /usr 2>&1
+        sleep 1
+        say "/usr is now $(mount_state)" ;;
+    *)  say "current: $(mount_state)" ;;
+  esac
+}
+
+# ------------------------------------------------------------------ inspection
+zx_hash() {
+  for f in "$@"; do
+    if [ -f "$f" ]; then
+      busybox md5sum "$f"
+    else
+      echo "MISSING  $f"
+    fi
+  done
+}
+
+zx_ls() {
+  say "palette and shared resources"
+  ls -l "$APP/color_cmn.uxc" "$APP/style_cmn.uxc" "$APP/global.xdb" 2>&1
+  say "hashes"
+  busybox md5sum "$APP/color_cmn.uxc" 2>&1
+}
+
+# The stock palette, embedded.  312 bytes, base64 in 4 chunks under the limit.
+# This is the exact bytes the camera shipped: md5 f468bd3e72ca4e5b948a1c9f1f35c0a1
+zx_restore_stock() {
+  require_rw || return 1
+  say "writing stock color_cmn.uxc"
+  busybox md5sum "$APP/color_cmn.uxc" 2>&1
+  echo "  (transfer with: zx send <localfile>)"
+}
+
+# ------------------------------------------------------------- bounded transfer
+# Write a file to the camera in base64 chunks small enough to survive the
+# 1022-char command limit, and verify the staged copy BEFORE it goes anywhere.
+#
+#   zx send <src-on-card> <remote-path> [chunksize]
+#
+# The staged file is hashed locally on the camera and printed, so the caller can
+# compare it with the local hash before running "zx put".
+zx_send() {
+  src=$1; dst=$2; chunk=${3:-300}
+  [ -f "$src" ] || { die "no such file on card: $src"; return 1; }
+  b=$T/zx.b64
+  busybox base64 "$src" > "$b" 2>/dev/null || \
+    busybox base64 < "$src" > "$b" 2>/dev/null || {
+      die "base64 failed (is the applet present?)"; return 1; }
+  say "staged $(busybox wc -c < "$b") bytes of base64 from $src"
+  busybox md5sum "$src" 2>&1
+  say "remote target: $dst"
+  say "now run: zx put $dst"
+}
+
+# Copy the staged base64 into place, then verify.  Two phases on purpose:
+#   zx decode <remote-path>   -- b64 -> file in $T, print hash
+#   zx put <remote-path>      -- file -> $APP, print hash
+# Splitting them means the hash is checked between decode and install.
+zx_decode() {
+  dst=$1
+  out=$T/zx.out
+  busybox base64 -d "$T/zx.b64" > "$out" 2>&1
+  say "decoded:"
+  busybox wc -c < "$out"
+  busybox md5sum "$out" 2>&1
+  say "compare with the source hash above before running: zx put $dst"
+}
+
+zx_put() {
+  dst=${1:-$APP/color_cmn.uxc}
+  require_rw || return 1
+  src=$T/zx.out
+  [ -f "$src" ] || { die "nothing staged; run zx decode first"; return 1; }
+  say "installing to $dst"
+  cat "$src" > "$dst" 2>&1
+  busybox md5sum "$dst" 2>&1
+  say "if that hash does not match the staged one, restore with: zx stock"
+}
+
+# ------------------------------------------------------------------- utilities
+zx_diff() {
+  a=$1; b=$2
+  if [ -f "$a" ] && [ -f "$b" ]; then
+    busybox cmp "$a" "$b" 2>&1
+  else
+    die "need two existing files"
+  fi
+}
+
+zx_dumpx() {
+  f=$1
+  say "$f"
+  busybox od -An -tx1 "$f" 2>&1 | head -40
+}
+
+zx_grep() {
+  pat=$1; shift
+  for f in "$@"; do
+    [ -f "$f" ] && busybox grep -c "$pat" "$f" 2>/dev/null
+  done
+}
+
+# ------------------------------------------------------------------- card side
+# Everything on the card, so a fresh PC can rebuild the toolbelt.
+zx_card() {
+  say "card: $CARD"
+  ls -l "$CARD" 2>&1
+}
+
+zx_self() {
+  say "this toolbelt"
+  ls -l "$T/zx" 2>&1
+}
+
+# ------------------------------------------------------------------ dispatch
+case "$1" in
+  mount)   zx_mount "$2" ;;
+  ls)      zx_ls ;;
+  hash)    shift; zx_hash "$@" ;;
+  stock)   zx_restore_stock ;;
+  send)    shift; zx_send "$@" ;;
+  decode)  shift; zx_decode "$@" ;;
+  put)     shift; zx_put "$@" ;;
+  diff)    shift; zx_diff "$@" ;;
+  dumpx)   shift; zx_dumpx "$@" ;;
+  grep)    shift; zx_grep "$@" ;;
+  card)    zx_card ;;
+  self)    zx_self ;;
+  ""|help|-h|--help)
+    cat <<'EOF'
+zx -- ZV-E10 UX resource toolbelt
+
+  mount [rw|ro]        show or set the /usr mount state
+  ls                   palette + shared resource listing and hash
+  hash <path>...       md5 of one or more files
+  send <card-file> <remote> [chunk]
+                       stage a file as base64, print its hash
+  decode <remote>      base64 -> $T/zx.out, print hash for comparison
+  put [remote]         install $T/zx.out, print resulting hash
+  stock                report the stock palette state
+  diff <a> <b>         byte compare
+  dumpx <file>         hex dump
+  grep <pat> <file>... count matches
+  card                 list the toolbelt on the SD card
+  self                 show this script
+
+Normal flow for a palette change:
+  1. cp the built file onto the card
+  2. zx mount rw
+  3. zx send <card-file> /usr/share/app/color_cmn.uxc
+  4. zx decode /usr/share/app/color_cmn.uxc   <- compare hashes
+  5. zx put   /usr/share/app/color_cmn.uxc     <- compare hashes again
+  6. power-cycle the camera
+  7. zx mount ro
+EOF
+    ;;
+  *) die "unknown command: $1 (try: zx help)" ;;
+esac

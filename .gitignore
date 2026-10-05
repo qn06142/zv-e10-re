@@ -38,7 +38,11 @@ avcam_proj/
 #
 # Rules are scoped to the dump locations on purpose.  A blanket '*.dat' would
 # also swallow updatershell/fdat/CXD*.dat, which are tracked project inputs.
-/dumps/
+# /dumps/
+/dumps/card/
+/dumps/*.img
+/dumps/fb_dump.bin
+/dumps/initrd_init
 /fuzz_dat/
 /fw/
 /fw_update/*.dat

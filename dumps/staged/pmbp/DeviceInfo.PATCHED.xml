@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plist version="1.0">
+<dict>
+	<key>XMLFileType</key>
+	<string>DeviceInfoXML</string>
+	<key>Version</key>
+	<string>9.9.99.99999</string>
+	<key>DeviceInfo</key>
+	<dict>
+		<key>Category</key>
+		<integer></integer>
+		<key>Feature</key>
+		<integer></integer>
+		<key>Format</key>
+		<integer></integer>
+		<key>db</key>
+		<dict>
+			<key>name</key>
+			<string>AVIndex</string>
+			<key>version</key>
+			<string>9.9.99</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

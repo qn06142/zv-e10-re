@@ -1,0 +1,165 @@
+#
+# Common Functions & Variables for Updater Core shell scripts
+#
+
+## mount points
+P2_MNT_DIR=/setting
+P3_MNT_DIR=/system
+P2_DEV=/dev/nflasha2
+P3_DEV=/dev/nflasha3
+
+## mount option
+VFAT_MOUNT_OPTION="-o posix_attr,rw,nodiratime,noatime,shortname=mixed"
+VFAT_MOUNT_OPTION_SYNC="$VFAT_MOUNT_OPTION,sync"
+MS_MOUNT_POINT=/mnt
+
+## ERROR_CODE
+ERROR_INVALID_FIRMWARE=41
+ERROR_UINCOMP=54
+ERROR_NAND_MOUNT=72
+ERROR_NAND_UNMOUNT=73
+ERROR_SYSTEM=87
+ERROR_MPR_ERASE=45
+ERROR_POWER_IC_TYPE=47
+ERROR_FSYS_FORMAT=48
+
+FATAL_ERROR=99
+
+## Updater Mode
+MODE_USER=0
+MODE_PROD=1
+MODE_SERVICE=2
+MODE_MINOR=3
+MODE_MSCRYPT=5
+MODE_VERSKIP=6
+
+## Data Source code
+DATSRC_SENSER=0
+DATSRC_MS=1
+DATSRC_ERROR=2
+
+## POWER IC TYPE
+POWER_IC_CHARON_CAM=1
+POWER_IC_CA=4
+POWER_IC_PIROSHKI=5
+POWER_IC_CHARON_DSC=6
+
+## Updater local Storage
+UPDATER_STORAGE_MNT=/tmp_updater/storage/nonvolatile
+UPDATER_STORAGE_DEV=/dev/nflasha13
+UPDATER_STORAGE_BACKUP=/tmp_updater/storage_backup
+HASH_DIR=/tmp_updater/storage/nonvolatile/hash
+HISTORY_DIR=/tmp_updater/storage/nonvolatile/history
+
+# display progress by flash of led
+led_progress_indicator_by_pulse_flash()
+{
+	echo "Led progress indicator is now working. Num of flash :: $1"
+	
+	PID_LEDIDCTR=$(pidof uc_portctl.elf)
+	kill -9 $PID_LEDIDCTR	
+	uc_portctl.elf -p $1 -n 0 & 
+}
+
+
+
+## blink error code
+blink_error()
+{
+#	dmesg
+
+	echo ""
+	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	echo ""
+	echo "[FIRMUP NG] : Error $1"
+	echo ""
+	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	echo ""
+
+	updater_log.sh "Updater: ERROR. FIRMUP NG! Error $1"
+	PID_LEDIDCTR=$(pidof uc_portctl.elf)
+	kill -9 $PID_LEDIDCTR	
+	uc_portctl.elf -b $1 -n 0 &
+	test -e /tmp_updater/UFP
+	if [ $?	= 0 ]; then
+		ud_get_power_ic_type.elf # 1,6 = Charon, 5 = PIROSHKI
+		if [ $? = 1 -o $? = 5 -o $? = 6 ] ; then
+			# FOR POWER LED
+			uc_portctl.elf -b $1 -n 1 &
+		fi
+	fi
+}
+
+## blink & exit error_code
+blink_error_exit()
+{
+	blink_error $1
+	exit $1
+}
+
+ms_led_on()
+{
+	uc_portctl.elf -c 1 -n 0
+}
+
+ms_led_off()
+{
+	uc_portctl.elf -c 0 -n 0
+}
+
+#second_led_on()
+#{
+#	uc_portctl.elf -c 1 -n 1
+#	uc_portctl.elf -c 1 -n 2
+#}
+
+#second_led_off()
+#{
+#	uc_portctl.elf -c 0 -n 1
+#	uc_portctl.elf -c 0 -n 2
+#}
+
+led_off()
+{
+	ms_led_off
+#	second_led_off
+}
+
+firmup_success_exit()
+{
+	led_off
+
+	echo ""
+	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	echo ""
+	echo "[FIRMUP OK]"
+	echo ""
+	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	
+	updater_log.sh "Updater: END. FIRMUP OK!"
+	exit 0
+}
+
+print_ok1()
+{
+ms_led_off
+cat <<END
+    ----------------------------------------------------
+
+        HHHHHHHH         HH      HH        HHHH Ver.4
+       HH      HH        HH     HH        HH HH
+       HH      HH        HH    HH        HH  HH
+       HH      HH        HH   HH        HH   HH
+       HH      HH        HH  HH              HH
+       HH      HH        HH HH               HH
+       HH      HH        HHHH                HH
+       HH      HH        HH HH               HH
+       HH      HH        HH  HH              HH
+       HH      HH        HH   HH             HH
+       HH      HH        HH    HH            HH
+       HH      HH        HH     HH           HH
+        HHHHHHHH         HH      HH      HHHHHHHHHH
+
+    ----------------------------------------------------
+END
+}
