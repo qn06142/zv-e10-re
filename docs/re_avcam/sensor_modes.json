@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Still Photo Mode (Native 3:2 Full Scan)",
+    "base_va": "0x63e67250",
+    "total_optical": "6048 x 4108",
+    "effective": "6024 x 4024",
+    "active_recording": "6000 x 4000",
+    "preview_binning": "12 x 12"
+  },
+  {
+    "title": "Movie Mode (Video Scan & Crops)",
+    "base_va": "0x63e68210",
+    "total_optical": "6048 x 4108",
+    "effective": "6024 x 4024",
+    "active_recording": "6000 x 4000",
+    "preview_binning": "12 x 12"
+  },
+  {
+    "title": "High-Speed / S&Q Mode",
+    "base_va": "0x63e69710",
+    "total_optical": "6048 x 4108",
+    "effective": "6024 x 4024",
+    "active_recording": "6000 x 4000",
+    "preview_binning": "12 x 12"
+  }
+]

@@ -46,10 +46,10 @@ import senser_fix  # noqa: F401  -- 0x8000 payload loss on PID 0x0336
 from pmca.commands.usb import senserShellCommand
 from pmca.platform.backend.senser import SenserPlatformBackend
 
-BB = '/tmp/sd/tools/busybox-armel'
+BB = '/tmp/busybox'
 CTRL_D = b'\x04'
-WRITE = 3072          # bytes per writeTerminal call
-SETTLE = 0.02         # pause between writes, so the pty can drain
+WRITE = 256           # bytes per writeTerminal call (safe under 1024-byte pty limit)
+SETTLE = 0.05         # pause between writes, so the pty can drain
 
 
 def stream_to(raw, remote, payload, label):
@@ -83,6 +83,9 @@ def stream_to(raw, remote, payload, label):
             raw.readTerminal()          # keep the output side drained
             print('  %6.1f%%  %d/%d chars'
                   % (100.0 * sent / len(text), sent, len(text)), flush=True)
+    time.sleep(0.5)
+    raw.writeTerminal(b'\n')
+    time.sleep(0.5)
     raw.writeTerminal(CTRL_D)
     time.sleep(2.0)
     drain(raw, 2.0)
@@ -193,12 +196,19 @@ def main():
                 return False
 
             staged = remote + '.xz'
-            print('streaming %s' % staged)
+            want_comp = hashlib.md5(comp).hexdigest()
+            print('streaming %s (%d bytes, md5 %s)' % (staged, len(comp), want_comp))
             stream_to(raw, staged, comp, 'payload')
-            print('checking the staged size')
-            cmd(raw, '%s wc -c < %s' % (BB, staged), 2.0)
+            print('checking staged xz md5')
+            got_comp = camera_md5(raw, staged)
+            print('  xz want %s' % want_comp)
+            print('  xz got  %s' % got_comp)
+            if got_comp != want_comp:
+                print('XZ STAGING FAILED')
+                return False
             print('decompressing on the camera')
-            cmd(raw, '%s xz -d -k -f %s && rm -f %s' % (BB, staged, staged), 6.0)
+            cmd(raw, '%s xz -d -f %s' % (BB, staged), 4.0)
+            cmd(raw, 'chmod 755 %s' % remote, 1.0)
             print('verifying')
             got = camera_md5(raw, remote)
             print()

@@ -1,0 +1,39 @@
+{
+  "Linux_RTOS_Packet": {
+    "CateId": "0x1000",
+    "Aspect_Enum_Offset": "packet[0x0a] (uint16)",
+    "Enum_Values": {
+      "0": "4:3 Aspect (MOVIE_ASPECT_4_3)",
+      "1": "16:9 Aspect (MOVIE_ASPECT_16_9)",
+      "2": "3:2 Aspect (MOVIE_ASPECT_3_2, Full Sensor Open Gate)",
+      "256": "0x100 Aspect",
+      "258": "0x102 Aspect"
+    }
+  },
+  "RTOS_Dispatcher": {
+    "SdfMsgAnalyzerRecRcv_vfunc2": "0x636bcabc",
+    "Packet_Aspect_Branch_Func": "0x63cb1f76",
+    "Aspect_Handlers": {
+      "4:3": {
+        "constructor": "0x636be8d8",
+        "vtable": "0x64576438",
+        "method2_exec": "0x63ca3ee1",
+        "ipc_type": "0x8000"
+      },
+      "16:9": {
+        "constructor": "0x636be918",
+        "vtable": "0x64576450",
+        "method2_exec": "0x63ca406b",
+        "ipc_type": "0x8001",
+        "event_id": "0x8011"
+      },
+      "3:2_OpenGate": {
+        "constructor": "0x636be958",
+        "vtable": "0x64576468",
+        "method2_exec": "0x63ca418f",
+        "ipc_type": "0x8002",
+        "event_id": "0x8012"
+      }
+    }
+  }
+}

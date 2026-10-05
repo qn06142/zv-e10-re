@@ -16,6 +16,9 @@ __pycache__/
 # re_out/exports/*.csv    = derived from the project + re_symbols
 /re_out/
 /out/
+/build_sysroot/
+/tools/rizin/
+*.o
 
 # ---- retired Ghidra project (empty shell, analysis now lives in retool) ----
 /avcam_re/ghidra_proj/

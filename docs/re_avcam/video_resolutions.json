@@ -1,0 +1,260 @@
+[
+  [
+    {
+      "profile_set": 0,
+      "mode_name": "VGA (4:3)",
+      "va": "0x63e43c90",
+      "flag0": 0,
+      "timing_ratio": 1,
+      "canvas_width": 640,
+      "canvas_height": 480,
+      "buffer_width": 640,
+      "buffer_height": 480,
+      "aspect": "640:480"
+    },
+    {
+      "profile_set": 0,
+      "mode_name": "FHD Standard (16:9)",
+      "va": "0x63e43ca8",
+      "flag0": 0,
+      "timing_ratio": 2362158,
+      "canvas_width": 1920,
+      "canvas_height": 1080,
+      "buffer_width": 1920,
+      "buffer_height": 1080,
+      "aspect": "1920:1080"
+    },
+    {
+      "profile_set": 0,
+      "mode_name": "FHD Anamorphic (4:3)",
+      "va": "0x63e43cc0",
+      "flag0": 0,
+      "timing_ratio": 330559,
+      "canvas_width": 1440,
+      "canvas_height": 1080,
+      "buffer_width": 1472,
+      "buffer_height": 1080,
+      "aspect": "1440:1080"
+    },
+    {
+      "profile_set": 0,
+      "mode_name": "FHD Open Gate (3:2)",
+      "va": "0x63e43cd8",
+      "flag0": 0,
+      "timing_ratio": 330559,
+      "canvas_width": 1620,
+      "canvas_height": 1080,
+      "buffer_width": 1664,
+      "buffer_height": 1080,
+      "aspect": "1620:1080"
+    },
+    {
+      "profile_set": 0,
+      "mode_name": "4K Standard (16:9)",
+      "va": "0x63e43cf0",
+      "flag0": 0,
+      "timing_ratio": 330559,
+      "canvas_width": 3840,
+      "canvas_height": 2160,
+      "buffer_width": 3840,
+      "buffer_height": 2160,
+      "aspect": "3840:2160"
+    },
+    {
+      "profile_set": 0,
+      "mode_name": "4K Anamorphic (4:3)",
+      "va": "0x63e43d08",
+      "flag0": 1,
+      "timing_ratio": 665,
+      "canvas_width": 2880,
+      "canvas_height": 2160,
+      "buffer_width": 2880,
+      "buffer_height": 2160,
+      "aspect": "2880:2160"
+    },
+    {
+      "profile_set": 0,
+      "mode_name": "4K Open Gate (3:2)",
+      "va": "0x63e43d20",
+      "flag0": 1,
+      "timing_ratio": 665,
+      "canvas_width": 3240,
+      "canvas_height": 2160,
+      "buffer_width": 3264,
+      "buffer_height": 2160,
+      "aspect": "3240:2160"
+    }
+  ],
+  [
+    {
+      "profile_set": 1,
+      "mode_name": "VGA (4:3)",
+      "va": "0x63e43d38",
+      "flag0": 1,
+      "timing_ratio": 665,
+      "canvas_width": 640,
+      "canvas_height": 480,
+      "buffer_width": 640,
+      "buffer_height": 480,
+      "aspect": "640:480"
+    },
+    {
+      "profile_set": 1,
+      "mode_name": "FHD Standard (16:9)",
+      "va": "0x63e43d50",
+      "flag0": 0,
+      "timing_ratio": 2362158,
+      "canvas_width": 1920,
+      "canvas_height": 1080,
+      "buffer_width": 1920,
+      "buffer_height": 1080,
+      "aspect": "1920:1080"
+    },
+    {
+      "profile_set": 1,
+      "mode_name": "FHD Anamorphic (4:3)",
+      "va": "0x63e43d68",
+      "flag0": 0,
+      "timing_ratio": 330559,
+      "canvas_width": 1440,
+      "canvas_height": 1080,
+      "buffer_width": 1472,
+      "buffer_height": 1080,
+      "aspect": "1440:1080"
+    },
+    {
+      "profile_set": 1,
+      "mode_name": "FHD Open Gate (3:2)",
+      "va": "0x63e43d80",
+      "flag0": 0,
+      "timing_ratio": 330559,
+      "canvas_width": 1620,
+      "canvas_height": 1080,
+      "buffer_width": 1664,
+      "buffer_height": 1080,
+      "aspect": "1620:1080"
+    },
+    {
+      "profile_set": 1,
+      "mode_name": "4K Standard (16:9)",
+      "va": "0x63e43d98",
+      "flag0": 0,
+      "timing_ratio": 330559,
+      "canvas_width": 3840,
+      "canvas_height": 2160,
+      "buffer_width": 3840,
+      "buffer_height": 2160,
+      "aspect": "3840:2160"
+    },
+    {
+      "profile_set": 1,
+      "mode_name": "4K Anamorphic (4:3)",
+      "va": "0x63e43db0",
+      "flag0": 1,
+      "timing_ratio": 665,
+      "canvas_width": 2880,
+      "canvas_height": 2160,
+      "buffer_width": 2880,
+      "buffer_height": 2160,
+      "aspect": "2880:2160"
+    },
+    {
+      "profile_set": 1,
+      "mode_name": "4K Open Gate (3:2)",
+      "va": "0x63e43dc8",
+      "flag0": 1,
+      "timing_ratio": 665,
+      "canvas_width": 3240,
+      "canvas_height": 2160,
+      "buffer_width": 3264,
+      "buffer_height": 2160,
+      "aspect": "3240:2160"
+    }
+  ],
+  [
+    {
+      "profile_set": 2,
+      "mode_name": "VGA (4:3)",
+      "va": "0x63e43de0",
+      "flag0": 1,
+      "timing_ratio": 665,
+      "canvas_width": 640,
+      "canvas_height": 480,
+      "buffer_width": 640,
+      "buffer_height": 480,
+      "aspect": "640:480"
+    },
+    {
+      "profile_set": 2,
+      "mode_name": "FHD Standard (16:9)",
+      "va": "0x63e43df8",
+      "flag0": 0,
+      "timing_ratio": 2362158,
+      "canvas_width": 1920,
+      "canvas_height": 1080,
+      "buffer_width": 1920,
+      "buffer_height": 1080,
+      "aspect": "1920:1080"
+    },
+    {
+      "profile_set": 2,
+      "mode_name": "FHD Anamorphic (4:3)",
+      "va": "0x63e43e10",
+      "flag0": 0,
+      "timing_ratio": 330559,
+      "canvas_width": 1440,
+      "canvas_height": 1080,
+      "buffer_width": 1472,
+      "buffer_height": 1080,
+      "aspect": "1440:1080"
+    },
+    {
+      "profile_set": 2,
+      "mode_name": "FHD Open Gate (3:2)",
+      "va": "0x63e43e28",
+      "flag0": 0,
+      "timing_ratio": 330559,
+      "canvas_width": 1620,
+      "canvas_height": 1080,
+      "buffer_width": 1664,
+      "buffer_height": 1080,
+      "aspect": "1620:1080"
+    },
+    {
+      "profile_set": 2,
+      "mode_name": "4K Standard (16:9)",
+      "va": "0x63e43e40",
+      "flag0": 0,
+      "timing_ratio": 330559,
+      "canvas_width": 3840,
+      "canvas_height": 2160,
+      "buffer_width": 3840,
+      "buffer_height": 2160,
+      "aspect": "3840:2160"
+    },
+    {
+      "profile_set": 2,
+      "mode_name": "4K Anamorphic (4:3)",
+      "va": "0x63e43e58",
+      "flag0": 1,
+      "timing_ratio": 665,
+      "canvas_width": 2880,
+      "canvas_height": 2160,
+      "buffer_width": 2880,
+      "buffer_height": 2160,
+      "aspect": "2880:2160"
+    },
+    {
+      "profile_set": 2,
+      "mode_name": "4K Open Gate (3:2)",
+      "va": "0x63e43e70",
+      "flag0": 1,
+      "timing_ratio": 665,
+      "canvas_width": 3240,
+      "canvas_height": 2160,
+      "buffer_width": 3264,
+      "buffer_height": 2160,
+      "aspect": "3240:2160"
+    }
+  ]
+]
