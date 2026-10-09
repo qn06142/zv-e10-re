@@ -324,8 +324,8 @@ static void apply_dynamic_aspect(int val) {
         patch_bytes(va_obj_rec, (const unsigned char*)"\x02\x22", 2, "libObj_4K_rec_aspect_3_2");
         patch_bytes(va_obj_seq, (const unsigned char*)"\x02\x23", 2, "libObj_seq_aspect_3_2");
         patch_bytes(va_obj_lv,  (const unsigned char*)"\x01", 1, "libObj_live_view_canvas_3240");
-    } else if (val == 1) {
-        // 16:9 Stock
+    } else {
+        // 16:9 Stock (or default fallback for non-3:2)
         patch_bytes(va_obj_rec, (const unsigned char*)"\x01\x22", 2, "libObj_4K_rec_aspect_16_9");
         patch_bytes(va_obj_seq, (const unsigned char*)"\x01\x23", 2, "libObj_seq_aspect_16_9");
         patch_bytes(va_obj_lv,  (const unsigned char*)"\x02", 1, "libObj_live_view_canvas_3840");
@@ -333,6 +333,7 @@ static void apply_dynamic_aspect(int val) {
 }
 
 static int (*orig_Bkup_Read)(int, void*) = 0;
+static int (*orig_Bkup_Read_Attr)(int, int, void*) = 0;
 
 __attribute__((visibility("default")))
 int _ZN13BackupManager9Bkup_ReadEiPv(int attr_id, void* out_val) {
@@ -342,21 +343,50 @@ int _ZN13BackupManager9Bkup_ReadEiPv(int attr_id, void* out_val) {
             find_lib_base("libObj.so", &g_base_libobj, &size);
         }
         if (g_base_libobj) {
-            // libObj.so offset for _ZN13BackupManager9Bkup_ReadEiPv is 0x168320
-            // +1 for Thumb mode
+            // libObj.so offset for _ZN13BackupManager9Bkup_ReadEiPv is 0x168320 (+1 Thumb)
             orig_Bkup_Read = (int (*)(int, void*))(g_base_libobj + 0x168320 + 1);
         }
     }
 
     if (!orig_Bkup_Read) {
-        return -1; // Fallback error
+        return -1;
     }
 
     int ret = orig_Bkup_Read(attr_id, out_val);
 
     if (attr_id == 0x1070012 || attr_id == 0x10703b2) {
         if (out_val) {
-            int val = *(int*)out_val;
+            unsigned char val = *(unsigned char*)out_val;
+            g_current_aspect = val;
+            apply_dynamic_aspect(val);
+        }
+    }
+
+    return ret;
+}
+
+__attribute__((visibility("default")))
+int _ZN13BackupManager22Bkup_Read_Setting_AttrEiiPv(int slot, int attr_id, void* out_val) {
+    if (!orig_Bkup_Read_Attr) {
+        if (g_base_libobj == 0) {
+            unsigned long size = 0;
+            find_lib_base("libObj.so", &g_base_libobj, &size);
+        }
+        if (g_base_libobj) {
+            // libObj.so offset for _ZN13BackupManager22Bkup_Read_Setting_AttrEiiPv is 0x1681f0 (+1 Thumb)
+            orig_Bkup_Read_Attr = (int (*)(int, int, void*))(g_base_libobj + 0x1681f0 + 1);
+        }
+    }
+
+    if (!orig_Bkup_Read_Attr) {
+        return -1;
+    }
+
+    int ret = orig_Bkup_Read_Attr(slot, attr_id, out_val);
+
+    if (attr_id == 0x1070012 || attr_id == 0x10703b2) {
+        if (out_val) {
+            unsigned char val = *(unsigned char*)out_val;
             g_current_aspect = val;
             apply_dynamic_aspect(val);
         }
@@ -373,7 +403,7 @@ void opengate_init(void) {
     opengate_apply_patch();
 
     // Read the setting once at startup to initialize memory correctly
-    int val = 1; // Default to 16:9 if we can't read it
+    unsigned char val = 1; // Default to 16:9 if we can't read it
     if (g_base_libobj) {
         if (!orig_Bkup_Read) {
             orig_Bkup_Read = (int (*)(int, void*))(g_base_libobj + 0x168320 + 1);

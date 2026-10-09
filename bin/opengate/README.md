@@ -6,7 +6,7 @@ This directory contains verified, production-ready ARM binaries compiled for the
 
 | File | Size (Bytes) | MD5 | Description |
 |---|---|---|---|
-| `opengate.so` | 6,968 | `6f7d74e7ee42602ae08d8f8df06d6293` | Unified `LD_PRELOAD` in-memory patch library (v2.0) |
+| `opengate.so` | 8,592 | `88bf6c6c8d1f3099081f8cc9a730fd82` | Unified `LD_PRELOAD` in-memory patch library (v2.1 dynamic aspect + OSD) |
 | `mem_patch.elf` | 6,124 | `1fdf3b050d2427a7c5b6bc6b9f1d06b5` | Standalone volatile memory patching utility |
 | `opengate.conf` | 375 | - | Runtime configuration file for `/setting/opengate.conf` |
 | `install_opengate.sh` | 1,845 | - | Staging script (installs to `/setting/` & configures `/etc/ld.so.preload`) |
