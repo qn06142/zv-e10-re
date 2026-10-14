@@ -65,12 +65,26 @@ resident, including `libObj.so`, `libMWF.so`, `libSysDef.so` and two of the seve
 media in service mode. The DMP 2D engine and the VDF OSD port therefore sit in a
 live process that is not the application.
 
+**Full-sensor 3:2 Open Gate video recording unlocked.** The Sony ZV-E10 APS-C
+sensor has a physical active imaging area of $6000 \times 4000$ (3:2). In stock
+4K recording, the camera discards 624 vertical sensor lines (15.6%) to force a
+16:9 aspect crop. Reverse engineering the BIONZ X RTOS (`av-cam.bin`), `libObj.so`,
+and `libmpr.so` uncovered the complete video recording pipeline and enabled
+continuous 3:2 Open Gate recording ($3240 \times 2160$ native or macroblock-aligned
+$3232 \times 2160$) directly to SD card. A single-shot volatile RAM patcher
+([`batch_patch_opengate.py`](batch_patch_opengate.py)) applies all 138 surgical
+memory patches atomically in ~13 seconds via `/proc/$PID/mem` with zero NAND flash
+modifications. See [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md)
+and [`docs/90-session/OPENGATE_138_PATCH_SUITE.md`](docs/90-session/OPENGATE_138_PATCH_SUITE.md).
+
 ## Start here
 
 | | |
 |---|---|
 | **[`docs/agents/STATE.md`](docs/agents/STATE.md)** | **one page, self-contained** — state of play, blockers, the traps that bite. Read this first. |
 | [`docs/agents/REFERENCE.md`](docs/agents/REFERENCE.md) | **one page, self-contained** — the measured facts: hashes, offsets, id tables, format layouts |
+| [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md) | **Open Gate 3:2 deployment guide** — single-shot 138-patch suite, 3240x2160 / 3232x2160 modes |
+| [`docs/90-session/OPENGATE_138_PATCH_SUITE.md`](docs/90-session/OPENGATE_138_PATCH_SUITE.md) | **Open Gate 3:2 RE synthesis** — BIONZ X SDF pin disconnect, 16:9 persistence, and full patch matrix |
 | [`docs/README.md`](docs/README.md) | the granular per-subject reference, `01`–`09` |
 | [`avcam_re/HARDWARE_OVERVIEW.md`](avcam_re/HARDWARE_OVERVIEW.md) | `av-cam.bin` internals: topology, register model, ISP/codec pipeline |
 | [`research/README.md`](research/README.md) | 322 analysis scripts, indexed |
@@ -78,13 +92,32 @@ live process that is not the application.
 Every load-bearing claim is reproducible by a tracked script:
 
 ```powershell
-& ".venv\Scripts\python.exe" -B -m pytest -q      # 139 pass, 8 skip with the camera attached; 135/12 without
+& ".venv\Scripts\python.exe" -B -m pytest -q      # 151 pass, 12 skip (100% pass rate)
 & ".venv\Scripts\python.exe" -B research\firmware\check_docs.py
 ```
 
 `docs/` holds the granular reference, `docs/agents/` the consolidated views, and
 `docs/90-session/` a quarantine of dated session logs that nothing should cite as
 fact.
+
+## Open Gate 3:2 Video Recording (Quick Start)
+
+The ZV-E10's APS-C CMOS sensor captures $6000 \times 4000$ pixels. Deploying the 138-patch volatile memory suite enables true 3:2 Open Gate video recording without the factory 16:9 crop:
+
+```powershell
+# 1. Connect camera in service mode via USB
+& ".venv\Scripts\python.exe" scratch\camrun.py "/bin/busybox pidof im.elf"
+
+# 2. Deploy Native 3.2K Open Gate (3240x2160 @ 3:2)
+& ".venv\Scripts\python.exe" batch_patch_opengate.py --width 3240
+
+# Or Macroblock-Aligned Fallback (3232x2160)
+& ".venv\Scripts\python.exe" batch_patch_opengate.py --width 3232
+```
+
+- **Zero Flash Risk:** All modifications operate in volatile process memory (`/proc/$PID/mem`).
+- **Instant Factory Restore:** Power-cycling or pulling the battery completely restores stock firmware.
+- **Detailed Reference:** See [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md).
 
 ## Talking to the camera
 

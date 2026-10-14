@@ -24,6 +24,8 @@ Start here:
 
 - **Cold, and you want the state of play** → [`agents/STATE.md`](agents/STATE.md)
 - **Cold, and you want the facts** → [`agents/REFERENCE.md`](agents/REFERENCE.md)
+- **Open Gate 3:2 Deployment Guide** → [`90-session/OPENGATE_PATCH_GUIDE.md`](90-session/OPENGATE_PATCH_GUIDE.md)
+- **Open Gate 3:2 Reverse Engineering Synthesis** → [`90-session/OPENGATE_138_PATCH_SUITE.md`](90-session/OPENGATE_138_PATCH_SUITE.md)
 - **Working on one subject** → the table below
 - **Coding** → [`research/README.md`](../research/README.md)
 
