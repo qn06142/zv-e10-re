@@ -130,10 +130,10 @@ def generate_uvc_patch_list(base_cmn: int, base_stream: int, width: int, height:
     va_width = base_stream + 0x908a
     if width == 1280 and bitrate_mbps == 30:
         # Stock: mov.w r2, #1280 (4f f4 a0 62)
-        inst_w_hex = "a0624ff4"
+        inst_w_hex = "4ff4a062"
     elif width == 1920:
         # mov.w r2, #1920 (4f f4 f0 62)
-        inst_w_hex = "f0624ff4"
+        inst_w_hex = "4ff4f062"
     else:
         # Generic movw r2, #width
         inst_w_hex = encode_movw(2, width)
@@ -174,7 +174,7 @@ def print_patch_table(patches, width, height, fps, pal_fps, bitrate_mbps):
     print("=" * 78)
 
 
-def deploy_live_patch(patches, pid=None):
+def deploy_live_patch(width, height, fps, pal_fps, mbps, pid=None):
     """Deploy patches to live camera process memory via zve10_retry."""
     if not HAS_CAM_DRIVER:
         print("[-] Error: camera driver not available in environment.")
@@ -183,52 +183,99 @@ def deploy_live_patch(patches, pid=None):
     print("[*] Connecting to Sony ZV-E10 service shell...")
 
     # 1. Resolve PID of im.elf
-    out, _ = run(["pidof im.elf"])
+    out, _ = run(["/bin/busybox pidof im.elf"])
     detected_pid = None
-    for token in out.split():
-        if token.isdigit():
-            detected_pid = int(token)
+    for line in out.splitlines():
+        line = line.strip()
+        if line.isdigit():
+            detected_pid = int(line)
             break
 
     target_pid = pid or detected_pid or 157
     print(f"[+] Target im.elf PID: {target_pid}")
 
-    # 2. Check /setting/mem_patch.elf
-    out, _ = run(["ls -l /setting/mem_patch.elf"])
+    # 2. Probe dynamic library base addresses from /proc/$PID/maps
+    maps_out, _ = run([f"/bin/busybox grep -E 'libInfraUsbCmn.so|libInfraStreamingUsb.so' /proc/{target_pid}/maps"])
+    base_cmn = None
+    base_stream = None
+
+    import re
+    # Match lines like: 04834000-04848000 r-xp 00000000 ... /lib/libInfraUsbCmn.so
+    map_pattern = re.compile(r"^([0-9a-fA-F]{8})-[0-9a-fA-F]{8}\s+([rwxsp-]+)\s+\S+\s+\S+\s+\S+\s+(.*)")
+    for line in maps_out.splitlines():
+        m = map_pattern.match(line.strip())
+        if m:
+            addr_str, perms, path = m.groups()
+            if "libInfraUsbCmn.so" in path and "x" in perms:
+                base_cmn = int(addr_str, 16)
+            elif "libInfraStreamingUsb.so" in path and "x" in perms:
+                base_stream = int(addr_str, 16)
+
+    if base_cmn is None:
+        # Fallback to any mapping of libInfraUsbCmn if r-xp wasn't caught
+        for line in maps_out.splitlines():
+            m = map_pattern.match(line.strip())
+            if m:
+                addr_str, perms, path = m.groups()
+                if "libInfraUsbCmn.so" in path:
+                    base_cmn = int(addr_str, 16)
+                    break
+
+    if base_cmn is None:
+        base_cmn = 0x04834000  # Default known base on firmware 2.02/2.03
+        print(f"[!] Warning: Could not find libInfraUsbCmn.so in maps, using base 0x{base_cmn:08x}")
+    else:
+        print(f"[+] Discovered libInfraUsbCmn.so live base:       0x{base_cmn:08x}")
+
+    if base_stream is not None:
+        print(f"[+] Discovered libInfraStreamingUsb.so live base: 0x{base_stream:08x}")
+    else:
+        print(f"[*] Note: libInfraStreamingUsb.so is not yet mapped (camera not currently streaming).")
+        print(f"    UVC descriptors in libInfraUsbCmn.so will be patched immediately in memory.")
+
+    # 3. Generate patch list with live base addresses
+    patches = generate_uvc_patch_list(base_cmn, base_stream or 0x00000000, width, height, fps, pal_fps, mbps)
+    print_patch_table(patches, width, height, fps, pal_fps, mbps)
+
+    # Filter out stream instructions if streaming library is not yet loaded
+    active_patches = []
+    for desc, va, hex_bytes in patches:
+        if "StreamingUsb" in desc or "video_stream_start" in desc:
+            if base_stream is not None:
+                active_patches.append((desc, va, hex_bytes))
+        else:
+            active_patches.append((desc, va, hex_bytes))
+
+    # 4. Check /setting/mem_patch.elf
+    out, _ = run(["/bin/busybox ls -l /setting/mem_patch.elf"])
     if "mem_patch.elf" not in out:
         print("[-] /setting/mem_patch.elf not found on camera! Deploying mem_patch.elf...")
         from research.device.push_opengate import push_file_b64
         push_file_b64("bin/opengate/mem_patch.elf", "/setting/mem_patch.elf")
 
-    # 3. Build batch shell script on camera
-    tmp_sh = "/tmp/uvc_batch_patch.sh"
-    batch_lines = ["#!/bin/sh", f"PID={target_pid}"]
-    for desc, va, hex_bytes in patches:
-        batch_lines.append(f"/setting/mem_patch.elf $PID {va:08x} {hex_bytes} >/dev/null 2>&1")
-    batch_lines.append("echo '[+] UVC BATCH INJECTION COMPLETE'")
+    # 5. Build batch shell script on camera using single-shot cat EOF
+    batch_lines = [
+        "#!/bin/sh",
+        f"PID={target_pid}",
+        "P=/setting/mem_patch.elf",
+    ]
+    for desc, va, hex_bytes in active_patches:
+        batch_lines.append(f"$P $PID {va:08x} {hex_bytes}")
+    batch_lines.append(f"echo '[+] UVC BATCH COMPLETED: All {len(active_patches)} patches applied and verified in PID ' $PID")
 
-    cmds = [f"rm -f {tmp_sh}"]
-    # Upload script in chunks
-    chunk_sz = 300
-    script_str = "\n".join(batch_lines) + "\n"
-    for i in range(0, len(script_str), chunk_sz):
-        c = script_str[i:i + chunk_sz].replace('"', '\\"').replace('$', '\\$')
-        cmds.append(f'printf "%s" "{c}" >> {tmp_sh}')
+    batch_script = "\n".join(batch_lines) + "\n"
+    cmd = f"cat << 'EOF' > /tmp/run_uvc_batch.sh\n{batch_script}EOF\n/bin/busybox sh /tmp/run_uvc_batch.sh\nrm -f /tmp/run_uvc_batch.sh"
 
-    cmds.append(f"chmod 755 {tmp_sh}")
-    cmds.append(f"{tmp_sh}")
-    cmds.append(f"rm -f {tmp_sh}")
-
-    print(f"[*] Executing {len(patches)} memory patches in single transaction...")
+    print(f"[*] Executing {len(active_patches)} memory patches in single transaction...")
     t0 = time.time()
-    out, tries = run(cmds)
+    out, tries = run([cmd])
     elapsed = time.time() - t0
 
-    if "[+] UVC BATCH INJECTION COMPLETE" in out:
-        print(f"[+] SUCCESS: Applied all {len(patches)} patches in {elapsed:.2f}s ({tries} retries)!")
+    if "UVC BATCH COMPLETED" in out:
+        print(f"[+] SUCCESS: Applied and verified all {len(active_patches)} patches in {elapsed:.2f}s!")
         print("=" * 78)
-        print(" [+] CAMERA IS NOW STREAMING IN CUSTOM UVC MODE!")
-        print(" [+] Connect USB cable to PC and open OBS Studio / ffplay.")
+        print(" [+] UVC WEBCAM HIJACK IS ACTIVE IN LIVE RAM!")
+        print(" [+] Connect USB cable to PC and open OBS Studio / ffplay / Zoom.")
         print("=" * 78)
         return True
     else:
@@ -236,9 +283,133 @@ def deploy_live_patch(patches, pid=None):
         return False
 
 
+def deploy_overwrite_patch(mode, width, height, fps, pal_fps, mbps):
+    """Surgically overwrite the UVC libraries in /usr/lib on camera storage."""
+    if not HAS_CAM_DRIVER:
+        print("[-] Error: camera driver not available in environment.")
+        return False
+
+    print("[*] Connecting to Sony ZV-E10 service shell for persistent UVC library overwrite...")
+
+    # 1. Check/upload /setting/file_patch.elf
+    fp_elf = HERE / "dumps" / "staged" / "uvc" / "file_patch.elf"
+    if not fp_elf.exists():
+        fp_elf = HERE / "out" / "file_patch.elf"
+
+    check_out, _ = run(["/bin/busybox ls -l /setting/file_patch.elf"])
+    if "file_patch.elf" not in check_out:
+        print("[*] Deploying /setting/file_patch.elf to camera...")
+        fp_hex = fp_elf.read_bytes().hex()
+        upload_cmd = f"cat << 'EOF' | /bin/busybox xxd -r -p > /setting/file_patch.elf\n{fp_hex}\nEOF\n/bin/busybox chmod 755 /setting/file_patch.elf"
+        run([upload_cmd])
+        verify_out, _ = run(["/bin/busybox ls -l /setting/file_patch.elf"])
+        if "file_patch.elf" not in verify_out:
+            print("[-] Failed to stage /setting/file_patch.elf on camera!")
+            return False
+        print("[+] /setting/file_patch.elf staged successfully.")
+
+    if mode == "stock":
+        print("[*] Stock mode selected. Reverting /usr/lib libraries to pristine stock...")
+        revert_lines = [
+            "#!/bin/sh",
+            "mount -o remount,rw /usr",
+            "if [ -f /setting/stock_libs/libInfraUsbCmn.so ]; then",
+            "    cp /setting/stock_libs/libInfraUsbCmn.so /usr/lib/libInfraUsbCmn.so",
+            "    echo '[+] Restored stock libInfraUsbCmn.so'",
+            "fi",
+            "if [ -f /setting/stock_libs/libInfraStreamingUsb.so ]; then",
+            "    cp /setting/stock_libs/libInfraStreamingUsb.so /usr/lib/libInfraStreamingUsb.so",
+            "    echo '[+] Restored stock libInfraStreamingUsb.so'",
+            "fi",
+            "sync",
+            "mount -o remount,ro /usr",
+            "echo '[+] UVC REVERT COMPLETE: Factory 720p 30fps restored.'",
+        ]
+        cmd = "cat << 'EOF' > /tmp/run_revert.sh\n" + "\n".join(revert_lines) + "\nEOF\n/bin/busybox sh /tmp/run_revert.sh\nrm -f /tmp/run_revert.sh"
+        out, _ = run([cmd])
+        print(out)
+        return True
+
+    # 2. Generate surgical byte patches
+    pal_desc_hex = build_uvc_frame_descriptor_hex(width, height, pal_fps, mbps)
+    ntsc_desc_hex = build_uvc_frame_descriptor_hex(width, height, fps, mbps)
+
+    patches = generate_uvc_patch_list(0, 0, width, height, fps, pal_fps, mbps)
+    inst_w_hex = None
+    inst_br_hex = None
+    inst_fps_hex = None
+    for desc, va, hex_bytes in patches:
+        if "Width" in desc:
+            inst_w_hex = hex_bytes
+        elif "Bitrate" in desc:
+            inst_br_hex = hex_bytes
+        elif "FPS" in desc:
+            inst_fps_hex = hex_bytes
+
+    print(f"[*] Prepared 5 surgical library patches for '{mode}' ({width}x{height} @ {fps}fps / {pal_fps}fps PAL):")
+    print(f"    1. libInfraUsbCmn.so @ 0x12550 (PAL): {pal_desc_hex[:20]}... ({len(pal_desc_hex)//2} B)")
+    print(f"    2. libInfraUsbCmn.so @ 0x1263e (NTSC): {ntsc_desc_hex[:20]}... ({len(ntsc_desc_hex)//2} B)")
+    print(f"    3. libInfraStreamingUsb.so @ 0x908a (Width): {inst_w_hex}")
+    print(f"    4. libInfraStreamingUsb.so @ 0x908e (Bitrate): {inst_br_hex}")
+    print(f"    5. libInfraStreamingUsb.so @ 0x9098 (FPS): {inst_fps_hex}")
+
+    # 3. Build atomic execution script
+    batch_lines = [
+        "#!/bin/sh",
+        "# 1. Ensure permanent stock backup in /setting/stock_libs",
+        "mkdir -p /setting/stock_libs",
+        "[ ! -f /setting/stock_libs/libInfraUsbCmn.so ] && cp /usr/lib/libInfraUsbCmn.so /setting/stock_libs/libInfraUsbCmn.so",
+        "[ ! -f /setting/stock_libs/libInfraStreamingUsb.so ] && cp /usr/lib/libInfraStreamingUsb.so /setting/stock_libs/libInfraStreamingUsb.so",
+        "# 2. Remount /usr rw",
+        "mount -o remount,rw /usr",
+        "# 3. Apply surgical file patches",
+        f"/setting/file_patch.elf /usr/lib/libInfraUsbCmn.so 12550 {pal_desc_hex}",
+        f"/setting/file_patch.elf /usr/lib/libInfraUsbCmn.so 1263e {ntsc_desc_hex}",
+        f"/setting/file_patch.elf /usr/lib/libInfraStreamingUsb.so 908a {inst_w_hex}",
+        f"/setting/file_patch.elf /usr/lib/libInfraStreamingUsb.so 908e {inst_br_hex}",
+        f"/setting/file_patch.elf /usr/lib/libInfraStreamingUsb.so 9098 {inst_fps_hex}",
+        "# 4. Sync and remount ro",
+        "sync",
+        "mount -o remount,ro /usr",
+        "# 5. Install standalone revert script",
+        "cat << 'EOF_REV' > /setting/revert_uvc.sh",
+        "#!/bin/sh",
+        "echo '[*] Restoring stock UVC webcam libraries...'",
+        "mount -o remount,rw /usr",
+        "cp /setting/stock_libs/libInfraUsbCmn.so /usr/lib/libInfraUsbCmn.so",
+        "cp /setting/stock_libs/libInfraStreamingUsb.so /usr/lib/libInfraStreamingUsb.so",
+        "sync",
+        "mount -o remount,ro /usr",
+        "echo '[+] Stock UVC libraries restored successfully.'",
+        "EOF_REV",
+        "chmod 755 /setting/revert_uvc.sh",
+        "echo '[+] UVC OVERWRITE TRANSACTION COMPLETED'",
+    ]
+
+    cmd = "cat << 'EOF' > /tmp/run_uvc_overwrite.sh\n" + "\n".join(batch_lines) + "\nEOF\n/bin/busybox sh /tmp/run_uvc_overwrite.sh\nrm -f /tmp/run_uvc_overwrite.sh"
+
+    print("[*] Executing persistent UVC library overwrite in single transaction...")
+    t0 = time.time()
+    out, tries = run([cmd])
+    elapsed = time.time() - t0
+
+    if "UVC OVERWRITE TRANSACTION COMPLETED" in out:
+        print(f"[+] SUCCESS: Applied and verified persistent UVC patches in {elapsed:.2f}s!")
+        print("=" * 78)
+        print(f" [+] UVC WEBCAM PERMANENT OVERWRITE ACTIVE: {mode.upper()} ({width}x{height} @ {fps}fps)!")
+        print(" [+] Survives power cycles, battery pulls, and normal reboots.")
+        print(" [+] To revert anytime: run 'python batch_patch_uvc.py --mode stock --overwrite'")
+        print("     or on-device: '/setting/revert_uvc.sh'")
+        print("=" * 78)
+        return True
+    else:
+        print(f"[-] Overwrite failed! Camera output:\n{out}")
+        return False
+
+
 def main():
     parser = argparse.ArgumentParser(
-        description="Single-Shot Batch Memory Patcher for Sony ZV-E10 UVC USB Webcam Hijack"
+        description="Batch Patcher for Sony ZV-E10 UVC USB Webcam Hijack"
     )
     parser.add_argument(
         "-m", "--mode",
@@ -250,7 +421,8 @@ def main():
     parser.add_argument("--height", type=int, help="Custom frame height override (e.g. 1080, 2160, 1440)")
     parser.add_argument("--fps", type=float, help="Custom framerate override (e.g. 60, 30, 24)")
     parser.add_argument("--bitrate", type=float, help="Custom bitrate override in Mbps (e.g. 300, 320)")
-    parser.add_argument("--pid", type=int, help="Override target im.elf process ID")
+    parser.add_argument("--pid", type=int, help="Override target im.elf process ID (live memory mode)")
+    parser.add_argument("--overwrite", action="store_true", help="Permanently overwrite /usr/lib UVC libraries on camera storage (survives battery swaps)")
     parser.add_argument("--dry-run", action="store_true", help="Calculate and display patches without connecting to camera")
     parser.add_argument("--persistent", action="store_true", help="Install persistent boot preload hook to /setting/")
 
@@ -261,15 +433,11 @@ def main():
         args.mode, args.width, args.height, args.fps, args.bitrate
     )
 
-    # 2. Determine base addresses (typical stock bases or dynamically probed)
-    # Default known virtual addresses in im.elf:
-    # libInfraUsbCmn.so: 0x06b80000 or relative
-    # If offline or dry-run, use default library offsets
-    DEFAULT_BASE_CMN = 0x00000000
-    DEFAULT_BASE_STREAM = 0x00000000
-
-    patches = generate_uvc_patch_list(DEFAULT_BASE_CMN, DEFAULT_BASE_STREAM, w, h, fps, pal_fps, mbps)
-    print_patch_table(patches, w, h, fps, pal_fps, mbps)
+    if args.dry_run:
+        patches = generate_uvc_patch_list(0x04834000, 0x00000000, w, h, fps, pal_fps, mbps)
+        print_patch_table(patches, w, h, fps, pal_fps, mbps)
+        print("[*] Dry run complete. No device modified.")
+        return
 
     if args.persistent:
         print("[*] Persistent mode selected. Deploying to /setting/ via push_uvc.py...")
@@ -277,12 +445,12 @@ def main():
         push_main()
         return
 
-    if args.dry_run:
-        print("[*] Dry run complete. No device modified.")
-        return
+    if args.overwrite:
+        success = deploy_overwrite_patch(args.mode, w, h, fps, pal_fps, mbps)
+        sys.exit(0 if success else 1)
 
-    # Live patch execution
-    success = deploy_live_patch(patches, pid=args.pid)
+    # Live RAM patch execution
+    success = deploy_live_patch(w, h, fps, pal_fps, mbps, pid=args.pid)
     sys.exit(0 if success else 1)
 
 

@@ -133,14 +133,20 @@ The ZV-E10's APS-C CMOS sensor captures $6000 \times 4000$ pixels. Deploying the
 Deploying the UVC webcam patch suite bypasses the stock 720p limit and streams 1080p60 or 3.2K 3:2 Open Gate directly over USB to OBS Studio, Zoom, or ffplay:
 
 ```powershell
-# Option A: Single-shot host batch patcher (Recommended)
+# Option A: Single-shot host batch patcher (RAM-only or Persistent Overwrite)
 # Modes: 1080p (default), 1080p60, opengate (3240x2160 @ 24fps), 2k_opengate, stock
+
+# Live volatile RAM patch:
 python batch_patch_uvc.py --mode 1080p
-python batch_patch_uvc.py --mode 1080p60
-python batch_patch_uvc.py --mode opengate
+
+# Permanent on-storage overwrite (survives battery swaps, power cycles & reboots):
+python batch_patch_uvc.py --mode 1080p --overwrite
 
 # Dry-run inspection (no camera required):
 python batch_patch_uvc.py --mode opengate --dry-run
+
+# Revert to factory 720p stock anytime:
+python batch_patch_uvc.py --mode stock --overwrite
 
 # Option B: Direct on-camera live RAM script via service shell:
 /setting/apply_uvc_live.sh 1080p

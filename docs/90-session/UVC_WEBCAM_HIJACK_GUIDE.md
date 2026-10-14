@@ -231,6 +231,29 @@ Unit test suite verifying:
    ```
 3. Whenever the camera boots, `im.elf` will automatically load `uvc_hook.so` and read `/setting/uvc.conf`.
 
+### Method D: Persistent Library Overwrite (Survives Battery Swaps & Reboots)
+Since the UVC webcam pipeline resides in distinct libraries (`libInfraUsbCmn.so` and `libInfraStreamingUsb.so`) that are completely separate from core OS boot and movie recording, surgical on-disk library patching provides a **permanent, host-independent solution**:
+1. Connect camera in service shell mode and run:
+   ```powershell
+   # Permanently overwrite /usr/lib for 1080p 30fps
+   python batch_patch_uvc.py --mode 1080p --overwrite
+
+   # Or 3.2K 3:2 Open Gate:
+   python batch_patch_uvc.py --mode opengate --overwrite
+   ```
+2. **Safety Architecture:**
+   - Automatically saves pristine stock copies to `/setting/stock_libs/` before touching any bytes.
+   - Uses `/setting/file_patch.elf` to apply exactly 70 bytes across both libraries (descriptors & stream parameters), leaving all headers and code relocations untouched.
+   - Installs `/setting/revert_uvc.sh` on the camera.
+3. **Revert Anytime:**
+   ```powershell
+   # From host:
+   python batch_patch_uvc.py --mode stock --overwrite
+
+   # Or directly on camera:
+   /setting/revert_uvc.sh
+   ```
+
 ---
 
 ## 6. Host PC Verification (OBS Studio & FFplay)

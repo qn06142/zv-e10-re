@@ -176,6 +176,38 @@ class TestUvcWebcamPatch(unittest.TestCase):
         patches = bpu.generate_uvc_patch_list(0, 0, w, h, fps, pal_fps, mbps)
         self.assertEqual(len(patches), 5)
 
+    def test_library_file_patching_integrity(self):
+        """Verify patch_libraries generates valid 94612 B and 52524 B binaries for all modes."""
+        import scripts.patch_uvc_libraries as pul
+
+        for mode, (w, h, fps, pal_fps, mbps) in pul.MODES.items():
+            cmn_bytes, stream_bytes = pul.patch_libraries(mode, w, h, fps, pal_fps, mbps)
+
+            self.assertEqual(len(cmn_bytes), 94612, f"cmn size mismatch in mode {mode}")
+            self.assertEqual(len(stream_bytes), 52524, f"stream size mismatch in mode {mode}")
+
+            # Verify width and height in PAL descriptor
+            pal_w, pal_h = struct.unpack("<HH", cmn_bytes[0x12555:0x12559])
+            self.assertEqual(pal_w, w, f"PAL width mismatch in mode {mode}")
+            self.assertEqual(pal_h, h, f"PAL height mismatch in mode {mode}")
+
+            # Verify width and height in NTSC descriptor
+            ntsc_w, ntsc_h = struct.unpack("<HH", cmn_bytes[0x12643:0x12647])
+            self.assertEqual(ntsc_w, w, f"NTSC width mismatch in mode {mode}")
+            self.assertEqual(ntsc_h, h, f"NTSC height mismatch in mode {mode}")
+
+    def test_file_patch_elf_binary(self):
+        """Verify compiled out/file_patch.elf exists and has valid ARM ELF header."""
+        fp_path = REPO_ROOT / "out" / "file_patch.elf"
+        self.assertTrue(fp_path.exists(), "out/file_patch.elf must exist")
+        data = fp_path.read_bytes()
+        self.assertTrue(data.startswith(b"\x7fELF"), "Must have ELF magic")
+        self.assertEqual(data[4], 1, "Must be ELFCLASS32")
+        self.assertEqual(data[5], 1, "Must be ELFDATA2LSB (little-endian)")
+        # Machine ARM (0x28) at offset 0x12
+        machine = struct.unpack("<H", data[0x12:0x14])[0]
+        self.assertEqual(machine, 0x28, "Machine must be EM_ARM (0x28)")
+
 
 if __name__ == "__main__":
     unittest.main()
