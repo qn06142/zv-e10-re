@@ -42,8 +42,8 @@ one library would give persistent root code execution at boot, in the process
 that owns the message bus.
 
 It is untested because a malformed replacement means `im.elf` never starts and
-the service shell never appears — recovery is the SD card. **This needs the
-camera present and a deliberate decision**, not more analysis. It is the
+the service shell never appears — **there is NO recovery path** (no boot up = no USB = dead).
+**This needs the camera present and a deliberate decision**, not more analysis. It is the
 single highest-value action available.
 
 **2. Even with code execution, there is nothing to command.** The application
@@ -138,8 +138,8 @@ Semantics remain open: naming the fields needs the id→record index, and
 1. Do **not** touch `libIMDB.so` yet. First collect the things that need the
    device and are risk-free: `tmonitor` params, another `/proc/osal/uipc`
    capture to diff against, and the `0x4xxx` ids.
-2. Then decide on `libIMDB.so` deliberately, with the SD card as the recovery
-   path confirmed working.
+2. Then decide on `libIMDB.so` deliberately, remembering that there is
+   NO recovery path if boot fails (no boot up = no USB = dead).
 
 The offline work continues regardless — the RTOS message format is the highest
 value item and needs no hardware.

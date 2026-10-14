@@ -20,7 +20,7 @@ was injected into `libtestcmd.so`, a marker file appeared, and the library was
 restored to stock and md5-verified. `libIMDB.so` — loaded by `im.elf`, the
 process owning 417 message queues — is the interesting target and has
 deliberately *not* been touched, because a malformed replacement costs the
-service shell and the only way back is an SD card.
+service shell with **no recovery mechanism** (no boot up = no USB = dead).
 
 **A live view of the RTOS.** `/proc/tmonitor` returns a ~50 ms window of the
 real-time scheduler: 60+ tasks, wait channels with **kernel addresses**, a
@@ -196,12 +196,13 @@ read it before relying on anything here.**
 ## Risk
 
 Several routes documented here are one-way doors. Replacing `libIMDB.so`, or
-corrupting `udtrbody.bin`, means the service side never boots and the camera is
-recovered by SD card rather than by USB. Remounting `/usr` rw on an ext2
-filesystem with no journal can leave it unbootable. The
-[modification notes](docs/07-modification.md) mark which is which.
+corrupting `udtrbody.bin`, means the system never boots: **there is NO way back**
+(no boot up = no USB = dead / hard brick). Modern BIONZ X cameras have no autonomous
+SD card unbrick bootloader. Remounting `/usr` rw on an ext2 filesystem with no journal
+can leave it permanently unbootable. The [modification notes](docs/07-modification.md)
+mark which is which.
 
-Do this to a camera you are willing to brick.
+Do this only to a camera you are willing to permanently brick.
 
 ## Upstream tool
 

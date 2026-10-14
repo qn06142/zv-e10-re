@@ -106,9 +106,10 @@ semaphores and 310 callbacks and mounts every filesystem. That is the path to th
 subsystems, and the same primitive is all that is required.
 
 **It is a one-way door.** If the replacement is malformed, `im.elf` does not
-start, the service shell never appears, and recovery is the SD card. The
-`crypter.elf` / `udtrbody.bin` updater door has the identical shape. Both need
-the camera present **and a deliberate decision**, not more analysis.
+start, the service shell never appears: **there is NO way back** (no boot up = no USB = dead / hard brick).
+Modern BIONZ X cameras have no autonomous SD card unbrick bootloader. The
+`crypter.elf` / `udtrbody.bin` updater door has the identical shape. Both carry
+absolute permanent brick risk.
 
 ---
 
@@ -214,8 +215,8 @@ remaining gap on that route is still the VDF OSD push entry point.
    - `tmonitor` params (addr / size / mask, and whether it is writable)
    - a second `/proc/osal/uipc` capture, to diff against the stored one
    - the `0x4xxx` ids
-2. Then decide on `libIMDB.so` **deliberately**, with the SD card confirmed
-   working as the recovery path.
+2. Then decide on `libIMDB.so` **deliberately**, remembering that there is
+   NO recovery path if boot fails (no boot up = no USB = dead).
 3. Read [`../08-camera-interfaces.md`](../08-camera-interfaces.md) for the WiFi
    Direct link (`192.168.122.1`) — zero risk, and the main firmware's own
    interface. The camera runs a DHCP server there and nothing else listens.
