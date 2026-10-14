@@ -135,16 +135,23 @@ Inside `VideoEsManager::set_path_sync` (VA `0x8e14`):
 
 ## 4. Software Suite & Tools
 
-The repository contains a complete, production-ready tool suite:
+The repository contains a complete, production-ready tool suite completely separate from the movie recording Open Gate patches:
 
-### 1. `research/device/uvc_hook.c`
+### 1. `batch_patch_uvc.py` (Top-Level Host Batch Patcher)
+Standalone single-shot host patcher mirroring `batch_patch_opengate.py`:
+- Supports all presets: `1080p`, `1080p60`, `opengate` (3.2K 3:2), `2k_opengate`, and `stock` (revert).
+- Supports `--dry-run` for offline inspection and calculation.
+- Supports custom resolution, framerate, and bitrate overrides (`--width`, `--height`, `--fps`, `--bitrate`).
+- Uploads and executes patches in volatile process memory in a single transaction.
+
+### 2. `research/device/uvc_hook.c`
 Cross-compiled shared library (`out/uvc_hook.so` / `dumps/staged/uvc/uvc_hook.so`).
 - Placed in `/setting/uvc_hook.so`.
 - Automatically invoked by `im.elf` via `/setting/mode/preload`.
 - Reads configuration from `/setting/uvc.conf`.
 - Patches descriptors and stream start instructions in memory; flushes cache via `SYS_ARM_cacheflush`.
 
-### 2. `research/device/apply_uvc_live.sh`
+### 3. `research/device/apply_uvc_live.sh`
 Shell script utilizing `/setting/mem_patch.elf`.
 - Dynamically parses `/proc/$(pidof im.elf)/maps` to resolve base addresses.
 - Patches the live process in volatile RAM with **zero reboot required**.
@@ -156,42 +163,65 @@ Shell script utilizing `/setting/mem_patch.elf`.
   /setting/apply_uvc_live.sh 2k_opengate
   ```
 
-### 3. `scripts/build_uvc.py`
+### 4. `dumps/staged/uvc/install_uvc.sh` & `uninstall_uvc.sh`
+Device-side installer and uninstaller scripts:
+- `install_uvc.sh`: Installs `uvc_hook.so` and config to `/setting/` and enables developer boot preload (`3p` in `/setting/mode/dmode`).
+- `uninstall_uvc.sh`: Restores stock boot mode (`3` in `/setting/mode/dmode`), removes preload hooks and configs, reverting camera to factory behavior.
+
+### 5. `scripts/build_uvc.py`
 Host-side compilation script using `arm-none-eabi-gcc`.
 - Compiles `research/device/uvc_hook.c` with flags: `-mcpu=cortex-a7 -mthumb -mfloat-abi=softfp -mfpu=vfpv3-d16 -O2 -fPIC -shared -nostartfiles -Lbuild_sysroot/lib -lc`.
 - Verifies output MD5 and SHA256 checksums.
 
-### 4. `research/device/push_uvc.py`
-Automated deployer transferring `uvc_hook.so`, `uvc.conf`, and `apply_uvc_live.sh` to the camera via chunked base64 over the service shell bridge.
+### 6. `research/device/push_uvc.py`
+Automated deployer transferring `uvc_hook.so`, `uvc.conf`, `apply_uvc_live.sh`, `install_uvc.sh`, and `uninstall_uvc.sh` to the camera via chunked base64 over the service shell bridge.
 
-### 5. `tests/test_uvc_patch.py`
+### 7. `tests/test_uvc_patch.py`
 Unit test suite verifying:
 - Stock descriptor layouts at `0x12550` and `0x1263e`.
 - Target stream instruction encodings at `0x908a`, `0x908e`, and `0x9098`.
 - Hook ELF header and dependency integrity.
 - Shell script syntax and offset calculations.
+- `batch_patch_uvc.py` parameter resolution for all presets and custom overrides.
 - Bandwidth saturation limits.
-- **Result:** 100% PASS in 0.009s.
+- **Result:** 100% PASS in 0.005s.
 
 ---
 
 ## 5. Live Deployment Instructions
 
-### Method A: Zero-Reboot Live RAM Patch (Recommended for Testing)
+### Method A: Single-Shot Host Batch Patcher (Recommended)
 1. Turn on camera and connect via USB in MSC mode.
-2. Push the files to the camera:
+2. Run `batch_patch_uvc.py` specifying the desired mode:
+   ```powershell
+   # 1080p Full HD @ 30fps (300 Mbps)
+   python batch_patch_uvc.py --mode 1080p
+
+   # 1080p Full HD @ 60fps (320 Mbps)
+   python batch_patch_uvc.py --mode 1080p60
+
+   # 3.2K 3:2 Open Gate @ 24fps (300 Mbps)
+   python batch_patch_uvc.py --mode opengate
+
+   # Revert to factory 720p 30fps in RAM:
+   python batch_patch_uvc.py --mode stock
+   ```
+3. Connect USB cable to host PC and launch OBS Studio.
+
+### Method B: Zero-Reboot Device Shell Script
+1. Deploy files to camera:
    ```powershell
    python research/device/push_uvc.py
    ```
-3. Switch camera menu to **USB Streaming** mode (`Menu -> Shooting -> USB Streaming -> Enter`).
-4. Execute the live RAM patch script through the shell bridge:
+2. Switch camera menu to **USB Streaming** mode (`Menu -> Shooting -> USB Streaming -> Enter`).
+3. Execute the live RAM patch script through the shell bridge:
    ```sh
    /setting/apply_uvc_live.sh 1080p
    ```
    *(Or `/setting/apply_uvc_live.sh opengate` for 3.2K 3:2 Open Gate)*.
-5. Connect USB cable to host PC.
+4. Connect USB cable to host PC.
 
-### Method B: Persistent Developer Preload (Auto-Active on Boot)
+### Method C: Persistent Developer Preload (Auto-Active on Boot)
 1. Deploy files via `push_uvc.py`.
 2. Configure developer preload:
    ```sh

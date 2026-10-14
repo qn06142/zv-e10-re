@@ -139,6 +139,44 @@ class TestUvcWebcamPatch(unittest.TestCase):
         mb_s_opengate = mbps_opengate / 8.0
         self.assertLessEqual(mb_s_opengate, MAX_BULK_THROUGHPUT_MB_S)
 
+    def test_batch_patch_uvc_modes(self):
+        """Verify batch_patch_uvc resolves all presets with correct parameters."""
+        import batch_patch_uvc as bpu
+
+        modes_to_test = {
+            "1080p": (1920, 1080, 30, 25, 300),
+            "1080p60": (1920, 1080, 60, 50, 320),
+            "opengate": (3240, 2160, 24, 25, 300),
+            "2k_opengate": (2160, 1440, 30, 25, 300),
+            "stock": (1280, 720, 30, 25, 30),
+        }
+
+        for m, expected in modes_to_test.items():
+            w, h, fps, pal_fps, mbps = bpu.resolve_mode_parameters(m)
+            self.assertEqual((w, h, fps, pal_fps, mbps), expected, f"Mode {m} mismatch")
+
+            # Check patch generation
+            patches = bpu.generate_uvc_patch_list(0x10000000, 0x20000000, w, h, fps, pal_fps, mbps)
+            self.assertEqual(len(patches), 5, f"Must generate 5 patches for mode {m}")
+
+            # PAL & NTSC descriptors must be 30 bytes (60 hex chars)
+            self.assertEqual(len(patches[0][2]), 60)
+            self.assertEqual(len(patches[1][2]), 60)
+
+    def test_batch_patch_custom_overrides(self):
+        """Verify custom width, height, fps, bitrate overrides in batch_patch_uvc."""
+        import batch_patch_uvc as bpu
+
+        w, h, fps, pal_fps, mbps = bpu.resolve_mode_parameters("1080p", custom_w=2560, custom_h=1440, custom_fps=48, custom_br=280)
+        self.assertEqual(w, 2560)
+        self.assertEqual(h, 1440)
+        self.assertEqual(fps, 48)
+        self.assertEqual(mbps, 280)
+
+        patches = bpu.generate_uvc_patch_list(0, 0, w, h, fps, pal_fps, mbps)
+        self.assertEqual(len(patches), 5)
+
 
 if __name__ == "__main__":
     unittest.main()
+
