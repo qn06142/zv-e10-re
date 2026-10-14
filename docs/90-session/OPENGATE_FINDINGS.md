@@ -61,21 +61,19 @@ When mode 2 is selected, execution branches to `0x636cdc00`. This handler sets u
 
 The restriction to 16:9 is enforced by a single hardcoded constant in the Linux application layer (`libObj.so`).
 
-### 3.1 Hardcoded Constant in `InfraMovieEncoderSeqSetAspect`
-Inside `libObj.so` at VA `0x2d229c`:
-```arm
-0x2d2298: movs    r3, #0x2c
-0x2d229a: strh    r3, [r4, #4]
-0x2d229c: movs    r3, #1                 ; HARDCODED: 1 = ASPECT_16_9
-0x2d229e: strh    r3, [r4, #0xa]         ; Writes aspect ratio into encoder struct
-...
-0x2d22c2: ldrh    r3, [r4, #0xa]         ; Reloads aspect ratio (1)
-0x2d22c8: str     r3, [sp]               ; Prepares dispatch argument
-0x2d22ca: ldr     r2, [r4, #0x24]
-0x2d22cc: ldr     r3, [r4, #0xc]
-0x2d22ce: bl      #0x533b40              ; Dispatches config packet to av-cam.bin
-```
-Because `r3 = 1` is hardcoded, the movie encoder **always** commands `av-cam.bin` to execute the 16:9 crop path (`0x636cdea6`), discarding the top and bottom sensor lines.
+### 3.1 The Real Astra 4K Recording Engine vs. Proxy Sequence Encoder
+> [!IMPORTANT]
+> **CORRECTION OF RECORD:**
+> Early documentation identified `InfraMovieEncoderSeqSetAspect` at `0x2d229c` as the primary aspect ratio lockout. Reverse engineering in live execution revealed that `0x2d229c` only belongs to the **proxy / auto-edit sequencer**.
+> 
+> The true primary 4K recording engine resides at:
+> - **`libObj.so` `InfraMovieEncoderSeqEncStart2Astra` (`0x2ccac0`)**: Controls primary 4K stream startup and dispatches co-processor AVBBC packet `0x55001f` (`0x2cce0a` & `0x2cce38`).
+> - **`libmpr.so` `MovieRecorder::ConvMovieRecParam` (`0x3f642c` / `0x3f6730`)**: Directly hardcodes stream width (`mov.w r3, #3840`) and MP4 container width (`mov.w r2, #3840`).
+> - **`libmpr.so` `RecLib_RecLineInfo::ConvContentTypeToUseCodec` (`0x3f1e18`)**: Hardcodes resolution `(2160 << 16) | 3840`.
+> - **`libmpr.so` Profile Table (60 profiles across 5 groups)**: Profiles at `0x0866d8f6`..`0x08678812` define the hardware encoding configurations.
+> 
+> Furthermore, **`LD_PRELOAD` via `dmode 3p` does not work across reboots** because `/usr/bin/bootin.elf` explicitly calls `putenv("LD_PRELOAD")` (which unsets the variable) before executing `/usr/bin/im.elf`. All live modifications must be applied directly to running memory (`/proc/$PID/mem`).
+
 
 ---
 
@@ -127,26 +125,24 @@ Just like Magic Lantern on DIGIC 5 DSLRs (where UHS-I limited 5D Mark III / 6D t
 
 ---
 
-## 6. Implementation Blueprint
+## 6. Implementation Architecture: The 138-Patch Memory Pipeline
 
-### Step 1: Preload Hook Injection
-Utilize the zero-flash-risk LD_PRELOAD mechanism (`change_mode.sh p /setting/opengate.so`):
-* Hook `open()` and memory-map `libObj.so`.
-* Patch `InfraMovieEncoderSeqSetAspect` at `0x2d229c`:
-  ```arm
-  ; Replace:
-  0x2d229c: movs r3, #1   ; (01 23)
-  ; With:
-  0x2d229c: movs r3, #2   ; (02 23) -> DefStruct::MOVIE_ASPECT_3_2
-  ```
+Rather than relying on `LD_PRELOAD` (which is explicitly purged by `bootin.elf` across reboots), the production Open Gate implementation executes as an atomic memory transaction on `/proc/$PID/mem` via [`batch_patch_opengate.py`](file:///D:/02_Development_And_Projects/pmca-re/batch_patch_opengate.py).
 
-### Step 2: Encoder Parameter Interception
-In `libmpr.so`, hook `SetColorFormatAndVideoBitDepthToEnterRecParam` at `0x54917e`:
-* Adjust the horizontal and vertical resolution fields from $3840 \times 2160$ to $3240 \times 2160$.
-* Set aspect ratio flag to `ASPECT_RATIO_OTHER` or `ASPECT_RATIO_3_2`.
+### 6.1 Subsystem Synchronization Matrix
+1. **Resolution Validation Gates (`libObj.so`):**
+   - NOPs the conditional width checks (`bcc.n` $\to$ `00 bf`) in AVBBC builders at `0x2b2ca0`, `0x2b2cd6`, `0x2c07b4`, `0x2cfda0`, `0x2d004a`, `0x2d00ea`, `0x2d03b2`.
+2. **Aspect Ratio Synchronization (`libObj.so` & `libmpr.so`):**
+   - `ConvertRecFormat` (`0x978bea`): sets format aspect = 2 (3:2).
+   - `InfraMovieEncoderSeqSetAspect` (`0x2d2388`): broadcasts Aspect 2 to Channels `0x1014` and `0x100e`.
+   - `InfraMovieEncoderSeqEncStart2Astra` (`0x2ccb3a`, `0x2ccb4a`): writes Aspect 2 to Astra encoder input registers.
+   - AVBBC packets (`0x2cce0a`, `0x2cce38`): sets Aspect 2 in co-processor packets `#0xd4` and `#0xd8`.
+   - `FeaCore::SetRecAspect` (`0x5422e6` in `libmpr.so`): whitelists Aspect 2 (`tst.w r2, #0x2f`).
+   - `GetPictureAspectForCodecDrv` (`0x8a436a` in `libmpr.so`): forces `esPictureAspect = 3` to satisfy hardware CodecDrv.
+3. **Hardware Encoder Profile Tables (`libmpr.so`):**
+   - Overwrites width and container width to 3240 (or 3232) across all 60 4K profile records in 5 groups (`0x0866d8f6`..`0x08678812`).
+   - Injects resolution into `MprLibCore::GetPictureSize` (`0x8a46b4`) and `mxfIfo_CommonSequence::CnvResolutionMBtoMPR` (`0x8df60e`).
 
-### Step 3: UI Exposure via UXC Table
-Patch the movie settings UXC menu table to bind `PARAMID_MOVIE_ASPECT_RATIO` to a user-selectable toggle between:
-- `16:9` (Stock)
-- `3:2` (Open Gate $3240 \times 2160$)
-- `4:3` (Anamorphic $2880 \times 2160$)
+### 6.2 Zero Flash Risk
+All 138 patches are applied purely to volatile RAM. Power-cycling the camera completely restores clean factory firmware with 0 persistence risk.
+

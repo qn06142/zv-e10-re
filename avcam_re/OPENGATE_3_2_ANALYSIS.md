@@ -1,12 +1,13 @@
 # OpenGate 3:2 Trace — Full Constraint Map
-## Target: 3:2 aspect ratio crop from 6240×3376 sensor (NOT 4000×2000)
+## Target: 3:2 aspect ratio readout from 6000×4000 sensor ($3240 \times 2160$ video encoding)
 
 ---
 
 ## 1. SENSOR HARDWARE LIMITS (the roof)
-- Full sensor readout: **6240 × 3376** (confirmed at 0x278E6B in av-cam.bin)
-- 3:2 crop fits within sensor: e.g. 4608×3072, 4240×2827, 3840×2560 — all under 6240×3376
-- **No sensor-level bite** for any 3:2 mode that fits within 6240×3376
+- Physical active sensor area: **$6000 \times 4000$ (3:2)** ($24.2\text{ MP}$ native APS-C).
+- Stock 16:9 movie crop reads out $6000 \times 3376$ (discarding top/bottom 312 lines).
+- True 3:2 Open Gate engages the full $6000 \times 4000$ area downsampled to $3240 \times 2160$ for hardware encoding.
+
 
 ---
 

@@ -6,7 +6,16 @@ echo "[+] Target im.elf PID: $PID"
 echo "[*] 1. Patching libObj.so ObjRenderer (Aspect query -> 3:2)..."
 /setting/mem_patch.elf $PID 067f1918 01207047
 
-echo "[*] 2. Patching libObj.so InfraMovieEncoderSeqSetAspect (Aspect enum -> 2)..."
+echo "[*] 2. Patching libObj.so Live View Classification Table (3240x2160 3:2 canvas)..."
+/setting/mem_patch.elf $PID 07442f26 01
+
+echo "[*] 3. Patching libObj.so ConvertRecFormat (4K Aspect -> 2 3:2)..."
+/setting/mem_patch.elf $PID 06f0abea 0222
+
+echo "[*] 4. Patching libmpr.so Whitelist Mask (Allow Aspect 2)..."
+/setting/mem_patch.elf $PID 07f6d2e8 2f
+
+echo "[*] 5. Patching libObj.so InfraMovieEncoderSeqSetAspect (Aspect enum -> 2)..."
 /setting/mem_patch.elf $PID 06864388 0222
 /setting/mem_patch.elf $PID 068643a0 0222
 /setting/mem_patch.elf $PID 068643c4 0223

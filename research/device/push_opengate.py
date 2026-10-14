@@ -63,7 +63,7 @@ def main():
     print("[*] Configuring developer boot hooks in /setting/mode/...")
     setup_cmds = [
         "mkdir -p /setting/mode",
-        "echo '/setting/opengate.so' > /setting/mode/preload",
+        "echo '/usr/tool/libjemalloc_tsh.so:/setting/opengate.so' > /setting/mode/preload",
         "echo '3p' > /setting/mode/dmode",
         "sync",
         "ls -la /setting/opengate.so /setting/opengate.conf /setting/mode/",

@@ -1,14 +1,10 @@
 # OpenGate 3:2 — verified patch surface (2026-09-26)
 
 > [!IMPORTANT]
-> **Partly superseded — read `TABLE_PURPOSE_CORRECTION.md` first.**
-> The four patch-point verdicts below are sound and still stand. But the *table
-> interpretation* in the second half was inferred from data contents and two
-> parts of it are wrong: the mode table's base is `0x89DADE` (not `0x89dae0`),
-> its resolution is two `u16` fields rather than one packed `(h<<16)|w` word,
-> and the "per-stream encoder config table" at `0x8c4440` has **no consumer**
-> and is retracted. The correction file also explains the PC-relative delta
-> trap that produced both errors.
+> **SUPERSEDED & EXTENDED — See `OPEN_GATE_RESEARCH_FINDINGS.md` (October 2026).**
+> The physical sensor active area is verified as **$6000 \times 4000$ (3:2)**.
+> Video dimensions on the Linux application side (`im.elf`) live in `libmpr.so` (60 profiles across 5 groups at `0x0866d8f6`..`0x08678812`) and `libObj.so` (`InfraMovieEncoderSeqEncStart2Astra` at `0x2ccac0`), which dispatch to the BIONZ X co-processor (`av-cam.bin`) via AVBBC packet `0x55001f`.
+
 
 Re-examines the four patch points listed in `RE_STATE.md` using `retool`.
 **One of them is confirmed as a real descriptor table; the other three

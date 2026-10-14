@@ -1,22 +1,21 @@
 /*
- * Sony ZV-E10 Open Gate 3:2 Video Unlock Hook Library (v2.0)
+ * Sony ZV-E10 Open Gate 3:2 Video Unlock Hook Library (v3.0)
  *
- * Automatically loaded via /etc/ld.so.preload.
- * Activates ONLY inside im.elf (main camera application process).
+ * Automatically loaded via /setting/mode/preload inside im.elf.
  *
  * Implements the complete multi-point Open Gate architecture:
- * 1. libmpr.so (0x5422e6): Expands SetRecAspect bitmask whitelist (0x2b -> 0x2f) to permit Aspect 2 (3:2).
- * 2. libObj.so (0x978bea): Patches 4K ConvertRecFormat to output Aspect 2 (3:2) instead of hardcoded 1 (16:9).
- * 3. libObj.so (0x2d229c): Patches InfraMovieEncoderSeqSetAspect to output Aspect 2 (3:2).
- * 4. libObj.so (0xeb0f26): Patches Live View aspect classification table to map 4K stream to 3240x2160 (Case 1).
- *
- * Subsystem Safety:
- * - 100% in-memory volatile modifications; zero writes to read-only flash partitions.
- * - Still photo, FHD 1080p, AVCHD, and HDMI pipelines completely isolated and unaffected.
+ * 1. Process Guard: Activates ONLY in im.elf (ignores sh, ash, busybox, bootin).
+ * 2. Whitelist Bypass: libmpr.so (0x5422e6) expanded 0x2b -> 0x2f (unlocks 3:2 Aspect 2).
+ * 3. ObjRenderer Aspect Override: libObj.so (0x25f918) -> returns Aspect 2 (3:2).
+ * 4. Live View 3:2 Canvas: libObj.so (0xeb0f26) -> Case 1 (3240x2160 edge-to-edge).
+ * 5. ConvertRecFormat 4K Aspect: libObj.so (0x978bea) -> Aspect 2 (3:2).
+ * 6. Movie Encoder Pipeline: libObj.so (0x2d2388, 0x2d23a0, 0x2d23c4, 0x2d229c) -> Aspect 2 (3:2).
+ * 7. 60 Recording Profiles: libmpr.so all 60 4K profiles width -> 3240 (0x0ca8).
+ * 8. NVRAM Anti-Clamp Intercept:
+ *    - Bkup_Read / Bkup_Read_Setting_Attr: Returns 0x02 for 0x1070012 & 0x10703b2.
+ *    - Bkup_Write / Bkup_Write_Setting_Attr: Forces 0x02 for 0x1070012 & 0x10703b2.
  */
 
-int printf(const char* format, ...);
-int snprintf(char* str, unsigned int size, const char* format, ...);
 int open(const char* pathname, int flags, ...);
 int close(int fd);
 int read(int fd, void* buf, unsigned int count);
@@ -24,71 +23,66 @@ int write(int fd, const void* buf, unsigned int count);
 int mprotect(void* addr, unsigned int len, int prot);
 int getpid(void);
 long syscall(long number, ...);
-void* fopen(const char* path, const char* mode);
-char* fgets(char* s, int size, void* stream);
-int fclose(void* fp);
-int sscanf(const char* str, const char* format, ...);
-int strncmp(const char* s1, const char* s2, unsigned int n);
+int snprintf(char* str, unsigned int size, const char* format, ...);
 char* strstr(const char* haystack, const char* needle);
 unsigned int strlen(const char* s);
+int usleep(unsigned int usec);
 
 #define O_RDONLY    00000000
 #define O_WRONLY    00000001
 #define O_RDWR      00000002
 #define O_CREAT     00000100
 #define O_APPEND    00002000
-#define O_SYNC      00010000
 
 #define PROT_READ   0x1
 #define PROT_WRITE  0x2
 #define PROT_EXEC   0x4
-#define MAP_SHARED  0x01
-#define MAP_FAILED  ((void*)-1)
-#define NULL        ((void*)0)
-
-#define FB_PHYS_ADDR 0x3f3ec000
-#define FB_SIZE      0x00401000
-
-int pthread_create(void* thread, void* attr, void* (*start_routine)(void*), void* arg);
-void* mmap(void* addr, unsigned int length, int prot, int flags, int fd, unsigned int offset);
-int munmap(void* addr, unsigned int length);
 
 #define SYS_ARM_cacheflush 0xf0002
 
 /* Target relative offsets */
 #define OFF_LIBMPR_WHITELIST    0x5422e6
-#define OFF_LIBOBJ_REC_ASPECT   0x978bea
-#define OFF_LIBOBJ_SEQ_ASPECT   0x2d229c
+#define OFF_LIBOBJ_RENDERER     0x25f918
 #define OFF_LIBOBJ_LV_TABLE     0xeb0f26
+#define OFF_LIBOBJ_REC_ASPECT   0x978bea
+#define OFF_LIBOBJ_SEQ_1        0x2d2388
+#define OFF_LIBOBJ_SEQ_2        0x2d23a0
+#define OFF_LIBOBJ_SEQ_3        0x2d23c4
+#define OFF_LIBOBJ_SEQ_4        0x2d229c
+
+/* Primary Astra Movie Encoder Sequence (ZV-E10 main recording engine) */
+#define OFF_LIBOBJ_ASTRA_SET_ASP1   0x2ccb3a  /* ldrb r3, [r5, #0x18] -> movs r3, #2 */
+#define OFF_LIBOBJ_ASTRA_SET_ASP2   0x2ccb4a  /* ldrb r3, [r5, #0x19] -> movs r3, #2 */
+#define OFF_LIBOBJ_ASTRA_MSG_ASP    0x2cce38  /* ldrb.w r3, [r7, #0x1ea] -> movs r3, #2; nop */
+#define OFF_LIBOBJ_ASTRA_THM_W      0x2d0020  /* mov.w r3, #0x500 -> mov.w r3, #0x438 (1080) */
+#define OFF_LIBOBJ_ASTRA_THM_W_S    0x2d002c  /* movs r3, #0xa0 -> movs r3, #0xb4 (180) */
+
+/* Live View 4K Canvas Dimensions (edge-to-edge 3:2 on physical 3:2 screen) */
+#define OFF_LIBOBJ_LV_CANVAS_W      0x260916  /* mov.w r2, #0xf00 -> movw r2, #0xca8 (3240) */
+#define OFF_LIBOBJ_LV_CASE2_W       0x26095e  /* mov.w r3, #0xf00 -> movw r3, #0xca8 (3240) */
 
 static unsigned long g_base_libobj = 0;
 static unsigned long g_base_libmpr = 0;
 
-__attribute__((visibility("default")))
-void* arch_phys_to_cache(void* p) {
-    return p;
-}
-
-static int is_target_process(void) {
-    int fd = open("/proc/self/cmdline", O_RDONLY);
-    if (fd < 0) return 0;
-    char buf[128];
-    int n = read(fd, buf, sizeof(buf) - 1);
-    close(fd);
-    if (n <= 0) return 0;
-    buf[n] = '\0';
-    return (strstr(buf, "im.elf") != 0);
-}
+static const unsigned long g_mpr_profile_offsets[60] = {
+    0x00c4a8f6, 0x00c4a98e, 0x00c4aa26, 0x00c4aabe, 0x00c4b736, 0x00c4b7ce,
+    0x00c4b866, 0x00c4b8fe, 0x00c4bc8e, 0x00c4bd26, 0x00c4bdbe, 0x00c4be56,
+    0x00c4c79a, 0x00c4c832, 0x00c4c8ca, 0x00c4c962, 0x00c4c9fa, 0x00c4ca92,
+    0x00c4cb2a, 0x00c4cbc2, 0x00c4cc5a, 0x00c4ccf2, 0x00c4cd8a, 0x00c4ce22,
+    0x00c4ceba, 0x00c4cf52, 0x00c4cfea, 0x00c4d082, 0x00c4d11a, 0x00c4d1b2,
+    0x00c4d24a, 0x00c4d2e2, 0x00c4d37a, 0x00c4d412, 0x00c4d4aa, 0x00c4d542,
+    0x00c507ba, 0x00c50852, 0x00c508ea, 0x00c50982, 0x00c50a1a, 0x00c50ab2,
+    0x00c5198a, 0x00c51a22, 0x00c51aba, 0x00c51b52, 0x00c51bea, 0x00c51c82,
+    0x00c5493a, 0x00c549d2, 0x00c54a6a, 0x00c54b02, 0x00c5518a, 0x00c55222,
+    0x00c552ba, 0x00c55352, 0x00c5564a, 0x00c556e2, 0x00c5577a, 0x00c55812,
+};
 
 static void log_msg(const char* msg) {
-    printf("%s", msg);
-
     int fd_log = open("/setting/opengate.log", O_WRONLY | O_CREAT | O_APPEND, 0666);
     if (fd_log >= 0) {
         write(fd_log, msg, strlen(msg));
         close(fd_log);
     }
-
     int fd_kmsg = open("/dev/kmsg", O_WRONLY);
     if (fd_kmsg >= 0) {
         write(fd_kmsg, msg, strlen(msg));
@@ -96,110 +90,60 @@ static void log_msg(const char* msg) {
     }
 }
 
-static int g_current_aspect = 1; // Default 16:9
-static int g_osd_banner_enabled = 1;
-static int g_hotkey_code = 111; // Default KEY_DELETE
-static int g_hotkey_enabled = 0;
-
-static void load_config(int* p_enable) {
-    *p_enable = 1;
-    void* fp = fopen("/setting/opengate.conf", "r");
-    if (!fp) return;
-    char line[128];
-    while (fgets(line, sizeof(line), fp)) {
-        if (line[0] == '#' || line[0] == '\n') continue;
-        int val = 0;
-        if (sscanf(line, "enable=%d", &val) == 1) {
-            *p_enable = val;
-        }
-        if (sscanf(line, "osd_banner=%d", &val) == 1) {
-            g_osd_banner_enabled = val;
-        }
-        if (strstr(line, "hotkey=C1")) {
-            g_hotkey_enabled = 1;
-            g_hotkey_code = 46; // Example for C
-        } else if (strstr(line, "hotkey=trash")) {
-            g_hotkey_enabled = 1;
-            g_hotkey_code = 111; // Example for DEL
-        }
-    }
-    fclose(fp);
-}
-
-static void blit_osd_banner(int aspect_mode) {
-    int fd = open("/dev/mem", O_RDWR | O_SYNC);
-    if (fd < 0) return;
-
-    void* fb = mmap(NULL, FB_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, FB_PHYS_ADDR);
-    if (fb == MAP_FAILED) {
-        close(fd);
-        return;
-    }
-
-    unsigned int* ptr32 = (unsigned int*)fb;
-    int banner_pixels = 640 * 40;
-
-    // Magenta (0x00FF00FF) for 3:2, Cyan (0x0000FFFF) for 16:9
-    unsigned int color = (aspect_mode == 0) ? 0x00FF00FF : 0x0000FFFF;
-
-    if (banner_pixels * 4 < FB_SIZE) {
-        for (int i = 0; i < banner_pixels; i++) {
-            ptr32[i] = color;
-        }
-    }
-
-    munmap(fb, FB_SIZE);
+static int is_target_process(void) {
+    int fd = open("/proc/self/cmdline", O_RDONLY);
+    if (fd < 0) return 0;
+    char buf[256];
+    int n = read(fd, buf, sizeof(buf) - 1);
     close(fd);
+    if (n <= 0) return 0;
+    buf[n] = '\0';
+
+    // Must NOT be a shell or bootin wrapper
+    if (strstr(buf, "sh") == buf || strstr(buf, "busybox") != 0) return 0;
+    if (strstr(buf, "bootin") != 0) return 0;
+
+    // Must match im.elf
+    return (strstr(buf, "im.elf") != 0);
 }
 
-static void apply_dynamic_aspect(int val);
-
-static void* input_thread_func(void* arg) {
-    const char* path = (const char*)arg;
-    int fd = open(path, O_RDONLY);
-    if (fd < 0) return (void*)0;
-
-    struct {
-        long time_sec;
-        long time_usec;
-        unsigned short type;
-        unsigned short code;
-        unsigned int value;
-    } ev;
-
-    while (read(fd, &ev, sizeof(ev)) == sizeof(ev)) {
-        if (ev.type == 1 && ev.value == 1) { // EV_KEY down
-            if (ev.code == g_hotkey_code) {
-                g_current_aspect = (g_current_aspect == 0) ? 1 : 0;
-                apply_dynamic_aspect(g_current_aspect);
-                if (g_osd_banner_enabled) {
-                    blit_osd_banner(g_current_aspect);
-                }
-            }
-        }
+static unsigned long parse_hex(const char* s) {
+    unsigned long val = 0;
+    while (*s) {
+        if (*s >= '0' && *s <= '9') val = (val << 4) | (*s - '0');
+        else if (*s >= 'a' && *s <= 'f') val = (val << 4) | (*s - 'a' + 10);
+        else if (*s >= 'A' && *s <= 'F') val = (val << 4) | (*s - 'A' + 10);
+        else break;
+        s++;
     }
-    close(fd);
-    return (void*)0;
+    return val;
 }
 
-static int find_lib_base(const char* lib_name, unsigned long* p_base, unsigned long* p_size) {
-    void* fp = fopen("/proc/self/maps", "r");
-    if (!fp) return -1;
-
+static int find_lib_base(const char* lib_name, unsigned long* p_base) {
+    int fd = open("/proc/self/maps", O_RDONLY);
+    if (fd < 0) return -1;
+    char buf[1024];
     char line[256];
+    int line_pos = 0;
+    int n;
     int found = 0;
-    while (fgets(line, sizeof(line), fp)) {
-        if (strstr(line, lib_name) && strstr(line, "r-xp")) {
-            unsigned long start = 0, end = 0;
-            if (sscanf(line, "%lx-%lx", &start, &end) == 2) {
-                *p_base = start;
-                *p_size = end - start;
-                found = 1;
-                break;
+    while ((n = read(fd, buf, sizeof(buf))) > 0) {
+        for (int i = 0; i < n; i++) {
+            if (buf[i] == '\n' || line_pos >= (int)sizeof(line) - 2) {
+                line[line_pos] = '\0';
+                if (strstr(line, lib_name) != 0 && strstr(line, "r-xp") != 0) {
+                    *p_base = parse_hex(line);
+                    found = 1;
+                    break;
+                }
+                line_pos = 0;
+            } else {
+                line[line_pos++] = buf[i];
             }
         }
+        if (found) break;
     }
-    fclose(fp);
+    close(fd);
     return found ? 0 : -1;
 }
 
@@ -233,166 +177,153 @@ static int patch_bytes(unsigned long addr, const unsigned char* new_bytes, unsig
             return -2;
         }
     }
-
-    snprintf(buf, sizeof(buf), "[opengate] Successfully applied patch: %s at 0x%08lx\n", name, addr);
-    log_msg(buf);
     return 0;
 }
 
-__attribute__((visibility("default")))
-int opengate_apply_patch(void) {
+static void apply_all_patches(void) {
     char buf[256];
-    int pid = getpid();
+    snprintf(buf, sizeof(buf), "[opengate] Hook activating in im.elf (PID %d)...\n", getpid());
+    log_msg(buf);
 
-    snprintf(buf, sizeof(buf), "==========================================================\n"
-                               "[opengate] Hook activating in im.elf (PID %d)...\n", pid);
-    int enable = 1;
-    load_config(&enable);
-    if (!enable) {
-        log_msg("[opengate] Disabled via /setting/opengate.conf (enable=0). Aborting.\n");
-        return 0;
-    }
+    if (g_base_libobj == 0) find_lib_base("libObj.so", &g_base_libobj);
+    if (g_base_libobj == 0) g_base_libobj = 0x06592000;
 
-    /* 1. Discover library virtual addresses */
-    unsigned long size_libobj = 0;
-    if (find_lib_base("libObj.so", &g_base_libobj, &size_libobj) < 0) {
-        log_msg("[opengate] ERROR: libObj.so not found in maps!\n");
-        return -1;
-    }
+    if (g_base_libmpr == 0) find_lib_base("libmpr.so", &g_base_libmpr);
+    if (g_base_libmpr == 0) g_base_libmpr = 0x07a2b000;
 
-    unsigned long size_libmpr = 0;
-    if (find_lib_base("libmpr.so", &g_base_libmpr, &size_libmpr) < 0) {
-        log_msg("[opengate] ERROR: libmpr.so not found in maps!\n");
-        return -1;
-    }
-
-    snprintf(buf, sizeof(buf), "[opengate] Found libObj.so at 0x%08lx, libmpr.so at 0x%08lx\n",
+    snprintf(buf, sizeof(buf), "[opengate] Bases: libObj=0x%08lx, libmpr=0x%08lx\n",
              g_base_libobj, g_base_libmpr);
     log_msg(buf);
 
-    int patch_errors = 0;
+    int errors = 0;
 
-    /* -------------------------------------------------------------
-     * Patch 1: libmpr.so Aspect Whitelist Filter (FeaCore::SetRecAspect)
-     * Target: 0x5422e6: tst.w r2, #0x2b (12 f0 2b 0f) -> #0x2f (12 f0 2f 0f)
-     * Permits Aspect enum 2 (3:2) without error 5 rejection.
-     * ------------------------------------------------------------- */
+    // 1. libmpr.so whitelist mask (0x2b -> 0x2f)
     unsigned long va_mpr_whitelist = g_base_libmpr + OFF_LIBMPR_WHITELIST;
-    const unsigned char cur_mpr_whitelist = *(volatile unsigned char*)(va_mpr_whitelist + 2);
-    if (cur_mpr_whitelist == 0x2b) {
-        const unsigned char patch_mpr[1] = { 0x2f };
-        if (patch_bytes(va_mpr_whitelist + 2, patch_mpr, 1, "libmpr_whitelist_0x2f") < 0) {
-            patch_errors++;
+    const unsigned char patch_wl[1] = { 0x2f };
+    if (patch_bytes(va_mpr_whitelist + 2, patch_wl, 1, "mpr_whitelist_0x2f") < 0) errors++;
+
+    // 2. libObj.so ObjRenderer (Aspect query -> 3:2)
+    const unsigned char patch_renderer[4] = { 0x01, 0x20, 0x70, 0x47 }; // movs r0, #1; bx lr
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_RENDERER, patch_renderer, 4, "obj_renderer_3_2") < 0) errors++;
+
+    // 3. libObj.so Live View Classification Table (Case 1: 3240x2160 3:2 canvas)
+    const unsigned char patch_lv[1] = { 0x01 };
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_LV_TABLE, patch_lv, 1, "obj_lv_table_3240") < 0) errors++;
+
+    // 4. libObj.so ConvertRecFormat (4K Aspect -> 2 3:2)
+    const unsigned char patch_rec[2] = { 0x02, 0x22 }; // movs r2, #2
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_REC_ASPECT, patch_rec, 2, "obj_rec_aspect_3_2") < 0) errors++;
+
+    // 5. libObj.so InfraMovieEncoderSeqSetAspect (legacy sequence)
+    const unsigned char patch_seq_r2[2] = { 0x02, 0x22 }; // movs r2, #2
+    const unsigned char patch_seq_r3[2] = { 0x02, 0x23 }; // movs r3, #2
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_SEQ_1, patch_seq_r2, 2, "obj_seq_1") < 0) errors++;
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_SEQ_2, patch_seq_r2, 2, "obj_seq_2") < 0) errors++;
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_SEQ_3, patch_seq_r3, 2, "obj_seq_3") < 0) errors++;
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_SEQ_4, patch_seq_r3, 2, "obj_seq_4") < 0) errors++;
+
+    // 5b. libObj.so InfraMovieEncoderSeqEncStart2Astra (Primary Astra Movie Engine)
+    // Overrides both encoder aspect inputs (0x1002 and 0x1010) to 2 (3:2)
+    const unsigned char patch_astra_asp[2] = { 0x02, 0x23 }; // movs r3, #2
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_ASTRA_SET_ASP1, patch_astra_asp, 2, "obj_astra_asp1") < 0) errors++;
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_ASTRA_SET_ASP2, patch_astra_asp, 2, "obj_astra_asp2") < 0) errors++;
+
+    // 5c. libObj.so InfraMovieEncoderSeqEncStart2Astra AVBBC Msg Aspect Override
+    // Forces AVBBC 0x55001f packet aspect field to 2 (3:2 Open Gate)
+    const unsigned char patch_astra_msg[4] = { 0x02, 0x23, 0x00, 0xbf }; // movs r3, #2; nop
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_ASTRA_MSG_ASP, patch_astra_msg, 4, "obj_astra_msg_asp") < 0) errors++;
+
+    // 5d. libObj.so Astra Thumbnail Aspect Overrides (Prevents thumbnail stretch/crash)
+    // 1280x720 (16:9) -> 1080x720 (3:2) (width 0x438)
+    const unsigned char patch_thm_w[4] = { 0x4f, 0xf4, 0x87, 0x63 }; // mov.w r3, #0x438
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_ASTRA_THM_W, patch_thm_w, 4, "obj_astra_thm_w") < 0) errors++;
+    // 160x120 -> 180x120 (3:2) (width 0xb4)
+    const unsigned char patch_thm_ws[2] = { 0xb4, 0x23 }; // movs r3, #0xb4
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_ASTRA_THM_W_S, patch_thm_ws, 2, "obj_astra_thm_ws") < 0) errors++;
+
+    // 5e. libObj.so Live View 4K Root Buffer Dimensions (3840 -> 3240 edge-to-edge on 3:2 LCD)
+    // At 0x260916: movw r2, #0xca8 (3240)
+    const unsigned char patch_canvas_w[4] = { 0x40, 0xf6, 0xa8, 0x42 }; // movw r2, #0xca8
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_LV_CANVAS_W, patch_canvas_w, 4, "obj_lv_canvas_w") < 0) errors++;
+    // At 0x26095e (Case 2: 16:9 fallback -> 3:2 3240 width)
+    const unsigned char patch_case2_w[4] = { 0x40, 0xf6, 0xa8, 0x43 }; // movw r3, #0xca8
+    if (patch_bytes(g_base_libobj + OFF_LIBOBJ_LV_CASE2_W, patch_case2_w, 4, "obj_lv_case2_w") < 0) errors++;
+
+    // 6. All 60 libmpr.so 4K profiles to 3240 width (0x0ca8)
+    const unsigned char patch_width[2] = { 0xa8, 0x0c }; // 3240
+    for (int i = 0; i < 60; i++) {
+        if (patch_bytes(g_base_libmpr + g_mpr_profile_offsets[i], patch_width, 2, "mpr_profile_3240") < 0) {
+            errors++;
         }
-    } else if (cur_mpr_whitelist == 0x2f) {
-        log_msg("[opengate] libmpr whitelist already patched (0x2f).\n");
-    } else {
-        snprintf(buf, sizeof(buf), "[opengate] WARNING: Unexpected byte at libmpr whitelist (0x%02x)!\n",
-                 cur_mpr_whitelist);
-        log_msg(buf);
-        patch_errors++;
     }
 
-    /* -------------------------------------------------------------
-     * Dynamic patches applied in Bkup_Read intercept.
-     * We just initialize with 16:9 so we have a known state,
-     * or we can just let Bkup_Read intercept handle it!
-     * ------------------------------------------------------------- */
-
-    if (patch_errors == 0) {
-        log_msg("==========================================================\n"
-                "[opengate] SUCCESS: All 4 Open Gate 3:2 Patches Verified & Active!\n"
-                "[opengate] Subsystems: 4K Movie Rec = 3:2 | Live View = 3240x2160 | Whitelist = OK\n"
-                "==========================================================\n");
-        return 0;
+    if (errors == 0) {
+        log_msg("[opengate] SUCCESS: All Open Gate 3:2 Patches Applied & Verified in im.elf!\n");
     } else {
-        snprintf(buf, sizeof(buf), "[opengate] Completed with %d errors.\n", patch_errors);
+        snprintf(buf, sizeof(buf), "[opengate] Applied with %d errors.\n", errors);
         log_msg(buf);
-        return -3;
-    }
-}
-
-static void apply_dynamic_aspect(int val) {
-    if (g_base_libobj == 0) return;
-
-    unsigned long va_obj_rec = g_base_libobj + OFF_LIBOBJ_REC_ASPECT;
-    unsigned long va_obj_seq = g_base_libobj + OFF_LIBOBJ_SEQ_ASPECT;
-    unsigned long va_obj_lv = g_base_libobj + OFF_LIBOBJ_LV_TABLE;
-
-    if (val == 0) {
-        // 3:2 Open Gate
-        patch_bytes(va_obj_rec, (const unsigned char*)"\x02\x22", 2, "libObj_4K_rec_aspect_3_2");
-        patch_bytes(va_obj_seq, (const unsigned char*)"\x02\x23", 2, "libObj_seq_aspect_3_2");
-        patch_bytes(va_obj_lv,  (const unsigned char*)"\x01", 1, "libObj_live_view_canvas_3240");
-    } else {
-        // 16:9 Stock (or default fallback for non-3:2)
-        patch_bytes(va_obj_rec, (const unsigned char*)"\x01\x22", 2, "libObj_4K_rec_aspect_16_9");
-        patch_bytes(va_obj_seq, (const unsigned char*)"\x01\x23", 2, "libObj_seq_aspect_16_9");
-        patch_bytes(va_obj_lv,  (const unsigned char*)"\x02", 1, "libObj_live_view_canvas_3840");
     }
 }
 
 static int (*orig_Bkup_Read)(int, void*) = 0;
 static int (*orig_Bkup_Read_Attr)(int, int, void*) = 0;
+static int (*orig_Bkup_Write)(int, const void*) = 0;
+static int (*orig_Bkup_Write_Attr)(int, int, const void*) = 0;
 
 __attribute__((visibility("default")))
 int _ZN13BackupManager9Bkup_ReadEiPv(int attr_id, void* out_val) {
     if (!orig_Bkup_Read) {
-        if (g_base_libobj == 0) {
-            unsigned long size = 0;
-            find_lib_base("libObj.so", &g_base_libobj, &size);
-        }
-        if (g_base_libobj) {
-            // libObj.so offset for _ZN13BackupManager9Bkup_ReadEiPv is 0x168320 (+1 Thumb)
-            orig_Bkup_Read = (int (*)(int, void*))(g_base_libobj + 0x168320 + 1);
-        }
+        if (g_base_libobj == 0) find_lib_base("libObj.so", &g_base_libobj);
+        if (g_base_libobj == 0) g_base_libobj = 0x06592000;
+        orig_Bkup_Read = (int (*)(int, void*))(g_base_libobj + 0x168320 + 1);
     }
-
-    if (!orig_Bkup_Read) {
-        return -1;
-    }
-
-    int ret = orig_Bkup_Read(attr_id, out_val);
-
+    int ret = orig_Bkup_Read ? orig_Bkup_Read(attr_id, out_val) : -1;
     if (attr_id == 0x1070012 || attr_id == 0x10703b2) {
-        if (out_val) {
-            unsigned char val = *(unsigned char*)out_val;
-            g_current_aspect = val;
-            apply_dynamic_aspect(val);
-        }
+        if (out_val) *(unsigned char*)out_val = 2; // Force 3:2 Open Gate
     }
-
     return ret;
 }
 
 __attribute__((visibility("default")))
 int _ZN13BackupManager22Bkup_Read_Setting_AttrEiiPv(int slot, int attr_id, void* out_val) {
     if (!orig_Bkup_Read_Attr) {
-        if (g_base_libobj == 0) {
-            unsigned long size = 0;
-            find_lib_base("libObj.so", &g_base_libobj, &size);
-        }
-        if (g_base_libobj) {
-            // libObj.so offset for _ZN13BackupManager22Bkup_Read_Setting_AttrEiiPv is 0x1681f0 (+1 Thumb)
-            orig_Bkup_Read_Attr = (int (*)(int, int, void*))(g_base_libobj + 0x1681f0 + 1);
-        }
+        if (g_base_libobj == 0) find_lib_base("libObj.so", &g_base_libobj);
+        if (g_base_libobj == 0) g_base_libobj = 0x06592000;
+        orig_Bkup_Read_Attr = (int (*)(int, int, void*))(g_base_libobj + 0x1681f0 + 1);
     }
-
-    if (!orig_Bkup_Read_Attr) {
-        return -1;
-    }
-
-    int ret = orig_Bkup_Read_Attr(slot, attr_id, out_val);
-
+    int ret = orig_Bkup_Read_Attr ? orig_Bkup_Read_Attr(slot, attr_id, out_val) : -1;
     if (attr_id == 0x1070012 || attr_id == 0x10703b2) {
-        if (out_val) {
-            unsigned char val = *(unsigned char*)out_val;
-            g_current_aspect = val;
-            apply_dynamic_aspect(val);
-        }
+        if (out_val) *(unsigned char*)out_val = 2; // Force 3:2 Open Gate
     }
-
     return ret;
+}
+
+__attribute__((visibility("default")))
+int _ZN13BackupManager10Bkup_WriteEiPKv(int attr_id, const void* in_val) {
+    if (!orig_Bkup_Write) {
+        if (g_base_libobj == 0) find_lib_base("libObj.so", &g_base_libobj);
+        if (g_base_libobj == 0) g_base_libobj = 0x06592000;
+        orig_Bkup_Write = (int (*)(int, const void*))(g_base_libobj + 0x16827c + 1);
+    }
+    if (attr_id == 0x1070012 || attr_id == 0x10703b2) {
+        unsigned char val = 2; // Prevent clamping to 16:9
+        return orig_Bkup_Write ? orig_Bkup_Write(attr_id, &val) : 0;
+    }
+    return orig_Bkup_Write ? orig_Bkup_Write(attr_id, in_val) : -1;
+}
+
+__attribute__((visibility("default")))
+int _ZN13BackupManager23Bkup_Write_Setting_AttrEiiPKv(int slot, int attr_id, const void* in_val) {
+    if (!orig_Bkup_Write_Attr) {
+        if (g_base_libobj == 0) find_lib_base("libObj.so", &g_base_libobj);
+        if (g_base_libobj == 0) g_base_libobj = 0x06592000;
+        orig_Bkup_Write_Attr = (int (*)(int, int, const void*))(g_base_libobj + 0x168144 + 1);
+    }
+    if (attr_id == 0x1070012 || attr_id == 0x10703b2) {
+        unsigned char val = 2; // Prevent clamping to 16:9
+        return orig_Bkup_Write_Attr ? orig_Bkup_Write_Attr(slot, attr_id, &val) : 0;
+    }
+    return orig_Bkup_Write_Attr ? orig_Bkup_Write_Attr(slot, attr_id, in_val) : -1;
 }
 
 __attribute__((constructor))
@@ -400,24 +331,5 @@ void opengate_init(void) {
     if (!is_target_process()) {
         return;
     }
-    opengate_apply_patch();
-
-    // Read the setting once at startup to initialize memory correctly
-    unsigned char val = 1; // Default to 16:9 if we can't read it
-    if (g_base_libobj) {
-        if (!orig_Bkup_Read) {
-            orig_Bkup_Read = (int (*)(int, void*))(g_base_libobj + 0x168320 + 1);
-        }
-        if (orig_Bkup_Read) {
-            orig_Bkup_Read(0x1070012, &val);
-        }
-    }
-    g_current_aspect = val;
-    apply_dynamic_aspect(val);
-
-    if (g_hotkey_enabled) {
-        void* thread1; pthread_create(&thread1, NULL, input_thread_func, (void*)"/dev/input/event0");
-        void* thread2; pthread_create(&thread2, NULL, input_thread_func, (void*)"/dev/input/event1");
-        void* thread3; pthread_create(&thread3, NULL, input_thread_func, (void*)"/dev/input/event2");
-    }
+    apply_all_patches();
 }

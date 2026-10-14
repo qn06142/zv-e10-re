@@ -3,6 +3,12 @@
 > **HARDWARE DEPLOYMENT RECORD — 2026-10-03**
 > Target Device: Sony ZV-E10 (Serial `07388356`, Firmware `2.02`, Product code `0032852840`)
 > Environment: Linux 3.0.27_nl-rt106+ #1 SMP PREEMPT RT armv7l
+> 
+> [!CAUTION]
+> **SUPERSEDED ARCHITECTURAL NOTE:**
+> As verified on October 2026, `/usr/bin/bootin.elf` executes `putenv("LD_PRELOAD")` before launching `im.elf`, clearing the variable. Consequently, `/setting/opengate.so` does not load automatically on reboot.
+> Additionally, `0x2d229c` is only the proxy sequencer, not the primary 4K engine. Active patches are applied directly to live memory (`/proc/157/mem`) via `batch_patch_opengate.py`.
+
 
 ---
 

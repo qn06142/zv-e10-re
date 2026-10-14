@@ -43,6 +43,7 @@ avcam_proj/
 /dumps/*.img
 /dumps/fb_dump.bin
 /dumps/initrd_init
+/dumps/init
 /fuzz_dat/
 /fw/
 /fw_update/*.dat

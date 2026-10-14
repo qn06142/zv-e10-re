@@ -79,7 +79,10 @@ class UsbBackend(BaseUsbBackend):
   return self.dev.idVendor, self.dev.idProduct
 
  def getEndpoints(self):
-  return self.dev.get_active_configuration()[(0, 0)]
+  try:
+   return self.dev.get_active_configuration()[(0, 0)]
+  except Exception:
+   return self.dev[0][(0, 0)]
 
  def reset(self):
   try:
