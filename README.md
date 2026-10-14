@@ -77,6 +77,14 @@ memory patches atomically in ~13 seconds via `/proc/$PID/mem` with zero NAND fla
 modifications. See [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md)
 and [`docs/90-session/OPENGATE_138_PATCH_SUITE.md`](docs/90-session/OPENGATE_138_PATCH_SUITE.md).
 
+**High-Speed UVC USB Webcam unlocked (1080p60 / 3.2K 3:2 Open Gate).** Stock ZV-E10
+USB streaming caps output at an artificial 720p 30fps at ~30 Mbps, wasting over 90%
+of available USB 2.0 High-Speed bulk throughput. Reverse engineering `libInfraUsbCmn.so`,
+`libInfraStreamingUsb.so`, and `usbg_video.ko` revealed the complete UVC gadget architecture.
+A dedicated patch suite unlocks **1080p Full HD @ 30/60fps** and **3.2K 3:2 Open Gate @ 24/30fps**
+at up to 320 Mbps (~40 MB/s), saturating physical USB 2.0 High-Speed bulk throughput with
+hardware-accelerated MJPEG. See [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md).
+
 ## Start here
 
 | | |
@@ -85,6 +93,7 @@ and [`docs/90-session/OPENGATE_138_PATCH_SUITE.md`](docs/90-session/OPENGATE_138
 | [`docs/agents/REFERENCE.md`](docs/agents/REFERENCE.md) | **one page, self-contained** — the measured facts: hashes, offsets, id tables, format layouts |
 | [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md) | **Open Gate 3:2 deployment guide** — single-shot 138-patch suite, 3240x2160 / 3232x2160 modes |
 | [`docs/90-session/OPENGATE_138_PATCH_SUITE.md`](docs/90-session/OPENGATE_138_PATCH_SUITE.md) | **Open Gate 3:2 RE synthesis** — BIONZ X SDF pin disconnect, 16:9 persistence, and full patch matrix |
+| [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md) | **UVC USB webcam hijack & saturation guide** — 1080p60, 3.2K Open Gate, and USB 2.0 bandwidth saturation |
 | [`docs/README.md`](docs/README.md) | the granular per-subject reference, `01`–`09` |
 | [`avcam_re/HARDWARE_OVERVIEW.md`](avcam_re/HARDWARE_OVERVIEW.md) | `av-cam.bin` internals: topology, register model, ISP/codec pipeline |
 | [`research/README.md`](research/README.md) | 322 analysis scripts, indexed |
@@ -118,6 +127,25 @@ The ZV-E10's APS-C CMOS sensor captures $6000 \times 4000$ pixels. Deploying the
 - **Zero Flash Risk:** All modifications operate in volatile process memory (`/proc/$PID/mem`).
 - **Instant Factory Restore:** Power-cycling or pulling the battery completely restores stock firmware.
 - **Detailed Reference:** See [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md).
+
+## High-Speed UVC USB Webcam (Quick Start)
+
+Deploying the UVC webcam patch suite bypasses the stock 720p limit and streams 1080p60 or 3.2K 3:2 Open Gate directly over USB to OBS Studio, Zoom, or ffplay:
+
+```powershell
+# 1. Build and stage the hook library
+python scripts/build_uvc.py
+
+# 2. Deploy hook and scripts to camera (/setting/)
+python research/device/push_uvc.py
+
+# 3. Enter USB Streaming mode on camera and apply zero-reboot live patch:
+# Modes: 1080p (default), 1080p60, opengate (3240x2160 @ 24fps), 2k_opengate (2160x1440 @ 30fps)
+/setting/apply_uvc_live.sh 1080p
+```
+
+- **Bandwidth Saturation:** Pushes up to 320 Mbps (~40 MB/s), utilizing ~93% of physical USB 2.0 Bulk bandwidth.
+- **Detailed Reference:** See [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md).
 
 ## Talking to the camera
 
