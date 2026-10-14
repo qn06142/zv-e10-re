@@ -292,18 +292,15 @@ def deploy_overwrite_patch(mode, width, height, fps, pal_fps, mbps):
     print("[*] Connecting to Sony ZV-E10 service shell for persistent UVC library overwrite...")
 
     # 1. Check/upload /setting/file_patch.elf
-    fp_elf = HERE / "dumps" / "staged" / "uvc" / "file_patch.elf"
-    if not fp_elf.exists():
-        fp_elf = HERE / "out" / "file_patch.elf"
-
-    check_out, _ = run(["/bin/busybox ls -l /setting/file_patch.elf"])
-    if "file_patch.elf" not in check_out:
-        print("[*] Deploying /setting/file_patch.elf to camera...")
-        fp_hex = fp_elf.read_bytes().hex()
-        upload_cmd = f"cat << 'EOF' | /bin/busybox xxd -r -p > /setting/file_patch.elf\n{fp_hex}\nEOF\n/bin/busybox chmod 755 /setting/file_patch.elf"
-        run([upload_cmd])
-        verify_out, _ = run(["/bin/busybox ls -l /setting/file_patch.elf"])
-        if "file_patch.elf" not in verify_out:
+    check_out, _ = run(["test -x /setting/file_patch.elf; echo status=$?"])
+    if "status=0" not in check_out:
+        print("[*] Deploying /setting/file_patch.elf to camera via push_file_b64...")
+        fp_elf = HERE / "dumps" / "staged" / "uvc" / "file_patch.elf"
+        if not fp_elf.exists():
+            fp_elf = HERE / "out" / "file_patch.elf"
+        from research.device.push_opengate import push_file_b64
+        ok = push_file_b64(str(fp_elf), "/setting/file_patch.elf")
+        if not ok:
             print("[-] Failed to stage /setting/file_patch.elf on camera!")
             return False
         print("[+] /setting/file_patch.elf staged successfully.")
@@ -393,8 +390,9 @@ def deploy_overwrite_patch(mode, width, height, fps, pal_fps, mbps):
     out, tries = run([cmd])
     elapsed = time.time() - t0
 
-    if "UVC OVERWRITE TRANSACTION COMPLETED" in out:
-        print(f"[+] SUCCESS: Applied and verified persistent UVC patches in {elapsed:.2f}s!")
+    success_count = out.count("VERIFICATION SUCCESS")
+    if success_count == 5:
+        print(f"[+] SUCCESS: Applied and verified all {success_count}/5 persistent UVC patches in {elapsed:.2f}s!")
         print("=" * 78)
         print(f" [+] UVC WEBCAM PERMANENT OVERWRITE ACTIVE: {mode.upper()} ({width}x{height} @ {fps}fps)!")
         print(" [+] Survives power cycles, battery pulls, and normal reboots.")
@@ -403,7 +401,7 @@ def deploy_overwrite_patch(mode, width, height, fps, pal_fps, mbps):
         print("=" * 78)
         return True
     else:
-        print(f"[-] Overwrite failed! Camera output:\n{out}")
+        print(f"[-] Overwrite incomplete! Found {success_count}/5 verified patches. Camera output:\n{out}")
         return False
 
 
