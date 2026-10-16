@@ -283,7 +283,7 @@ def deploy_live_patch(width, height, fps, pal_fps, mbps, pid=None):
         return False
 
 
-def deploy_overwrite_patch(mode, width, height, fps, pal_fps, mbps):
+def deploy_overwrite_patch(mode, width, height, fps, pal_fps, mbps, cold_reboot: bool = False):
     """Surgically overwrite the UVC libraries in /usr/lib on camera storage."""
     if not HAS_CAM_DRIVER:
         print("[-] Error: camera driver not available in environment.")
@@ -368,7 +368,10 @@ def deploy_overwrite_patch(mode, width, height, fps, pal_fps, mbps):
         "# 4. Sync and remount ro",
         "sync",
         "mount -o remount,ro /usr",
-        "# 5. Install standalone revert script",
+        "# 5. Invalidate warm boot hibernation cache to force cold reload of /usr/lib on next boot",
+        "rm -f /var/tmp/wbi* /tmp/wbi* 2>/dev/null",
+        "sync",
+        "# 6. Install standalone revert script",
         "cat << 'EOF_REV' > /setting/revert_uvc.sh",
         "#!/bin/sh",
         "echo '[*] Restoring stock UVC webcam libraries...'",
@@ -377,6 +380,8 @@ def deploy_overwrite_patch(mode, width, height, fps, pal_fps, mbps):
         "cp /setting/stock_libs/libInfraStreamingUsb.so /usr/lib/libInfraStreamingUsb.so",
         "sync",
         "mount -o remount,ro /usr",
+        "rm -f /var/tmp/wbi* /tmp/wbi* 2>/dev/null",
+        "sync",
         "echo '[+] Stock UVC libraries restored successfully.'",
         "EOF_REV",
         "chmod 755 /setting/revert_uvc.sh",
@@ -395,10 +400,14 @@ def deploy_overwrite_patch(mode, width, height, fps, pal_fps, mbps):
         print(f"[+] SUCCESS: Applied and verified all {success_count}/5 persistent UVC patches in {elapsed:.2f}s!")
         print("=" * 78)
         print(f" [+] UVC WEBCAM PERMANENT OVERWRITE ACTIVE: {mode.upper()} ({width}x{height} @ {fps}fps)!")
-        print(" [+] Survives power cycles, battery pulls, and normal reboots.")
+        print(" [+] Warm boot cache invalidated. A cold boot is required for changes to take effect.")
         print(" [+] To revert anytime: run 'python batch_patch_uvc.py --mode stock --overwrite'")
         print("     or on-device: '/setting/revert_uvc.sh'")
         print("=" * 78)
+        if cold_reboot:
+            print("[*] Forcing immediate cold reboot (-f) to reload libraries from flash into RAM...")
+            run(["/bin/busybox reboot -f"])
+            print("[+] Cold reboot signal sent.")
         return True
     else:
         print(f"[-] Overwrite incomplete! Found {success_count}/5 verified patches. Camera output:\n{out}")
@@ -421,6 +430,7 @@ def main():
     parser.add_argument("--bitrate", type=float, help="Custom bitrate override in Mbps (e.g. 300, 320)")
     parser.add_argument("--pid", type=int, help="Override target im.elf process ID (live memory mode)")
     parser.add_argument("--overwrite", action="store_true", help="Permanently overwrite /usr/lib UVC libraries on camera storage (survives battery swaps)")
+    parser.add_argument("--cold-reboot", "--reboot", action="store_true", help="Force immediate cold reboot after overwrite to bypass warmboot snapshot")
     parser.add_argument("--dry-run", action="store_true", help="Calculate and display patches without connecting to camera")
     parser.add_argument("--persistent", action="store_true", help="Install persistent boot preload hook to /setting/")
 
@@ -444,7 +454,7 @@ def main():
         return
 
     if args.overwrite:
-        success = deploy_overwrite_patch(args.mode, w, h, fps, pal_fps, mbps)
+        success = deploy_overwrite_patch(args.mode, w, h, fps, pal_fps, mbps, cold_reboot=args.cold_reboot)
         sys.exit(0 if success else 1)
 
     # Live RAM patch execution
