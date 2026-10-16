@@ -119,25 +119,23 @@ resident, including `libObj.so`, `libMWF.so`, `libSysDef.so` and two of the seve
 media in service mode. The DMP 2D engine and the VDF OSD port therefore sit in a
 live process that is not the application.
 
-**Full-sensor 3:2 Open Gate video recording unlocked.** The Sony ZV-E10 APS-C
+**Active Research: Full-sensor 3:2 Open Gate video recording pipeline.** The Sony ZV-E10 APS-C
 sensor has a physical active imaging area of $6000 \times 4000$ (3:2). In stock
 4K recording, the camera discards 624 vertical sensor lines (15.6%) to force a
 16:9 aspect crop. Reverse engineering the BIONZ X RTOS (`av-cam.bin`), `libObj.so`,
-and `libmpr.so` uncovered the complete video recording pipeline and enabled
-continuous 3:2 Open Gate recording ($3240 \times 2160$ native or macroblock-aligned
-$3232 \times 2160$) directly to SD card. A single-shot volatile RAM patcher
-([`batch_patch_opengate.py`](batch_patch_opengate.py)) applies all 138 surgical
-memory patches atomically in ~13 seconds via `/proc/$PID/mem` with zero NAND flash
-modifications. See [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md)
-and [`docs/90-session/OPENGATE_138_PATCH_SUITE.md`](docs/90-session/OPENGATE_138_PATCH_SUITE.md).
+and `libmpr.so` uncovered the video recording pipeline and sensor crop parameters.
+*Status:* While the underlying mechanism and 138 patch sites are mapped out in
+[`batch_patch_opengate.py`](batch_patch_opengate.py), **the patch is experimental and not working properly yet for reliable recording**. See [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md)
+and [`docs/90-session/OPENGATE_138_PATCH_SUITE.md`](docs/90-session/OPENGATE_138_PATCH_SUITE.md) for the technical analysis.
 
-**High-Speed UVC USB Webcam unlocked (1080p60 / 3.2K 3:2 Open Gate).** Stock ZV-E10
+**Active Research: High-Speed UVC USB Webcam gadget architecture.** Stock ZV-E10
 USB streaming caps output at an artificial 720p 30fps at ~30 Mbps, wasting over 90%
 of available USB 2.0 High-Speed bulk throughput. Reverse engineering `libInfraUsbCmn.so`,
-`libInfraStreamingUsb.so`, and `usbg_video.ko` revealed the complete UVC gadget architecture.
-A dedicated patch suite unlocks **1080p Full HD @ 30/60fps** and **3.2K 3:2 Open Gate @ 24/30fps**
-at up to 320 Mbps (~40 MB/s), saturating physical USB 2.0 High-Speed bulk throughput with
-hardware-accelerated MJPEG. See [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md).
+`libInfraStreamingUsb.so`, and `usbg_video.ko` revealed the UVC descriptor tables
+and hardware MJPEG stream configuration.
+*Status:* While the descriptor table formats and byte-level patch sites are verified,
+**the streaming patch is experimental and not working properly yet**.
+See [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md).
 
 ## Start here
 
@@ -146,9 +144,9 @@ hardware-accelerated MJPEG. See [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](d
 | **[`docs/agents/STATE.md`](docs/agents/STATE.md)** | **one page, self-contained** — state of play, blockers, the traps that bite. Read this first. |
 | **[`batch_patch_magenta.py`](batch_patch_magenta.py)** | **Hardware-verified magenta framing lines patcher** — single-shot deploy & revert |
 | [`docs/agents/REFERENCE.md`](docs/agents/REFERENCE.md) | **one page, self-contained** — the measured facts: hashes, offsets, id tables, format layouts |
-| [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md) | **Open Gate 3:2 deployment guide** — single-shot 138-patch suite, 3240x2160 / 3232x2160 modes |
-| [`docs/90-session/OPENGATE_138_PATCH_SUITE.md`](docs/90-session/OPENGATE_138_PATCH_SUITE.md) | **Open Gate 3:2 RE synthesis** — BIONZ X SDF pin disconnect, 16:9 persistence, and full patch matrix |
-| [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md) | **UVC USB webcam hijack & saturation guide** — 1080p60, 3.2K Open Gate, and USB 2.0 bandwidth saturation |
+| [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md) | **Open Gate 3:2 pipeline research (WIP)** — 138-patch matrix analysis |
+| [`docs/90-session/OPENGATE_138_PATCH_SUITE.md`](docs/90-session/OPENGATE_138_PATCH_SUITE.md) | **Open Gate 3:2 RE synthesis** — BIONZ X SDF pin disconnect and technical notes |
+| [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md) | **UVC USB webcam research (WIP)** — gadget architecture, descriptor tables |
 | [`docs/README.md`](docs/README.md) | the granular per-subject reference, `01`–`09` |
 | [`avcam_re/HARDWARE_OVERVIEW.md`](avcam_re/HARDWARE_OVERVIEW.md) | `av-cam.bin` internals: topology, register model, ISP/codec pipeline |
 | [`research/README.md`](research/README.md) | 322 analysis scripts, indexed |
@@ -164,51 +162,36 @@ Every load-bearing claim is reproducible by a tracked script:
 `docs/90-session/` a quarantine of dated session logs that nothing should cite as
 fact.
 
-## Open Gate 3:2 Video Recording (Quick Start)
+## Open Gate 3:2 Video Recording (Experimental Research)
 
-The ZV-E10's APS-C CMOS sensor captures $6000 \times 4000$ pixels. Deploying the 138-patch volatile memory suite enables true 3:2 Open Gate video recording without the factory 16:9 crop:
+> [!WARNING]
+> **Work In Progress — Not Working Properly:** While the sensor cropping structures, ISP parameters, and memory patch addresses have been reverse engineered, **this patch does not yet produce working video recordings**. Scripts are provided for ongoing community research and debugging.
+
+The ZV-E10's APS-C CMOS sensor captures $6000 \times 4000$ pixels (3:2). In stock 4K recording, the camera discards 624 vertical sensor lines (15.6%) for a 16:9 crop. The research prototype tests volatile memory patching:
 
 ```powershell
-# 1. Connect camera in service mode via USB
-& ".venv\Scripts\python.exe" scratch\camrun.py "/bin/busybox pidof im.elf"
-
-# 2. Deploy Native 3.2K Open Gate (3240x2160 @ 3:2)
+# Research / debugging execution (RAM-only, zero flash writes):
 & ".venv\Scripts\python.exe" batch_patch_opengate.py --width 3240
-
-# Or Macroblock-Aligned Fallback (3232x2160)
-& ".venv\Scripts\python.exe" batch_patch_opengate.py --width 3232
 ```
 
-- **Zero Flash Risk:** All modifications operate in volatile process memory (`/proc/$PID/mem`).
-- **Instant Factory Restore:** Power-cycling or pulling the battery completely restores stock firmware.
-- **Detailed Reference:** See [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md).
+- **Detailed Technical Reference:** See [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md).
 
-## High-Speed UVC USB Webcam (Quick Start)
+## High-Speed UVC USB Webcam (Experimental Research)
 
-Deploying the UVC webcam patch suite bypasses the stock 720p limit and streams 1080p60 or 3.2K 3:2 Open Gate directly over USB to OBS Studio, Zoom, or ffplay:
+> [!WARNING]
+> **Work In Progress — Not Working Properly:** While the UVC descriptor tables and MJPEG stream configuration parameters in `libInfraUsbCmn.so` and `libInfraStreamingUsb.so` have been mapped out, **live streaming output is currently not working properly**.
+
+The research patcher inspects and tests custom UVC resolutions and descriptor modifications:
 
 ```powershell
-# Option A: Single-shot host batch patcher (RAM-only or Persistent Overwrite)
-# Modes: 1080p (default), 1080p60, opengate (3240x2160 @ 24fps), 2k_opengate, stock
-
-# Live volatile RAM patch:
-python batch_patch_uvc.py --mode 1080p
-
-# Permanent on-storage overwrite (survives battery swaps, power cycles & reboots):
-python batch_patch_uvc.py --mode 1080p --overwrite
-
 # Dry-run inspection (no camera required):
 python batch_patch_uvc.py --mode opengate --dry-run
 
-# Revert to factory 720p stock anytime:
+# Revert camera to factory stock:
 python batch_patch_uvc.py --mode stock --overwrite
-
-# Option B: Direct on-camera live RAM script via service shell:
-/setting/apply_uvc_live.sh 1080p
 ```
 
-- **Bandwidth Saturation:** Pushes up to 320 Mbps (~40 MB/s), utilizing ~93% of physical USB 2.0 Bulk bandwidth.
-- **Detailed Reference:** See [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md).
+- **Detailed Technical Reference:** See [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md).
 
 ## Talking to the camera
 
