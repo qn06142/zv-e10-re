@@ -43,17 +43,26 @@ class VendorSpecificContext(_UsbContext):
 def _getBackend():
  """Return a usb backend that can actually see AND claim the device.
 
- On Windows a camera bound with Zadig to libusb-win32 must be driven through
- the libusb0 backend: the default libusb-1.0 backend can often ENUMERATE it but
- fails to claim_interface ('The requested resource is in use'). So prefer
- libusb0 whenever it can see a Sony device, and only fall back to the default."""
+ On Windows:
+ 1. If a camera is bound to libusb-win32/libusb0 (via Zadig), prefer libusb0.
+ 2. If a camera is bound to WinUSB (native or via PMCA-RE Reloaded), prefer libusb1.
+ 3. Otherwise fall back to PyUSB's default backend discovery."""
  try:
   import usb.backend.libusb0 as _lu0
-  b = _lu0.get_backend()
-  if b and list(usb.core.find(find_all=True, backend=b, idVendor=0x054c)):
-   return b
+  b0 = _lu0.get_backend()
+  if b0 and list(usb.core.find(find_all=True, backend=b0, idVendor=0x054c)):
+   return b0
  except Exception:
   pass
+
+ try:
+  import usb.backend.libusb1 as _lu1
+  b1 = _lu1.get_backend()
+  if b1 and list(usb.core.find(find_all=True, backend=b1, idVendor=0x054c)):
+   return b1
+ except Exception:
+  pass
+
  return None
 
 

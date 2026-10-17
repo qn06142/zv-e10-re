@@ -3,6 +3,7 @@
 /dist
 *.pyc
 __pycache__/
+/scratch/
 
 # ---- python envs (the old .venv pointed at a removed interpreter) ----
 .venv/

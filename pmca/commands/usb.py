@@ -144,7 +144,10 @@ def importDriver(driverName=None):
   if sys.platform == 'win32':
    from ..usb.driver.windows.msc import MscContext
    from ..usb.driver.windows.wpd import MtpContext
-   from ..usb.driver.windows.driverless import VendorSpecificContext
+   try:
+    from ..usb.driver.windows.winusb import VendorSpecificContext
+   except Exception:
+    from ..usb.driver.windows.driverless import VendorSpecificContext
   elif sys.platform == 'darwin':
    from ..usb.driver.osx import isMscDriverAvailable
    if isMscDriverAvailable():
