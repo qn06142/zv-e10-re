@@ -10,9 +10,9 @@ This repository is a fork of **[ma1co/Sony-PMCA-RE](https://github.com/ma1co/Son
 
 ## Hardware-verified: custom VGA video over USB
 
-![Synthetic colour bars and frame counter captured from the Sony ZV-E10 over USB](docs/assets/zve10-vga-colour-bars.png)
+![Synthetic colour bars and frame counter captured from the Sony ZV-E10 over USB](docs/assets/zve10-vga-colour-bars.gif)
 
-*An actual camera-to-PC capture: 640×480 YUY2 synthetic colour bars, with the frame counter visible along the bottom.*
+*Ten actual camera-to-PC frames: 640×480 YUY2 synthetic colour bars, with counters 1–10 along the bottom. The loop plays at 10 fps for presentation; capture timing was not measured.*
 
 The camera runs our own video producer and sends its frames through the USB video pipeline. The permanent **2.4p** patch survived reboot, delivered ten exact frames in FFmpeg, delivered another ten when FFmpeg reopened the same streaming session, and displayed the bars and counters in **OBS**.
 

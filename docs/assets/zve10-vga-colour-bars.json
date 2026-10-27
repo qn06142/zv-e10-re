@@ -1,5 +1,5 @@
 {
-  "kind": "decoded first frame of actual camera-to-PC FFmpeg capture",
+  "kind": "decoded ten-frame loop of actual camera-to-PC FFmpeg capture",
   "synthetic": true,
   "sensor_image": false,
   "revision": "2.4p",
@@ -12,5 +12,32 @@
   "png_sha256": "995d28eb827fac7eda54cf41090f2b58235a0909470f0a630c0b0a8a77e9dd64",
   "source_workspace": "outputs/yuy2-640-v24p/deployment/captured-01.yuy2",
   "conversion": "ffmpeg -f rawvideo -pixel_format yuyv422 -video_size 640x480 -i captured-01.yuy2 -frames:v 1 -update 1 zve10-vga-colour-bars.png",
-  "report": "../uvc_yuy2_patch_v24p.md"
+  "report": "../uvc_yuy2_patch_v24p.md",
+  "animation": {
+    "frames": 10,
+    "dimensions": [
+      640,
+      480
+    ],
+    "loop": "infinite",
+    "playback_fps": 10,
+    "playback_timing": "presentation timing; raw capture has no timestamps and does not establish measured camera frame rate",
+    "captured_counters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "all_decoded_rgb_frames_match_capture": true,
+    "palette_colors": 8,
+    "gif_bytes": 8558,
+    "gif_sha256": "9fe536398e0008ca5e18812706da23b90b8f59b2bd2d4f3fb1ebc1060d95cc5c"
+  },
+  "animation_conversion": "Decode the captured YUY2 frames to rgb24 with FFmpeg, create a fixed palette from the eight captured RGB colours, then paletteuse=dither=none at10fps with loop=0. All decoded GIF RGB frames were compared byte-for-byte with the decoded capture."
 }
