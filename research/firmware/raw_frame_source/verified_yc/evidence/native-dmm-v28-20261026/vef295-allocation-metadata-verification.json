@@ -1,0 +1,226 @@
+{
+  "original_RTOS_basic_blocks_and_allocator_executed": true,
+  "hardware_allocation_services_mocked": true,
+  "complete_configuration_routine_not_executed": true,
+  "pixel_format_enum_meanings_not_inferred": true,
+  "camera_access": false,
+  "firmware_md5": "90096db2c76148f4f9db5d104e5c608c",
+  "cases": [
+    {
+      "taint_control": false,
+      "geometry": [
+        1920,
+        1080
+      ],
+      "record": "0x645b580c",
+      "metadata_unit_type": "0x295",
+      "metadata_handle_matches_native_allocation_reply": true,
+      "metadata_raw_hex": "01a5a5a5950200002143a5a500000000a5a5a5a58007380480073804000000008007380400000000800738040000a501000102014000a5a5a5a5a5a5",
+      "confirmed_fields": {
+        "unit_data_offset": 0,
+        "canvas_size_x": 1920,
+        "canvas_size_y": 1080,
+        "valid_size_x": 1920,
+        "valid_size_y": 1080,
+        "target_size_x": 1920,
+        "target_size_y": 1080,
+        "data_site": 0,
+        "iib_number": 0,
+        "yc_compress": 1,
+        "data_transfer": 0,
+        "data_placement": 1,
+        "data_content": 2,
+        "data_scan": 1,
+        "strip_width": 64
+      },
+      "untouched_fields_not_inferred": [
+        "yc_bit_depth",
+        "aspect",
+        "cam_freq_char_h"
+      ],
+      "events": [
+        {
+          "service": "virtual_owner_getter"
+        },
+        {
+          "service": "native_message_allocate",
+          "queue": "0x61003c"
+        },
+        {
+          "service": "native_DMM_command_send",
+          "command": 12,
+          "type": "0x295",
+          "wire": "0c0000009502000012361200ffffffff0000000000000100"
+        },
+        {
+          "service": "native_message_release"
+        },
+        {
+          "service": "virtual_owner_getter"
+        }
+      ]
+    },
+    {
+      "taint_control": false,
+      "geometry": [
+        1280,
+        720
+      ],
+      "record": "0x645b58ec",
+      "metadata_unit_type": "0x295",
+      "metadata_handle_matches_native_allocation_reply": true,
+      "metadata_raw_hex": "01a5a5a5950200002143a5a500000000a5a5a5a50005d0020005d002000000000005d002000000000005d0020000a501000102014000a5a5a5a5a5a5",
+      "confirmed_fields": {
+        "unit_data_offset": 0,
+        "canvas_size_x": 1280,
+        "canvas_size_y": 720,
+        "valid_size_x": 1280,
+        "valid_size_y": 720,
+        "target_size_x": 1280,
+        "target_size_y": 720,
+        "data_site": 0,
+        "iib_number": 0,
+        "yc_compress": 1,
+        "data_transfer": 0,
+        "data_placement": 1,
+        "data_content": 2,
+        "data_scan": 1,
+        "strip_width": 64
+      },
+      "untouched_fields_not_inferred": [
+        "yc_bit_depth",
+        "aspect",
+        "cam_freq_char_h"
+      ],
+      "events": [
+        {
+          "service": "virtual_owner_getter"
+        },
+        {
+          "service": "native_message_allocate",
+          "queue": "0x61003c"
+        },
+        {
+          "service": "native_DMM_command_send",
+          "command": 12,
+          "type": "0x295",
+          "wire": "0c0000009502000012361200ffffffff0000000000000100"
+        },
+        {
+          "service": "native_message_release"
+        },
+        {
+          "service": "virtual_owner_getter"
+        }
+      ]
+    },
+    {
+      "taint_control": false,
+      "geometry": [
+        640,
+        480
+      ],
+      "record": "0x645b5924",
+      "metadata_unit_type": "0x295",
+      "metadata_handle_matches_native_allocation_reply": true,
+      "metadata_raw_hex": "01a5a5a5950200002143a5a500000000a5a5a5a58002e0018002e001000000008002e001000000008002e0010000a500000102014000a5a5a5a5a5a5",
+      "confirmed_fields": {
+        "unit_data_offset": 0,
+        "canvas_size_x": 640,
+        "canvas_size_y": 480,
+        "valid_size_x": 640,
+        "valid_size_y": 480,
+        "target_size_x": 640,
+        "target_size_y": 480,
+        "data_site": 0,
+        "iib_number": 0,
+        "yc_compress": 0,
+        "data_transfer": 0,
+        "data_placement": 1,
+        "data_content": 2,
+        "data_scan": 1,
+        "strip_width": 64
+      },
+      "untouched_fields_not_inferred": [
+        "yc_bit_depth",
+        "aspect",
+        "cam_freq_char_h"
+      ],
+      "events": [
+        {
+          "service": "virtual_owner_getter"
+        },
+        {
+          "service": "native_message_allocate",
+          "queue": "0x61003c"
+        },
+        {
+          "service": "native_DMM_command_send",
+          "command": 12,
+          "type": "0x295",
+          "wire": "0c0000009502000012361200ffffffff0000000000000100"
+        },
+        {
+          "service": "native_message_release"
+        },
+        {
+          "service": "virtual_owner_getter"
+        }
+      ]
+    },
+    {
+      "taint_control": true,
+      "geometry": [
+        1920,
+        1080
+      ],
+      "record": "0x645b580c",
+      "metadata_unit_type": "0x2a5",
+      "metadata_handle_matches_native_allocation_reply": true,
+      "metadata_raw_hex": "01a5a5a5a50200006587a5a500000000a5a5a5a58007380480073804000000008007380400000000800738040000a501000102014000a5a5a5a5a5a5",
+      "confirmed_fields": {
+        "unit_data_offset": 0,
+        "canvas_size_x": 1920,
+        "canvas_size_y": 1080,
+        "valid_size_x": 1920,
+        "valid_size_y": 1080,
+        "target_size_x": 1920,
+        "target_size_y": 1080,
+        "data_site": 0,
+        "iib_number": 0,
+        "yc_compress": 1,
+        "data_transfer": 0,
+        "data_placement": 1,
+        "data_content": 2,
+        "data_scan": 1,
+        "strip_width": 64
+      },
+      "untouched_fields_not_inferred": [
+        "yc_bit_depth",
+        "aspect",
+        "cam_freq_char_h"
+      ],
+      "events": [
+        {
+          "service": "virtual_owner_getter"
+        },
+        {
+          "service": "native_message_allocate",
+          "queue": "0x61003c"
+        },
+        {
+          "service": "native_DMM_command_send",
+          "command": 12,
+          "type": "0x2a5",
+          "wire": "0c000000a502000012361200ffffffff0000000000000100"
+        },
+        {
+          "service": "native_message_release"
+        },
+        {
+          "service": "virtual_owner_getter"
+        }
+      ]
+    }
+  ]
+}

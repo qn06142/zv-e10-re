@@ -1,0 +1,148 @@
+
+_ZN17OBJAVBBCBASECLASS15DataflowInfraCh11allocOsalIdEPjNS0_21OSALID_AUTO_FREE_MODEE 0x35375
+00035374: push.w   {r4, r5, r6, r7, r8, lr}
+00035378: sub      sp, #0x30
+0003537a: mov      r6, r0
+0003537c: add      r7, sp, #8
+0003537e: mov      r5, r1
+00035380: movs     r0, #0x2a
+00035382: ldrh     r1, [r6, #4]
+00035384: str      r2, [r7, #4]
+00035386: mov      r2, r5
+00035388: blx      #0x2c804
+0003538c: mov      r4, r0
+0003538e: cbz      r0, #0x353b0
+00035390: blx      #0x2cbc4
+00035394: cmp      r0, #0
+00035396: ble      #0x3542a
+00035398: ldr      r3, [pc, #0x9c]
+0003539a: movs     r0, #0x55
+0003539c: movs     r1, #6
+0003539e: movs     r2, #3
+000353a0: add      r3, pc
+000353a2: stm.w    sp, {r3, r4}
+000353a6: movw     r3, #0x391
+000353aa: blx      #0x2add4
+000353ae: b        #0x3542a
+000353b0: adds     r6, #8
+000353b2: add.w    r0, r7, #0x24
+000353b6: blx      #0x2ca54
+000353ba: mov      r1, r5
+000353bc: mov      r0, r6
+000353be: blx      #0x2c9a8
+000353c2: str      r0, [r7, #0x24]
+000353c4: mov      r0, r6
+000353c6: blx      #0x2b2ac
+000353ca: add.w    r1, r7, #0x28
+000353ce: str      r0, [r1, #-0x8]!
+000353d2: add.w    r0, r7, #0x24
+000353d6: blx      #0x2c6e0
+000353da: mov      r8, r0
+000353dc: cbz      r0, #0x35400
+000353de: blx      #0x2cbc4
+000353e2: cmp      r0, #0
+000353e4: ble      #0x3542c
+000353e6: ldr      r3, [pc, #0x54]
+000353e8: movs     r0, #0x55
+000353ea: movs     r1, #6
+000353ec: movs     r2, #3
+000353ee: add      r3, pc
+000353f0: str      r3, [sp]
+000353f2: ldr      r3, [r5]
+000353f4: str      r3, [sp, #4]
+000353f6: movw     r3, #0x39a
+000353fa: blx      #0x2add4
+000353fe: b        #0x3542c
+00035400: adds     r2, r7, #4
+00035402: mov      r1, r5
+00035404: add.w    r0, r7, #0x18
+00035408: mov      r4, r8
+0003540a: blx      #0x2b104
+0003540e: add.w    r1, r7, #0x18
+00035412: add.w    r0, r7, #0x10
+00035416: blx      #0x2bdb4
+0003541a: add.w    r0, r7, #8
+0003541e: mov      r1, r6
+00035420: add.w    r2, r7, #0x10
+00035424: blx      #0x2a230
+00035428: b        #0x3542c
+0003542a: movs     r4, #1
+0003542c: mov      r0, r4
+0003542e: add.w    r7, r7, #0x28
+00035432: mov      sp, r7
+00035434: pop.w    {r4, r5, r6, r7, r8, pc}
+00035438: lsls     r2, r4, #3
+0003543a: movs     r1, r0
+0003543c: lsls     r4, r6, #2
+0003543e: movs     r1, r0
+
+_ZN17OBJAVBBCBASECLASS15DataflowInfraCh17rcvAsyncGlobalMsgEPvtjj 0x33e3d
+00033e3c: push.w   {r4, r5, r6, r7, r8, sb, sl, lr}
+00033e40: sub      sp, #0x120
+00033e42: add      r7, sp, #8
+00033e44: mov      r6, r0
+00033e46: mov      r0, r7
+00033e48: mov      sb, r1
+00033e4a: mov      sl, r2
+00033e4c: mov      r4, r3
+00033e4e: ldr.w    r8, [r7, #0x138]
+00033e52: blx      #0x2c86c
+00033e56: add.w    r0, r7, #0x114
+00033e5a: blx      #0x2a6c0
+00033e5e: add.w    r0, r7, #0x114
+00033e62: mov      r1, r4
+00033e64: mov      r2, r7
+00033e66: mov      r3, r8
+00033e68: blx      #0x29ee4
+00033e6c: mov      r5, r0
+00033e6e: add.w    r1, r7, #0x110
+00033e72: mov      r0, r7
+00033e74: movs     r3, #0
+00033e76: str.w    r3, [r7, #0x110]
+00033e7a: blx      #0x2b53c
+00033e7e: uxth.w   r3, r8
+00033e82: ldrh     r1, [r6, #4]
+00033e84: str      r3, [sp]
+00033e86: mov      r3, r4
+00033e88: ldr      r0, [pc, #0x68]
+00033e8a: ldr.w    r2, [r7, #0x110]
+00033e8e: blx      #0x2b004
+00033e92: cbz      r5, #0x33eb4
+00033e94: blx      #0x2cbc4
+00033e98: cmp      r0, #0
+00033e9a: ble      #0x33ec2
+00033e9c: ldr      r3, [pc, #0x58]
+00033e9e: movs     r0, #0x55
+00033ea0: movs     r1, #6
+00033ea2: movs     r2, #3
+00033ea4: add      r3, pc
+00033ea6: stm.w    sp, {r3, r5}
+00033eaa: movw     r3, #0x32e
+00033eae: blx      #0x2add4
+00033eb2: b        #0x33ec2
+00033eb4: mov      r0, r7
+00033eb6: mov      r1, sb
+00033eb8: mov      r2, sl
+00033eba: blx      #0x29f54
+00033ebe: movs     r4, #0
+00033ec0: b        #0x33ec4
+00033ec2: movs     r4, #1
+00033ec4: add.w    r0, r7, #0x114
+00033ec8: blx      #0x2a0c4
+00033ecc: mov      r0, r7
+00033ece: blx      #0x2aa5c
+00033ed2: mov      r0, r4
+00033ed4: add.w    r7, r7, #0x118
+00033ed8: mov      sp, r7
+00033eda: pop.w    {r4, r5, r6, r7, r8, sb, sl, pc}
+00033ede: add.w    r0, r7, #0x114
+00033ee2: blx      #0x2a0c4
+00033ee6: b        #0x33ee8
+00033ee8: mov      r0, r7
+00033eea: blx      #0x2aa5c
+00033eee: blx      #0x2aa44
+00033ef2: nop      
+00033ef4: b        #0x34062
+00033ef6: movs     r1, r0
+00033ef8: asrs     r6, r3, #6
+00033efa: movs     r1, r0

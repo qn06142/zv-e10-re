@@ -1,0 +1,29 @@
+{
+  "status": "BUILT_NOT_HARDWARE_VERIFIED",
+  "deployment": "NOT_INSTALLED",
+  "revision": "3.0-experimental-native-vga",
+  "position_independent": true,
+  "width": 640,
+  "height": 480,
+  "advertised_fps": 10,
+  "observed_fps": null,
+  "pixel_format": "YUY2 advertised / native uncompressed VGA bytes; packing UNVERIFIED",
+  "source_backend": "SONY_SDF_PRIVATE_WORKER_OWNED_SSYC_VEF295_TO_OWNED_VGA220",
+  "synthetic_fallback": false,
+  "frame_bytes": 614400,
+  "packet_header_bytes": 0,
+  "cold_boot_required": true,
+  "stream_sessions_per_boot": 1,
+  "files": {
+    "yuy2_640_v30vga.so": {
+      "bytes": 30996,
+      "md5": "98acd3ba3d6628e006fe51d88dda25dc",
+      "sha256": "3bf1b96267ddec0e39c3cbe392dc5d74ff69e5fb52a436c2333bb4c761000ade"
+    },
+    "libInfraStreamingUsb.so": {
+      "bytes": 72796,
+      "md5": "2a4c08511526f2b525c57a1d9bac9bad",
+      "sha256": "8aeb4aad6d6f4a72614585853ba34676fe3331539587c3502ba3e30ab96e92f6"
+    }
+  }
+}

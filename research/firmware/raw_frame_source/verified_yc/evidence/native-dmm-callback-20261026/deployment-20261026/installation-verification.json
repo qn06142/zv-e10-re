@@ -1,0 +1,17 @@
+{
+  "installed": true,
+  "readback_verified": true,
+  "reboot_verified": true,
+  "hashes": {
+    "stream-installed-readback.so": "c3aa9b92ea6c05ce78aa7894e8dfe35a",
+    "module-installed-readback.so": "ec185c27deb53f80f6f5a40d9a8f95f1",
+    "v24p-recovery-readback.so": "5fde77e394572ebcf420f8941575f6c4"
+  },
+  "tmp_full_before_install": true,
+  "tmp_system_logs_not_removed": true,
+  "preflight_runtime_space_helper_passed": true,
+  "unloaded_before_streaming": true,
+  "usr_remounted_readonly": true,
+  "boot_uptime": "125.67 408.00",
+  "sensor_capture_tested": false
+}

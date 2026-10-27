@@ -1,0 +1,384 @@
+
+FUNCTION 0x1756dc..0x175778
+001756dc: push     {r7, lr} 
+001756de: add      r7, sp, #0 
+001756e0: cbz      r1, #0x1756fe 
+001756e2: movs     r3, #0xa 
+001756e4: muls     r0, r3, r0 
+001756e6: bl       #0xe49ef8 
+001756ea: sub.w    r3, r0, #0xa 
+001756ee: cmp      r3, #7 
+001756f0: bhi      #0x175702 
+001756f2: ldr      r3, [pc, #0x14] 
+001756f4: add      r3, pc 
+001756f6: adds     r3, r3, r0 
+001756f8: ldrb     r0, [r3, #-0xa] 
+001756fc: pop      {r7, pc} 
+001756fe: movs     r0, #4 
+00175700: pop      {r7, pc} 
+00175702: movs     r0, #4 
+00175704: pop      {r7, pc} 
+00175706: nop       
+00175708: add      r3, sp, #0x20 
+0017570a: lsls     r5, r1, #3 
+0017570c: mov      r3, r0 
+0017570e: movs     r2, #0 
+00175710: push     {r7, lr} 
+00175712: add      r7, sp, #0 
+00175714: strh     r2, [r0] 
+00175716: strh     r2, [r0, #2] 
+00175718: strh     r2, [r0, #4] 
+0017571a: strh     r2, [r0, #6] 
+0017571c: strh     r2, [r0, #8] 
+0017571e: strh     r2, [r0, #0xa] 
+00175720: strh     r2, [r0, #0xc] 
+00175722: strh     r2, [r0, #0xe] 
+00175724: strh     r2, [r0, #0x10] 
+00175726: strh     r2, [r0, #0x12] 
+00175728: strb     r2, [r3, #0x14] 
+0017572a: strb     r2, [r3, #0x15] 
+0017572c: strh     r2, [r0, #0x16] 
+0017572e: str      r2, [r0, #0x18] 
+00175730: strh     r2, [r0, #0x1c] 
+00175732: strh     r2, [r0, #0x1e] 
+00175734: str      r2, [r0, #0x20] 
+00175736: strb.w   r2, [r3, #0x24] 
+0017573a: strb.w   r2, [r3, #0x25] 
+0017573e: strb.w   r2, [r3, #0x26] 
+00175742: strb.w   r2, [r3, #0x27] 
+00175746: strh     r2, [r0, #0x28] 
+00175748: strh     r2, [r0, #0x2a] 
+0017574a: strh     r2, [r0, #0x2c] 
+0017574c: strh     r2, [r0, #0x2e] 
+0017574e: strb.w   r2, [r3, #0x30] 
+00175752: strb.w   r2, [r3, #0x31] 
+00175756: strb.w   r2, [r3, #0x32] 
+0017575a: strb.w   r2, [r3, #0x33] 
+0017575e: strb.w   r2, [r3, #0x34] 
+00175762: strb.w   r2, [r3, #0x35] 
+00175766: strb.w   r2, [r3, #0x36] 
+0017576a: strb.w   r2, [r3, #0x37] 
+0017576e: str      r2, [r0, #0x38] 
+00175770: strh     r2, [r0, #0x3c] 
+00175772: strh     r2, [r0, #0x3e] 
+00175774: str      r2, [r0, #0x40] 
+00175776: pop      {r7, pc} 
+
+FUNCTION 0x206b58..0x206bf4
+00206b58: push.w   {r4, r5, r6, r7, r8, sb, lr} 
+00206b5c: sub      sp, #0x24 
+00206b5e: mov      r8, r0 
+00206b60: add      r7, sp, #8 
+00206b62: mov      r6, r2 
+00206b64: mov      sb, r3 
+00206b66: mov      r4, r1 
+00206b68: cbz      r1, #0x206b6c 
+00206b6a: cbnz     r2, #0x206b90 
+00206b6c: movs     r3, #0 
+00206b6e: ldr      r0, [pc, #0x70] 
+00206b70: movs     r1, #0x35 
+00206b72: movs     r2, #0x32 
+00206b74: str      r3, [sp] 
+00206b76: blx      #0x10ece4 _ZN17AvbbcBaseClassLog7SetLog3Ejjtjj
+00206b7a: cbz      r4, #0x206b7e 
+00206b7c: cbnz     r6, #0x206b90 
+00206b7e: ldr      r0, [pc, #0x68] 
+00206b80: movs     r2, #0x32 
+00206b82: ldr      r1, [pc, #0x68] 
+00206b84: ldr      r3, [pc, #0x68] 
+00206b86: add      r0, pc 'p_sdsMem && p_ycMem'
+00206b88: add      r1, pc 'DmmAllocSdsAndYc.cpp'
+00206b8a: add      r3, pc 'AVBBC_RETCODE OBJEFFECT::DmmAllocSdsAndYc::allocNewSdsAndYc(DefCommon::MEMORY_SET*, DefCommon::MEMORY_SET*, uint32_t)'
+00206b8c: blx      #0x108f68 __assert_fail
+00206b90: mov      r0, r8 
+00206b92: mov      r1, r4 
+00206b94: ldr      r2, [pc, #0x4c] 
+00206b96: bl       #0x206aec 
+00206b9a: mov      r5, r0 
+00206b9c: cbz      r0, #0x206ba6 
+00206b9e: mov.w    r3, #-1 
+00206ba2: strh     r3, [r6] 
+00206ba4: b        #0x206bd2 
+00206ba6: mov      r0, r8 
+00206ba8: mov      r1, r6 
+00206baa: mov      r2, sb 
+00206bac: bl       #0x206aec 
+00206bb0: mov      r5, r0 
+00206bb2: cbz      r0, #0x206bd2 
+00206bb4: movs     r1, #0 
+00206bb6: movs     r2, #0x18 
+00206bb8: mov      r0, r7 
+00206bba: blx      #0x10b2e0 memset
+00206bbe: movs     r3, #2 
+00206bc0: add.w    r0, r8, #4 
+00206bc4: mov      r1, r7 
+00206bc6: ldrh     r2, [r4] 
+00206bc8: blx      #0x10b3f4 _ZN17OBJAVBBCBASECLASS5DmmCh4freeEP18dmm_comp_free_unittt
+00206bcc: mov.w    r3, #-1 
+00206bd0: strh     r3, [r4] 
+00206bd2: mov      r0, r5 
+00206bd4: add.w    r7, r7, #0x1c 
+00206bd8: mov      sp, r7 
+00206bda: pop.w    {r4, r5, r6, r7, r8, sb, pc} 
+00206bde: nop       
+00206be0: b        #0x206d3e 
+00206be2: lsls     r1, r0, #8 
+00206be4: lsrs     r0, r0, #0xc 
+00206be6: movs     r6, r1 
+00206be8: asrs     r5, r1, #0xe 
+00206bea: lsls     r1, r1, #3 
+00206bec: asrs     r7, r3, #0xe 
+00206bee: lsls     r1, r1, #3 
+00206bf0: asrs     r2, r6, #0xe 
+00206bf2: lsls     r1, r1, #3 
+
+FUNCTION 0x206bf4..0x206c56
+00206bf4: push     {r4, r5, r7, lr} 
+00206bf6: sub      sp, #0x1d8 
+00206bf8: mov      r5, r2 
+00206bfa: add      r7, sp, #0 
+00206bfc: movs     r2, #1 
+00206bfe: mov      r4, r3 
+00206c00: adds     r0, r7, #4 
+00206c02: movs     r3, #0 
+00206c04: bl       #0xe490a4 
+00206c08: adds     r0, r7, #4 
+00206c0a: ldrh     r1, [r5] 
+00206c0c: ldr      r2, [r5, #4] 
+00206c0e: bl       #0xe488d2 
+00206c12: cbz      r4, #0x206c32 
+00206c14: add.w    r0, r7, #0x1c4 
+00206c18: bl       #0x1743c4 
+00206c1c: ldrh     r3, [r4] 
+00206c1e: adds     r0, r7, #4 
+00206c20: ldrh     r4, [r4, #2] 
+00206c22: add.w    r1, r7, #0x1c4 
+00206c26: strh.w   r3, [r7, #0x1c4] 
+00206c2a: strh.w   r4, [r7, #0x1c6] 
+00206c2e: bl       #0xe48a10 
+00206c32: adds     r0, r7, #4 
+00206c34: bl       #0xe493ac 
+00206c38: adds     r0, r7, #4 
+00206c3a: bl       #0xe493e8 
+00206c3e: adds     r0, r7, #4 
+00206c40: bl       #0xe486ec 
+00206c44: add.w    r7, r7, #0x1d8 
+00206c48: mov      sp, r7 
+00206c4a: pop      {r4, r5, r7, pc} 
+00206c4c: adds     r0, r7, #4 
+00206c4e: bl       #0xe486ec 
+00206c52: blx      #0x10a31c __cxa_end_cleanup
+
+FUNCTION 0xe48ca0..0xe48ecc
+00e48ca0: push.w   {r4, r5, r6, r7, r8, sb, sl, fp, lr} 
+00e48ca4: movs     r6, #0 
+00e48ca6: mov      r4, r0 
+00e48ca8: sub      sp, #0x1c 
+00e48caa: add.w    r8, r0, #0x124 
+00e48cae: movs     r2, #0x3c 
+00e48cb0: add      r7, sp, #8 
+00e48cb2: strb.w   r6, [r0, #0x1bc] 
+00e48cb6: mov      r5, r1 
+00e48cb8: str.w    r6, [r0, #0x1ac] 
+00e48cbc: mov      r1, r6 
+00e48cbe: str.w    r6, [r0, #0x1b0] 
+00e48cc2: add.w    sl, r4, #0x160 
+00e48cc6: strb.w   r6, [r0, #0x1bd] 
+00e48cca: add.w    fp, r4, #0x168 
+00e48cce: str.w    r6, [r0, #0x1b4] 
+00e48cd2: str.w    r6, [r0, #0x1b8] 
+00e48cd6: strb.w   r6, [r0, #0x1be] 
+00e48cda: mov      r0, r8 
+00e48cdc: blx      #0x10b2e0 memset
+00e48ce0: mov      r1, r6 
+00e48ce2: movs     r2, #6 
+00e48ce4: mov      r0, sl 
+00e48ce6: blx      #0x10b2e0 memset
+00e48cea: mov      r1, r6 
+00e48cec: movs     r2, #0x1c 
+00e48cee: mov      r0, fp 
+00e48cf0: blx      #0x10b2e0 memset
+00e48cf4: add.w    r3, r4, #0x184 
+00e48cf8: mov      r0, r3 
+00e48cfa: mov      r1, r6 
+00e48cfc: movs     r2, #0x20 
+00e48cfe: str      r3, [r7, #8] 
+00e48d00: blx      #0x10b2e0 memset
+00e48d04: str.w    r6, [r4, #0x1a4] 
+00e48d08: str.w    r6, [r4, #0x1a8] 
+00e48d0c: add.w    r0, r4, #0x14 
+00e48d10: add.w    r3, r4, #0x1a4 
+00e48d14: str      r3, [r7, #4] 
+00e48d16: blx      #0x108acc _ZN12AvbbcPhycMem10GetLogAddrEv
+00e48d1a: str      r0, [r7, #0xc] 
+00e48d1c: cbnz     r0, #0xe48d38 
+00e48d1e: bl       #0x172a4c 
+00e48d22: cmp      r0, r6 
+00e48d24: ble.w    #0xe48ea6 
+00e48d28: ldr      r3, [pc, #0x184] 
+00e48d2a: movs     r0, #0x35 
+00e48d2c: ldr      r1, [r7, #0xc] 
+00e48d2e: movs     r2, #1 
+00e48d30: add      r3, pc '[ObjEffect]YcSdsAcsr::initialize: avPhycMem.GetLogAddr() returns NULL'
+00e48d32: str      r3, [sp] 
+00e48d34: movs     r3, #0x57 
+00e48d36: b        #0xe48e0e 
+00e48d38: cbz      r5, #0xe48d40 
+00e48d3a: mov      r0, r4 
+00e48d3c: bl       #0xe48798 
+00e48d40: ldr.w    sb, [r4, #0x34] 
+00e48d44: cmp.w    sb, #0 
+00e48d48: bne      #0xe48d7a 
+00e48d4a: movs     r0, #0x24 
+00e48d4c: blx      #0x108e0c _Znwj
+00e48d50: ldr      r1, [r7, #0xc] 
+00e48d52: ldr      r2, [r4, #0x10] 
+00e48d54: mov      r3, sb 
+00e48d56: mov      r6, r0 
+00e48d58: blx      #0x108ca4 _ZN26C_DataflowInfra_StdData_YCC1Ejjj
+00e48d5c: str      r6, [r4, #0x34] 
+00e48d5e: cbnz     r6, #0xe48d7a 
+00e48d60: bl       #0x172a4c 
+00e48d64: cmp      r0, #0 
+00e48d66: ble.w    #0xe48ea6 
+00e48d6a: ldr      r3, [pc, #0x148] 
+00e48d6c: movs     r0, #0x35 
+00e48d6e: mov      r1, r6 
+00e48d70: movs     r2, #1 
+00e48d72: add      r3, pc '[ObjEffect]YcSdsAcsr::initialize: Out of memory'
+00e48d74: str      r3, [sp] 
+00e48d76: movs     r3, #0x62 
+00e48d78: b        #0xe48e0e 
+00e48d7a: cmp      r5, #0 
+00e48d7c: bne.w    #0xe48e8c 
+00e48d80: add.w    r6, r4, #0x38 
+00e48d84: ldr      r0, [r4, #0x34] 
+00e48d86: mov      r1, r6 
+00e48d88: blx      #0x10e538 _ZN26C_DataflowInfra_StdData_YC22GetEntry_ImageSizeInfoEP35C_DataflowInfra_Entry_ImageSizeInfo
+00e48d8c: mov      sb, r0 
+00e48d8e: cbz      r0, #0xe48dac 
+00e48d90: bl       #0x172a4c 
+00e48d94: cmp      r0, #0 
+00e48d96: ble.w    #0xe48ea6 
+00e48d9a: ldr      r3, [pc, #0x11c] 
+00e48d9c: movs     r0, #0x35 
+00e48d9e: mov      r1, r5 
+00e48da0: movs     r2, #1 
+00e48da2: add      r3, pc '[ObjEffect]YcSdsAcsr::initialize: GetEntry_ImageSizeInfo() failed (0x%x)'
+00e48da4: stm.w    sp, {r3, sb} 
+00e48da8: movs     r3, #0x6b 
+00e48daa: b        #0xe48e0e 
+00e48dac: mov      r0, r6 
+00e48dae: mov      r1, r8 
+00e48db0: add.w    r6, r4, #0x88 
+00e48db4: blx      #0x10d7e0 _ZN35C_DataflowInfra_Entry_ImageSizeInfo11GetData_AllEPN19DataflowInfra_StdYc22PIN_YC_IMAGE_SIZE_INFOE
+00e48db8: ldr      r0, [r4, #0x34] 
+00e48dba: mov      r1, r6 
+00e48dbc: blx      #0x10f948 _ZN26C_DataflowInfra_StdData_YC20GetEntry_YcStateInfoEP33C_DataflowInfra_Entry_YcStateInfo
+00e48dc0: mov      r8, r0 
+00e48dc2: cbz      r0, #0xe48dde 
+00e48dc4: bl       #0x172a4c 
+00e48dc8: cmp      r0, #0 
+00e48dca: ble      #0xe48ea6 
+00e48dcc: ldr      r3, [pc, #0xec] 
+00e48dce: movs     r0, #0x35 
+00e48dd0: mov      r1, r5 
+00e48dd2: movs     r2, #1 
+00e48dd4: add      r3, pc '[ObjEffect]YcSdsAcsr::initialize: GetEntry_YcStateInfo() failed (0x%x)'
+00e48dd6: stm.w    sp, {r3, r8} 
+00e48dda: movs     r3, #0x73 
+00e48ddc: b        #0xe48e0e 
+00e48dde: mov      r0, r6 
+00e48de0: mov      r1, sl 
+00e48de2: add.w    r6, r4, #0xa4 
+00e48de6: blx      #0x10cc14 _ZN33C_DataflowInfra_Entry_YcStateInfo11GetData_AllEPN19DataflowInfra_StdYc20PIN_YC_YC_STATE_INFOE
+00e48dea: ldr      r0, [r4, #0x34] 
+00e48dec: mov      r1, r6 
+00e48dee: blx      #0x10fd30 _ZN26C_DataflowInfra_StdData_YC24GetEntry_ImageOutTimInfoEP37C_DataflowInfra_Entry_ImageOutTimInfo
+00e48df2: mov      r8, r0 
+00e48df4: cbz      r0, #0xe48e14 
+00e48df6: bl       #0x172a4c 
+00e48dfa: cmp      r0, #0 
+00e48dfc: ble      #0xe48ea6 
+00e48dfe: ldr      r3, [pc, #0xc0] 
+00e48e00: movs     r0, #0x35 
+00e48e02: mov      r1, r5 
+00e48e04: movs     r2, #1 
+00e48e06: add      r3, pc '[ObjEffect]YcSdsAcsr::initialize: GetEntry_ImageOutTimInfo() failed (0x%x)'
+00e48e08: stm.w    sp, {r3, r8} 
+00e48e0c: movs     r3, #0x7b 
+00e48e0e: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+00e48e12: b        #0xe48ea6 
+00e48e14: mov      r0, r6 
+00e48e16: mov      r1, fp 
+00e48e18: add.w    r6, r4, #0xd4 
+00e48e1c: blx      #0x10b108 _ZN37C_DataflowInfra_Entry_ImageOutTimInfo11GetData_AllEPN19DataflowInfra_StdYc25PIN_YC_IMAGE_OUT_TIM_INFOE
+00e48e20: ldr      r0, [r4, #0x34] 
+00e48e22: mov      r1, r6 
+00e48e24: blx      #0x10c0f4 _ZN26C_DataflowInfra_StdData_YC27GetEntry_RightImageSizeInfoEP40C_DataflowInfra_Entry_RightImageSizeInfo
+00e48e28: cbnz     r0, #0xe48e52 
+00e48e2a: bl       #0x172a4c 
+00e48e2e: cmp      r0, #0 
+00e48e30: ble      #0xe48e44 
+00e48e32: ldr      r3, [pc, #0x90] 
+00e48e34: movs     r0, #0x35 
+00e48e36: mov      r1, r5 
+00e48e38: movs     r2, #3 
+00e48e3a: add      r3, pc '[ObjEffect]YcSdsAcsr::initialize: RightImageSizeInfo found'
+00e48e3c: str      r3, [sp] 
+00e48e3e: movs     r3, #0x84 
+00e48e40: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+00e48e44: mov      r0, r6 
+00e48e46: ldr      r1, [r7, #8] 
+00e48e48: blx      #0x1082a0 _ZN40C_DataflowInfra_Entry_RightImageSizeInfo11GetData_AllEPN19DataflowInfra_StdYc28PIN_YC_RIGHT_IMAGE_SIZE_INFOE
+00e48e4c: movs     r3, #1 
+00e48e4e: strb.w   r3, [r4, #0x1bd] 
+00e48e52: add.w    r5, r4, #0x108 
+00e48e56: ldr      r0, [r4, #0x34] 
+00e48e58: mov      r1, r5 
+00e48e5a: blx      #0x10d354 _ZN26C_DataflowInfra_StdData_YC20GetEntry_DisplayInfoEP33C_DataflowInfra_Entry_DisplayInfo
+00e48e5e: mov      r6, r0 
+00e48e60: cbnz     r0, #0xe48e94 
+00e48e62: bl       #0x172a4c 
+00e48e66: cmp      r0, #0 
+00e48e68: ble      #0xe48e7c 
+00e48e6a: ldr      r3, [pc, #0x5c] 
+00e48e6c: movs     r0, #0x35 
+00e48e6e: mov      r1, r6 
+00e48e70: movs     r2, #3 
+00e48e72: add      r3, pc '[ObjEffect]YcSdsAcsr::initialize: GetEntry_DisplayInfo() found'
+00e48e74: str      r3, [sp] 
+00e48e76: movs     r3, #0x8c 
+00e48e78: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+00e48e7c: mov      r0, r5 
+00e48e7e: ldr      r1, [r7, #4] 
+00e48e80: blx      #0x10d400 _ZN33C_DataflowInfra_Entry_DisplayInfo11GetData_AllEPN19DataflowInfra_StdYc19PIN_YC_DISPLAY_INFOE
+00e48e84: movs     r3, #1 
+00e48e86: strb.w   r3, [r4, #0x1be] 
+00e48e8a: b        #0xe48e94 
+00e48e8c: mov      r0, r4 
+00e48e8e: movs     r1, #0 
+00e48e90: bl       #0xe48c74 
+00e48e94: movs     r3, #1 
+00e48e96: strb.w   r3, [r4, #0x1bc] 
+00e48e9a: b        #0xe48ea6 
+00e48e9c: mov      r0, r6 
+00e48e9e: blx      #0x10a440 _ZdlPv
+00e48ea2: blx      #0x10a31c __cxa_end_cleanup
+00e48ea6: add.w    r7, r7, #0x14 
+00e48eaa: mov      sp, r7 
+00e48eac: pop.w    {r4, r5, r6, r7, r8, sb, sl, fp, pc} 
+00e48eb0: str      r6, [sp, #0x3a4] 
+00e48eb2: movs     r1, r7 
+00e48eb4: str      r6, [sp, #0x3b4] 
+00e48eb6: movs     r1, r7 
+00e48eb8: str      r6, [sp, #0x3b4] 
+00e48eba: movs     r1, r7 
+00e48ebc: str      r7, [sp, #0x10] 
+00e48ebe: movs     r1, r7 
+00e48ec0: str      r7, [sp, #0x64] 
+00e48ec2: movs     r1, r7 
+00e48ec4: str      r7, [sp, #0xc0] 
+00e48ec6: movs     r1, r7 
+00e48ec8: str      r7, [sp, #0xcc] 
+00e48eca: movs     r1, r7 

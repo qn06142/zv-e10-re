@@ -1,0 +1,37 @@
+{
+  "real_firmware_executed": true,
+  "external_calls_stubbed": false,
+  "camera_access": false,
+  "geometry_is_offline_image_initial_data_not_camera_observation": true,
+  "transfer_placement_and_unit_values_are_synthetic_input_tags_not_camera_measurements": true,
+  "cases": [
+    {
+      "slot": 0,
+      "width": 3840,
+      "height": 2160,
+      "yc_compress_native": 1,
+      "metadata_hex": "01a5a5a5000900000003a5a58000000000000000000f7008000f700800000000000f700800000000000f700800000201030405068000a5a5a5a5a5a5"
+    },
+    {
+      "slot": 1,
+      "width": 3840,
+      "height": 2160,
+      "yc_compress_native": 1,
+      "metadata_hex": "01a5a5a5010900000103a5a58000000000000000000f7008000f700800000000000f700800000000000f700800000201030405068000a5a5a5a5a5a5"
+    },
+    {
+      "slot": 2,
+      "width": 1920,
+      "height": 1080,
+      "yc_compress_native": 1,
+      "metadata_hex": "01a5a5a5020900000203a5a5800000000000000080073804800738040000000080073804000000008007380400000201030405068000a5a5a5a5a5a5"
+    },
+    {
+      "slot": 3,
+      "width": 1280,
+      "height": 720,
+      "yc_compress_native": 0,
+      "metadata_hex": "01a5a5a5030900000303a5a580000000000000000005d0020005d002000000000005d002000000000005d00200000200030405068000a5a5a5a5a5a5"
+    }
+  ]
+}

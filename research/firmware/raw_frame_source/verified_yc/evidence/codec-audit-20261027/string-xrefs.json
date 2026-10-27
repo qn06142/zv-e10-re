@@ -1,0 +1,443 @@
+[
+  {
+    "load": "0x63666120",
+    "add": "0x6366614c",
+    "literal": "0x63666294",
+    "target": "0x63f1d7b0",
+    "string": "ycCompress    =%d"
+  },
+  {
+    "load": "0x63666168",
+    "add": "0x63666170",
+    "literal": "0x6366629c",
+    "target": "0x63f1d7b0",
+    "string": "ycCompress    =%d"
+  },
+  {
+    "load": "0x636661d4",
+    "add": "0x63666200",
+    "literal": "0x636662a8",
+    "target": "0x63f1d80a",
+    "string": "stripWidth    =%d"
+  },
+  {
+    "load": "0x6366621c",
+    "add": "0x63666224",
+    "literal": "0x636662b0",
+    "target": "0x63f1d80a",
+    "string": "stripWidth    =%d"
+  },
+  {
+    "load": "0x6366bdb8",
+    "add": "0x6366bdcc",
+    "literal": "0x6366be64",
+    "target": "0x63f1ebc7",
+    "string": "MPEG2_HD422"
+  },
+  {
+    "load": "0x6366bdbe",
+    "add": "0x6366bdcc",
+    "literal": "0x6366be68",
+    "target": "0x63f1ebc7",
+    "string": "MPEG2_HD422"
+  },
+  {
+    "load": "0x6366bdb2",
+    "add": "0x6366bdd2",
+    "literal": "0x6366be60",
+    "target": "0x63f1ebc7",
+    "string": "MPEG2_HD422"
+  },
+  {
+    "load": "0x6366bdd6",
+    "add": "0x6366bdd8",
+    "literal": "0x6366be78",
+    "target": "0x63f1ebc7",
+    "string": "MPEG2_HD422"
+  },
+  {
+    "load": "0x63672720",
+    "add": "0x63672734",
+    "literal": "0x636727cc",
+    "target": "0x63f1ebc7",
+    "string": "MPEG2_HD422"
+  },
+  {
+    "load": "0x63672726",
+    "add": "0x63672734",
+    "literal": "0x636727d0",
+    "target": "0x63f1ebc7",
+    "string": "MPEG2_HD422"
+  },
+  {
+    "load": "0x6367271a",
+    "add": "0x6367273a",
+    "literal": "0x636727c8",
+    "target": "0x63f1ebc7",
+    "string": "MPEG2_HD422"
+  },
+  {
+    "load": "0x6367273e",
+    "add": "0x63672740",
+    "literal": "0x636727e0",
+    "target": "0x63f1ebc7",
+    "string": "MPEG2_HD422"
+  },
+  {
+    "load": "0x6368d63c",
+    "add": "0x6368d642",
+    "literal": "0x6368d8a0",
+    "target": "0x63f24f9f",
+    "string": "[CODEC V   ]input_image_compress            = 0x%02X"
+  },
+  {
+    "load": "0x6368de40",
+    "add": "0x6368de46",
+    "literal": "0x6368e058",
+    "target": "0x63f24f9f",
+    "string": "[CODEC V   ]input_image_compress            = 0x%02X"
+  },
+  {
+    "load": "0x636abc5c",
+    "add": "0x636abc5e",
+    "literal": "0x636abcb8",
+    "target": "0x63f1ebc7",
+    "string": "MPEG2_HD422"
+  },
+  {
+    "load": "0x636ac000",
+    "add": "0x636ac002",
+    "literal": "0x636ac0f4",
+    "target": "0x63f2a774",
+    "string": "SR_SQ_422"
+  },
+  {
+    "load": "0x636abfee",
+    "add": "0x636ac008",
+    "literal": "0x636ac0e8",
+    "target": "0x63f2a774",
+    "string": "SR_SQ_422"
+  },
+  {
+    "load": "0x636ac006",
+    "add": "0x636ac008",
+    "literal": "0x636ac0f8",
+    "target": "0x63f2a77e",
+    "string": "SR_LITE_422"
+  },
+  {
+    "load": "0x636ac00c",
+    "add": "0x636ac00e",
+    "literal": "0x636ac0fc",
+    "target": "0x63f2a78a",
+    "string": "220_422_10BIT"
+  },
+  {
+    "load": "0x636ac006",
+    "add": "0x636ac014",
+    "literal": "0x636ac0f8",
+    "target": "0x63f2a78a",
+    "string": "220_422_10BIT"
+  },
+  {
+    "load": "0x636ac012",
+    "add": "0x636ac014",
+    "literal": "0x636ac100",
+    "target": "0x63f2a798",
+    "string": "220_422_8BIT"
+  },
+  {
+    "load": "0x636ac018",
+    "add": "0x636ac01a",
+    "literal": "0x636ac104",
+    "target": "0x63f2a7a5",
+    "string": "145_422_8BIT"
+  },
+  {
+    "load": "0x636ac000",
+    "add": "0x636ac026",
+    "literal": "0x636ac0f4",
+    "target": "0x63f2a798",
+    "string": "220_422_8BIT"
+  },
+  {
+    "load": "0x636ac024",
+    "add": "0x636ac026",
+    "literal": "0x636ac10c",
+    "target": "0x63f2a7bf",
+    "string": "PRO_RES_422HQ"
+  },
+  {
+    "load": "0x636ac02a",
+    "add": "0x636ac02c",
+    "literal": "0x636ac110",
+    "target": "0x63f2a7cd",
+    "string": "PRO_RES_422"
+  },
+  {
+    "load": "0x636ac030",
+    "add": "0x636ac032",
+    "literal": "0x636ac114",
+    "target": "0x63f2a7d9",
+    "string": "PRO_RES_422LT"
+  },
+  {
+    "load": "0x636ac02a",
+    "add": "0x636ac038",
+    "literal": "0x636ac110",
+    "target": "0x63f2a7d9",
+    "string": "PRO_RES_422LT"
+  },
+  {
+    "load": "0x636e6f6e",
+    "add": "0x636e6f70",
+    "literal": "0x636e6fe4",
+    "target": "0x63f3f5fc",
+    "string": "[SDF] SplitDecodeResizeRotate targetSizeX too short for YC compress"
+  },
+  {
+    "load": "0x636ea53a",
+    "add": "0x636ea53c",
+    "literal": "0x636ea6fc",
+    "target": "0x63f3fd89",
+    "string": "[SDF][INT_ERROR] inYcCompress & outYcCompress"
+  },
+  {
+    "load": "0x636ea9b0",
+    "add": "0x636ea9b2",
+    "literal": "0x636eaad0",
+    "target": "0x63f3fd89",
+    "string": "[SDF][INT_ERROR] inYcCompress & outYcCompress"
+  },
+  {
+    "load": "0x636eb674",
+    "add": "0x636eb67c",
+    "literal": "0x636eb6c8",
+    "target": "0x63f4281f",
+    "string": "SetYcCompress"
+  },
+  {
+    "load": "0x63772314",
+    "add": "0x63772316",
+    "literal": "0x637724a8",
+    "target": "0x63f5bf46",
+    "string": "FW: encType must be ENC4 when RAW is precompressed in the imager."
+  },
+  {
+    "load": "0x63772324",
+    "add": "0x63772326",
+    "literal": "0x637724ac",
+    "target": "0x63f5bf46",
+    "string": "FW: encType must be ENC4 when RAW is precompressed in the imager."
+  },
+  {
+    "load": "0x6377240c",
+    "add": "0x63772410",
+    "literal": "0x637724b4",
+    "target": "0x63f5bfad",
+    "string": "FW: width[%d] % 48 != 0 in spite of imager-precompressed data."
+  },
+  {
+    "load": "0x637752f0",
+    "add": "0x637752f2",
+    "literal": "0x63775454",
+    "target": "0x63f5bf46",
+    "string": "FW: encType must be ENC4 when RAW is precompressed in the imager."
+  },
+  {
+    "load": "0x63775300",
+    "add": "0x63775302",
+    "literal": "0x63775458",
+    "target": "0x63f5bf46",
+    "string": "FW: encType must be ENC4 when RAW is precompressed in the imager."
+  },
+  {
+    "load": "0x637753cc",
+    "add": "0x637753d0",
+    "literal": "0x63775464",
+    "target": "0x63f5bfad",
+    "string": "FW: width[%d] % 48 != 0 in spite of imager-precompressed data."
+  },
+  {
+    "load": "0x6379ccee",
+    "add": "0x6379ccf6",
+    "literal": "0x6379ce1c",
+    "target": "0x63f65543",
+    "string": "IMG:SetParams: invalid compressType %d"
+  },
+  {
+    "load": "0x6391019c",
+    "add": "0x639101a0",
+    "literal": "0x6391022c",
+    "target": "0x63f85d1c",
+    "string": "FW: stripWidth:0x%X"
+  },
+  {
+    "load": "0x639e53e4",
+    "add": "0x639e53ee",
+    "literal": "0x639e56ec",
+    "target": "0x63fb49f2",
+    "string": "[CMNHANDLER]BitDepth      :0x%08X"
+  },
+  {
+    "load": "0x639ea6f8",
+    "add": "0x639ea6fa",
+    "literal": "0x639eaac0",
+    "target": "0x63fb6bae",
+    "string": "[ENCHANDLER]BitDepth                      :%d"
+  },
+  {
+    "load": "0x639eae9e",
+    "add": "0x639eaea2",
+    "literal": "0x639eb41c",
+    "target": "0x63fb6bae",
+    "string": "[ENCHANDLER]BitDepth                      :%d"
+  },
+  {
+    "load": "0x63a065e2",
+    "add": "0x63a065e4",
+    "literal": "0x63a06668",
+    "target": "0x63fbf63a",
+    "string": "MPEG2_HD422_MXF"
+  },
+  {
+    "load": "0x63a067f6",
+    "add": "0x63a067f8",
+    "literal": "0x63a068c0",
+    "target": "0x63f2a774",
+    "string": "SR_SQ_422"
+  },
+  {
+    "load": "0x63a067e4",
+    "add": "0x63a067fe",
+    "literal": "0x63a068b4",
+    "target": "0x63f2a774",
+    "string": "SR_SQ_422"
+  },
+  {
+    "load": "0x63a067fc",
+    "add": "0x63a067fe",
+    "literal": "0x63a068c4",
+    "target": "0x63f2a77e",
+    "string": "SR_LITE_422"
+  },
+  {
+    "load": "0x63a06802",
+    "add": "0x63a06804",
+    "literal": "0x63a068c8",
+    "target": "0x63f2a78a",
+    "string": "220_422_10BIT"
+  },
+  {
+    "load": "0x63a067fc",
+    "add": "0x63a0680a",
+    "literal": "0x63a068c4",
+    "target": "0x63f2a78a",
+    "string": "220_422_10BIT"
+  },
+  {
+    "load": "0x63a06808",
+    "add": "0x63a0680a",
+    "literal": "0x63a068cc",
+    "target": "0x63f2a798",
+    "string": "220_422_8BIT"
+  },
+  {
+    "load": "0x63a0680e",
+    "add": "0x63a06810",
+    "literal": "0x63a068d0",
+    "target": "0x63f2a7a5",
+    "string": "145_422_8BIT"
+  },
+  {
+    "load": "0x63a067f6",
+    "add": "0x63a0681c",
+    "literal": "0x63a068c0",
+    "target": "0x63f2a798",
+    "string": "220_422_8BIT"
+  },
+  {
+    "load": "0x63a0681a",
+    "add": "0x63a0681c",
+    "literal": "0x63a068d8",
+    "target": "0x63f2a7bf",
+    "string": "PRO_RES_422HQ"
+  },
+  {
+    "load": "0x63a06820",
+    "add": "0x63a06822",
+    "literal": "0x63a068dc",
+    "target": "0x63f2a7cd",
+    "string": "PRO_RES_422"
+  },
+  {
+    "load": "0x63a06826",
+    "add": "0x63a06828",
+    "literal": "0x63a068e0",
+    "target": "0x63f2a7d9",
+    "string": "PRO_RES_422LT"
+  },
+  {
+    "load": "0x63a06820",
+    "add": "0x63a0682e",
+    "literal": "0x63a068dc",
+    "target": "0x63f2a7d9",
+    "string": "PRO_RES_422LT"
+  },
+  {
+    "load": "0x63a06c90",
+    "add": "0x63a06c92",
+    "literal": "0x63a06cf4",
+    "target": "0x63fbf63a",
+    "string": "MPEG2_HD422_MXF"
+  },
+  {
+    "load": "0x63a139ca",
+    "add": "0x63a139d0",
+    "literal": "0x63a13bfc",
+    "target": "0x63fc385b",
+    "string": "[TSKVIDENC ]   input_image_compress             = 0x%02X"
+  },
+  {
+    "load": "0x63a1409a",
+    "add": "0x63a140a0",
+    "literal": "0x63a14290",
+    "target": "0x63fc385b",
+    "string": "[TSKVIDENC ]   input_image_compress             = 0x%02X"
+  },
+  {
+    "load": "0x63a37f78",
+    "add": "0x63a37f80",
+    "literal": "0x63a38040",
+    "target": "0x63fd2809",
+    "string": "CalcStripWidth"
+  },
+  {
+    "load": "0x63a37f88",
+    "add": "0x63a37f8e",
+    "literal": "0x63a38048",
+    "target": "0x63fd28e2",
+    "string": "[RC][ERROR]     stripWidth %d"
+  },
+  {
+    "load": "0x63a3ad48",
+    "add": "0x63a3ad50",
+    "literal": "0x63a3ae0c",
+    "target": "0x63fd34c9",
+    "string": "CalcStripWidth"
+  },
+  {
+    "load": "0x63a3ad58",
+    "add": "0x63a3ad5e",
+    "literal": "0x63a3ae14",
+    "target": "0x63fd28e2",
+    "string": "[RC][ERROR]     stripWidth %d"
+  },
+  {
+    "load": "0x63a461a0",
+    "add": "0x63a461a8",
+    "literal": "0x63a46208",
+    "target": "0x63fd390c",
+    "string": "CheckOutputImageMirrorYcCompStripWidth"
+  }
+]

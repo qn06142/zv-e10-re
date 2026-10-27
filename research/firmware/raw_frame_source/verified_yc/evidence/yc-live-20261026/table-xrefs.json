@@ -1,0 +1,44 @@
+[
+  {
+    "load": "0x6372d880",
+    "add": "0x6372d886",
+    "target": "0x63e43c98",
+    "name": "resize_allocation"
+  },
+  {
+    "load": "0x6372e582",
+    "add": "0x6372e58a",
+    "target": "0x63e43e9c",
+    "name": "preview_geometry"
+  },
+  {
+    "load": "0x6372e59c",
+    "add": "0x6372e59e",
+    "target": "0x63e43e9c",
+    "name": "preview_geometry"
+  },
+  {
+    "load": "0x6372e5ba",
+    "add": "0x6372e5bc",
+    "target": "0x63e43e9c",
+    "name": "preview_geometry"
+  },
+  {
+    "load": "0x6372e5d4",
+    "add": "0x6372e5d6",
+    "target": "0x63e43e9c",
+    "name": "preview_geometry"
+  },
+  {
+    "load": "0x6372e5da",
+    "add": "0x6372e5dc",
+    "target": "0x63e43e9c",
+    "name": "preview_geometry"
+  },
+  {
+    "load": "0x6374aeb2",
+    "add": "0x6374aeb4",
+    "target": "0x63e4433c",
+    "name": "builder_geometry"
+  }
+]

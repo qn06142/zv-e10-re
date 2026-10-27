@@ -27,6 +27,10 @@ Start here:
 - **Open Gate 3:2 Deployment Guide** → [`90-session/OPENGATE_PATCH_GUIDE.md`](90-session/OPENGATE_PATCH_GUIDE.md)
 - **Open Gate 3:2 Reverse Engineering Synthesis** → [`90-session/OPENGATE_138_PATCH_SUITE.md`](90-session/OPENGATE_138_PATCH_SUITE.md)
 - **UVC USB Webcam Hijack & Saturation Guide** → [`90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](90-session/UVC_WEBCAM_HIJACK_GUIDE.md)
+- **Verified VGA USB colour bars** → [2.4p hardware report](uvc_yuy2_patch_v24p.md): FFmpeg first capture/reopen and OBS confirmed
+- **Current VGA source candidate** → [3.0 implementation and flash state](uvc_vga_v30_candidate_20261027.md): installed/reboot-verified, frame test paused
+- **Next 4K/12-bit investigation** → [next-push plan](90-session/4K_12BIT_NEXT_PUSH.md): native precision, source allocation and sink verification
+- **USB reverse-engineering history** → [diagnostic handoff](uvc_yuy2_diagnostics_handoff.md) and [encoder workspace fix](uvc_encoder_workspace_fix.md)
 - **Working on one subject** → the table below
 - **Coding** → [`research/README.md`](../research/README.md)
 

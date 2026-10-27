@@ -1,0 +1,12 @@
+/usr/share/app # /bin/busybox sh /log/yuy2_640_v27snap/menu-crash-01/clear-verif
+ied-tmp.sh
+1+0 records in
+1+0 records out
+620f0b67a91f7f74151bc5be745b7110  /tmp/v27-writecheck.bin
+Filesystem           1024-blocks    Used Available Capacity Mounted on
+/dev/nflasha10           12256      4656      7600  38% /tmp
+/dev/nflasha11          511920       400    511520   0% /log
+/dev/nflasha15          234749    223792     10957  95% /usr
+V27_TMP_VERIFIED_TRACES_CLEARED_AND_WRITE_PASSED
+/usr/share/app # echo V27_DIRECT_022-clear-verified-tmp-traces
+V27_DIRECT_022-clear-verified-tmp-traces

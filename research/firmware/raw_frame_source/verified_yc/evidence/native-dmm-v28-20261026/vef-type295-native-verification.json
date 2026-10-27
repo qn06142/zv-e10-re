@@ -1,0 +1,79 @@
+{
+  "native_RTOS_setter_and_geometry_lookup_executed": true,
+  "print_service_only_mocked": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "mode": 3,
+      "geometry": [
+        1920,
+        1080
+      ],
+      "table": "0x645b580c",
+      "native_record": "0x645b580c",
+      "record_stride": 56,
+      "unit_offset": 40,
+      "unit_type": "0x295"
+    },
+    {
+      "mode": 3,
+      "geometry": [
+        1280,
+        720
+      ],
+      "table": "0x645b580c",
+      "native_record": "0x645b58ec",
+      "record_stride": 56,
+      "unit_offset": 40,
+      "unit_type": "0x295"
+    },
+    {
+      "mode": 3,
+      "geometry": [
+        640,
+        480
+      ],
+      "table": "0x645b580c",
+      "native_record": "0x645b5924",
+      "record_stride": 56,
+      "unit_offset": 40,
+      "unit_type": "0x295"
+    },
+    {
+      "mode": 4,
+      "geometry": [
+        1920,
+        1080
+      ],
+      "table": "0x645b580c",
+      "native_record": "0x645b580c",
+      "record_stride": 56,
+      "unit_offset": 40,
+      "unit_type": "0x295"
+    },
+    {
+      "mode": 4,
+      "geometry": [
+        1280,
+        720
+      ],
+      "table": "0x645b580c",
+      "native_record": "0x645b58ec",
+      "record_stride": 56,
+      "unit_offset": 40,
+      "unit_type": "0x295"
+    },
+    {
+      "mode": 4,
+      "geometry": [
+        640,
+        480
+      ],
+      "table": "0x645b580c",
+      "native_record": "0x645b5924",
+      "record_stride": 56,
+      "unit_offset": 40,
+      "unit_type": "0x295"
+    }
+  ]
+}

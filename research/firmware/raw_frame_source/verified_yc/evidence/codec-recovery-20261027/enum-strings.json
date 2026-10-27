@@ -1,0 +1,96 @@
+{
+  "0x63a06dfc": [
+    {
+      "value": 0,
+      "label": "DEPTH_8",
+      "pointer": "0x63fbf922"
+    },
+    {
+      "value": 1,
+      "label": "DEPTH_10",
+      "pointer": "0x63fbf92a"
+    },
+    {
+      "value": 2,
+      "label": "DEPTH_12",
+      "pointer": "0x63fbf933"
+    },
+    {
+      "value": 3,
+      "label": "DEPTH_14",
+      "pointer": "0x63fbf93c"
+    },
+    {
+      "value": 4,
+      "label": "DEPTH_UNKNOWN",
+      "pointer": "0x63fbf945"
+    },
+    {
+      "value": 5,
+      "label": "undefined?",
+      "pointer": "0x63f1a369"
+    },
+    {
+      "value": 6,
+      "label": "undefined?",
+      "pointer": "0x63f1a369"
+    },
+    {
+      "value": 7,
+      "label": "undefined?",
+      "pointer": "0x63f1a369"
+    },
+    {
+      "value": 8,
+      "label": "undefined?",
+      "pointer": "0x63f1a369"
+    }
+  ],
+  "0x63a06d28": [
+    {
+      "value": 0,
+      "label": "undefined?",
+      "pointer": "0x63f1a369"
+    },
+    {
+      "value": 1,
+      "label": "59_94",
+      "pointer": "0x63f2a660"
+    },
+    {
+      "value": 2,
+      "label": "50_00",
+      "pointer": "0x63fbf5f9"
+    },
+    {
+      "value": 3,
+      "label": "undefined?",
+      "pointer": "0x63f1a369"
+    },
+    {
+      "value": 4,
+      "label": "29_97",
+      "pointer": "0x63f2a65a"
+    },
+    {
+      "value": 5,
+      "label": "25_00",
+      "pointer": "0x63fbf5ff"
+    },
+    {
+      "value": 6,
+      "label": "24_00",
+      "pointer": "0x63fbf605"
+    },
+    {
+      "value": 7,
+      "label": "23_98",
+      "pointer": "0x63fbf60b"
+    },
+    {
+      "value": 8,
+      "label": "119_88",
+      "pointer": "0x63f2a666"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "source_family": "VEF YC ImageSizeInfo image attachment, DMM type0x295",
+  "evidence": "original producer field flows to native allocator command12 and returned handle flows into image descriptor",
+  "native_execution_cases": 3,
+  "taint_controls": 1,
+  "firmware_md5_matches_camera": "90096db2c76148f4f9db5d104e5c608c",
+  "captured_packet_live_metadata_available": false,
+  "actual_geometry_proven": false,
+  "actual_pixel_packing_proven": false,
+  "hardware_capture_packets": 13,
+  "hardware_native_references_after_stop": 0,
+  "camera_access_this_verification": false
+}

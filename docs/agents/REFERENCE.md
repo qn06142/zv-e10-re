@@ -7,11 +7,23 @@ round-trips or md5-verifies. For *how* any of it was obtained see
 
 ---
 
+## USB webcam findings — consolidated 24 October 2026
+
+**Measured 22 October:** the volatile synthetic prototype advertised 640×480 YUY2 at 10 fps to Windows/FFmpeg; a 25-second capture attempt saved zero frame bytes. Enumeration is established; frame transport and the exact freeze/crash cause are not. Ten producer/constructor emulation cases plus four bootstrap cases used mocked hardware services.
+
+**Recovered binary interfaces:** `usbg_video.ko` allocates staging with owner `0x2da`, unit type `0x50e`, splits the returned allocation in half, and uses DMA330 to copy physical-address/length payloads. `alloc_video_memory` takes a configured unit type, not a byte count; the prototype requests `0x50f`. Its requirements are 614,400 source bytes and 614,412 bytes per staging half. Actual streaming-mode capacities are unmeasured. `libInfraUsbCmn.so` PAL length/pointer VAs are `0x1cab8`/`0x1cabc` (file `0x14ab8`/`0x14abc`); NTSC VAs are `0x1cdb0`/`0x1cdb4` (file `0x14db0`/`0x14db4`). VAs are library-relative.
+
+**Offline defect:** prototype initialization failure permanently returns error 4 without a startup-failure completion. The original worker at `libInfraStreamingUsb.so` VA `0x9700` discards the return. Its notification helper at `0x9578` emits video-start after ten successful submissions; the failure branch assumes an already-started state. Recovered logs now establish that source allocation returned helper error 4, followed by source-initialization error 21 (`0x15`), with zero physical address/capacity. That file was already present before the 24 October attempt and unchanged afterward; it establishes the earlier branch, not the latest lockup cause. It does not establish insufficient capacity or a raw RTOS error code. A true reboot removes the RAM hooks; power-switch hibernation may retain them.
+
+Details and evidence locations: [uncompressed USB investigation](../uvc_uncompressed_usb2_feasibility.md). This paragraph records observations and their limits; it does not promote the capacity or crash hypotheses to measured facts.
+
+**Measured 24 October:** Windows/FFmpeg could not find the camera after the streaming switch, so no capture began. After the user restarted the unresponsive camera, 34 files / 7,225,403 bytes were recovered and hash-verified, including a 1,936,183-byte binary application log. Uptime reset (5,049.03 → 53.57 seconds) and the YUY2 module disappeared from the maps. Application records remain undecoded; newly collected kernel/DMM/thread/MPR state is post-restart. The earlier VIDEO-tab crash and latest lockup remain unexplained. See [diagnostic handoff](../uvc_yuy2_diagnostics_handoff.md) for artifacts and analysis targets.
+
 ## 1. Platform
 
 | | |
 |---|---|
-| SoC | Sony CXD900X0, quad ARM Cortex-A9 (ARMv7 rev1, NEON/VFPv4), ~1 GHz |
+| SoC | Sony CXD900X0, four Linux-visible Cortex-A5 cores (ARMv7 rev1, part 0xc05), VFPv4-D16; no NEON advertised; clock unverified |
 | RAM | `mem=1G@0 memrsv=680M@0x15800000:uc mem=256M@0x80000000@1` — but `MemTotal` reports 128 MB |
 | Kernel | `3.0.27_nl-rt106+` (PREEMPT RT) |
 | Userspace | BusyBox 1.34.1 ash |

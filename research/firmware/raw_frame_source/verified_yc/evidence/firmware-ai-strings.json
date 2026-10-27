@@ -1,0 +1,830 @@
+[
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0x9a913c",
+    "RTOS_VA": "0x63f6f13c",
+    "text": "N6Camera2LC19ObserverWrapperBaseINS_3IDT23FC_OBJECT_TRACKING_DATAEEE"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0x9baaec",
+    "RTOS_VA": "0x63f80aec",
+    "text": "FW: Face Detect Flow:SDV and FOPD:NONE Unmatch!"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1c2e9",
+    "RTOS_VA": "0x63fe22e9",
+    "text": "TrackingFace Detected:%d"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1c609",
+    "RTOS_VA": "0x63fe2609",
+    "text": "FC/Api/fc_api_callback.cpp"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1c650",
+    "RTOS_VA": "0x63fe2650",
+    "text": "FC/Api/fc_api_camera_param.cpp"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1c66f",
+    "RTOS_VA": "0x63fe266f",
+    "text": "FC/Api/fc_api_cap.cpp"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1c7f9",
+    "RTOS_VA": "0x63fe27f9",
+    "text": "FC/Api/fc_api_face_record.cpp"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1c919",
+    "RTOS_VA": "0x63fe2919",
+    "text": "FC/Api/fc_api_idt.cpp"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1c94c",
+    "RTOS_VA": "0x63fe294c",
+    "text": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1ca5b",
+    "RTOS_VA": "0x63fe2a5b",
+    "text": "[Object] m_object_tracking_mod:%d"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1ca7d",
+    "RTOS_VA": "0x63fe2a7d",
+    "text": "[Animal] m_object_tracking_mod:%d"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1cc97",
+    "RTOS_VA": "0x63fe2c97",
+    "text": "FC/Api/fc_api_retouch.cpp"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1ccfe",
+    "RTOS_VA": "0x63fe2cfe",
+    "text": "FC/Api/fc_api_startup.cpp"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1cd63",
+    "RTOS_VA": "0x63fe2d63",
+    "text": "FC/Api/fc_api_tracking.cpp"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa1dead",
+    "RTOS_VA": "0x63fe3ead",
+    "text": "FC/Api/fc_api_smile_shutter.cpp"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa2acc5",
+    "RTOS_VA": "0x63ff0cc5",
+    "text": "FW: SET_FACE_DETECTION_REGARDLESS_OF_MENU_MODE[%d]"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa2acf8",
+    "RTOS_VA": "0x63ff0cf8",
+    "text": "FW: SET_FACE_RECORD_PRIORITY_MODE[%d]"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa2ad98",
+    "RTOS_VA": "0x63ff0d98",
+    "text": "FW: SET_INTERNAL_FC_FACE_DETECTION_MODE[%d]"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa2adc4",
+    "RTOS_VA": "0x63ff0dc4",
+    "text": "FW: SET_INTERNAL_FACE_DETECTION_MODE[%d]"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa2c1e6",
+    "RTOS_VA": "0x63ff21e6",
+    "text": "FW: SET_FACE_RECORD[%d]"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa2c1fe",
+    "RTOS_VA": "0x63ff21fe",
+    "text": "FW: SET_FACE_DETECTION_MODE[%d: %d: %d: %d]"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa2c598",
+    "RTOS_VA": "0x63ff2598",
+    "text": "FW: SET_object_tracking_mode[%d]"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa302a8",
+    "RTOS_VA": "0x63ff62a8",
+    "text": "FW: LiroSeq ParamCheckErr@%s[face_record_on] cur:%d req:%d"
+  },
+  {
+    "file": "dumps/firmware/av-cam.bin",
+    "offset": "0xa30425",
+    "RTOS_VA": "0x63ff6425",
+    "text": "FW: LiroSeq ParamCheckErr@%s[object_tracking_mode] cur:%d req:%d"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xe63034",
+    "RTOS_VA": null,
+    "text": "CAMERA_SCN_FACE_REC_DATA"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xeaa8b1",
+    "RTOS_VA": null,
+    "text": "[ObjRenderer]BKID_RENDERER_L_PRM_OPEN_MODE_EE_FACE_RECORD : 0x%x"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xeaaeca",
+    "RTOS_VA": null,
+    "text": "[ObjRenderer]BKID_RENDERER_L_PRM_DELIVER_MODE_AUTOREVIEW_FACE_RECORD : 0x%x"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xeb8501",
+    "RTOS_VA": null,
+    "text": "[ObjRenderer]BKID_DISPLAY_FACE_RECORD_COLOR : 0x%x"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xeb8534",
+    "RTOS_VA": null,
+    "text": "[ObjRenderer]BKID_DISPLAY_FACE_RECORD_DOUBLE_FRAME : 0x%x"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xece6b4",
+    "RTOS_VA": null,
+    "text": "[ObjRenderer]SHOT_TYPE_FACE_RECORD"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xed3905",
+    "RTOS_VA": null,
+    "text": "[ObjRenderer]AUTO_REVIEW_LAYOUT_TYPE_FACE_RECORD"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf03a41",
+    "RTOS_VA": null,
+    "text": "MSGID_NOTIFY_FACE_DETECTED_EVT"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf03a60",
+    "RTOS_VA": null,
+    "text": "MSGID_FACE_RECORD_CMD"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf03a76",
+    "RTOS_VA": null,
+    "text": "MSGID_FACE_RECORD_CMP"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf0447a",
+    "RTOS_VA": null,
+    "text": "(FRM) ##### Receive Msg : Message ID Error !!! CATEID_FACE_RECORDER [0x%04x] #####"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf04bcc",
+    "RTOS_VA": null,
+    "text": "SeqFaceRecord) ##### fix_face_record err #####"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf4e6b5",
+    "RTOS_VA": null,
+    "text": "Face Detected changed:(new)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf578d7",
+    "RTOS_VA": null,
+    "text": "Invalid ObjMsg (PARAMID_FACE_DETECTION_MODE_SET)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf57908",
+    "RTOS_VA": null,
+    "text": "Invalid Value (PARAMID_FACE_DETECTION_MODE_SET)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf579f4",
+    "RTOS_VA": null,
+    "text": "Invalid ObjMsg (PARAMID_FACE_DETECTION_MODE_ACT)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf57a25",
+    "RTOS_VA": null,
+    "text": "Invalid Value (PARAMID_FACE_DETECTION_MODE_ACT)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf7355c",
+    "RTOS_VA": null,
+    "text": "Failed DefObjCamera::MSGID_SET_OBJECT_TRACKING_MODE_CMD(err)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf73599",
+    "RTOS_VA": null,
+    "text": "Issued DefObjCamera::MSGID_SET_OBJECT_TRACKING_MODE_CMD"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf759b7",
+    "RTOS_VA": null,
+    "text": "Failed ObjCamera::MSGID_SET_FACE_DETECTION_MODE_CMD (err)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf759f1",
+    "RTOS_VA": null,
+    "text": "Issued ObjCamera::MSGID_SET_FACE_DETECTION_MODE_CMD (relay)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf7d893",
+    "RTOS_VA": null,
+    "text": "Failed ObjCamera::MSGID_SET_FACE_RECORD_MODE_CMD (err)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf7d8ca",
+    "RTOS_VA": null,
+    "text": "Issued ObjCamera::MSGID_SET_FACE_RECORD_MODE_CMD (relay)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf8b5ba",
+    "RTOS_VA": null,
+    "text": "PARAMID Not Found (PARAMID_DATA_FACE_RECORD_MODE)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf8b5ec",
+    "RTOS_VA": null,
+    "text": "PARAMID (PARAMID_DATA_FACE_RECORD_MODE):"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xf903d6",
+    "RTOS_VA": null,
+    "text": "PARAMID Not Found (PARAMID_DATA_OBJECT_TRACKING_MODE)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xfc1c5c",
+    "RTOS_VA": null,
+    "text": "Failed ObjCamera::MSGID_FACE_RECORD_CAPTURE_START_CMD (err)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xfc1c98",
+    "RTOS_VA": null,
+    "text": "Issued ObjCamera::MSGID_FACE_RECORD_CAPTURE_START_CMD (relay)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xfc1d97",
+    "RTOS_VA": null,
+    "text": "Invalid PARAMID_FACE_DETECTED"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xfc1dec",
+    "RTOS_VA": null,
+    "text": "Failed DefObjFaceRecorder::MSGID_FACE_RECORD_CMD (err)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xfc1e23",
+    "RTOS_VA": null,
+    "text": "Issued DefObjFaceRecorder::MSGID_FACE_RECORD_CMD (relay)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0xfc1e89",
+    "RTOS_VA": null,
+    "text": "Invalid ObjMsg (MSGID_FACE_RECORD_CMP)"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1078a8c",
+    "RTOS_VA": null,
+    "text": " Receive EVTID_FACE_DETECTION"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x107dd44",
+    "RTOS_VA": null,
+    "text": " Receive -> MPR <MSGID_FACE_DETECT_EVT>"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x107dd6c",
+    "RTOS_VA": null,
+    "text": "[MSGID_FACE_DETECT_EVT]----------------------"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x107dd9a",
+    "RTOS_VA": null,
+    "text": " Notify -> APP <MSGID_FACE_DETECT_EVT>"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x107e564",
+    "RTOS_VA": null,
+    "text": "  -> PARAMID_IS_FACE_DETECT_ON [%d]"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x107e6d2",
+    "RTOS_VA": null,
+    "text": "  -> PARAMID_IS_FACE_DETECT_ON [%s]"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10b6bce",
+    "RTOS_VA": null,
+    "text": "SeqSetObjectTrackingMode) ##### [%d] PARAMID_OBJECT_TRACKING_MODE is NULL. #####"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10bd622",
+    "RTOS_VA": null,
+    "text": "SeqSetFaceDetectionMode) ##### [%d] SEND PID_SET_FACE_RECORD_MODE ERROR #####"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10c54da",
+    "RTOS_VA": null,
+    "text": "VALUEID_OBJECT_TRACK"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10c8e5b",
+    "RTOS_VA": null,
+    "text": "VALUEID_FACE_RECORD_ON"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10c8e72",
+    "RTOS_VA": null,
+    "text": "VALUEID_FACE_RECORD_OFF"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10c9427",
+    "RTOS_VA": null,
+    "text": "VALUEID_OBJECT_TRACKING_OFF"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10c9443",
+    "RTOS_VA": null,
+    "text": "VALUEID_OBJECT_TRACKING_ON"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10c98f7",
+    "RTOS_VA": null,
+    "text": "VALUEID_CAP_FACE_RECORD"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10cb49d",
+    "RTOS_VA": null,
+    "text": "VALUEID_OBJECT_TRACKING_ON_S1"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10dd1f4",
+    "RTOS_VA": null,
+    "text": "VALUEID_OBJECT_TRACK_ON"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10dd2ba",
+    "RTOS_VA": null,
+    "text": "VALUEID_FACE_RECORD_MODE_OFF"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10dd2d7",
+    "RTOS_VA": null,
+    "text": "VALUEID_FACE_RECORD_MODE_ON"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10eabed",
+    "RTOS_VA": null,
+    "text": "PARAMID_FACE_DETECTION_MODE"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10eac09",
+    "RTOS_VA": null,
+    "text": "PARAMID_FACE_DETECTION_MODE_SET"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10eac29",
+    "RTOS_VA": null,
+    "text": "PARAMID_FACE_DETECTION_MODE_ACT"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10ed9b1",
+    "RTOS_VA": null,
+    "text": "PARAMID_FACE_RECORD"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10ed9c5",
+    "RTOS_VA": null,
+    "text": "PARAMID_FACE_RECORD_SET"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10ed9dd",
+    "RTOS_VA": null,
+    "text": "PARAMID_FACE_RECORD_ACT"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10edfdc",
+    "RTOS_VA": null,
+    "text": "PARAMID_OBJECT_TRACKING_MODE"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10edff9",
+    "RTOS_VA": null,
+    "text": "PARAMID_OBJECT_TRACKING_MODE_SET"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10ee01a",
+    "RTOS_VA": null,
+    "text": "PARAMID_OBJECT_TRACKING_MODE_ACT"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10fe8e9",
+    "RTOS_VA": null,
+    "text": "PARAMID_FACE_RECORD_MODE"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10fe902",
+    "RTOS_VA": null,
+    "text": "PARAMID_FACE_RECORD_MODE_SET"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x10fe91f",
+    "RTOS_VA": null,
+    "text": "PARAMID_FACE_RECORD_MODE_ACT"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1103d89",
+    "RTOS_VA": null,
+    "text": "MSGID_SET_FACE_DETECTION_MODE_CMD"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1103dab",
+    "RTOS_VA": null,
+    "text": "MSGID_SET_FACE_DETECTION_MODE_CMP"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1104fd5",
+    "RTOS_VA": null,
+    "text": "MSGID_FACE_RECORD_CAPTURE_START_CMD"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1104ff9",
+    "RTOS_VA": null,
+    "text": "MSGID_FACE_RECORD_CAPTURE_START_CMP"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x110501d",
+    "RTOS_VA": null,
+    "text": "MSGID_SET_FACE_RECORD_CMD"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1105037",
+    "RTOS_VA": null,
+    "text": "MSGID_SET_FACE_RECORD_CMP"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x11052d8",
+    "RTOS_VA": null,
+    "text": "MSGID_SET_OBJECT_TRACKING_MODE_CMP"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x110719b",
+    "RTOS_VA": null,
+    "text": "MSGID_SET_FACE_RECORD_MODE_CMD"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x11071ba",
+    "RTOS_VA": null,
+    "text": "MSGID_SET_FACE_RECORD_MODE_CMP"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x110883f",
+    "RTOS_VA": null,
+    "text": "MSGID_NOTIFY_FACE_DETECTION_MODE_EVT"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1109a25",
+    "RTOS_VA": null,
+    "text": "MSGID_NOTIFY_FACE_RECORD_EVT"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1109be2",
+    "RTOS_VA": null,
+    "text": "MSGID_NOTIFY_OBJECT_TRACKING_MODE_EVT"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x110b191",
+    "RTOS_VA": null,
+    "text": "MSGID_NOTIFY_FACE_RECORD_MODE_EVT"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x113c3be",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_FACE_DETECTION_REGARDLESS_OF_MENU_MODE UNKNOWN[0x%04x] #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x113c427",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_FACE_DETECTION_REGARDLESS_OF_MENU_MODE is NULL #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x113c5ef",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_FACE_RECORD_MODE UNKNOWN[0x%04x] #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x113c642",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_FACE_RECORD_MODE is NULL #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x113eb8d",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_INTERNAL_FC_FACE_DETECTION_MODE UNKNOWN[0x%04x] #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x113ebef",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_INTERNAL_FC_FACE_DETECTION_MODE is NULL #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x113ecaa",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_INTERNAL_FACE_DETECTION_MODE UNKNOWN[0x%04x] #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x113ed09",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_INTERNAL_FACE_DETECTION_MODE is NULL #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1142c65",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_OBJECT_TRACKING_MODE UNKNOWN[0x%04x] #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1142cbc",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_OBJECT_TRACKING_MODE is NULL #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1142e47",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_FACE_DETECTION_MODE UNKNOWN[0x%04x] #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1142e9d",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_FACE_DETECTION_MODE is NULL #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1154544",
+    "RTOS_VA": null,
+    "text": "CamMsgConv) ######## ERROR !!!! PARAMID_FACE_RECORD_ACT is NULL #########"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1166c0b",
+    "RTOS_VA": null,
+    "text": "MID_SET_INTERNAL_FACE_DETECTION"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1166c2b",
+    "RTOS_VA": null,
+    "text": "MID_SET_INTERNAL_FC_FACE_DETECTION"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1166d71",
+    "RTOS_VA": null,
+    "text": "MID_SET_FACE_DETECTION_REGARDLESS_OF_MENU_MODE"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1168b4d",
+    "RTOS_VA": null,
+    "text": "PARAMID_EXC_FACE_RECOGNITION_RESTRICTION"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1168ded",
+    "RTOS_VA": null,
+    "text": "PARAMID_INTERNAL_FACE_DETECTION_MODE"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1168e12",
+    "RTOS_VA": null,
+    "text": "PARAMID_INTERNAL_FC_FACE_DETECTION_MODE"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x116963d",
+    "RTOS_VA": null,
+    "text": "PARAMID_FACE_DETECTION_REGARDLESS_OF_MENU_MODE"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x117064c",
+    "RTOS_VA": null,
+    "text": "VALUEID_INTERNAL_FACE_DETECTION_OFF"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1170670",
+    "RTOS_VA": null,
+    "text": "VALUEID_INTERNAL_FACE_DETECTION_AUTO"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1170695",
+    "RTOS_VA": null,
+    "text": "VALUEID_INTERNAL_FC_FACE_DETECTION_OFF"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x11706bc",
+    "RTOS_VA": null,
+    "text": "VALUEID_INTERNAL_FC_FACE_DETECTION_AUTO"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x11706e4",
+    "RTOS_VA": null,
+    "text": "VALUEID_FACE_DETECTION_REGARDLESS_OF_MENU_MODE_OFF"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1170717",
+    "RTOS_VA": null,
+    "text": "VALUEID_FACE_DETECTION_REGARDLESS_OF_MENU_MODE_ON"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1171abe",
+    "RTOS_VA": null,
+    "text": "VALUEID_EXC_STILL_FACE_RECORD"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x117298a",
+    "RTOS_VA": null,
+    "text": "VALUEID_EXC_STILL_FACE_RECORD_ON_DQ"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x117308f",
+    "RTOS_VA": null,
+    "text": "VALUEID_EXC_STILL_FACE_RECORD_ON_KK"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1173794",
+    "RTOS_VA": null,
+    "text": "VALUEID_EXC_STILL_FACE_RECORD_ON_KC"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x1174189",
+    "RTOS_VA": null,
+    "text": "VALUEID_EXC_STILL_FACE_RECORD_FOCUS_DIAL_BODY_PHASE_SHIFT_AF"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x11741c6",
+    "RTOS_VA": null,
+    "text": "VALUEID_EXC_STILL_FACE_RECORD_BODY_PHASE_SHIFT_AF"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x11741f8",
+    "RTOS_VA": null,
+    "text": "VALUEID_EXC_STILL_FACE_RECORD_FOCUS_DIAL"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x117acce",
+    "RTOS_VA": null,
+    "text": "VALUEID_EXC_FACE_RECOGNITION_RESTRICTION_MOVIE_PROXY_4K"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x117ad06",
+    "RTOS_VA": null,
+    "text": "VALUEID_EXC_FACE_RECOGNITION_RESTRICTION_MOVIE_PROXY"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x117ad3b",
+    "RTOS_VA": null,
+    "text": "VALUEID_EXC_FACE_RECOGNITION_RESTRICTION_MOVIE"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x118df04",
+    "RTOS_VA": null,
+    "text": "InhFeatureCheck) ##### ERROR!!! PARAMID_FACE_DETECTION_MODE UNKNOWN #####"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "offset": "0x118ecd9",
+    "RTOS_VA": null,
+    "text": "InhFeatureCheck) ##### ERROR!!! PARAMID_OBJECT_TRACKING_MODE UNKNOWN #####"
+  },
+  {
+    "file": "dumps/camera_2025/usr/usr/lib/libBizFw.so",
+    "offset": "0x47555",
+    "RTOS_VA": null,
+    "text": "API_SCALAR_A_START_FACE_DETECTION"
+  }
+]

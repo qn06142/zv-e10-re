@@ -1,0 +1,255 @@
+{
+  "actual_Sony_getters_executed": true,
+  "camera_access": false,
+  "numeric_enum_meanings_proved": false,
+  "fields": [
+    {
+      "field": "ImageAttach",
+      "offset": 0,
+      "width": 1,
+      "value": 0,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo19GetData_ImageAttachEPh",
+      "address": "0x24701"
+    },
+    {
+      "field": "Mirror",
+      "offset": 19,
+      "width": 1,
+      "value": 19,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo14GetData_MirrorEPh",
+      "address": "0x2478d"
+    },
+    {
+      "field": "DataContent",
+      "offset": 50,
+      "width": 1,
+      "value": 50,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo19GetData_DataContentEPh",
+      "address": "0x248ff"
+    },
+    {
+      "field": "TargetSizeY",
+      "offset": 42,
+      "width": 2,
+      "value": 11050,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo19GetData_TargetSizeYEPt",
+      "address": "0x24867"
+    },
+    {
+      "field": "ValidSizeY",
+      "offset": 34,
+      "width": 2,
+      "value": 8994,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo18GetData_ValidSizeYEPt",
+      "address": "0x2481f"
+    },
+    {
+      "field": "UnitHandle",
+      "offset": 8,
+      "width": 2,
+      "value": 2312,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo18GetData_UnitHandleEPt",
+      "address": "0x24725"
+    },
+    {
+      "field": "CamFreqCharH",
+      "offset": 56,
+      "width": 2,
+      "value": 14648,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo20GetData_CamFreqCharHEPt",
+      "address": "0x24957"
+    },
+    {
+      "field": "DataScan",
+      "offset": 51,
+      "width": 1,
+      "value": 51,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo16GetData_DataScanEPh",
+      "address": "0x24915"
+    },
+    {
+      "field": "TargetSizeX",
+      "offset": 40,
+      "width": 2,
+      "value": 10536,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo19GetData_TargetSizeXEPt",
+      "address": "0x24855"
+    },
+    {
+      "field": "ValidSizeX",
+      "offset": 32,
+      "width": 2,
+      "value": 8480,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo18GetData_ValidSizeXEPt",
+      "address": "0x2480d"
+    },
+    {
+      "field": "DataPlacement",
+      "offset": 49,
+      "width": 1,
+      "value": 49,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo21GetData_DataPlacementEPh",
+      "address": "0x248e9"
+    },
+    {
+      "field": "ExposePicDelay",
+      "offset": 17,
+      "width": 1,
+      "value": 17,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo22GetData_ExposePicDelayEPh",
+      "address": "0x24761"
+    },
+    {
+      "field": "Aspect",
+      "offset": 46,
+      "width": 1,
+      "value": 46,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo14GetData_AspectEPh",
+      "address": "0x248a7"
+    },
+    {
+      "field": "YcCompress",
+      "offset": 47,
+      "width": 1,
+      "value": 47,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo18GetData_YcCompressEPh",
+      "address": "0x248bd"
+    },
+    {
+      "field": "UnitType",
+      "offset": 4,
+      "width": 4,
+      "value": 117835012,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo16GetData_UnitTypeEPj",
+      "address": "0x24713"
+    },
+    {
+      "field": "YcBitDepth",
+      "offset": 54,
+      "width": 1,
+      "value": 54,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo18GetData_YcBitDepthEPh",
+      "address": "0x24941"
+    },
+    {
+      "field": "ValidOffsetY",
+      "offset": 30,
+      "width": 2,
+      "value": 7966,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo20GetData_ValidOffsetYEPt",
+      "address": "0x247fb"
+    },
+    {
+      "field": "StripWidth",
+      "offset": 52,
+      "width": 2,
+      "value": 13620,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo18GetData_StripWidthEPt",
+      "address": "0x2492b"
+    },
+    {
+      "field": "CanvasSizeY",
+      "offset": 26,
+      "width": 2,
+      "value": 6938,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo19GetData_CanvasSizeYEPt",
+      "address": "0x247d7"
+    },
+    {
+      "field": "ExposureTime",
+      "offset": 16,
+      "width": 1,
+      "value": 16,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo20GetData_ExposureTimeEPh",
+      "address": "0x2474b"
+    },
+    {
+      "field": "IibNumber",
+      "offset": 45,
+      "width": 1,
+      "value": 45,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo17GetData_IibNumberEPh",
+      "address": "0x24891"
+    },
+    {
+      "field": "TargetOffsetY",
+      "offset": 38,
+      "width": 2,
+      "value": 10022,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo21GetData_TargetOffsetYEPt",
+      "address": "0x24843"
+    },
+    {
+      "field": "ValidOffsetX",
+      "offset": 28,
+      "width": 2,
+      "value": 7452,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo20GetData_ValidOffsetXEPt",
+      "address": "0x247e9"
+    },
+    {
+      "field": "CanvasSizeX",
+      "offset": 24,
+      "width": 2,
+      "value": 6424,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo19GetData_CanvasSizeXEPt",
+      "address": "0x247c5"
+    },
+    {
+      "field": "UnitDataOffset",
+      "offset": 12,
+      "width": 4,
+      "value": 252579084,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo22GetData_UnitDataOffsetEPj",
+      "address": "0x24737"
+    },
+    {
+      "field": "RecordSizeY",
+      "offset": 22,
+      "width": 2,
+      "value": 5910,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo19GetData_RecordSizeYEPt",
+      "address": "0x247b3"
+    },
+    {
+      "field": "DataSite",
+      "offset": 44,
+      "width": 1,
+      "value": 44,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo16GetData_DataSiteEPh",
+      "address": "0x2487b"
+    },
+    {
+      "field": "TargetOffsetX",
+      "offset": 36,
+      "width": 2,
+      "value": 9508,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo21GetData_TargetOffsetXEPt",
+      "address": "0x24831"
+    },
+    {
+      "field": "DataTransfer",
+      "offset": 48,
+      "width": 1,
+      "value": 48,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo20GetData_DataTransferEPh",
+      "address": "0x248d3"
+    },
+    {
+      "field": "RecordSizeX",
+      "offset": 20,
+      "width": 2,
+      "value": 5396,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo19GetData_RecordSizeXEPt",
+      "address": "0x247a1"
+    },
+    {
+      "field": "ScenarioEnd",
+      "offset": 18,
+      "width": 1,
+      "value": 18,
+      "symbol": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo19GetData_ScenarioEndEPh",
+      "address": "0x24777"
+    }
+  ]
+}

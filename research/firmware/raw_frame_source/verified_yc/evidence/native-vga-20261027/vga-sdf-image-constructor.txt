@@ -1,0 +1,42 @@
+63ca431a: mov        r3, r0
+63ca431c: movs       r2, #0
+63ca431e: mov.w      r1, #-1
+63ca4322: strb       r2, [r0]
+63ca4324: strb       r2, [r0, #1]
+63ca4326: strb       r2, [r0, #2]
+63ca4328: strb       r2, [r0, #3]
+63ca432a: str        r1, [r0, #4]
+63ca432c: strh       r1, [r0, #8]
+63ca432e: strh       r2, [r0, #0xa]
+63ca4330: str        r2, [r0, #0xc]
+63ca4332: str        r2, [r0, #0x10]
+63ca4334: strh       r2, [r0, #0x14]
+63ca4336: strh       r2, [r0, #0x16]
+63ca4338: strh       r2, [r0, #0x18]
+63ca433a: strh       r2, [r0, #0x1a]
+63ca433c: strh       r2, [r0, #0x1c]
+63ca433e: strh       r2, [r0, #0x1e]
+63ca4340: strh       r2, [r0, #0x20]
+63ca4342: strh       r2, [r0, #0x22]
+63ca4344: strh       r2, [r0, #0x24]
+63ca4346: strh       r2, [r0, #0x26]
+63ca4348: strh       r2, [r0, #0x28]
+63ca434a: strh       r2, [r0, #0x2a]
+63ca434c: strb.w     r2, [r3, #0x2c]
+63ca4350: strb.w     r2, [r3, #0x2d]
+63ca4354: strb.w     r2, [r3, #0x2e]
+63ca4358: strb.w     r2, [r3, #0x2f]
+63ca435c: strb.w     r2, [r3, #0x30]
+63ca4360: strb.w     r2, [r3, #0x31]
+63ca4364: strb.w     r2, [r3, #0x32]
+63ca4368: strb.w     r2, [r3, #0x33]
+63ca436c: strh       r2, [r0, #0x34]
+63ca436e: strh       r2, [r0, #0x36]
+63ca4370: bx         lr
+63ca4372: movs       r2, #0
+63ca4374: mov.w      r1, #-1
+63ca4378: str        r2, [r0, #0xc]
+63ca437a: stm.w      r0, {r1, r2}
+63ca437e: str        r1, [r0, #8]
+63ca4380: str        r2, [r0, #0x10]
+63ca4382: bx         lr

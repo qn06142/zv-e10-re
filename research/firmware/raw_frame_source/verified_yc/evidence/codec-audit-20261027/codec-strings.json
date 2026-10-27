@@ -1,0 +1,126 @@
+[
+  {
+    "address": "0x63f1d7b0",
+    "text": "ycCompress    =%d"
+  },
+  {
+    "address": "0x63f1d80a",
+    "text": "stripWidth    =%d"
+  },
+  {
+    "address": "0x63f1ebc7",
+    "text": "MPEG2_HD422"
+  },
+  {
+    "address": "0x63f24f9f",
+    "text": "[CODEC V   ]input_image_compress            = 0x%02X"
+  },
+  {
+    "address": "0x63f2a774",
+    "text": "SR_SQ_422"
+  },
+  {
+    "address": "0x63f2a77e",
+    "text": "SR_LITE_422"
+  },
+  {
+    "address": "0x63f2a78a",
+    "text": "220_422_10BIT"
+  },
+  {
+    "address": "0x63f2a798",
+    "text": "220_422_8BIT"
+  },
+  {
+    "address": "0x63f2a7a5",
+    "text": "145_422_8BIT"
+  },
+  {
+    "address": "0x63f2a7bf",
+    "text": "PRO_RES_422HQ"
+  },
+  {
+    "address": "0x63f2a7cd",
+    "text": "PRO_RES_422"
+  },
+  {
+    "address": "0x63f2a7d9",
+    "text": "PRO_RES_422LT"
+  },
+  {
+    "address": "0x63f3b148",
+    "text": "[SDF] ycCompress     : %#x"
+  },
+  {
+    "address": "0x63f3b1cf",
+    "text": "[SDF] stripWidth     : %#x"
+  },
+  {
+    "address": "0x63f3f5fc",
+    "text": "[SDF] SplitDecodeResizeRotate targetSizeX too short for YC compress"
+  },
+  {
+    "address": "0x63f3fd89",
+    "text": "[SDF][INT_ERROR] inYcCompress & outYcCompress"
+  },
+  {
+    "address": "0x63f4281f",
+    "text": "SetYcCompress"
+  },
+  {
+    "address": "0x63f51998",
+    "text": "N3VDF28VfxRgba8888ToYuv422ProcessorE"
+  },
+  {
+    "address": "0x63f59787",
+    "text": "N3VEF25PathProcessCompressScrollE"
+  },
+  {
+    "address": "0x63f5bf46",
+    "text": "FW: encType must be ENC4 when RAW is precompressed in the imager."
+  },
+  {
+    "address": "0x63f5bfad",
+    "text": "FW: width[%d] % 48 != 0 in spite of imager-precompressed data."
+  },
+  {
+    "address": "0x63f65543",
+    "text": "IMG:SetParams: invalid compressType %d"
+  },
+  {
+    "address": "0x63f85d1c",
+    "text": "FW: stripWidth:0x%X"
+  },
+  {
+    "address": "0x63fb49f2",
+    "text": "[CMNHANDLER]BitDepth      :0x%08X"
+  },
+  {
+    "address": "0x63fb6bae",
+    "text": "[ENCHANDLER]BitDepth                      :%d"
+  },
+  {
+    "address": "0x63fbf63a",
+    "text": "MPEG2_HD422_MXF"
+  },
+  {
+    "address": "0x63fc385b",
+    "text": "[TSKVIDENC ]   input_image_compress             = 0x%02X"
+  },
+  {
+    "address": "0x63fd2809",
+    "text": "CalcStripWidth"
+  },
+  {
+    "address": "0x63fd28e2",
+    "text": "[RC][ERROR]     stripWidth %d"
+  },
+  {
+    "address": "0x63fd34c9",
+    "text": "CalcStripWidth"
+  },
+  {
+    "address": "0x63fd390c",
+    "text": "CheckOutputImageMirrorYcCompStripWidth"
+  }
+]

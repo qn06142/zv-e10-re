@@ -1,0 +1,22 @@
+[
+  {
+    "at": "0x18a73c",
+    "target": "MLM_resize_helper",
+    "function": "0x18a698"
+  },
+  {
+    "at": "0x18aa08",
+    "target": "MLM_resize_helper",
+    "function": "0x18a830"
+  },
+  {
+    "at": "0x19ff34",
+    "target": "Artfilter_resize_helper",
+    "function": "0x19fd94"
+  },
+  {
+    "at": "0x1a00d8",
+    "target": "Artfilter_resize_helper",
+    "function": "0x19ffb4"
+  }
+]

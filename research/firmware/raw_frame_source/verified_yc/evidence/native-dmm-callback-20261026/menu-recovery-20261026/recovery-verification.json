@@ -1,0 +1,21 @@
+{
+  "reported_failure": "MENU/VIDEO caused automatic restart",
+  "log_cleanup_prior": {
+    "files": 2,
+    "bytes": 1711247,
+    "partition": "/log"
+  },
+  "tmp_initially_not_cleared": true,
+  "tmp_research_traces_archived_verified_deleted": {
+    "files": 5,
+    "bytes": 1124649
+  },
+  "tmp_available_after_kib": 7600,
+  "tmp_4096_byte_write_readback_passed": true,
+  "normal_error_logging": true,
+  "firmware_changed_during_this_check": false,
+  "revision_27_still_installed": true,
+  "user_retest": "MENU and VIDEO work now, USB disconnected, no streaming started",
+  "cause_proven": false,
+  "sensor_capture_tested": false
+}

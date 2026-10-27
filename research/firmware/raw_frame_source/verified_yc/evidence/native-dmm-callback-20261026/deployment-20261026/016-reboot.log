@@ -1,0 +1,12 @@
+/bin/busybox sync
+/usr/share/app # echo V27_REBOOT_REQUESTED
+V27_REBOOT_REQUESTED
+/usr/share/app # /bin/busybox reboot -f
+[ 1070.986374] Disabling non-boot CPUs ...
+[ 1070.988496] CPU1: shutdown
+[ 1070.988511] CPU1: shutdown
+[ 1071.006689] CPU2: shutdown
+[ 1071.006707] CPU2: shutdown
+[ 1071.037494] CPU3: shutdown
+[ 1071.037512] CPU3: shutdown
+[ 1

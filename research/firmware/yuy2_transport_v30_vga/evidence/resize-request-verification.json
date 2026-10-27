@@ -1,0 +1,93 @@
+{
+  "camera_access": false,
+  "native_original_instructions_executed": true,
+  "mocked": [
+    "debug/logging",
+    "SdfCh constructor/destructor in caller",
+    "sendAndRcvAckCmp in SDK wrapper"
+  ],
+  "live_hardware_acceptance_proved": false,
+  "reference_layout": {
+    "handle_offset": 0,
+    "unit_type_offset": 4,
+    "evidence": "libObj allocNewSdsAndYc 0x206b58 and allocator 0x206aec; word4 stores allocation unit type, not address/data_site"
+  },
+  "cases": [
+    {
+      "caller": "0x18a58c",
+      "source_reference": [
+        4660,
+        16909060
+      ],
+      "destination_reference": [
+        22136,
+        287454020
+      ],
+      "sdk_command_hex": "0020030044000000070034123412341234123412000000000403020134120000000000000001000000000000000000000000000000000000443322117856000000000000"
+    },
+    {
+      "caller": "0x18a58c",
+      "source_reference": [
+        1,
+        0
+      ],
+      "destination_reference": [
+        2,
+        0
+      ],
+      "sdk_command_hex": "0020030044000000070034123412341234123412000000000000000001000000000000000001000000000000000000000000000000000000000000000200000000000000"
+    },
+    {
+      "caller": "0x18a58c",
+      "source_reference": [
+        65534,
+        1
+      ],
+      "destination_reference": [
+        43981,
+        2
+      ],
+      "sdk_command_hex": "00200300440000000700341234123412341234120000000001000000feff000000000000000100000000000000000000000000000000000002000000cdab000000000000"
+    },
+    {
+      "caller": "0x19fc88",
+      "source_reference": [
+        4660,
+        16909060
+      ],
+      "destination_reference": [
+        22136,
+        287454020
+      ],
+      "sdk_command_hex": "0020030044000000070034123412341234123412000000000403020134120000000000000001000000000000000000000000000000000000443322117856000000000000"
+    },
+    {
+      "caller": "0x19fc88",
+      "source_reference": [
+        1,
+        0
+      ],
+      "destination_reference": [
+        2,
+        0
+      ],
+      "sdk_command_hex": "0020030044000000070034123412341234123412000000000000000001000000000000000001000000000000000000000000000000000000000000000200000000000000"
+    },
+    {
+      "caller": "0x19fc88",
+      "source_reference": [
+        65534,
+        1
+      ],
+      "destination_reference": [
+        43981,
+        2
+      ],
+      "sdk_command_hex": "00200300440000000700341234123412341234120000000001000000feff000000000000000100000000000000000000000000000000000002000000cdab000000000000"
+    }
+  ],
+  "binary_md5": {
+    "libObj.so": "0b4be3fb599b539c69c782bd400dd8e9",
+    "libBizFw.so": "6416a5a6780bbe829eb30d85fc8e8dad"
+  }
+}

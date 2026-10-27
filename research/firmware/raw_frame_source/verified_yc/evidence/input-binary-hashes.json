@@ -1,0 +1,26 @@
+[
+  {
+    "path": "dumps/firmware/av-cam.bin",
+    "bytes": 17289388,
+    "md5": "cdcae9d4fdbf66a33704a4c7564e346d",
+    "sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa"
+  },
+  {
+    "path": "dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so",
+    "bytes": 172680,
+    "md5": "f70f50f931e9c2cf415cc2728e324f60",
+    "sha256": "3a7235ab96ed87606fc598f45db8e318afacc1e58a07e51b541923a43de76941"
+  },
+  {
+    "path": "dumps/camera_2025/usr/usr/lib/libObj.so",
+    "bytes": 21305456,
+    "md5": "0b4be3fb599b539c69c782bd400dd8e9",
+    "sha256": "bc0deb2f0e94218752e42ce6f5a3576d7456971eb63fbde705ffbd9b3a7fdeea"
+  },
+  {
+    "path": "dumps/camera_2025/usr/usr/lib/libBizFw.so",
+    "bytes": 318780,
+    "md5": "6416a5a6780bbe829eb30d85fc8e8dad",
+    "sha256": "ae3fddb9378ff3852618f3d2055f8be1f1236a299ddac9f66df390640acb3711"
+  }
+]

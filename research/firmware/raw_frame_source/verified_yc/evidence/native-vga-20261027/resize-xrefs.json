@@ -1,0 +1,30 @@
+[
+  {
+    "load": "0x636c5df6",
+    "add": "0x636c5dfa",
+    "literal": "0x636c5e1c",
+    "target": "0x63f3ceff",
+    "string": "ApiResizeRotate.cpp"
+  },
+  {
+    "load": "0x636c5fc0",
+    "add": "0x636c5fc6",
+    "literal": "0x636c6418",
+    "target": "0x63f3ceff",
+    "string": "ApiResizeRotate.cpp"
+  },
+  {
+    "load": "0x636ea53a",
+    "add": "0x636ea53c",
+    "literal": "0x636ea6fc",
+    "target": "0x63f3fd89",
+    "string": "[SDF][INT_ERROR] inYcCompress & outYcCompress"
+  },
+  {
+    "load": "0x636ea9b0",
+    "add": "0x636ea9b2",
+    "literal": "0x636eaad0",
+    "target": "0x63f3fd89",
+    "string": "[SDF][INT_ERROR] inYcCompress & outYcCompress"
+  }
+]

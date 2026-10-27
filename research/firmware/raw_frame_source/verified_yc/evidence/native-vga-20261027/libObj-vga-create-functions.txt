@@ -1,0 +1,214 @@
+
+FUNCTION 0x206ac4..0x206aec
+00206ac4: push     {r3, r4, r7, lr} 
+00206ac6: movs     r1, #0x35 
+00206ac8: ldr      r3, [pc, #0x18] 
+00206aca: mov      r4, r0 
+00206acc: ldr      r2, [pc, #0x18] 
+00206ace: add      r7, sp, #0 
+00206ad0: add      r3, pc 
+00206ad2: ldr      r3, [r3, r2] 
+00206ad4: adds     r3, #8 
+00206ad6: str      r3, [r0], #4 
+00206ada: blx      #0x108b2c _ZN17OBJAVBBCBASECLASS5DmmChC1Et
+00206ade: mov      r0, r4 
+00206ae0: pop      {r3, r4, r7, pc} 
+00206ae2: nop       
+00206ae4: asrs     r4, r1, #4 
+00206ae6: lsls     r5, r3, #4 
+00206ae8: adds     r3, #0x30 
+00206aea: movs     r0, r0 
+
+FUNCTION 0x206c56..0x206ca0
+00206c56: push.w   {r4, r5, r6, r7, r8, lr} 
+00206c5a: sub      sp, #0x18 
+00206c5c: mov      r5, r1 
+00206c5e: add      r7, sp, #8 
+00206c60: movs     r1, #0 
+00206c62: mov      r4, r2 
+00206c64: mov      r6, r0 
+00206c66: mov      r2, r1 
+00206c68: mov      r8, r3 
+00206c6a: mov      r0, r7 
+00206c6c: mov      r3, r1 
+00206c6e: str      r1, [sp] 
+00206c70: str      r1, [sp, #4] 
+00206c72: bl       #0xe49650 
+00206c76: mov      r3, r4 
+00206c78: mov      r0, r6 
+00206c7a: mov      r1, r5 
+00206c7c: mov      r2, r7 
+00206c7e: bl       #0x206b58 
+00206c82: mov      r4, r0 
+00206c84: cbnz     r0, #0x206c92 
+00206c86: mov      r0, r6 
+00206c88: mov      r1, r5 
+00206c8a: mov      r2, r7 
+00206c8c: mov      r3, r8 
+00206c8e: bl       #0x206bf4 
+00206c92: mov      r0, r4 
+00206c94: add.w    r7, r7, #0x10 
+00206c98: mov      sp, r7 
+00206c9a: pop.w    {r4, r5, r6, r7, r8, pc} 
+00206c9e: movs     r0, r0 
+
+FUNCTION 0xe48a10..0xe48a5e
+00e48a10: ldrh     r2, [r1] 
+00e48a12: push     {r3, r4, r7, lr} 
+00e48a14: mov      r4, r0 
+00e48a16: ldrh     r3, [r1, #2] 
+00e48a18: add      r7, sp, #0 
+00e48a1a: strh.w   r2, [r0, #0x13c] 
+00e48a1e: ldrh     r2, [r1, #4] 
+00e48a20: strh.w   r3, [r0, #0x13e] 
+00e48a24: ldrh     r3, [r1, #6] 
+00e48a26: strh.w   r2, [r0, #0x140] 
+00e48a2a: ldrh     r2, [r1, #0xc] 
+00e48a2c: strh.w   r3, [r0, #0x142] 
+00e48a30: ldrh     r0, [r1, #8] 
+00e48a32: ldrh     r3, [r1, #0xa] 
+00e48a34: strh.w   r2, [r4, #0x148] 
+00e48a38: ldrh     r2, [r1, #0xe] 
+00e48a3a: strh.w   r0, [r4, #0x144] 
+00e48a3e: strh.w   r3, [r4, #0x146] 
+00e48a42: strh.w   r2, [r4, #0x14a] 
+00e48a46: ldrh     r2, [r1, #0x10] 
+00e48a48: ldrh     r1, [r1, #0x12] 
+00e48a4a: strh.w   r2, [r4, #0x14c] 
+00e48a4e: strh.w   r1, [r4, #0x14e] 
+00e48a52: mov      r1, r3 
+00e48a54: bl       #0x1756dc 
+00e48a58: strb.w   r0, [r4, #0x152] 
+00e48a5c: pop      {r3, r4, r7, pc} 
+
+FUNCTION 0xe48a5e..0xe48aaa
+00e48a5e: push     {r4, r5, r7, lr} 
+00e48a60: mov      r5, r1 
+00e48a62: add      r7, sp, #0 
+00e48a64: mov      r4, r0 
+00e48a66: bl       #0x1743c4 
+00e48a6a: ldrh.w   r3, [r5, #0x13c] 
+00e48a6e: mov      r0, r4 
+00e48a70: strh     r3, [r4] 
+00e48a72: ldrh.w   r3, [r5, #0x13e] 
+00e48a76: strh     r3, [r4, #2] 
+00e48a78: ldrh.w   r3, [r5, #0x140] 
+00e48a7c: strh     r3, [r4, #4] 
+00e48a7e: ldrh.w   r3, [r5, #0x142] 
+00e48a82: strh     r3, [r4, #6] 
+00e48a84: ldrh.w   r3, [r5, #0x144] 
+00e48a88: strh     r3, [r4, #8] 
+00e48a8a: ldrh.w   r3, [r5, #0x146] 
+00e48a8e: strh     r3, [r4, #0xa] 
+00e48a90: ldrh.w   r3, [r5, #0x148] 
+00e48a94: strh     r3, [r4, #0xc] 
+00e48a96: ldrh.w   r3, [r5, #0x14a] 
+00e48a9a: strh     r3, [r4, #0xe] 
+00e48a9c: ldrh.w   r3, [r5, #0x14c] 
+00e48aa0: ldrh.w   r5, [r5, #0x14e] 
+00e48aa4: strh     r3, [r4, #0x10] 
+00e48aa6: strh     r5, [r4, #0x12] 
+00e48aa8: pop      {r4, r5, r7, pc} 
+
+FUNCTION 0xe490a4..0xe49160
+00e490a4: push.w   {r4, r5, r6, r7, r8, sb, sl, fp, lr} 
+00e490a8: sub      sp, #0x14 
+00e490aa: add      r7, sp, #8 
+00e490ac: ldr      r4, [pc, #0xa8] 
+00e490ae: mov      r5, r0 
+00e490b0: str      r2, [r7, #4] 
+00e490b2: add.w    fp, r0, #0x14 
+00e490b6: ldr      r2, [pc, #0xa4] 
+00e490b8: add      r4, pc 
+00e490ba: add.w    sl, r5, #0x38 
+00e490be: ldr      r2, [r4, r2] 
+00e490c0: ldr      r4, [r1, #8] 
+00e490c2: adds     r2, #8 
+00e490c4: str      r2, [r0] 
+00e490c6: ldrh     r2, [r1] 
+00e490c8: strh     r2, [r0, #4] 
+00e490ca: ldr      r2, [r1, #4] 
+00e490cc: str      r4, [r0, #0xc] 
+00e490ce: str      r2, [r0, #8] 
+00e490d0: ldr      r2, [r1, #0xc] 
+00e490d2: movs     r1, #0x29 
+00e490d4: str      r2, [r0, #0x10] 
+00e490d6: mov      r0, fp 
+00e490d8: str      r1, [sp] 
+00e490da: mov      r1, r4 
+00e490dc: blx      #0x10cbb0 _ZN12AvbbcPhycMemC1EjjNS_10CACHE_MODEEj
+00e490e0: movs     r3, #0 
+00e490e2: mov      r0, sl 
+00e490e4: str      r3, [r5, #0x34] 
+00e490e6: blx      #0x109f78 _ZN35C_DataflowInfra_Entry_ImageSizeInfoC1Ev
+00e490ea: add.w    sb, r5, #0x88 
+00e490ee: mov      r0, sb 
+00e490f0: blx      #0x10c734 _ZN33C_DataflowInfra_Entry_YcStateInfoC1Ev
+00e490f4: add.w    r8, r5, #0xa4 
+00e490f8: mov      r0, r8 
+00e490fa: blx      #0x108f10 _ZN37C_DataflowInfra_Entry_ImageOutTimInfoC1Ev
+00e490fe: add.w    r6, r5, #0xd4 
+00e49102: mov      r0, r6 
+00e49104: blx      #0x109d40 _ZN40C_DataflowInfra_Entry_RightImageSizeInfoC1Ev
+00e49108: add.w    r4, r5, #0x108 
+00e4910c: mov      r0, r4 
+00e4910e: blx      #0x10f7d0 _ZN33C_DataflowInfra_Entry_DisplayInfoC1Ev
+00e49112: mov      r0, r5 
+00e49114: ldr      r1, [r7, #4] 
+00e49116: bl       #0xe48ca0 
+00e4911a: mov      r0, r5 
+00e4911c: add.w    r7, r7, #0xc 
+00e49120: mov      sp, r7 
+00e49122: pop.w    {r4, r5, r6, r7, r8, sb, sl, fp, pc} 
+00e49126: mov      r0, r4 
+00e49128: blx      #0x10c768 _ZN33C_DataflowInfra_Entry_DisplayInfoD1Ev
+00e4912c: b        #0xe4912e 
+00e4912e: mov      r0, r6 
+00e49130: blx      #0x10a0dc _ZN40C_DataflowInfra_Entry_RightImageSizeInfoD1Ev
+00e49134: b        #0xe49136 
+00e49136: mov      r0, r8 
+00e49138: blx      #0x108878 _ZN37C_DataflowInfra_Entry_ImageOutTimInfoD1Ev
+00e4913c: b        #0xe4913e 
+00e4913e: mov      r0, sb 
+00e49140: blx      #0x10efbc _ZN33C_DataflowInfra_Entry_YcStateInfoD1Ev
+00e49144: b        #0xe49146 
+00e49146: mov      r0, sl 
+00e49148: blx      #0x108aa4 _ZN35C_DataflowInfra_Entry_ImageSizeInfoD1Ev
+00e4914c: b        #0xe4914e 
+00e4914e: mov      r0, fp 
+00e49150: blx      #0x10f14c _ZN12AvbbcPhycMemD1Ev
+00e49154: blx      #0x10a31c __cxa_end_cleanup
+
+FUNCTION 0xe49160..0xe491b0
+00e49160: push     {r4, r5, r7, lr} 
+00e49162: mov      r4, r0 
+00e49164: sub      sp, #8 
+00e49166: add.w    r5, r0, #0x38 
+00e4916a: add.w    r1, r4, #0x124 
+00e4916e: mov      r0, r5 
+00e49170: add      r7, sp, #8 
+00e49172: blx      #0x10964c _ZN35C_DataflowInfra_Entry_ImageSizeInfo11SetData_AllEPN19DataflowInfra_StdYc22PIN_YC_IMAGE_SIZE_INFOE
+00e49176: ldr      r0, [r4, #0x34] 
+00e49178: mov      r1, r5 
+00e4917a: blx      #0x10fa9c _ZN26C_DataflowInfra_StdData_YC22SetEntry_ImageSizeInfoEP35C_DataflowInfra_Entry_ImageSizeInfo
+00e4917e: mov      r4, r0 
+00e49180: cbz      r0, #0xe491a2 
+00e49182: bl       #0x172a4c 
+00e49186: cmp      r0, #0 
+00e49188: ble      #0xe491a4 
+00e4918a: ldr      r3, [pc, #0x20] 
+00e4918c: movs     r0, #0x35 
+00e4918e: movs     r1, #0 
+00e49190: movs     r2, #1 
+00e49192: add      r3, pc '[ObjEffect]YcSdsAcsr::storeYcImageSizeInfo: SetEntry_ImageSizeInfo() failed (%d)'
+00e49194: stm.w    sp, {r3, r4} 
+00e49198: movw     r3, #0x2e5 
+00e4919c: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+00e491a0: b        #0xe491a4 
+00e491a2: b        #0xe491a6 
+00e491a4: movs     r0, #1 
+00e491a6: mov      sp, r7 
+00e491a8: pop      {r4, r5, r7, pc} 
+00e491aa: nop       
+00e491ac: str      r4, [sp, #0x148] 
+00e491ae: movs     r1, r7 

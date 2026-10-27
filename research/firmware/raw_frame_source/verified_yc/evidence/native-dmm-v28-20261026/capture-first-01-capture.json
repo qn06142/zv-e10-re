@@ -1,0 +1,90 @@
+{
+  "bytes": 6144000,
+  "frame_bytes": 614400,
+  "complete_frames": 10,
+  "trailing_bytes": 0,
+  "frames": [
+    {
+      "file": "frame-0000.bin",
+      "bytes": 614400,
+      "sha256": "b0cceb40c44526e72784cec1892dcf86829113ba4c59376f19d5daf2a031714b"
+    },
+    {
+      "file": "frame-0001.bin",
+      "bytes": 614400,
+      "sha256": "3fb55ac454aca0404264b5718eb90981fdf71aa9ef57f4125538fa0cfa032f78"
+    },
+    {
+      "file": "frame-0002.bin",
+      "bytes": 614400,
+      "sha256": "f648e46138bbd9f1fc38fb7bbf0bf141b11181e8b0d60640dcbf33c69a6ee7ca"
+    },
+    {
+      "file": "frame-0003.bin",
+      "bytes": 614400,
+      "sha256": "0948ad2fb07b20fdca4dfbc82f962798efae343b8e936602876a957fd4161a16"
+    },
+    {
+      "file": "frame-0004.bin",
+      "bytes": 614400,
+      "sha256": "994725eae2db8590cd434e96fdc5b4837bec8ee535065f8a66d0a81b06bb6200"
+    },
+    {
+      "file": "frame-0005.bin",
+      "bytes": 614400,
+      "sha256": "526da92e8b7beccda3b061a91c74c258e37f2796b59bc25eb670624d16db5b46"
+    },
+    {
+      "file": "frame-0006.bin",
+      "bytes": 614400,
+      "sha256": "bd8f12bb0b402fbb858624fe3fb29cc116b5391e5fd222676a159d6d21b1e14f"
+    },
+    {
+      "file": "frame-0007.bin",
+      "bytes": 614400,
+      "sha256": "af04ea9e10909ce85091d2b8c6b052d50f3645d3b07fd4ef495f51100c96b683"
+    },
+    {
+      "file": "frame-0008.bin",
+      "bytes": 614400,
+      "sha256": "0f61430f1165b3c10bb3fde33713fd59096dc6e77ca4f07919736eac61aaaa4c"
+    },
+    {
+      "file": "frame-0009.bin",
+      "bytes": 614400,
+      "sha256": "76744953429ce1c5a690968171f96a5200ff643ad26d9b60679a9932fb37d1ad"
+    }
+  ],
+  "source_pixel_format": "UNKNOWN; YUY2 is transport framing only",
+  "conversion_performed": false,
+  "exit_code": 0,
+  "command": [
+    "C:\\WINDOWS\\ffmpeg.exe",
+    "-hide_banner",
+    "-nostdin",
+    "-f",
+    "dshow",
+    "-pixel_format",
+    "yuyv422",
+    "-video_size",
+    "640x480",
+    "-framerate",
+    "10",
+    "-rtbufsize",
+    "8M",
+    "-i",
+    "video=ZV-E10",
+    "-map",
+    "0:v:0",
+    "-frames:v",
+    "10",
+    "-an",
+    "-c:v",
+    "copy",
+    "-f",
+    "rawvideo",
+    "-n",
+    "outputs\\native-dmm-v28\\capture-first-01\\capture.bin"
+  ],
+  "camera_access": true
+}

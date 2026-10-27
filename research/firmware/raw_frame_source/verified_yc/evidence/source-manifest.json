@@ -1,0 +1,32 @@
+[
+  {
+    "path": "research/firmware/raw_frame_source/verified_yc/sony_yc_metadata.c",
+    "bytes": 1548,
+    "sha256": "e338d055c1f3570704d3fc59135ea21f1549e41f768fff373f13de4b757e2eee"
+  },
+  {
+    "path": "research/firmware/raw_frame_source/verified_yc/sony_yc_metadata.h",
+    "bytes": 1989,
+    "sha256": "d786658b1d45bc977a3b3049c98674a4e57fc5f2fcea1dcd4544f89aa6322060"
+  },
+  {
+    "path": "research/firmware/raw_frame_source/verified_yc/sony_yc_pin_wire.c",
+    "bytes": 1446,
+    "sha256": "9b9426fdb9a8bd3425c0555bc210519691b786a31863099f0ea731ee4ea71501"
+  },
+  {
+    "path": "research/firmware/raw_frame_source/verified_yc/sony_yc_pin_wire.h",
+    "bytes": 926,
+    "sha256": "823eeafcd19e67225694025a395ec7cc0df5ec281e4beb1583d1ae314a8bb22a"
+  },
+  {
+    "path": "research/firmware/raw_frame_source/verified_yc/sony_yc_sds.c",
+    "bytes": 1040,
+    "sha256": "926f35b5c94061cf8eaa7e107212c77146bffd53e017fdac23d576b0f069ecff"
+  },
+  {
+    "path": "research/firmware/raw_frame_source/verified_yc/sony_yc_sds.h",
+    "bytes": 627,
+    "sha256": "19d712f7f4650285a0fa2abf0f55c833d64f8074f813781765c06a7cc1fec7ba"
+  }
+]

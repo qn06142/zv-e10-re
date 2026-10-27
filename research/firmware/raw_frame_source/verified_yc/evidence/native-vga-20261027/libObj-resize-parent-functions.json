@@ -1,0 +1,546 @@
+[
+  {
+    "start": "0x18a698",
+    "end": "0x18a78c",
+    "strings": [
+      {
+        "at": "0x18a6ba",
+        "string": "[ObjEffect][MLM] ExecCmdPinDeliverMultiLayout::drawImage(%d)"
+      },
+      {
+        "at": "0x18a754",
+        "string": "[ObjEffect][MLM] drawImage(%d) failed. [%x]"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0x18a6aa",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a6c4",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a6d6",
+        "target": "0xe4961a"
+      },
+      {
+        "at": "0x18a6e4",
+        "target": "0xe490a4"
+      },
+      {
+        "at": "0x18a6ec",
+        "target": "0x1743c4"
+      },
+      {
+        "at": "0x18a6f8",
+        "target": "0x18b2c8"
+      },
+      {
+        "at": "0x18a702",
+        "target": "0xe48a5e"
+      },
+      {
+        "at": "0x18a70e",
+        "target": "memcpy"
+      },
+      {
+        "at": "0x18a72a",
+        "target": "0xe48a10"
+      },
+      {
+        "at": "0x18a732",
+        "target": "0xe49160"
+      },
+      {
+        "at": "0x18a73c",
+        "target": "0x18a58c"
+      },
+      {
+        "at": "0x18a744",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a75e",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a766",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x18a77a",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x18a77e",
+        "target": "__cxa_end_cleanup"
+      }
+    ]
+  },
+  {
+    "start": "0x18a830",
+    "end": "0x18ab10",
+    "strings": [
+      {
+        "at": "0x18a84c",
+        "string": "[ObjEffect][MLM] ExecCmdPinDeliverMultiLayout::deliver()"
+      },
+      {
+        "at": "0x18a89e",
+        "string": "[ObjEffect][MLM] Failed to create buffer for display [%x]"
+      },
+      {
+        "at": "0x18aa20",
+        "string": "[ObjEffect][MLM] Failed to copy buffer for display [%x]"
+      },
+      {
+        "at": "0x18aa66",
+        "string": "[ObjEffect][MLM] Failed to create deliver message [%x]"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0x18a83c",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a854",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a868",
+        "target": "0xe49650"
+      },
+      {
+        "at": "0x18a87a",
+        "target": "0xe49650"
+      },
+      {
+        "at": "0x18a884",
+        "target": "0x18a7f8"
+      },
+      {
+        "at": "0x18a88c",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a8a8",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a8ba",
+        "target": "0xe490a4"
+      },
+      {
+        "at": "0x18a8c8",
+        "target": "0xe49610"
+      },
+      {
+        "at": "0x18a8d4",
+        "target": "0xe49610"
+      },
+      {
+        "at": "0x18a8dc",
+        "target": "0x1743c4"
+      },
+      {
+        "at": "0x18a8e8",
+        "target": "0x18b2b8"
+      },
+      {
+        "at": "0x18a8f4",
+        "target": "0x18a78c"
+      },
+      {
+        "at": "0x18a90c",
+        "target": "0xe48a5e"
+      },
+      {
+        "at": "0x18a918",
+        "target": "memcpy"
+      },
+      {
+        "at": "0x18a94e",
+        "target": "0xe48a10"
+      },
+      {
+        "at": "0x18a956",
+        "target": "0xe49160"
+      },
+      {
+        "at": "0x18a960",
+        "target": "0x18903a"
+      },
+      {
+        "at": "0x18a970",
+        "target": "0xe490a4"
+      },
+      {
+        "at": "0x18a97c",
+        "target": "0xe49610"
+      },
+      {
+        "at": "0x18a984",
+        "target": "0x1743c4"
+      },
+      {
+        "at": "0x18a98e",
+        "target": "0x18b2b8"
+      },
+      {
+        "at": "0x18a998",
+        "target": "0xe48a5e"
+      },
+      {
+        "at": "0x18a9a4",
+        "target": "memcpy"
+      },
+      {
+        "at": "0x18a9da",
+        "target": "0xe48a10"
+      },
+      {
+        "at": "0x18a9e2",
+        "target": "0xe49160"
+      },
+      {
+        "at": "0x18a9ee",
+        "target": "0xe4886c"
+      },
+      {
+        "at": "0x18a9fa",
+        "target": "0xe4938c"
+      },
+      {
+        "at": "0x18aa08",
+        "target": "0x18a58c"
+      },
+      {
+        "at": "0x18aa10",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18aa2a",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18aa34",
+        "target": "0x189f00"
+      },
+      {
+        "at": "0x18aa3e",
+        "target": "_ZN3MWF6ObjMsgC1Ev"
+      },
+      {
+        "at": "0x18aa56",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18aa70",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18aa7a",
+        "target": "0x189f00"
+      },
+      {
+        "at": "0x18aaa4",
+        "target": "0xe49a78"
+      },
+      {
+        "at": "0x18aab2",
+        "target": "_ZN3MWF6ObjMsgD1Ev"
+      },
+      {
+        "at": "0x18aabe",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x18aac6",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x18aae0",
+        "target": "_ZN3MWF6ObjMsgD1Ev"
+      },
+      {
+        "at": "0x18aaea",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x18aaf4",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x18aaf8",
+        "target": "__cxa_end_cleanup"
+      }
+    ]
+  },
+  {
+    "start": "0x19fd94",
+    "end": "0x19ffb4",
+    "strings": [
+      {
+        "at": "0x19fdae",
+        "string": "[ObjEffect]SequencePinDeliverStartArtfilterCmd::resize2VGA()"
+      },
+      {
+        "at": "0x19fe10",
+        "string": "[ObjEffect]Failed to allocate memory: VGA_work0 [%x]"
+      },
+      {
+        "at": "0x19fe52",
+        "string": "[ObjEffect]Failed to allocate memory: VGA_work1 [%x]"
+      },
+      {
+        "at": "0x19ff4c",
+        "string": "[ObjEffect]Failed to resizeRotateImage retCode = [%x]"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0x19fd9e",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x19fdb6",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x19fdc0",
+        "target": "0x206ac4"
+      },
+      {
+        "at": "0x19fdd2",
+        "target": "0xe49650"
+      },
+      {
+        "at": "0x19fde4",
+        "target": "0xe49650"
+      },
+      {
+        "at": "0x19fdf6",
+        "target": "0x206c56"
+      },
+      {
+        "at": "0x19fdfe",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x19fe26",
+        "target": "0x19c21e"
+      },
+      {
+        "at": "0x19fe38",
+        "target": "0x206c56"
+      },
+      {
+        "at": "0x19fe40",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x19fe5c",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x19fe6c",
+        "target": "0x19c21e"
+      },
+      {
+        "at": "0x19fe7c",
+        "target": "0xe490a4"
+      },
+      {
+        "at": "0x19fe84",
+        "target": "0x1743c4"
+      },
+      {
+        "at": "0x19fe8c",
+        "target": "0x19c216"
+      },
+      {
+        "at": "0x19fe98",
+        "target": "0xe48a5e"
+      },
+      {
+        "at": "0x19fea8",
+        "target": "memcpy"
+      },
+      {
+        "at": "0x19fefa",
+        "target": "0xe48a10"
+      },
+      {
+        "at": "0x19ff02",
+        "target": "0xe49160"
+      },
+      {
+        "at": "0x19ff12",
+        "target": "0xe490a4"
+      },
+      {
+        "at": "0x19ff1e",
+        "target": "0xe48a10"
+      },
+      {
+        "at": "0x19ff26",
+        "target": "0xe49160"
+      },
+      {
+        "at": "0x19ff34",
+        "target": "0x19fc88"
+      },
+      {
+        "at": "0x19ff3c",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x19ff56",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x19ff5e",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x19ff66",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x19ff72",
+        "target": "0x206a8c"
+      },
+      {
+        "at": "0x19ff84",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x19ff8e",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x19ff98",
+        "target": "0x206a8c"
+      },
+      {
+        "at": "0x19ff9c",
+        "target": "__cxa_end_cleanup"
+      }
+    ]
+  },
+  {
+    "start": "0x19ffb4",
+    "end": "0x1a0144",
+    "strings": [
+      {
+        "at": "0x19ffce",
+        "string": "[ObjEffect]SequencePinDeliverStartArtfilterCmd::resize2SAwork()"
+      },
+      {
+        "at": "0x1a001a",
+        "string": "[ObjEffect]Failed to allocate memory: SA_work [%x]"
+      },
+      {
+        "at": "0x1a00f0",
+        "string": "[ObjEffect]Failed to resizeRotateImage retCode = [%x]"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0x19ffbe",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x19ffd6",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x19ffde",
+        "target": "0x206ac4"
+      },
+      {
+        "at": "0x19fff0",
+        "target": "0xe49650"
+      },
+      {
+        "at": "0x1a0002",
+        "target": "0x206c56"
+      },
+      {
+        "at": "0x1a000a",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x1a0024",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x1a0034",
+        "target": "0x19c21e"
+      },
+      {
+        "at": "0x1a0044",
+        "target": "0xe490a4"
+      },
+      {
+        "at": "0x1a004c",
+        "target": "0x1743c4"
+      },
+      {
+        "at": "0x1a0054",
+        "target": "0x19c216"
+      },
+      {
+        "at": "0x1a0060",
+        "target": "0xe48a5e"
+      },
+      {
+        "at": "0x1a0070",
+        "target": "memcpy"
+      },
+      {
+        "at": "0x1a00c2",
+        "target": "0xe48a10"
+      },
+      {
+        "at": "0x1a00ca",
+        "target": "0xe49160"
+      },
+      {
+        "at": "0x1a00d8",
+        "target": "0x19fc88"
+      },
+      {
+        "at": "0x1a00e0",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x1a00fa",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x1a0102",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x1a010e",
+        "target": "0x206a8c"
+      },
+      {
+        "at": "0x1a0120",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x1a012a",
+        "target": "0x206a8c"
+      },
+      {
+        "at": "0x1a012e",
+        "target": "__cxa_end_cleanup"
+      }
+    ]
+  }
+]

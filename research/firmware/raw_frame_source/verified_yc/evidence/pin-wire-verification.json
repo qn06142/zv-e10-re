@@ -1,0 +1,29 @@
+{
+  "passed": [
+    "native SEND header matches executed Sony constructor",
+    "completion bytes match executed Sony SendComp including property direction/order and negative status",
+    "all52 truncated SEND lengths and four invalid header fields rejected"
+  ],
+  "SDK_SendComp_executed": true,
+  "OSAL_IPC_executed": false,
+  "camera_access": false,
+  "native_complete_hex": "001002812c0001000000000002000000000000000e00590000000000010000000000000056341200f9ffffff",
+  "imports_intercepted": [
+    "_ZN16DataflowInfraMsg14SetDataflowMsgEPvt",
+    "_ZN16DataflowInfraMsg8SetSrcIdEj",
+    "_ZN16DataflowInfraMsgC1Ev",
+    "_ZN16DataflowInfraMsgD1Ev",
+    "_ZN18_MSG_PIN_SEND_COMPC1Ev",
+    "_ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg"
+  ],
+  "Sony_imports_forwarded_to_original_code": [
+    "_ZN18_MSG_PIN_SEND_COMPC1Ev"
+  ],
+  "external_functions_stubbed": [
+    "_ZN16DataflowInfraMsg14SetDataflowMsgEPvt",
+    "_ZN16DataflowInfraMsg8SetSrcIdEj",
+    "_ZN16DataflowInfraMsgC1Ev",
+    "_ZN16DataflowInfraMsgD1Ev",
+    "_ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg"
+  ]
+}

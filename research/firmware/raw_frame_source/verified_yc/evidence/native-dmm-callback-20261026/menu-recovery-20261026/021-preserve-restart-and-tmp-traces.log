@@ -1,0 +1,12 @@
+/usr/share/app # /usr/bin/mpr_viewLog.elf > /log/yuy2_640_v27snap/menu-crash-01/
+mpr-current.log 2>&1
+/usr/share/app # /bin/busybox md5sum /tmp/opengate_trace/*.log > /log/yuy2_640_v
+27snap/menu-crash-01/tmp-traces.md5
+/usr/share/app # /bin/busybox ls -l /tmp/opengate_trace
+-rw-r--r--    1 0        0             7919 Jan  1  1980 dmesg_post.log
+-rw-r--r--    1 0        0             7919 Jan  1  1980 dmesg_prev.log
+-rw-r--r--    1 0        0                4 Jan  1  1980 im_pid.log
+-rw-r--r--    1 0        0           686409 Jan  1  1980 mpr_after.log
+-rw-r--r--    1 0        0           422398 Jan  1  1980 mpr_before.log
+/usr/share/app # echo V27_DIRECT_021-preserve-restart-and-tmp-traces
+V27_DIRECT_021-preserve-restart-and-tmp-traces

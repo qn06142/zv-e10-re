@@ -8,59 +8,23 @@ This repository is a fork of **[ma1co/Sony-PMCA-RE](https://github.com/ma1co/Son
 (MIT, © 2015 ma1co), which provides the USB plumbing. Everything under `docs/`,
 `avcam_re/`, `retool/` and `research/` is ZV-E10-specific work added on top.
 
-## Hardware-Verified Breakthrough: The Magenta Framing Lines Patch
+## Hardware-verified: custom VGA video over USB
 
-**The first confirmed, tangible, on-screen modification on the Sony ZV-E10.**
+![Synthetic colour bars and frame counter captured from the Sony ZV-E10 over USB](docs/assets/zve10-vga-colour-bars.png)
 
-By reverse engineering Sony's proprietary `.uxc` user interface resource format, we successfully recoloured the live-view framing guides (rule-of-thirds grid lines) on the physical camera LCD from factory stock translucent grey (`#333333` @ 50% opacity) to vibrant **magenta** (`#FF00FF` @ 100% opacity).
+*An actual camera-to-PC capture: 640×480 YUY2 synthetic colour bars, with the frame counter visible along the bottom.*
 
-```
-Stock:   0x400c: 33 33 33 80  (Grey @ 50% opacity)
-Patched: 0x400c: ff 00 ff ff  (Vibrant Magenta @ 100% opacity)
-```
+The camera runs our own video producer and sends its frames through the USB video pipeline. The permanent **2.4p** patch survived reboot, delivered ten exact frames in FFmpeg, delivered another ten when FFmpeg reopened the same streaming session, and displayed the bars and counters in **OBS**.
 
-### Why this is the load-bearing tangible result
-- **100% Hardware Verified:** When the camera powers on in standard shooting mode, the framing guides appear in bright magenta directly on the LCD display and viewfinder.
-- **Conclusive Proof of the UI Architecture:** `#FF00FF` appears **zero** times anywhere in Sony's stock palette. The appearance of magenta on the LCD settles the mechanism beyond debate: Sony's UI engine parses `.uxc` resource tables at boot, and entry `0x400c` is authoritative for framing guides.
-- **Safe & Reversible:** Operates via a surgical 4-byte edit in a 312-byte user-space palette file (`/usr/share/app/color_cmn.uxc`). Does not touch firmware binaries, kernel drivers, or `/system/av-cam.bin`.
+- **640×480 YUY2 over USB 2**, advertised at 10 fps. The captures validate delivery and counters; sustained frame rate was not measured.
+- **Custom producer and transport:** synthetic frames reach a standard PC video client through the camera's USB gadget.
+- **Persistent activation and recovery:** the tested patch activates during USB Streaming setup, with verified recovery files preserved.
 
-### The 4-Byte Palette Record
+See the [hardware test report](docs/uvc_yuy2_patch_v24p.md), [reproducible producer source](research/firmware/yuy2_transport_v24p/README.md), and [capture provenance](docs/assets/zve10-vga-colour-bars.json).
 
-The camera's UI engine loads `/usr/share/app/color_cmn.uxc` (312 bytes) at startup. Palette records have an 8-byte stride: `u16 id` (0x4000..0x4022), `u16 attr` (0x3a09), and 4 bytes `RGBA`. Record `0x400c` (offset `0xbc`) governs the live-view framing lines:
+Live sensor acquisition is the next research layer. **Revision 3.0's VGA resize candidate is installed and reboot-verified, but has not been stream-tested; camera testing is paused.** The next major push uses the proven VGA transport and new Sony allocator/metadata findings to trace a genuine **4K / 12-bit** source. See the [next-push plan](docs/90-session/4K_12BIT_NEXT_PUSH.md).
 
-| Mode | Entry `0x400c` (Hex) | RGBA Colour | File MD5 | On-Screen Appearance |
-|---|---|---|---|---|
-| **Stock** | `0c 40 09 3a 33 33 33 80` | `#333333` @ 50% | `f468bd3e72ca4e5b948a1c9f1f35c0a1` | Factory subtle grey grid lines |
-| **Magenta** | `0c 40 09 3a ff 00 ff ff` | `#FF00FF` @ 100% | `c169428ea6ef0e924235164a0b33e528` | **Vibrant magenta framing lines** |
-| **Blue (Alt)** | `0c 40 09 3a 00 00 dd 80` | `#0000DD` @ 50% | `9474c2846a1a952179a2408018ff0295` | Translucent blue grid lines |
-
-### Quick Start: Apply or Revert on Hardware
-
-**Option 1: Single-shot Python script**
-```powershell
-# Deploy magenta framing lines (writes /usr/share/app/color_cmn.uxc and reboots):
-python batch_patch_magenta.py
-
-# Revert to factory stock anytime:
-python batch_patch_magenta.py --revert
-```
-
-**Option 2: Direct service shell commands**
-```sh
-# 1. Remount /usr writable
-mount -o remount,rw /usr
-
-# 2. Patch 4 bytes at offset 0xbc (Entry 0x400c -> ff 00 ff ff)
-printf '\xff\x00\xff\xff' | dd of=/usr/share/app/color_cmn.uxc bs=1 seek=188 count=4 conv=notrunc
-
-# 3. Verify MD5 matches c169428ea6ef0e924235164a0b33e528
-/bin/busybox md5sum /usr/share/app/color_cmn.uxc
-
-# 4. Remount read-only and reboot to observe
-mount -o remount,ro /usr
-sync
-/bin/busybox reboot -f
-```
+The earlier [magenta framing-lines patch](docs/magenta_framing_lines.md) remains documented as the first verified LCD palette modification.
 
 ## What this found
 
@@ -128,21 +92,16 @@ and `libmpr.so` uncovered the video recording pipeline and sensor crop parameter
 [`batch_patch_opengate.py`](batch_patch_opengate.py), **the patch is experimental and not working properly yet for reliable recording**. See [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md)
 and [`docs/90-session/OPENGATE_138_PATCH_SUITE.md`](docs/90-session/OPENGATE_138_PATCH_SUITE.md) for the technical analysis.
 
-**Active Research: High-Speed UVC USB Webcam gadget architecture.** Stock ZV-E10
-USB streaming caps output at an artificial 720p 30fps at ~30 Mbps, wasting over 90%
-of available USB 2.0 High-Speed bulk throughput. Reverse engineering `libInfraUsbCmn.so`,
-`libInfraStreamingUsb.so`, and `usbg_video.ko` revealed the UVC descriptor tables
-and hardware MJPEG stream configuration.
-*Status:* While the descriptor table formats and byte-level patch sites are verified,
-**the streaming patch is experimental and not working properly yet**.
-See [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md).
+**USB webcam research:** custom synthetic VGA delivery is hardware-verified with the 2.4p transport. The [live sensor-source investigation](docs/uvc_vga_v30_candidate_20261027.md) now uses Sony's resize APIs and explicit buffer ownership. Its 3.0 candidate has passed installation/reboot checks; live output and pixel packing are still unverified.
 
 ## Start here
 
 | | |
 |---|---|
 | **[`docs/agents/STATE.md`](docs/agents/STATE.md)** | **one page, self-contained** — state of play, blockers, the traps that bite. Read this first. |
-| **[`batch_patch_magenta.py`](batch_patch_magenta.py)** | **Hardware-verified magenta framing lines patcher** — single-shot deploy & revert |
+| **[`docs/uvc_yuy2_patch_v24p.md`](docs/uvc_yuy2_patch_v24p.md)** | **Verified VGA USB colour-bars result** — FFmpeg captures, same-session reopen and OBS |
+| [`docs/90-session/4K_12BIT_NEXT_PUSH.md`](docs/90-session/4K_12BIT_NEXT_PUSH.md) | Next major investigation: genuine 4K / 12-bit source and precision-preserving pipeline |
+| [`batch_patch_magenta.py`](batch_patch_magenta.py) | Earlier hardware-verified LCD framing-lines patcher |
 | [`docs/agents/REFERENCE.md`](docs/agents/REFERENCE.md) | **one page, self-contained** — the measured facts: hashes, offsets, id tables, format layouts |
 | [`docs/90-session/OPENGATE_PATCH_GUIDE.md`](docs/90-session/OPENGATE_PATCH_GUIDE.md) | **Open Gate 3:2 pipeline research (WIP)** — 138-patch matrix analysis |
 | [`docs/90-session/OPENGATE_138_PATCH_SUITE.md`](docs/90-session/OPENGATE_138_PATCH_SUITE.md) | **Open Gate 3:2 RE synthesis** — BIONZ X SDF pin disconnect and technical notes |
@@ -154,7 +113,7 @@ See [`docs/90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](docs/90-session/UVC_WEBCAM_HI
 Every load-bearing claim is reproducible by a tracked script:
 
 ```powershell
-& ".venv\Scripts\python.exe" -B -m pytest -q      # 151 pass, 12 skip (100% pass rate)
+& ".venv\Scripts\python.exe" -B -m pytest -q
 & ".venv\Scripts\python.exe" -B research\firmware\check_docs.py
 ```
 
@@ -179,7 +138,7 @@ The ZV-E10's APS-C CMOS sensor captures $6000 \times 4000$ pixels (3:2). In stoc
 ## High-Speed UVC USB Webcam (Experimental Research)
 
 > [!WARNING]
-> **Work In Progress — Not Working Properly:** While the UVC descriptor tables and MJPEG stream configuration parameters in `libInfraUsbCmn.so` and `libInfraStreamingUsb.so` have been mapped out, **live streaming output is currently not working properly**.
+> **Live sensor capture remains experimental.** Synthetic VGA colour bars are verified in FFmpeg and OBS using the 2.4p transport. The 3.0 native VGA resize candidate is installed but awaits a live test. The older descriptor/MJPEG experiments below are separate research tools.
 
 The research patcher inspects and tests custom UVC resolutions and descriptor modifications:
 
@@ -280,10 +239,9 @@ Do this only to a camera you are willing to permanently brick.
 
 ## Upstream tool
 
-`pmca/`, `updatershell/`, `pmca-console.py` and `pmca-gui.py` are upstream's, and
-**exactly one upstream file has been modified** — `pmca/usb/driver/generic/libusb.py`,
-a locality fix so a Zadig-bound camera is claimed through libusb0 rather than
-enumerated-then-failing on libusb-1.0. See [CREDITS.md](CREDITS.md).
+`pmca/`, `updatershell/`, `pmca-console.py` and `pmca-gui.py` originate upstream.
+Local USB work includes the libusb0 locality fix, Windows WinUSB support and
+device-opening fixes. See [CREDITS.md](CREDITS.md) for attribution.
 
 For installation and usage of that tool, use
 [upstream's README](https://github.com/ma1co/Sony-PMCA-RE#readme) rather than a

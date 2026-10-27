@@ -1,0 +1,60 @@
+{
+  "status": "BUILT_NOT_HARDWARE_VERIFIED",
+  "revision": "2.6-raw-diagnostic",
+  "usb_staging_unit": "0x276",
+  "usb_staging_extent": "0x333",
+  "configured_usb_staging_bytes": 3276800,
+  "width": 640,
+  "height": 480,
+  "fps": 10,
+  "pixel_format": "YUY2 advertised / opaque bytes payload",
+  "source_format": "UNINTERPRETED",
+  "source_backend": "NOT_PROVIDED",
+  "synthetic_fallback": false,
+  "frame_bytes": 614400,
+  "stream_base": "0xa61e000",
+  "common_base": "0x4834000",
+  "libdl_base": "0x40ba000",
+  "files": {
+    "bootstrap-after.bin": {
+      "bytes": 380,
+      "md5": "37c6682bf732feeae6a9dacfc53c16c1",
+      "sha256": "046ff895d9c06cbdd5cbde34ddc0f901c01e1c864b3f91bc73368955a8e42850"
+    },
+    "bootstrap-before.bin": {
+      "bytes": 380,
+      "md5": "82fd6edfabc0c36e8c0322e3be5969ef",
+      "sha256": "f5d26d7f21cee7b2f072e2e9fe3a1d4b43aca17ad177d122a50f956a2f930400"
+    },
+    "checked_mempatch.elf": {
+      "bytes": 8924,
+      "md5": "8132b48890369e66d495c815d7ca9d49",
+      "sha256": "6f8790f19bb7e8a60474ce760d7a28713555dc4b9a884c29169f66603c925360"
+    },
+    "descriptors.bin": {
+      "bytes": 154,
+      "md5": "9aefd24424073ef50f0082960ed4d10a",
+      "sha256": "6968f94d4a0451a0b6e8ff3352642d83af993543d8fb245a2b748657fc21faf5"
+    },
+    "libInfraStreamingUsb.persistent.so": {
+      "bytes": 72796,
+      "md5": "abc75c639c8cdd772947cd19d438f18e",
+      "sha256": "8067005817a1665cdaee604c586e8ad1b04da4a7c0328a33b7801741184f6096"
+    },
+    "prepare-after.bin": {
+      "bytes": 12,
+      "md5": "f2f93e51d27a85c08e333b7d861e4093",
+      "sha256": "734f489c7a3698873bd99fccc76ba90ebc7fb401b47aafe2661f29fd4b25c7de"
+    },
+    "prepare-before.bin": {
+      "bytes": 12,
+      "md5": "be81554a349d3ae517fcab54eb83c14d",
+      "sha256": "1553c30deaa0c160eb8819dbe99df40229e9f1f72702dabbc5ae1583da7da91b"
+    },
+    "yuy2_640_v26raw.so": {
+      "bytes": 22936,
+      "md5": "83175093af330f9989985b307d4c4d9f",
+      "sha256": "19da8506aae77ac6fc7919cde889af0cc582225180b0a323c6a3ce1d23e930e7"
+    }
+  }
+}

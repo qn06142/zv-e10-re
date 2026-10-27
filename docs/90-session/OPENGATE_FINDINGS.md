@@ -1,5 +1,14 @@
 # Open Gate (3:2 Full-Sensor Video) Reverse Engineering & Technical Blueprint
 
+## Next major milestone — VGA reference path to genuine 4K/12-bit
+
+27October2026: camera tests are paused at the user's request. Revision3.0 VGA is installed and reboot-verified but has not produced a tested frame. The hardware-proven colour-bars baseline is2.4p.
+
+Continue with [the 4K/12-bit next-push specification](4K_12BIT_NEXT_PUSH.md). The [preserved VGA binary reference bundle](../../research/firmware/4k12bit_baseline_20261027/README.md) contains the exact2.4p bars producer/matching gate, proven USB kernel, and separate3.0 experimental pair with hashes. Use these as controls and entry points into Sony's allocator, SSYC metadata and SDF resize chain, then trace a genuine high-bit-depth source through every conversion to its sink. This is the next major step; changing descriptor dimensions or an enum is insufficient.
+
+The new VGA work does not establish4K sensor readout,12-bit source precision,12-bit hardware encoding or sustained delivery. Historical blueprint claims below retain their separate evidence requirements; do not promote them to hardware proof based on the VGA result. The arithmetic examples below now distinguish packed12-bit YUV420 from12-bit Bayer/8-bit YUV420. Real allocation capacity, padding, cadence and sink throughput still need verification. No camera test, rollback or further flash was performed for this update.
+
+
 > **DOCUMENT STATUS:** Confirmed via reverse engineering of `libObj.so`, `libmpr.so`,
 > `av-cam.bin`, and RTOS kernel memory allocations in firmware dumps.
 
@@ -86,8 +95,8 @@ The restriction to 16:9 is enforced by a single hardcoded constant in the Linux 
 * **Buffer Memory Calculation (YUV420 8-bit / 10-bit):**
   $$\text{Pixels per frame} = 3240 \times 2160 = 6,998,400\text{ pixels}$$
   $$\text{Standard 4K 16:9 Pixels} = 3840 \times 2160 = 8,294,400\text{ pixels}$$
-  * 4K 16:9 Frame Buffer (12-bit YUV420): $11.87\text{ MB}$ per frame.
-  * 3.2K 3:2 Open Gate Frame Buffer (12-bit YUV420): **$10.01\text{ MB}$ per frame**.
+  * 4K 16:9 Frame Buffer (packed12-bit YUV420): **18,662,400 bytes (17.80 MiB)** per frame, before padding.
+  * 3.2K 3:2 Open Gate Frame Buffer (packed12-bit YUV420): **15,746,400 bytes (15.02 MiB)** per frame, before padding.
   * **Memory Impact:** 3.2K Open Gate uses **$15.6\%$ LESS memory** per frame than standard 4K 16:9.
   * **Memory Headroom:** Easily fits within the existing $680\text{ MB}$ uncached codec pool (`0x15800000:uc` reserved in `KEMCO.TXT`).
 

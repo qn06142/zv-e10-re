@@ -1,0 +1,5 @@
+{
+  "id": "009-preflight-writable-targets",
+  "ok": false,
+  "error": "Exception('Senser file control error 130')"
+}

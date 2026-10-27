@@ -39,7 +39,7 @@ avcam_proj/
 #
 # Rules are scoped to the dump locations on purpose.  A blanket '*.dat' would
 # also swallow updatershell/fdat/CXD*.dat, which are tracked project inputs.
-# /dumps/
+/dumps/
 /dumps/card/
 /dumps/*.img
 /dumps/fb_dump.bin
@@ -127,3 +127,9 @@ avcam_proj/
 
 # ---- failed-run logs from the retired Ghidra tool ----
 /avcam_re/_retired_ghidra/*.log
+
+# Generated experiment captures, packages and agent scratch stay local.
+/outputs/
+/.agents/teamwork/
+/research/**/*.zip
+*.su

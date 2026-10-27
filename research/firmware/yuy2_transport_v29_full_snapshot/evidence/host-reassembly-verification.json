@@ -1,0 +1,14 @@
+{
+  "camera_access": false,
+  "passed": 8,
+  "cases": [
+    "full 2073600-byte original reconstructed exactly",
+    "partial snapshot never exported",
+    "identical retransmit accepted",
+    "payload rejected",
+    "header rejected",
+    "truncated rejected",
+    "wrong revision rejected",
+    "padding rejected"
+  ]
+}

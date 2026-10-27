@@ -1,0 +1,358 @@
+
+dmm_ctrl_OpenUnitHdlr
+000059a4 mov      ip, sp 
+000059a8 push     {r4, r5, r6, r7, fp, ip, lr, pc} 
+000059ac sub      fp, ip, #4 
+000059b0 ldrh     r3, [r0, #0xc] 
+000059b4 mov      r5, r1 
+000059b8 mov      r4, r0 
+000059bc mvn      r3, r3, lsl #17 
+000059c0 mvn      r3, r3, lsr #17 
+000059c4 strh     r3, [r1] 
+000059c8 ldrh     r3, [r0, #0x20] 
+000059cc strh     r3, [r1, #6] 
+000059d0 ldrh     r3, [r0, #0xe] 
+000059d4 strh     r3, [r1, #4] 
+000059d8 ldrh     r1, [r0, #0x22] 
+000059dc cmp      r1, #0 
+000059e0 beq      #0x59f0 
+000059e4 cmp      r1, #4 
+000059e8 movwne   r6, #0xfffc 
+000059ec bne      #0x5a00 
+000059f0 ldrh     r0, [r4, #0xe] 
+000059f4 add      r3, r5, #8 
+000059f8 bl       #0x59f8 dmm_unit_ctrl_Open
+000059fc mov      r6, r0 
+00005a00 ldr      r3, [r4, #0x18] 
+00005a04 cmp      r3, #0 
+00005a08 beq      #0x5a2c 
+00005a0c sxth     r2, r6 
+00005a10 mvn      r3, #0x3300 
+00005a14 cmp      r2, r3 
+00005a18 ldreq    r3, [r4, #8] 
+00005a1c moveq    r7, #3 
+00005a20 orreq    r3, r3, #3 
+00005a24 streq    r3, [r4, #8] 
+00005a28 beq      #0x5a30 
+00005a2c mov      r7, #2 
+00005a30 ldrh     r0, [r4, #0xe] 
+00005a34 mov      r3, #1 
+00005a38 ldr      r1, [r4, #4] 
+00005a3c ldrh     r2, [r4, #0xc] 
+00005a40 bl       #0x5a40 dmm_unit_ctrl_SetUnitAccInfo
+00005a44 strh     r6, [r5, #0xa] 
+00005a48 sxth     r0, r6 
+00005a4c bl       #0x5294 
+00005a50 strh     r0, [r5, #2] 
+00005a54 mov      r0, r7 
+00005a58 ldm      sp, {r4, r5, r6, r7, fp, sp, pc} 
+
+dmm_ctrl_CloseUnitHdlr
+00005b2c mov      ip, sp 
+00005b30 push     {r3, r4, r5, r6, fp, ip, lr, pc} 
+00005b34 sub      fp, ip, #4 
+00005b38 ldrh     r3, [r0, #0xc] 
+00005b3c mov      r6, r0 
+00005b40 mov      r4, r1 
+00005b44 mvn      r3, r3, lsl #17 
+00005b48 mvn      r3, r3, lsr #17 
+00005b4c strh     r3, [r1] 
+00005b50 ldrh     r3, [r0, #0x20] 
+00005b54 strh     r3, [r1, #6] 
+00005b58 ldrh     r3, [r0, #0xe] 
+00005b5c strh     r3, [r1, #4] 
+00005b60 ldrh     r0, [r0, #0xe] 
+00005b64 bl       #0x5b64 dmm_unit_ctrl_Close
+00005b68 ldr      r1, [r6, #4] 
+00005b6c ldrh     r2, [r6, #0xc] 
+00005b70 mov      r3, #1 
+00005b74 mov      r5, r0 
+00005b78 ldrh     r0, [r6, #0xe] 
+00005b7c bl       #0x5b7c dmm_unit_ctrl_SetUnitAccInfo
+00005b80 strh     r5, [r4, #0xa] 
+00005b84 mov      r0, r5 
+00005b88 bl       #0x5294 
+00005b8c strh     r0, [r4, #2] 
+00005b90 mov      r0, #2 
+00005b94 ldm      sp, {r3, r4, r5, r6, fp, sp, pc} 
+
+dmm_ctrl_AllocUnitShareHdlr
+000062e4 mov      ip, sp 
+000062e8 push     {r4, r5, r6, r7, fp, ip, lr, pc} 
+000062ec sub      fp, ip, #4 
+000062f0 ldrh     r3, [r0, #0xc] 
+000062f4 mov      r4, r0 
+000062f8 mov      r5, r1 
+000062fc mov      r7, r2 
+00006300 mvn      r3, r3, lsl #17 
+00006304 mvn      r3, r3, lsr #17 
+00006308 strh     r3, [r1] 
+0000630c ldrh     r3, [r0, #0x20] 
+00006310 strh     r3, [r1, #6] 
+00006314 ldrh     r3, [r0, #0xe] 
+00006318 strh     r3, [r1, #4] 
+0000631c ldr      r3, [r0, #0x10] 
+00006320 str      r3, [r1, #0xc] 
+00006324 ldrh     r3, [r0, #0x22] 
+00006328 cmp      r3, #4 
+0000632c bhi      #0x6374 
+00006330 ldrsh    r3, [r0, #0x22] 
+00006334 mov      r2, #1 
+00006338 lsl      r3, r2, r3 
+0000633c tst      r3, #0x13 
+00006340 beq      #0x6374 
+00006344 ldr      r0, [r0, #0x10] 
+00006348 ldrh     r1, [r4, #0xe] 
+0000634c bl       #0x634c dmm_unit_ctrl_Share
+00006350 subs     r6, r0, #0 
+00006354 bne      #0x6378 
+00006358 ldrh     r0, [r4, #0xe] 
+0000635c mov      r2, r7 
+00006360 ldrh     r1, [r4, #0x22] 
+00006364 add      r3, r5, #8 
+00006368 bl       #0x5804 
+0000636c uxth     r6, r0 
+00006370 b        #0x6378 
+00006374 movw     r6, #0xfffc 
+00006378 ldrh     r0, [r4, #0xe] 
+0000637c mov      r3, #1 
+00006380 ldr      r1, [r4, #4] 
+00006384 ldrh     r2, [r4, #0xc] 
+00006388 bl       #0x6388 dmm_unit_ctrl_SetUnitAccInfo
+0000638c strh     r6, [r5, #0xa] 
+00006390 sxth     r0, r6 
+00006394 bl       #0x5294 
+00006398 strh     r0, [r5, #2] 
+0000639c mov      r0, #2 
+000063a0 ldm      sp, {r4, r5, r6, r7, fp, sp, pc} 
+
+dmm_unit_ctrl_Free
+00008cbc mov      ip, sp 
+00008cc0 push     {r4, r5, r6, r7, r8, sl, fp, ip, lr, pc} 
+00008cc4 sub      fp, ip, #4 
+00008cc8 mov      r5, r0 
+00008ccc bl       #0x8744 
+00008cd0 mov      r4, r0 
+00008cd4 mov      r0, r5 
+00008cd8 bl       #0x8778 
+00008cdc cmp      r4, #0x580 
+00008ce0 movwhs   r7, #0xfefb 
+00008ce4 bhs      #0x8e90 
+00008ce8 ldr      r3, [pc, #0x1b8] 
+00008cec mov      r2, #0x150 
+00008cf0 uxtb     r0, r0 
+00008cf4 mla      r3, r2, r4, r3 
+00008cf8 add      r2, r3, #0xb20 
+00008cfc ldrb     r1, [r3, #0xb23] 
+00008d00 cmp      r1, r0 
+00008d04 movwne   r7, #0xfdfb 
+00008d08 bne      #0x8e90 
+00008d0c ldrh     r6, [r2, #4] 
+00008d10 cmp      r6, #7 
+00008d14 bhi      #0x8e8c 
+00008d18 mov      r0, #1 
+00008d1c sxth     r1, r6 
+00008d20 lsl      r1, r0, r1 
+00008d24 tst      r1, #0xbe 
+00008d28 beq      #0x8e8c 
+00008d2c ldrb     r1, [r3, #0xb20] 
+00008d30 cmp      r1, r0 
+00008d34 bhi      #0x8e7c 
+00008d38 ldrb     r5, [r3, #0xb22] 
+00008d3c cmp      r5, #0 
+00008d40 bne      #0x8e48 
+00008d44 movw     r8, #0xffff 
+00008d48 strh     r5, [r2, #4] 
+00008d4c mov      r7, r8 
+00008d50 b        #0x8dac 
+00008d54 mov      r2, #0x54 
+00008d58 mla      r2, r2, r4, r5 
+00008d5c add      r3, r3, r2, lsl #2 
+00008d60 ldr      r0, [r3, #0xb28] 
+00008d64 cmp      r0, #0 
+00008d68 beq      #0x8d84 
+00008d6c ldr      r3, [r0, #0x10] 
+00008d70 tst      r3, #2 
+00008d74 beq      #0x8d84 
+00008d78 mov      r1, #0 
+00008d7c bl       #0x8d7c dmm_ext_ctrl_SetPowersaveInfo
+00008d80 mov      r8, r0 
+00008d84 mov      r3, #0x54 
+00008d88 ldr      r2, [pc, #0x118] 
+00008d8c mla      r3, r3, r4, r5 
+00008d90 add      r3, r2, r3, lsl #2 
+00008d94 ldr      r0, [r3, #0xb28] 
+00008d98 bl       #0x8d98 dmm_ext_ctrl_FreeExtent
+00008d9c subs     r7, r0, #0 
+00008da0 bne      #0x8dc8 
+00008da4 add      r5, r5, #1 
+00008da8 uxth     r5, r5 
+00008dac ldr      r3, [pc, #0xf4] 
+00008db0 mov      r2, #0x150 
+00008db4 mla      r2, r2, r4, r3 
+00008db8 add      r2, r2, #0xb20 
+00008dbc ldrh     r2, [r2, #6] 
+00008dc0 cmp      r2, r5 
+00008dc4 bhi      #0x8d54 
+00008dc8 ldr      r3, [pc, #0xd8] 
+00008dcc mov      r2, #0x150 
+00008dd0 mov      r5, #0 
+00008dd4 mla      r3, r2, r4, r3 
+00008dd8 ldr      sl, [r3, #0xb18] 
+00008ddc b        #0x8df4 
+00008de0 mov      r0, r5 
+00008de4 bl       #0x8de4 dmm_ext_tbl_GetSsbiExtentUnitType
+00008de8 cmp      sl, r0 
+00008dec beq      #0x8e04 
+00008df0 add      r5, r5, #1 
+00008df4 bl       #0x8df4 dmm_ext_tbl_GetSsbiExtentCnt
+00008df8 cmp      r5, r0 
+00008dfc blo      #0x8de0 
+00008e00 b        #0x8e98 
+00008e04 ldr      r3, [pc, #0x9c] 
+00008e08 mov      r2, #0x150 
+00008e0c mla      r4, r2, r4, r3 
+00008e10 mov      r3, #0 
+00008e14 cmp      r8, r3 
+00008e18 add      r1, r4, #0xb20 
+00008e1c strh     r3, [r1, #4] 
+00008e20 strb     r3, [r4, #0xb21] 
+00008e24 strb     r3, [r4, #0xb20] 
+00008e28 bne      #0x8e60 
+00008e2c bl       #0x8e2c dmm_extent_ctrl_GetCodecDDRRoot
+00008e30 bl       #0x8e30 dmm_ext_ctrl_CheckPowersaveState
+00008e34 cmp      r0, #0 
+00008e38 bne      #0x8e60 
+00008e3c add      r0, r0, #4 
+00008e40 bl       #0x8e40 dmm_upm_SetCodecDdrPowerSave
+00008e44 b        #0x8e60 
+00008e48 mov      r1, #4 
+00008e4c strh     r1, [r2, #4] 
+00008e50 mov      r2, #0 
+00008e54 strb     r2, [r3, #0xb21] 
+00008e58 strb     r2, [r3, #0xb20] 
+00008e5c b        #0x8e68 
+00008e60 cmp      r7, #0 
+00008e64 bne      #0x8e90 
+00008e68 sub      r6, r6, #2 
+00008e6c cmp      r6, #1 
+00008e70 movls    r7, #3 
+00008e74 movhi    r7, #0 
+00008e78 b        #0x8e90 
+00008e7c sub      r1, r1, #1 
+00008e80 mov      r7, #0 
+00008e84 strb     r1, [r3, #0xb20] 
+00008e88 b        #0x8e90 
+00008e8c movw     r7, #0xffff 
+00008e90 sxth     r0, r7 
+00008e94 ldm      sp, {r4, r5, r6, r7, r8, sl, fp, sp, pc} 
+00008e98 mov      r0, r4 
+00008e9c bl       #0x862c 
+00008ea0 mov      r7, r0 
+00008ea4 b        #0x8e04 
+00008ea8 andeq    r6, sb, r8, lsr #5 
+
+dmm_unit_ctrl_Close
+00008bc8 mov      ip, sp 
+00008bcc push     {r4, r5, fp, ip, lr, pc} 
+00008bd0 sub      fp, ip, #4 
+00008bd4 mov      r5, r0 
+00008bd8 bl       #0x8744 
+00008bdc mov      r4, r0 
+00008be0 mov      r0, r5 
+00008be4 bl       #0x8778 
+00008be8 cmp      r4, #0x580 
+00008bec movwhs   r0, #0xfefb 
+00008bf0 bhs      #0x8cb0 
+00008bf4 ldr      r3, [pc, #0xbc] 
+00008bf8 mov      r2, #0x150 
+00008bfc uxtb     r0, r0 
+00008c00 mla      r2, r2, r4, r3 
+00008c04 add      r1, r2, #0xb20 
+00008c08 ldrb     r2, [r2, #0xb23] 
+00008c0c cmp      r2, r0 
+00008c10 movwne   r0, #0xfdfb 
+00008c14 bne      #0x8cb0 
+00008c18 ldrh     r2, [r1, #4] 
+00008c1c sub      r2, r2, #1 
+00008c20 cmp      r2, #6 
+00008c24 ldrls    pc, [pc, r2, lsl #2] 
+00008c28 b        #0x8c9c 
+00008c2c andeq    r8, r0, r4, lsr #25 
+00008c30 andeq    r8, r0, r8, asr #24 
+00008c34 andeq    r8, r0, r8, asr #24 
+00008c38 muleq    r0, ip, ip 
+00008c3c muleq    r0, ip, ip 
+00008c40 muleq    r0, ip, ip 
+00008c44 andeq    r8, r0, r4, ror #24 
+00008c48 mov      r2, #0x150 
+00008c4c mla      r4, r2, r4, r3 
+00008c50 add      r3, r4, #0xb20 
+00008c54 ldrb     r0, [r4, #0xb21] 
+00008c58 cmp      r0, #0 
+00008c5c bne      #0x8c7c 
+00008c60 b        #0x8c9c 
+00008c64 mov      r2, #0x150 
+00008c68 mla      r4, r2, r4, r3 
+00008c6c add      r3, r4, #0xb20 
+00008c70 ldrb     r0, [r4, #0xb21] 
+00008c74 cmp      r0, #0 
+00008c78 beq      #0x8ca4 
+00008c7c sub      r0, r0, #1 
+00008c80 uxtb     r0, r0 
+00008c84 strb     r0, [r4, #0xb21] 
+00008c88 cmp      r0, #0 
+00008c8c moveq    r2, #1 
+00008c90 strheq   r2, [r3, #4] 
+00008c94 beq      #0x8cb0 
+00008c98 b        #0x8cac 
+00008c9c movw     r0, #0xffff 
+00008ca0 b        #0x8cb0 
+00008ca4 mov      r0, #1 
+00008ca8 b        #0x8cb0 
+00008cac mov      r0, #0 
+00008cb0 sxth     r0, r0 
+00008cb4 ldm      sp, {r4, r5, fp, sp, pc} 
+00008cb8 andeq    r6, sb, r8, lsr #5 
+
+dmm_unit_ctrl_Share
+0000884c mov      ip, sp 
+00008850 push     {r3, r4, r5, r6, fp, ip, lr, pc} 
+00008854 sub      fp, ip, #4 
+00008858 mov      r4, r0 
+0000885c mov      r0, r1 
+00008860 mov      r6, r1 
+00008864 bl       #0x8744 
+00008868 mov      r5, r0 
+0000886c mov      r0, r6 
+00008870 bl       #0x8778 
+00008874 cmp      r5, #0x580 
+00008878 movwhs   r0, #0xfefb 
+0000887c bhs      #0x88e0 
+00008880 ldr      r3, [pc, #0x60] 
+00008884 mov      r2, #0x150 
+00008888 uxtb     r0, r0 
+0000888c mla      r5, r2, r5, r3 
+00008890 add      r3, r5, #0xb20 
+00008894 ldrb     r2, [r5, #0xb23] 
+00008898 cmp      r2, r0 
+0000889c movwne   r0, #0xfdfb 
+000088a0 bne      #0x88e0 
+000088a4 ldrh     r3, [r3, #4] 
+000088a8 sub      r3, r3, #1 
+000088ac cmp      r3, #2 
+000088b0 bhi      #0x88dc 
+000088b4 ldr      r3, [r5, #0xb18] 
+000088b8 cmp      r3, r4 
+000088bc movwne   r0, #0xfffd 
+000088c0 bne      #0x88e0 
+000088c4 ldrb     r3, [r5, #0xb20] 
+000088c8 cmp      r3, #0xff 
+000088cc addne    r3, r3, #1 
+000088d0 movne    r0, #0 
+000088d4 strbne   r3, [r5, #0xb20] 
+000088d8 bne      #0x88e0 
+000088dc movw     r0, #0xffff 
+000088e0 sxth     r0, r0 
+000088e4 ldm      sp, {r3, r4, r5, r6, fp, sp, pc} 
+000088e8 andeq    r6, sb, r8, lsr #5 

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "_ZN3VEF27VEF_PRM_EFT_IMAGE_SIZE_INFOC1Ev",
+    "address": "0x3a0e8",
+    "bytes": 16
+  },
+  {
+    "name": "_ZN17OBJAVBBCBASECLASS5SdfCh16sendAndRcvAckCmpEPvtS1_tS1_t",
+    "address": "0x366f0",
+    "bytes": 292
+  },
+  {
+    "name": "_ZN17OBJAVBBCBASECLASS5SdfCh12resizeRotateEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_27RESIZE_ROTATE_COMMAND_PARAME",
+    "address": "0x369b4",
+    "bytes": 208
+  },
+  {
+    "name": "_ZN17OBJAVBBCBASECLASS5SdfCh9copyImageEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_24COPY_IMAGE_COMMAND_PARAME",
+    "address": "0x368e4",
+    "bytes": 208
+  },
+  {
+    "name": "_ZN3VEF21VEF_PRM_PATH_SET_PATHC1Ev",
+    "address": "0x3a118",
+    "bytes": 24
+  },
+  {
+    "name": "_ZN17OBJAVBBCBASECLASS5VefCh7setPathEt",
+    "address": "0x3a1c0",
+    "bytes": 264
+  },
+  {
+    "name": "_ZN17OBJAVBBCBASECLASS15DataflowInfraCh20dumpSdsYccFromHandleEtjj",
+    "address": "0x34998",
+    "bytes": 248
+  },
+  {
+    "name": "_ZN17OBJAVBBCBASECLASS5SdfChC1Et",
+    "address": "0x36680",
+    "bytes": 112
+  }
+]

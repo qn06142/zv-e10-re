@@ -1,0 +1,23 @@
+{
+  "status": "INSTALLED_AND_REBOOT_VERIFIED",
+  "camera_access": true,
+  "installed_revision": "3.0-experimental-native-vga",
+  "camera_streaming_tested": false,
+  "pixel_packing_verified": false,
+  "native_sdf_acceptance_verified": false,
+  "usr_readonly_verified": true,
+  "lazy_inactive_after_reboot_verified": true,
+  "old_logs_archived_hash_verified_and_cleared": {
+    "files": 6,
+    "bytes": 7642
+  },
+  "rollback": "/usr/share/yuy2-recovery-v30vga/rollback.sh restores previous2.9; then existing v29 rollback can restore2.4p after cold-map checks",
+  "installer_fixture_cases_passed": 10,
+  "module_md5": "98acd3ba3d6628e006fe51d88dda25dc",
+  "stream_md5": "2a4c08511526f2b525c57a1d9bac9bad",
+  "reboot_job_missing_marker": "Expected terminal interruption; Restarting system observed and new service session verified persistent files.",
+  "stream_sessions_per_boot": 1,
+  "camera_testing_paused_by_user": true,
+  "service_session_closed": true,
+  "next_offline_direction": "docs/90-session/4K_12BIT_NEXT_PUSH.md"
+}

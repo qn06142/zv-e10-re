@@ -1,0 +1,188 @@
+000052f0: blt       #0x5338 
+000052f4: ldr       r4, [pc, #0x44]  literal 0x5340 
+000052f8: add       r4, r4, r0, lsl #3 
+000052fc: mov       r0, r4 
+00005300: bl        #0x5300 os_lock
+00005304: ldr       r3, [r4, #4] 
+00005308: cmp       r3, #0 
+0000530c: str       r3, [r5] 
+00005310: bne       #0x5324 
+00005314: mov       r0, r4 
+00005318: bl        #0x5318 os_unlock
+0000531c: mvn       r0, #0x29 
+00005320: ldm       sp, {r4, r5, fp, sp, pc} 
+00005324: ldr       r2, [r3] 
+00005328: mov       r0, #0 
+0000532c: add       r2, r2, #1 
+00005330: str       r2, [r3] 
+00005334: ldm       sp, {r4, r5, fp, sp, pc} 
+00005338: mvn       r0, #0x11 
+0000533c: ldm       sp, {r4, r5, fp, sp, pc} 
+00005340: andeq     r1, r0, r8, ror r6 
+00005344: mov       ip, sp 
+00005348: push      {r3, r4, fp, ip, lr, pc} 
+0000534c: sub       fp, ip, #4 
+00005350: ldr       r3, [r0, #4] 
+00005354: mov       r4, r0 
+00005358: tst       r3, #1 
+0000535c: beq       #0x536c 
+00005360: ldr       r0, [r0, #0x20] 
+00005364: mov       r1, #7 
+00005368: bl        #0x5368 __free_res
+0000536c: ldr       r3, [r4, #0x14] 
+00005370: cmp       r3, #0 
+00005374: bne       #0x5398 
+00005378: ldr       r0, [r4, #0x1c] 
+0000537c: bl        #0x537c arch_va_to_phys
+00005380: bl        #0x5380 os_phys_to_virt
+00005384: ldr       r0, [r4, #0x1c] 
+00005388: bl        #0x5388 arch_va_to_phys
+0000538c: bl        #0x538c os_phys_to_virt
+00005390: mov       r1, #7 
+00005394: bl        #0x5394 __free_res
+00005398: ldr       r3, [r4, #4] 
+0000539c: tst       r3, #1 
+000053a0: ldmeq     sp, {r3, r4, fp, sp, pc} 
+000053a4: mov       r0, r4 
+000053a8: mov       r1, #7 
+000053ac: bl        #0x53ac __free_res
+000053b0: ldm       sp, {r3, r4, fp, sp, pc} 
+000053b4: mov       ip, sp 
+000053b8: push      {r4, r5, fp, ip, lr, pc} 
+000053bc: sub       fp, ip, #4 
+000053c0: ldr       r3, [pc, #0x2c]  literal 0x53f4 
+000053c4: sub       r0, r0, #1 
+000053c8: ldr       r5, [r1] 
+000053cc: mov       r4, r1 
+000053d0: add       r0, r3, r0, lsl #3 
+000053d4: sub       r5, r5, #1 
+000053d8: str       r5, [r1] 
+000053dc: bl        #0x53dc os_unlock
+000053e0: cmp       r5, #0 
+000053e4: ldmne     sp, {r4, r5, fp, sp, pc} 
+000053e8: mov       r0, r4 
+000053ec: bl        #0x5344 
+000053f0: ldm       sp, {r4, r5, fp, sp, pc} 
+000053f4: andeq     r1, r0, r8, ror r6 
+000053f8: mov       ip, sp 
+000053fc: push      {r3, r4, r5, r6, fp, ip, lr, pc} 
+00005400: sub       fp, ip, #4 
+00005404: mov       r1, #7 
+00005408: mov       r5, r0 
+0000540c: mov       r0, #0x30 
+00005410: bl        #0x5410 __alloc_res
+00005414: subs      r4, r0, #0 
+00005418: beq       #0x54d8 
+0000541c: mov       r3, #1 
+00005420: str       r3, [r4, #4] 
+00005424: ldr       r0, [r5, #4] 
+00005428: mov       r1, #7 
+0000542c: add       r0, r0, #0x1f 
+00005430: lsr       r0, r0, #3 
+00005434: bl        #0x5434 __alloc_res
+00005438: cmp       r0, #0 
+0000543c: mov       r6, r0 
+00005440: str       r0, [r4, #0x20] 
+00005444: bne       #0x5468 
+00005448: ldr       r3, [r4, #4] 
+0000544c: ands      r3, r3, #1 
+00005450: beq       #0x54d4 
+00005454: mov       r0, r4 
+00005458: mov       r1, #7 
+0000545c: bl        #0x545c __free_res
+00005460: mov       r4, r6 
+00005464: b         #0x54d8 
+00005468: ldr       r3, [r5, #0xc] 
+0000546c: cmp       r3, #0 
+00005470: strne     r3, [r4, #0x1c] 
+00005474: bne       #0x54d8 
+00005478: ldmib     r5, {r0, r3} 
+0000547c: mov       r1, #7 
+00005480: mul       r0, r0, r3 
+00005484: bl        #0x5484 __alloc_res
+00005488: cmp       r0, #0 
+0000548c: mov       r5, r0 
+00005490: str       r0, [r4, #0x1c] 
+00005494: bne       #0x54c4 
+00005498: ldr       r0, [r4, #0x20] 
+0000549c: mov       r1, #7 
+000054a0: bl        #0x54a0 __free_res
+000054a4: ldr       r3, [r4, #4] 
+000054a8: ands      r3, r3, #1 
+000054ac: beq       #0x54d4 
+000054b0: mov       r0, r4 
+000054b4: mov       r1, #7 
+000054b8: bl        #0x54b8 __free_res
+000054bc: mov       r4, r5 
+000054c0: b         #0x54d8 
+000054c4: bl        #0x54c4 os_virt_to_phys
+000054c8: bl        #0x54c8 arch_phys_to_cache
+000054cc: str       r0, [r4, #0x1c] 
+000054d0: b         #0x54d8 
+000054d4: mov       r4, r3 
+000054d8: mov       r0, r4 
+000054dc: ldm       sp, {r3, r4, r5, r6, fp, sp, pc} 
+000054e0: mov       ip, sp 
+000054e4: push      {r3, r4, r5, r6, fp, ip, lr, pc} 
+000054e8: sub       fp, ip, #4 
+000054ec: mov       r5, r1 
+000054f0: mov       r4, r1 
+000054f4: mov       ip, r2 
+000054f8: mov       r3, #1 
+000054fc: mov       r6, r0 
+00006100: mov       r5, #0x10000 
+00006104: b         #0x6154 
+00006108: mov       r5, #0x8000 
+0000610c: b         #0x6154 
+00006110: mov       r5, #0x4000 
+00006114: b         #0x6154 
+00006118: mov       r5, #0x2000 
+0000611c: b         #0x6154 
+00006120: mov       r5, #0x1000 
+00006124: b         #0x6154 
+00006128: mov       r5, #0x800 
+0000612c: b         #0x6154 
+00006130: mov       r5, #0x400 
+00006134: b         #0x6154 
+00006138: mov       r5, #0x200 
+0000613c: b         #0x6154 
+00006140: mov       r5, #0x100 
+00006144: b         #0x6154 
+00006148: mov       r5, #0x80 
+0000614c: b         #0x6154 
+00006150: mov       r5, #0x40 
+00006154: mov       r0, r5 
+00006158: mov       r1, #8 
+0000615c: bl        #0x615c __alloc_res
+00006160: cmp       r0, #0 
+00006164: mov       r7, r0 
+00006168: str       r0, [r4, #0x24] 
+0000616c: bne       #0x6190 
+00006170: ldr       r3, [r4, #4] 
+00006174: ands      r3, r3, #1 
+00006178: beq       #0x61e8 
+0000617c: mov       r0, r4 
+00006180: mov       r1, #8 
+00006184: bl        #0x6184 __free_res
+00006188: mov       r4, r7 
+0000618c: b         #0x61ec 
+00006190: bl        #0x6190 os_virt_to_phys
+00006194: bl        #0x6194 arch_phys_to_cache
+00006198: str       r0, [r6, #8] 
+0000619c: add       r0, r4, #0x28 
+000061a0: ldr       r1, [r6, #8] 
+000061a4: mov       r2, r5 
+000061a8: bl        #0x61a8 buddy_init_pool
+000061ac: cmp       r0, #0 
+000061b0: beq       #0x61ec 
+000061b4: ldr       r0, [r4, #0x24] 
+000061b8: cmp       r0, #0 
+000061bc: beq       #0x61c8 
+000061c0: mov       r1, #8 
+000061c4: bl        #0x61c4 __free_res
+000061c8: ldr       r3, [r4, #4] 
+000061cc: ands      r3, r3, #1 
+000061d0: beq       #0x61e8 
+000061d4: mov       r0, r4 
+000061d8: mov       r1, #8 
+000061dc: bl        #0x61dc __free_res

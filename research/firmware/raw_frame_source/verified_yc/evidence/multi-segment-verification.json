@@ -1,0 +1,16 @@
+{
+  "passed": [
+    "sony_yc_multiple_segment_decode parses 288-byte wire buffer into header + 4 segment descriptors",
+    "sony_yc_segment_extract_image_size matches Sony RTOS 0x63cebf24 execution byte-for-byte across slots 0 and 1",
+    "sony_yc_segment_merge_image_size matches Sony RTOS 0x63cec0d8 dual-strip reconstruction byte-for-byte",
+    "all 288 shorter truncated multiple-segment lengths rejected without writing output",
+    "invalid slot index (>= 4) and null pointers safely rejected"
+  ],
+  "rtos_functions_executed": [
+    "0x63cebf24 (extract)",
+    "0x63cec0d8 (merge)"
+  ],
+  "category_id": "0x11 (MultipleSegmentImageInfo)",
+  "wire_size": 288,
+  "camera_access": false
+}

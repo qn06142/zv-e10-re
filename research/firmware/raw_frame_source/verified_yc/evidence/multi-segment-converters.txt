@@ -1,0 +1,255 @@
+# Multi-Segment SSYC Geometry Helpers (av-cam.bin base 0x635c6000)
+# 0x63cebf24: Extract segment slice into 60-byte ImageSizeInfo
+# 0x63cebfbe: Split single ImageSizeInfo into 2-segment MultipleSegmentImageInfo
+# 0x63cec0d8: Merge dual segments back into single ImageSizeInfo by summing widths
+
+=== 0x63cebf24 (Extract Segment Slice) (0x63cebf24 .. 0x63cebfbe) ===
+  0x63cebf24: 30b5     push       {r4, r5, lr}
+  0x63cebf26: 1078     ldrb       r0, [r2]
+  0x63cebf28: 0870     strb       r0, [r1]
+  0x63cebf2a: 9801     lsls       r0, r3, #6
+  0x63cebf2c: 1018     adds       r0, r2, r0
+  0x63cebf2e: 0133     adds       r3, #1
+  0x63cebf30: 446a     ldr        r4, [r0, #0x24]
+  0x63cebf32: 9b01     lsls       r3, r3, #6
+  0x63cebf34: 4c60     str        r4, [r1, #4]
+  0x63cebf36: 048d     ldrh       r4, [r0, #0x28]
+  0x63cebf38: 0c81     strh       r4, [r1, #8]
+  0x63cebf3a: c46a     ldr        r4, [r0, #0x2c]
+  0x63cebf3c: cc60     str        r4, [r1, #0xc]
+  0x63cebf3e: 5478     ldrb       r4, [r2, #1]
+  0x63cebf40: 0c74     strb       r4, [r1, #0x10]
+  0x63cebf42: 9478     ldrb       r4, [r2, #2]
+  0x63cebf44: 4c74     strb       r4, [r1, #0x11]
+  0x63cebf46: d478     ldrb       r4, [r2, #3]
+  0x63cebf48: 8c74     strb       r4, [r1, #0x12]
+  0x63cebf4a: 1479     ldrb       r4, [r2, #4]
+  0x63cebf4c: cc74     strb       r4, [r1, #0x13]
+  0x63cebf4e: d588     ldrh       r5, [r2, #6]
+  0x63cebf50: 1489     ldrh       r4, [r2, #8]
+  0x63cebf52: 8d82     strh       r5, [r1, #0x14]
+  0x63cebf54: 058e     ldrh       r5, [r0, #0x30]
+  0x63cebf56: cc82     strh       r4, [r1, #0x16]
+  0x63cebf58: 00f13004 add.w      r4, r0, #0x30
+  0x63cebf5c: 0d83     strh       r5, [r1, #0x18]
+  0x63cebf5e: 6588     ldrh       r5, [r4, #2]
+  0x63cebf60: 4d83     strh       r5, [r1, #0x1a]
+  0x63cebf62: a588     ldrh       r5, [r4, #4]
+  0x63cebf64: e488     ldrh       r4, [r4, #6]
+  0x63cebf66: 8d83     strh       r5, [r1, #0x1c]
+  0x63cebf68: cc83     strh       r4, [r1, #0x1e]
+  0x63cebf6a: 00f13804 add.w      r4, r0, #0x38
+  0x63cebf6e: 008f     ldrh       r0, [r0, #0x38]
+  0x63cebf70: a588     ldrh       r5, [r4, #4]
+  0x63cebf72: 0884     strh       r0, [r1, #0x20]
+  0x63cebf74: 6088     ldrh       r0, [r4, #2]
+  0x63cebf76: 4884     strh       r0, [r1, #0x22]
+  0x63cebf78: d018     adds       r0, r2, r3
+  0x63cebf7a: 8d84     strh       r5, [r1, #0x24]
+  0x63cebf7c: d35a     ldrh       r3, [r2, r3]
+  0x63cebf7e: e488     ldrh       r4, [r4, #6]
+  0x63cebf80: 0b85     strh       r3, [r1, #0x28]
+  0x63cebf82: 4388     ldrh       r3, [r0, #2]
+  0x63cebf84: cc84     strh       r4, [r1, #0x26]
+  0x63cebf86: 4b85     strh       r3, [r1, #0x2a]
+  0x63cebf88: 0379     ldrb       r3, [r0, #4]
+  0x63cebf8a: 81f82c30 strb.w     r3, [r1, #0x2c]
+  0x63cebf8e: 4379     ldrb       r3, [r0, #5]
+  0x63cebf90: 81f82d30 strb.w     r3, [r1, #0x2d]
+  0x63cebf94: 937a     ldrb       r3, [r2, #0xa]
+  0x63cebf96: 81f82e30 strb.w     r3, [r1, #0x2e]
+  0x63cebf9a: d37a     ldrb       r3, [r2, #0xb]
+  0x63cebf9c: 81f82f30 strb.w     r3, [r1, #0x2f]
+  0x63cebfa0: 137b     ldrb       r3, [r2, #0xc]
+  0x63cebfa2: 81f83030 strb.w     r3, [r1, #0x30]
+  0x63cebfa6: 537b     ldrb       r3, [r2, #0xd]
+  0x63cebfa8: 81f83130 strb.w     r3, [r1, #0x31]
+  0x63cebfac: 937b     ldrb       r3, [r2, #0xe]
+  0x63cebfae: 81f83230 strb.w     r3, [r1, #0x32]
+  0x63cebfb2: d37b     ldrb       r3, [r2, #0xf]
+  0x63cebfb4: 81f83330 strb.w     r3, [r1, #0x33]
+  0x63cebfb8: 128a     ldrh       r2, [r2, #0x10]
+  0x63cebfba: 8a86     strh       r2, [r1, #0x34]
+  0x63cebfbc: 30bd     pop        {r4, r5, pc}
+=== 0x63cebfbe (Split Single Image into 2 Segments) (0x63cebfbe .. 0x63cec0d8) ===
+  0x63cebfbe: 1378     ldrb       r3, [r2]
+  0x63cebfc0: 0b70     strb       r3, [r1]
+  0x63cebfc2: 137c     ldrb       r3, [r2, #0x10]
+  0x63cebfc4: 4b70     strb       r3, [r1, #1]
+  0x63cebfc6: 537c     ldrb       r3, [r2, #0x11]
+  0x63cebfc8: 8b70     strb       r3, [r1, #2]
+  0x63cebfca: 937c     ldrb       r3, [r2, #0x12]
+  0x63cebfcc: cb70     strb       r3, [r1, #3]
+  0x63cebfce: d37c     ldrb       r3, [r2, #0x13]
+  0x63cebfd0: 0b71     strb       r3, [r1, #4]
+  0x63cebfd2: 108b     ldrh       r0, [r2, #0x18]
+  0x63cebfd4: 538b     ldrh       r3, [r2, #0x1a]
+  0x63cebfd6: c880     strh       r0, [r1, #6]
+  0x63cebfd8: 0b81     strh       r3, [r1, #8]
+  0x63cebfda: 92f82e30 ldrb.w     r3, [r2, #0x2e]
+  0x63cebfde: 8b72     strb       r3, [r1, #0xa]
+  0x63cebfe0: 92f82f30 ldrb.w     r3, [r2, #0x2f]
+  0x63cebfe4: cb72     strb       r3, [r1, #0xb]
+  0x63cebfe6: 92f83030 ldrb.w     r3, [r2, #0x30]
+  0x63cebfea: 0b73     strb       r3, [r1, #0xc]
+  0x63cebfec: 92f83130 ldrb.w     r3, [r2, #0x31]
+  0x63cebff0: 4b73     strb       r3, [r1, #0xd]
+  0x63cebff2: 92f83230 ldrb.w     r3, [r2, #0x32]
+  0x63cebff6: 8b73     strb       r3, [r1, #0xe]
+  0x63cebff8: 92f83330 ldrb.w     r3, [r2, #0x33]
+  0x63cebffc: cb73     strb       r3, [r1, #0xf]
+  0x63cebffe: 0223     movs       r3, #2
+  0x63cec000: 908e     ldrh       r0, [r2, #0x34]
+  0x63cec002: cb77     strb       r3, [r1, #0x1f]
+  0x63cec004: 023b     subs       r3, #2
+  0x63cec006: 0882     strh       r0, [r1, #0x10]
+  0x63cec008: 1078     ldrb       r0, [r2]
+  0x63cec00a: 81f82000 strb.w     r0, [r1, #0x20]
+  0x63cec00e: 108b     ldrh       r0, [r2, #0x18]
+  0x63cec010: 0886     strh       r0, [r1, #0x30]
+  0x63cec012: 508b     ldrh       r0, [r2, #0x1a]
+  0x63cec014: 4886     strh       r0, [r1, #0x32]
+  0x63cec016: 108c     ldrh       r0, [r2, #0x20]
+  0x63cec018: 4008     lsrs       r0, r0, #1
+  0x63cec01a: 0887     strh       r0, [r1, #0x38]
+  0x63cec01c: 508c     ldrh       r0, [r2, #0x22]
+  0x63cec01e: 4887     strh       r0, [r1, #0x3a]
+  0x63cec020: 908c     ldrh       r0, [r2, #0x24]
+  0x63cec022: 8887     strh       r0, [r1, #0x3c]
+  0x63cec024: d08c     ldrh       r0, [r2, #0x26]
+  0x63cec026: c887     strh       r0, [r1, #0x3e]
+  0x63cec028: 108d     ldrh       r0, [r2, #0x28]
+  0x63cec02a: 4008     lsrs       r0, r0, #1
+  0x63cec02c: a1f84000 strh.w     r0, [r1, #0x40]
+  0x63cec030: 508d     ldrh       r0, [r2, #0x2a]
+  0x63cec032: 012b     cmp        r3, #1
+  0x63cec034: a1f84200 strh.w     r0, [r1, #0x42]
+  0x63cec038: 92f82c00 ldrb.w     r0, [r2, #0x2c]
+  0x63cec03c: 81f84400 strb.w     r0, [r1, #0x44]
+  0x63cec040: 92f82d00 ldrb.w     r0, [r2, #0x2d]
+  0x63cec044: 81f84500 strb.w     r0, [r1, #0x45]
+  0x63cec048: 02d1     bne        #0x63cec050
+  0x63cec04a: 108c     ldrh       r0, [r2, #0x20]
+  0x63cec04c: 4008     lsrs       r0, r0, #1
+  0x63cec04e: 00e0     b          #0x63cec052
+  0x63cec050: 0020     movs       r0, #0
+  0x63cec052: 0133     adds       r3, #1
+  0x63cec054: 8886     strh       r0, [r1, #0x34]
+  0x63cec056: a1f84600 strh.w     r0, [r1, #0x46]
+  0x63cec05a: 0020     movs       r0, #0
+  0x63cec05c: dbb2     uxtb       r3, r3
+  0x63cec05e: c886     strh       r0, [r1, #0x36]
+  0x63cec060: a1f84800 strh.w     r0, [r1, #0x48]
+  0x63cec064: 4031     adds       r1, #0x40
+  0x63cec066: 022b     cmp        r3, #2
+  0x63cec068: ced1     bne        #0x63cec008
+  0x63cec06a: 7047     bx         lr
+  0x63cec06c: 0b68     ldr        r3, [r1]
+  0x63cec06e: f7b5     push       {r0, r1, r2, r4, r5, r6, r7, lr}
+  0x63cec070: 0846     mov        r0, r1
+  0x63cec072: 9b68     ldr        r3, [r3, #8]
+  0x63cec074: 1446     mov        r4, r2
+  0x63cec076: 9847     blx        r3
+  0x63cec078: c368     ldr        r3, [r0, #0xc]
+  0x63cec07a: 8168     ldr        r1, [r0, #8]
+  0x63cec07c: 6846     mov        r0, sp
+  0x63cec07e: c918     adds       r1, r1, r3
+  0x63cec080: 26f66af7 bl         #0x63712f58
+  0x63cec084: 1121     movs       r1, #0x11
+  0x63cec086: 6846     mov        r0, sp
+  0x63cec088: f6f787fa bl         #0x63ce259a
+  0x63cec08c: 0221     movs       r1, #2
+  0x63cec08e: 0746     mov        r7, r0
+  0x63cec090: 6846     mov        r0, sp
+  0x63cec092: f6f782fa bl         #0x63ce259a
+  0x63cec096: 0121     movs       r1, #1
+  0x63cec098: 0546     mov        r5, r0
+  0x63cec09a: 6846     mov        r0, sp
+  0x63cec09c: f6f77dfa bl         #0x63ce259a
+  0x63cec0a0: 2368     ldr        r3, [r4]
+  0x63cec0a2: 3946     mov        r1, r7
+  0x63cec0a4: d3f8843b ldr.w      r3, [r3, #0xb84]
+  0x63cec0a8: 0646     mov        r6, r0
+  0x63cec0aa: 2046     mov        r0, r4
+  0x63cec0ac: 9847     blx        r3
+  0x63cec0ae: 2368     ldr        r3, [r4]
+  0x63cec0b0: 2046     mov        r0, r4
+  0x63cec0b2: 2946     mov        r1, r5
+  0x63cec0b4: d3f88c3b ldr.w      r3, [r3, #0xb8c]
+  0x63cec0b8: 9847     blx        r3
+  0x63cec0ba: 2368     ldr        r3, [r4]
+  0x63cec0bc: 2046     mov        r0, r4
+  0x63cec0be: 3146     mov        r1, r6
+  0x63cec0c0: d3f8943b ldr.w      r3, [r3, #0xb94]
+  0x63cec0c4: 9847     blx        r3
+  0x63cec0c6: 6846     mov        r0, sp
+  0x63cec0c8: 26f62ef7 bl         #0x63712f28
+  0x63cec0cc: febd     pop        {r1, r2, r3, r4, r5, r6, r7, pc}
+  0x63cec0ce: 6846     mov        r0, sp
+  0x63cec0d0: 26f62af7 bl         #0x63712f28
+  0x63cec0d4: f6f066fd bl         #0x63de2ba4
+=== 0x63cec0d8 (Merge Dual Segments into Single Image) (0x63cec0d8 .. 0x63cec176) ===
+  0x63cec0d8: 1378     ldrb       r3, [r2]
+  0x63cec0da: 0b70     strb       r3, [r1]
+  0x63cec0dc: 536a     ldr        r3, [r2, #0x24]
+  0x63cec0de: 4b60     str        r3, [r1, #4]
+  0x63cec0e0: 138d     ldrh       r3, [r2, #0x28]
+  0x63cec0e2: 0b81     strh       r3, [r1, #8]
+  0x63cec0e4: d36a     ldr        r3, [r2, #0x2c]
+  0x63cec0e6: cb60     str        r3, [r1, #0xc]
+  0x63cec0e8: 5378     ldrb       r3, [r2, #1]
+  0x63cec0ea: 0b74     strb       r3, [r1, #0x10]
+  0x63cec0ec: 9378     ldrb       r3, [r2, #2]
+  0x63cec0ee: 4b74     strb       r3, [r1, #0x11]
+  0x63cec0f0: d378     ldrb       r3, [r2, #3]
+  0x63cec0f2: 8b74     strb       r3, [r1, #0x12]
+  0x63cec0f4: 1379     ldrb       r3, [r2, #4]
+  0x63cec0f6: cb74     strb       r3, [r1, #0x13]
+  0x63cec0f8: d388     ldrh       r3, [r2, #6]
+  0x63cec0fa: b2f87000 ldrh.w     r0, [r2, #0x70]
+  0x63cec0fe: 8b82     strh       r3, [r1, #0x14]
+  0x63cec100: 1389     ldrh       r3, [r2, #8]
+  0x63cec102: cb82     strh       r3, [r1, #0x16]
+  0x63cec104: 138e     ldrh       r3, [r2, #0x30]
+  0x63cec106: c318     adds       r3, r0, r3
+  0x63cec108: 0b83     strh       r3, [r1, #0x18]
+  0x63cec10a: 538e     ldrh       r3, [r2, #0x32]
+  0x63cec10c: b2f87800 ldrh.w     r0, [r2, #0x78]
+  0x63cec110: 4b83     strh       r3, [r1, #0x1a]
+  0x63cec112: 938e     ldrh       r3, [r2, #0x34]
+  0x63cec114: 8b83     strh       r3, [r1, #0x1c]
+  0x63cec116: d38e     ldrh       r3, [r2, #0x36]
+  0x63cec118: cb83     strh       r3, [r1, #0x1e]
+  0x63cec11a: 138f     ldrh       r3, [r2, #0x38]
+  0x63cec11c: c318     adds       r3, r0, r3
+  0x63cec11e: 0b84     strh       r3, [r1, #0x20]
+  0x63cec120: 538f     ldrh       r3, [r2, #0x3a]
+  0x63cec122: 4b84     strh       r3, [r1, #0x22]
+  0x63cec124: 938f     ldrh       r3, [r2, #0x3c]
+  0x63cec126: b2f88000 ldrh.w     r0, [r2, #0x80]
+  0x63cec12a: 8b84     strh       r3, [r1, #0x24]
+  0x63cec12c: d38f     ldrh       r3, [r2, #0x3e]
+  0x63cec12e: cb84     strh       r3, [r1, #0x26]
+  0x63cec130: b2f84030 ldrh.w     r3, [r2, #0x40]
+  0x63cec134: c318     adds       r3, r0, r3
+  0x63cec136: 0b85     strh       r3, [r1, #0x28]
+  0x63cec138: b2f84230 ldrh.w     r3, [r2, #0x42]
+  0x63cec13c: 4b85     strh       r3, [r1, #0x2a]
+  0x63cec13e: 92f84430 ldrb.w     r3, [r2, #0x44]
+  0x63cec142: 81f82c30 strb.w     r3, [r1, #0x2c]
+  0x63cec146: 92f84530 ldrb.w     r3, [r2, #0x45]
+  0x63cec14a: 81f82d30 strb.w     r3, [r1, #0x2d]
+  0x63cec14e: 937a     ldrb       r3, [r2, #0xa]
+  0x63cec150: 81f82e30 strb.w     r3, [r1, #0x2e]
+  0x63cec154: d37a     ldrb       r3, [r2, #0xb]
+  0x63cec156: 81f82f30 strb.w     r3, [r1, #0x2f]
+  0x63cec15a: 137b     ldrb       r3, [r2, #0xc]
+  0x63cec15c: 81f83030 strb.w     r3, [r1, #0x30]
+  0x63cec160: 537b     ldrb       r3, [r2, #0xd]
+  0x63cec162: 81f83130 strb.w     r3, [r1, #0x31]
+  0x63cec166: 937b     ldrb       r3, [r2, #0xe]
+  0x63cec168: 81f83230 strb.w     r3, [r1, #0x32]
+  0x63cec16c: d37b     ldrb       r3, [r2, #0xf]
+  0x63cec16e: 81f83330 strb.w     r3, [r1, #0x33]
+  0x63cec172: 128a     ldrh       r2, [r2, #0x10]
+  0x63cec174: 8a86     strh       r2, [r1, #0x34]

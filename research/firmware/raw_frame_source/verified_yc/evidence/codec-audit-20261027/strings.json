@@ -1,0 +1,78 @@
+[
+  {
+    "address": "0x63f1d7b0",
+    "text": "ycCompress    =%d"
+  },
+  {
+    "address": "0x63f1fc9f",
+    "text": "[%s]bit_depth                   = 0x%02X(%s)"
+  },
+  {
+    "address": "0x63f24f6a",
+    "text": "[CODEC V   ]input_image_bit_depth           = 0x%02X"
+  },
+  {
+    "address": "0x63f3b148",
+    "text": "[SDF] ycCompress     : %#x"
+  },
+  {
+    "address": "0x63f3cc10",
+    "text": "[SDF] Send YC Complete! -- Current PTM: ptm_32.ptm_31_0 : %08x.%08x"
+  },
+  {
+    "address": "0x63f3f5fc",
+    "text": "[SDF] SplitDecodeResizeRotate targetSizeX too short for YC compress"
+  },
+  {
+    "address": "0x63f3fd89",
+    "text": "[SDF][INT_ERROR] inYcCompress & outYcCompress"
+  },
+  {
+    "address": "0x63f4281f",
+    "text": "SetYcCompress"
+  },
+  {
+    "address": "0x63fb49f2",
+    "text": "[CMNHANDLER]BitDepth      :0x%08X"
+  },
+  {
+    "address": "0x63fb6bae",
+    "text": "[ENCHANDLER]BitDepth                      :%d"
+  },
+  {
+    "address": "0x63fba738",
+    "text": "unsupported bit depth 0x%x"
+  },
+  {
+    "address": "0x63fbad75",
+    "text": "[IMLDECSTAT]bit_depth                  :0x%08X"
+  },
+  {
+    "address": "0x63fbaf3d",
+    "text": "[IMLDECSTAT][OPEN_PARAM] NG bit_depth:0x%08x"
+  },
+  {
+    "address": "0x63fc2ee2",
+    "text": " .bit_depth                   = 0x%02X(%s)"
+  },
+  {
+    "address": "0x63fc3822",
+    "text": "[TSKVIDENC ]   input_image_bit_depth            = 0x%02X"
+  },
+  {
+    "address": "0x63fc6083",
+    "text": "[ZIMA DVDEC]bit_depth                  :0x%08X"
+  },
+  {
+    "address": "0x63fd381a",
+    "text": "CheckOutputImageMirrorYcCompAlignment"
+  },
+  {
+    "address": "0x63fd390c",
+    "text": "CheckOutputImageMirrorYcCompStripWidth"
+  },
+  {
+    "address": "0x63fd42e3",
+    "text": "M:sndPcmInfoUipc"
+  }
+]

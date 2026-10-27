@@ -1,0 +1,129 @@
+63cadcd2: push       {r4, r5, lr}
+63cadcd4: sub        sp, #0x84
+63cadcd6: mov        r4, r0
+63cadcd8: mov        r5, r1
+63cadcda: add        r0, sp, #4
+63cadcdc: bl         #0x63cadc84
+63cadce0: mov        r1, r5
+63cadce2: movs       r2, #0x7c
+63cadce4: add        r0, sp, #4
+63cadce6: blx        #0x63ae83ec
+63cadcea: mov        r0, r4
+63cadcec: add        r1, sp, #4
+63cadcee: bl         #0x636c6db4
+63cadcf2: mov        r0, r4
+63cadcf4: add        r1, sp, #0x38
+63cadcf6: bl         #0x636c6554
+63cadcfa: add        sp, #0x84
+63cadcfc: pop        {r4, r5, pc}
+63cadcfe: push       {r4, r5, r6, r7, lr}
+63cadd00: mov        r4, r3
+63cadd02: sub        sp, #0x14
+63cadd04: mov        r6, r1
+63cadd06: mov        r5, r2
+63cadd08: bl         #0x63cb22ca
+63cadd0c: ldrh       r3, [r4, #0x38]
+63cadd0e: movs       r0, #0x80
+63cadd10: mov        r1, r6
+63cadd12: mov        r2, r5
+63cadd14: movs       r7, #0
+63cadd16: str        r7, [sp, #4]
+63cadd18: str        r3, [sp]
+63cadd1a: mov.w      r3, #0x360
+63cadd1e: str        r3, [sp, #8]
+63cadd20: ldr        r3, [r4, #0x34]
+63cadd22: bl         #0x636badb8
+63cadd26: ldrb.w     r3, [r4, #0x40]
+63cadd2a: movs       r0, #0x80
+63cadd2c: mov        r1, r6
+63cadd2e: mov        r2, r5
+63cadd30: stm.w      sp, {r3, r7}
+63cadd34: movw       r3, #0x361
+63cadd38: str        r3, [sp, #8]
+63cadd3a: ldr        r3, [r4, #0x3c]
+63cadd3c: bl         #0x636badb8
+63cadd40: ldrh.w     r2, [r4, #0x44]
+63cadd44: ldrb.w     r3, [r4, #0x41]
+63cadd48: movs       r0, #0x80
+63cadd4a: mov        r1, r6
+63cadd4c: stm.w      sp, {r2, r7}
+63cadd50: movw       r2, #0x362
+63cadd54: str        r2, [sp, #8]
+63cadd56: mov        r2, r5
+63cadd58: bl         #0x636badb8
+63cadd5c: ldrh.w     r2, [r4, #0x48]
+63cadd60: ldrh.w     r3, [r4, #0x46]
+63cadd64: movs       r0, #0x80
+63cadd66: mov        r1, r6
+63cadd68: stm.w      sp, {r2, r7}
+63cadd6c: movw       r2, #0x363
+63cadd70: str        r2, [sp, #8]
+63cadd72: mov        r2, r5
+63cadd74: bl         #0x636badb8
+63cadd78: ldrb.w     r2, [r4, #0x4c]
+63cadd7c: ldrh.w     r3, [r4, #0x4a]
+63cadd80: movs       r0, #0x80
+63cadd82: mov        r1, r6
+63cadd84: stm.w      sp, {r2, r7}
+63cadd88: mov.w      r2, #0x364
+63cadd8c: str        r2, [sp, #8]
+63cadd8e: mov        r2, r5
+63cadd90: bl         #0x636badb8
+63cadd94: ldrb.w     r2, [r4, #0x4e]
+63cadd98: ldrb.w     r3, [r4, #0x4d]
+63cadd9c: movs       r0, #0x80
+63cadd9e: mov        r1, r6
+63cadda0: stm.w      sp, {r2, r7}
+63cadda4: movw       r2, #0x365
+63cadda8: str        r2, [sp, #8]
+63caddaa: mov        r2, r5
+63caddac: bl         #0x636badb8
+63caddb0: ldrb.w     r2, [r4, #0x50]
+63caddb4: ldrb.w     r3, [r4, #0x4f]
+63caddb8: movs       r0, #0x80
+63caddba: mov        r1, r6
+63caddbc: stm.w      sp, {r2, r7}
+63caddc0: movw       r2, #0x366
+63caddc4: str        r2, [sp, #8]
+63caddc6: mov        r2, r5
+63caddc8: bl         #0x636badb8
+63caddcc: ldrh.w     r3, [r4, #0x58]
+63caddd0: movs       r0, #0x80
+63caddd2: mov        r1, r6
+63caddd4: mov        r2, r5
+63caddd6: stm.w      sp, {r3, r7}
+63caddda: movw       r3, #0x367
+63caddde: str        r3, [sp, #8]
+63cadde0: ldr        r3, [r4, #0x54]
+63cadde2: bl         #0x636badb8
+63cadde6: movs       r0, #0x80
+63cadde8: mov        r1, r6
+63caddea: mov        r2, r5
+63caddec: mov.w      r3, #0x368
+63caddf0: str        r3, [sp, #8]
+63caddf2: ldr        r3, [r4, #0x5c]
+63caddf4: str        r7, [sp]
+63caddf6: str        r7, [sp, #4]
+63caddf8: bl         #0x636badb8
+63caddfc: ldrh.w     r3, [r4, #0x6e]
+63cade00: movs       r0, #0x80
+63cade02: mov        r1, r6
+63cade04: mov        r2, r5
+63cade06: str        r3, [sp]
+63cade08: ldrb.w     r3, [r4, #0x6c]
+63cade0c: str        r3, [sp, #4]
+63cade0e: movw       r3, #0x369
+63cade12: str        r3, [sp, #8]
+63cade14: ldr        r3, [r4, #0x70]
+63cade16: bl         #0x636badb8
+63cade1a: ldrh.w     r2, [r4, #0x68]
+63cade1e: ldrh.w     r3, [r4, #0x6a]
+63cade22: movs       r0, #0x80
+63cade24: mov        r1, r6
+63cade26: stm.w      sp, {r2, r7}
+63cade2a: movw       r2, #0x36a
+63cade2e: str        r2, [sp, #8]
+63cade30: mov        r2, r5
+63cade32: bl         #0x636badb8
+63cade36: add        sp, #0x14
+63cade38: pop        {r4, r5, r6, r7, pc}

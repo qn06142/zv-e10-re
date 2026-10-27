@@ -1,0 +1,87 @@
+{
+  "actual_Sony_function_executed": "0x6372f54c VdfInputCmdUpdateYuvPin::changeSSYCData",
+  "stubs": [
+    "MsgAccessor::GetMessage fixture accessor",
+    "OSAL memory mapping: fixture identity mapping only; no real address translation"
+  ],
+  "real_native_SDS_parser_and_geometry_lookup_executed": true,
+  "camera_access": false,
+  "pixel_packing_proved": false,
+  "cases": [
+    {
+      "width": 640,
+      "height": 480,
+      "data_content": 2,
+      "return_value": 0,
+      "canvas_size_y": 480,
+      "valid_size_y": 480,
+      "target_size_y": 480,
+      "data_placement": 1,
+      "yc_compress": 0,
+      "data_site": 0,
+      "author": 1,
+      "camera_info_plus8": 288,
+      "metadata_hex": "01000000000000000000000000000000000000008002e0018002e001000000008002e001000000008002e00100000000000102000000000000000000"
+    },
+    {
+      "width": 640,
+      "height": 480,
+      "data_content": 1,
+      "return_value": 0,
+      "canvas_size_y": 240,
+      "valid_size_y": 240,
+      "target_size_y": 240,
+      "data_placement": 0,
+      "yc_compress": 0,
+      "data_site": 0,
+      "author": 1,
+      "camera_info_plus8": 288,
+      "metadata_hex": "01000000000000000000000000000000000000008002e0018002f000000000008002f000000000008002f00000000000000001000000000000000000"
+    },
+    {
+      "width": 640,
+      "height": 480,
+      "data_content": 0,
+      "return_value": 0,
+      "canvas_size_y": 240,
+      "valid_size_y": 240,
+      "target_size_y": 240,
+      "data_placement": 0,
+      "yc_compress": 0,
+      "data_site": 0,
+      "author": 1,
+      "camera_info_plus8": 288,
+      "metadata_hex": "01000000000000000000000000000000000000008002e0018002f000000000008002f000000000008002f00000000000000000000000000000000000"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "data_content": 2,
+      "return_value": 0,
+      "canvas_size_y": 1080,
+      "valid_size_y": 1080,
+      "target_size_y": 1080,
+      "data_placement": 1,
+      "yc_compress": 1,
+      "data_site": 0,
+      "author": 1,
+      "camera_info_plus8": 288,
+      "metadata_hex": "010000000000000000000000000000000000000080073804800738040000000080073804000000008007380400000001000102000000000000000000"
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "data_content": 2,
+      "return_value": 0,
+      "canvas_size_y": 720,
+      "valid_size_y": 720,
+      "target_size_y": 720,
+      "data_placement": 1,
+      "yc_compress": 1,
+      "data_site": 0,
+      "author": 1,
+      "camera_info_plus8": 288,
+      "metadata_hex": "01000000000000000000000000000000000000000005d0020005d002000000000005d002000000000005d00200000001000102000000000000000000"
+    }
+  ]
+}

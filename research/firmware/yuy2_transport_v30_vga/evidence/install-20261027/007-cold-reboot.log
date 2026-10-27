@@ -1,0 +1,12 @@
+/usr/share/app # /bin/busybox sync
+/usr/share/app # echo V30_PREFLASH_REBOOT_REQUESTED
+V30_PREFLASH_REBOOT_REQUESTED
+/usr/share/app # /bin/busybox reboot -f
+[  455.349080] Disabling non-boot CPUs ...
+[  455.350930] CPU1: shutdown
+[  455.350947] CPU1: shutdown
+[  455.354770] CPU2: shutdown
+[  455.354787] CPU2: shutdown
+[  455.374576] CPU3: shutdown
+[  455.374593] CPU3: shutdown
+[  455.377052] Restarting system.

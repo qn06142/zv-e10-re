@@ -1,0 +1,27 @@
+[
+  {
+    "path": "/tmp/opengate_trace/dmesg_post.log",
+    "md5": "c24b02fccf2139bbaa9cd945b313fd82",
+    "bytes": 7919
+  },
+  {
+    "path": "/tmp/opengate_trace/dmesg_prev.log",
+    "md5": "e7e5e53add96d09a4dd43df2ec9e396d",
+    "bytes": 7919
+  },
+  {
+    "path": "/tmp/opengate_trace/im_pid.log",
+    "md5": "22b7896931cb399dc1672c48e0d55ce3",
+    "bytes": 4
+  },
+  {
+    "path": "/tmp/opengate_trace/mpr_after.log",
+    "md5": "61ee5be931b68a0a395631bb15804aa1",
+    "bytes": 686409
+  },
+  {
+    "path": "/tmp/opengate_trace/mpr_before.log",
+    "md5": "b3b3a189898497ebb1ec391e347c36b1",
+    "bytes": 422398
+  }
+]

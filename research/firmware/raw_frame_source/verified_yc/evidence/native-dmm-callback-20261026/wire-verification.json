@@ -1,0 +1,37 @@
+{
+  "actual_Sony_methods_executed": true,
+  "hardware_services_mocked": true,
+  "camera_access": false,
+  "requests": [
+    {
+      "command": 2,
+      "native_symbol": "_ZN17OBJAVBBCBASECLASS5DmmCh10allocShareEP17dmm_comp_alc_unitjtt",
+      "native_wire_hex": "02008a403f19060000000000000000007856341278560000",
+      "matches_compiled_encoder": true
+    },
+    {
+      "command": 5,
+      "native_symbol": "_ZN17OBJAVBBCBASECLASS5DmmCh4openEP18dmm_comp_open_unitttj",
+      "native_wire_hex": "05008a400000000000000000000000007856341278560000",
+      "matches_compiled_encoder": true
+    },
+    {
+      "command": 6,
+      "native_symbol": "_ZN17OBJAVBBCBASECLASS5DmmCh5closeEP19dmm_comp_close_unitt",
+      "native_wire_hex": "06008a400000000000000000000000007856341278560000",
+      "matches_compiled_encoder": true
+    },
+    {
+      "command": 4,
+      "native_symbol": "_ZN17OBJAVBBCBASECLASS5DmmCh4freeEP18dmm_comp_free_unittt",
+      "native_wire_hex": "04008a400000000000000000000000007856341278560000",
+      "matches_compiled_encoder": true
+    }
+  ],
+  "intercepted_imports": [
+    "_ZN17AvbbcBaseClassLog7SetLog0Ejjjjt",
+    "_ZN17OBJAVBBCBASECLASS15DataflowInfraCh17rcvAsyncGlobalMsgEPvtjj",
+    "_ZN17OBJAVBBCBASECLASS15DataflowInfraCh17sndAsyncGlobalMsgEPvtjj",
+    "memset"
+  ]
+}

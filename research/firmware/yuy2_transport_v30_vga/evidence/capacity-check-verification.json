@@ -1,0 +1,40 @@
+{
+  "original_function": "0x63ca47b8",
+  "camera_access": false,
+  "metadata_read_and_capacity_operation_mocked": true,
+  "proved": "byte count passed by resolver, not hardware format/acceptance",
+  "cases": [
+    {
+      "canvas": [
+        640,
+        480
+      ],
+      "yc_compress": 0,
+      "requested_capacity": 614400
+    },
+    {
+      "canvas": [
+        640,
+        480
+      ],
+      "yc_compress": 1,
+      "requested_capacity": 307200
+    },
+    {
+      "canvas": [
+        1920,
+        1080
+      ],
+      "yc_compress": 0,
+      "requested_capacity": 4147200
+    },
+    {
+      "canvas": [
+        1920,
+        1080
+      ],
+      "yc_compress": 1,
+      "requested_capacity": 2073600
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "passed": 13,
+  "cases": [
+    "no backend: no USB submission and no synthetic fallback",
+    "USB EBUSY prevents source acquisition and staging mutation",
+    "614400 bytes identical despite UNKNOWN format, flags0, foreign dimensions and stride0",
+    "acquisition timeout sends neither bars nor a repeated stale frame",
+    "failed release retains lease and prevents both submission and new acquisition",
+    "cleanup retry recovers without inventing a new source reference",
+    "unaligned byte-window offset preserved; active source offset changes rejected",
+    "short allocation rejected before mapping, reference still released",
+    "offset outside allocation rejected before mapping",
+    "invalid/overlapping/wrapping source address rejected: 0x0",
+    "invalid/overlapping/wrapping source address rejected: 0x30000000",
+    "invalid/overlapping/wrapping source address rejected: 0xfffff000",
+    "missing stable reference rejected without a fabricated release"
+  ],
+  "hardware_services_mocked": true,
+  "Sony_backend_provided": false,
+  "camera_access": false
+}

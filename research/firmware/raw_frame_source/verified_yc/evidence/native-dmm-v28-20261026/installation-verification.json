@@ -1,0 +1,20 @@
+{
+  "installed": true,
+  "readback_verified": true,
+  "hashes": {
+    "stream-installed-readback.so": "27f4f4696c724caa8348edc51c86a517",
+    "module-installed-readback.so": "5dd449056e4da5b7bea072d9e3b65d0b",
+    "previous-27-readback.so": "c3aa9b92ea6c05ce78aa7894e8dfe35a",
+    "stable-24p-readback.so": "5fde77e394572ebcf420f8941575f6c4"
+  },
+  "capture_verified": false,
+  "reboot_verified": true,
+  "usr_readonly": true,
+  "unloaded_before_streaming": true,
+  "installed_vef_code_and_table_match_offline_image": true,
+  "vef_page_sha256": {
+    "vef-code-pages.bin": "2b20c1c19ac6f3682e169270ce9a43725184b9d44a8f8a463206750c336e0df5",
+    "vef-table-page.bin": "9058d06ab1b5a948fc1a3d417b2676d3a5135df19927eb60a9643a2092ec1cad"
+  },
+  "boot_uptime": "158.92 527.14"
+}

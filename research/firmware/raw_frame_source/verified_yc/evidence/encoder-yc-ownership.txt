@@ -1,0 +1,673 @@
+63691d80: str      r3, [sp, #0x14] 
+63691d82: movs     r3, #6 
+63691d84: sxtb     r0, r0 
+63691d86: str      r0, [sp, #4] 
+63691d88: mov      r0, r7 
+63691d8a: bl       #0x63daee88 
+63691d8e: ldr.w    r3, [r4, #0x3e4] 
+63691d92: cmp      r3, r5 
+63691d94: blo      #0x63691da6 
+63691d96: mov      r0, r4 
+63691d98: bl       #0x63c865d6 
+63691d9c: ldr.w    r3, [r4, #0x3e4] 
+63691da0: subs     r5, r3, r5 
+63691da2: str.w    r5, [r4, #0x3e4] 
+63691da6: ldr.w    r3, [r4, #0x3e4] 
+63691daa: adds     r3, #1 
+63691dac: str.w    r3, [r4, #0x3e4] 
+63691db0: cbz      r6, #0x63691dce 
+63691db2: ldr.w    r2, [r4, #0x3e8] 
+63691db6: adds     r2, #1 
+63691db8: str.w    r2, [r4, #0x3e8] 
+63691dbc: cmp.w    r2, #0x3e8 
+63691dc0: bne      #0x63691dce 
+63691dc2: adds     r3, #1 
+63691dc4: str.w    r3, [r4, #0x3e4] 
+63691dc8: movs     r3, #0 
+63691dca: str.w    r3, [r4, #0x3e8] 
+63691dce: add      sp, #0x1c 
+63691dd0: pop      {r4, r5, r6, r7, pc} 
+63691dd2: nop       
+63691dd4: add      r0, pc 
+63691dd6: lsls     r1, r1, #2 
+63691dd8: add      lr, r0 
+63691dda: lsls     r1, r1, #2 
+63691ddc: mvns     r0, r3 
+63691dde: lsls     r1, r1, #2 
+63691de0: add      r4, r1 
+63691de2: lsls     r1, r1, #2 
+63691de4: bics     r2, r1 
+63691de6: lsls     r1, r1, #2 
+63691de8: mvns     r4, r5 
+63691dea: lsls     r1, r1, #2 
+63691dec: ldrh     r3, [r1, #0x2c] 
+63691dee: push     {r4, r5, r6, lr} 
+63691df0: sub      sp, #0xa0 
+63691df2: mov      r6, r1 
+63691df4: mov      r4, r0 
+63691df6: strh.w   r3, [sp, #0x8c] 
+63691dfa: add      r0, sp, #0x24 
+63691dfc: ldr      r3, [r1, #0x28] 
+63691dfe: mov      r5, r2 
+63691e00: str      r3, [sp, #0x88] 
+63691e02: ldr      r3, [r1, #0x30] 
+63691e04: str      r3, [sp, #0x94] 
+63691e06: bl       #0x63c609ec 
+63691e0a: ldrh     r3, [r6, #0x2c] 
+63691e0c: str      r3, [sp, #0x24] 
+63691e0e: ldr      r3, [r4] 
+63691e10: ldr      r0, [r3] 
+63691e12: bl       #0x63c609c2 
+63691e16: movs     r1, #0 
+63691e18: mov      r2, r1 
+63691e1a: mov      r3, r0 
+63691e1c: add      r0, sp, #0x24 
+63691e1e: bl       #0x63c60d74 
+63691e22: mov      r6, r0 
+63691e24: cmp      r0, #0 
+63691e26: beq      #0x63691e86 
+63691e28: bl       #0x63a062f0 
+63691e2c: ldr      r3, [r4] 
+63691e2e: ldr      r4, [pc, #0x80] 
+63691e30: add      r4, pc 'enc/sfmc_enc_input_yc.cpp'
+63691e32: mov      r5, r0 
+63691e34: ldr      r0, [r3] 
+63691e36: bl       #0x63c602be 
+63691e3a: movs     r3, #1 
+63691e3c: str      r3, [sp] 
+63691e3e: movw     r2, #0x40d 
+63691e42: ldr      r3, [pc, #0x70] 
+63691e44: movs     r1, #0x57 
+63691e46: str      r2, [sp, #0xc] 
+63691e48: add      r3, pc '[INPUT V   ]DMM ERROR.%s %u @%s:\n'
+63691e4a: str      r3, [sp, #0x10] 
+63691e4c: ldr      r3, [pc, #0x68] 
+63691e4e: str      r2, [sp, #0x18] 
+63691e50: movs     r2, #0 
+63691e52: add      r3, pc '__int32_t sfmc_enc::sfmc_enc_input_yc::open_pin_data(const MSG_PIN_SEND&, McAvcYcData&)'
+63691e54: str      r3, [sp, #0x1c] 
+63691e56: movs     r3, #6 
+63691e58: str      r4, [sp, #8] 
+63691e5a: str      r4, [sp, #0x14] 
+63691e5c: sxtb     r0, r0 
+63691e5e: str      r0, [sp, #4] 
+63691e60: mov      r0, r5 
+63691e62: bl       #0x63daee88 
+63691e66: add      r0, sp, #0x9c 
+63691e68: bl       #0x6364c374 
+63691e6c: add      r0, sp, #0x9c 
+63691e6e: movs     r1, #0 
+63691e70: mov      r2, r4 
+63691e72: movw     r3, #0x40e 
+63691e76: bl       #0x6364dbd8 
+63691e7a: add      r0, sp, #0x9c 
+63691e7c: bl       #0x6364c35c 
+63691e80: mov.w    r0, #-0x10000000 
+63691e84: b        #0x63691ea0 
+63691e86: movs     r1, #0x10 
+63691e88: movs     r2, #2 
+63691e8a: ldr      r0, [sp, #0x28] 
+63691e8c: bl       #0x63c48e0c 
+63691e90: ldr      r3, [sp, #0x58] 
+63691e92: add      r1, sp, #0x88 
+63691e94: str      r3, [sp, #0x98] 
+63691e96: str      r0, [sp, #0x90] 
+63691e98: mov      r0, r5 
+63691e9a: bl       #0x63c60f40 
+63691e9e: mov      r0, r6 
+63691ea0: add      sp, #0xa0 
+63691ea2: pop      {r4, r5, r6, pc} 
+63691ea4: add      r0, sp, #0x9c 
+63691ea6: bl       #0x6364c35c 
+63691eaa: bl       #0x63de2ba4 
+63691eae: nop       
+63691eb0: cmn      r6, r0 
+63691eb2: lsls     r1, r1, #2 
+63691eb4: muls     r1, r0, r1 
+63691eb6: lsls     r1, r1, #2 
+63691eb8: adds     r6, #0xc4 
+63691eba: lsls     r2, r1, #2 
+63691ebc: push     {r4, r5, r6, lr} 
+63691ebe: sub      sp, #0xc8 
+63691ec0: mov      r4, r1 
+63691ec2: mov      r5, r0 
+63691ec4: movs     r1, #0 
+63691ec6: add      r0, sp, #0x88 
+63691ec8: movs     r2, #0x3c 
+63691eca: blx      #0x63ae8ad0 
+63691ece: mov      r0, r4 
+63691ed0: add      r1, sp, #0x88 
+63691ed2: bl       #0x63c60f76 
+63691ed6: cmp      r0, #0 
+63691ed8: beq      #0x63691f78 
+63691eda: ldrh.w   r0, [sp, #0x90] 
+63691ede: cmp      r0, #0 
+63691ee0: beq      #0x63691f78 
+63691ee2: ldrb.w   r0, [sp, #0x88] 
+63691ee6: cmp      r0, #0 
+63691ee8: beq      #0x63691f78 
+63691eea: add      r0, sp, #0x24 
+63691eec: bl       #0x63c609ec 
+63691ef0: ldrh.w   r3, [sp, #0x90] 
+63691ef4: str      r3, [sp, #0x24] 
+63691ef6: ldr      r3, [r5] 
+63691ef8: ldr      r0, [r3] 
+63691efa: bl       #0x63c609c2 
+63691efe: movs     r1, #0 
+63691f00: mov      r2, r1 
+63691f02: mov      r3, r0 
+63691f04: add      r0, sp, #0x24 
+63691f06: bl       #0x63c60d74 
+63691f0a: mov      r6, r0 
+63691f0c: cmp      r0, #0 
+63691f0e: beq      #0x63691f6e 
+63691f10: bl       #0x63a062f0 
+63691f14: ldr      r3, [r5] 
+63691f16: ldr      r4, [pc, #0x70] 
+63691f18: add      r4, pc 'enc/sfmc_enc_input_yc.cpp'
+63691f1a: mov      r6, r0 
+63691f1c: ldr      r0, [r3] 
+63691f1e: bl       #0x63c602be 
+63691f22: movs     r3, #1 
+63691f24: str      r3, [sp] 
+63691f26: movw     r2, #0x42f 
+63691f2a: ldr      r3, [pc, #0x60] 
+63691f2c: movs     r1, #0x57 
+63691f2e: str      r2, [sp, #0xc] 
+63691f30: add      r3, pc '[INPUT V   ]DMM ERROR.%s %u @%s:\n'
+63691f32: str      r3, [sp, #0x10] 
+63691f34: ldr      r3, [pc, #0x58] 
+63691f36: str      r2, [sp, #0x18] 
+63691f38: movs     r2, #0 
+63691f3a: add      r3, pc '__int32_t sfmc_enc::sfmc_enc_input_yc::open_image_data(McAvcYcData&)'
+63691f3c: str      r3, [sp, #0x1c] 
+63691f3e: movs     r3, #6 
+63691f40: str      r4, [sp, #8] 
+63691f42: str      r4, [sp, #0x14] 
+63691f44: sxtb     r0, r0 
+63691f46: str      r0, [sp, #4] 
+63691f48: mov      r0, r6 
+63691f4a: bl       #0x63daee88 
+63691f4e: add      r0, sp, #0xc4 
+63691f50: bl       #0x6364c374 
+63691f54: add      r0, sp, #0xc4 
+63691f56: movs     r1, #0 
+63691f58: mov      r2, r4 
+63691f5a: mov.w    r3, #0x430 
+63691f5e: bl       #0x6364dbd8 
+63691f62: add      r0, sp, #0xc4 
+63691f64: bl       #0x6364c35c 
+63691f68: mov.w    r0, #-0x10000000 
+63691f6c: b        #0x63691f78 
+63691f6e: mov      r0, r4 
+63691f70: add      r1, sp, #0x28 
+63691f72: bl       #0x63c612ea 
+63691f76: mov      r0, r6 
+63691f78: add      sp, #0xc8 
+63691f7a: pop      {r4, r5, r6, pc} 
+63691f7c: add      r0, sp, #0xc4 
+63691f7e: bl       #0x6364c35c 
+63691f82: bl       #0x63de2ba4 
+63691f86: nop       
+63691f88: rors     r6, r3 
+63691f8a: lsls     r1, r1, #2 
+63691f8c: rsbs     r1, r3, #0 
+63691f8e: lsls     r1, r1, #2 
+63691f90: adds     r5, #0x3d 
+63691f92: lsls     r2, r1, #2 
+63691f94: push     {r4, r5, lr} 
+63691f96: sub      sp, #0xc4 
+63691f98: mov      r5, r1 
+63691f9a: mov      r4, r0 
+63691f9c: movs     r1, #0 
+63691f9e: add      r0, sp, #0x84 
+63691fa0: movs     r2, #0x3c 
+63691fa2: blx      #0x63ae8ad0 
+63691fa6: mov      r0, r5 
+63691fa8: add      r1, sp, #0x84 
+63691faa: bl       #0x63c60f76 
+63691fae: cmp      r0, #0 
+63691fb0: beq      #0x63692022 
+63691fb2: ldrh.w   r3, [sp, #0x8c] 
+63691fb6: cmp      r3, #0 
+63691fb8: beq      #0x63692022 
+63691fba: ldrb.w   r3, [sp, #0x84] 
+63691fbe: cmp      r3, #0 
+63691fc0: beq      #0x63692022 
+63691fc2: add      r0, sp, #0x20 
+63691fc4: bl       #0x63c609ec 
+63691fc8: ldrh.w   r3, [sp, #0x8c] 
+63691fcc: str      r3, [sp, #0x20] 
+63691fce: ldr      r3, [r4] 
+63691fd0: ldr      r0, [r3] 
+63691fd2: bl       #0x63c609c2 
+63691fd6: ldr      r1, [sp, #0x88] 
+63691fd8: movs     r2, #0 
+63691fda: mov      r3, r0 
+63691fdc: add      r0, sp, #0x20 
+63691fde: bl       #0x63c60d22 
+63691fe2: cbz      r0, #0x63692026 
+63691fe4: bl       #0x63a062f0 
+63691fe8: ldr      r3, [r4] 
+63691fea: mov      r5, r0 
+63691fec: ldr      r0, [r3] 
+63691fee: bl       #0x63c602be 
+63691ff2: movs     r3, #1 
+63691ff4: str      r3, [sp] 
+63691ff6: movw     r1, #0x454 
+63691ffa: ldr      r3, [pc, #0x30] 
+63691ffc: ldr      r2, [pc, #0x30] 
+63691ffe: add      r3, pc 'enc/sfmc_enc_input_yc.cpp'
+63692000: str      r3, [sp, #8] 
+63692002: str      r3, [sp, #0x14] 
+63692004: add      r2, pc '[INPUT V   ]DMM ERROR.%s %u @%s:\n'
+63692006: ldr      r3, [pc, #0x2c] 
+63692008: str      r1, [sp, #0xc] 
+6369200a: add      r3, pc '__int32_t sfmc_enc::sfmc_enc_input_yc::share_image_data(McAvcYcData&)'
+6369200c: str      r2, [sp, #0x10] 
+6369200e: str      r1, [sp, #0x18] 
+63692010: movs     r2, #0 
+63692012: str      r3, [sp, #0x1c] 
+63692014: movs     r1, #0x57 
+63692016: movs     r3, #6 
+63692018: sxtb     r0, r0 
+6369201a: str      r0, [sp, #4] 
+6369201c: mov      r0, r5 
+6369201e: bl       #0x63daee88 
+63692022: mov.w    r0, #-0x10000000 
+63692026: add      sp, #0xc4 
+63692028: pop      {r4, r5, pc} 
+6369202a: nop       
+6369202c: lsrs     r0, r7 
+6369202e: lsls     r1, r1, #2 
+63692030: sbcs     r5, r0 
+63692032: lsls     r1, r1, #2 
+63692034: adds     r5, #0x64 
+63692036: lsls     r2, r1, #2 
+63692038: push     {r4, r5, lr} 
+6369203a: sub      sp, #0x9c 
+6369203c: movs     r2, #0x14 
+6369203e: mov      r4, r0 
+63692040: mov      r5, r1 
+63692042: add      r0, sp, #0x84 
+63692044: movs     r1, #0 
+63692046: blx      #0x63ae8ad0 
+6369204a: add      r1, sp, #0x84 
+6369204c: mov      r0, r5 
+6369204e: bl       #0x63c60f64 
+63692052: add      r0, sp, #0x20 
+63692054: bl       #0x63c609ec 
+63692058: ldrh.w   r3, [sp, #0x88] 
+6369205c: str      r3, [sp, #0x20] 
+6369205e: ldr      r3, [r4] 
+63692060: ldr      r0, [r3] 
+63692062: bl       #0x63c609c2 
+63692066: ldr      r1, [sp, #0x84] 
+63692068: movs     r2, #0 
+6369206a: mov      r3, r0 
+6369206c: add      r0, sp, #0x20 
+6369206e: bl       #0x63c60d22 
+63692072: cbz      r0, #0x636920b6 
+63692074: bl       #0x63a062f0 
+63692078: ldr      r3, [r4] 
+6369207a: mov      r5, r0 
+6369207c: ldr      r0, [r3] 
+6369207e: bl       #0x63c602be 
+63692082: movs     r3, #1 
+63692084: str      r3, [sp] 
+63692086: movw     r1, #0x467 
+6369208a: ldr      r3, [pc, #0x30] 
+6369208c: ldr      r2, [pc, #0x30] 
+6369208e: add      r3, pc 'enc/sfmc_enc_input_yc.cpp'
+63692090: str      r3, [sp, #8] 
+63692092: str      r3, [sp, #0x14] 
+63692094: add      r2, pc '[INPUT V   ]DMM ERROR.%s %u @%s:\n'
+63692096: ldr      r3, [pc, #0x2c] 
+63692098: str      r1, [sp, #0xc] 
+6369209a: str      r2, [sp, #0x10] 
+6369209c: add      r3, pc '__int32_t sfmc_enc::sfmc_enc_input_yc::share_pin_data(McAvcYcData&)'
+6369209e: str      r1, [sp, #0x18] 
+636920a0: movs     r2, #0 
+636920a2: str      r3, [sp, #0x1c] 
+636920a4: movs     r1, #0x57 
+636920a6: movs     r3, #6 
+636920a8: sxtb     r0, r0 
+636920aa: str      r0, [sp, #4] 
+636920ac: mov      r0, r5 
+636920ae: bl       #0x63daee88 
+636920b2: mov.w    r0, #-0x10000000 
+636920b6: add      sp, #0x9c 
+636920b8: pop      {r4, r5, pc} 
+636920ba: nop       
+636920bc: eors     r0, r5 
+636920be: lsls     r1, r1, #2 
+636920c0: lsrs     r5, r6 
+636920c2: lsls     r1, r1, #2 
+636920c4: adds     r3, #0x51 
+636920c6: lsls     r2, r1, #2 
+636920c8: push     {r4, r5, lr} 
+636920ca: mov      r4, r0 
+636920cc: sub      sp, #0x7c 
+636920ce: mov      r0, r1 
+636920d0: bl       #0x63c86392 
+636920d4: mov      r5, r0 
+636920d6: add      r0, sp, #0x1c 
+636920d8: bl       #0x63645310 
+636920dc: mov      r0, r4 
+636920de: mov      r1, r5 
+636920e0: add      r2, sp, #0x1c 
+636920e2: bl       #0x63691dec 
+636920e6: mov      r0, r4 
+636920e8: add      r1, sp, #0x1c 
+636920ea: bl       #0x63691ebc 
+636920ee: add      r0, sp, #0x1c 
+636920f0: add      r1, sp, #0x5c 
+636920f2: bl       #0x63c60fee 
+636920f6: cbz      r0, #0x63692144 
+636920f8: bl       #0x63a062f0 
+636920fc: ldr      r3, [r4] 
+636920fe: mov      r5, r0 
+63692100: ldr      r0, [r3] 
+63692102: bl       #0x63c602be 
+63692106: movs     r3, #1 
+63692108: str      r3, [sp] 
+6369210a: movs     r1, #0x57 
+6369210c: ldr      r3, [pc, #0x68] 
+6369210e: movs     r2, #4 
+63692110: add      r3, pc 'enc/sfmc_enc_input_yc.cpp'
+63692112: str      r3, [sp, #8] 
+63692114: movw     r3, #0x161 
+63692118: str      r3, [sp, #0xc] 
+6369211a: ldr      r3, [pc, #0x60] 
+6369211c: add      r3, pc '[INPUT V   ]image_tim_info.recordingState = %d\n'
+6369211e: str      r3, [sp, #0x10] 
+63692120: ldrb.w   r3, [sp, #0x74] 
+63692124: str      r3, [sp, #0x14] 
+63692126: movs     r3, #0 
+63692128: sxtb     r0, r0 
+6369212a: str      r0, [sp, #4] 
+6369212c: mov      r0, r5 
+6369212e: bl       #0x63daee88 
+63692132: ldrb.w   r5, [sp, #0x74] 
+63692136: cbz      r5, #0x63692146 
+63692138: mov      r0, r4 
+6369213a: add      r1, sp, #0x1c 
+6369213c: bl       #0x63c866a4 
+63692140: movs     r5, #1 
+63692142: b        #0x63692146 
+63692144: mov      r5, r0 
+63692146: movs     r2, #0 
+63692148: movs     r3, #2 
+6369214a: mov      r0, r4 
+6369214c: str      r3, [sp] 
+6369214e: add      r1, sp, #0x1c 
+63692150: mov      r3, r2 
+63692152: bl       #0x63c868c0 
+63692156: mov      r0, r4 
+63692158: add      r1, sp, #0x1c 
+6369215a: movs     r2, #2 
+6369215c: bl       #0x63c867f0 
+63692160: add      r0, sp, #0x1c 
+63692162: bl       #0x636452b4 
+63692166: mov      r0, r5 
+63692168: add      sp, #0x7c 
+6369216a: pop      {r4, r5, pc} 
+6369216c: add      r0, sp, #0x1c 
+6369216e: bl       #0x636452b4 
+63692172: bl       #0x63de2ba4 
+63692176: nop       
+63692178: subs     r7, #0xe6 
+6369217a: lsls     r1, r1, #2 
+6369217c: lsls     r7, r1 
+6369217e: lsls     r1, r1, #2 
+63692180: ldr      r3, [r0] 
+63692182: push     {r4, r5, r6, lr} 
+63692184: mov      r4, r0 
+63692186: sub      sp, #0x30 
+63692188: ldr      r0, [r3] 
+6369218a: mov      r5, r1 
+6369218c: bl       #0x63c609c2 
+63692190: mov      r1, r0 
+63692192: ldrh     r0, [r5, #0x2c] 
+63692194: bl       #0x63c60e8c 
+63692198: mov      r5, r0 
+6369219a: cmp      r0, #0 
+6369219c: beq      #0x636921fe 
+6369219e: bl       #0x63a062f0 
+636921a2: ldr      r3, [r4] 
+636921a4: ldr      r4, [pc, #0x64] 
+636921a6: add      r4, pc 'enc/sfmc_enc_input_yc.cpp'
+636921a8: mov      r6, r0 
+636921aa: ldr      r0, [r3] 
+636921ac: bl       #0x63c602be 
+636921b0: movs     r3, #1 
+636921b2: str      r3, [sp] 
+636921b4: movw     r2, #0x4cf 
+636921b8: ldr      r3, [pc, #0x54] 
+636921ba: movs     r1, #0x57 
+636921bc: str      r2, [sp, #0xc] 
+636921be: add      r3, pc '[INPUT V   ]DMM ERROR.dmm_err=0x%x.%s %u @%s:\n'
+636921c0: str      r3, [sp, #0x10] 
+636921c2: ldr      r3, [pc, #0x50] 
+636921c4: str      r2, [sp, #0x1c] 
+636921c6: movs     r2, #0 
+636921c8: add      r3, pc '__int32_t sfmc_enc::sfmc_enc_input_yc::close_pin_data(const MSG_PIN_SEND&)'
+636921ca: str      r3, [sp, #0x20] 
+636921cc: movs     r3, #6 
+636921ce: str      r4, [sp, #8] 
+636921d0: str      r5, [sp, #0x14] 
+636921d2: str      r4, [sp, #0x18] 
+636921d4: sxtb     r0, r0 
+636921d6: str      r0, [sp, #4] 
+636921d8: mov      r0, r6 
+636921da: bl       #0x63daee88 
+636921de: add      r0, sp, #0x2c 
+636921e0: bl       #0x6364c374 
+636921e4: add      r0, sp, #0x2c 
+636921e6: movs     r1, #0 
+636921e8: mov      r2, r4 
+636921ea: mov.w    r3, #0x4d0 
+636921ee: bl       #0x6364dbd8 
+636921f2: add      r0, sp, #0x2c 
+636921f4: bl       #0x6364c35c 
+636921f8: mov.w    r0, #-0x10000000 
+636921fc: b        #0x636921fe 
+636921fe: add      sp, #0x30 
+63692200: pop      {r4, r5, r6, pc} 
+63692202: add      r0, sp, #0x2c 
+63692204: bl       #0x6364c35c 
+63692208: bl       #0x63de2ba4 
+6369220c: subs     r7, #0x50 
+6369220e: lsls     r1, r1, #2 
+63692210: ands     r5, r3 
+63692212: lsls     r1, r1, #2 
+63692214: adds     r1, #0x6e 
+63692216: lsls     r2, r1, #2 
+63692218: push     {r4, r5, r6, lr} 
+6369221a: sub      sp, #0x68 
+6369221c: mov      r5, r1 
+6369221e: mov      r4, r0 
+63692220: movs     r1, #0 
+63692222: add      r0, sp, #0x28 
+63692224: movs     r2, #0x3c 
+63692226: blx      #0x63ae8ad0 
+6369222a: mov      r0, r5 
+6369222c: add      r1, sp, #0x28 
+6369222e: bl       #0x63c60f76 
+63692232: cmp      r0, #0 
+63692234: beq      #0x636922bc 
+63692236: ldrh.w   r5, [sp, #0x30] 
+6369223a: cmp      r5, #0 
+6369223c: beq      #0x636922c2 
+6369223e: ldrb.w   r3, [sp, #0x28] 
+63692242: cmp      r3, #0 
+63692244: beq      #0x636922c0 
+63692246: ldr      r3, [r4] 
+63692248: ldr      r0, [r3] 
+6369224a: bl       #0x63c609c2 
+6369224e: mov      r1, r0 
+63692250: mov      r0, r5 
+63692252: bl       #0x63c60e8c 
+63692256: mov      r5, r0 
+63692258: cmp      r0, #0 
+6369225a: beq      #0x636922c2 
+6369225c: bl       #0x63a062f0 
+63692260: ldr      r3, [r4] 
+63692262: ldr      r4, [pc, #0x70] 
+63692264: add      r4, pc 'enc/sfmc_enc_input_yc.cpp'
+63692266: mov      r6, r0 
+63692268: ldr      r0, [r3] 
+6369226a: bl       #0x63c602be 
+6369226e: movs     r3, #1 
+63692270: str      r3, [sp] 
+63692272: movw     r2, #0x4e9 
+63692276: ldr      r3, [pc, #0x60] 
+63692278: movs     r1, #0x57 
+6369227a: str      r2, [sp, #0xc] 
+6369227c: add      r3, pc '[INPUT V   ]DMM ERROR.dmm_err=0x%x.%s %u @%s:\n'
+6369227e: str      r3, [sp, #0x10] 
+63692280: ldr      r3, [pc, #0x58] 
+63692282: str      r2, [sp, #0x1c] 
+63692284: movs     r2, #0 
+63692286: add      r3, pc '__int32_t sfmc_enc::sfmc_enc_input_yc::close_image_data(McAvcYcData&)'
+63692288: str      r3, [sp, #0x20] 
+6369228a: movs     r3, #6 
+6369228c: str      r4, [sp, #8] 
+6369228e: str      r5, [sp, #0x14] 
+63692290: str      r4, [sp, #0x18] 
+63692292: sxtb     r0, r0 
+63692294: str      r0, [sp, #4] 
+63692296: mov      r0, r6 
+63692298: bl       #0x63daee88 
+6369229c: add      r0, sp, #0x64 
+6369229e: bl       #0x6364c374 
+636922a2: add      r0, sp, #0x64 
+636922a4: movs     r1, #0 
+636922a6: mov      r2, r4 
+636922a8: movw     r3, #0x4ea 
+636922ac: bl       #0x6364dbd8 
+636922b0: add      r0, sp, #0x64 
+636922b2: mov.w    r5, #-0x10000000 
+636922b6: bl       #0x6364c35c 
+636922ba: b        #0x636922c2 
+636922bc: mov      r5, r0 
+636922be: b        #0x636922c2 
+636922c0: mov      r5, r3 
+636922c2: mov      r0, r5 
+636922c4: add      sp, #0x68 
+636922c6: pop      {r4, r5, r6, pc} 
+636922c8: add      r0, sp, #0x64 
+636922ca: bl       #0x6364c35c 
+636922ce: bl       #0x63de2ba4 
+636922d2: nop       
+636922d4: subs     r6, #0x92 
+636922d6: lsls     r1, r1, #2 
+636922d8: subs     r7, #0x5f 
+636922da: lsls     r1, r1, #2 
+636922dc: adds     r1, #0xab 
+636922de: lsls     r2, r1, #2 
+636922e0: ldr      r3, [r0, #0x2c] 
+636922e2: push.w   {r4, r5, r6, r7, r8, lr} 
+636922e6: cmp.w    r3, #-1 
+636922ea: sub      sp, #0x20 
+636922ec: mov      r4, r0 
+636922ee: mov      r6, r1 
+636922f0: mov      r7, r2 
+636922f2: beq      #0x63692350 
+636922f4: bl       #0x63a062f0 
+636922f8: ldr      r3, [r4] 
+636922fa: movs     r5, #1 
+636922fc: mov      r8, r0 
+636922fe: ldr      r0, [r3] 
+63692300: bl       #0x63c602be 
+63692304: ldr      r3, [pc, #0x58] 
+63692306: movs     r2, #4 
+63692308: movs     r1, #0x57 
+6369230a: add      r3, pc 'enc/sfmc_enc_input_yc.cpp'
+6369230c: str      r3, [sp, #8] 
+6369230e: movw     r3, #0x505 
+63692312: str      r3, [sp, #0xc] 
+63692314: ldr      r3, [pc, #0x4c] 
+63692316: str      r5, [sp] 
+63692318: add      r3, pc '[INPUT V   ]judge_quick_stop: quick stop: [to_be_stopped:0x%x][cur:0x%x]\n'
+6369231a: str      r3, [sp, #0x10] 
+6369231c: ldr      r3, [r4, #0x2c] 
+6369231e: str      r6, [sp, #0x18] 
+63692320: str      r3, [sp, #0x14] 
+63692322: movs     r3, #6 
+63692324: sxtb     r0, r0 
+63692326: str      r0, [sp, #4] 
+63692328: mov      r0, r8 
+6369232a: bl       #0x63daee88 
+6369232e: ldr      r2, [r4, #0x2c] 
+63692330: mvn      r3, #0x80000000 
+63692334: cmp      r2, r3 
+63692336: mov.w    r3, #0 
+6369233a: beq      #0x63692346 
+6369233c: cmp      r2, r6 
+6369233e: bne      #0x63692354 
+63692340: ldr      r2, [r4, #0x30] 
+63692342: cmp      r2, r7 
+63692344: bne      #0x63692354 
+63692346: mov.w    r2, #-1 
+6369234a: str      r3, [r4, #0x30] 
+6369234c: str      r2, [r4, #0x2c] 
+6369234e: b        #0x63692356 
+63692350: movs     r5, #0 
+63692352: b        #0x63692356 
+63692354: mov      r5, r3 
+63692356: mov      r0, r5 
+63692358: add      sp, #0x20 
+6369235a: pop.w    {r4, r5, r6, r7, r8, pc} 
+6369235e: nop       
+63692360: subs     r5, #0xec 
+63692362: lsls     r1, r1, #2 
+63692364: subs     r6, #0xf2 
+63692366: lsls     r1, r1, #2 
+63692368: push.w   {r4, r5, r6, r7, r8, sb, sl, fp, lr} 
+6369236c: sub.w    sp, sp, #0x4c0 
+63692370: sub      sp, #4 
+63692372: mov      r4, r0 
+63692374: mov      r0, r1 
+63692376: bl       #0x63c86392 
+6369237a: mov      r7, r0 
+6369237c: add.w    r0, sp, #0x400 
+63692380: bl       #0x63645310 
+63692384: mov      r0, r4 
+63692386: mov      r1, r7 
+63692388: add.w    r2, sp, #0x400 
+6369238c: bl       #0x63691dec 
+63692390: mov      r0, r4 
+63692392: add.w    r1, sp, #0x400 
+63692396: bl       #0x63691ebc 
+6369239a: mov      r0, r4 
+6369239c: add.w    r1, sp, #0x400 
+636923a0: bl       #0x63c866a4 
+636923a4: mov      r0, r4 
+636923a6: bl       #0x63691c14 
+636923aa: add.w    r1, sp, #0x470 
+636923ae: add.w    r0, sp, #0x400 
+636923b2: adds     r1, #0xc 
+636923b4: bl       #0x63c60fee 
+636923b8: cmp      r0, #0 
+636923ba: beq.w    #0x636928c8 
+636923be: add.w    r0, sp, #0x400 
+636923c2: add.w    r1, sp, #0x440 
+636923c6: bl       #0x63c60f76 
+636923ca: cmp      r0, #0 
+636923cc: beq.w    #0x636928c8 
+636923d0: mov      r0, r4 
+636923d2: add.w    r1, sp, #0x498 
+636923d6: bl       #0x63c864ae 
+636923da: cmp      r0, #0 
+636923dc: beq.w    #0x636928fe 
+636923e0: ldrb.w   r3, [sp, #0x49d] 
+636923e4: cmp      r3, #2 
+636923e6: bne.w    #0x636928fe 
+636923ea: ldr.w    r5, [sp, #0x47c] 
+636923ee: add.w    r8, r4, #0x19c0 
+636923f2: ldr.w    r6, [sp, #0x480] 
+636923f6: mov      r0, r8 
+636923f8: bl       #0x63c8710a 
+636923fc: mov      r0, r4 
+636923fe: mov      r1, r5 

@@ -1,0 +1,5 @@
+{
+  "id": "016-reboot",
+  "ok": false,
+  "error": "RuntimeError('Direct terminal marker missing')"
+}

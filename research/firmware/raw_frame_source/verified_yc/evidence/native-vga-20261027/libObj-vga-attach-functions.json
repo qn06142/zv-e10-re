@@ -1,0 +1,83 @@
+[
+  {
+    "start": "0x206aec",
+    "end": "0x206b58",
+    "strings": [
+      {
+        "at": "0x206b28",
+        "string": "[ObjEffect]Failed to allocate memory: unitType [%x]"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0x206afe",
+        "target": "memset"
+      },
+      {
+        "at": "0x206b10",
+        "target": "_ZN17OBJAVBBCBASECLASS5DmmCh8allocNewEP17dmm_comp_alc_unitjtj"
+      },
+      {
+        "at": "0x206b18",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x206b30",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      }
+    ]
+  },
+  {
+    "start": "0xe4886c",
+    "end": "0xe488f4",
+    "strings": [],
+    "calls": []
+  },
+  {
+    "start": "0xe493ac",
+    "end": "0xe493e8",
+    "strings": [],
+    "calls": [
+      {
+        "at": "0xe493b2",
+        "target": "0xe49160"
+      },
+      {
+        "at": "0xe493ba",
+        "target": "0xe491dc"
+      },
+      {
+        "at": "0xe493c2",
+        "target": "0xe49248"
+      },
+      {
+        "at": "0xe493ca",
+        "target": "0xe492bc"
+      },
+      {
+        "at": "0xe493d2",
+        "target": "0xe49338"
+      }
+    ]
+  },
+  {
+    "start": "0xe493e8",
+    "end": "0xe4941c",
+    "strings": [
+      {
+        "at": "0xe49404",
+        "string": "[ObjEffect]WARNING: YC SDS is invalid"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0xe493f4",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0xe4940c",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      }
+    ]
+  }
+]

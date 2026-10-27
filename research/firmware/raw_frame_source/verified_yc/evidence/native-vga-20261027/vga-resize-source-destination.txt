@@ -1,0 +1,41 @@
+636c5ebe: bl         #0x636ba364
+636c5ec2: movs       r3, #1
+636c5ec4: strb.w     r3, [r4, #0xc4]
+636c5ec8: strb.w     r3, [r4, #0xf4]
+636c5ecc: movs       r2, #0
+636c5ece: strb.w     r3, [r4, #0xff]
+636c5ed2: strb.w     r3, [r4, #0x110]
+636c5ed6: strb.w     r3, [r4, #0x140]
+636c5eda: strb.w     r3, [r4, #0x14b]
+636c5ede: strb.w     r3, [r4, #0x141]
+636c5ee2: adds       r3, r3, r3
+636c5ee4: strb.w     r3, [r4, #0x142]
+636c5ee8: ldrh.w     r3, [r4, #0xd8]
+636c5eec: str        r0, [sp, #0x14]
+636c5eee: add        r0, sp, #0xf4
+636c5ef0: strb.w     r2, [r4, #0xf1]
+636c5ef4: strh.w     r3, [r4, #0x124]
+636c5ef8: ldrh.w     r3, [r4, #0xda]
+636c5efc: strb.w     r2, [r4, #0xf7]
+636c5f00: strh.w     r2, [r4, #0xf8]
+636c5f04: strh.w     r3, [r4, #0x126]
+636c5f08: ldrb.w     r3, [r4, #0xfc]
+636c5f0c: strb.w     r2, [r4, #0x13d]
+636c5f10: strb.w     r2, [r4, #0x143]
+636c5f14: strb.w     r3, [r4, #0x148]
+636c5f18: ldrb.w     r3, [r4, #0xfd]
+636c5f1c: strh.w     r2, [r4, #0x144]
+636c5f20: ldr.w      r1, [r4, #0xc8]
+636c5f24: strb.w     r3, [r4, #0x149]
+636c5f28: ldrb.w     r3, [r4, #0x100]
+636c5f2c: ldrh.w     r2, [r4, #0xcc]
+636c5f30: strb.w     r3, [r4, #0x14c]
+636c5f34: ldrb.w     r3, [r4, #0x101]
+636c5f38: strb.w     r3, [r4, #0x14d]
+636c5f3c: add.w      r3, r4, #0x164
+636c5f40: str        r3, [sp]
+636c5f42: ldr.w      r3, [r4, #0xd0]
+636c5f46: bl         #0x63ca26e6
+636c5f4a: mov        r5, r0
+636c5f4c: cmp        r0, #0
+636c5f4e: bne.w      #0x636c6398

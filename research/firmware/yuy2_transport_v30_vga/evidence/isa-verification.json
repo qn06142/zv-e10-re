@@ -1,0 +1,6 @@
+{
+  "code_regions": 27,
+  "instructions": 4523,
+  "neon_instructions": 0,
+  "scope": ".text code regions identified by ARM mapping symbols; external libc excluded"
+}

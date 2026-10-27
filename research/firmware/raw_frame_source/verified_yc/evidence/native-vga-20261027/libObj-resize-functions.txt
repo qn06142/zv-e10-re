@@ -1,0 +1,569 @@
+
+FUNCTION 0x18a0a8..0x18a1a0
+0018a0a8: push     {r4, r5, r7, lr} 
+0018a0aa: sub      sp, #0x98 
+0018a0ac: add      r7, sp, #8 
+0018a0ae: mov      r5, r1 
+0018a0b0: mov      r4, r2 
+0018a0b2: bl       #0x172a4c 
+0018a0b6: cmp      r0, #0 
+0018a0b8: ble      #0x18a0ce 
+0018a0ba: ldr      r3, [pc, #0xd8] 
+0018a0bc: movs     r0, #0x35 
+0018a0be: movs     r1, #0 
+0018a0c0: movs     r2, #3 
+0018a0c2: add      r3, pc '[ObjEffect][MLM] ExecCmdPinDeliverMultiLayout::copyBuffer()'
+0018a0c4: str      r3, [sp] 
+0018a0c6: movw     r3, #0x2ee 
+0018a0ca: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0018a0ce: add.w    r0, r7, #0x68 
+0018a0d2: bl       #0x189320 
+0018a0d6: add.w    r0, r7, #0x80 
+0018a0da: bl       #0x18930c 
+0018a0de: adds     r0, r7, #4 
+0018a0e0: bl       #0x1892a8 
+0018a0e4: movs     r3, #0 
+0018a0e6: strb     r3, [r7, #0x18] 
+0018a0e8: movs     r1, #0x35 
+0018a0ea: strb     r3, [r7, #0x19] 
+0018a0ec: add.w    r0, r7, #0x3c 
+0018a0f0: ldr      r2, [r5, #4] 
+0018a0f2: strb.w   r3, [r7, #0x28] 
+0018a0f6: strb.w   r3, [r7, #0x29] 
+0018a0fa: strb.w   r3, [r7, #0x2a] 
+0018a0fe: strb.w   r3, [r7, #0x2b] 
+0018a102: strb.w   r3, [r7, #0x2c] 
+0018a106: str      r2, [r7, #0x1c] 
+0018a108: ldrh     r5, [r5] 
+0018a10a: ldr      r2, [r4, #4] 
+0018a10c: ldrh     r4, [r4] 
+0018a10e: str      r3, [r7, #0x24] 
+0018a110: str      r2, [r7, #0x30] 
+0018a112: str      r3, [r7, #0x38] 
+0018a114: strh     r5, [r7, #0x20] 
+0018a116: strh     r4, [r7, #0x34] 
+0018a118: blx      #0x10d33c _ZN17OBJAVBBCBASECLASS5SdfChC1Et
+0018a11c: add.w    r0, r7, #0x3c 
+0018a120: add.w    r1, r7, #0x68 
+0018a124: add.w    r2, r7, #0x80 
+0018a128: adds     r3, r7, #4 
+0018a12a: blx      #0x10ac38 _ZN17OBJAVBBCBASECLASS5SdfCh9copyImageEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_24COPY_IMAGE_COMMAND_PARAME
+0018a12e: mov      r4, r0 
+0018a130: cbz      r0, #0x18a152 
+0018a132: bl       #0x172a4c 
+0018a136: cmp      r0, #0 
+0018a138: ble      #0x18a176 
+0018a13a: ldr      r3, [pc, #0x5c] 
+0018a13c: movs     r0, #0x35 
+0018a13e: movs     r1, #0 
+0018a140: movs     r2, #1 
+0018a142: add      r3, pc '[ObjEffect][MLM]Failed to Execute CopyImage [%x]'
+0018a144: stm.w    sp, {r3, r4} 
+0018a148: movw     r3, #0x305 
+0018a14c: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0018a150: b        #0x18a176 
+0018a152: ldr      r5, [r7, #0x70] 
+0018a154: cbz      r5, #0x18a176 
+0018a156: bl       #0x172a4c 
+0018a15a: cmp      r0, #0 
+0018a15c: ble      #0x18a174 
+0018a15e: ldr      r3, [pc, #0x3c] 
+0018a160: movs     r0, #0x35 
+0018a162: mov      r1, r4 
+0018a164: movs     r2, #1 
+0018a166: add      r3, pc '[ObjEffect][MLM]Failed to Copy Image [%x]'
+0018a168: stm.w    sp, {r3, r5} 
+0018a16c: movw     r3, #0x307 
+0018a170: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0018a174: movs     r4, #1 
+0018a176: add.w    r0, r7, #0x3c 
+0018a17a: blx      #0x10c75c _ZN17OBJAVBBCBASECLASS5SdfChD1Ev
+0018a17e: mov      r0, r4 
+0018a180: add.w    r7, r7, #0x90 
+0018a184: mov      sp, r7 
+0018a186: pop      {r4, r5, r7, pc} 
+0018a188: add.w    r0, r7, #0x3c 
+0018a18c: blx      #0x10c75c _ZN17OBJAVBBCBASECLASS5SdfChD1Ev
+0018a190: blx      #0x10a31c __cxa_end_cleanup
+0018a194: stm      r6!, {r0, r1, r2, r3} 
+0018a196: lsls     r4, r1, #3 
+0018a198: stm      r5!, {r0, r1, r3, r6, r7} 
+0018a19a: lsls     r4, r1, #3 
+0018a19c: stm      r5!, {r3, r4, r6, r7} 
+0018a19e: lsls     r4, r1, #3 
+
+FUNCTION 0x18a1a0..0x18a2a0
+0018a1a0: push     {r4, r5, r6, r7, lr} 
+0018a1a2: sub      sp, #0x94 
+0018a1a4: add      r7, sp, #8 
+0018a1a6: mov      r4, r1 
+0018a1a8: mov      r5, r2 
+0018a1aa: mov      r6, r3 
+0018a1ac: bl       #0x172a4c 
+0018a1b0: cmp      r0, #0 
+0018a1b2: ble      #0x18a1c8 
+0018a1b4: ldr      r3, [pc, #0xdc] 
+0018a1b6: movs     r0, #0x35 
+0018a1b8: movs     r1, #0 
+0018a1ba: movs     r2, #3 
+0018a1bc: add      r3, pc '[ObjEffect][MLM] ExecCmdPinDeliverMultiLayout::paintImage()'
+0018a1be: str      r3, [sp] 
+0018a1c0: movw     r3, #0x319 
+0018a1c4: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0018a1c8: add.w    r0, r7, #0x60 
+0018a1cc: bl       #0x189320 
+0018a1d0: add.w    r0, r7, #0x78 
+0018a1d4: bl       #0x18930c 
+0018a1d8: adds     r0, r7, #4 
+0018a1da: bl       #0x189264 
+0018a1de: movs     r3, #0 
+0018a1e0: strb     r3, [r7, #0x18] 
+0018a1e2: movs     r1, #0x35 
+0018a1e4: strb     r3, [r7, #0x19] 
+0018a1e6: add.w    r0, r7, #0x34 
+0018a1ea: str      r3, [r7, #0x24] 
+0018a1ec: ldrb     r3, [r5] 
+0018a1ee: ldr      r2, [r6, #4] 
+0018a1f0: ldrh     r6, [r6] 
+0018a1f2: strb.w   r3, [r7, #0x28] 
+0018a1f6: ldrb     r3, [r5, #1] 
+0018a1f8: str      r2, [r7, #0x1c] 
+0018a1fa: strh     r6, [r7, #0x20] 
+0018a1fc: strb.w   r3, [r7, #0x29] 
+0018a200: ldrb     r3, [r5, #2] 
+0018a202: strb.w   r3, [r7, #0x2a] 
+0018a206: ldrh     r3, [r4] 
+0018a208: strh     r3, [r7, #0x2c] 
+0018a20a: ldrh     r3, [r4, #2] 
+0018a20c: strh     r3, [r7, #0x2e] 
+0018a20e: ldrh     r3, [r4, #4] 
+0018a210: ldrh     r4, [r4, #6] 
+0018a212: strh     r3, [r7, #0x30] 
+0018a214: strh     r4, [r7, #0x32] 
+0018a216: blx      #0x10d33c _ZN17OBJAVBBCBASECLASS5SdfChC1Et
+0018a21a: add.w    r0, r7, #0x34 
+0018a21e: add.w    r1, r7, #0x60 
+0018a222: add.w    r2, r7, #0x78 
+0018a226: adds     r3, r7, #4 
+0018a228: blx      #0x10c710 _ZN17OBJAVBBCBASECLASS5SdfCh10paintImageEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_25PAINT_IMAGE_COMMAND_PARAME
+0018a22c: mov      r4, r0 
+0018a22e: cbz      r0, #0x18a250 
+0018a230: bl       #0x172a4c 
+0018a234: cmp      r0, #0 
+0018a236: ble      #0x18a274 
+0018a238: ldr      r3, [pc, #0x5c] 
+0018a23a: movs     r0, #0x35 
+0018a23c: movs     r1, #0 
+0018a23e: movs     r2, #1 
+0018a240: add      r3, pc '[ObjEffect][MLM]Failed to Execute PaintImage [%x]'
+0018a242: stm.w    sp, {r3, r4} 
+0018a246: movw     r3, #0x32f 
+0018a24a: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0018a24e: b        #0x18a274 
+0018a250: ldr      r5, [r7, #0x68] 
+0018a252: cbz      r5, #0x18a274 
+0018a254: bl       #0x172a4c 
+0018a258: cmp      r0, #0 
+0018a25a: ble      #0x18a272 
+0018a25c: ldr      r3, [pc, #0x3c] 
+0018a25e: movs     r0, #0x35 
+0018a260: mov      r1, r4 
+0018a262: movs     r2, #1 
+0018a264: add      r3, pc '[ObjEffect][MLM]Failed to Paint Image [%x]'
+0018a266: stm.w    sp, {r3, r5} 
+0018a26a: movw     r3, #0x331 
+0018a26e: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0018a272: movs     r4, #1 
+0018a274: add.w    r0, r7, #0x34 
+0018a278: blx      #0x10c75c _ZN17OBJAVBBCBASECLASS5SdfChD1Ev
+0018a27c: mov      r0, r4 
+0018a27e: add.w    r7, r7, #0x8c 
+0018a282: mov      sp, r7 
+0018a284: pop      {r4, r5, r6, r7, pc} 
+0018a286: add.w    r0, r7, #0x34 
+0018a28a: blx      #0x10c75c _ZN17OBJAVBBCBASECLASS5SdfChD1Ev
+0018a28e: blx      #0x10a31c __cxa_end_cleanup
+0018a292: nop       
+0018a294: stm      r5!, {r2, r3, r5, r7} 
+0018a296: lsls     r4, r1, #3 
+0018a298: stm      r5!, {r2, r5, r6} 
+0018a29a: lsls     r4, r1, #3 
+0018a29c: stm      r5!, {r1, r4, r5, r6} 
+0018a29e: lsls     r4, r1, #3 
+
+FUNCTION 0x18a58c..0x18a698
+0018a58c: push     {r4, r5, r7, lr} 
+0018a58e: sub      sp, #0xa0 
+0018a590: add      r7, sp, #8 
+0018a592: mov      r5, r1 
+0018a594: mov      r4, r2 
+0018a596: bl       #0x172a4c 
+0018a59a: cmp      r0, #0 
+0018a59c: ble      #0x18a5b2 
+0018a59e: ldr      r3, [pc, #0xec] 
+0018a5a0: movs     r0, #0x35 
+0018a5a2: movs     r1, #0 
+0018a5a4: movs     r2, #3 
+0018a5a6: add      r3, pc '[ObjEffect][MLM] ExecCmdPinDeliverMultiLayout::resizeRotateImage()'
+0018a5a8: str      r3, [sp] 
+0018a5aa: movw     r3, #0x342 
+0018a5ae: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0018a5b2: add.w    r0, r7, #0x70 
+0018a5b6: bl       #0x189320 
+0018a5ba: add.w    r0, r7, #0x88 
+0018a5be: bl       #0x18930c 
+0018a5c2: mov      r0, r7 
+0018a5c4: bl       #0x17570c 
+0018a5c8: movs     r3, #0 
+0018a5ca: strb     r3, [r7, #0x14] 
+0018a5cc: movs     r1, #0x35 
+0018a5ce: strb     r3, [r7, #0x15] 
+0018a5d0: add.w    r0, r7, #0x44 
+0018a5d4: ldr      r2, [r5, #4] 
+0018a5d6: strb.w   r3, [r7, #0x24] 
+0018a5da: strb.w   r3, [r7, #0x30] 
+0018a5de: strb.w   r3, [r7, #0x31] 
+0018a5e2: strb.w   r3, [r7, #0x32] 
+0018a5e6: strb.w   r3, [r7, #0x33] 
+0018a5ea: strb.w   r3, [r7, #0x34] 
+0018a5ee: str      r2, [r7, #0x18] 
+0018a5f0: movs     r2, #1 
+0018a5f2: ldrh     r5, [r5] 
+0018a5f4: strb.w   r2, [r7, #0x25] 
+0018a5f8: ldr      r2, [r4, #4] 
+0018a5fa: ldrh     r4, [r4] 
+0018a5fc: str      r3, [r7, #0x20] 
+0018a5fe: strh     r3, [r7, #0x28] 
+0018a600: strh     r3, [r7, #0x2a] 
+0018a602: strh     r3, [r7, #0x2c] 
+0018a604: strh     r3, [r7, #0x2e] 
+0018a606: str      r2, [r7, #0x38] 
+0018a608: str      r3, [r7, #0x40] 
+0018a60a: strh     r5, [r7, #0x1c] 
+0018a60c: strh     r4, [r7, #0x3c] 
+0018a60e: blx      #0x10d33c _ZN17OBJAVBBCBASECLASS5SdfChC1Et
+0018a612: add.w    r0, r7, #0x44 
+0018a616: add.w    r1, r7, #0x70 
+0018a61a: add.w    r2, r7, #0x88 
+0018a61e: mov      r3, r7 
+0018a620: blx      #0x108d34 _ZN17OBJAVBBCBASECLASS5SdfCh12resizeRotateEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_27RESIZE_ROTATE_COMMAND_PARAME
+0018a624: mov      r4, r0 
+0018a626: cbz      r0, #0x18a648 
+0018a628: bl       #0x172a4c 
+0018a62c: cmp      r0, #0 
+0018a62e: ble      #0x18a66c 
+0018a630: ldr      r3, [pc, #0x5c] 
+0018a632: movs     r0, #0x35 
+0018a634: movs     r1, #0 
+0018a636: movs     r2, #1 
+0018a638: add      r3, pc '[ObjEffect][MLM]Failed to Execute ResizeRotate [%x]'
+0018a63a: stm.w    sp, {r3, r4} 
+0018a63e: movw     r3, #0x35f 
+0018a642: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0018a646: b        #0x18a66c 
+0018a648: ldr      r5, [r7, #0x78] 
+0018a64a: cbz      r5, #0x18a66c 
+0018a64c: bl       #0x172a4c 
+0018a650: cmp      r0, #0 
+0018a652: ble      #0x18a66a 
+0018a654: ldr      r3, [pc, #0x3c] 
+0018a656: movs     r0, #0x35 
+0018a658: mov      r1, r4 
+0018a65a: movs     r2, #1 
+0018a65c: add      r3, pc '[ObjEffect][MLM]Failed to ResizeRotate [%x]'
+0018a65e: stm.w    sp, {r3, r5} 
+0018a662: movw     r3, #0x361 
+0018a666: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0018a66a: movs     r4, #1 
+0018a66c: add.w    r0, r7, #0x44 
+0018a670: blx      #0x10c75c _ZN17OBJAVBBCBASECLASS5SdfChD1Ev
+0018a674: mov      r0, r4 
+0018a676: add.w    r7, r7, #0x98 
+0018a67a: mov      sp, r7 
+0018a67c: pop      {r4, r5, r7, pc} 
+0018a67e: add.w    r0, r7, #0x44 
+0018a682: blx      #0x10c75c _ZN17OBJAVBBCBASECLASS5SdfChD1Ev
+0018a686: blx      #0x10a31c __cxa_end_cleanup
+0018a68a: nop       
+0018a68c: stm      r3!, {r0, r1, r5, r6, r7} 
+0018a68e: lsls     r4, r1, #3 
+0018a690: stm      r3!, {r2, r4, r7} 
+0018a692: lsls     r4, r1, #3 
+0018a694: stm      r3!, {r2, r5, r7} 
+0018a696: lsls     r4, r1, #3 
+
+FUNCTION 0x19fc88..0x19fd94
+0019fc88: push     {r4, r5, r7, lr} 
+0019fc8a: sub      sp, #0xa0 
+0019fc8c: add      r7, sp, #8 
+0019fc8e: mov      r5, r1 
+0019fc90: mov      r4, r2 
+0019fc92: bl       #0x172a4c 
+0019fc96: cmp      r0, #0 
+0019fc98: ble      #0x19fcae 
+0019fc9a: ldr      r3, [pc, #0xec] 
+0019fc9c: movs     r0, #0x35 
+0019fc9e: movs     r1, #0 
+0019fca0: movs     r2, #3 
+0019fca2: add      r3, pc '[ObjEffect]SequencePinDeliverStartArtfilterCmd::resizeRotateImage()'
+0019fca4: str      r3, [sp] 
+0019fca6: movw     r3, #0x181 
+0019fcaa: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0019fcae: add.w    r0, r7, #0x70 
+0019fcb2: bl       #0x189320 
+0019fcb6: add.w    r0, r7, #0x88 
+0019fcba: bl       #0x18930c 
+0019fcbe: mov      r0, r7 
+0019fcc0: bl       #0x17570c 
+0019fcc4: movs     r3, #0 
+0019fcc6: strb     r3, [r7, #0x14] 
+0019fcc8: movs     r1, #0x35 
+0019fcca: strb     r3, [r7, #0x15] 
+0019fccc: add.w    r0, r7, #0x44 
+0019fcd0: ldr      r2, [r5, #4] 
+0019fcd2: strb.w   r3, [r7, #0x24] 
+0019fcd6: strb.w   r3, [r7, #0x30] 
+0019fcda: strb.w   r3, [r7, #0x31] 
+0019fcde: strb.w   r3, [r7, #0x32] 
+0019fce2: strb.w   r3, [r7, #0x33] 
+0019fce6: strb.w   r3, [r7, #0x34] 
+0019fcea: str      r2, [r7, #0x18] 
+0019fcec: movs     r2, #1 
+0019fcee: ldrh     r5, [r5] 
+0019fcf0: strb.w   r2, [r7, #0x25] 
+0019fcf4: ldr      r2, [r4, #4] 
+0019fcf6: ldrh     r4, [r4] 
+0019fcf8: str      r3, [r7, #0x20] 
+0019fcfa: strh     r3, [r7, #0x28] 
+0019fcfc: strh     r3, [r7, #0x2a] 
+0019fcfe: strh     r3, [r7, #0x2c] 
+0019fd00: strh     r3, [r7, #0x2e] 
+0019fd02: str      r2, [r7, #0x38] 
+0019fd04: str      r3, [r7, #0x40] 
+0019fd06: strh     r5, [r7, #0x1c] 
+0019fd08: strh     r4, [r7, #0x3c] 
+0019fd0a: blx      #0x10d33c _ZN17OBJAVBBCBASECLASS5SdfChC1Et
+0019fd0e: add.w    r0, r7, #0x44 
+0019fd12: add.w    r1, r7, #0x70 
+0019fd16: add.w    r2, r7, #0x88 
+0019fd1a: mov      r3, r7 
+0019fd1c: blx      #0x108d34 _ZN17OBJAVBBCBASECLASS5SdfCh12resizeRotateEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_27RESIZE_ROTATE_COMMAND_PARAME
+0019fd20: mov      r4, r0 
+0019fd22: cbz      r0, #0x19fd44 
+0019fd24: bl       #0x172a4c 
+0019fd28: cmp      r0, #0 
+0019fd2a: ble      #0x19fd68 
+0019fd2c: ldr      r3, [pc, #0x5c] 
+0019fd2e: movs     r0, #0x35 
+0019fd30: movs     r1, #0 
+0019fd32: movs     r2, #1 
+0019fd34: add      r3, pc '[ObjEffect]Failed to Execute ResizeRotate [%x]'
+0019fd36: stm.w    sp, {r3, r4} 
+0019fd3a: mov.w    r3, #0x19e 
+0019fd3e: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0019fd42: b        #0x19fd68 
+0019fd44: ldr      r5, [r7, #0x78] 
+0019fd46: cbz      r5, #0x19fd68 
+0019fd48: bl       #0x172a4c 
+0019fd4c: cmp      r0, #0 
+0019fd4e: ble      #0x19fd66 
+0019fd50: ldr      r3, [pc, #0x3c] 
+0019fd52: movs     r0, #0x35 
+0019fd54: mov      r1, r4 
+0019fd56: movs     r2, #1 
+0019fd58: add      r3, pc '[ObjEffect]Failed to ResizeRotate [%x]'
+0019fd5a: stm.w    sp, {r3, r5} 
+0019fd5e: mov.w    r3, #0x1a0 
+0019fd62: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0019fd66: movs     r4, #1 
+0019fd68: add.w    r0, r7, #0x44 
+0019fd6c: blx      #0x10c75c _ZN17OBJAVBBCBASECLASS5SdfChD1Ev
+0019fd70: mov      r0, r4 
+0019fd72: add.w    r7, r7, #0x98 
+0019fd76: mov      sp, r7 
+0019fd78: pop      {r4, r5, r7, pc} 
+0019fd7a: add.w    r0, r7, #0x44 
+0019fd7e: blx      #0x10c75c _ZN17OBJAVBBCBASECLASS5SdfChD1Ev
+0019fd82: blx      #0x10a31c __cxa_end_cleanup
+0019fd86: nop       
+0019fd88: adr      r7, #0x78 
+0019fd8a: lsls     r5, r1, #3 
+0019fd8c: adr      r6, #0x340 
+0019fd8e: lsls     r5, r1, #3 
+0019fd90: adr      r6, #0x36c 
+0019fd92: lsls     r5, r1, #3 
+
+FUNCTION 0x1a6224..0x1a6430
+001a6224: push     {r4, r5, r6, r7, lr} 
+001a6226: sub.w    sp, sp, #0x450 
+001a622a: sub      sp, #0xc 
+001a622c: mov      r5, r0 
+001a622e: add      r7, sp, #8 
+001a6230: bl       #0x172a4c 
+001a6234: cmp      r0, #0 
+001a6236: ble      #0x1a624c 
+001a6238: ldr      r3, [pc, #0x1e8] 
+001a623a: movs     r0, #0x35 
+001a623c: movs     r1, #0 
+001a623e: movs     r2, #3 
+001a6240: add      r3, pc '[ObjEffect]SequenceAppExecBeautyEffectCmd::copyImageB2A'
+001a6242: str      r3, [sp] 
+001a6244: movw     r3, #0x179 
+001a6248: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+001a624c: movs     r4, #0 
+001a624e: add.w    r0, r7, #0x440 
+001a6252: mov      r1, r4 
+001a6254: mov      r2, r4 
+001a6256: mov      r3, r4 
+001a6258: str      r4, [sp] 
+001a625a: str      r4, [sp, #4] 
+001a625c: bl       #0xe49650 
+001a6260: mov      r1, r4 
+001a6262: mov      r2, r4 
+001a6264: mov      r3, r4 
+001a6266: add.w    r0, r7, #0x430 
+001a626a: str      r4, [sp] 
+001a626c: str      r4, [sp, #4] 
+001a626e: bl       #0xe49650 
+001a6272: mov      r3, r4 
+001a6274: mov      r1, r4 
+001a6276: mov      r2, r4 
+001a6278: add.w    r0, r7, #0x420 
+001a627c: str      r4, [sp] 
+001a627e: str      r4, [sp, #4] 
+001a6280: bl       #0xe49650 
+001a6284: add.w    r1, r7, #0x440 
+001a6288: movs     r2, #1 
+001a628a: ldr      r0, [r5, #0x54] 
+001a628c: bl       #0x1a80e0 
+001a6290: add.w    r1, r7, #0x430 
+001a6294: movs     r2, #2 
+001a6296: ldr      r0, [r5, #0x54] 
+001a6298: bl       #0x1a80e0 
+001a629c: add.w    r1, r7, #0x440 
+001a62a0: mov      r2, r4 
+001a62a2: mov      r3, r4 
+001a62a4: add.w    r0, r7, #0x1d4 
+001a62a8: bl       #0xe490a4 
+001a62ac: add.w    r0, r7, #0x14 
+001a62b0: add.w    r1, r7, #0x430 
+001a62b4: mov      r2, r4 
+001a62b6: mov      r3, r4 
+001a62b8: bl       #0xe490a4 
+001a62bc: mov      r0, r7 
+001a62be: add.w    r1, r7, #0x14 
+001a62c2: mov      r6, r7 
+001a62c4: bl       #0xe488f4 
+001a62c8: ldm.w    r7, {r0, r1, r2, r3} 
+001a62cc: add.w    r4, r7, #0x420 
+001a62d0: stm.w    r4, {r0, r1, r2, r3} 
+001a62d4: add.w    r0, r7, #0x14 
+001a62d8: add.w    r1, r7, #0x1d4 
+001a62dc: bl       #0xe48ecc 
+001a62e0: add.w    r0, r7, #0x14 
+001a62e4: mov      r1, r4 
+001a62e6: bl       #0xe48880 
+001a62ea: add.w    r0, r7, #0x14 
+001a62ee: bl       #0xe493ac 
+001a62f2: add.w    r0, r7, #0x3f8 
+001a62f6: bl       #0x189320 
+001a62fa: add.w    r0, r7, #0x410 
+001a62fe: bl       #0x18930c 
+001a6302: add.w    r0, r7, #0x394 
+001a6306: bl       #0x1892a8 
+001a630a: ldr.w    r2, [r7, #0x444] 
+001a630e: ldrh.w   r1, [r7, #0x440] 
+001a6312: add.w    r0, r7, #0x3cc 
+001a6316: movs     r3, #0 
+001a6318: strb.w   r3, [r7, #0x3a8] 
+001a631c: str.w    r2, [r7, #0x3ac] 
+001a6320: ldr.w    r2, [r7, #0x434] 
+001a6324: strh.w   r1, [r7, #0x3b0] 
+001a6328: movs     r1, #0x35 
+001a632a: strb.w   r3, [r7, #0x3a9] 
+001a632e: str.w    r2, [r7, #0x3c0] 
+001a6332: ldrh.w   r2, [r7, #0x430] 
+001a6336: str.w    r3, [r7, #0x3b4] 
+001a633a: strb.w   r3, [r7, #0x3b8] 
+001a633e: strb.w   r3, [r7, #0x3b9] 
+001a6342: strh.w   r2, [r7, #0x3c4] 
+001a6346: str.w    r3, [r7, #0x3c8] 
+001a634a: blx      #0x10d33c _ZN17OBJAVBBCBASECLASS5SdfChC1Et
+001a634e: add.w    r0, r7, #0x3cc 
+001a6352: add.w    r1, r7, #0x3f8 
+001a6356: add.w    r2, r7, #0x410 
+001a635a: add.w    r3, r7, #0x394 
+001a635e: blx      #0x10ac38 _ZN17OBJAVBBCBASECLASS5SdfCh9copyImageEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_24COPY_IMAGE_COMMAND_PARAME
+001a6362: mov      r4, r0 
+001a6364: cbz      r0, #0x1a638c 
+001a6366: bl       #0x172a4c 
+001a636a: cmp      r0, #0 
+001a636c: ble      #0x1a6384 
+001a636e: ldr      r3, [pc, #0xb8] 
+001a6370: movs     r0, #0x35 
+001a6372: movs     r1, #0 
+001a6374: movs     r2, #1 
+001a6376: add      r3, pc '[ObjEffect]Failed to Execute CopyImage [%x]'
+001a6378: stm.w    sp, {r3, r4} 
+001a637c: mov.w    r3, #0x19a 
+001a6380: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+001a6384: movw     r3, #0x1002 
+001a6388: str      r3, [r5, #0x50] 
+001a638a: b        #0x1a63dc 
+001a638c: ldr.w    r6, [r7, #0x400] 
+001a6390: cbz      r6, #0x1a63dc 
+001a6392: bl       #0x172a4c 
+001a6396: cmp      r0, #0 
+001a6398: ble      #0x1a63b0 
+001a639a: ldr      r3, [pc, #0x90] 
+001a639c: movs     r0, #0x35 
+001a639e: mov      r1, r4 
+001a63a0: movs     r2, #1 
+001a63a2: add      r3, pc '[ObjEffect]Failed to CopyImage [%x]'
+001a63a4: stm.w    sp, {r3, r6} 
+001a63a8: movw     r3, #0x19d 
+001a63ac: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+001a63b0: ldr.w    r3, [r7, #0x400] 
+001a63b4: subs     r3, #2 
+001a63b6: cmp      r3, #9 
+001a63b8: bhi      #0x1a63d4 
+001a63ba: tbb      [pc, r3] 
+001a63be: lsrs     r5, r0, #0xc 
+001a63c0: lsrs     r3, r1, #0x20 
+001a63c2: lsrs     r0, r1, #0xc 
+001a63c4: lsrs     r3, r1, #0xc 
+001a63c6: lsrs     r3, r1, #0x20 
+001a63c8: movw     r3, #0xffff 
+001a63cc: b        #0x1a63d8 
+001a63ce: movw     r3, #0x100c 
+001a63d2: b        #0x1a63d8 
+001a63d4: movw     r3, #0x1002 
+001a63d8: movs     r4, #1 
+001a63da: str      r3, [r5, #0x50] 
+001a63dc: add.w    r0, r7, #0x3cc 
+001a63e0: blx      #0x10c75c _ZN17OBJAVBBCBASECLASS5SdfChD1Ev
+001a63e4: add.w    r0, r7, #0x14 
+001a63e8: bl       #0xe486ec 
+001a63ec: add.w    r0, r7, #0x1d4 
+001a63f0: bl       #0xe486ec 
+001a63f4: mov      r0, r4 
+001a63f6: add.w    r7, r7, #0x54 
+001a63fa: add.w    r7, r7, #0x400 
+001a63fe: mov      sp, r7 
+001a6400: pop      {r4, r5, r6, r7, pc} 
+001a6402: add.w    r0, r7, #0x3cc 
+001a6406: blx      #0x10c75c _ZN17OBJAVBBCBASECLASS5SdfChD1Ev
+001a640a: b        #0x1a640c 
+001a640c: add.w    r0, r7, #0x14 
+001a6410: bl       #0xe486ec 
+001a6414: b        #0x1a6416 
+001a6416: add.w    r0, r7, #0x1d4 
+001a641a: bl       #0xe486ec 
+001a641e: blx      #0x10a31c __cxa_end_cleanup
+001a6422: nop       
+001a6424: strb     r0, [r0, #6] 
+001a6426: lsls     r5, r1, #3 
+001a6428: strb     r2, [r0, #2] 
+001a642a: lsls     r5, r1, #3 
+001a642c: strb     r2, [r0, #2] 
+001a642e: lsls     r5, r1, #3 

@@ -1,0 +1,5 @@
+best 2/384 valid=339 map=0,0,0,0 order=0 base=0 pol=0 sign=0 kind=0
+best 25/384 valid=128 map=0,0,0,0 order=0 base=0 pol=0 sign=1 kind=0
+best 107/384 valid=296 map=0,0,0,0 order=0 base=0 pol=1 sign=0 kind=1
+best 117/384 valid=356 map=0,0,1,0 order=0 base=8 pol=1 sign=1 kind=0
+best 125/384 valid=366 map=1,0,0,0 order=0 base=10 pol=1 sign=1 kind=0

@@ -1,0 +1,116 @@
+[
+  {
+    "remote": "/log/yuy2_640_v2/logger-stop-after.txt",
+    "md5": "d41d8cd98f00b204e9800998ecf8427e",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v2\\logger-stop-after.txt",
+    "bytes": 0
+  },
+  {
+    "remote": "/log/yuy2_640_v2/logger-stop-before.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v2\\logger-stop-before.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/yuy2_640_v21/logger-stop-after.txt",
+    "md5": "d41d8cd98f00b204e9800998ecf8427e",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v21\\logger-stop-after.txt",
+    "bytes": 0
+  },
+  {
+    "remote": "/log/yuy2_640_v21/logger-stop-before.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v21\\logger-stop-before.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/yuy2_640_v22/logger-stop-after.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v22\\logger-stop-after.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/yuy2_640_v22/logger-stop-before.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v22\\logger-stop-before.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/yuy2_640_v23/logger-stop-after.txt",
+    "md5": "d41d8cd98f00b204e9800998ecf8427e",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v23\\logger-stop-after.txt",
+    "bytes": 0
+  },
+  {
+    "remote": "/log/yuy2_640_v23/logger-stop-before.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v23\\logger-stop-before.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/yuy2_640_v23/logger-stop-confirm.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v23\\logger-stop-confirm.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/yuy2_640_v24p/logger-stop-after.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v24p\\logger-stop-after.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/yuy2_640_v24p/logger-stop-before.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v24p\\logger-stop-before.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/yuy2_640_v28snap/menu-restart-01/logger-stop.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v28snap\\menu-restart-01\\logger-stop.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/yuy2_640_v29full/logger-stop.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yuy2_640_v29full\\logger-stop.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/yc_retest_20261024_01/logger-stop-after.txt",
+    "md5": "d41d8cd98f00b204e9800998ecf8427e",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yc_retest_20261024_01\\logger-stop-after.txt",
+    "bytes": 0
+  },
+  {
+    "remote": "/log/yc_retest_20261024_01/logger-stop.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\yc_retest_20261024_01\\logger-stop.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/menu_crash_20261024_01/logger-stop-before.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\menu_crash_20261024_01\\logger-stop-before.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/menu_crash_20261024_01/working-run/logger-stop.txt",
+    "md5": "d41d8cd98f00b204e9800998ecf8427e",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\menu_crash_20261024_01\\working-run\\logger-stop.txt",
+    "bytes": 0
+  },
+  {
+    "remote": "/log/usb_debug_20261024_01/logger-stop-after.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\usb_debug_20261024_01\\logger-stop-after.txt",
+    "bytes": 51
+  },
+  {
+    "remote": "/log/usb_debug_20261024_01/logger-stop-before.txt",
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "local": "outputs\\native-dmm-v29\\deployment\\archive\\log\\usb_debug_20261024_01\\logger-stop-before.txt",
+    "bytes": 51
+  }
+]

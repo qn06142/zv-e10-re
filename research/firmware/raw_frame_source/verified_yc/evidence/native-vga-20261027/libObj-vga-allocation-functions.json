@@ -1,0 +1,260 @@
+[
+  {
+    "start": "0x1756dc",
+    "end": "0x175778",
+    "strings": [],
+    "calls": [
+      {
+        "at": "0x1756e6",
+        "target": "0xe49ef8"
+      }
+    ]
+  },
+  {
+    "start": "0x206b58",
+    "end": "0x206bf4",
+    "strings": [
+      {
+        "at": "0x206b86",
+        "string": "p_sdsMem && p_ycMem"
+      },
+      {
+        "at": "0x206b88",
+        "string": "DmmAllocSdsAndYc.cpp"
+      },
+      {
+        "at": "0x206b8a",
+        "string": "AVBBC_RETCODE OBJEFFECT::DmmAllocSdsAndYc::allocNewSdsAndYc(DefCommon::MEMORY_SET*, DefCommon::MEMORY_SET*, uint32_t)"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0x206b76",
+        "target": "_ZN17AvbbcBaseClassLog7SetLog3Ejjtjj"
+      },
+      {
+        "at": "0x206b8c",
+        "target": "__assert_fail"
+      },
+      {
+        "at": "0x206b96",
+        "target": "0x206aec"
+      },
+      {
+        "at": "0x206bac",
+        "target": "0x206aec"
+      },
+      {
+        "at": "0x206bba",
+        "target": "memset"
+      },
+      {
+        "at": "0x206bc8",
+        "target": "_ZN17OBJAVBBCBASECLASS5DmmCh4freeEP18dmm_comp_free_unittt"
+      }
+    ]
+  },
+  {
+    "start": "0x206bf4",
+    "end": "0x206c56",
+    "strings": [],
+    "calls": [
+      {
+        "at": "0x206c04",
+        "target": "0xe490a4"
+      },
+      {
+        "at": "0x206c0e",
+        "target": "0xe488d2"
+      },
+      {
+        "at": "0x206c18",
+        "target": "0x1743c4"
+      },
+      {
+        "at": "0x206c2e",
+        "target": "0xe48a10"
+      },
+      {
+        "at": "0x206c34",
+        "target": "0xe493ac"
+      },
+      {
+        "at": "0x206c3a",
+        "target": "0xe493e8"
+      },
+      {
+        "at": "0x206c40",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x206c4e",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x206c52",
+        "target": "__cxa_end_cleanup"
+      }
+    ]
+  },
+  {
+    "start": "0xe48ca0",
+    "end": "0xe48ecc",
+    "strings": [
+      {
+        "at": "0xe48d30",
+        "string": "[ObjEffect]YcSdsAcsr::initialize: avPhycMem.GetLogAddr() returns NULL"
+      },
+      {
+        "at": "0xe48d72",
+        "string": "[ObjEffect]YcSdsAcsr::initialize: Out of memory"
+      },
+      {
+        "at": "0xe48da2",
+        "string": "[ObjEffect]YcSdsAcsr::initialize: GetEntry_ImageSizeInfo() failed (0x%x)"
+      },
+      {
+        "at": "0xe48dd4",
+        "string": "[ObjEffect]YcSdsAcsr::initialize: GetEntry_YcStateInfo() failed (0x%x)"
+      },
+      {
+        "at": "0xe48e06",
+        "string": "[ObjEffect]YcSdsAcsr::initialize: GetEntry_ImageOutTimInfo() failed (0x%x)"
+      },
+      {
+        "at": "0xe48e3a",
+        "string": "[ObjEffect]YcSdsAcsr::initialize: RightImageSizeInfo found"
+      },
+      {
+        "at": "0xe48e72",
+        "string": "[ObjEffect]YcSdsAcsr::initialize: GetEntry_DisplayInfo() found"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0xe48cdc",
+        "target": "memset"
+      },
+      {
+        "at": "0xe48ce6",
+        "target": "memset"
+      },
+      {
+        "at": "0xe48cf0",
+        "target": "memset"
+      },
+      {
+        "at": "0xe48d00",
+        "target": "memset"
+      },
+      {
+        "at": "0xe48d16",
+        "target": "_ZN12AvbbcPhycMem10GetLogAddrEv"
+      },
+      {
+        "at": "0xe48d1e",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0xe48d3c",
+        "target": "0xe48798"
+      },
+      {
+        "at": "0xe48d4c",
+        "target": "_Znwj"
+      },
+      {
+        "at": "0xe48d58",
+        "target": "_ZN26C_DataflowInfra_StdData_YCC1Ejjj"
+      },
+      {
+        "at": "0xe48d60",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0xe48d88",
+        "target": "_ZN26C_DataflowInfra_StdData_YC22GetEntry_ImageSizeInfoEP35C_DataflowInfra_Entry_ImageSizeInfo"
+      },
+      {
+        "at": "0xe48d90",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0xe48db4",
+        "target": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo11GetData_AllEPN19DataflowInfra_StdYc22PIN_YC_IMAGE_SIZE_INFOE"
+      },
+      {
+        "at": "0xe48dbc",
+        "target": "_ZN26C_DataflowInfra_StdData_YC20GetEntry_YcStateInfoEP33C_DataflowInfra_Entry_YcStateInfo"
+      },
+      {
+        "at": "0xe48dc4",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0xe48de6",
+        "target": "_ZN33C_DataflowInfra_Entry_YcStateInfo11GetData_AllEPN19DataflowInfra_StdYc20PIN_YC_YC_STATE_INFOE"
+      },
+      {
+        "at": "0xe48dee",
+        "target": "_ZN26C_DataflowInfra_StdData_YC24GetEntry_ImageOutTimInfoEP37C_DataflowInfra_Entry_ImageOutTimInfo"
+      },
+      {
+        "at": "0xe48df6",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0xe48e0e",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0xe48e1c",
+        "target": "_ZN37C_DataflowInfra_Entry_ImageOutTimInfo11GetData_AllEPN19DataflowInfra_StdYc25PIN_YC_IMAGE_OUT_TIM_INFOE"
+      },
+      {
+        "at": "0xe48e24",
+        "target": "_ZN26C_DataflowInfra_StdData_YC27GetEntry_RightImageSizeInfoEP40C_DataflowInfra_Entry_RightImageSizeInfo"
+      },
+      {
+        "at": "0xe48e2a",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0xe48e40",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0xe48e48",
+        "target": "_ZN40C_DataflowInfra_Entry_RightImageSizeInfo11GetData_AllEPN19DataflowInfra_StdYc28PIN_YC_RIGHT_IMAGE_SIZE_INFOE"
+      },
+      {
+        "at": "0xe48e5a",
+        "target": "_ZN26C_DataflowInfra_StdData_YC20GetEntry_DisplayInfoEP33C_DataflowInfra_Entry_DisplayInfo"
+      },
+      {
+        "at": "0xe48e62",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0xe48e78",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0xe48e80",
+        "target": "_ZN33C_DataflowInfra_Entry_DisplayInfo11GetData_AllEPN19DataflowInfra_StdYc19PIN_YC_DISPLAY_INFOE"
+      },
+      {
+        "at": "0xe48e90",
+        "target": "0xe48c74"
+      },
+      {
+        "at": "0xe48e9e",
+        "target": "_ZdlPv"
+      },
+      {
+        "at": "0xe48ea2",
+        "target": "__cxa_end_cleanup"
+      }
+    ]
+  }
+]

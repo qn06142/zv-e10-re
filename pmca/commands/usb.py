@@ -127,7 +127,10 @@ class UsbDriverList(contextlib.AbstractContextManager):
  def listDevices(self, vendor):
   for driver in self._drivers:
    for dev in driver.listDevices(vendor):
-    yield dev, driver.classType, driver.openDevice(dev)
+    try:
+     yield dev, driver.classType, driver.openDevice(dev)
+    except Exception:
+     continue
 
 
 def importDriver(driverName=None):

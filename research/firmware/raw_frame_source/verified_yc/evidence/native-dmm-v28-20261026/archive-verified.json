@@ -1,0 +1,37 @@
+[
+  {
+    "path": "/log/yuy2_640_v28snap/success-01/runtime.log",
+    "md5": "9e0e912e865c0314c28572c12be40c54",
+    "bytes": 2271
+  },
+  {
+    "path": "/log/yuy2_640_v28snap/success-01/uptime.txt",
+    "md5": "7a4763d7e2f63446af9fbc48dff40459",
+    "bytes": 15
+  },
+  {
+    "path": "/log/yuy2_640_v28snap/success-01/maps.txt",
+    "md5": "2542ccadef7fe6e82232042d204de9ee",
+    "bytes": 48732
+  },
+  {
+    "path": "/log/yuy2_640_v28snap/success-01/dmm-units.txt",
+    "md5": "ff510038bffb824358c6df2eaee26d7c",
+    "bytes": 2968
+  },
+  {
+    "path": "/log/yuy2_640_v28snap/success-01/kernel.log",
+    "md5": "043e729dde77313e4f368d55490a9610",
+    "bytes": 7919
+  },
+  {
+    "path": "/log/yuy2_640_v28snap/success-01/module-state.bin",
+    "md5": "c27dff38b736c0dd9b02bfcdbdc13634",
+    "bytes": 139264
+  },
+  {
+    "path": "/log/yuy2_640_v28snap/runtime.log",
+    "md5": "9e0e912e865c0314c28572c12be40c54",
+    "bytes": 2271
+  }
+]

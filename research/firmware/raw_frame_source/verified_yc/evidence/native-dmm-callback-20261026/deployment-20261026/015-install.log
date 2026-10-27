@@ -1,0 +1,7 @@
+/usr/share/app # /bin/busybox sh /log/yuy2_640_v27snap/install.sh > /log/yuy2_64
+0_v27snap/install.log 2>&1; echo V27_INSTALL_RC:$?
+echo V27_DIRECT_015-install
+V27_INSTALL_RC:0
+/usr/share/app # echo V27_DIRECT_015-install
+V27_DIRECT_015-install
+/usr/share/app # 

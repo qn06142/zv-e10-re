@@ -1,0 +1,30 @@
+============================================================
+             SONY ULOGIO LOG DECODE SUMMARY                
+============================================================
+Total File Size   : 1,936,183 bytes
+Parsed Bytes      : 1,936,183 bytes (100.00%)
+Unparsed/Slack    : 0 bytes
+Total Records     : 61,997
+Corrupted Records : 0
+Error Events Found: 626
+Timestamp Range   : [02251.308530] to [05224.050438]
+Capture Duration  : 2972.742 seconds (49.55 minutes)
+------------------------------------------------------------
+Subsystems:
+  - 0x0083 (131) [APP         ]: 61,997 records
+------------------------------------------------------------
+Area Distribution:
+  - 0x01 ( 1) [DISPATCH      ]:    551 records
+  - 0x02 ( 2) [EVENT_PARAM   ]:    627 records
+  - 0x03 ( 3) [STATE_WORD    ]:  1,863 records
+  - 0x04 ( 4) [STREAM_STATE  ]: 17,466 records
+  - 0x05 ( 5) [ERROR_GENERAL ]:    390 records
+  - 0x06 ( 6) [ERROR_SYSTEM  ]:    230 records
+  - 0x07 ( 7) [CTRL_WORD     ]:  2,230 records
+  - 0x08 ( 8) [DEV_TELEMETRY ]:  4,577 records
+  - 0x09 ( 9) [SYNC_EVENT    ]:    338 records
+  - 0x0a (10) [MW_TRANSACTION]:  7,177 records
+  - 0x0b (11) [TRACE_WORD    ]:  1,874 records
+  - 0x0c (12) [PERF_MARKER   ]:  2,365 records
+  - 0x0e (14) [SYNC_MARKER   ]: 22,309 records
+============================================================

@@ -1,0 +1,492 @@
+[
+  {
+    "load": "0x63652558",
+    "add": "0x6365255e",
+    "literal": "0x636525bc",
+    "target": "0x63f2e55a",
+    "string": "void sfmc_audio_enc::sfmc_audio_enc_input::open_yc_pin_data(const MSG_PIN_SEND&, McAvcYcData&)"
+  },
+  {
+    "load": "0x63652634",
+    "add": "0x6365263a",
+    "literal": "0x63652688",
+    "target": "0x63f2e5b9",
+    "string": "void sfmc_audio_enc::sfmc_audio_enc_input::open_image_data(McAvcYcData&)"
+  },
+  {
+    "load": "0x63665d32",
+    "add": "0x63665d42",
+    "literal": "0x63665e00",
+    "target": "0x63f1d591",
+    "string": "dec/mcYcData.cpp"
+  },
+  {
+    "load": "0x63665e2c",
+    "add": "0x63665e3e",
+    "literal": "0x6366623c",
+    "target": "0x63f1d591",
+    "string": "dec/mcYcData.cpp"
+  },
+  {
+    "load": "0x63666120",
+    "add": "0x6366614c",
+    "literal": "0x63666294",
+    "target": "0x63f1d7b0",
+    "string": "ycCompress    =%d"
+  },
+  {
+    "load": "0x63666144",
+    "add": "0x63666170",
+    "literal": "0x63666298",
+    "target": "0x63f1d7c2",
+    "string": "dataTransfer  =%d"
+  },
+  {
+    "load": "0x63666168",
+    "add": "0x63666170",
+    "literal": "0x6366629c",
+    "target": "0x63f1d7b0",
+    "string": "ycCompress    =%d"
+  },
+  {
+    "load": "0x63666168",
+    "add": "0x63666194",
+    "literal": "0x6366629c",
+    "target": "0x63f1d7d4",
+    "string": "dataPlacement =%d"
+  },
+  {
+    "load": "0x6366618c",
+    "add": "0x63666194",
+    "literal": "0x636662a0",
+    "target": "0x63f1d7c2",
+    "string": "dataTransfer  =%d"
+  },
+  {
+    "load": "0x636661b0",
+    "add": "0x636661b8",
+    "literal": "0x636662a4",
+    "target": "0x63f1d7d4",
+    "string": "dataPlacement =%d"
+  },
+  {
+    "load": "0x636662c6",
+    "add": "0x636662d6",
+    "literal": "0x636663b8",
+    "target": "0x63f1d591",
+    "string": "dec/mcYcData.cpp"
+  },
+  {
+    "load": "0x636663e6",
+    "add": "0x636663f6",
+    "literal": "0x636664b4",
+    "target": "0x63f1d591",
+    "string": "dec/mcYcData.cpp"
+  },
+  {
+    "load": "0x636664de",
+    "add": "0x636664ee",
+    "literal": "0x63666548",
+    "target": "0x63f1d591",
+    "string": "dec/mcYcData.cpp"
+  },
+  {
+    "load": "0x6366656a",
+    "add": "0x6366657c",
+    "literal": "0x63666a70",
+    "target": "0x63f1d591",
+    "string": "dec/mcYcData.cpp"
+  },
+  {
+    "load": "0x63666afe",
+    "add": "0x63666b0c",
+    "literal": "0x63666b40",
+    "target": "0x63f1d591",
+    "string": "dec/mcYcData.cpp"
+  },
+  {
+    "load": "0x63666b5a",
+    "add": "0x63666b6a",
+    "literal": "0x63666bc4",
+    "target": "0x63f1d591",
+    "string": "dec/mcYcData.cpp"
+  },
+  {
+    "load": "0x63691e4c",
+    "add": "0x63691e52",
+    "literal": "0x63691eb8",
+    "target": "0x63f3551a",
+    "string": "__int32_t sfmc_enc::sfmc_enc_input_yc::open_pin_data(const MSG_PIN_SEND&, McAvcYcData&)"
+  },
+  {
+    "load": "0x63691f34",
+    "add": "0x63691f3a",
+    "literal": "0x63691f90",
+    "target": "0x63f3547b",
+    "string": "__int32_t sfmc_enc::sfmc_enc_input_yc::open_image_data(McAvcYcData&)"
+  },
+  {
+    "load": "0x63692006",
+    "add": "0x6369200a",
+    "literal": "0x63692034",
+    "target": "0x63f35572",
+    "string": "__int32_t sfmc_enc::sfmc_enc_input_yc::share_image_data(McAvcYcData&)"
+  },
+  {
+    "load": "0x63692096",
+    "add": "0x6369209c",
+    "literal": "0x636920c4",
+    "target": "0x63f353f1",
+    "string": "__int32_t sfmc_enc::sfmc_enc_input_yc::share_pin_data(McAvcYcData&)"
+  },
+  {
+    "load": "0x63692280",
+    "add": "0x63692286",
+    "literal": "0x636922dc",
+    "target": "0x63f35435",
+    "string": "__int32_t sfmc_enc::sfmc_enc_input_yc::close_image_data(McAvcYcData&)"
+  },
+  {
+    "load": "0x63692d52",
+    "add": "0x63692d58",
+    "literal": "0x63692da0",
+    "target": "0x63f35385",
+    "string": "void sfmc_enc::sfmc_enc_input_yc::get_yc_create_t(McAvcYcData&, sfmc_enc::sfmc_enc_input_yc::create_vfc_t&)"
+  },
+  {
+    "load": "0x636ea53a",
+    "add": "0x636ea53c",
+    "literal": "0x636ea6fc",
+    "target": "0x63f3fd89",
+    "string": "[SDF][INT_ERROR] inYcCompress & outYcCompress"
+  },
+  {
+    "load": "0x636ea9b0",
+    "add": "0x636ea9b2",
+    "literal": "0x636eaad0",
+    "target": "0x63f3fd89",
+    "string": "[SDF][INT_ERROR] inYcCompress & outYcCompress"
+  },
+  {
+    "load": "0x636eb674",
+    "add": "0x636eb67c",
+    "literal": "0x636eb6c8",
+    "target": "0x63f4281f",
+    "string": "SetYcCompress"
+  },
+  {
+    "load": "0x6372f5e6",
+    "add": "0x6372f5ee",
+    "literal": "0x6372f634",
+    "target": "0x63f52f77",
+    "string": "VDF::VDF_ERR VDF::VdfInputCmdUpdateYuvPin::changeSSYCData(VDF::DrvCallDmm::CtrlData*, VDF::MsgAccessorIf*, VDF::SubsystemAccessorIf*)"
+  },
+  {
+    "load": "0x6373bfd4",
+    "add": "0x6373bfd6",
+    "literal": "0x6373c150",
+    "target": "0x63f4e31f",
+    "string": "[VDF]s_EvfParallaxCreateYCDataStructure NG(0x%x)"
+  },
+  {
+    "load": "0x6374c552",
+    "add": "0x6374c55a",
+    "literal": "0x6374c690",
+    "target": "0x63f57aae",
+    "string": "void out_pin0_send(VDF::SubsystemAccessorIf*, VDF::MsgAccessorIf*)"
+  },
+  {
+    "load": "0x6390151c",
+    "add": "0x63901522",
+    "literal": "0x639015a8",
+    "target": "0x63f82626",
+    "string": "FW: dmm Err: %d, sds_ycc_handle: %x"
+  },
+  {
+    "load": "0x63918c5e",
+    "add": "0x63918c64",
+    "literal": "0x63918d08",
+    "target": "0x63f87dc0",
+    "string": "FW: cmpCateID[%d] cmpMsgId[%x] replyOsalId[%x] Raw[%x] RawMakerNote[%x] RawSrcData[%x] RawOffset[%x] RawSize[%x] YcData[%x] StdYcData[%x]"
+  },
+  {
+    "load": "0x63b42846",
+    "add": "0x63b4284a",
+    "literal": "0x63b4289c",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42874",
+    "add": "0x63b4287a",
+    "literal": "0x63b428ac",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b428f6",
+    "add": "0x63b428fe",
+    "literal": "0x63b42924",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b4293a",
+    "add": "0x63b42942",
+    "literal": "0x63b429d8",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42996",
+    "add": "0x63b4299c",
+    "literal": "0x63b429e0",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b429f4",
+    "add": "0x63b429fc",
+    "literal": "0x63b42a24",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42a38",
+    "add": "0x63b42a40",
+    "literal": "0x63b42a68",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42a7c",
+    "add": "0x63b42a84",
+    "literal": "0x63b42aac",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42ac0",
+    "add": "0x63b42ac8",
+    "literal": "0x63b42af0",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42b06",
+    "add": "0x63b42b0e",
+    "literal": "0x63b42b50",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42b64",
+    "add": "0x63b42b6c",
+    "literal": "0x63b42b94",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42c46",
+    "add": "0x63b42c4e",
+    "literal": "0x63b43020",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42cce",
+    "add": "0x63b42cd6",
+    "literal": "0x63b43028",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42cf8",
+    "add": "0x63b42d00",
+    "literal": "0x63b43030",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42f50",
+    "add": "0x63b42f58",
+    "literal": "0x63b43054",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b42fbc",
+    "add": "0x63b42fbe",
+    "literal": "0x63b43068",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b4307e",
+    "add": "0x63b43086",
+    "literal": "0x63b43234",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43124",
+    "add": "0x63b4312c",
+    "literal": "0x63b4323c",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43174",
+    "add": "0x63b43176",
+    "literal": "0x63b43248",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43212",
+    "add": "0x63b4321a",
+    "literal": "0x63b4324c",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b432a2",
+    "add": "0x63b432aa",
+    "literal": "0x63b433fc",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43318",
+    "add": "0x63b43320",
+    "literal": "0x63b43404",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43428",
+    "add": "0x63b43430",
+    "literal": "0x63b43464",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b4347a",
+    "add": "0x63b43482",
+    "literal": "0x63b434b4",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b434ca",
+    "add": "0x63b434d2",
+    "literal": "0x63b43504",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b435ae",
+    "add": "0x63b435b6",
+    "literal": "0x63b43624",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43642",
+    "add": "0x63b4364a",
+    "literal": "0x63b43678",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b4369a",
+    "add": "0x63b436a2",
+    "literal": "0x63b43a88",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43708",
+    "add": "0x63b43710",
+    "literal": "0x63b43a90",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43732",
+    "add": "0x63b4373a",
+    "literal": "0x63b43a98",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b4375c",
+    "add": "0x63b43764",
+    "literal": "0x63b43aa0",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43788",
+    "add": "0x63b43790",
+    "literal": "0x63b43aa8",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43a04",
+    "add": "0x63b43a0a",
+    "literal": "0x63b43ac8",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43a2c",
+    "add": "0x63b43a34",
+    "literal": "0x63b43ad0",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43b6e",
+    "add": "0x63b43b76",
+    "literal": "0x63b43e0c",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43e44",
+    "add": "0x63b43e48",
+    "literal": "0x63b43f54",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43e88",
+    "add": "0x63b43e90",
+    "literal": "0x63b43f5c",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b43ee0",
+    "add": "0x63b43ee6",
+    "literal": "0x63b43f64",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b440e6",
+    "add": "0x63b440ee",
+    "literal": "0x63b44160",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  },
+  {
+    "load": "0x63b440f4",
+    "add": "0x63b440fc",
+    "literal": "0x63b44168",
+    "target": "0x63fe294c",
+    "string": "FC/Api/fc_api_monitoring.cpp"
+  }
+]

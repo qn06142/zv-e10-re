@@ -1,0 +1,137 @@
+63761dcc: cmp        r0, #1
+63761dce: push.w     {r4, r5, r6, r7, r8, sb, lr}
+63761dd2: ldrb.w     r5, [sp, #0x1c]
+63761dd6: ldrb.w     r6, [sp, #0x20]
+63761dda: bne        #0x63761dea
+63761ddc: cmp        r6, #0
+63761dde: ite        ne
+63761de0: movne.w    ip, #1
+63761de4: moveq.w    ip, #2
+63761de8: b          #0x63761dec
+63761dea: mov        ip, r0
+63761dec: ldr        r1, [pc, #0x70]
+63761dee: movs       r4, #0
+63761df0: add        r1, pc
+63761df2: ldrh       r7, [r1]
+63761df4: ldr        r1, [pc, #0x6c]
+63761df6: add        r1, pc
+63761df8: ldr        r1, [r1]
+63761dfa: b          #0x63761e40
+63761dfc: movs       r0, #0x38
+63761dfe: mla        r0, r0, r4, r1
+63761e02: add.w      r8, r0, ip, lsl #2
+63761e06: ldrh.w     sb, [r8, #4]
+63761e0a: cmp        sb, r2
+63761e0c: bne        #0x63761e3c
+63761e0e: ldrh.w     r8, [r8, #6]
+63761e12: cmp        r8, r3
+63761e14: bne        #0x63761e3c
+63761e16: ldr.w      r8, [r0, #4]
+63761e1a: cmp.w      r8, #0x410041
+63761e1e: beq        #0x63761e5c
+63761e20: cmp        r5, #0x41
+63761e22: bne        #0x63761e28
+63761e24: cmp        r6, #0x41
+63761e26: beq        #0x63761e5c
+63761e28: ldrh.w     r8, [r0, #4]
+63761e2c: cmp        r8, r6
+63761e2e: ldrh.w     r8, [r0, #6]
+63761e32: bne        #0x63761e38
+63761e34: cmp        r8, r5
+63761e36: beq        #0x63761e5c
+63761e38: cmp        r8, r5
+63761e3a: beq        #0x63761e5c
+63761e3c: adds       r4, #1
+63761e3e: uxtb       r4, r4
+63761e40: cmp        r4, r7
+63761e42: blo        #0x63761dfc
+63761e44: movs       r3, #0
+63761e46: b          #0x63761e56
+63761e48: movs       r2, #0x38
+63761e4a: muls       r2, r3, r2
+63761e4c: adds       r0, r1, r2
+63761e4e: ldrsh      r2, [r1, r2]
+63761e50: cbz        r2, #0x63761e5c
+63761e52: adds       r3, #1
+63761e54: uxtb       r3, r3
+63761e56: cmp        r3, r7
+63761e58: blo        #0x63761e48
+63761e5a: movs       r0, #0
+63761e5c: pop.w      {r4, r5, r6, r7, r8, sb, pc}
+63761e60: ldrh       r6, [r1, #0xc]
+63761e62: lsls       r3, r2, #3
+63761e64: ldrb       r2, [r4]
+63761e66: lsls       r7, r5, #2
+63761e68: subs       r0, #2
+63761e6a: mov        r3, r1
+63761e6c: push       {r4, lr}
+63761e6e: mov        r1, r2
+63761e70: cmp        r0, #9
+63761e72: bhi.w      #0x63761f8e
+63761e76: tbb        [pc, r0]
+63761e7a: lsrs       r5, r0, #0x18
+63761e7c: movs       r0, #0x17
+63761e7e: subs       r3, #0x29
+63761e80: ldrh       r2, [r1, #0x14]
+63761e82: strh       r2, [r1, #4]
+63761e84: ldr        r3, [pc, #0x11c]
+63761e86: ldr        r2, [pc, #0x120]
+63761e88: add        r3, pc
+63761e8a: add        r2, pc
+63761e8c: str        r2, [r3]
+63761e8e: movs       r2, #4
+63761e90: ldr        r3, [pc, #0x118]
+63761e92: add        r3, pc
+63761e94: b          #0x63761f8a
+63761e96: ldr        r3, [pc, #0x118]
+63761e98: movs       r4, #0xb
+63761e9a: ldr        r2, [pc, #0x118]
+63761e9c: add        r3, pc
+63761e9e: add        r2, pc
+63761ea0: str        r2, [r3]
+63761ea2: ldr        r3, [pc, #0x114]
+63761ea4: add        r3, pc
+63761ea6: b          #0x63761f9e
+63761ea8: ldr        r3, [pc, #0x110]
+63761eaa: ldr        r2, [pc, #0x114]
+63761eac: add        r3, pc
+63761eae: add        r2, pc
+63761eb0: str        r2, [r3]
+63761eb2: movs       r2, #0xb
+63761eb4: ldr        r3, [pc, #0x10c]
+63761eb6: add        r3, pc
+63761eb8: b          #0x63761f8a
+63761eba: ldr        r3, [pc, #0x10c]
+63761ebc: movs       r4, #5
+63761ebe: ldr        r2, [pc, #0x10c]
+63761ec0: add        r3, pc
+63761ec2: add        r2, pc
+63761ec4: str        r2, [r3]
+63761ec6: ldr        r3, [pc, #0x108]
+63761ec8: add        r3, pc
+63761eca: b          #0x63761f9e
+63761ecc: cmp        r3, #1
+63761ece: bne        #0x63761ee0
+63761ed0: ldr        r3, [pc, #0x100]
+63761ed2: ldr        r2, [pc, #0x104]
+63761ed4: add        r3, pc
+63761ed6: add        r2, pc
+63761ed8: str        r2, [r3]
+63761eda: ldr        r3, [pc, #0x100]
+63761edc: add        r3, pc
+63761ede: b          #0x63761f0e
+63761ee0: ldr        r3, [pc, #0xfc]
+63761ee2: ldr        r2, [pc, #0x100]
+63761ee4: add        r3, pc
+63761ee6: add        r2, pc
+63761ee8: str        r2, [r3]
+63761eea: ldr        r3, [pc, #0xfc]
+63761eec: add        r3, pc
+63761eee: b          #0x63761f2c
+63761ef0: cmp        r3, #1
+63761ef2: bne        #0x63761f36
+63761ef4: cmp        r1, #1
+63761ef6: bne        #0x63761f12
+63761ef8: ldr        r0, [pc, #0xf0]
+63761efa: add        r0, pc
+63761efc: bl         #0x63c5fe48

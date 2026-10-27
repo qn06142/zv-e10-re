@@ -1,0 +1,8 @@
+/usr/share/app # /bin/busybox ln -s /tmp/bbel /tmp/busybox-v27
+ln: /tmp/busybox-v27: No space left on device
+/usr/share/app # echo YQ== | /tmp/busybox-v27 base64 -d
+ash: /tmp/busybox-v27: Permission denied
+/usr/share/app # /tmp/busybox-v27 df -Pk /tmp /usr /log
+ash: /tmp/busybox-v27: Permission denied
+/usr/share/app # echo V27_DIRECT_011-name-toolbelt-correctly
+V27_DIRECT_011-name-toolbelt-correctly

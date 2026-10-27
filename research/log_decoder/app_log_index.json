@@ -1,0 +1,446 @@
+{
+  "file_metadata": {
+    "path": "C:\\Users\\qn061\\Documents\\Codex\\2026-10-22\\chec\\outputs\\usb-debug-20261024-01\\camera\\app-sequential.log",
+    "size_bytes": 1936183,
+    "sha256": "89a7d696f3375543e6b98679227a2ea632cb5f1c407a905991857703a3a7571b",
+    "total_records": 61997,
+    "parsed_bytes": 1936183,
+    "unparsed_bytes": 0,
+    "corrupted_records": 0,
+    "timestamp_range": {
+      "min_us": 2251308530,
+      "max_us": 5224050438,
+      "min_s": 2251.30853,
+      "max_s": 5224.050438,
+      "duration_s": 2972.741908
+    }
+  },
+  "phases": {
+    "phase_1_ring_buffer_backlog": {
+      "byte_range": [
+        0,
+        499470
+      ],
+      "record_range": [
+        0,
+        15364
+      ],
+      "record_count": 15365,
+      "runs": [
+        {
+          "run_id": 0,
+          "area_id": 1,
+          "area_name": "DISPATCH",
+          "record_range": [
+            0,
+            408
+          ],
+          "record_count": 409,
+          "byte_range": [
+            0,
+            12270
+          ],
+          "timestamp_range_s": [
+            2661.115578,
+            5047.115667
+          ]
+        },
+        {
+          "run_id": 1,
+          "area_id": 2,
+          "area_name": "EVENT_PARAM",
+          "record_range": [
+            409,
+            853
+          ],
+          "record_count": 445,
+          "byte_range": [
+            12270,
+            22505
+          ],
+          "timestamp_range_s": [
+            2887.003727,
+            5047.059534
+          ]
+        },
+        {
+          "run_id": 2,
+          "area_id": 3,
+          "area_name": "STATE_WORD",
+          "record_range": [
+            854,
+            1438
+          ],
+          "record_count": 585,
+          "byte_range": [
+            22505,
+            38873
+          ],
+          "timestamp_range_s": [
+            4927.986633,
+            5047.361843
+          ]
+        },
+        {
+          "run_id": 3,
+          "area_id": 4,
+          "area_name": "STREAM_STATE",
+          "record_range": [
+            1439,
+            6377
+          ],
+          "record_count": 4939,
+          "byte_range": [
+            38873,
+            206799
+          ],
+          "timestamp_range_s": [
+            4928.980462,
+            5047.392318
+          ]
+        },
+        {
+          "run_id": 4,
+          "area_id": 5,
+          "area_name": "ERROR_GENERAL",
+          "record_range": [
+            6378,
+            6718
+          ],
+          "record_count": 341,
+          "byte_range": [
+            206799,
+            219075
+          ],
+          "timestamp_range_s": [
+            2251.30853,
+            4927.2116
+          ]
+        },
+        {
+          "run_id": 5,
+          "area_id": 6,
+          "area_name": "ERROR_SYSTEM",
+          "record_range": [
+            6719,
+            6888
+          ],
+          "record_count": 170,
+          "byte_range": [
+            219075,
+            225195
+          ],
+          "timestamp_range_s": [
+            2692.197957,
+            5043.793784
+          ]
+        },
+        {
+          "run_id": 6,
+          "area_id": 7,
+          "area_name": "CTRL_WORD",
+          "record_range": [
+            6889,
+            8284
+          ],
+          "record_count": 1396,
+          "byte_range": [
+            225195,
+            255907
+          ],
+          "timestamp_range_s": [
+            4919.907139,
+            5047.045117
+          ]
+        },
+        {
+          "run_id": 7,
+          "area_id": 8,
+          "area_name": "DEV_TELEMETRY",
+          "record_range": [
+            8285,
+            9612
+          ],
+          "record_count": 1328,
+          "byte_range": [
+            255907,
+            305022
+          ],
+          "timestamp_range_s": [
+            4908.471222,
+            5047.435737
+          ]
+        },
+        {
+          "run_id": 8,
+          "area_id": 9,
+          "area_name": "SYNC_EVENT",
+          "record_range": [
+            9613,
+            9867
+          ],
+          "record_count": 255,
+          "byte_range": [
+            305022,
+            313182
+          ],
+          "timestamp_range_s": [
+            2599.329537,
+            5047.061891
+          ]
+        },
+        {
+          "run_id": 9,
+          "area_id": 10,
+          "area_name": "MW_TRANSACTION",
+          "record_range": [
+            9868,
+            11402
+          ],
+          "record_count": 1535,
+          "byte_range": [
+            313182,
+            380722
+          ],
+          "timestamp_range_s": [
+            4933.124883,
+            5047.391904
+          ]
+        },
+        {
+          "run_id": 10,
+          "area_id": 11,
+          "area_name": "TRACE_WORD",
+          "record_range": [
+            11403,
+            12134
+          ],
+          "record_count": 732,
+          "byte_range": [
+            380722,
+            401194
+          ],
+          "timestamp_range_s": [
+            4902.615618,
+            5047.379732
+          ]
+        },
+        {
+          "run_id": 11,
+          "area_id": 12,
+          "area_name": "PERF_MARKER",
+          "record_range": [
+            12135,
+            13251
+          ],
+          "record_count": 1117,
+          "byte_range": [
+            401194,
+            450342
+          ],
+          "timestamp_range_s": [
+            4908.788325,
+            5047.36091
+          ]
+        },
+        {
+          "run_id": 12,
+          "area_id": 14,
+          "area_name": "SYNC_MARKER",
+          "record_range": [
+            13252,
+            15298
+          ],
+          "record_count": 2047,
+          "byte_range": [
+            450342,
+            499470
+          ],
+          "timestamp_range_s": [
+            5026.612935,
+            5047.459351
+          ]
+        }
+      ]
+    },
+    "phase_2_live_streaming": {
+      "byte_range": [
+        499470,
+        1936183
+      ],
+      "record_range": [
+        15365,
+        61996
+      ],
+      "record_count": 46632,
+      "start_timestamp_s": 5047.989836,
+      "end_timestamp_s": 5224.050061,
+      "duration_seconds": 176.06022500000017
+    }
+  },
+  "milestones": [
+    {
+      "event": "unit_0x50f_allocation_request",
+      "record_index": 10358,
+      "offset": 334742,
+      "timestamp_s": 4948.370607,
+      "timestamp_str": "[04948.370607]",
+      "area_id": 10,
+      "payload_hex": "ce000d000f050000000000000200000068603700205f370000000000",
+      "message": "hdr=(0x000d00ce, 0x0000050f) args=(0x00000000, 0x00000002, 0x00376068) tag=' _7'"
+    },
+    {
+      "event": "service_mode_baseline_1",
+      "record_index": 15450,
+      "offset": 504783,
+      "timestamp_s": 5048.062345,
+      "timestamp_str": "[05048.062345]",
+      "message": "w16=[0x7b00, 0x0100, 0x0000, 0x0300, 0xf6ff, 0xffff, 0x0713, 0x0ab0, 0x0044]"
+    },
+    {
+      "event": "service_mode_baseline_2_exit",
+      "record_index": 15569,
+      "offset": 508944,
+      "timestamp_s": 5049.378556,
+      "timestamp_str": "[05049.378556]",
+      "message": "w16=[0xa300, 0x0100, 0x0000, 0x0022, 0xf6ff, 0x0022, 0x0000, 0x0000, 0x0000]"
+    },
+    {
+      "event": "unit_0x50f_allocation_request",
+      "record_index": 17268,
+      "offset": 566182,
+      "timestamp_s": 5051.568765,
+      "timestamp_str": "[05051.568765]",
+      "area_id": 10,
+      "payload_hex": "ce000d000f0500000000000002000000d810402d8842f12c00000000",
+      "message": "hdr=(0x000d00ce, 0x0000050f) args=(0x00000000, 0x00000002, 0x2d4010d8) tail=(0x2cf14288, 0x00000000)"
+    },
+    {
+      "event": "camera_model_loaded",
+      "record_index": 23286,
+      "offset": 764510,
+      "timestamp_s": 5064.719775,
+      "timestamp_str": "[05064.719775]",
+      "message": "hdr=(0x030d005b, 0x0000053e) text='camera Model loaded'"
+    },
+    {
+      "event": "camera_model_loaded",
+      "record_index": 23303,
+      "offset": 765148,
+      "timestamp_s": 5064.720925,
+      "timestamp_str": "[05064.720925]",
+      "message": "hdr=(0x030d0006, 0x000010bc) text='camera Model loaded'"
+    },
+    {
+      "event": "transition_failure_ERROR",
+      "record_index": 23305,
+      "offset": 765236,
+      "timestamp_s": 5064.721361,
+      "timestamp_str": "[05064.721361]",
+      "tag": "ERROR",
+      "message": "hdr=(0x020e0006, 0x00000077) args=(0x00000008, 0x00000000, 0x00000000) tag='ERROR'",
+      "payload_hex": "06000e02770000000800000000000000000000004552524f52000000"
+    },
+    {
+      "event": "transition_failure_ERROR",
+      "record_index": 23306,
+      "offset": 765280,
+      "timestamp_s": 5064.721383,
+      "timestamp_str": "[05064.721383]",
+      "tag": "ERROR",
+      "message": "hdr=(0x020e0006, 0x00000164) args=(0x00000000, 0x00000000, 0x00000000) tag='ERROR'",
+      "payload_hex": "06000e02640100000000000000000000000000004552524f52000000"
+    },
+    {
+      "event": "terminal_yuv_ui_mute",
+      "record_index": 61308,
+      "offset": 1915388,
+      "timestamp_s": 5219.918937,
+      "timestamp_str": "[05219.918937]",
+      "message": "hdr=(0x03010031, 0x000002f4) text='ActionSetYuvUiMute'"
+    },
+    {
+      "event": "terminal_record_before_power_off",
+      "record_index": 61996,
+      "offset": 1936159,
+      "timestamp_s": 5224.050061,
+      "timestamp_str": "[05224.050061]",
+      "message": "w0=0x00000102 w1=0x00000000"
+    }
+  ],
+  "subsystems": {
+    "131": 61997
+  },
+  "area_distribution": {
+    "1": 551,
+    "2": 627,
+    "3": 1863,
+    "4": 17466,
+    "5": 390,
+    "6": 230,
+    "7": 2230,
+    "8": 4577,
+    "9": 338,
+    "10": 7177,
+    "11": 1874,
+    "12": 2365,
+    "14": 22309
+  },
+  "error_event_count": 6,
+  "key_error_events_sample": [
+    {
+      "record_index": 10478,
+      "offset": 340022,
+      "timestamp_s": 5043.234957,
+      "timestamp_str": "[05043.234957]",
+      "tag": "ERROR",
+      "message": "hdr=(0x020d0143, 0x000001af) args=(0x00000001, 0x00000000, 0x00000000) tag='ERROR'",
+      "payload_hex": "43010d02af0100000100000000000000000000004552524f52000000"
+    },
+    {
+      "record_index": 10479,
+      "offset": 340066,
+      "timestamp_s": 5043.235008,
+      "timestamp_str": "[05043.235008]",
+      "tag": "ERROR",
+      "message": "hdr=(0x020d0143, 0x000001af) args=(0x00000002, 0x00000000, 0x00000000) tag='ERROR'",
+      "payload_hex": "43010d02af0100000200000000000000000000004552524f52000000"
+    },
+    {
+      "record_index": 23305,
+      "offset": 765236,
+      "timestamp_s": 5064.721361,
+      "timestamp_str": "[05064.721361]",
+      "tag": "ERROR",
+      "message": "hdr=(0x020e0006, 0x00000077) args=(0x00000008, 0x00000000, 0x00000000) tag='ERROR'",
+      "payload_hex": "06000e02770000000800000000000000000000004552524f52000000"
+    },
+    {
+      "record_index": 23306,
+      "offset": 765280,
+      "timestamp_s": 5064.721383,
+      "timestamp_str": "[05064.721383]",
+      "tag": "ERROR",
+      "message": "hdr=(0x020e0006, 0x00000164) args=(0x00000000, 0x00000000, 0x00000000) tag='ERROR'",
+      "payload_hex": "06000e02640100000000000000000000000000004552524f52000000"
+    },
+    {
+      "record_index": 53739,
+      "offset": 1689533,
+      "timestamp_s": 5182.772625,
+      "timestamp_str": "[05182.772625]",
+      "tag": "ERROR",
+      "message": "hdr=(0x020d0143, 0x000001af) args=(0x00000001, 0x00000000, 0x00000000) tag='ERROR'",
+      "payload_hex": "43010d02af0100000100000000000000000000004552524f52000000"
+    },
+    {
+      "record_index": 53740,
+      "offset": 1689577,
+      "timestamp_s": 5182.772669,
+      "timestamp_str": "[05182.772669]",
+      "tag": "ERROR",
+      "message": "hdr=(0x020d0143, 0x000001af) args=(0x00000002, 0x00000000, 0x00000000) tag='ERROR'",
+      "payload_hex": "43010d02af0100000200000000000000000000004552524f52000000"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+/bin/busybox ls -ld /tmp /log
+drwxr-xr-x    2 0        0            16384 Jan  1 00:00 /log
+drwxr-xr-x    3 0        0            16384 Jan  1 00:18 /tmp
+/usr/share/app # [  612.210256] WLC_E_IF: NO_IF set, event Ignored
+[  612.220337] Register interface [p2p-p2p0-0]  MAC: da:10:68:34:36:45
+[  612.220352] 
+[  612.223564] CFG80211-ERROR) wl_cfg80211_add_virtual_iface :  virtual interface(p2p-p2p0-0) is created net attach done
+[  612.242781] CFG80211-ERROR) dhd_cfg80211_set_p2p_info : Set : op_mode=0x0045
+[  612.290812] CFG80211-ERROR) wl_cfg80211_set_channel : netdev_ifidx(35), chan_type(0) target channel(11) 
+[  612.293905] CFG80211-ERROR) wl_cfg80211_set_channel : netdev_ifidx(35), chan_type(1) target channel(11) 
+[  612.301644] CFG80211-ERROR) wl_cfg80211_del_station : Send DEAUTH request
+[  612.302656] CFG80211-ERROR) wl_cfg80211_del_station : Disconnect STA : ff:ff:ff:ff:ff:ff scb_val.val 3
+/bin/busybox ls -l /tmp
+-rw-r--r--    1 0        0            65536 Jan  1  1980 alog.bin
+-rw-r--r--    1 0        0              515 Jan  1  1980 arm_trace.sh
+-rwxr-xr-x    1 0        0          1853924 Jan  1  1980 bbel
+-rwxr-xr-x    1 0        0          1284688 Jan  1  1980 bbhf
+-rw-r--r--    1 0        0                0 Jan  1  1980 bblist
+lrwxrwxrwx    1 0        0                9 Jan  1  1980 bbx -> /tmp/bbhf
+-rw-r--r--    1 0        0                0 Jan  1  1980 big1.bin
+lrwxrwxrwx    1 0        0                9 Jan  1  1980 busybox -> /tmp/bbhf
+-rw-r--r--    1 0        0             1822 Jan  1  1980 cleanup-inventory.md5
+-rw-r--r--    1 0        0              357 Jan  1  1980 collect_trace.sh
+-rw-r--r--    1 0        0                0 Jan  1  2011 config.spec
+-rwxr-xr-x    1 0        0              560 Jan  1  1980 h.bin
+lrwxrwxrwx    1 0        0               12 Jan  1  1980 im.elf -> /bin/busybox
+drwxr-xr-x    2 0        0            16384 Jan  1  2011 images
+-rw-r--r--    1 0        0          1957888 Jan  1 00:10 kikilog.dat
+drwxr-xr-x    2 0        0            16384 Jan  1  1980 m16
+drwxr-xr-x    2 0        0            16384 Jan  1  1980 m17
+drwxr-xr-x    2 0        0            16384 Jan  1  1980 m23
+drwxr-xr-x    2 0        0            16384 Jan  1  1980 m24
+drwxr-xr-x    2 0        0            16384 Jan  1  1980 m25
+drwxr-xr-x    2 0        0            16384 Jan  1  1980 m5
+-rwxr-xr-x    1 0        0             6124 Jan  1  1980 mem_patch.elf
+-rw-r--r--    1 0        0              947 Jan  1  1980 menu-crash-transfer.md5
+-rw-r--r--    1 0        0             1197 Jan  1  1980 menu-working-transfer.md5
+lrwxrwxrwx    1 0        0               14 Jan  1  2011 mtab -> ../proc/mounts
+-rw-r--r--    1 0        0              261 Jan  1  2011 nsswitch.conf
+drwxr-xr-x    2 0        0            16384 Jan  1  1980 opengate_trace
+-rw-r--r--    1 0        0             2859 Jan  1  2011 protocols
+-rw-r--r--    1 0        0               23 Jan  1  1980 resolv.conf
+drwxr-xr-x    3 0        0            16384 Jan  1  1980 sd
+-rw-r--r--    1 0        0            19666 Jan  1  2011 services
+-rwxr-xr-x    1 0        0             4676 Jan  1  1980 test_arm.elf
+-rwxr-xr-x    1 0        0              617 Jan  1  2011 toprc
+-r--r--r--    1 0        0            46472 Jan  1  1980 uipc_stat_kernel.txt
+-rw-r--r--    1 0        0             4417 Jan  1  1980 usb-debug-transfer.md5
+---x------    1 0        0              250 Jan  1  1980 uvc_workspace_session.sh
+-rw-r--r--    1 0        0              145 Jan  1 00:13 v27-cleanup-inventory.md5
+---x-----x    1 0        0                0 Jan  1 00:18 v27-live-workbench.sh
+---x-----x    1 0        0              543 Jan  1 00:13 v27-log-cleanup.sh
+-rw-r--r--    1 0        0               51 Jan  1 00:13 v27-old-logger-stop.txt
+---x-----x    1 0        0                0 Jan  1 00:17 v27-pfa.sh
+---x-----x    1 0        0                0 Jan  1 00:15 v27-preflight.sh
+lrwxrwxrwx    1 0        0               14 Jan  1  1980 x -> /tmp/busybox_x
+-rw-r--r--    1 0        0             2439 Jan  1  1980 yc-observer-transfer.md5
+-rw-r--r--    1 0        0                0 Jan  1  1980 yc-retest-log-guard.out
+-rw-r--r--    1 0        0              480 Jan  1  1980 yc-retest-log-guard.sh
+-rw-r--r--    1 0        0             1715 Jan  1  1980 yc-retest-transfer.md5
+-rw-r--r--    1 0        0              685 Jan  1  1980 yuy2-retry-state.md5
+---x------    1 0        0             1145 Jan  1  1980 yuy2-workbench.sh
+/usr/share/app # /bin/busybox mount
+rootfs on / type rootfs (rw)
+proc on /proc type proc (rw,relatime)
+/dev/nflasha7 on / type ext2 (ro,relatime,errors=continue)
+/dev/nflasha15 on /usr type ext2 (ro,relatime,errors=continue)
+/dev/nflasha10 on /tmp type vfat (rw,sync,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,posix_attr,avoid_dlink,errors=remount-ro)
+/dev/nflasha10 on /etc type vfat (rw,sync,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,posix_attr,avoid_dlink,errors=remount-ro)
+/dev/nflasha3 on /system type vfat (rw,sync,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,posix_attr,avoid_dlink,errors=remount-ro)
+/dev/nflasha2 on /setting type vfat (rw,sync,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,posix_attr,avoid_dlink,errors=remount-ro)
+/dev/nflasha18 on /lens type vfat (rw,sync,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,posix_attr,avoid_dlink,errors=remount-ro)
+/dev/nflasha12 on /cert type vfat (rw,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,batch_sync,posix_attr,avoid_dlink,errors=remount-ro)
+/dev/nflasha11 on /log type vfat (rw,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,batch_sync,posix_attr,avoid_dlink,errors=remount-ro)
+none on /sys type sysfs (rw,relatime)
+none on /dev/pts type devpts (rw,relatime,mode=600)
+none on /tmp_ipsec type tmpfs (rw,sync,dirsync,noatime,size=128k)
+none on /tmp_bt type tmpfs (rw,sync,dirsync,noatime,size=1024k)
+none on /tmp_network type tmpfs (rw,sync,dirsync,noatime,size=1024k)
+/usr/share/app # echo V27_DIRECT_007-direct-inspect
+V27_DIRECT_007-direct-inspect

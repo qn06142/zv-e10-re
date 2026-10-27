@@ -1,0 +1,24 @@
+{
+  "passed": 15,
+  "cases": [
+    "unavailable backend: no USB submission and no synthetic fallback",
+    "USB EBUSY prevents source acquisition and staging mutation",
+    "614400 bytes identical despite UNKNOWN format, flags0, foreign dimensions and stride0",
+    "acquisition timeout sends neither bars nor a repeated stale frame",
+    "failed release retains lease and prevents both submission and new acquisition",
+    "cleanup retry recovers without inventing a new source reference",
+    "unaligned byte-window offset preserved; active source offset changes rejected",
+    "short allocation rejected before mapping, reference still released",
+    "offset outside allocation rejected before mapping",
+    "invalid/overlapping/wrapping source address rejected: 0x0",
+    "invalid/overlapping/wrapping source address rejected: 0x30000000",
+    "invalid/overlapping/wrapping source address rejected: 0xfffff000",
+    "missing stable reference rejected without a fabricated release",
+    "stop during native Open drains Close/Free ACKs without new acquisition or pinned reference",
+    "actual ARM native callback: delayed replies, Share/Open/copy/Close/Free, then one byte-identical USB submission per cycle; second start also passes"
+  ],
+  "hardware_services_mocked": true,
+  "native_backend_implemented": true,
+  "hardware_source_is_fixture": true,
+  "camera_access": false
+}

@@ -1,0 +1,13 @@
+{
+  "passed": [
+    "all 31 normalized fields match actual Sony getter execution with unaligned input",
+    "all 60 truncated lengths rejected without writing output",
+    "null pointer checks verified",
+    "one DMM extent plus verified unitDataOffset resolves remaining span",
+    "invalid extent, offset and physical wrap rejected without output changes",
+    "last 32-bit physical byte supported without wrapping"
+  ],
+  "total_fields_verified": 31,
+  "camera_access": false,
+  "source_subscription_implemented": false
+}

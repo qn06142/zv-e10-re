@@ -1,0 +1,416 @@
+{
+  "firmware_md5": "90096db2c76148f4f9db5d104e5c608c",
+  "camera_access": false,
+  "original_ARM_instructions_executed": true,
+  "logging_only_mocked": true,
+  "alignment_cases": [
+    {
+      "mirror": 0,
+      "compress": 0,
+      "offset": 0,
+      "width": 1920,
+      "result": 0
+    },
+    {
+      "mirror": 0,
+      "compress": 0,
+      "offset": 0,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 0,
+      "compress": 0,
+      "offset": 32,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 0,
+      "compress": 0,
+      "offset": 0,
+      "width": 1472,
+      "result": 0
+    },
+    {
+      "mirror": 0,
+      "compress": 1,
+      "offset": 0,
+      "width": 1920,
+      "result": 0
+    },
+    {
+      "mirror": 0,
+      "compress": 1,
+      "offset": 0,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 0,
+      "compress": 1,
+      "offset": 32,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 0,
+      "compress": 1,
+      "offset": 0,
+      "width": 1472,
+      "result": 0
+    },
+    {
+      "mirror": 1,
+      "compress": 0,
+      "offset": 0,
+      "width": 1920,
+      "result": 0
+    },
+    {
+      "mirror": 1,
+      "compress": 0,
+      "offset": 0,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 1,
+      "compress": 0,
+      "offset": 32,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 1,
+      "compress": 0,
+      "offset": 0,
+      "width": 1472,
+      "result": 0
+    },
+    {
+      "mirror": 1,
+      "compress": 1,
+      "offset": 0,
+      "width": 1920,
+      "result": 0
+    },
+    {
+      "mirror": 1,
+      "compress": 1,
+      "offset": 0,
+      "width": 1440,
+      "result": 5
+    },
+    {
+      "mirror": 1,
+      "compress": 1,
+      "offset": 32,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 1,
+      "compress": 1,
+      "offset": 0,
+      "width": 1472,
+      "result": 0
+    },
+    {
+      "mirror": 2,
+      "compress": 0,
+      "offset": 0,
+      "width": 1920,
+      "result": 0
+    },
+    {
+      "mirror": 2,
+      "compress": 0,
+      "offset": 0,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 2,
+      "compress": 0,
+      "offset": 32,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 2,
+      "compress": 0,
+      "offset": 0,
+      "width": 1472,
+      "result": 0
+    },
+    {
+      "mirror": 2,
+      "compress": 1,
+      "offset": 0,
+      "width": 1920,
+      "result": 0
+    },
+    {
+      "mirror": 2,
+      "compress": 1,
+      "offset": 0,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 2,
+      "compress": 1,
+      "offset": 32,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 2,
+      "compress": 1,
+      "offset": 0,
+      "width": 1472,
+      "result": 0
+    },
+    {
+      "mirror": 3,
+      "compress": 0,
+      "offset": 0,
+      "width": 1920,
+      "result": 0
+    },
+    {
+      "mirror": 3,
+      "compress": 0,
+      "offset": 0,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 3,
+      "compress": 0,
+      "offset": 32,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 3,
+      "compress": 0,
+      "offset": 0,
+      "width": 1472,
+      "result": 0
+    },
+    {
+      "mirror": 3,
+      "compress": 1,
+      "offset": 0,
+      "width": 1920,
+      "result": 0
+    },
+    {
+      "mirror": 3,
+      "compress": 1,
+      "offset": 0,
+      "width": 1440,
+      "result": 5
+    },
+    {
+      "mirror": 3,
+      "compress": 1,
+      "offset": 32,
+      "width": 1440,
+      "result": 0
+    },
+    {
+      "mirror": 3,
+      "compress": 1,
+      "offset": 0,
+      "width": 1472,
+      "result": 0
+    }
+  ],
+  "strip_width_enum_results": [
+    {
+      "function": "0x63a37f3c",
+      "mode": 1,
+      "result": 64
+    },
+    {
+      "function": "0x63a37f3c",
+      "mode": 2,
+      "result": 1408
+    },
+    {
+      "function": "0x63a37f3c",
+      "mode": 3,
+      "result": 1440
+    },
+    {
+      "function": "0x63a37f3c",
+      "mode": 4,
+      "result": 0
+    },
+    {
+      "function": "0x63a37f3c",
+      "mode": 5,
+      "result": 640
+    },
+    {
+      "function": "0x63a3ad04",
+      "mode": 1,
+      "result": 64
+    },
+    {
+      "function": "0x63a3ad04",
+      "mode": 2,
+      "result": 1408
+    },
+    {
+      "function": "0x63a3ad04",
+      "mode": 3,
+      "result": 1440
+    },
+    {
+      "function": "0x63a3ad04",
+      "mode": 4,
+      "result": 0
+    },
+    {
+      "function": "0x63a3ad04",
+      "mode": 5,
+      "result": 640
+    },
+    {
+      "function": "0x63a3ad04",
+      "mode": 6,
+      "result": 0
+    },
+    {
+      "function": "0x63a3ad04",
+      "mode": 7,
+      "result": 0
+    },
+    {
+      "function": "0x63a3ad04",
+      "mode": 8,
+      "result": 1920
+    }
+  ],
+  "geometry_table_records": [
+    {
+      "index": 0,
+      "record": "0x645b580c",
+      "record_flag": 1,
+      "valid": [
+        1920,
+        1080
+      ],
+      "canvas": [
+        1920,
+        1080
+      ],
+      "unit_type": "0x295"
+    },
+    {
+      "index": 1,
+      "record": "0x645b5844",
+      "record_flag": 1,
+      "valid": [
+        1440,
+        1080
+      ],
+      "canvas": [
+        1472,
+        1080
+      ],
+      "unit_type": "0x295"
+    },
+    {
+      "index": 4,
+      "record": "0x645b58ec",
+      "record_flag": 1,
+      "valid": [
+        1280,
+        720
+      ],
+      "canvas": [
+        1280,
+        720
+      ],
+      "unit_type": "0x295"
+    },
+    {
+      "index": 5,
+      "record": "0x645b5924",
+      "record_flag": 0,
+      "valid": [
+        640,
+        480
+      ],
+      "canvas": [
+        640,
+        480
+      ],
+      "unit_type": "0x295"
+    }
+  ],
+  "metadata_execution": [
+    {
+      "index": 0,
+      "yc_compress": 1,
+      "strip_width": 64,
+      "yc_bit_depth_untouched": true,
+      "valid": [
+        1920,
+        1080
+      ],
+      "canvas": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "index": 1,
+      "yc_compress": 1,
+      "strip_width": 64,
+      "yc_bit_depth_untouched": true,
+      "valid": [
+        1440,
+        1080
+      ],
+      "canvas": [
+        1472,
+        1080
+      ]
+    },
+    {
+      "index": 4,
+      "yc_compress": 1,
+      "strip_width": 64,
+      "yc_bit_depth_untouched": true,
+      "valid": [
+        1280,
+        720
+      ],
+      "canvas": [
+        1280,
+        720
+      ]
+    },
+    {
+      "index": 5,
+      "yc_compress": 0,
+      "strip_width": 64,
+      "yc_bit_depth_untouched": true,
+      "valid": [
+        640,
+        480
+      ],
+      "canvas": [
+        640,
+        480
+      ]
+    }
+  ],
+  "limits": "Static code/configuration behavior only; active packet descriptor and codec syntax not established"
+}

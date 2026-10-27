@@ -1,0 +1,29 @@
+{
+  "complete": {
+    "snapshot-00000002.bin": {
+      "sequence": 2,
+      "bytes": 2073600,
+      "physical": "0x2a3f4800",
+      "sha256": "4b0feb4634b753068f669fa96ec4705d989ecafeb87d12c66940b3cf65fbba47",
+      "completed_frame_guaranteed": false
+    },
+    "snapshot-00000003.bin": {
+      "sequence": 3,
+      "bytes": 2073600,
+      "physical": "0x2a1fa400",
+      "sha256": "df470de0c6cbb0c7c2b30f6448cb7e22a5f14168b687ddff043a47dc94037c5a",
+      "completed_frame_guaranteed": false
+    },
+    "snapshot-00000004.bin": {
+      "sequence": 4,
+      "bytes": 2073600,
+      "physical": "0x2a5eec00",
+      "sha256": "10ba544c9b58cdc45355066123058792a2ec55911c3a7d22f2031574317f04e6",
+      "completed_frame_guaranteed": false
+    }
+  },
+  "incomplete_snapshot_ids": [
+    1,
+    5
+  ]
+}

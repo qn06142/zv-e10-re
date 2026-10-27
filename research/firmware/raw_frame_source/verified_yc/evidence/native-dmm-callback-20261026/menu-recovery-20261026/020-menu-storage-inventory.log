@@ -1,0 +1,60 @@
+/bin/busybox mkdir -p /log/yuy2_640_v27snap/menu-crash-01
+/usr/share/app # /log/yuy2_640_v27snap/busybox df -Pk /tmp /log /usr
+Filesystem           1024-blocks    Used Available Capacity Mounted on
+/dev/nflasha10           12256      5792      6464  47% /tmp
+/dev/nflasha11          511920        16    511904   0% /log
+/dev/nflasha15          234749    223792     10957  95% /usr
+/usr/share/app # /log/yuy2_640_v27snap/busybox du -ak /tmp | /log/yuy2_640_v27sn
+ap/busybox sort -n | /log/yuy2_640_v27snap/busybox tail -35
+16      /tmp/nsswitch.conf
+16      /tmp/opengate_trace/dmesg_post.log
+16      /tmp/opengate_trace/dmesg_prev.log
+16      /tmp/opengate_trace/im_pid.log
+16      /tmp/protocols
+16      /tmp/resolv.conf
+16      /tmp/sd/fuzz
+16      /tmp/test_arm.elf
+16      /tmp/toprc
+16      /tmp/usb-debug-transfer.md5
+16      /tmp/uvc_workspace_session.sh
+16      /tmp/v27-cleanup-inventory.md5
+16      /tmp/v27-log-cleanup.sh
+16      /tmp/v27-old-logger-stop.txt
+16      /tmp/x
+16      /tmp/yc-observer-transfer.md5
+16      /tmp/yc-retest-log-guard.sh
+16      /tmp/yc-retest-transfer.md5
+16      /tmp/yuy2-retry-state.md5
+16      /tmp/yuy2-workbench.sh
+32      /tmp/sd
+32      /tmp/services
+48      /tmp/uipc_stat_kernel.txt
+64      /tmp/alog.bin
+416     /tmp/opengate_trace/mpr_before.log
+608     /tmp/images/Sony_DI_Icons.ttf
+672     /tmp/opengate_trace/mpr_after.log
+1136    /tmp/images/MYingHeiC-Big5-SJ_wIcon.ltt
+1152    /tmp/opengate_trace
+1264    /tmp/bbhf
+1824    /tmp/bbel
+1920    /tmp/kikilog.dat
+2016    /tmp/images/MYingHeiC-GB18030-SJ_wIcon.ltt
+3776    /tmp/images
+10656   /tmp
+/usr/share/app # /bin/busybox cat /proc/uptime > /log/yuy2_640_v27snap/menu-cras
+h-01/uptime.txt
+/usr/share/app # P=$(/bin/busybox pidof im.elf); /bin/busybox cat /proc/$P/maps 
+> /log/yuy2_640_v27snap/menu-crash-01/maps.txt
+/usr/share/app # /bin/busybox dmesg > /log/yuy2_640_v27snap/menu-crash-01/kernel
+.log
+/usr/share/app # /bin/busybox md5sum /usr/lib/libInfraStreamingUsb.so /usr/lib/y
+uy2_640_v27snap.so /usr/lib/libInfraUsbCmn.so
+c3aa9b92ea6c05ce78aa7894e8dfe35a  /usr/lib/libInfraStreamingUsb.so
+ec185c27deb53f80f6f5a40d9a8f95f1  /usr/lib/yuy2_640_v27snap.so
+31308976206a837f6f5c571992d2b499  /usr/lib/libInfraUsbCmn.so
+/usr/share/app # /usr/bin/ulogio.elf filter info > /log/yuy2_640_v27snap/menu-cr
+ash-01/filters.txt
+default debug level: error 
+
+/usr/share/app # echo V27_DIRECT_020-menu-storage-inventory
+V27_DIRECT_020-menu-storage-inventory

@@ -1,0 +1,14 @@
+{
+  "compiled_ARM_selector_executed": true,
+  "captured_live_listing_result": "TIMEOUT_NO_CANDIDATE",
+  "positive_control_result": "ACCEPTED_KNOWN_WHITELIST_TYPE",
+  "actual": [
+    4294967292,
+    "0000000000000000"
+  ],
+  "fixture": [
+    0,
+    "8a4000003f190600"
+  ],
+  "camera_access": false
+}

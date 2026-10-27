@@ -1,0 +1,130 @@
+[
+  [
+    "0x638759f3",
+    "#YCPZpG"
+  ],
+  [
+    "0x63f066e8",
+    "[Debug]YCPINLogOutput"
+  ],
+  [
+    "0x63f139c3",
+    "[CDiag CdSeqCtrlDecIf ]Exec Dec ExecYCPinReqDisConnectComp Sequence comp true!! "
+  ],
+  [
+    "0x63f141d7",
+    "[CDiag CdSeqCtrlEnc] [ERR][MC:%d]CdSeqCtrlEnc::SendYCPinDisConnect() "
+  ],
+  [
+    "0x63f14265",
+    "[CDiag CdSeqCtrlEnc] [ERR][MC:%d]CdSeqCtrlEnc::SendYCPinConnect() "
+  ],
+  [
+    "0x63f159ae",
+    "[CDiag CdSeqCtrlEncIf] [ERR]CdSeqCtrlEncIf::ExecYCPinDisConnectComp() "
+  ],
+  [
+    "0x63f159f6",
+    "[CDiag CdSeqCtrlEncIf] [ERR]Exec Enc ExecYCPinDisConnectComp Sequence comp true!! "
+  ],
+  [
+    "0x63f15a92",
+    "[CDiag CdSeqCtrlEncIf] [ERR]CdSeqCtrlEncIf::ExecYCPinConnectComp() "
+  ],
+  [
+    "0x63f15e4a",
+    "[CDiag CdYCPinSender ][MC:%d]FramePerSec Set %d -> %d "
+  ],
+  [
+    "0x63f15e82",
+    "[CDiag CdYCPinSender] [ERR][MC:%d][%s],[%d]YC PIN memAlloc Error :%x"
+  ],
+  [
+    "0x63f15ec8",
+    "[CDiag CdYCPinSender] [ERR][MC:%d][%s],[%d]YC PIN Share Error :%x"
+  ],
+  [
+    "0x63f15f0b",
+    "[CDiag CdYCPinSender] [ERR][MC:%d][%s],[%d]YC Data RendezvousAloc Error :%x"
+  ],
+  [
+    "0x63f15f58",
+    "[CDiag CdYCPinSender] [ERR][MC:%d][%s],[%d]YC Data Share Error :%x"
+  ],
+  [
+    "0x63f16819",
+    "13CdYCPinSender"
+  ],
+  [
+    "0x63f16829",
+    "void CdYCPinSender::SendYCPin()"
+  ],
+  [
+    "0x63f2637c",
+    "[INPUT V   ]YCPIN ERROR.%s %u @%s:"
+  ],
+  [
+    "0x63f2a80b",
+    "XVYCC"
+  ],
+  [
+    "0x63f3fd89",
+    "[SDF][INT_ERROR] inYcCompress & outYcCompress"
+  ],
+  [
+    "0x63f4281f",
+    "SetYcCompress"
+  ],
+  [
+    "0x63f4e045",
+    "[VDF][ERROR] VDF_PATH_OPTION_YCPIN_VALID(0x%x)"
+  ],
+  [
+    "0x63f7fa49",
+    "FW: ## Error : sa_func_DECOMP_acquire() : %d"
+  ],
+  [
+    "0x63f7fa76",
+    "FW: ## Error : sa_func_DECOMP_start() : %d"
+  ],
+  [
+    "0x63f7fb47",
+    "FW: ## Error : sa_func_DECOMP_release() : %d"
+  ],
+  [
+    "0x63f81c1f",
+    "FW: %s:SendYCPin0: err[0x%02x]"
+  ],
+  [
+    "0x63f821ba",
+    "FW: SendYCPin0: err[0x%02x]"
+  ],
+  [
+    "0x63f8e558",
+    "FW: SendYCPin[%d] is error %x!"
+  ],
+  [
+    "0x63f8e577",
+    "FW: SendFaceFocusYCPin0 IsHSRecGolfshotRec() is true!"
+  ],
+  [
+    "0x63f8e5c8",
+    "FW: SendFaceFocusYCPin0 is success!"
+  ],
+  [
+    "0x63f8e5ec",
+    "FW: SendFaceFocusYCPin0 is error2 %x!"
+  ],
+  [
+    "0x63fa0da5",
+    "YC: job_YC_GetTagPointer (YcEncryptedRawDevTagData): GetTagPointer_Private error: 0x%x"
+  ],
+  [
+    "0x63fe0534",
+    "sa_func_DECOMP_acquire"
+  ],
+  [
+    "0x63fe054b",
+    "Camera::SaFuncDrv::SA_FUNCDRV_ERR Camera::SaFuncDrv::sa_func_DECOMP_release(__uint8_t, __uint16_t, Camera::SaFuncDrv::DECOMP_START_PARAM*)"
+  ]
+]

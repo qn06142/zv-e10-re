@@ -1,0 +1,129 @@
+63cc3bd0: str        r3, [r6, #0xc]
+63cc3bd2: ldrh       r3, [r5, #0xa]
+63cc3bd4: str        r3, [r6, #0x10]
+63cc3bd6: ldrh       r3, [r5, #0xc]
+63cc3bd8: str        r3, [r6, #0x14]
+63cc3bda: ldrh       r3, [r5, #0xe]
+63cc3bdc: str        r3, [r6, #0x18]
+63cc3bde: ldrh       r3, [r5, #0x10]
+63cc3be0: str        r3, [r6, #0x1c]
+63cc3be2: ldrh       r3, [r5, #0x12]
+63cc3be4: str        r3, [r6, #0x20]
+63cc3be6: ldrh       r3, [r5, #0x14]
+63cc3be8: str        r3, [r6, #0x24]
+63cc3bea: ldrh       r3, [r5, #0x16]
+63cc3bec: str        r3, [r6, #0x28]
+63cc3bee: mov        r0, r4
+63cc3bf0: add        sp, #0x10
+63cc3bf2: pop        {r4, r5, r6, pc}
+63cc3bf4: push       {r0, r1, r2, r3, r4, r5, r6, lr}
+63cc3bf6: mov        r5, r1
+63cc3bf8: ldr        r3, [r0]
+63cc3bfa: mov        r6, r2
+63cc3bfc: ldr        r3, [r3, #0xc]
+63cc3bfe: blx        r3
+63cc3c00: mov        r4, r0
+63cc3c02: cbz        r0, #0x63cc3c20
+63cc3c04: movs       r3, #5
+63cc3c06: stm.w      sp, {r3, r4}
+63cc3c0a: adds       r3, #0x80
+63cc3c0c: movs       r1, #0
+63cc3c0e: str        r3, [sp, #0xc]
+63cc3c10: movs       r0, #0x40
+63cc3c12: movw       r2, #0x7003
+63cc3c16: adds       r3, #0x76
+63cc3c18: str        r1, [sp, #8]
+63cc3c1a: bl         #0x636bad44
+63cc3c1e: b          #0x63cc3c38
+63cc3c20: ldr        r3, [r5]
+63cc3c22: str        r3, [r6]
+63cc3c24: ldr        r3, [r5, #4]
+63cc3c26: str        r3, [r6, #4]
+63cc3c28: ldr        r3, [r5, #8]
+63cc3c2a: str        r3, [r6, #0xc]
+63cc3c2c: ldr        r3, [r5, #0xc]
+63cc3c2e: str        r3, [r6, #8]
+63cc3c30: ldrh       r3, [r5, #0x10]
+63cc3c32: str        r3, [r6, #0x10]
+63cc3c34: ldrh       r3, [r5, #0x12]
+63cc3c36: str        r3, [r6, #0x14]
+63cc3c38: mov        r0, r4
+63cc3c3a: add        sp, #0x10
+63cc3c3c: pop        {r4, r5, r6, pc}
+63cc3c3e: push       {r4, r5, r6, lr}
+63cc3c40: mov        r6, r3
+63cc3c42: ldr        r3, [r0]
+63cc3c44: mov        r5, r1
+63cc3c46: mov        r4, r2
+63cc3c48: ldr        r3, [r3, #0x10]
+63cc3c4a: blx        r3
+63cc3c4c: cbnz       r0, #0x63cc3c5a
+63cc3c4e: cbnz       r5, #0x63cc3c56
+63cc3c50: cbnz       r4, #0x63cc3c56
+63cc3c52: str        r0, [r6]
+63cc3c54: pop        {r4, r5, r6, pc}
+63cc3c56: movs       r3, #1
+63cc3c58: str        r3, [r6]
+63cc3c5a: pop        {r4, r5, r6, pc}
+63cc3c5c: push       {r4, r5, r6, lr}
+63cc3c5e: mov        r6, r3
+63cc3c60: ldr        r3, [r0]
+63cc3c62: mov        r5, r1
+63cc3c64: mov        r4, r2
+63cc3c66: ldr        r3, [r3, #0x14]
+63cc3c68: blx        r3
+63cc3c6a: cbnz       r0, #0x63cc3c82
+63cc3c6c: cbnz       r5, #0x63cc3c7e
+63cc3c6e: cbnz       r4, #0x63cc3c74
+63cc3c70: str        r0, [r6]
+63cc3c72: pop        {r4, r5, r6, pc}
+63cc3c74: cmp        r4, #1
+63cc3c76: bne        #0x63cc3c7e
+63cc3c78: movs       r3, #2
+63cc3c7a: str        r3, [r6]
+63cc3c7c: pop        {r4, r5, r6, pc}
+63cc3c7e: movs       r3, #1
+63cc3c80: str        r3, [r6]
+63cc3c82: pop        {r4, r5, r6, pc}
+63cc3c84: push       {r4, r5, r6, r7, lr}
+63cc3c86: mov        r7, r3
+63cc3c88: ldr        r3, [r0]
+63cc3c8a: sub        sp, #0x14
+63cc3c8c: mov        r6, r1
+63cc3c8e: mov        r5, r2
+63cc3c90: ldr        r3, [r3, #0x18]
+63cc3c92: blx        r3
+63cc3c94: cmp        r0, #0
+63cc3c96: bne        #0x63cc3d6e
+63cc3c98: cmp        r6, #3
+63cc3c9a: bhi        #0x63cc3cc6
+63cc3c9c: tbb        [pc, r6]
+63cc3ca0: lsls       r2, r0, #8
+63cc3ca2: lsls       r4, r0, #0x18
+63cc3ca4: movs       r3, #0
+63cc3ca6: b          #0x63cc3cae
+63cc3ca8: movs       r3, #1
+63cc3caa: b          #0x63cc3cae
+63cc3cac: movs       r3, #3
+63cc3cae: str        r3, [r7]
+63cc3cb0: cmp        r5, #0xc
+63cc3cb2: bhi        #0x63cc3d32
+63cc3cb4: tbb        [pc, r5]
+63cc3cb8: movs       r4, #0x24
+63cc3cba: cmp        r0, #0x26
+63cc3cbc: cmp        r4, #0x2a
+63cc3cbe: adds       r0, #0x2e
+63cc3cc0: adds       r4, #0x32
+63cc3cc2: subs       r0, #0x36
+63cc3cc4: movs       r3, r7
+63cc3cc6: movs       r3, #5
+63cc3cc8: movs       r4, #0
+63cc3cca: movs       r5, #0x10
+63cc3ccc: str        r4, [r7]
+63cc3cce: stm.w      sp, {r3, r5}
+63cc3cd2: adds       r3, #0xf4
+63cc3cd4: movs       r0, #0x40
+63cc3cd6: str        r3, [sp, #0xc]
+63cc3cd8: mov        r1, r4
+63cc3cda: movw       r2, #0x7003
+63cc3cde: adds       r3, #4

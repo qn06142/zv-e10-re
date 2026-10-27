@@ -1,0 +1,3501 @@
+636e9b00: lsls     r0, r6, #0x16 
+636e9b02: movs     r0, r0 
+636e9b04: adds     r6, #4 
+636e9b06: movs     r0, r0 
+636e9b08: lsrs     r4, r1, #0x17 
+636e9b0a: movs     r0, r0 
+636e9b0c: lsls     r4, r0, #0x1c 
+636e9b0e: movs     r0, r0 
+636e9b10: strh     r4, [r6, #0x1e] 
+636e9b12: movs     r0, r0 
+636e9b14: ldr      r3, [pc, #0x38] 
+636e9b16: subs     r0, #1 
+636e9b18: add      r3, pc 
+636e9b1a: cmp      r0, #0xa 
+636e9b1c: bhi      #0x636e9b44 
+636e9b1e: tbb      [pc, r0] 
+636e9b22: lsrs     r4, r1, #0x18 
+636e9b24: lsrs     r3, r2, #0x20 
+636e9b26: asrs     r2, r1, #4 
+636e9b28: asrs     r1, r2, #4 
+636e9b2a: asrs     r1, r2, #4 
+636e9b2c: movs     r6, r0 
+636e9b2e: ldr      r2, [pc, #0x24] 
+636e9b30: b        #0x636e9b40 
+636e9b32: ldr      r2, [pc, #0x24] 
+636e9b34: b        #0x636e9b40 
+636e9b36: ldr      r2, [pc, #0x24] 
+636e9b38: b        #0x636e9b40 
+636e9b3a: ldr      r2, [pc, #0x24] 
+636e9b3c: b        #0x636e9b40 
+636e9b3e: ldr      r2, [pc, #0x24] 
+636e9b40: ldr      r0, [r3, r2] 
+636e9b42: bx       lr 
+636e9b44: movs     r0, #0 
+636e9b46: bx       lr 
+636e9b48: ldr      r2, [pc, #0x1c] 
+636e9b4a: ldr      r0, [r3, r2] 
+636e9b4c: bx       lr 
+636e9b4e: nop       
+636e9b50: b        #0x636e975c 
+636e9b52: lsls     r4, r6, #3 
+636e9b54: strh     r0, [r5, r4] 
+636e9b56: movs     r0, r0 
+636e9b58: asrs     r0, r4, #0x13 
+636e9b5a: movs     r0, r0 
+636e9b5c: str      r0, [sp, #0x3f0] 
+636e9b5e: movs     r0, r0 
+636e9b60: asrs     r0, r2, #1 
+636e9b62: movs     r0, r0 
+636e9b64: adds     r4, #0x70 
+636e9b66: movs     r0, r0 
+636e9b68: subs     r6, #0xcc 
+636e9b6a: movs     r0, r0 
+636e9b6c: ldr      r3, [pc, #0x38] 
+636e9b6e: subs     r0, #1 
+636e9b70: add      r3, pc 
+636e9b72: cmp      r0, #0xa 
+636e9b74: bhi      #0x636e9b9c 
+636e9b76: tbb      [pc, r0] 
+636e9b7a: lsrs     r4, r1, #0x18 
+636e9b7c: lsrs     r3, r2, #0x20 
+636e9b7e: asrs     r2, r1, #4 
+636e9b80: asrs     r1, r2, #4 
+636e9b82: asrs     r1, r2, #4 
+636e9b84: movs     r6, r0 
+636e9b86: ldr      r2, [pc, #0x24] 
+636e9b88: b        #0x636e9b98 
+636e9b8a: ldr      r2, [pc, #0x24] 
+636e9b8c: b        #0x636e9b98 
+636e9b8e: ldr      r2, [pc, #0x24] 
+636e9b90: b        #0x636e9b98 
+636e9b92: ldr      r2, [pc, #0x24] 
+636e9b94: b        #0x636e9b98 
+636e9b96: ldr      r2, [pc, #0x24] 
+636e9b98: ldr      r0, [r3, r2] 
+636e9b9a: bx       lr 
+636e9b9c: movs     r0, #0 
+636e9b9e: bx       lr 
+636e9ba0: ldr      r2, [pc, #0x1c] 
+636e9ba2: ldr      r0, [r3, r2] 
+636e9ba4: bx       lr 
+636e9ba6: nop       
+636e9ba8: b        #0x636e9704 
+636e9baa: lsls     r4, r6, #3 
+636e9bac: ldrh     r0, [r1, r6] 
+636e9bae: movs     r0, r0 
+636e9bb0: ldrsb    r4, [r6, r1] 
+636e9bb2: movs     r0, r0 
+636e9bb4: movs     r0, #0xbc 
+636e9bb6: movs     r0, r0 
+636e9bb8: ldrsb    r0, [r1, r5] 
+636e9bba: movs     r0, r0 
+636e9bbc: strb     r4, [r5, r4] 
+636e9bbe: movs     r0, r0 
+636e9bc0: ldrb     r0, [r0, #0x1c] 
+636e9bc2: movs     r0, r0 
+636e9bc4: ldr      r3, [pc, #0x14] 
+636e9bc6: ldr      r2, [pc, #0x18] 
+636e9bc8: add      r3, pc 
+636e9bca: push     {r4, lr} 
+636e9bcc: mov      r4, r0 
+636e9bce: ldr      r3, [r3, r2] 
+636e9bd0: adds     r3, #8 
+636e9bd2: str      r3, [r0] 
+636e9bd4: bl       #0x636e9c04 
+636e9bd8: mov      r0, r4 
+636e9bda: pop      {r4, pc} 
+636e9bdc: b        #0x636e9688 
+636e9bde: lsls     r4, r6, #3 
+636e9be0: str      r4, [r6, #0x58] 
+636e9be2: movs     r0, r0 
+636e9be4: push     {r3, r4, r5, lr} 
+636e9be6: mov      r5, r0 
+636e9be8: bl       #0x636e9c1c 
+636e9bec: ldr      r4, [pc, #0xc] 
+636e9bee: mov      r0, r5 
+636e9bf0: ldr      r3, [pc, #0xc] 
+636e9bf2: add      r4, pc 
+636e9bf4: ldr      r3, [r4, r3] 
+636e9bf6: adds     r3, #8 
+636e9bf8: str      r3, [r5] 
+636e9bfa: pop      {r3, r4, r5, pc} 
+636e9bfc: b        #0x636e9654 
+636e9bfe: lsls     r4, r6, #3 
+636e9c00: str      r4, [r6, #0x58] 
+636e9c02: movs     r0, r0 
+636e9c04: ldr      r3, [pc, #0xc] 
+636e9c06: ldr      r2, [pc, #0x10] 
+636e9c08: add      r3, pc 
+636e9c0a: ldr      r3, [r3, r2] 
+636e9c0c: adds     r3, #8 
+636e9c0e: str      r3, [r0] 
+636e9c10: bx       lr 
+636e9c12: nop       
+636e9c14: b        #0x636e9640 
+636e9c16: lsls     r4, r6, #3 
+636e9c18: ldr      r5, [pc, #0x3a0] 
+636e9c1a: movs     r0, r0 
+636e9c1c: ldr      r3, [pc, #0x10] 
+636e9c1e: ldr      r1, [pc, #0x14] 
+636e9c20: add      r3, pc 
+636e9c22: ldr      r3, [r3, r1] 
+636e9c24: adds     r3, #8 
+636e9c26: str      r3, [r0] 
+636e9c28: movs     r3, #0 
+636e9c2a: strh     r3, [r0, #4] 
+636e9c2c: bx       lr 
+636e9c2e: nop       
+636e9c30: b        #0x636e962c 
+636e9c32: lsls     r4, r6, #3 
+636e9c34: ldr      r5, [pc, #0x3a0] 
+636e9c36: movs     r0, r0 
+636e9c38: push     {r0, r1, r2, r3, r4, lr} 
+636e9c3a: mov      r4, r1 
+636e9c3c: movs     r3, #5 
+636e9c3e: movs     r1, #0 
+636e9c40: stm.w    sp, {r3, r4} 
+636e9c44: movs     r0, #0x40 
+636e9c46: movw     r3, #0x2d7 
+636e9c4a: movw     r2, #0x7003 
+636e9c4e: str      r3, [sp, #0xc] 
+636e9c50: movw     r3, #0x105 
+636e9c54: str      r1, [sp, #8] 
+636e9c56: bl       #0x636bad44 
+636e9c5a: cmp      r4, #0x10 
+636e9c5c: bhi      #0x636e9c68 
+636e9c5e: ldr      r3, [pc, #0x10] 
+636e9c60: add      r3, pc 
+636e9c62: ldr.w    r0, [r3, r4, lsl #2] 
+636e9c66: b        #0x636e9c6c 
+636e9c68: mov.w    r0, #-0x80000000 
+636e9c6c: add      sp, #0x10 
+636e9c6e: pop      {r4, pc} 
+636e9c70: str      r0, [sp, #0x3a0] 
+636e9c72: lsls     r5, r6, #1 
+636e9c74: ldr      r3, [pc, #0x14] 
+636e9c76: ldr      r2, [pc, #0x18] 
+636e9c78: add      r3, pc 
+636e9c7a: push     {r4, lr} 
+636e9c7c: mov      r4, r0 
+636e9c7e: ldr      r3, [r3, r2] 
+636e9c80: adds     r3, #8 
+636e9c82: str      r3, [r0] 
+636e9c84: bl       #0x636e9c04 
+636e9c88: mov      r0, r4 
+636e9c8a: pop      {r4, pc} 
+636e9c8c: b        #0x636e95d8 
+636e9c8e: lsls     r4, r6, #3 
+636e9c90: subs     r1, #0x38 
+636e9c92: movs     r0, r0 
+636e9c94: push     {r3, r4, r5, lr} 
+636e9c96: mov      r5, r0 
+636e9c98: bl       #0x636e9c1c 
+636e9c9c: ldr      r4, [pc, #0xc] 
+636e9c9e: mov      r0, r5 
+636e9ca0: ldr      r3, [pc, #0xc] 
+636e9ca2: add      r4, pc 
+636e9ca4: ldr      r3, [r4, r3] 
+636e9ca6: adds     r3, #8 
+636e9ca8: str      r3, [r5] 
+636e9caa: pop      {r3, r4, r5, pc} 
+636e9cac: b        #0x636e95a4 
+636e9cae: lsls     r4, r6, #3 
+636e9cb0: subs     r1, #0x38 
+636e9cb2: movs     r0, r0 
+636e9cb4: ldr      r3, [pc, #0x14] 
+636e9cb6: ldr      r2, [pc, #0x18] 
+636e9cb8: add      r3, pc 
+636e9cba: push     {r4, lr} 
+636e9cbc: mov      r4, r0 
+636e9cbe: ldr      r3, [r3, r2] 
+636e9cc0: adds     r3, #8 
+636e9cc2: str      r3, [r0] 
+636e9cc4: bl       #0x636e9c04 
+636e9cc8: mov      r0, r4 
+636e9cca: pop      {r4, pc} 
+636e9ccc: b        #0x636e9598 
+636e9cce: lsls     r4, r6, #3 
+636e9cd0: subs     r1, #0xb0 
+636e9cd2: movs     r0, r0 
+636e9cd4: push     {r3, r4, r5, lr} 
+636e9cd6: mov      r5, r0 
+636e9cd8: bl       #0x636e9c1c 
+636e9cdc: ldr      r4, [pc, #0xc] 
+636e9cde: mov      r0, r5 
+636e9ce0: ldr      r3, [pc, #0xc] 
+636e9ce2: add      r4, pc 
+636e9ce4: ldr      r3, [r4, r3] 
+636e9ce6: adds     r3, #8 
+636e9ce8: str      r3, [r5] 
+636e9cea: pop      {r3, r4, r5, pc} 
+636e9cec: b        #0x636e9564 
+636e9cee: lsls     r4, r6, #3 
+636e9cf0: subs     r1, #0xb0 
+636e9cf2: movs     r0, r0 
+636e9cf4: ldr      r3, [pc, #0x14] 
+636e9cf6: ldr      r2, [pc, #0x18] 
+636e9cf8: add      r3, pc 
+636e9cfa: push     {r4, lr} 
+636e9cfc: mov      r4, r0 
+636e9cfe: ldr      r3, [r3, r2] 
+636e9d00: adds     r3, #8 
+636e9d02: str      r3, [r0] 
+636e9d04: bl       #0x636e9c04 
+636e9d08: mov      r0, r4 
+636e9d0a: pop      {r4, pc} 
+636e9d0c: b        #0x636e9558 
+636e9d0e: lsls     r4, r6, #3 
+636e9d10: str      r0, [r7, r0] 
+636e9d12: movs     r0, r0 
+636e9d14: push     {r3, r4, r5, lr} 
+636e9d16: mov      r5, r0 
+636e9d18: bl       #0x636e9c1c 
+636e9d1c: ldr      r4, [pc, #0xc] 
+636e9d1e: mov      r0, r5 
+636e9d20: ldr      r3, [pc, #0xc] 
+636e9d22: add      r4, pc 
+636e9d24: ldr      r3, [r4, r3] 
+636e9d26: adds     r3, #8 
+636e9d28: str      r3, [r5] 
+636e9d2a: pop      {r3, r4, r5, pc} 
+636e9d2c: b        #0x636ea524 
+636e9d2e: lsls     r4, r6, #3 
+636e9d30: str      r0, [r7, r0] 
+636e9d32: movs     r0, r0 
+636e9d34: ldr      r3, [pc, #0x14] 
+636e9d36: ldr      r2, [pc, #0x18] 
+636e9d38: add      r3, pc 
+636e9d3a: push     {r4, lr} 
+636e9d3c: mov      r4, r0 
+636e9d3e: ldr      r3, [r3, r2] 
+636e9d40: adds     r3, #8 
+636e9d42: str      r3, [r0] 
+636e9d44: bl       #0x636e9c04 
+636e9d48: mov      r0, r4 
+636e9d4a: pop      {r4, pc} 
+636e9d4c: b        #0x636ea518 
+636e9d4e: lsls     r4, r6, #3 
+636e9d50: str      r5, [sp, #0x3b0] 
+636e9d52: movs     r0, r0 
+636e9d54: push     {r3, r4, r5, lr} 
+636e9d56: mov      r5, r0 
+636e9d58: bl       #0x636e9c1c 
+636e9d5c: ldr      r4, [pc, #0xc] 
+636e9d5e: mov      r0, r5 
+636e9d60: ldr      r3, [pc, #0xc] 
+636e9d62: add      r4, pc 
+636e9d64: ldr      r3, [r4, r3] 
+636e9d66: adds     r3, #8 
+636e9d68: str      r3, [r5] 
+636e9d6a: pop      {r3, r4, r5, pc} 
+636e9d6c: b        #0x636ea4e4 
+636e9d6e: lsls     r4, r6, #3 
+636e9d70: str      r5, [sp, #0x3b0] 
+636e9d72: movs     r0, r0 
+636e9d74: ldr      r3, [pc, #0x14] 
+636e9d76: ldr      r2, [pc, #0x18] 
+636e9d78: add      r3, pc 
+636e9d7a: push     {r4, lr} 
+636e9d7c: mov      r4, r0 
+636e9d7e: ldr      r3, [r3, r2] 
+636e9d80: adds     r3, #8 
+636e9d82: str      r3, [r0] 
+636e9d84: bl       #0x636e9c04 
+636e9d88: mov      r0, r4 
+636e9d8a: pop      {r4, pc} 
+636e9d8c: b        #0x636ea4d8 
+636e9d8e: lsls     r4, r6, #3 
+636e9d90: adds     r6, #0x8c 
+636e9d92: movs     r0, r0 
+636e9d94: push     {r3, r4, r5, lr} 
+636e9d96: mov      r5, r0 
+636e9d98: bl       #0x636e9c1c 
+636e9d9c: ldr      r4, [pc, #0xc] 
+636e9d9e: mov      r0, r5 
+636e9da0: ldr      r3, [pc, #0xc] 
+636e9da2: add      r4, pc 
+636e9da4: ldr      r3, [r4, r3] 
+636e9da6: adds     r3, #8 
+636e9da8: str      r3, [r5] 
+636e9daa: pop      {r3, r4, r5, pc} 
+636e9dac: b        #0x636ea4a4 
+636e9dae: lsls     r4, r6, #3 
+636e9db0: adds     r6, #0x8c 
+636e9db2: movs     r0, r0 
+636e9db4: ldr      r3, [pc, #0x14] 
+636e9db6: ldr      r2, [pc, #0x18] 
+636e9db8: add      r3, pc 
+636e9dba: push     {r4, lr} 
+636e9dbc: mov      r4, r0 
+636e9dbe: ldr      r3, [r3, r2] 
+636e9dc0: adds     r3, #8 
+636e9dc2: str      r3, [r0] 
+636e9dc4: bl       #0x636e9d74 
+636e9dc8: mov      r0, r4 
+636e9dca: pop      {r4, pc} 
+636e9dcc: b        #0x636ea498 
+636e9dce: lsls     r4, r6, #3 
+636e9dd0: ldr      r7, [sp, #0xf0] 
+636e9dd2: movs     r0, r0 
+636e9dd4: push     {r3, r4, r5, lr} 
+636e9dd6: mov      r5, r0 
+636e9dd8: bl       #0x636e9d94 
+636e9ddc: ldr      r4, [pc, #0xc] 
+636e9dde: mov      r0, r5 
+636e9de0: ldr      r3, [pc, #0xc] 
+636e9de2: add      r4, pc 
+636e9de4: ldr      r3, [r4, r3] 
+636e9de6: adds     r3, #8 
+636e9de8: str      r3, [r5] 
+636e9dea: pop      {r3, r4, r5, pc} 
+636e9dec: b        #0x636ea464 
+636e9dee: lsls     r4, r6, #3 
+636e9df0: ldr      r7, [sp, #0xf0] 
+636e9df2: movs     r0, r0 
+636e9df4: ldr      r3, [pc, #0x14] 
+636e9df6: ldr      r2, [pc, #0x18] 
+636e9df8: add      r3, pc 
+636e9dfa: push     {r4, lr} 
+636e9dfc: mov      r4, r0 
+636e9dfe: ldr      r3, [r3, r2] 
+636e9e00: adds     r3, #8 
+636e9e02: str      r3, [r0] 
+636e9e04: bl       #0x636e9c04 
+636e9e08: mov      r0, r4 
+636e9e0a: pop      {r4, pc} 
+636e9e0c: b        #0x636ea458 
+636e9e0e: lsls     r4, r6, #3 
+636e9e10: strb     r4, [r4, #3] 
+636e9e12: movs     r0, r0 
+636e9e14: push     {r3, r4, r5, lr} 
+636e9e16: mov      r5, r0 
+636e9e18: bl       #0x636e9c1c 
+636e9e1c: ldr      r4, [pc, #0xc] 
+636e9e1e: mov      r0, r5 
+636e9e20: ldr      r3, [pc, #0xc] 
+636e9e22: add      r4, pc 
+636e9e24: ldr      r3, [r4, r3] 
+636e9e26: adds     r3, #8 
+636e9e28: str      r3, [r5] 
+636e9e2a: pop      {r3, r4, r5, pc} 
+636e9e2c: b        #0x636ea424 
+636e9e2e: lsls     r4, r6, #3 
+636e9e30: strb     r4, [r4, #3] 
+636e9e32: movs     r0, r0 
+636e9e34: ldr      r3, [pc, #0x14] 
+636e9e36: ldr      r2, [pc, #0x18] 
+636e9e38: add      r3, pc 
+636e9e3a: push     {r4, lr} 
+636e9e3c: mov      r4, r0 
+636e9e3e: ldr      r3, [r3, r2] 
+636e9e40: adds     r3, #8 
+636e9e42: str      r3, [r0] 
+636e9e44: bl       #0x636e9c04 
+636e9e48: mov      r0, r4 
+636e9e4a: pop      {r4, pc} 
+636e9e4c: b        #0x636ea418 
+636e9e4e: lsls     r4, r6, #3 
+636e9e50: ldrh     r4, [r2, #0x26] 
+636e9e52: movs     r0, r0 
+636e9e54: push     {r3, r4, r5, lr} 
+636e9e56: mov      r5, r0 
+636e9e58: bl       #0x636e9c1c 
+636e9e5c: ldr      r4, [pc, #0xc] 
+636e9e5e: mov      r0, r5 
+636e9e60: ldr      r3, [pc, #0xc] 
+636e9e62: add      r4, pc 
+636e9e64: ldr      r3, [r4, r3] 
+636e9e66: adds     r3, #8 
+636e9e68: str      r3, [r5] 
+636e9e6a: pop      {r3, r4, r5, pc} 
+636e9e6c: b        #0x636ea3e4 
+636e9e6e: lsls     r4, r6, #3 
+636e9e70: ldrh     r4, [r2, #0x26] 
+636e9e72: movs     r0, r0 
+636e9e74: ldr      r3, [pc, #0x14] 
+636e9e76: ldr      r2, [pc, #0x18] 
+636e9e78: add      r3, pc 
+636e9e7a: push     {r4, lr} 
+636e9e7c: mov      r4, r0 
+636e9e7e: ldr      r3, [r3, r2] 
+636e9e80: adds     r3, #8 
+636e9e82: str      r3, [r0] 
+636e9e84: bl       #0x636e9e34 
+636e9e88: mov      r0, r4 
+636e9e8a: pop      {r4, pc} 
+636e9e8c: b        #0x636ea3d8 
+636e9e8e: lsls     r4, r6, #3 
+636e9e90: ldr      r4, [r1, #0x2c] 
+636e9e92: movs     r0, r0 
+636e9e94: push     {r3, r4, r5, lr} 
+636e9e96: mov      r5, r0 
+636e9e98: bl       #0x636e9e54 
+636e9e9c: ldr      r4, [pc, #0xc] 
+636e9e9e: mov      r0, r5 
+636e9ea0: ldr      r3, [pc, #0xc] 
+636e9ea2: add      r4, pc 
+636e9ea4: ldr      r3, [r4, r3] 
+636e9ea6: adds     r3, #8 
+636e9ea8: str      r3, [r5] 
+636e9eaa: pop      {r3, r4, r5, pc} 
+636e9eac: b        #0x636ea3a4 
+636e9eae: lsls     r4, r6, #3 
+636e9eb0: ldr      r4, [r1, #0x2c] 
+636e9eb2: movs     r0, r0 
+636e9eb4: ldr      r3, [pc, #0x14] 
+636e9eb6: ldr      r2, [pc, #0x18] 
+636e9eb8: add      r3, pc 
+636e9eba: push     {r4, lr} 
+636e9ebc: mov      r4, r0 
+636e9ebe: ldr      r3, [r3, r2] 
+636e9ec0: adds     r3, #8 
+636e9ec2: str      r3, [r0] 
+636e9ec4: bl       #0x636e9e34 
+636e9ec8: mov      r0, r4 
+636e9eca: pop      {r4, pc} 
+636e9ecc: b        #0x636ea398 
+636e9ece: lsls     r4, r6, #3 
+636e9ed0: adds     r4, #0xe8 
+636e9ed2: movs     r0, r0 
+636e9ed4: ldr      r3, [pc, #0x14] 
+636e9ed6: ldr      r2, [pc, #0x18] 
+636e9ed8: add      r3, pc 
+636e9eda: push     {r4, lr} 
+636e9edc: mov      r4, r0 
+636e9ede: ldr      r3, [r3, r2] 
+636e9ee0: adds     r3, #8 
+636e9ee2: str      r3, [r0] 
+636e9ee4: bl       #0x636e9cb4 
+636e9ee8: mov      r0, r4 
+636e9eea: pop      {r4, pc} 
+636e9eec: b        #0x636ea378 
+636e9eee: lsls     r4, r6, #3 
+636e9ef0: subs     r2, #0xac 
+636e9ef2: movs     r0, r0 
+636e9ef4: ldr      r3, [pc, #0x14] 
+636e9ef6: ldr      r2, [pc, #0x18] 
+636e9ef8: add      r3, pc 
+636e9efa: push     {r4, lr} 
+636e9efc: mov      r4, r0 
+636e9efe: ldr      r3, [r3, r2] 
+636e9f00: adds     r3, #8 
+636e9f02: str      r3, [r0] 
+636e9f04: bl       #0x636e9df4 
+636e9f08: mov      r0, r4 
+636e9f0a: pop      {r4, pc} 
+636e9f0c: b        #0x636ea358 
+636e9f0e: lsls     r4, r6, #3 
+636e9f10: cmp      r0, #0x10 
+636e9f12: movs     r0, r0 
+636e9f14: push     {r3, r4, r5, lr} 
+636e9f16: mov      r5, r0 
+636e9f18: bl       #0x636e9e14 
+636e9f1c: ldr      r4, [pc, #0xc] 
+636e9f1e: mov      r0, r5 
+636e9f20: ldr      r3, [pc, #0xc] 
+636e9f22: add      r4, pc 
+636e9f24: ldr      r3, [r4, r3] 
+636e9f26: adds     r3, #8 
+636e9f28: str      r3, [r5] 
+636e9f2a: pop      {r3, r4, r5, pc} 
+636e9f2c: b        #0x636ea324 
+636e9f2e: lsls     r4, r6, #3 
+636e9f30: cmp      r0, #0x10 
+636e9f32: movs     r0, r0 
+636e9f34: push     {r3, r4, r5, lr} 
+636e9f36: mov      r5, r0 
+636e9f38: bl       #0x636e9cd4 
+636e9f3c: ldr      r4, [pc, #0xc] 
+636e9f3e: mov      r0, r5 
+636e9f40: ldr      r3, [pc, #0xc] 
+636e9f42: add      r4, pc 
+636e9f44: ldr      r3, [r4, r3] 
+636e9f46: adds     r3, #8 
+636e9f48: str      r3, [r5] 
+636e9f4a: pop      {r3, r4, r5, pc} 
+636e9f4c: b        #0x636ea304 
+636e9f4e: lsls     r4, r6, #3 
+636e9f50: subs     r2, #0xac 
+636e9f52: movs     r0, r0 
+636e9f54: ldr      r3, [pc, #0x14] 
+636e9f56: ldr      r2, [pc, #0x18] 
+636e9f58: add      r3, pc 
+636e9f5a: push     {r4, lr} 
+636e9f5c: mov      r4, r0 
+636e9f5e: ldr      r3, [r3, r2] 
+636e9f60: adds     r3, #8 
+636e9f62: str      r3, [r0] 
+636e9f64: bl       #0x636e9c04 
+636e9f68: mov      r0, r4 
+636e9f6a: pop      {r4, pc} 
+636e9f6c: b        #0x636ea2f8 
+636e9f6e: lsls     r4, r6, #3 
+636e9f70: adr      r0, #0x110 
+636e9f72: movs     r0, r0 
+636e9f74: push     {r3, r4, r5, lr} 
+636e9f76: mov      r5, r0 
+636e9f78: bl       #0x636e9c1c 
+636e9f7c: ldr      r4, [pc, #0xc] 
+636e9f7e: mov      r0, r5 
+636e9f80: ldr      r3, [pc, #0xc] 
+636e9f82: add      r4, pc 
+636e9f84: ldr      r3, [r4, r3] 
+636e9f86: adds     r3, #8 
+636e9f88: str      r3, [r5] 
+636e9f8a: pop      {r3, r4, r5, pc} 
+636e9f8c: b        #0x636ea2c4 
+636e9f8e: lsls     r4, r6, #3 
+636e9f90: adr      r0, #0x110 
+636e9f92: movs     r0, r0 
+636e9f94: push     {r4, r5, r6, r7, lr} 
+636e9f96: mov      r6, r1 
+636e9f98: sub      sp, #0x14 
+636e9f9a: adds     r1, #4 
+636e9f9c: mov      r7, r0 
+636e9f9e: mov      r5, r2 
+636e9fa0: bl       #0x63cc3b0c 
+636e9fa4: mov      r4, r0 
+636e9fa6: cbz      r0, #0x636e9fde 
+636e9fa8: movs     r3, #0x3b 
+636e9faa: ldr      r0, [pc, #0x1c4] 
+636e9fac: str      r3, [sp] 
+636e9fae: mov      r1, r4 
+636e9fb0: ldr      r2, [pc, #0x1c0] 
+636e9fb2: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636e9fb4: ldr      r3, [pc, #0x1c0] 
+636e9fb6: add      r2, pc 'SetParam'
+636e9fb8: add      r3, pc 'WrapJpegSort.cpp'
+636e9fba: bl       #0x63c5fe48 
+636e9fbe: ldr      r0, [pc, #0x1bc] 
+636e9fc0: add      r0, pc '[SDF][INT_ERROR] inExtentList\n'
+636e9fc2: bl       #0x63c5fe48 
+636e9fc6: movs     r3, #5 
+636e9fc8: stm.w    sp, {r3, r4} 
+636e9fcc: adds     r3, #0x38 
+636e9fce: movs     r1, #0 
+636e9fd0: str      r3, [sp, #0xc] 
+636e9fd2: str      r1, [sp, #8] 
+636e9fd4: movs     r0, #0x40 
+636e9fd6: movw     r2, #0x700a 
+636e9fda: adds     r3, #0xfb 
+636e9fdc: b        #0x636ea164 
+636e9fde: mov      r0, r7 
+636e9fe0: add.w    r1, r6, #0x48 
+636e9fe4: add.w    r2, r5, #0x64 
+636e9fe8: bl       #0x63cc3bf4 
+636e9fec: mov      r4, r0 
+636e9fee: cbz      r0, #0x636ea026 
+636e9ff0: movs     r3, #0x42 
+636e9ff2: ldr      r0, [pc, #0x18c] 
+636e9ff4: str      r3, [sp] 
+636e9ff6: mov      r1, r4 
+636e9ff8: ldr      r2, [pc, #0x188] 
+636e9ffa: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636e9ffc: ldr      r3, [pc, #0x188] 
+636e9ffe: add      r2, pc 'SetParam'
+636ea000: add      r3, pc 'WrapJpegSort.cpp'
+636ea002: bl       #0x63c5fe48 
+636ea006: ldr      r0, [pc, #0x184] 
+636ea008: add      r0, pc '[SDF][INT_ERROR] outStreamObj\n'
+636ea00a: bl       #0x63c5fe48 
+636ea00e: movs     r3, #5 
+636ea010: stm.w    sp, {r3, r4} 
+636ea014: adds     r3, #0x3f 
+636ea016: movs     r1, #0 
+636ea018: str      r3, [sp, #0xc] 
+636ea01a: str      r1, [sp, #8] 
+636ea01c: movs     r0, #0x40 
+636ea01e: movw     r2, #0x700a 
+636ea022: adds     r3, #0xf5 
+636ea024: b        #0x636ea164 
+636ea026: mov      r0, r7 
+636ea028: add.w    r1, r6, #0x5c 
+636ea02c: add.w    r2, r5, #0x7c 
+636ea030: bl       #0x63cc3b0c 
+636ea034: mov      r4, r0 
+636ea036: cbz      r0, #0x636ea06e 
+636ea038: movs     r3, #0x49 
+636ea03a: ldr      r0, [pc, #0x154] 
+636ea03c: str      r3, [sp] 
+636ea03e: mov      r1, r4 
+636ea040: ldr      r2, [pc, #0x150] 
+636ea042: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea044: ldr      r3, [pc, #0x150] 
+636ea046: add      r2, pc 'SetParam'
+636ea048: add      r3, pc 'WrapJpegSort.cpp'
+636ea04a: bl       #0x63c5fe48 
+636ea04e: ldr      r0, [pc, #0x14c] 
+636ea050: add      r0, pc '[SDF][INT_ERROR] outExtentList\n'
+636ea052: bl       #0x63c5fe48 
+636ea056: movs     r3, #5 
+636ea058: stm.w    sp, {r3, r4} 
+636ea05c: adds     r3, #0x46 
+636ea05e: movs     r1, #0 
+636ea060: str      r3, [sp, #0xc] 
+636ea062: str      r1, [sp, #8] 
+636ea064: movs     r0, #0x40 
+636ea066: movw     r2, #0x700a 
+636ea06a: adds     r3, #0xef 
+636ea06c: b        #0x636ea164 
+636ea06e: ldr.w    r3, [r6, #0xa0] 
+636ea072: mov      r0, r7 
+636ea074: add.w    r1, r5, #0xf0 
+636ea078: str.w    r3, [r5, #0xe0] 
+636ea07c: ldr.w    r3, [r6, #0xa4] 
+636ea080: str.w    r3, [r5, #0xe4] 
+636ea084: ldr.w    r3, [r6, #0xa8] 
+636ea088: str.w    r3, [r5, #0xe8] 
+636ea08c: ldr.w    r3, [r6, #0xac] 
+636ea090: str.w    r3, [r5, #0xec] 
+636ea094: bl       #0x63cc3ed2 
+636ea098: mov      r4, r0 
+636ea09a: cbz      r0, #0x636ea0d6 
+636ea09c: movs     r3, #0x56 
+636ea09e: ldr      r0, [pc, #0x100] 
+636ea0a0: str      r3, [sp] 
+636ea0a2: mov      r1, r4 
+636ea0a4: ldr      r2, [pc, #0xfc] 
+636ea0a6: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea0a8: ldr      r3, [pc, #0xfc] 
+636ea0aa: add      r2, pc 'SetParam'
+636ea0ac: add      r3, pc 'WrapJpegSort.cpp'
+636ea0ae: bl       #0x63c5fe48 
+636ea0b2: ldr      r0, [pc, #0xf8] 
+636ea0b4: ldr.w    r1, [r5, #0xf0] 
+636ea0b8: add      r0, pc '[SDF][INT_ERROR] limitDMAcycle %d\n'
+636ea0ba: bl       #0x63c5fe48 
+636ea0be: movs     r3, #5 
+636ea0c0: stm.w    sp, {r3, r4} 
+636ea0c4: adds     r3, #0x53 
+636ea0c6: movs     r1, #0 
+636ea0c8: str      r3, [sp, #0xc] 
+636ea0ca: str      r1, [sp, #8] 
+636ea0cc: movs     r0, #0x40 
+636ea0ce: movw     r2, #0x700a 
+636ea0d2: adds     r3, #0xe3 
+636ea0d4: b        #0x636ea164 
+636ea0d6: mov      r0, r7 
+636ea0d8: add.w    r1, r5, #0xf4 
+636ea0dc: bl       #0x63cc3ede 
+636ea0e0: mov      r4, r0 
+636ea0e2: cbz      r0, #0x636ea11e 
+636ea0e4: movs     r3, #0x5d 
+636ea0e6: ldr      r0, [pc, #0xc8] 
+636ea0e8: str      r3, [sp] 
+636ea0ea: mov      r1, r4 
+636ea0ec: ldr      r2, [pc, #0xc4] 
+636ea0ee: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea0f0: ldr      r3, [pc, #0xc4] 
+636ea0f2: add      r2, pc 'SetParam'
+636ea0f4: add      r3, pc 'WrapJpegSort.cpp'
+636ea0f6: bl       #0x63c5fe48 
+636ea0fa: ldr      r0, [pc, #0xc0] 
+636ea0fc: ldr.w    r1, [r5, #0xf4] 
+636ea100: add      r0, pc '[SDF][INT_ERROR] inputArbitration %d\n'
+636ea102: bl       #0x63c5fe48 
+636ea106: movs     r3, #5 
+636ea108: stm.w    sp, {r3, r4} 
+636ea10c: adds     r3, #0x5a 
+636ea10e: movs     r1, #0 
+636ea110: str      r3, [sp, #0xc] 
+636ea112: str      r1, [sp, #8] 
+636ea114: movs     r0, #0x40 
+636ea116: movw     r2, #0x700a 
+636ea11a: adds     r3, #0xdd 
+636ea11c: b        #0x636ea164 
+636ea11e: mov      r0, r7 
+636ea120: add.w    r1, r5, #0xf8 
+636ea124: bl       #0x63cc3ede 
+636ea128: mov      r4, r0 
+636ea12a: cbz      r0, #0x636ea168 
+636ea12c: movs     r3, #0x64 
+636ea12e: ldr      r0, [pc, #0x90] 
+636ea130: str      r3, [sp] 
+636ea132: mov      r1, r4 
+636ea134: ldr      r2, [pc, #0x8c] 
+636ea136: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea138: ldr      r3, [pc, #0x8c] 
+636ea13a: add      r2, pc 'SetParam'
+636ea13c: add      r3, pc 'WrapJpegSort.cpp'
+636ea13e: bl       #0x63c5fe48 
+636ea142: ldr      r0, [pc, #0x88] 
+636ea144: ldr.w    r1, [r5, #0xf8] 
+636ea148: add      r0, pc '[SDF][INT_ERROR] outputArbitration %d\n'
+636ea14a: bl       #0x63c5fe48 
+636ea14e: movs     r3, #5 
+636ea150: stm.w    sp, {r3, r4} 
+636ea154: adds     r3, #0x61 
+636ea156: movs     r0, #0x40 
+636ea158: str      r3, [sp, #0xc] 
+636ea15a: movw     r2, #0x700a 
+636ea15e: adds     r3, #0xd7 
+636ea160: movs     r1, #0 
+636ea162: str      r1, [sp, #8] 
+636ea164: bl       #0x636bad44 
+636ea168: mov      r0, r4 
+636ea16a: add      sp, #0x14 
+636ea16c: pop      {r4, r5, r6, r7, pc} 
+636ea16e: nop       
+636ea170: movs     r0, #0xe0 
+636ea172: lsls     r5, r0, #2 
+636ea174: strh     r2, [r7, #0x32] 
+636ea176: lsls     r5, r0, #2 
+636ea178: ldrb     r2, [r1, r0] 
+636ea17a: lsls     r5, r0, #2 
+636ea17c: ldrb     r3, [r2, r0] 
+636ea17e: lsls     r5, r0, #2 
+636ea180: movs     r0, #0x98 
+636ea182: lsls     r5, r0, #2 
+636ea184: strh     r2, [r6, #0x30] 
+636ea186: lsls     r5, r0, #2 
+636ea188: ldrh     r2, [r0, r7] 
+636ea18a: lsls     r5, r0, #2 
+636ea18c: ldrh     r2, [r5, r7] 
+636ea18e: lsls     r5, r0, #2 
+636ea190: movs     r0, #0x50 
+636ea192: lsls     r5, r0, #2 
+636ea194: strh     r2, [r5, #0x2e] 
+636ea196: lsls     r5, r0, #2 
+636ea198: ldrh     r2, [r7, r5] 
+636ea19a: lsls     r5, r0, #2 
+636ea19c: ldrh     r1, [r0, r7] 
+636ea19e: lsls     r5, r0, #2 
+636ea1a0: subs     r4, r5, #7 
+636ea1a2: lsls     r5, r0, #2 
+636ea1a4: strh     r6, [r0, #0x2c] 
+636ea1a6: lsls     r5, r0, #2 
+636ea1a8: ldrh     r6, [r2, r4] 
+636ea1aa: lsls     r5, r0, #2 
+636ea1ac: ldrh     r1, [r7, r5] 
+636ea1ae: lsls     r5, r0, #2 
+636ea1b0: subs     r4, r4, #6 
+636ea1b2: lsls     r5, r0, #2 
+636ea1b4: strh     r6, [r7, #0x28] 
+636ea1b6: lsls     r5, r0, #2 
+636ea1b8: ldrh     r6, [r1, r3] 
+636ea1ba: lsls     r5, r0, #2 
+636ea1bc: ldrh     r4, [r2, r5] 
+636ea1be: lsls     r5, r0, #2 
+636ea1c0: subs     r4, r3, #5 
+636ea1c2: lsls     r5, r0, #2 
+636ea1c4: strh     r6, [r6, #0x26] 
+636ea1c6: lsls     r5, r0, #2 
+636ea1c8: ldrh     r6, [r0, r2] 
+636ea1ca: lsls     r5, r0, #2 
+636ea1cc: ldrh     r2, [r6, r4] 
+636ea1ce: lsls     r5, r0, #2 
+636ea1d0: push     {r4, r5, lr} 
+636ea1d2: mov      r4, r0 
+636ea1d4: sub      sp, #0x14 
+636ea1d6: mov      r0, r1 
+636ea1d8: mov      r1, r2 
+636ea1da: bl       #0x63dbc76c 
+636ea1de: mov      r5, r0 
+636ea1e0: cbz      r0, #0x636ea228 
+636ea1e2: mov      r1, r5 
+636ea1e4: mov      r0, r4 
+636ea1e6: bl       #0x636e9c38 
+636ea1ea: movs     r3, #0x77 
+636ea1ec: ldr      r2, [pc, #0x40] 
+636ea1ee: str      r3, [sp] 
+636ea1f0: ldr      r3, [pc, #0x40] 
+636ea1f2: add      r2, pc 'MainProcess'
+636ea1f4: add      r3, pc 'WrapJpegSort.cpp'
+636ea1f6: mov      r4, r0 
+636ea1f8: ldr      r0, [pc, #0x3c] 
+636ea1fa: mov      r1, r4 
+636ea1fc: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea1fe: bl       #0x63c5fe48 
+636ea202: ldr      r0, [pc, #0x38] 
+636ea204: mov      r1, r5 
+636ea206: add      r0, pc '[SDF][INT_ERROR] ddl_jpeg_sort ErrCode: %d\n'
+636ea208: bl       #0x63c5fe48 
+636ea20c: movs     r3, #5 
+636ea20e: stm.w    sp, {r3, r4} 
+636ea212: adds     r3, #0x74 
+636ea214: movs     r1, #0 
+636ea216: str      r3, [sp, #0xc] 
+636ea218: movs     r0, #0x40 
+636ea21a: movw     r2, #0x700a 
+636ea21e: adds     r3, #0xc5 
+636ea220: str      r1, [sp, #8] 
+636ea222: bl       #0x636bad44 
+636ea226: b        #0x636ea22a 
+636ea228: mov      r4, r0 
+636ea22a: mov      r0, r4 
+636ea22c: add      sp, #0x14 
+636ea22e: pop      {r4, r5, pc} 
+636ea230: strh     r3, [r3, #0x22] 
+636ea232: lsls     r5, r0, #2 
+636ea234: ldr      r6, [r1, r7] 
+636ea236: lsls     r5, r0, #2 
+636ea238: subs     r6, r2, #2 
+636ea23a: lsls     r5, r0, #2 
+636ea23c: ldrh     r3, [r3, r2] 
+636ea23e: lsls     r5, r0, #2 
+636ea240: push     {r4, r5, r6, r7, lr} 
+636ea242: sub      sp, #0x10c 
+636ea244: mov      r5, r2 
+636ea246: add      r2, sp, #8 
+636ea248: mov      r7, r0 
+636ea24a: mov      r6, r1 
+636ea24c: bl       #0x636e9f94 
+636ea250: mov      r4, r0 
+636ea252: cbz      r0, #0x636ea270 
+636ea254: movs     r3, #0x23 
+636ea256: ldr      r0, [pc, #0x50] 
+636ea258: str      r3, [sp] 
+636ea25a: mov      r1, r4 
+636ea25c: ldr      r2, [pc, #0x4c] 
+636ea25e: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea260: ldr      r3, [pc, #0x4c] 
+636ea262: add      r2, pc 'Exec'
+636ea264: add      r3, pc 'WrapJpegSort.cpp'
+636ea266: bl       #0x63c5fe48 
+636ea26a: ldr      r0, [pc, #0x48] 
+636ea26c: add      r0, pc '[SDF][INT_ERROR] '
+636ea26e: b        #0x636ea298 
+636ea270: mov      r0, r7 
+636ea272: ldr      r1, [r6] 
+636ea274: add      r2, sp, #8 
+636ea276: bl       #0x636ea1d0 
+636ea27a: mov      r4, r0 
+636ea27c: cbz      r0, #0x636ea29e 
+636ea27e: movs     r3, #0x2a 
+636ea280: ldr      r0, [pc, #0x34] 
+636ea282: str      r3, [sp] 
+636ea284: mov      r1, r4 
+636ea286: ldr      r2, [pc, #0x34] 
+636ea288: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea28a: ldr      r3, [pc, #0x34] 
+636ea28c: add      r2, pc 'Exec'
+636ea28e: add      r3, pc 'WrapJpegSort.cpp'
+636ea290: bl       #0x63c5fe48 
+636ea294: ldr      r0, [pc, #0x2c] 
+636ea296: add      r0, pc '[SDF][INT_ERROR] '
+636ea298: bl       #0x63c5fe48 
+636ea29c: b        #0x636ea2a2 
+636ea29e: ldr      r3, [sp, #0x104] 
+636ea2a0: str      r3, [r5] 
+636ea2a2: mov      r0, r4 
+636ea2a4: add      sp, #0x10c 
+636ea2a6: pop      {r4, r5, r6, r7, pc} 
+636ea2a8: subs     r4, r6, #0 
+636ea2aa: lsls     r5, r0, #2 
+636ea2ac: strh     r7, [r2, #0x1e] 
+636ea2ae: lsls     r5, r0, #2 
+636ea2b0: ldr      r6, [r3, r5] 
+636ea2b2: lsls     r5, r0, #2 
+636ea2b4: subs     r5, r6, #1 
+636ea2b6: lsls     r5, r0, #2 
+636ea2b8: subs     r2, r1, #0 
+636ea2ba: lsls     r5, r0, #2 
+636ea2bc: strh     r5, [r5, #0x1c] 
+636ea2be: lsls     r5, r0, #2 
+636ea2c0: ldr      r4, [r6, r4] 
+636ea2c2: lsls     r5, r0, #2 
+636ea2c4: subs     r3, r1, #1 
+636ea2c6: lsls     r5, r0, #2 
+636ea2c8: ldr      r3, [pc, #0x14] 
+636ea2ca: ldr      r2, [pc, #0x18] 
+636ea2cc: add      r3, pc 
+636ea2ce: push     {r4, lr} 
+636ea2d0: mov      r4, r0 
+636ea2d2: ldr      r3, [r3, r2] 
+636ea2d4: adds     r3, #8 
+636ea2d6: str      r3, [r0] 
+636ea2d8: bl       #0x636e9c04 
+636ea2dc: mov      r0, r4 
+636ea2de: pop      {r4, pc} 
+636ea2e0: udf      #0x50 
+636ea2e2: lsls     r4, r6, #3 
+636ea2e4: asrs     r0, r0, #7 
+636ea2e6: movs     r0, r0 
+636ea2e8: push     {r3, r4, r5, lr} 
+636ea2ea: mov      r5, r0 
+636ea2ec: bl       #0x636e9c1c 
+636ea2f0: ldr      r4, [pc, #0xc] 
+636ea2f2: mov      r0, r5 
+636ea2f4: ldr      r3, [pc, #0xc] 
+636ea2f6: add      r4, pc 
+636ea2f8: ldr      r3, [r4, r3] 
+636ea2fa: adds     r3, #8 
+636ea2fc: str      r3, [r5] 
+636ea2fe: pop      {r3, r4, r5, pc} 
+636ea300: udf      #0x26 
+636ea302: lsls     r4, r6, #3 
+636ea304: asrs     r0, r0, #7 
+636ea306: movs     r0, r0 
+636ea308: ldr      r3, [pc, #0x14] 
+636ea30a: ldr      r2, [pc, #0x18] 
+636ea30c: add      r3, pc 
+636ea30e: push     {r4, lr} 
+636ea310: mov      r4, r0 
+636ea312: ldr      r3, [r3, r2] 
+636ea314: adds     r3, #8 
+636ea316: str      r3, [r0] 
+636ea318: bl       #0x636e9c04 
+636ea31c: mov      r0, r4 
+636ea31e: pop      {r4, pc} 
+636ea320: udf      #0x10 
+636ea322: lsls     r4, r6, #3 
+636ea324: ldr      r7, [sp, #0x260] 
+636ea326: movs     r0, r0 
+636ea328: push     {r3, r4, r5, lr} 
+636ea32a: mov      r5, r0 
+636ea32c: bl       #0x636e9c1c 
+636ea330: ldr      r4, [pc, #0xc] 
+636ea332: mov      r0, r5 
+636ea334: ldr      r3, [pc, #0xc] 
+636ea336: add      r4, pc 
+636ea338: ldr      r3, [r4, r3] 
+636ea33a: adds     r3, #8 
+636ea33c: str      r3, [r5] 
+636ea33e: pop      {r3, r4, r5, pc} 
+636ea340: ble      #0x636ea310 
+636ea342: lsls     r4, r6, #3 
+636ea344: ldr      r7, [sp, #0x260] 
+636ea346: movs     r0, r0 
+636ea348: ldr      r3, [pc, #0x14] 
+636ea34a: ldr      r2, [pc, #0x18] 
+636ea34c: add      r3, pc 
+636ea34e: push     {r4, lr} 
+636ea350: mov      r4, r0 
+636ea352: ldr      r3, [r3, r2] 
+636ea354: adds     r3, #8 
+636ea356: str      r3, [r0] 
+636ea358: bl       #0x636e9c04 
+636ea35c: mov      r0, r4 
+636ea35e: pop      {r4, pc} 
+636ea360: ble      #0x636ea304 
+636ea362: lsls     r4, r6, #3 
+636ea364: cmp      r5, #8 
+636ea366: movs     r0, r0 
+636ea368: push     {r3, r4, r5, lr} 
+636ea36a: mov      r5, r0 
+636ea36c: bl       #0x636e9c1c 
+636ea370: ldr      r4, [pc, #0xc] 
+636ea372: mov      r0, r5 
+636ea374: ldr      r3, [pc, #0xc] 
+636ea376: add      r4, pc 
+636ea378: ldr      r3, [r4, r3] 
+636ea37a: adds     r3, #8 
+636ea37c: str      r3, [r5] 
+636ea37e: pop      {r3, r4, r5, pc} 
+636ea380: ble      #0x636ea2d0 
+636ea382: lsls     r4, r6, #3 
+636ea384: cmp      r5, #8 
+636ea386: movs     r0, r0 
+636ea388: push     {r0, r1, r2, r4, r5, r6, r7, lr} 
+636ea38a: mov      r6, r1 
+636ea38c: add.w    r1, r1, #0x48 
+636ea390: mov      r7, r0 
+636ea392: mov      r5, r2 
+636ea394: bl       #0x63cc3b96 
+636ea398: mov      r4, r0 
+636ea39a: cbz      r0, #0x636ea3b8 
+636ea39c: movs     r3, #0x39 
+636ea39e: ldr      r0, [pc, #0x2d0] 
+636ea3a0: str      r3, [sp] 
+636ea3a2: mov      r1, r4 
+636ea3a4: ldr      r2, [pc, #0x2cc] 
+636ea3a6: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea3a8: ldr      r3, [pc, #0x2cc] 
+636ea3aa: add      r2, pc 'SetParam'
+636ea3ac: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea3ae: bl       #0x63c5fe48 
+636ea3b2: ldr      r0, [pc, #0x2c8] 
+636ea3b4: add      r0, pc '[SDF][INT_ERROR] inImgObj\n'
+636ea3b6: b        #0x636ea3e2 
+636ea3b8: mov      r0, r7 
+636ea3ba: adds     r1, r6, #4 
+636ea3bc: add.w    r2, r5, #0x2c 
+636ea3c0: bl       #0x63cc3b0c 
+636ea3c4: mov      r4, r0 
+636ea3c6: cbz      r0, #0x636ea3e8 
+636ea3c8: movs     r3, #0x3e 
+636ea3ca: ldr      r0, [pc, #0x2b4] 
+636ea3cc: str      r3, [sp] 
+636ea3ce: mov      r1, r4 
+636ea3d0: ldr      r2, [pc, #0x2b0] 
+636ea3d2: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea3d4: ldr      r3, [pc, #0x2b0] 
+636ea3d6: add      r2, pc 'SetParam'
+636ea3d8: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea3da: bl       #0x63c5fe48 
+636ea3de: ldr      r0, [pc, #0x2ac] 
+636ea3e0: add      r0, pc '[SDF][INT_ERROR] inExtentList\n'
+636ea3e2: bl       #0x63c5fe48 
+636ea3e6: b        #0x636ea66a 
+636ea3e8: mov      r0, r7 
+636ea3ea: add.w    r1, r6, #0xb4 
+636ea3ee: add.w    r2, r5, #0x90 
+636ea3f2: bl       #0x63cc3bf4 
+636ea3f6: mov      r4, r0 
+636ea3f8: cbz      r0, #0x636ea416 
+636ea3fa: movs     r3, #0x44 
+636ea3fc: ldr      r0, [pc, #0x290] 
+636ea3fe: str      r3, [sp] 
+636ea400: mov      r1, r4 
+636ea402: ldr      r2, [pc, #0x290] 
+636ea404: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea406: ldr      r3, [pc, #0x290] 
+636ea408: add      r2, pc 'SetParam'
+636ea40a: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea40c: bl       #0x63c5fe48 
+636ea410: ldr      r0, [pc, #0x288] 
+636ea412: add      r0, pc '[SDF][INT_ERROR] outStreamObj\n'
+636ea414: b        #0x636ea3e2 
+636ea416: mov      r0, r7 
+636ea418: add.w    r1, r6, #0x70 
+636ea41c: add.w    r2, r5, #0xa8 
+636ea420: bl       #0x63cc3b0c 
+636ea424: mov      r4, r0 
+636ea426: cbz      r0, #0x636ea444 
+636ea428: movs     r3, #0x49 
+636ea42a: ldr      r0, [pc, #0x274] 
+636ea42c: str      r3, [sp] 
+636ea42e: mov      r1, r4 
+636ea430: ldr      r2, [pc, #0x270] 
+636ea432: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea434: ldr      r3, [pc, #0x270] 
+636ea436: add      r2, pc 'SetParam'
+636ea438: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea43a: bl       #0x63c5fe48 
+636ea43e: ldr      r0, [pc, #0x26c] 
+636ea440: add      r0, pc '[SDF][INT_ERROR] outExtentList\n'
+636ea442: b        #0x636ea3e2 
+636ea444: mov      r0, r7 
+636ea446: ldr      r1, [r6, #0x60] 
+636ea448: ldr      r2, [r6, #0x64] 
+636ea44a: add.w    r3, r5, #0x10c 
+636ea44e: bl       #0x63cc3c84 
+636ea452: mov      r4, r0 
+636ea454: cbz      r0, #0x636ea472 
+636ea456: movs     r3, #0x4f 
+636ea458: ldr      r0, [pc, #0x254] 
+636ea45a: str      r3, [sp] 
+636ea45c: mov      r1, r4 
+636ea45e: ldr      r2, [pc, #0x254] 
+636ea460: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea462: ldr      r3, [pc, #0x254] 
+636ea464: add      r2, pc 'SetParam'
+636ea466: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea468: bl       #0x63c5fe48 
+636ea46c: ldr      r0, [pc, #0x24c] 
+636ea46e: add      r0, pc '[SDF][INT_ERROR] inDataTrans & inIib\n'
+636ea470: b        #0x636ea3e2 
+636ea472: mov      r0, r7 
+636ea474: ldr.w    r1, [r6, #0xc8] 
+636ea478: ldr.w    r2, [r6, #0xcc] 
+636ea47c: add.w    r3, r5, #0x114 
+636ea480: bl       #0x63cc3c84 
+636ea484: mov      r4, r0 
+636ea486: cbz      r0, #0x636ea4a4 
+636ea488: movs     r3, #0x54 
+636ea48a: ldr      r0, [pc, #0x234] 
+636ea48c: str      r3, [sp] 
+636ea48e: mov      r1, r4 
+636ea490: ldr      r2, [pc, #0x230] 
+636ea492: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea494: ldr      r3, [pc, #0x230] 
+636ea496: add      r2, pc 'SetParam'
+636ea498: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea49a: bl       #0x63c5fe48 
+636ea49e: ldr      r0, [pc, #0x22c] 
+636ea4a0: add      r0, pc '[SDF][INT_ERROR] outDataTrans & outIib\n'
+636ea4a2: b        #0x636ea3e2 
+636ea4a4: mov      r0, r7 
+636ea4a6: ldr.w    r1, [r6, #0xe0] 
+636ea4aa: add.w    r2, r5, #0x11c 
+636ea4ae: bl       #0x63cc403c 
+636ea4b2: mov      r4, r0 
+636ea4b4: cbz      r0, #0x636ea4e2 
+636ea4b6: movs     r3, #0x5a 
+636ea4b8: ldr      r0, [pc, #0x214] 
+636ea4ba: str      r3, [sp] 
+636ea4bc: mov      r1, r4 
+636ea4be: ldr      r2, [pc, #0x214] 
+636ea4c0: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea4c2: ldr      r3, [pc, #0x214] 
+636ea4c4: add      r2, pc 'SetParam'
+636ea4c6: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea4c8: bl       #0x63c5fe48 
+636ea4cc: vldr     s15, [r6, #0xe0] 
+636ea4d0: vcvt.f64.f32 d6, s15 
+636ea4d4: ldr      r0, [pc, #0x204] 
+636ea4d6: add      r0, pc '[SDF][INT_ERROR] qvalue %4.6f\n'
+636ea4d8: vmov     r2, r3, d6 
+636ea4dc: bl       #0x63c5fe48 
+636ea4e0: b        #0x636ea66a 
+636ea4e2: mov      r0, r7 
+636ea4e4: add.w    r1, r6, #0xd8 
+636ea4e8: add.w    r2, r5, #0x124 
+636ea4ec: bl       #0x63cc4044 
+636ea4f0: mov      r4, r0 
+636ea4f2: cbz      r0, #0x636ea510 
+636ea4f4: movs     r3, #0x5f 
+636ea4f6: ldr      r0, [pc, #0x1e8] 
+636ea4f8: str      r3, [sp] 
+636ea4fa: mov      r1, r4 
+636ea4fc: ldr      r2, [pc, #0x1e4] 
+636ea4fe: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea500: ldr      r3, [pc, #0x1e4] 
+636ea502: add      r2, pc 'SetParam'
+636ea504: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea506: bl       #0x63c5fe48 
+636ea50a: ldr      r0, [pc, #0x1e0] 
+636ea50c: add      r0, pc '[SDF][INT_ERROR] qtable\n'
+636ea50e: b        #0x636ea3e2 
+636ea510: mov      r0, r7 
+636ea512: ldr      r1, [r6, #0x68] 
+636ea514: ldr.w    r2, [r6, #0xd0] 
+636ea518: add.w    r3, r5, #0x12c 
+636ea51c: bl       #0x63cc3c3e 
+636ea520: mov      r4, r0 
+636ea522: cbz      r0, #0x636ea540 
+636ea524: movs     r3, #0x65 
+636ea526: ldr      r0, [pc, #0x1c8] 
+636ea528: str      r3, [sp] 
+636ea52a: mov      r1, r4 
+636ea52c: ldr      r2, [pc, #0x1c4] 
+636ea52e: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea530: ldr      r3, [pc, #0x1c4] 
+636ea532: add      r2, pc 'SetParam'
+636ea534: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea536: bl       #0x63c5fe48 
+636ea53a: ldr      r0, [pc, #0x1c0] 
+636ea53c: add      r0, pc '[SDF][INT_ERROR] inYcCompress & outYcCompress\n'
+636ea53e: b        #0x636ea3e2 
+636ea540: mov      r0, r7 
+636ea542: ldr      r1, [r6, #0x6c] 
+636ea544: ldr.w    r2, [r6, #0xd4] 
+636ea548: add.w    r3, r5, #0x130 
+636ea54c: bl       #0x63cc3c5c 
+636ea550: mov      r4, r0 
+636ea552: cbz      r0, #0x636ea570 
+636ea554: movs     r3, #0x6a 
+636ea556: ldr      r0, [pc, #0x1a8] 
+636ea558: str      r3, [sp] 
+636ea55a: mov      r1, r4 
+636ea55c: ldr      r2, [pc, #0x1a4] 
+636ea55e: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea560: ldr      r3, [pc, #0x1a4] 
+636ea562: add      r2, pc 'SetParam'
+636ea564: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea566: bl       #0x63c5fe48 
+636ea56a: ldr      r0, [pc, #0x1a0] 
+636ea56c: add      r0, pc '[SDF][INT_ERROR] inYRange & outYRange\n'
+636ea56e: b        #0x636ea3e2 
+636ea570: mov      r0, r7 
+636ea572: add.w    r1, r5, #0x134 
+636ea576: bl       #0x63cc3e1e 
+636ea57a: mov      r4, r0 
+636ea57c: cbz      r0, #0x636ea59e 
+636ea57e: movs     r3, #0x6f 
+636ea580: ldr      r0, [pc, #0x18c] 
+636ea582: str      r3, [sp] 
+636ea584: mov      r1, r4 
+636ea586: ldr      r2, [pc, #0x18c] 
+636ea588: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea58a: ldr      r3, [pc, #0x18c] 
+636ea58c: add      r2, pc 'SetParam'
+636ea58e: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea590: bl       #0x63c5fe48 
+636ea594: ldr      r0, [pc, #0x184] 
+636ea596: ldr.w    r1, [r5, #0x134] 
+636ea59a: add      r0, pc '[SDF][INT_ERROR] syncMode %d\n'
+636ea59c: b        #0x636ea654 
+636ea59e: mov      r0, r7 
+636ea5a0: add.w    r1, r5, #0x138 
+636ea5a4: bl       #0x63cc3ed2 
+636ea5a8: mov      r4, r0 
+636ea5aa: cbz      r0, #0x636ea5cc 
+636ea5ac: movs     r3, #0x74 
+636ea5ae: ldr      r0, [pc, #0x170] 
+636ea5b0: str      r3, [sp] 
+636ea5b2: mov      r1, r4 
+636ea5b4: ldr      r2, [pc, #0x16c] 
+636ea5b6: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea5b8: ldr      r3, [pc, #0x16c] 
+636ea5ba: add      r2, pc 'SetParam'
+636ea5bc: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea5be: bl       #0x63c5fe48 
+636ea5c2: ldr      r0, [pc, #0x168] 
+636ea5c4: ldr.w    r1, [r5, #0x138] 
+636ea5c8: add      r0, pc '[SDF][INT_ERROR] inputLimitDMAcycle %d\n'
+636ea5ca: b        #0x636ea654 
+636ea5cc: mov      r0, r7 
+636ea5ce: add.w    r1, r5, #0x13c 
+636ea5d2: bl       #0x63cc3ed2 
+636ea5d6: mov      r4, r0 
+636ea5d8: cbz      r0, #0x636ea5fa 
+636ea5da: movs     r3, #0x79 
+636ea5dc: ldr      r0, [pc, #0x150] 
+636ea5de: str      r3, [sp] 
+636ea5e0: mov      r1, r4 
+636ea5e2: ldr      r2, [pc, #0x150] 
+636ea5e4: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea5e6: ldr      r3, [pc, #0x150] 
+636ea5e8: add      r2, pc 'SetParam'
+636ea5ea: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea5ec: bl       #0x63c5fe48 
+636ea5f0: ldr      r0, [pc, #0x148] 
+636ea5f2: ldr.w    r1, [r5, #0x13c] 
+636ea5f6: add      r0, pc '[SDF][INT_ERROR] outputLimitDMAcycle %d\n'
+636ea5f8: b        #0x636ea654 
+636ea5fa: mov      r0, r7 
+636ea5fc: add.w    r1, r5, #0x140 
+636ea600: bl       #0x63cc3ede 
+636ea604: mov      r4, r0 
+636ea606: cbz      r0, #0x636ea628 
+636ea608: movs     r3, #0x7e 
+636ea60a: ldr      r0, [pc, #0x134] 
+636ea60c: str      r3, [sp] 
+636ea60e: mov      r1, r4 
+636ea610: ldr      r2, [pc, #0x130] 
+636ea612: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea614: ldr      r3, [pc, #0x130] 
+636ea616: add      r2, pc 'SetParam'
+636ea618: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea61a: bl       #0x63c5fe48 
+636ea61e: ldr      r0, [pc, #0x12c] 
+636ea620: ldr.w    r1, [r5, #0x140] 
+636ea624: add      r0, pc '[SDF][INT_ERROR] inputArbitration %d\n'
+636ea626: b        #0x636ea654 
+636ea628: mov      r0, r7 
+636ea62a: add.w    r1, r5, #0x144 
+636ea62e: bl       #0x63cc3ede 
+636ea632: mov      r4, r0 
+636ea634: cbz      r0, #0x636ea65a 
+636ea636: movs     r3, #0x83 
+636ea638: ldr      r0, [pc, #0x114] 
+636ea63a: str      r3, [sp] 
+636ea63c: mov      r1, r4 
+636ea63e: ldr      r2, [pc, #0x114] 
+636ea640: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea642: ldr      r3, [pc, #0x114] 
+636ea644: add      r2, pc 'SetParam'
+636ea646: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea648: bl       #0x63c5fe48 
+636ea64c: ldr      r0, [pc, #0x10c] 
+636ea64e: ldr.w    r1, [r5, #0x144] 
+636ea652: add      r0, pc '[SDF][INT_ERROR] outputArbitration %d\n'
+636ea654: bl       #0x63c5fe48 
+636ea658: b        #0x636ea66a 
+636ea65a: ldr.w    r3, [r6, #0xe4] 
+636ea65e: str.w    r3, [r5, #0x148] 
+636ea662: ldr.w    r3, [r6, #0xe8] 
+636ea666: str.w    r3, [r5, #0x14c] 
+636ea66a: mov      r0, r4 
+636ea66c: pop      {r1, r2, r3, r4, r5, r6, r7, pc} 
+636ea66e: nop       
+636ea670: adds     r4, r5, #3 
+636ea672: lsls     r5, r0, #2 
+636ea674: strh     r4, [r7, #0x16] 
+636ea676: lsls     r5, r0, #2 
+636ea678: ldr      r1, [r4, r4] 
+636ea67a: lsls     r5, r0, #2 
+636ea67c: ldr      r0, [r6, r4] 
+636ea67e: lsls     r5, r0, #2 
+636ea680: adds     r0, r0, #3 
+636ea682: lsls     r5, r0, #2 
+636ea684: strh     r0, [r2, #0x16] 
+636ea686: lsls     r5, r0, #2 
+636ea688: ldr      r5, [r6, r3] 
+636ea68a: lsls     r5, r0, #2 
+636ea68c: ldrsb    r3, [r6, r7] 
+636ea68e: lsls     r5, r0, #2 
+636ea690: adds     r6, r1, #2 
+636ea692: lsls     r5, r0, #2 
+636ea694: strh     r6, [r3, #0x14] 
+636ea696: lsls     r5, r0, #2 
+636ea698: ldr      r3, [r0, r3] 
+636ea69a: lsls     r5, r0, #2 
+636ea69c: ldrsb    r0, [r4, r7] 
+636ea69e: lsls     r5, r0, #2 
+636ea6a0: adds     r0, r4, #1 
+636ea6a2: lsls     r5, r0, #2 
+636ea6a4: strh     r0, [r6, #0x12] 
+636ea6a6: lsls     r5, r0, #2 
+636ea6a8: ldr      r5, [r2, r2] 
+636ea6aa: lsls     r5, r0, #2 
+636ea6ac: ldrsb    r1, [r2, r7] 
+636ea6ae: lsls     r5, r0, #2 
+636ea6b0: adds     r2, r6, #0 
+636ea6b2: lsls     r5, r0, #2 
+636ea6b4: strh     r2, [r0, #0x12] 
+636ea6b6: lsls     r5, r0, #2 
+636ea6b8: ldr      r7, [r4, r1] 
+636ea6ba: lsls     r5, r0, #2 
+636ea6bc: ldr      r1, [r2, r2] 
+636ea6be: lsls     r5, r0, #2 
+636ea6c0: adds     r0, r0, #0 
+636ea6c2: lsls     r5, r0, #2 
+636ea6c4: strh     r0, [r2, #0x10] 
+636ea6c6: lsls     r5, r0, #2 
+636ea6c8: ldr      r5, [r6, r0] 
+636ea6ca: lsls     r5, r0, #2 
+636ea6cc: ldr      r5, [r0, r2] 
+636ea6ce: lsls     r5, r0, #2 
+636ea6d0: subs     r2, r2, r7 
+636ea6d2: lsls     r5, r0, #2 
+636ea6d4: strh     r2, [r4, #0xe] 
+636ea6d6: lsls     r5, r0, #2 
+636ea6d8: ldr      r7, [r0, r0] 
+636ea6da: lsls     r5, r0, #2 
+636ea6dc: ldr      r7, [r6, r1] 
+636ea6de: lsls     r5, r0, #2 
+636ea6e0: subs     r4, r2, r6 
+636ea6e2: lsls     r5, r0, #2 
+636ea6e4: strh     r4, [r4, #0xc] 
+636ea6e6: lsls     r5, r0, #2 
+636ea6e8: ldrsb    r1, [r1, r7] 
+636ea6ea: lsls     r5, r0, #2 
+636ea6ec: ldr      r0, [r4, r1] 
+636ea6ee: lsls     r5, r0, #2 
+636ea6f0: subs     r4, r4, r5 
+636ea6f2: lsls     r5, r0, #2 
+636ea6f4: strh     r4, [r6, #0xa] 
+636ea6f6: lsls     r5, r0, #2 
+636ea6f8: ldrsb    r1, [r3, r6] 
+636ea6fa: lsls     r5, r0, #2 
+636ea6fc: ldr      r1, [r1, r1] 
+636ea6fe: lsls     r5, r0, #2 
+636ea700: subs     r4, r6, r4 
+636ea702: lsls     r5, r0, #2 
+636ea704: strh     r4, [r0, #0xa] 
+636ea706: lsls     r5, r0, #2 
+636ea708: ldrsb    r1, [r5, r5] 
+636ea70a: lsls     r5, r0, #2 
+636ea70c: ldr      r0, [r1, r1] 
+636ea70e: lsls     r5, r0, #2 
+636ea710: subs     r2, r1, r4 
+636ea712: lsls     r5, r0, #2 
+636ea714: strh     r2, [r3, #8] 
+636ea716: lsls     r5, r0, #2 
+636ea718: ldrsb    r7, [r7, r4] 
+636ea71a: lsls     r5, r0, #2 
+636ea71c: ldr      r1, [r0, r1] 
+636ea71e: lsls     r5, r0, #2 
+636ea720: subs     r4, r3, r3 
+636ea722: lsls     r5, r0, #2 
+636ea724: strh     r4, [r5, #6] 
+636ea726: lsls     r5, r0, #2 
+636ea728: ldrsb    r1, [r2, r4] 
+636ea72a: lsls     r5, r0, #2 
+636ea72c: ldr      r1, [r6, r0] 
+636ea72e: lsls     r5, r0, #2 
+636ea730: subs     r6, r5, r2 
+636ea732: lsls     r5, r0, #2 
+636ea734: strh     r6, [r7, #4] 
+636ea736: lsls     r5, r0, #2 
+636ea738: ldrsb    r3, [r4, r3] 
+636ea73a: lsls     r5, r0, #2 
+636ea73c: ldr      r3, [r5, r0] 
+636ea73e: lsls     r5, r0, #2 
+636ea740: subs     r0, r0, r2 
+636ea742: lsls     r5, r0, #2 
+636ea744: strh     r0, [r2, #4] 
+636ea746: lsls     r5, r0, #2 
+636ea748: ldrsb    r5, [r6, r2] 
+636ea74a: lsls     r5, r0, #2 
+636ea74c: ldrsb    r0, [r6, r0] 
+636ea74e: lsls     r5, r0, #2 
+636ea750: subs     r2, r2, r1 
+636ea752: lsls     r5, r0, #2 
+636ea754: strh     r2, [r4, #2] 
+636ea756: lsls     r5, r0, #2 
+636ea758: ldrsb    r7, [r0, r2] 
+636ea75a: lsls     r5, r0, #2 
+636ea75c: ldrsb    r0, [r5, r0] 
+636ea75e: lsls     r5, r0, #2 
+636ea760: push     {r4, r5, lr} 
+636ea762: mov      r4, r0 
+636ea764: sub      sp, #0x14 
+636ea766: mov      r0, r1 
+636ea768: mov      r1, r2 
+636ea76a: bl       #0x63dbc700 
+636ea76e: mov      r5, r0 
+636ea770: cbz      r0, #0x636ea7b8 
+636ea772: mov      r1, r5 
+636ea774: mov      r0, r4 
+636ea776: bl       #0x636e9c38 
+636ea77a: movs     r3, #5 
+636ea77c: movs     r1, #0 
+636ea77e: movw     r2, #0x700d 
+636ea782: str      r1, [sp, #8] 
+636ea784: mov      r4, r0 
+636ea786: stm.w    sp, {r3, r4} 
+636ea78a: adds     r3, #0x98 
+636ea78c: movs     r0, #0x40 
+636ea78e: str      r3, [sp, #0xc] 
+636ea790: adds     r3, #0xb9 
+636ea792: bl       #0x636bad44 
+636ea796: movs     r3, #0x9e 
+636ea798: ldr      r0, [pc, #0x24] 
+636ea79a: mov      r1, r4 
+636ea79c: str      r3, [sp] 
+636ea79e: ldr      r2, [pc, #0x24] 
+636ea7a0: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea7a2: ldr      r3, [pc, #0x24] 
+636ea7a4: add      r2, pc 'MainProcess'
+636ea7a6: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea7a8: bl       #0x63c5fe48 
+636ea7ac: ldr      r0, [pc, #0x1c] 
+636ea7ae: mov      r1, r5 
+636ea7b0: add      r0, pc '[SDF][INT_ERROR] ddl_jpeg_tanz_encode ErrCode: %d\n'
+636ea7b2: bl       #0x63c5fe48 
+636ea7b6: b        #0x636ea7ba 
+636ea7b8: mov      r4, r0 
+636ea7ba: mov      r0, r4 
+636ea7bc: add      sp, #0x14 
+636ea7be: pop      {r4, r5, pc} 
+636ea7c0: adds     r2, r6, r3 
+636ea7c2: lsls     r5, r0, #2 
+636ea7c4: ldrb     r6, [r6, #0x1b] 
+636ea7c6: lsls     r5, r0, #2 
+636ea7c8: strb     r7, [r4, r4] 
+636ea7ca: lsls     r5, r0, #2 
+636ea7cc: ldrsb    r2, [r3, r2] 
+636ea7ce: lsls     r5, r0, #2 
+636ea7d0: push     {r4, r5, r6, lr} 
+636ea7d2: sub      sp, #0x158 
+636ea7d4: add      r2, sp, #8 
+636ea7d6: mov      r6, r0 
+636ea7d8: mov      r5, r1 
+636ea7da: bl       #0x636ea388 
+636ea7de: mov      r4, r0 
+636ea7e0: cbz      r0, #0x636ea7fe 
+636ea7e2: movs     r3, #0x24 
+636ea7e4: ldr      r0, [pc, #0x48] 
+636ea7e6: str      r3, [sp] 
+636ea7e8: mov      r1, r4 
+636ea7ea: ldr      r2, [pc, #0x48] 
+636ea7ec: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea7ee: ldr      r3, [pc, #0x48] 
+636ea7f0: add      r2, pc 'Exec'
+636ea7f2: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea7f4: bl       #0x63c5fe48 
+636ea7f8: ldr      r0, [pc, #0x40] 
+636ea7fa: add      r0, pc '[SDF][INT_ERROR] '
+636ea7fc: b        #0x636ea826 
+636ea7fe: mov      r0, r6 
+636ea800: ldr      r1, [r5] 
+636ea802: add      r2, sp, #8 
+636ea804: bl       #0x636ea760 
+636ea808: mov      r4, r0 
+636ea80a: cbz      r0, #0x636ea82a 
+636ea80c: movs     r3, #0x2a 
+636ea80e: ldr      r0, [pc, #0x30] 
+636ea810: str      r3, [sp] 
+636ea812: mov      r1, r4 
+636ea814: ldr      r2, [pc, #0x2c] 
+636ea816: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea818: ldr      r3, [pc, #0x2c] 
+636ea81a: add      r2, pc 'Exec'
+636ea81c: add      r3, pc 'WrapJpegTanzEncode.cpp'
+636ea81e: bl       #0x63c5fe48 
+636ea822: ldr      r0, [pc, #0x28] 
+636ea824: add      r0, pc '[SDF][INT_ERROR] '
+636ea826: bl       #0x63c5fe48 
+636ea82a: mov      r0, r4 
+636ea82c: add      sp, #0x158 
+636ea82e: pop      {r4, r5, r6, pc} 
+636ea830: adds     r6, r4, r2 
+636ea832: lsls     r5, r0, #2 
+636ea834: ldrb     r0, [r2, #0x1a] 
+636ea836: lsls     r5, r0, #2 
+636ea838: strb     r3, [r3, r3] 
+636ea83a: lsls     r5, r0, #2 
+636ea83c: adds     r7, r4, r3 
+636ea83e: lsls     r5, r0, #2 
+636ea840: adds     r4, r7, r1 
+636ea842: lsls     r5, r0, #2 
+636ea844: ldrb     r6, [r4, #0x19] 
+636ea846: lsls     r5, r0, #2 
+636ea848: strb     r1, [r6, r2] 
+636ea84a: lsls     r5, r0, #2 
+636ea84c: adds     r5, r7, r2 
+636ea84e: lsls     r5, r0, #2 
+636ea850: ldr      r3, [pc, #0x14] 
+636ea852: ldr      r2, [pc, #0x18] 
+636ea854: add      r3, pc 
+636ea856: push     {r4, lr} 
+636ea858: mov      r4, r0 
+636ea85a: ldr      r3, [r3, r2] 
+636ea85c: adds     r3, #8 
+636ea85e: str      r3, [r0] 
+636ea860: bl       #0x636e9c04 
+636ea864: mov      r0, r4 
+636ea866: pop      {r4, pc} 
+636ea868: bhi      #0x636ea7fc 
+636ea86a: lsls     r4, r6, #3 
+636ea86c: ldrh     r0, [r3, #0x30] 
+636ea86e: movs     r0, r0 
+636ea870: push     {r3, r4, r5, lr} 
+636ea872: mov      r5, r0 
+636ea874: bl       #0x636e9c1c 
+636ea878: ldr      r4, [pc, #0xc] 
+636ea87a: mov      r0, r5 
+636ea87c: ldr      r3, [pc, #0xc] 
+636ea87e: add      r4, pc 
+636ea880: ldr      r3, [r4, r3] 
+636ea882: adds     r3, #8 
+636ea884: str      r3, [r5] 
+636ea886: pop      {r3, r4, r5, pc} 
+636ea888: bhi      #0x636ea7c8 
+636ea88a: lsls     r4, r6, #3 
+636ea88c: ldrh     r0, [r3, #0x30] 
+636ea88e: movs     r0, r0 
+636ea890: push     {r0, r1, r2, r4, r5, r6, r7, lr} 
+636ea892: mov      r6, r1 
+636ea894: adds     r1, #4 
+636ea896: mov      r7, r0 
+636ea898: mov      r5, r2 
+636ea89a: bl       #0x63cc3b96 
+636ea89e: mov      r4, r0 
+636ea8a0: cbz      r0, #0x636ea8be 
+636ea8a2: movs     r3, #0x39 
+636ea8a4: ldr      r0, [pc, #0x1cc] 
+636ea8a6: str      r3, [sp] 
+636ea8a8: mov      r1, r4 
+636ea8aa: ldr      r2, [pc, #0x1cc] 
+636ea8ac: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea8ae: ldr      r3, [pc, #0x1cc] 
+636ea8b0: add      r2, pc 'SetParam'
+636ea8b2: add      r3, pc 'WrapJpegTanzReady.cpp'
+636ea8b4: bl       #0x63c5fe48 
+636ea8b8: ldr      r0, [pc, #0x1c4] 
+636ea8ba: add      r0, pc '[SDF][INT_ERROR] inImgObj\n'
+636ea8bc: b        #0x636ea8ea 
+636ea8be: mov      r0, r7 
+636ea8c0: add.w    r1, r6, #0x2c 
+636ea8c4: add.w    r2, r5, #0x2c 
+636ea8c8: bl       #0x63cc3bf4 
+636ea8cc: mov      r4, r0 
+636ea8ce: cbz      r0, #0x636ea8f0 
+636ea8d0: movs     r3, #0x3e 
+636ea8d2: ldr      r0, [pc, #0x1b0] 
+636ea8d4: str      r3, [sp] 
+636ea8d6: mov      r1, r4 
+636ea8d8: ldr      r2, [pc, #0x1ac] 
+636ea8da: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea8dc: ldr      r3, [pc, #0x1ac] 
+636ea8de: add      r2, pc 'SetParam'
+636ea8e0: add      r3, pc 'WrapJpegTanzReady.cpp'
+636ea8e2: bl       #0x63c5fe48 
+636ea8e6: ldr      r0, [pc, #0x1a8] 
+636ea8e8: add      r0, pc '[SDF][INT_ERROR] outStreamObj\n'
+636ea8ea: bl       #0x63c5fe48 
+636ea8ee: b        #0x636eaa70 
+636ea8f0: mov      r0, r7 
+636ea8f2: ldr      r1, [r6, #0x1c] 
+636ea8f4: ldr      r2, [r6, #0x20] 
+636ea8f6: add.w    r3, r5, #0x44 
+636ea8fa: bl       #0x63cc3c84 
+636ea8fe: mov      r4, r0 
+636ea900: cbz      r0, #0x636ea91e 
+636ea902: movs     r3, #0x43 
+636ea904: ldr      r0, [pc, #0x18c] 
+636ea906: str      r3, [sp] 
+636ea908: mov      r1, r4 
+636ea90a: ldr      r2, [pc, #0x18c] 
+636ea90c: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea90e: ldr      r3, [pc, #0x18c] 
+636ea910: add      r2, pc 'SetParam'
+636ea912: add      r3, pc 'WrapJpegTanzReady.cpp'
+636ea914: bl       #0x63c5fe48 
+636ea918: ldr      r0, [pc, #0x184] 
+636ea91a: add      r0, pc '[SDF][INT_ERROR] inDataTrans & inIib\n'
+636ea91c: b        #0x636ea8ea 
+636ea91e: mov      r0, r7 
+636ea920: ldr      r1, [r6, #0x50] 
+636ea922: add.w    r2, r5, #0x4c 
+636ea926: bl       #0x63cc403c 
+636ea92a: mov      r4, r0 
+636ea92c: cbz      r0, #0x636ea95a 
+636ea92e: movs     r3, #0x48 
+636ea930: ldr      r0, [pc, #0x170] 
+636ea932: str      r3, [sp] 
+636ea934: mov      r1, r4 
+636ea936: ldr      r2, [pc, #0x170] 
+636ea938: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea93a: ldr      r3, [pc, #0x170] 
+636ea93c: add      r2, pc 'SetParam'
+636ea93e: add      r3, pc 'WrapJpegTanzReady.cpp'
+636ea940: bl       #0x63c5fe48 
+636ea944: vldr     s15, [r6, #0x50] 
+636ea948: vcvt.f64.f32 d6, s15 
+636ea94c: ldr      r0, [pc, #0x160] 
+636ea94e: add      r0, pc '[SDF][INT_ERROR] qvalue %4.6f\n'
+636ea950: vmov     r2, r3, d6 
+636ea954: bl       #0x63c5fe48 
+636ea958: b        #0x636eaa70 
+636ea95a: mov      r0, r7 
+636ea95c: add.w    r1, r6, #0x48 
+636ea960: add.w    r2, r5, #0x54 
+636ea964: bl       #0x63cc4044 
+636ea968: mov      r4, r0 
+636ea96a: cbz      r0, #0x636ea988 
+636ea96c: movs     r3, #0x4d 
+636ea96e: ldr      r0, [pc, #0x144] 
+636ea970: str      r3, [sp] 
+636ea972: mov      r1, r4 
+636ea974: ldr      r2, [pc, #0x140] 
+636ea976: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea978: ldr      r3, [pc, #0x140] 
+636ea97a: add      r2, pc 'SetParam'
+636ea97c: add      r3, pc 'WrapJpegTanzReady.cpp'
+636ea97e: bl       #0x63c5fe48 
+636ea982: ldr      r0, [pc, #0x13c] 
+636ea984: add      r0, pc '[SDF][INT_ERROR] qtable\n'
+636ea986: b        #0x636ea8ea 
+636ea988: mov      r0, r7 
+636ea98a: ldr      r1, [r6, #0x24] 
+636ea98c: ldr      r2, [r6, #0x40] 
+636ea98e: add.w    r3, r5, #0x5c 
+636ea992: bl       #0x63cc3c3e 
+636ea996: mov      r4, r0 
+636ea998: cbz      r0, #0x636ea9b6 
+636ea99a: movs     r3, #0x52 
+636ea99c: ldr      r0, [pc, #0x124] 
+636ea99e: str      r3, [sp] 
+636ea9a0: mov      r1, r4 
+636ea9a2: ldr      r2, [pc, #0x124] 
+636ea9a4: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea9a6: ldr      r3, [pc, #0x124] 
+636ea9a8: add      r2, pc 'SetParam'
+636ea9aa: add      r3, pc 'WrapJpegTanzReady.cpp'
+636ea9ac: bl       #0x63c5fe48 
+636ea9b0: ldr      r0, [pc, #0x11c] 
+636ea9b2: add      r0, pc '[SDF][INT_ERROR] inYcCompress & outYcCompress\n'
+636ea9b4: b        #0x636ea8ea 
+636ea9b6: mov      r0, r7 
+636ea9b8: ldr      r1, [r6, #0x28] 
+636ea9ba: ldr      r2, [r6, #0x44] 
+636ea9bc: add.w    r3, r5, #0x60 
+636ea9c0: bl       #0x63cc3c5c 
+636ea9c4: mov      r4, r0 
+636ea9c6: cbz      r0, #0x636ea9e4 
+636ea9c8: movs     r3, #0x57 
+636ea9ca: ldr      r0, [pc, #0x108] 
+636ea9cc: str      r3, [sp] 
+636ea9ce: mov      r1, r4 
+636ea9d0: ldr      r2, [pc, #0x104] 
+636ea9d2: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea9d4: ldr      r3, [pc, #0x104] 
+636ea9d6: add      r2, pc 'SetParam'
+636ea9d8: add      r3, pc 'WrapJpegTanzReady.cpp'
+636ea9da: bl       #0x63c5fe48 
+636ea9de: ldr      r0, [pc, #0x100] 
+636ea9e0: add      r0, pc '[SDF][INT_ERROR] inYRange & outYRange\n'
+636ea9e2: b        #0x636ea8ea 
+636ea9e4: mov      r0, r7 
+636ea9e6: add.w    r1, r5, #0x64 
+636ea9ea: bl       #0x63cc3e1e 
+636ea9ee: mov      r4, r0 
+636ea9f0: cbz      r0, #0x636eaa10 
+636ea9f2: movs     r3, #0x5c 
+636ea9f4: ldr      r0, [pc, #0xec] 
+636ea9f6: str      r3, [sp] 
+636ea9f8: mov      r1, r4 
+636ea9fa: ldr      r2, [pc, #0xec] 
+636ea9fc: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636ea9fe: ldr      r3, [pc, #0xec] 
+636eaa00: add      r2, pc 'SetParam'
+636eaa02: add      r3, pc 'WrapJpegTanzReady.cpp'
+636eaa04: bl       #0x63c5fe48 
+636eaa08: ldr      r0, [pc, #0xe4] 
+636eaa0a: ldr      r1, [r5, #0x64] 
+636eaa0c: add      r0, pc '[SDF][INT_ERROR] syncMode %d\n'
+636eaa0e: b        #0x636eaa66 
+636eaa10: mov      r0, r7 
+636eaa12: add.w    r1, r5, #0x68 
+636eaa16: bl       #0x63cc3ed2 
+636eaa1a: mov      r4, r0 
+636eaa1c: cbz      r0, #0x636eaa3c 
+636eaa1e: movs     r3, #0x61 
+636eaa20: ldr      r0, [pc, #0xd0] 
+636eaa22: str      r3, [sp] 
+636eaa24: mov      r1, r4 
+636eaa26: ldr      r2, [pc, #0xd0] 
+636eaa28: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eaa2a: ldr      r3, [pc, #0xd0] 
+636eaa2c: add      r2, pc 'SetParam'
+636eaa2e: add      r3, pc 'WrapJpegTanzReady.cpp'
+636eaa30: bl       #0x63c5fe48 
+636eaa34: ldr      r0, [pc, #0xc8] 
+636eaa36: ldr      r1, [r5, #0x68] 
+636eaa38: add      r0, pc '[SDF][INT_ERROR] inputLimitDMAcycle %d\n'
+636eaa3a: b        #0x636eaa66 
+636eaa3c: mov      r0, r7 
+636eaa3e: add.w    r1, r5, #0x6c 
+636eaa42: bl       #0x63cc3ede 
+636eaa46: mov      r4, r0 
+636eaa48: cbz      r0, #0x636eaa6c 
+636eaa4a: movs     r3, #0x66 
+636eaa4c: ldr      r0, [pc, #0xb4] 
+636eaa4e: str      r3, [sp] 
+636eaa50: mov      r1, r4 
+636eaa52: ldr      r2, [pc, #0xb4] 
+636eaa54: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eaa56: ldr      r3, [pc, #0xb4] 
+636eaa58: add      r2, pc 'SetParam'
+636eaa5a: add      r3, pc 'WrapJpegTanzReady.cpp'
+636eaa5c: bl       #0x63c5fe48 
+636eaa60: ldr      r0, [pc, #0xac] 
+636eaa62: ldr      r1, [r5, #0x6c] 
+636eaa64: add      r0, pc '[SDF][INT_ERROR] inputArbitration %d\n'
+636eaa66: bl       #0x63c5fe48 
+636eaa6a: b        #0x636eaa70 
+636eaa6c: ldr      r3, [r6, #0x54] 
+636eaa6e: str      r3, [r5, #0x70] 
+636eaa70: mov      r0, r4 
+636eaa72: pop      {r1, r2, r3, r4, r5, r6, r7, pc} 
+636eaa74: asrs     r6, r4, #0x1f 
+636eaa76: lsls     r5, r0, #2 
+636eaa78: ldrb     r7, [r3, #0x18] 
+636eaa7a: lsls     r5, r0, #2 
+636eaa7c: strb     r3, [r1, r7] 
+636eaa7e: lsls     r5, r0, #2 
+636eaa80: strb     r2, [r5, r0] 
+636eaa82: lsls     r5, r0, #2 
+636eaa84: asrs     r0, r7, #0x1e 
+636eaa86: lsls     r5, r0, #2 
+636eaa88: ldrb     r1, [r6, #0x17] 
+636eaa8a: lsls     r5, r0, #2 
+636eaa8c: strb     r5, [r3, r6] 
+636eaa8e: lsls     r5, r0, #2 
+636eaa90: strh     r2, [r1, r4] 
+636eaa92: lsls     r5, r0, #2 
+636eaa94: asrs     r6, r0, #0x1e 
+636eaa96: lsls     r5, r0, #2 
+636eaa98: ldrb     r7, [r7, #0x16] 
+636eaa9a: lsls     r5, r0, #2 
+636eaa9c: strb     r3, [r5, r5] 
+636eaa9e: lsls     r5, r0, #2 
+636eaaa0: strh     r5, [r4, r7] 
+636eaaa2: lsls     r5, r0, #2 
+636eaaa4: asrs     r2, r3, #0x1d 
+636eaaa6: lsls     r5, r0, #2 
+636eaaa8: ldrb     r3, [r2, #0x16] 
+636eaaaa: lsls     r5, r0, #2 
+636eaaac: strb     r7, [r7, r4] 
+636eaaae: lsls     r5, r0, #2 
+636eaab0: strh     r7, [r7, r7] 
+636eaab2: lsls     r5, r0, #2 
+636eaab4: asrs     r4, r3, #0x1c 
+636eaab6: lsls     r5, r0, #2 
+636eaab8: ldrb     r5, [r2, #0x15] 
+636eaaba: lsls     r5, r0, #2 
+636eaabc: strb     r1, [r0, r4] 
+636eaabe: lsls     r5, r0, #2 
+636eaac0: strh     r0, [r5, r7] 
+636eaac2: lsls     r5, r0, #2 
+636eaac4: asrs     r6, r5, #0x1b 
+636eaac6: lsls     r5, r0, #2 
+636eaac8: ldrb     r7, [r4, #0x14] 
+636eaaca: lsls     r5, r0, #2 
+636eaacc: strb     r3, [r2, r3] 
+636eaace: lsls     r5, r0, #2 
+636eaad0: strh     r3, [r2, r7] 
+636eaad2: lsls     r5, r0, #2 
+636eaad4: asrs     r0, r0, #0x1b 
+636eaad6: lsls     r5, r0, #2 
+636eaad8: ldrb     r1, [r7, #0x13] 
+636eaada: lsls     r5, r0, #2 
+636eaadc: strb     r5, [r4, r2] 
+636eaade: lsls     r5, r0, #2 
+636eaae0: strh     r4, [r2, r7] 
+636eaae2: lsls     r5, r0, #2 
+636eaae4: asrs     r6, r2, #0x1a 
+636eaae6: lsls     r5, r0, #2 
+636eaae8: ldrb     r7, [r1, #0x13] 
+636eaaea: lsls     r5, r0, #2 
+636eaaec: strb     r3, [r7, r1] 
+636eaaee: lsls     r5, r0, #2 
+636eaaf0: strh     r7, [r1, r7] 
+636eaaf2: lsls     r5, r0, #2 
+636eaaf4: asrs     r2, r5, #0x19 
+636eaaf6: lsls     r5, r0, #2 
+636eaaf8: ldrb     r3, [r4, #0x12] 
+636eaafa: lsls     r5, r0, #2 
+636eaafc: strb     r7, [r1, r1] 
+636eaafe: lsls     r5, r0, #2 
+636eab00: strh     r1, [r0, r7] 
+636eab02: lsls     r5, r0, #2 
+636eab04: asrs     r6, r7, #0x18 
+636eab06: lsls     r5, r0, #2 
+636eab08: ldrb     r7, [r6, #0x11] 
+636eab0a: lsls     r5, r0, #2 
+636eab0c: strb     r3, [r4, r0] 
+636eab0e: lsls     r5, r0, #2 
+636eab10: str      r0, [r6, r7] 
+636eab12: lsls     r5, r0, #2 
+636eab14: push     {r4, r5, lr} 
+636eab16: mov      r4, r0 
+636eab18: sub      sp, #0x14 
+636eab1a: mov      r0, r1 
+636eab1c: mov      r1, r2 
+636eab1e: bl       #0x63dbc684 
+636eab22: mov      r5, r0 
+636eab24: cbz      r0, #0x636eab6c 
+636eab26: mov      r1, r5 
+636eab28: mov      r0, r4 
+636eab2a: bl       #0x636e9c38 
+636eab2e: movs     r3, #0x7c 
+636eab30: ldr      r2, [pc, #0x40] 
+636eab32: str      r3, [sp] 
+636eab34: ldr      r3, [pc, #0x40] 
+636eab36: add      r2, pc 'MainProcess'
+636eab38: add      r3, pc 'WrapJpegTanzReady.cpp'
+636eab3a: mov      r4, r0 
+636eab3c: ldr      r0, [pc, #0x3c] 
+636eab3e: mov      r1, r4 
+636eab40: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eab42: bl       #0x63c5fe48 
+636eab46: ldr      r0, [pc, #0x38] 
+636eab48: mov      r1, r5 
+636eab4a: add      r0, pc '[SDF][INT_ERROR] ddl_jpeg_tanz_ready ErrCode: %d\n'
+636eab4c: bl       #0x63c5fe48 
+636eab50: movs     r3, #5 
+636eab52: stm.w    sp, {r3, r4} 
+636eab56: adds     r3, #0x79 
+636eab58: movs     r1, #0 
+636eab5a: str      r3, [sp, #0xc] 
+636eab5c: movs     r0, #0x40 
+636eab5e: movw     r2, #0x700e 
+636eab62: adds     r3, #0xd9 
+636eab64: str      r1, [sp, #8] 
+636eab66: bl       #0x636bad44 
+636eab6a: b        #0x636eab6e 
+636eab6c: mov      r4, r0 
+636eab6e: mov      r0, r4 
+636eab70: add      sp, #0x14 
+636eab72: pop      {r4, r5, pc} 
+636eab74: ldrb     r1, [r7, #0xd] 
+636eab76: lsls     r5, r0, #2 
+636eab78: strh     r5, [r0, r5] 
+636eab7a: lsls     r5, r0, #2 
+636eab7c: asrs     r2, r2, #0x15 
+636eab7e: lsls     r5, r0, #2 
+636eab80: strh     r1, [r1, r5] 
+636eab82: lsls     r5, r0, #2 
+636eab84: push     {r4, r5, r6, lr} 
+636eab86: sub      sp, #0x80 
+636eab88: add      r2, sp, #0xc 
+636eab8a: mov      r6, r0 
+636eab8c: mov      r5, r1 
+636eab8e: bl       #0x636ea890 
+636eab92: mov      r4, r0 
+636eab94: cbz      r0, #0x636eabb2 
+636eab96: movs     r3, #0x24 
+636eab98: ldr      r0, [pc, #0x48] 
+636eab9a: str      r3, [sp] 
+636eab9c: mov      r1, r4 
+636eab9e: ldr      r2, [pc, #0x48] 
+636eaba0: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eaba2: ldr      r3, [pc, #0x48] 
+636eaba4: add      r2, pc 'Exec'
+636eaba6: add      r3, pc 'WrapJpegTanzReady.cpp'
+636eaba8: bl       #0x63c5fe48 
+636eabac: ldr      r0, [pc, #0x40] 
+636eabae: add      r0, pc '[SDF][INT_ERROR] '
+636eabb0: b        #0x636eabda 
+636eabb2: mov      r0, r6 
+636eabb4: ldr      r1, [r5] 
+636eabb6: add      r2, sp, #0xc 
+636eabb8: bl       #0x636eab14 
+636eabbc: mov      r4, r0 
+636eabbe: cbz      r0, #0x636eabde 
+636eabc0: movs     r3, #0x2a 
+636eabc2: ldr      r0, [pc, #0x30] 
+636eabc4: str      r3, [sp] 
+636eabc6: mov      r1, r4 
+636eabc8: ldr      r2, [pc, #0x2c] 
+636eabca: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eabcc: ldr      r3, [pc, #0x2c] 
+636eabce: add      r2, pc 'Exec'
+636eabd0: add      r3, pc 'WrapJpegTanzReady.cpp'
+636eabd2: bl       #0x63c5fe48 
+636eabd6: ldr      r0, [pc, #0x28] 
+636eabd8: add      r0, pc '[SDF][INT_ERROR] '
+636eabda: bl       #0x63c5fe48 
+636eabde: mov      r0, r4 
+636eabe0: add      sp, #0x80 
+636eabe2: pop      {r4, r5, r6, pc} 
+636eabe4: asrs     r2, r6, #0x13 
+636eabe6: lsls     r5, r0, #2 
+636eabe8: ldrb     r4, [r6, #0xc] 
+636eabea: lsls     r5, r0, #2 
+636eabec: strh     r7, [r2, r3] 
+636eabee: lsls     r5, r0, #2 
+636eabf0: asrs     r3, r6, #0x14 
+636eabf2: lsls     r5, r0, #2 
+636eabf4: asrs     r0, r1, #0x13 
+636eabf6: lsls     r5, r0, #2 
+636eabf8: ldrb     r2, [r1, #0xc] 
+636eabfa: lsls     r5, r0, #2 
+636eabfc: strh     r5, [r5, r2] 
+636eabfe: lsls     r5, r0, #2 
+636eac00: asrs     r1, r1, #0x14 
+636eac02: lsls     r5, r0, #2 
+636eac04: ldr      r3, [pc, #0x14] 
+636eac06: ldr      r2, [pc, #0x18] 
+636eac08: add      r3, pc 
+636eac0a: push     {r4, lr} 
+636eac0c: mov      r4, r0 
+636eac0e: ldr      r3, [r3, r2] 
+636eac10: adds     r3, #8 
+636eac12: str      r3, [r0] 
+636eac14: bl       #0x636eac44 
+636eac18: mov      r0, r4 
+636eac1a: pop      {r4, pc} 
+636eac1c: bpl      #0x636eac48 
+636eac1e: lsls     r4, r6, #3 
+636eac20: ldrb     r4, [r6, #2] 
+636eac22: movs     r0, r0 
+636eac24: push     {r3, r4, r5, lr} 
+636eac26: mov      r5, r0 
+636eac28: bl       #0x636eac5c 
+636eac2c: ldr      r4, [pc, #0xc] 
+636eac2e: mov      r0, r5 
+636eac30: ldr      r3, [pc, #0xc] 
+636eac32: add      r4, pc 
+636eac34: ldr      r3, [r4, r3] 
+636eac36: adds     r3, #8 
+636eac38: str      r3, [r5] 
+636eac3a: pop      {r3, r4, r5, pc} 
+636eac3c: bmi      #0x636eac14 
+636eac3e: lsls     r4, r6, #3 
+636eac40: ldrb     r4, [r6, #2] 
+636eac42: movs     r0, r0 
+636eac44: ldr      r3, [pc, #0xc] 
+636eac46: ldr      r2, [pc, #0x10] 
+636eac48: add      r3, pc 
+636eac4a: ldr      r3, [r3, r2] 
+636eac4c: adds     r3, #8 
+636eac4e: str      r3, [r0] 
+636eac50: bx       lr 
+636eac52: nop       
+636eac54: bmi      #0x636eac00 
+636eac56: lsls     r4, r6, #3 
+636eac58: subs     r4, r6, #2 
+636eac5a: movs     r0, r0 
+636eac5c: ldr      r3, [pc, #0xc] 
+636eac5e: ldr      r2, [pc, #0x10] 
+636eac60: add      r3, pc 
+636eac62: ldr      r3, [r3, r2] 
+636eac64: adds     r3, #8 
+636eac66: str      r3, [r0] 
+636eac68: bx       lr 
+636eac6a: nop       
+636eac6c: bmi      #0x636eabe8 
+636eac6e: lsls     r4, r6, #3 
+636eac70: subs     r4, r6, #2 
+636eac72: movs     r0, r0 
+636eac74: push     {r0, r1, r2, r3, r4, lr} 
+636eac76: add.w    r2, r1, #0xb 
+636eac7a: cmp      r2, #0xb 
+636eac7c: bhi      #0x636eac8a 
+636eac7e: ldr      r3, [pc, #0x38] 
+636eac80: add      r3, pc 
+636eac82: ldr.w    r4, [r3, r2, lsl #2] 
+636eac86: cbz      r4, #0x636eacb2 
+636eac88: b        #0x636eac8e 
+636eac8a: mov.w    r4, #-0x80000000 
+636eac8e: ldr      r0, [pc, #0x2c] 
+636eac90: add      r0, pc 'SDF: Error: WrapPblIibBase::ConvertErrorDriver2Sdf(): PblIibDriverErrorCode=0x%8X'
+636eac92: bl       #0x63c5fe48 
+636eac96: movs     r3, #5 
+636eac98: movs     r1, #0 
+636eac9a: stm.w    sp, {r3, r4} 
+636eac9e: movs     r0, #0x40 
+636eaca0: adds     r3, #0x49 
+636eaca2: movw     r2, #0x7010 
+636eaca6: str      r3, [sp, #0xc] 
+636eaca8: mov.w    r3, #0x19c 
+636eacac: str      r1, [sp, #8] 
+636eacae: bl       #0x636bad44 
+636eacb2: mov      r0, r4 
+636eacb4: add      sp, #0x10 
+636eacb6: pop      {r4, pc} 
+636eacb8: strh     r4, [r1, #8] 
+636eacba: lsls     r5, r6, #1 
+636eacbc: strh     r5, [r6, r0] 
+636eacbe: lsls     r5, r0, #2 
+636eacc0: cmn.w    r1, #3 
+636eacc4: push     {r4, r5, lr} 
+636eacc6: mov      r5, r1 
+636eacc8: sub      sp, #0x14 
+636eacca: beq      #0x636eacfe 
+636eaccc: blt      #0x636eacd8 
+636eacce: cmp.w    r1, #-1 
+636eacd2: bgt      #0x636eacd8 
+636eacd4: movs     r4, #0x80 
+636eacd6: b        #0x636ead02 
+636eacd8: cmp      r5, #0 
+636eacda: bge      #0x636ead2a 
+636eacdc: movs     r3, #5 
+636eacde: mov.w    r4, #-0x80000000 
+636eace2: movs     r1, #0 
+636eace4: stm.w    sp, {r3, r4} 
+636eace8: movs     r0, #0x40 
+636eacea: adds     r3, #0x64 
+636eacec: movw     r2, #0x7010 
+636eacf0: str      r3, [sp, #0xc] 
+636eacf2: movw     r3, #0x19d 
+636eacf6: str      r1, [sp, #8] 
+636eacf8: bl       #0x636bad44 
+636eacfc: b        #0x636ead02 
+636eacfe: mov.w    r4, #0x100000 
+636ead02: ldr      r0, [pc, #0x30] 
+636ead04: mov      r1, r5 
+636ead06: add      r0, pc 'SDF: Error: WrapPblIibBase::ConvertErrorIibPortDriver2Sdf(): PblIibDriverIibPort=0x%8X'
+636ead08: bl       #0x63c5fe48 
+636ead0c: movs     r3, #5 
+636ead0e: movs     r1, #0 
+636ead10: stm.w    sp, {r3, r4} 
+636ead14: movs     r0, #0x40 
+636ead16: adds     r3, #0x70 
+636ead18: movw     r2, #0x7010 
+636ead1c: str      r3, [sp, #0xc] 
+636ead1e: mov.w    r3, #0x19e 
+636ead22: str      r1, [sp, #8] 
+636ead24: bl       #0x636bad44 
+636ead28: b        #0x636ead2c 
+636ead2a: movs     r4, #0 
+636ead2c: mov      r0, r4 
+636ead2e: add      sp, #0x14 
+636ead30: pop      {r4, r5, pc} 
+636ead32: nop       
+636ead34: strh     r1, [r2, r0] 
+636ead36: lsls     r5, r0, #2 
+636ead38: ldr      r3, [pc, #0x14] 
+636ead3a: ldr      r2, [pc, #0x18] 
+636ead3c: add      r3, pc 
+636ead3e: push     {r4, lr} 
+636ead40: mov      r4, r0 
+636ead42: ldr      r3, [r3, r2] 
+636ead44: adds     r3, #8 
+636ead46: str      r3, [r0] 
+636ead48: bl       #0x636eac44 
+636ead4c: mov      r0, r4 
+636ead4e: pop      {r4, pc} 
+636ead50: blo      #0x636ead14 
+636ead52: lsls     r4, r6, #3 
+636ead54: strb     r0, [r7, #0x11] 
+636ead56: movs     r0, r0 
+636ead58: push     {r3, r4, r5, lr} 
+636ead5a: mov      r5, r0 
+636ead5c: bl       #0x636eac5c 
+636ead60: ldr      r4, [pc, #0xc] 
+636ead62: mov      r0, r5 
+636ead64: ldr      r3, [pc, #0xc] 
+636ead66: add      r4, pc 
+636ead68: ldr      r3, [r4, r3] 
+636ead6a: adds     r3, #8 
+636ead6c: str      r3, [r5] 
+636ead6e: pop      {r3, r4, r5, pc} 
+636ead70: blo      #0x636eace0 
+636ead72: lsls     r4, r6, #3 
+636ead74: strb     r0, [r7, #0x11] 
+636ead76: movs     r0, r0 
+636ead78: ldr      r3, [pc, #0x14] 
+636ead7a: ldr      r2, [pc, #0x18] 
+636ead7c: add      r3, pc 
+636ead7e: push     {r4, lr} 
+636ead80: mov      r4, r0 
+636ead82: ldr      r3, [r3, r2] 
+636ead84: adds     r3, #8 
+636ead86: str      r3, [r0] 
+636ead88: bl       #0x636eac44 
+636ead8c: mov      r0, r4 
+636ead8e: pop      {r4, pc} 
+636ead90: blo      #0x636eacd4 
+636ead92: lsls     r4, r6, #3 
+636ead94: adds     r4, r4, r5 
+636ead96: movs     r0, r0 
+636ead98: push     {r3, r4, r5, lr} 
+636ead9a: mov      r5, r0 
+636ead9c: bl       #0x636eac5c 
+636eada0: ldr      r4, [pc, #0xc] 
+636eada2: mov      r0, r5 
+636eada4: ldr      r3, [pc, #0xc] 
+636eada6: add      r4, pc 
+636eada8: ldr      r3, [r4, r3] 
+636eadaa: adds     r3, #8 
+636eadac: str      r3, [r5] 
+636eadae: pop      {r3, r4, r5, pc} 
+636eadb0: blo      #0x636eaea0 
+636eadb2: lsls     r4, r6, #3 
+636eadb4: adds     r4, r4, r5 
+636eadb6: movs     r0, r0 
+636eadb8: ldr      r3, [pc, #0x14] 
+636eadba: ldr      r2, [pc, #0x18] 
+636eadbc: add      r3, pc 
+636eadbe: push     {r4, lr} 
+636eadc0: mov      r4, r0 
+636eadc2: ldr      r3, [r3, r2] 
+636eadc4: adds     r3, #8 
+636eadc6: str      r3, [r0] 
+636eadc8: bl       #0x636eac44 
+636eadcc: mov      r0, r4 
+636eadce: pop      {r4, pc} 
+636eadd0: blo      #0x636eae94 
+636eadd2: lsls     r4, r6, #3 
+636eadd4: lsls     r4, r6, #6 
+636eadd6: movs     r0, r0 
+636eadd8: push     {r3, r4, r5, lr} 
+636eadda: mov      r5, r0 
+636eaddc: bl       #0x636eac5c 
+636eade0: ldr      r4, [pc, #0xc] 
+636eade2: mov      r0, r5 
+636eade4: ldr      r3, [pc, #0xc] 
+636eade6: add      r4, pc 
+636eade8: ldr      r3, [r4, r3] 
+636eadea: adds     r3, #8 
+636eadec: str      r3, [r5] 
+636eadee: pop      {r3, r4, r5, pc} 
+636eadf0: blo      #0x636eae60 
+636eadf2: lsls     r4, r6, #3 
+636eadf4: lsls     r4, r6, #6 
+636eadf6: movs     r0, r0 
+636eadf8: ldr      r3, [pc, #0x14] 
+636eadfa: ldr      r2, [pc, #0x18] 
+636eadfc: add      r3, pc 
+636eadfe: push     {r4, lr} 
+636eae00: mov      r4, r0 
+636eae02: ldr      r3, [r3, r2] 
+636eae04: adds     r3, #8 
+636eae06: str      r3, [r0] 
+636eae08: bl       #0x636eac44 
+636eae0c: mov      r0, r4 
+636eae0e: pop      {r4, pc} 
+636eae10: blo      #0x636eae54 
+636eae12: lsls     r4, r6, #3 
+636eae14: ldr      r7, [pc, #0xb0] 
+636eae16: movs     r0, r0 
+636eae18: push     {r3, r4, r5, lr} 
+636eae1a: mov      r5, r0 
+636eae1c: bl       #0x636eac5c 
+636eae20: ldr      r4, [pc, #0xc] 
+636eae22: mov      r0, r5 
+636eae24: ldr      r3, [pc, #0xc] 
+636eae26: add      r4, pc 
+636eae28: ldr      r3, [r4, r3] 
+636eae2a: adds     r3, #8 
+636eae2c: str      r3, [r5] 
+636eae2e: pop      {r3, r4, r5, pc} 
+636eae30: bhs      #0x636eae20 
+636eae32: lsls     r4, r6, #3 
+636eae34: ldr      r7, [pc, #0xb0] 
+636eae36: movs     r0, r0 
+636eae38: ldr      r3, [pc, #0x14] 
+636eae3a: ldr      r2, [pc, #0x18] 
+636eae3c: add      r3, pc 
+636eae3e: push     {r4, lr} 
+636eae40: mov      r4, r0 
+636eae42: ldr      r3, [r3, r2] 
+636eae44: adds     r3, #8 
+636eae46: str      r3, [r0] 
+636eae48: bl       #0x636eaf40 
+636eae4c: mov      r0, r4 
+636eae4e: pop      {r4, pc} 
+636eae50: bhs      #0x636eae14 
+636eae52: lsls     r4, r6, #3 
+636eae54: adr      r3, #0x3c0 
+636eae56: movs     r0, r0 
+636eae58: push     {r3, r4, r5, lr} 
+636eae5a: mov      r5, r0 
+636eae5c: bl       #0x636eaf58 
+636eae60: ldr      r4, [pc, #0xc] 
+636eae62: mov      r0, r5 
+636eae64: ldr      r3, [pc, #0xc] 
+636eae66: add      r4, pc 
+636eae68: ldr      r3, [r4, r3] 
+636eae6a: adds     r3, #8 
+636eae6c: str      r3, [r5] 
+636eae6e: pop      {r3, r4, r5, pc} 
+636eae70: bhs      #0x636eade0 
+636eae72: lsls     r4, r6, #3 
+636eae74: adr      r3, #0x3c0 
+636eae76: movs     r0, r0 
+636eae78: push     {r0, r1, r2, r3, r4, r5, r6, lr} 
+636eae7a: mov      r4, r0 
+636eae7c: mov      r5, r1 
+636eae7e: movs     r0, #1 
+636eae80: movs     r1, #0 
+636eae82: bl       #0x637966e0 
+636eae86: mov      r6, r0 
+636eae88: cbz      r0, #0x636eaed6 
+636eae8a: mov      r0, r4 
+636eae8c: mov      r1, r6 
+636eae8e: bl       #0x636eaf70 
+636eae92: cmp      r0, #0x80 
+636eae94: mov      r4, r0 
+636eae96: beq      #0x636eaee4 
+636eae98: movs     r3, #5 
+636eae9a: movs     r0, #0x40 
+636eae9c: stm.w    sp, {r3, r4} 
+636eaea0: movs     r1, #0 
+636eaea2: adds     r3, #0x35 
+636eaea4: movw     r2, #0x7065 
+636eaea8: str      r3, [sp, #0xc] 
+636eaeaa: movw     r3, #0x814 
+636eaeae: uxth     r6, r6 
+636eaeb0: str      r6, [sp, #8] 
+636eaeb2: bl       #0x636bad44 
+636eaeb6: movs     r3, #0x3b 
+636eaeb8: ldr      r0, [pc, #0x30] 
+636eaeba: mov      r1, r4 
+636eaebc: str      r3, [sp] 
+636eaebe: ldr      r2, [pc, #0x30] 
+636eaec0: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eaec2: ldr      r3, [pc, #0x30] 
+636eaec4: add      r2, pc 'MainProcess'
+636eaec6: add      r3, pc 'WrapPrcAcquire.cpp'
+636eaec8: bl       #0x63c5fe48 
+636eaecc: ldr      r0, [pc, #0x28] 
+636eaece: add      r0, pc '[SDF][INT_ERROR] '
+636eaed0: bl       #0x63c5fe48 
+636eaed4: b        #0x636eaee4 
+636eaed6: subs     r1, r5, #0 
+636eaed8: mov      r0, r4 
+636eaeda: it       ne 
+636eaedc: movne    r1, #1 
+636eaede: mov      r4, r6 
+636eaee0: bl       #0x63cc5970 
+636eaee4: mov      r0, r4 
+636eaee6: add      sp, #0x10 
+636eaee8: pop      {r4, r5, r6, pc} 
+636eaeea: nop       
+636eaeec: asrs     r2, r2, #7 
+636eaeee: lsls     r5, r0, #2 
+636eaef0: ldrb     r5, [r1, #2] 
+636eaef2: lsls     r5, r0, #2 
+636eaef4: str      r0, [r5, r2] 
+636eaef6: lsls     r5, r0, #2 
+636eaef8: asrs     r3, r2, #8 
+636eaefa: lsls     r5, r0, #2 
+636eaefc: push     {r0, r1, r4, lr} 
+636eaefe: ldrb     r1, [r1] 
+636eaf00: bl       #0x636eae78 
+636eaf04: mov      r4, r0 
+636eaf06: cbz      r0, #0x636eaf2a 
+636eaf08: cmp      r0, #0x80 
+636eaf0a: beq      #0x636eaf2a 
+636eaf0c: movs     r3, #0x25 
+636eaf0e: ldr      r0, [pc, #0x20] 
+636eaf10: str      r3, [sp] 
+636eaf12: mov      r1, r4 
+636eaf14: ldr      r2, [pc, #0x1c] 
+636eaf16: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eaf18: ldr      r3, [pc, #0x1c] 
+636eaf1a: add      r2, pc 'Exec'
+636eaf1c: add      r3, pc 'WrapPrcAcquire.cpp'
+636eaf1e: bl       #0x63c5fe48 
+636eaf22: ldr      r0, [pc, #0x18] 
+636eaf24: add      r0, pc '[SDF][INT_ERROR] '
+636eaf26: bl       #0x63c5fe48 
+636eaf2a: mov      r0, r4 
+636eaf2c: pop      {r2, r3, r4, pc} 
+636eaf2e: nop       
+636eaf30: asrs     r4, r7, #5 
+636eaf32: lsls     r5, r0, #2 
+636eaf34: ldrb     r2, [r6] 
+636eaf36: lsls     r5, r0, #2 
+636eaf38: str      r2, [r2, r1] 
+636eaf3a: lsls     r5, r0, #2 
+636eaf3c: asrs     r5, r7, #6 
+636eaf3e: lsls     r5, r0, #2 
+636eaf40: ldr      r3, [pc, #0xc] 
+636eaf42: ldr      r2, [pc, #0x10] 
+636eaf44: add      r3, pc 
+636eaf46: ldr      r3, [r3, r2] 
+636eaf48: adds     r3, #8 
+636eaf4a: str      r3, [r0] 
+636eaf4c: bx       lr 
+636eaf4e: nop       
+636eaf50: bne      #0x636eaf04 
+636eaf52: lsls     r4, r6, #3 
+636eaf54: ldrh     r4, [r2, #4] 
+636eaf56: movs     r0, r0 
+636eaf58: ldr      r3, [pc, #0xc] 
+636eaf5a: ldr      r2, [pc, #0x10] 
+636eaf5c: add      r3, pc 
+636eaf5e: ldr      r3, [r3, r2] 
+636eaf60: adds     r3, #8 
+636eaf62: str      r3, [r0] 
+636eaf64: bx       lr 
+636eaf66: nop       
+636eaf68: bne      #0x636eaeec 
+636eaf6a: lsls     r4, r6, #3 
+636eaf6c: ldrh     r4, [r2, #4] 
+636eaf6e: movs     r0, r0 
+636eaf70: push     {r0, r1, r2, r3, r4, lr} 
+636eaf72: mov      r4, r1 
+636eaf74: ldr      r0, [pc, #0x38] 
+636eaf76: add      r0, pc 'SDF: Error: WrapPrcBase::ConvertErrorDriver2Sdf(): PrcDriverErrorCode=0x%8X'
+636eaf78: bl       #0x63c5fe48 
+636eaf7c: movs     r3, #5 
+636eaf7e: movs     r1, #0 
+636eaf80: stm.w    sp, {r3, r4} 
+636eaf84: movs     r0, #0x40 
+636eaf86: adds     r3, #0x1c 
+636eaf88: movw     r2, #0x7044 
+636eaf8c: str      r3, [sp, #0xc] 
+636eaf8e: movw     r3, #0x179 
+636eaf92: str      r1, [sp, #8] 
+636eaf94: bl       #0x636bad44 
+636eaf98: cmp      r4, #3 
+636eaf9a: bhi      #0x636eafa6 
+636eaf9c: ldr      r3, [pc, #0x14] 
+636eaf9e: add      r3, pc 
+636eafa0: ldr.w    r0, [r3, r4, lsl #2] 
+636eafa4: b        #0x636eafaa 
+636eafa6: mov.w    r0, #-0x80000000 
+636eafaa: add      sp, #0x10 
+636eafac: pop      {r4, pc} 
+636eafae: nop       
+636eafb0: str      r3, [r1, r0] 
+636eafb2: lsls     r5, r0, #2 
+636eafb4: ldrb     r2, [r7, #0xc] 
+636eafb6: lsls     r5, r6, #1 
+636eafb8: ldr      r3, [pc, #0x14] 
+636eafba: ldr      r2, [pc, #0x18] 
+636eafbc: add      r3, pc 
+636eafbe: push     {r4, lr} 
+636eafc0: mov      r4, r0 
+636eafc2: ldr      r3, [r3, r2] 
+636eafc4: adds     r3, #8 
+636eafc6: str      r3, [r0] 
+636eafc8: bl       #0x636eaf40 
+636eafcc: mov      r0, r4 
+636eafce: pop      {r4, pc} 
+636eafd0: bne      #0x636eb094 
+636eafd2: lsls     r4, r6, #3 
+636eafd4: ldrh     r0, [r2, #0x28] 
+636eafd6: movs     r0, r0 
+636eafd8: push     {r3, r4, r5, lr} 
+636eafda: mov      r5, r0 
+636eafdc: bl       #0x636eaf58 
+636eafe0: ldr      r4, [pc, #0xc] 
+636eafe2: mov      r0, r5 
+636eafe4: ldr      r3, [pc, #0xc] 
+636eafe6: add      r4, pc 
+636eafe8: ldr      r3, [r4, r3] 
+636eafea: adds     r3, #8 
+636eafec: str      r3, [r5] 
+636eafee: pop      {r3, r4, r5, pc} 
+636eaff0: bne      #0x636eb060 
+636eaff2: lsls     r4, r6, #3 
+636eaff4: ldrh     r0, [r2, #0x28] 
+636eaff6: movs     r0, r0 
+636eaff8: push     {r0, r1, r2, r3, r4, r5, r6, lr} 
+636eaffa: mov      r6, r1 
+636eaffc: movs     r1, #0 
+636eaffe: mov      r5, r0 
+636eb000: bl       #0x63cc5970 
+636eb004: mov      r0, r6 
+636eb006: bl       #0x63796764 
+636eb00a: mov      r4, r0 
+636eb00c: cbz      r0, #0x636eb054 
+636eb00e: movs     r3, #5 
+636eb010: movw     r2, #0x7066 
+636eb014: stm.w    sp, {r3, r4} 
+636eb018: movs     r0, #0x40 
+636eb01a: adds     r3, #0x30 
+636eb01c: movs     r1, #0 
+636eb01e: str      r3, [sp, #0xc] 
+636eb020: movw     r3, #0x815 
+636eb024: uxth     r6, r6 
+636eb026: str      r6, [sp, #8] 
+636eb028: bl       #0x636bad44 
+636eb02c: mov      r1, r4 
+636eb02e: mov      r0, r5 
+636eb030: bl       #0x636eaf70 
+636eb034: movs     r3, #0x37 
+636eb036: ldr      r2, [pc, #0x24] 
+636eb038: str      r3, [sp] 
+636eb03a: ldr      r3, [pc, #0x24] 
+636eb03c: add      r2, pc 'MainProcess'
+636eb03e: add      r3, pc 'WrapPrcRelease.cpp'
+636eb040: mov      r4, r0 
+636eb042: ldr      r0, [pc, #0x20] 
+636eb044: mov      r1, r4 
+636eb046: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb048: bl       #0x63c5fe48 
+636eb04c: ldr      r0, [pc, #0x18] 
+636eb04e: add      r0, pc '[SDF][INT_ERROR] '
+636eb050: bl       #0x63c5fe48 
+636eb054: mov      r0, r4 
+636eb056: add      sp, #0x10 
+636eb058: pop      {r4, r5, r6, pc} 
+636eb05a: nop       
+636eb05c: strb     r0, [r0, #0x1d] 
+636eb05e: lsls     r5, r0, #2 
+636eb060: ldr      r7, [pc, #0x23c] 
+636eb062: lsls     r5, r0, #2 
+636eb064: asrs     r4, r1, #1 
+636eb066: lsls     r5, r0, #2 
+636eb068: asrs     r3, r2, #2 
+636eb06a: lsls     r5, r0, #2 
+636eb06c: push     {r0, r1, r4, lr} 
+636eb06e: ldr      r1, [r1] 
+636eb070: bl       #0x636eaff8 
+636eb074: mov      r4, r0 
+636eb076: cbz      r0, #0x636eb096 
+636eb078: movs     r3, #0x21 
+636eb07a: ldr      r0, [pc, #0x20] 
+636eb07c: str      r3, [sp] 
+636eb07e: mov      r1, r4 
+636eb080: ldr      r2, [pc, #0x1c] 
+636eb082: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb084: ldr      r3, [pc, #0x1c] 
+636eb086: add      r2, pc 'Exec'
+636eb088: add      r3, pc 'WrapPrcRelease.cpp'
+636eb08a: bl       #0x63c5fe48 
+636eb08e: ldr      r0, [pc, #0x18] 
+636eb090: add      r0, pc '[SDF][INT_ERROR] '
+636eb092: bl       #0x63c5fe48 
+636eb096: mov      r0, r4 
+636eb098: pop      {r2, r3, r4, pc} 
+636eb09a: nop       
+636eb09c: asrs     r0, r2, #0x20 
+636eb09e: lsls     r5, r0, #2 
+636eb0a0: strb     r2, [r0, #0x1c] 
+636eb0a2: lsls     r5, r0, #2 
+636eb0a4: ldr      r7, [pc, #0x114] 
+636eb0a6: lsls     r5, r0, #2 
+636eb0a8: asrs     r1, r2, #1 
+636eb0aa: lsls     r5, r0, #2 
+636eb0ac: ldr      r3, [pc, #0x14] 
+636eb0ae: ldr      r2, [pc, #0x18] 
+636eb0b0: add      r3, pc 
+636eb0b2: push     {r4, lr} 
+636eb0b4: mov      r4, r0 
+636eb0b6: ldr      r3, [r3, r2] 
+636eb0b8: adds     r3, #8 
+636eb0ba: str      r3, [r0] 
+636eb0bc: bl       #0x636eaf40 
+636eb0c0: mov      r0, r4 
+636eb0c2: pop      {r4, pc} 
+636eb0c4: beq      #0x636eb1a0 
+636eb0c6: lsls     r4, r6, #3 
+636eb0c8: adr      r5, #0x2a0 
+636eb0ca: movs     r0, r0 
+636eb0cc: push     {r3, r4, r5, lr} 
+636eb0ce: mov      r5, r0 
+636eb0d0: bl       #0x636eaf58 
+636eb0d4: ldr      r4, [pc, #0xc] 
+636eb0d6: mov      r0, r5 
+636eb0d8: ldr      r3, [pc, #0xc] 
+636eb0da: add      r4, pc 
+636eb0dc: ldr      r3, [r4, r3] 
+636eb0de: adds     r3, #8 
+636eb0e0: str      r3, [r5] 
+636eb0e2: pop      {r3, r4, r5, pc} 
+636eb0e4: beq      #0x636eb16c 
+636eb0e6: lsls     r4, r6, #3 
+636eb0e8: adr      r5, #0x2a0 
+636eb0ea: movs     r0, r0 
+636eb0ec: push     {r4, r5, lr} 
+636eb0ee: sub      sp, #0x14 
+636eb0f0: mov      r5, r0 
+636eb0f2: mov      r0, r1 
+636eb0f4: mov      r1, r2 
+636eb0f6: mov      r2, r3 
+636eb0f8: ldr      r3, [sp, #0x20] 
+636eb0fa: bl       #0x637967e8 
+636eb0fe: mov      r4, r0 
+636eb100: cbz      r0, #0x636eb144 
+636eb102: movs     r3, #5 
+636eb104: stm.w    sp, {r3, r4} 
+636eb108: adds     r3, #0x9b 
+636eb10a: movs     r1, #0 
+636eb10c: movw     r2, #0x703e 
+636eb110: str      r3, [sp, #0xc] 
+636eb112: movs     r0, #0x40 
+636eb114: adds     r3, #0xde 
+636eb116: str      r1, [sp, #8] 
+636eb118: bl       #0x636bad44 
+636eb11c: mov      r1, r4 
+636eb11e: mov      r0, r5 
+636eb120: bl       #0x636eaf70 
+636eb124: movs     r3, #0xa2 
+636eb126: ldr      r2, [pc, #0x24] 
+636eb128: str      r3, [sp] 
+636eb12a: ldr      r3, [pc, #0x24] 
+636eb12c: add      r2, pc 'MainProcess'
+636eb12e: add      r3, pc 'WrapPrcStart.cpp'
+636eb130: mov      r4, r0 
+636eb132: ldr      r0, [pc, #0x20] 
+636eb134: mov      r1, r4 
+636eb136: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb138: bl       #0x63c5fe48 
+636eb13c: ldr      r0, [pc, #0x18] 
+636eb13e: add      r0, pc '[SDF][INT_ERROR] '
+636eb140: bl       #0x63c5fe48 
+636eb144: mov      r0, r4 
+636eb146: add      sp, #0x14 
+636eb148: pop      {r4, r5, pc} 
+636eb14a: nop       
+636eb14c: strb     r2, [r6, #0x19] 
+636eb14e: lsls     r5, r0, #2 
+636eb150: ldr      r6, [pc, #0x2c8] 
+636eb152: lsls     r5, r0, #2 
+636eb154: lsrs     r4, r3, #0x1d 
+636eb156: lsls     r5, r0, #2 
+636eb158: lsrs     r3, r4, #0x1e 
+636eb15a: lsls     r5, r0, #2 
+636eb15c: push.w   {r4, r5, r6, r7, r8, lr} 
+636eb160: sub      sp, #0x90 
+636eb162: mov      r7, r2 
+636eb164: add      r3, sp, #0x8c 
+636eb166: add      r2, sp, #0x78 
+636eb168: mov      r6, r0 
+636eb16a: mov      r8, r1 
+636eb16c: bl       #0x63cc59d2 
+636eb170: mov      r4, r0 
+636eb172: cbz      r0, #0x636eb1ac 
+636eb174: movs     r3, #0x2c 
+636eb176: ldr      r0, [pc, #0xc8] 
+636eb178: str      r3, [sp] 
+636eb17a: mov      r1, r4 
+636eb17c: ldr      r2, [pc, #0xc4] 
+636eb17e: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb180: ldr      r3, [pc, #0xc4] 
+636eb182: add      r2, pc 'Exec'
+636eb184: add      r3, pc 'WrapPrcStart.cpp'
+636eb186: bl       #0x63c5fe48 
+636eb18a: ldr      r0, [pc, #0xc0] 
+636eb18c: add      r0, pc '[SDF][INT_ERROR] '
+636eb18e: bl       #0x63c5fe48 
+636eb192: movs     r3, #5 
+636eb194: movs     r1, #0 
+636eb196: stm.w    sp, {r3, r4} 
+636eb19a: str      r1, [sp, #8] 
+636eb19c: adds     r3, #0x29 
+636eb19e: movs     r0, #0x40 
+636eb1a0: str      r3, [sp, #0xc] 
+636eb1a2: movw     r2, #0x703e 
+636eb1a6: mov.w    r3, #0x17c 
+636eb1aa: b        #0x636eb226 
+636eb1ac: add      r5, sp, #0x14 
+636eb1ae: mov      r0, r6 
+636eb1b0: mov      r1, r7 
+636eb1b2: mov      r2, r5 
+636eb1b4: bl       #0x63cc59e4 
+636eb1b8: mov      r4, r0 
+636eb1ba: cbz      r0, #0x636eb1dc 
+636eb1bc: movs     r3, #0x35 
+636eb1be: ldr      r0, [pc, #0x90] 
+636eb1c0: str      r3, [sp] 
+636eb1c2: mov      r1, r4 
+636eb1c4: ldr      r2, [pc, #0x8c] 
+636eb1c6: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb1c8: ldr      r3, [pc, #0x8c] 
+636eb1ca: add      r2, pc 'Exec'
+636eb1cc: add      r3, pc 'WrapPrcStart.cpp'
+636eb1ce: bl       #0x63c5fe48 
+636eb1d2: ldr      r0, [pc, #0x88] 
+636eb1d4: add      r0, pc '[SDF][INT_ERROR] '
+636eb1d6: bl       #0x63c5fe48 
+636eb1da: b        #0x636eb238 
+636eb1dc: mov      r0, r6 
+636eb1de: ldr.w    r1, [r8] 
+636eb1e2: add      r2, sp, #0x78 
+636eb1e4: ldr      r3, [sp, #0x8c] 
+636eb1e6: str      r5, [sp] 
+636eb1e8: bl       #0x636eb0ec 
+636eb1ec: mov      r4, r0 
+636eb1ee: cbz      r0, #0x636eb22c 
+636eb1f0: movs     r3, #0x3c 
+636eb1f2: ldr      r0, [pc, #0x6c] 
+636eb1f4: str      r3, [sp] 
+636eb1f6: mov      r1, r4 
+636eb1f8: ldr      r2, [pc, #0x68] 
+636eb1fa: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb1fc: ldr      r3, [pc, #0x68] 
+636eb1fe: add      r2, pc 'Exec'
+636eb200: add      r3, pc 'WrapPrcStart.cpp'
+636eb202: bl       #0x63c5fe48 
+636eb206: ldr      r0, [pc, #0x64] 
+636eb208: add      r0, pc '[SDF][INT_ERROR] '
+636eb20a: bl       #0x63c5fe48 
+636eb20e: movs     r3, #5 
+636eb210: movs     r0, #0x40 
+636eb212: stm.w    sp, {r3, r4} 
+636eb216: movw     r2, #0x703e 
+636eb21a: adds     r3, #0x39 
+636eb21c: str      r3, [sp, #0xc] 
+636eb21e: movw     r3, #0x17d 
+636eb222: movs     r1, #0 
+636eb224: str      r1, [sp, #8] 
+636eb226: bl       #0x636bad44 
+636eb22a: b        #0x636eb238 
+636eb22c: mov      r0, r6 
+636eb22e: mov      r1, r5 
+636eb230: mov      r2, r7 
+636eb232: bl       #0x63cc5a08 
+636eb236: mov      r4, r0 
+636eb238: mov      r0, r4 
+636eb23a: add      sp, #0x90 
+636eb23c: pop.w    {r4, r5, r6, r7, r8, pc} 
+636eb240: lsrs     r4, r2, #0x1c 
+636eb242: lsls     r5, r0, #2 
+636eb244: strb     r7, [r6, #0x18] 
+636eb246: lsls     r5, r0, #2 
+636eb248: ldr      r6, [pc, #0x170] 
+636eb24a: lsls     r5, r0, #2 
+636eb24c: lsrs     r5, r2, #0x1d 
+636eb24e: lsls     r5, r0, #2 
+636eb250: lsrs     r4, r1, #0x1b 
+636eb252: lsls     r5, r0, #2 
+636eb254: strb     r7, [r5, #0x17] 
+636eb256: lsls     r5, r0, #2 
+636eb258: ldr      r6, [pc, #0x50] 
+636eb25a: lsls     r5, r0, #2 
+636eb25c: lsrs     r5, r1, #0x1c 
+636eb25e: lsls     r5, r0, #2 
+636eb260: lsrs     r0, r3, #0x1a 
+636eb262: lsls     r5, r0, #2 
+636eb264: strb     r3, [r7, #0x16] 
+636eb266: lsls     r5, r0, #2 
+636eb268: ldr      r5, [pc, #0x380] 
+636eb26a: lsls     r5, r0, #2 
+636eb26c: lsrs     r1, r3, #0x1b 
+636eb26e: lsls     r5, r0, #2 
+636eb270: ldr      r3, [pc, #0x38] 
+636eb272: subs     r0, #1 
+636eb274: add      r3, pc 
+636eb276: cmp      r0, #0xa 
+636eb278: bhi      #0x636eb2a0 
+636eb27a: tbb      [pc, r0] 
+636eb27e: lsrs     r4, r1, #0x18 
+636eb280: lsrs     r3, r2, #0x20 
+636eb282: asrs     r2, r1, #4 
+636eb284: asrs     r1, r2, #4 
+636eb286: asrs     r1, r2, #4 
+636eb288: movs     r6, r0 
+636eb28a: ldr      r2, [pc, #0x24] 
+636eb28c: b        #0x636eb29c 
+636eb28e: ldr      r2, [pc, #0x24] 
+636eb290: b        #0x636eb29c 
+636eb292: ldr      r2, [pc, #0x24] 
+636eb294: b        #0x636eb29c 
+636eb296: ldr      r2, [pc, #0x24] 
+636eb298: b        #0x636eb29c 
+636eb29a: ldr      r2, [pc, #0x24] 
+636eb29c: ldr      r0, [r3, r2] 
+636eb29e: bx       lr 
+636eb2a0: movs     r0, #0 
+636eb2a2: bx       lr 
+636eb2a4: ldr      r2, [pc, #0x1c] 
+636eb2a6: ldr      r0, [r3, r2] 
+636eb2a8: bx       lr 
+636eb2aa: nop       
+636eb2ac: ldm      r6!, {r3, r5, r7} 
+636eb2ae: lsls     r4, r6, #3 
+636eb2b0: ldr      r6, [sp, #0x1f0] 
+636eb2b2: movs     r0, r0 
+636eb2b4: movs     r2, #0x54 
+636eb2b6: movs     r0, r0 
+636eb2b8: ldrh     r0, [r5, #0x24] 
+636eb2ba: movs     r0, r0 
+636eb2bc: adds     r0, r7, #1 
+636eb2be: movs     r0, r0 
+636eb2c0: ldr      r7, [sp, #0x120] 
+636eb2c2: movs     r0, r0 
+636eb2c4: strb     r0, [r4, #0x17] 
+636eb2c6: movs     r0, r0 
+636eb2c8: ldr      r3, [pc, #0x38] 
+636eb2ca: subs     r0, #1 
+636eb2cc: add      r3, pc 
+636eb2ce: cmp      r0, #0xa 
+636eb2d0: bhi      #0x636eb2f8 
+636eb2d2: tbb      [pc, r0] 
+636eb2d6: lsrs     r4, r1, #0x18 
+636eb2d8: lsrs     r3, r2, #0x20 
+636eb2da: asrs     r2, r1, #4 
+636eb2dc: asrs     r1, r2, #4 
+636eb2de: asrs     r1, r2, #4 
+636eb2e0: movs     r6, r0 
+636eb2e2: ldr      r2, [pc, #0x24] 
+636eb2e4: b        #0x636eb2f4 
+636eb2e6: ldr      r2, [pc, #0x24] 
+636eb2e8: b        #0x636eb2f4 
+636eb2ea: ldr      r2, [pc, #0x24] 
+636eb2ec: b        #0x636eb2f4 
+636eb2ee: ldr      r2, [pc, #0x24] 
+636eb2f0: b        #0x636eb2f4 
+636eb2f2: ldr      r2, [pc, #0x24] 
+636eb2f4: ldr      r0, [r3, r2] 
+636eb2f6: bx       lr 
+636eb2f8: movs     r0, #0 
+636eb2fa: bx       lr 
+636eb2fc: ldr      r2, [pc, #0x1c] 
+636eb2fe: ldr      r0, [r3, r2] 
+636eb300: bx       lr 
+636eb302: nop       
+636eb304: ldm      r6, {r4, r6} 
+636eb306: lsls     r4, r6, #3 
+636eb308: cmp      r7, #0x30 
+636eb30a: movs     r0, r0 
+636eb30c: ldr      r0, [sp, #0xa0] 
+636eb30e: movs     r0, r0 
+636eb310: adds     r2, #0xb4 
+636eb312: movs     r0, r0 
+636eb314: str      r6, [sp, #0x3c0] 
+636eb316: movs     r0, r0 
+636eb318: ldr      r4, [r7, r5] 
+636eb31a: movs     r0, r0 
+636eb31c: cmp      r5, #0xa0 
+636eb31e: movs     r0, r0 
+636eb320: ldr      r3, [pc, #0x38] 
+636eb322: subs     r0, #1 
+636eb324: add      r3, pc 
+636eb326: cmp      r0, #0xa 
+636eb328: bhi      #0x636eb350 
+636eb32a: tbb      [pc, r0] 
+636eb32e: lsrs     r4, r1, #0x18 
+636eb330: lsrs     r3, r2, #0x20 
+636eb332: asrs     r2, r1, #4 
+636eb334: asrs     r1, r2, #4 
+636eb336: asrs     r1, r2, #4 
+636eb338: movs     r6, r0 
+636eb33a: ldr      r2, [pc, #0x24] 
+636eb33c: b        #0x636eb34c 
+636eb33e: ldr      r2, [pc, #0x24] 
+636eb340: b        #0x636eb34c 
+636eb342: ldr      r2, [pc, #0x24] 
+636eb344: b        #0x636eb34c 
+636eb346: ldr      r2, [pc, #0x24] 
+636eb348: b        #0x636eb34c 
+636eb34a: ldr      r2, [pc, #0x24] 
+636eb34c: ldr      r0, [r3, r2] 
+636eb34e: bx       lr 
+636eb350: movs     r0, #0 
+636eb352: bx       lr 
+636eb354: ldr      r2, [pc, #0x1c] 
+636eb356: ldr      r0, [r3, r2] 
+636eb358: bx       lr 
+636eb35a: nop       
+636eb35c: ldm      r5, {r3, r4, r5, r6, r7} 
+636eb35e: lsls     r4, r6, #3 
+636eb360: ldr      r4, [pc, #0x260] 
+636eb362: movs     r0, r0 
+636eb364: ldrh     r0, [r0, #0x10] 
+636eb366: movs     r0, r0 
+636eb368: str      r4, [r1, #0x24] 
+636eb36a: movs     r0, r0 
+636eb36c: cmp      r0, r8 
+636eb36e: movs     r0, r0 
+636eb370: asrs     r0, r0, #0x1a 
+636eb372: movs     r0, r0 
+636eb374: strb     r4, [r0, #0xc] 
+636eb376: movs     r0, r0 
+636eb378: ldr      r3, [pc, #0x38] 
+636eb37a: subs     r0, #1 
+636eb37c: add      r3, pc 
+636eb37e: cmp      r0, #0xa 
+636eb380: bhi      #0x636eb3a8 
+636eb382: tbb      [pc, r0] 
+636eb386: lsrs     r4, r1, #0x18 
+636eb388: lsrs     r3, r2, #0x20 
+636eb38a: asrs     r2, r1, #4 
+636eb38c: asrs     r1, r2, #4 
+636eb38e: asrs     r1, r2, #4 
+636eb390: movs     r6, r0 
+636eb392: ldr      r2, [pc, #0x24] 
+636eb394: b        #0x636eb3a4 
+636eb396: ldr      r2, [pc, #0x24] 
+636eb398: b        #0x636eb3a4 
+636eb39a: ldr      r2, [pc, #0x24] 
+636eb39c: b        #0x636eb3a4 
+636eb39e: ldr      r2, [pc, #0x24] 
+636eb3a0: b        #0x636eb3a4 
+636eb3a2: ldr      r2, [pc, #0x24] 
+636eb3a4: ldr      r0, [r3, r2] 
+636eb3a6: bx       lr 
+636eb3a8: movs     r0, #0 
+636eb3aa: bx       lr 
+636eb3ac: ldr      r2, [pc, #0x1c] 
+636eb3ae: ldr      r0, [r3, r2] 
+636eb3b0: bx       lr 
+636eb3b2: nop       
+636eb3b4: ldm      r5, {r5, r7} 
+636eb3b6: lsls     r4, r6, #3 
+636eb3b8: ldrb     r0, [r2, #3] 
+636eb3ba: movs     r0, r0 
+636eb3bc: strb     r0, [r4, #0xd] 
+636eb3be: movs     r0, r0 
+636eb3c0: ldrsb    r4, [r3, r4] 
+636eb3c2: movs     r0, r0 
+636eb3c4: cmp      r4, #0xa4 
+636eb3c6: movs     r0, r0 
+636eb3c8: strh     r0, [r3, #0x16] 
+636eb3ca: movs     r0, r0 
+636eb3cc: str      r0, [r4, r2] 
+636eb3ce: movs     r0, r0 
+636eb3d0: ldr      r3, [pc, #0x38] 
+636eb3d2: subs     r0, #1 
+636eb3d4: add      r3, pc 
+636eb3d6: cmp      r0, #0xa 
+636eb3d8: bhi      #0x636eb400 
+636eb3da: tbb      [pc, r0] 
+636eb3de: lsrs     r4, r1, #0x18 
+636eb3e0: lsrs     r3, r2, #0x20 
+636eb3e2: asrs     r2, r1, #4 
+636eb3e4: asrs     r1, r2, #4 
+636eb3e6: asrs     r1, r2, #4 
+636eb3e8: movs     r6, r0 
+636eb3ea: ldr      r2, [pc, #0x24] 
+636eb3ec: b        #0x636eb3fc 
+636eb3ee: ldr      r2, [pc, #0x24] 
+636eb3f0: b        #0x636eb3fc 
+636eb3f2: ldr      r2, [pc, #0x24] 
+636eb3f4: b        #0x636eb3fc 
+636eb3f6: ldr      r2, [pc, #0x24] 
+636eb3f8: b        #0x636eb3fc 
+636eb3fa: ldr      r2, [pc, #0x24] 
+636eb3fc: ldr      r0, [r3, r2] 
+636eb3fe: bx       lr 
+636eb400: movs     r0, #0 
+636eb402: bx       lr 
+636eb404: ldr      r2, [pc, #0x1c] 
+636eb406: ldr      r0, [r3, r2] 
+636eb408: bx       lr 
+636eb40a: nop       
+636eb40c: ldm      r5!, {r3, r6} 
+636eb40e: lsls     r4, r6, #3 
+636eb410: subs     r4, r4, r6 
+636eb412: movs     r0, r0 
+636eb414: ldr      r0, [r0, #0x30] 
+636eb416: movs     r0, r0 
+636eb418: subs     r7, #0x5c 
+636eb41a: movs     r0, r0 
+636eb41c: lsrs     r4, r0, #0x1f 
+636eb41e: movs     r0, r0 
+636eb420: ldrh     r0, [r6, #0x30] 
+636eb422: movs     r0, r0 
+636eb424: asrs     r0, r4, #0xc 
+636eb426: movs     r0, r0 
+636eb428: ldr      r3, [pc, #0x38] 
+636eb42a: subs     r0, #1 
+636eb42c: add      r3, pc 
+636eb42e: cmp      r0, #0xa 
+636eb430: bhi      #0x636eb458 
+636eb432: tbb      [pc, r0] 
+636eb436: lsrs     r4, r1, #0x18 
+636eb438: lsrs     r3, r2, #0x20 
+636eb43a: asrs     r2, r1, #4 
+636eb43c: asrs     r1, r2, #4 
+636eb43e: asrs     r1, r2, #4 
+636eb440: movs     r6, r0 
+636eb442: ldr      r2, [pc, #0x24] 
+636eb444: b        #0x636eb454 
+636eb446: ldr      r2, [pc, #0x24] 
+636eb448: b        #0x636eb454 
+636eb44a: ldr      r2, [pc, #0x24] 
+636eb44c: b        #0x636eb454 
+636eb44e: ldr      r2, [pc, #0x24] 
+636eb450: b        #0x636eb454 
+636eb452: ldr      r2, [pc, #0x24] 
+636eb454: ldr      r0, [r3, r2] 
+636eb456: bx       lr 
+636eb458: movs     r0, #0 
+636eb45a: bx       lr 
+636eb45c: ldr      r2, [pc, #0x1c] 
+636eb45e: ldr      r0, [r3, r2] 
+636eb460: bx       lr 
+636eb462: nop       
+636eb464: ldm      r4, {r4, r5, r6, r7} 
+636eb466: lsls     r4, r6, #3 
+636eb468: ldrb     r4, [r1, r3] 
+636eb46a: movs     r0, r0 
+636eb46c: movs     r4, #0x40 
+636eb46e: movs     r0, r0 
+636eb470: strh     r4, [r6, #0x18] 
+636eb472: movs     r0, r0 
+636eb474: add      r5, sp, #0xf0 
+636eb476: movs     r0, r0 
+636eb478: lsls     r0, r7, #4 
+636eb47a: movs     r0, r0 
+636eb47c: adds     r3, #0xe8 
+636eb47e: movs     r0, r0 
+636eb480: ldr      r3, [pc, #0x38] 
+636eb482: subs     r0, #1 
+636eb484: add      r3, pc 
+636eb486: cmp      r0, #0xa 
+636eb488: bhi      #0x636eb4b0 
+636eb48a: tbb      [pc, r0] 
+636eb48e: lsrs     r4, r1, #0x18 
+636eb490: lsrs     r3, r2, #0x20 
+636eb492: asrs     r2, r1, #4 
+636eb494: asrs     r1, r2, #4 
+636eb496: asrs     r1, r2, #4 
+636eb498: movs     r6, r0 
+636eb49a: ldr      r2, [pc, #0x24] 
+636eb49c: b        #0x636eb4ac 
+636eb49e: ldr      r2, [pc, #0x24] 
+636eb4a0: b        #0x636eb4ac 
+636eb4a2: ldr      r2, [pc, #0x24] 
+636eb4a4: b        #0x636eb4ac 
+636eb4a6: ldr      r2, [pc, #0x24] 
+636eb4a8: b        #0x636eb4ac 
+636eb4aa: ldr      r2, [pc, #0x24] 
+636eb4ac: ldr      r0, [r3, r2] 
+636eb4ae: bx       lr 
+636eb4b0: movs     r0, #0 
+636eb4b2: bx       lr 
+636eb4b4: ldr      r2, [pc, #0x1c] 
+636eb4b6: ldr      r0, [r3, r2] 
+636eb4b8: bx       lr 
+636eb4ba: nop       
+636eb4bc: ldm      r4, {r3, r4, r7} 
+636eb4be: lsls     r4, r6, #3 
+636eb4c0: str      r0, [sp, #0x210] 
+636eb4c2: movs     r0, r0 
+636eb4c4: str      r0, [r5, #0x60] 
+636eb4c6: movs     r0, r0 
+636eb4c8: strh     r4, [r6, #0x1c] 
+636eb4ca: movs     r0, r0 
+636eb4cc: ldr      r0, [r0, #4] 
+636eb4ce: movs     r0, r0 
+636eb4d0: str      r1, [sp, #0x290] 
+636eb4d2: movs     r0, r0 
+636eb4d4: movs     r3, #0x50 
+636eb4d6: movs     r0, r0 
+636eb4d8: ldr      r3, [pc, #0x38] 
+636eb4da: subs     r0, #1 
+636eb4dc: add      r3, pc 
+636eb4de: cmp      r0, #0xa 
+636eb4e0: bhi      #0x636eb508 
+636eb4e2: tbb      [pc, r0] 
+636eb4e6: lsrs     r4, r1, #0x18 
+636eb4e8: lsrs     r3, r2, #0x20 
+636eb4ea: asrs     r2, r1, #4 
+636eb4ec: asrs     r1, r2, #4 
+636eb4ee: asrs     r1, r2, #4 
+636eb4f0: movs     r6, r0 
+636eb4f2: ldr      r2, [pc, #0x24] 
+636eb4f4: b        #0x636eb504 
+636eb4f6: ldr      r2, [pc, #0x24] 
+636eb4f8: b        #0x636eb504 
+636eb4fa: ldr      r2, [pc, #0x24] 
+636eb4fc: b        #0x636eb504 
+636eb4fe: ldr      r2, [pc, #0x24] 
+636eb500: b        #0x636eb504 
+636eb502: ldr      r2, [pc, #0x24] 
+636eb504: ldr      r0, [r3, r2] 
+636eb506: bx       lr 
+636eb508: movs     r0, #0 
+636eb50a: bx       lr 
+636eb50c: ldr      r2, [pc, #0x1c] 
+636eb50e: ldr      r0, [r3, r2] 
+636eb510: bx       lr 
+636eb512: nop       
+636eb514: ldm      r4!, {r6} 
+636eb516: lsls     r4, r6, #3 
+636eb518: adds     r5, #0x28 
+636eb51a: movs     r0, r0 
+636eb51c: adds     r1, #0x94 
+636eb51e: movs     r0, r0 
+636eb520: ldrb     r0, [r5, r3] 
+636eb522: movs     r0, r0 
+636eb524: strh     r4, [r7, #0x1e] 
+636eb526: movs     r0, r0 
+636eb528: add      r7, sp, #0x90 
+636eb52a: movs     r0, r0 
+636eb52c: ldr      r5, [sp, #0x3d0] 
+636eb52e: movs     r0, r0 
+636eb530: ldr      r3, [pc, #0xc] 
+636eb532: ldr      r2, [pc, #0x10] 
+636eb534: add      r3, pc 
+636eb536: ldr      r3, [r3, r2] 
+636eb538: adds     r3, #8 
+636eb53a: str      r3, [r0] 
+636eb53c: bx       lr 
+636eb53e: nop       
+636eb540: ldm      r3, {r3, r5, r6, r7} 
+636eb542: lsls     r4, r6, #3 
+636eb544: ldrh     r0, [r0, #0x3c] 
+636eb546: movs     r0, r0 
+636eb548: ldr      r3, [pc, #0xc] 
+636eb54a: ldr      r2, [pc, #0x10] 
+636eb54c: add      r3, pc 
+636eb54e: ldr      r3, [r3, r2] 
+636eb550: adds     r3, #8 
+636eb552: str      r3, [r0] 
+636eb554: bx       lr 
+636eb556: nop       
+636eb558: ldm      r3!, {r4, r6, r7} 
+636eb55a: lsls     r4, r6, #3 
+636eb55c: ldrh     r0, [r0, #0x3c] 
+636eb55e: movs     r0, r0 
+636eb560: push.w   {r0, r1, r4, r5, r6, r7, r8, lr} 
+636eb564: mov      r5, r1 
+636eb566: mov      r1, r2 
+636eb568: mov      r6, r2 
+636eb56a: mov      r7, r3 
+636eb56c: bl       #0x63cc5d3c 
+636eb570: mov      r4, r0 
+636eb572: cbz      r0, #0x636eb5b2 
+636eb574: movs     r3, #0x26 
+636eb576: ldr      r0, [pc, #0xb4] 
+636eb578: str      r3, [sp] 
+636eb57a: mov      r1, r4 
+636eb57c: ldr      r2, [pc, #0xb0] 
+636eb57e: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb580: ldr      r3, [pc, #0xb0] 
+636eb582: add      r2, pc 'SetImageObj'
+636eb584: add      r3, pc 'WrapRcBase.cpp'
+636eb586: bl       #0x63c5fe48 
+636eb58a: ldr      r0, [pc, #0xac] 
+636eb58c: add      r0, pc '[SDF][INT_ERROR] '
+636eb58e: bl       #0x63c5fe48 
+636eb592: b        #0x636eb624 
+636eb594: add.w    ip, r5, r3, lsl #3 
+636eb598: ldr.w    r8, [r6] 
+636eb59c: ldr.w    ip, [ip, #4] 
+636eb5a0: cmp      ip, r8 
+636eb5a2: bhs      #0x636eb5ae 
+636eb5a4: mov      r2, r3 
+636eb5a6: rsb      r1, ip, r8 
+636eb5aa: adds     r3, #1 
+636eb5ac: b        #0x636eb5ba 
+636eb5ae: bne      #0x636eb5c4 
+636eb5b0: b        #0x636eb5c0 
+636eb5b2: ldrb     r0, [r5] 
+636eb5b4: mov      r3, r4 
+636eb5b6: mov      r1, r4 
+636eb5b8: mov      r2, r4 
+636eb5ba: cmp      r3, r0 
+636eb5bc: blo      #0x636eb594 
+636eb5be: b        #0x636eb5c4 
+636eb5c0: mov      r2, r3 
+636eb5c2: movs     r1, #0 
+636eb5c4: subs     r3, r0, r2 
+636eb5c6: add.w    r5, r5, r2, lsl #3 
+636eb5ca: cmp      r3, #4 
+636eb5cc: it       hi 
+636eb5ce: movhi    r3, #4 
+636eb5d0: str      r3, [r7] 
+636eb5d2: ldr      r0, [r7] 
+636eb5d4: adds     r5, #4 
+636eb5d6: mov      r3, r7 
+636eb5d8: movs     r2, #0 
+636eb5da: b        #0x636eb5f4 
+636eb5dc: ldr      ip, [r5, #-0x8] 
+636eb5e0: adds     r2, #1 
+636eb5e2: add      ip, r1 
+636eb5e4: str      ip, [r3, #-0x4] 
+636eb5e8: ldr      ip, [r5, #-0x4] 
+636eb5ec: rsb      ip, r1, ip 
+636eb5f0: str.w    ip, [r3] 
+636eb5f4: adds     r5, #8 
+636eb5f6: adds     r3, #8 
+636eb5f8: cmp      r2, r0 
+636eb5fa: bne      #0x636eb5dc 
+636eb5fc: ldrh     r3, [r6, #4] 
+636eb5fe: strh     r3, [r7, #0x24] 
+636eb600: ldrh     r3, [r6, #6] 
+636eb602: strh     r3, [r7, #0x26] 
+636eb604: ldrh     r3, [r6, #8] 
+636eb606: strh     r3, [r7, #0x28] 
+636eb608: ldrh     r3, [r6, #0xa] 
+636eb60a: strh     r3, [r7, #0x2a] 
+636eb60c: ldrh     r3, [r6, #0xc] 
+636eb60e: strh     r3, [r7, #0x2c] 
+636eb610: ldrh     r3, [r6, #0xe] 
+636eb612: strh     r3, [r7, #0x2e] 
+636eb614: ldrh     r3, [r6, #0x10] 
+636eb616: strh     r3, [r7, #0x30] 
+636eb618: ldrh     r3, [r6, #0x12] 
+636eb61a: strh     r3, [r7, #0x32] 
+636eb61c: ldrh     r3, [r6, #0x14] 
+636eb61e: ldrh     r6, [r6, #0x16] 
+636eb620: strh     r3, [r7, #0x34] 
+636eb622: strh     r6, [r7, #0x36] 
+636eb624: mov      r0, r4 
+636eb626: pop.w    {r2, r3, r4, r5, r6, r7, r8, pc} 
+636eb62a: nop       
+636eb62c: lsrs     r4, r2, #0xc 
+636eb62e: lsls     r5, r0, #2 
+636eb630: strb     r4, [r7, #8] 
+636eb632: lsls     r5, r0, #2 
+636eb634: ldr      r2, [pc, #0x1b4] 
+636eb636: lsls     r5, r0, #2 
+636eb638: lsrs     r5, r2, #0xd 
+636eb63a: lsls     r5, r0, #2 
+636eb63c: push     {r0, r1, r2, r3, r4, r5, r6, lr} 
+636eb63e: mov      r5, r1 
+636eb640: movs     r0, #0 
+636eb642: cmp      r5, #5 
+636eb644: bhi      #0x636eb66c 
+636eb646: tbb      [pc, r5] 
+636eb64a: lsls     r3, r0, #0x14 
+636eb64c: lsrs     r7, r0, #0xc 
+636eb64e: lsrs     r5, r1, #0x1c 
+636eb650: str      r0, [r2] 
+636eb652: b        #0x636eb6c0 
+636eb654: movs     r3, #1 
+636eb656: b        #0x636eb65a 
+636eb658: movs     r3, #2 
+636eb65a: str      r3, [r2] 
+636eb65c: movs     r0, #0 
+636eb65e: b        #0x636eb6c0 
+636eb660: movs     r3, #3 
+636eb662: b        #0x636eb65a 
+636eb664: movs     r3, #4 
+636eb666: b        #0x636eb65a 
+636eb668: movs     r3, #5 
+636eb66a: b        #0x636eb65a 
+636eb66c: movs     r3, #0xde 
+636eb66e: ldr      r0, [pc, #0x54] 
+636eb670: str      r3, [sp] 
+636eb672: movs     r1, #0x10 
+636eb674: ldr      r2, [pc, #0x50] 
+636eb676: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb678: ldr      r3, [pc, #0x50] 
+636eb67a: movs     r4, #0 
+636eb67c: add      r2, pc 'SetYcCompress'
+636eb67e: movs     r6, #0x10 
+636eb680: add      r3, pc 'WrapRcBase.cpp'
+636eb682: bl       #0x63c5fe48 
+636eb686: ldr      r0, [pc, #0x48] 
+636eb688: add      r0, pc '[SDF][INT_ERROR] '
+636eb68a: bl       #0x63c5fe48 
+636eb68e: movs     r3, #5 
+636eb690: stm.w    sp, {r3, r6} 
+636eb694: adds     r3, #0xdb 
+636eb696: movs     r0, #0x40 
+636eb698: str      r3, [sp, #0xc] 
+636eb69a: mov      r1, r4 
+636eb69c: movw     r2, #0x703f 
+636eb6a0: subs     r3, #0x5a 
+636eb6a2: str      r4, [sp, #8] 
+636eb6a4: bl       #0x636bad44 
+636eb6a8: movs     r3, #0xe1 
+636eb6aa: movs     r0, #0x80 
+636eb6ac: str      r3, [sp, #8] 
+636eb6ae: mov      r1, r4 
+636eb6b0: movw     r2, #0x703f 
+636eb6b4: mov      r3, r5 
+636eb6b6: str      r4, [sp] 
+636eb6b8: str      r4, [sp, #4] 
+636eb6ba: bl       #0x636badb8 
+636eb6be: mov      r0, r6 
+636eb6c0: add      sp, #0x10 
+636eb6c2: pop      {r4, r5, r6, pc} 
+636eb6c4: lsrs     r4, r3, #8 
+636eb6c6: lsls     r5, r0, #2 
+636eb6c8: strb     r7, [r3, #6] 
+636eb6ca: lsls     r5, r0, #2 
+636eb6cc: ldr      r1, [pc, #0x1c4] 
+636eb6ce: lsls     r5, r0, #2 
+636eb6d0: lsrs     r1, r3, #9 
+636eb6d2: lsls     r5, r0, #2 
+636eb6d4: push     {r4, r5, r6, r7, lr} 
+636eb6d6: mov      r5, r1 
+636eb6d8: sub      sp, #0x14 
+636eb6da: mov      r7, r2 
+636eb6dc: movs     r6, #0 
+636eb6de: cmp      r5, #3 
+636eb6e0: bhi      #0x636eb79a 
+636eb6e2: tbb      [pc, r5] 
+636eb6e6: lsls     r2, r0, #8 
+636eb6e8: lsls     r4, r0, #0x1c 
+636eb6ea: str      r6, [r3] 
+636eb6ec: b        #0x636eb710 
+636eb6ee: movs     r2, #1 
+636eb6f0: str      r2, [r3] 
+636eb6f2: b        #0x636eb710 
+636eb6f4: subs     r2, #1 
+636eb6f6: movs     r1, #2 
+636eb6f8: movs     r6, #0 
+636eb6fa: str      r1, [r3] 
+636eb6fc: cmp      r2, #0xb 
+636eb6fe: bhi      #0x636eb744 
+636eb700: tbb      [pc, r2] 
+636eb704: lsrs     r6, r0, #0x20 
+636eb706: lsrs     r2, r1, #0x10 
+636eb708: asrs     r6, r1, #0x20 
+636eb70a: asrs     r2, r2, #0x10 
+636eb70c: adds     r6, r2, r0 
+636eb70e: adds     r2, r3, #0 
+636eb710: str      r6, [r3, #4] 
+636eb712: b        #0x636eb7f2 
+636eb714: movs     r2, #1 
+636eb716: b        #0x636eb73e 
+636eb718: str      r1, [r3, #4] 
+636eb71a: b        #0x636eb740 
+636eb71c: movs     r2, #3 
+636eb71e: b        #0x636eb73e 
+636eb720: movs     r2, #4 
+636eb722: b        #0x636eb73e 
+636eb724: movs     r2, #5 
+636eb726: b        #0x636eb73e 
+636eb728: movs     r2, #6 
+636eb72a: b        #0x636eb73e 
+636eb72c: movs     r2, #7 
+636eb72e: b        #0x636eb73e 
+636eb730: movs     r2, #8 
+636eb732: b        #0x636eb73e 
+636eb734: movs     r2, #9 
+636eb736: b        #0x636eb73e 
+636eb738: movs     r2, #0xa 
+636eb73a: b        #0x636eb73e 
+636eb73c: movs     r2, #0xb 
+636eb73e: str      r2, [r3, #4] 
+636eb740: movs     r6, #0 
+636eb742: b        #0x636eb7f2 
+636eb744: mov.w    r3, #0x124 
+636eb748: ldr      r0, [pc, #0xac] 
+636eb74a: str      r3, [sp] 
+636eb74c: movs     r1, #0x10 
+636eb74e: ldr      r2, [pc, #0xac] 
+636eb750: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb752: ldr      r3, [pc, #0xac] 
+636eb754: movs     r4, #0 
+636eb756: add      r2, pc 'SetTransfer'
+636eb758: movs     r6, #0x10 
+636eb75a: add      r3, pc 'WrapRcBase.cpp'
+636eb75c: bl       #0x63c5fe48 
+636eb760: ldr      r0, [pc, #0xa0] 
+636eb762: add      r0, pc '[SDF][INT_ERROR] '
+636eb764: bl       #0x63c5fe48 
+636eb768: movs     r3, #5 
+636eb76a: stm.w    sp, {r3, r6} 
+636eb76e: mov.w    r3, #0x126 
+636eb772: movs     r0, #0x40 
+636eb774: str      r3, [sp, #0xc] 
+636eb776: mov      r1, r4 
+636eb778: movw     r2, #0x703f 
+636eb77c: subs     r3, #0x9f 
+636eb77e: str      r4, [sp, #8] 
+636eb780: bl       #0x636bad44 
+636eb784: movw     r3, #0x127 
+636eb788: str      r4, [sp] 
+636eb78a: movs     r0, #0x80 
+636eb78c: str      r3, [sp, #8] 
+636eb78e: mov      r1, r4 
+636eb790: str      r4, [sp, #4] 
+636eb792: movw     r2, #0x703f 
+636eb796: mov      r3, r7 
+636eb798: b        #0x636eb7ee 
+636eb79a: movw     r3, #0x12f 
+636eb79e: ldr      r0, [pc, #0x68] 
+636eb7a0: str      r3, [sp] 
+636eb7a2: movs     r1, #0x10 
+636eb7a4: ldr      r2, [pc, #0x64] 
+636eb7a6: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb7a8: ldr      r3, [pc, #0x64] 
+636eb7aa: movs     r4, #0 
+636eb7ac: add      r2, pc 'SetTransfer'
+636eb7ae: movs     r6, #0x10 
+636eb7b0: add      r3, pc 'WrapRcBase.cpp'
+636eb7b2: bl       #0x63c5fe48 
+636eb7b6: ldr      r0, [pc, #0x5c] 
+636eb7b8: add      r0, pc '[SDF][INT_ERROR] '
+636eb7ba: bl       #0x63c5fe48 
+636eb7be: movs     r3, #5 
+636eb7c0: stm.w    sp, {r3, r6} 
+636eb7c4: movw     r3, #0x131 
+636eb7c8: movs     r0, #0x40 
+636eb7ca: str      r3, [sp, #0xc] 
+636eb7cc: mov      r1, r4 
+636eb7ce: movw     r2, #0x703f 
+636eb7d2: subs     r3, #0xa9 
+636eb7d4: str      r4, [sp, #8] 
+636eb7d6: bl       #0x636bad44 
+636eb7da: mov.w    r3, #0x132 
+636eb7de: movs     r0, #0x80 
+636eb7e0: str      r3, [sp, #8] 
+636eb7e2: mov      r1, r4 
+636eb7e4: movw     r2, #0x703f 
+636eb7e8: mov      r3, r5 
+636eb7ea: str      r4, [sp] 
+636eb7ec: str      r4, [sp, #4] 
+636eb7ee: bl       #0x636badb8 
+636eb7f2: mov      r0, r6 
+636eb7f4: add      sp, #0x14 
+636eb7f6: pop      {r4, r5, r6, r7, pc} 
+636eb7f8: lsrs     r2, r0, #5 
+636eb7fa: lsls     r5, r0, #2 
+636eb7fc: strb     r1, [r7, #2] 
+636eb7fe: lsls     r5, r0, #2 
+636eb800: ldr      r0, [pc, #0x25c] 
+636eb802: lsls     r5, r0, #2 
+636eb804: lsrs     r7, r7, #5 
+636eb806: lsls     r5, r0, #2 
+636eb808: lsrs     r4, r5, #3 
+636eb80a: lsls     r5, r0, #2 
+636eb80c: strb     r3, [r4, #1] 
+636eb80e: lsls     r5, r0, #2 
+636eb810: ldr      r0, [pc, #0x104] 
+636eb812: lsls     r5, r0, #2 
+636eb814: lsrs     r1, r5, #4 
+636eb816: lsls     r5, r0, #2 
+636eb818: push     {r0, r1, r2, r3, r4, r5, r6, lr} 
+636eb81a: mov      r5, r1 
+636eb81c: movs     r4, #0 
+636eb81e: cmp      r5, #0xe 
+636eb820: bhi      #0x636eb8b6 
+636eb822: tbb      [pc, r5] 
+636eb826: lsrs     r0, r1, #0xc 
+636eb828: asrs     r5, r1, #4 
+636eb82a: asrs     r3, r2, #0x14 
+636eb82c: adds     r7, r2, r4 
+636eb82e: adds     r3, r3, #4 
+636eb830: movs     r1, #0x1f 
+636eb832: movs     r5, #0x23 
+636eb834: movs     r7, r4 
+636eb836: str      r4, [r2] 
+636eb838: mov      r6, r4 
+636eb83a: b        #0x636eb90e 
+636eb83c: movs     r3, #1 
+636eb83e: b        #0x636eb842 
+636eb840: movs     r3, #2 
+636eb842: str      r3, [r2] 
+636eb844: movs     r6, #0 
+636eb846: b        #0x636eb90e 
+636eb848: movs     r3, #3 
+636eb84a: b        #0x636eb842 
+636eb84c: movs     r3, #4 
+636eb84e: b        #0x636eb842 
+636eb850: movs     r3, #5 
+636eb852: b        #0x636eb842 
+636eb854: movs     r3, #6 
+636eb856: b        #0x636eb842 
+636eb858: movs     r3, #7 
+636eb85a: b        #0x636eb842 
+636eb85c: movs     r3, #0xa 
+636eb85e: b        #0x636eb842 
+636eb860: movs     r3, #8 
+636eb862: b        #0x636eb842 
+636eb864: movs     r3, #9 
+636eb866: b        #0x636eb842 
+636eb868: movs     r3, #0xb 
+636eb86a: b        #0x636eb842 
+636eb86c: movs     r3, #0xc 
+636eb86e: b        #0x636eb842 
+636eb870: movs     r3, #0xd 
+636eb872: b        #0x636eb842 
+636eb874: str      r4, [r2] 
+636eb876: mov.w    r3, #0x176 
+636eb87a: ldr      r0, [pc, #0x98] 
+636eb87c: movs     r1, #0x10 
+636eb87e: str      r3, [sp] 
+636eb880: movs     r6, #0x10 
+636eb882: ldr      r2, [pc, #0x94] 
+636eb884: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb886: ldr      r3, [pc, #0x94] 
+636eb888: add      r2, pc 'SetSync'
+636eb88a: add      r3, pc 'WrapRcBase.cpp'
+636eb88c: bl       #0x63c5fe48 
+636eb890: ldr      r0, [pc, #0x8c] 
+636eb892: add      r0, pc '[SDF][INT_ERROR] '
+636eb894: bl       #0x63c5fe48 
+636eb898: movs     r3, #5 
+636eb89a: stm.w    sp, {r3, r6} 
+636eb89e: mov.w    r3, #0x178 
+636eb8a2: movs     r0, #0x40 
+636eb8a4: str      r3, [sp, #0xc] 
+636eb8a6: mov      r1, r4 
+636eb8a8: movw     r2, #0x703f 
+636eb8ac: subs     r3, #0xef 
+636eb8ae: str      r4, [sp, #8] 
+636eb8b0: bl       #0x636bad44 
+636eb8b4: b        #0x636eb90e 
+636eb8b6: str      r4, [r2] 
+636eb8b8: movw     r3, #0x17d 
+636eb8bc: ldr      r0, [pc, #0x64] 
+636eb8be: movs     r1, #0x20 
+636eb8c0: str      r3, [sp] 
+636eb8c2: movs     r6, #0x20 
+636eb8c4: ldr      r2, [pc, #0x60] 
+636eb8c6: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb8c8: ldr      r3, [pc, #0x60] 
+636eb8ca: add      r2, pc 'SetSync'
+636eb8cc: add      r3, pc 'WrapRcBase.cpp'
+636eb8ce: bl       #0x63c5fe48 
+636eb8d2: ldr      r0, [pc, #0x5c] 
+636eb8d4: add      r0, pc '[SDF][INT_ERROR] '
+636eb8d6: bl       #0x63c5fe48 
+636eb8da: movs     r3, #5 
+636eb8dc: stm.w    sp, {r3, r6} 
+636eb8e0: movw     r3, #0x17f 
+636eb8e4: movs     r0, #0x40 
+636eb8e6: str      r3, [sp, #0xc] 
+636eb8e8: mov      r1, r4 
+636eb8ea: movw     r2, #0x703f 
+636eb8ee: subs     r3, #0xf5 
+636eb8f0: str      r4, [sp, #8] 
+636eb8f2: bl       #0x636bad44 
+636eb8f6: mov.w    r3, #0x180 
+636eb8fa: movs     r0, #0x80 
+636eb8fc: str      r3, [sp, #8] 
+636eb8fe: mov      r1, r4 
+636eb900: movw     r2, #0x703f 
+636eb904: mov      r3, r5 
+636eb906: str      r4, [sp] 
+636eb908: str      r4, [sp, #4] 
+636eb90a: bl       #0x636badb8 
+636eb90e: mov      r0, r6 
+636eb910: add      sp, #0x10 
+636eb912: pop      {r4, r5, r6, pc} 
+636eb914: lsrs     r6, r1, #0x20 
+636eb916: lsls     r5, r0, #2 
+636eb918: ldr      r3, [r5, #0x78] 
+636eb91a: lsls     r5, r0, #2 
+636eb91c: bxns     ip 
+636eb91e: lsls     r5, r0, #2 
+636eb920: lsrs     r7, r1, #1 
+636eb922: lsls     r5, r0, #2 
+636eb924: lsls     r4, r1, #0x1f 
+636eb926: lsls     r5, r0, #2 
+636eb928: ldr      r1, [r5, #0x74] 
+636eb92a: lsls     r5, r0, #2 
+636eb92c: bxns     r4 
+636eb92e: lsls     r5, r0, #2 
+636eb930: lsrs     r5, r1, #0x20 
+636eb932: lsls     r5, r0, #2 
+636eb934: push     {r0, r1, r2, r3, r4, r5, r6, lr} 
+636eb936: mov      r5, r1 
+636eb938: movs     r0, #0 
+636eb93a: cmp      r5, #3 
+636eb93c: bhi      #0x636eb95a 
+636eb93e: tbb      [pc, r5] 
+636eb942: lsls     r2, r0, #0x10 
+636eb944: lsrs     r6, r0, #8 
+636eb946: str      r0, [r2] 
+636eb948: b        #0x636eb9b4 
+636eb94a: movs     r3, #1 
+636eb94c: b        #0x636eb950 
+636eb94e: movs     r3, #2 
+636eb950: str      r3, [r2] 
+636eb952: movs     r0, #0 
+636eb954: b        #0x636eb9b4 
+636eb956: movs     r3, #3 
+636eb958: b        #0x636eb950 
+636eb95a: movw     r3, #0x19b 
+636eb95e: ldr      r0, [pc, #0x58] 
+636eb960: str      r3, [sp] 
+636eb962: movs     r1, #0x10 
+636eb964: ldr      r2, [pc, #0x54] 
+636eb966: add      r0, pc '[SDF][INT_ERROR] IntErrCode: 0x%x in %s() [%s (line %d)]\n'
+636eb968: ldr      r3, [pc, #0x54] 
+636eb96a: movs     r4, #0 
+636eb96c: add      r2, pc 'SetMirror'
+636eb96e: movs     r6, #0x10 
+636eb970: add      r3, pc 'WrapRcBase.cpp'
+636eb972: bl       #0x63c5fe48 
+636eb976: ldr      r0, [pc, #0x4c] 
+636eb978: add      r0, pc '[SDF][INT_ERROR] '
+636eb97a: bl       #0x63c5fe48 
+636eb97e: movs     r3, #5 

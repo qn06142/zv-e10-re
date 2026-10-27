@@ -1,0 +1,442 @@
+[
+  {
+    "start": "0x18a0a8",
+    "end": "0x18a1a0",
+    "strings": [
+      {
+        "at": "0x18a0c2",
+        "string": "[ObjEffect][MLM] ExecCmdPinDeliverMultiLayout::copyBuffer()"
+      },
+      {
+        "at": "0x18a142",
+        "string": "[ObjEffect][MLM]Failed to Execute CopyImage [%x]"
+      },
+      {
+        "at": "0x18a166",
+        "string": "[ObjEffect][MLM]Failed to Copy Image [%x]"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0x18a0b2",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a0ca",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a0d2",
+        "target": "0x189320"
+      },
+      {
+        "at": "0x18a0da",
+        "target": "0x18930c"
+      },
+      {
+        "at": "0x18a0e0",
+        "target": "0x1892a8"
+      },
+      {
+        "at": "0x18a118",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChC1Et"
+      },
+      {
+        "at": "0x18a12a",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfCh9copyImageEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_24COPY_IMAGE_COMMAND_PARAME"
+      },
+      {
+        "at": "0x18a132",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a14c",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a156",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a170",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a17a",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChD1Ev"
+      },
+      {
+        "at": "0x18a18c",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChD1Ev"
+      },
+      {
+        "at": "0x18a190",
+        "target": "__cxa_end_cleanup"
+      }
+    ]
+  },
+  {
+    "start": "0x18a1a0",
+    "end": "0x18a2a0",
+    "strings": [
+      {
+        "at": "0x18a1bc",
+        "string": "[ObjEffect][MLM] ExecCmdPinDeliverMultiLayout::paintImage()"
+      },
+      {
+        "at": "0x18a240",
+        "string": "[ObjEffect][MLM]Failed to Execute PaintImage [%x]"
+      },
+      {
+        "at": "0x18a264",
+        "string": "[ObjEffect][MLM]Failed to Paint Image [%x]"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0x18a1ac",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a1c4",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a1cc",
+        "target": "0x189320"
+      },
+      {
+        "at": "0x18a1d4",
+        "target": "0x18930c"
+      },
+      {
+        "at": "0x18a1da",
+        "target": "0x189264"
+      },
+      {
+        "at": "0x18a216",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChC1Et"
+      },
+      {
+        "at": "0x18a228",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfCh10paintImageEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_25PAINT_IMAGE_COMMAND_PARAME"
+      },
+      {
+        "at": "0x18a230",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a24a",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a254",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a26e",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a278",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChD1Ev"
+      },
+      {
+        "at": "0x18a28a",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChD1Ev"
+      },
+      {
+        "at": "0x18a28e",
+        "target": "__cxa_end_cleanup"
+      }
+    ]
+  },
+  {
+    "start": "0x18a58c",
+    "end": "0x18a698",
+    "strings": [
+      {
+        "at": "0x18a5a6",
+        "string": "[ObjEffect][MLM] ExecCmdPinDeliverMultiLayout::resizeRotateImage()"
+      },
+      {
+        "at": "0x18a638",
+        "string": "[ObjEffect][MLM]Failed to Execute ResizeRotate [%x]"
+      },
+      {
+        "at": "0x18a65c",
+        "string": "[ObjEffect][MLM]Failed to ResizeRotate [%x]"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0x18a596",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a5ae",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a5b6",
+        "target": "0x189320"
+      },
+      {
+        "at": "0x18a5be",
+        "target": "0x18930c"
+      },
+      {
+        "at": "0x18a5c4",
+        "target": "0x17570c"
+      },
+      {
+        "at": "0x18a60e",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChC1Et"
+      },
+      {
+        "at": "0x18a620",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfCh12resizeRotateEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_27RESIZE_ROTATE_COMMAND_PARAME"
+      },
+      {
+        "at": "0x18a628",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a642",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a64c",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x18a666",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x18a670",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChD1Ev"
+      },
+      {
+        "at": "0x18a682",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChD1Ev"
+      },
+      {
+        "at": "0x18a686",
+        "target": "__cxa_end_cleanup"
+      }
+    ]
+  },
+  {
+    "start": "0x19fc88",
+    "end": "0x19fd94",
+    "strings": [
+      {
+        "at": "0x19fca2",
+        "string": "[ObjEffect]SequencePinDeliverStartArtfilterCmd::resizeRotateImage()"
+      },
+      {
+        "at": "0x19fd34",
+        "string": "[ObjEffect]Failed to Execute ResizeRotate [%x]"
+      },
+      {
+        "at": "0x19fd58",
+        "string": "[ObjEffect]Failed to ResizeRotate [%x]"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0x19fc92",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x19fcaa",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x19fcb2",
+        "target": "0x189320"
+      },
+      {
+        "at": "0x19fcba",
+        "target": "0x18930c"
+      },
+      {
+        "at": "0x19fcc0",
+        "target": "0x17570c"
+      },
+      {
+        "at": "0x19fd0a",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChC1Et"
+      },
+      {
+        "at": "0x19fd1c",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfCh12resizeRotateEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_27RESIZE_ROTATE_COMMAND_PARAME"
+      },
+      {
+        "at": "0x19fd24",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x19fd3e",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x19fd48",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x19fd62",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x19fd6c",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChD1Ev"
+      },
+      {
+        "at": "0x19fd7e",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChD1Ev"
+      },
+      {
+        "at": "0x19fd82",
+        "target": "__cxa_end_cleanup"
+      }
+    ]
+  },
+  {
+    "start": "0x1a6224",
+    "end": "0x1a6430",
+    "strings": [
+      {
+        "at": "0x1a6240",
+        "string": "[ObjEffect]SequenceAppExecBeautyEffectCmd::copyImageB2A"
+      },
+      {
+        "at": "0x1a6376",
+        "string": "[ObjEffect]Failed to Execute CopyImage [%x]"
+      },
+      {
+        "at": "0x1a63a2",
+        "string": "[ObjEffect]Failed to CopyImage [%x]"
+      }
+    ],
+    "calls": [
+      {
+        "at": "0x1a6230",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x1a6248",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x1a625c",
+        "target": "0xe49650"
+      },
+      {
+        "at": "0x1a626e",
+        "target": "0xe49650"
+      },
+      {
+        "at": "0x1a6280",
+        "target": "0xe49650"
+      },
+      {
+        "at": "0x1a628c",
+        "target": "0x1a80e0"
+      },
+      {
+        "at": "0x1a6298",
+        "target": "0x1a80e0"
+      },
+      {
+        "at": "0x1a62a8",
+        "target": "0xe490a4"
+      },
+      {
+        "at": "0x1a62b8",
+        "target": "0xe490a4"
+      },
+      {
+        "at": "0x1a62c4",
+        "target": "0xe488f4"
+      },
+      {
+        "at": "0x1a62dc",
+        "target": "0xe48ecc"
+      },
+      {
+        "at": "0x1a62e6",
+        "target": "0xe48880"
+      },
+      {
+        "at": "0x1a62ee",
+        "target": "0xe493ac"
+      },
+      {
+        "at": "0x1a62f6",
+        "target": "0x189320"
+      },
+      {
+        "at": "0x1a62fe",
+        "target": "0x18930c"
+      },
+      {
+        "at": "0x1a6306",
+        "target": "0x1892a8"
+      },
+      {
+        "at": "0x1a634a",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChC1Et"
+      },
+      {
+        "at": "0x1a635e",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfCh9copyImageEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_24COPY_IMAGE_COMMAND_PARAME"
+      },
+      {
+        "at": "0x1a6366",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x1a6380",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x1a6392",
+        "target": "0x172a4c"
+      },
+      {
+        "at": "0x1a63ac",
+        "target": "_ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz"
+      },
+      {
+        "at": "0x1a63e0",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChD1Ev"
+      },
+      {
+        "at": "0x1a63e8",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x1a63f0",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x1a6406",
+        "target": "_ZN17OBJAVBBCBASECLASS5SdfChD1Ev"
+      },
+      {
+        "at": "0x1a6410",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x1a641a",
+        "target": "0xe486ec"
+      },
+      {
+        "at": "0x1a641e",
+        "target": "__cxa_end_cleanup"
+      }
+    ]
+  }
+]

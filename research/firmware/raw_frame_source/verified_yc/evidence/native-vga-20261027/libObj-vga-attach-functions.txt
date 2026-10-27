@@ -1,0 +1,148 @@
+
+FUNCTION 0x206aec..0x206b58
+00206aec: push     {r4, r5, r6, r7, lr} 
+00206aee: sub      sp, #0x24 
+00206af0: add      r7, sp, #8 
+00206af2: mov      r6, r0 
+00206af4: mov      r5, r2 
+00206af6: mov      r4, r1 
+00206af8: movs     r2, #0x18 
+00206afa: movs     r1, #0 
+00206afc: mov      r0, r7 
+00206afe: blx      #0x10b2e0 memset
+00206b02: mov.w    r3, #-1 
+00206b06: adds     r0, r6, #4 
+00206b08: str      r3, [sp] 
+00206b0a: mov      r1, r7 
+00206b0c: mov      r2, r5 
+00206b0e: adds     r3, #2 
+00206b10: blx      #0x1088bc _ZN17OBJAVBBCBASECLASS5DmmCh8allocNewEP17dmm_comp_alc_unitjtj
+00206b14: mov      r6, r0 
+00206b16: cbz      r0, #0x206b3c 
+00206b18: bl       #0x172a4c 
+00206b1c: cmp      r0, #0 
+00206b1e: ble      #0x206b34 
+00206b20: ldr      r3, [pc, #0x30] 
+00206b22: movs     r0, #0x35 
+00206b24: movs     r1, #0 
+00206b26: movs     r2, #1 
+00206b28: add      r3, pc '[ObjEffect]Failed to allocate memory: unitType [%x]'
+00206b2a: stm.w    sp, {r3, r5} 
+00206b2e: movs     r3, #0x66 
+00206b30: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+00206b34: mov.w    r3, #-1 
+00206b38: strh     r3, [r4] 
+00206b3a: b        #0x206b4a 
+00206b3c: ldrh     r3, [r7, #4] 
+00206b3e: str      r5, [r4, #4] 
+00206b40: strh     r3, [r4] 
+00206b42: ldr      r3, [r7, #0x10] 
+00206b44: str      r3, [r4, #8] 
+00206b46: ldr      r3, [r7, #0x14] 
+00206b48: str      r3, [r4, #0xc] 
+00206b4a: mov      r0, r6 
+00206b4c: add.w    r7, r7, #0x1c 
+00206b50: mov      sp, r7 
+00206b52: pop      {r4, r5, r6, r7, pc} 
+00206b54: asrs     r7, r6, #0xe 
+00206b56: lsls     r1, r1, #3 
+
+FUNCTION 0xe4886c..0xe488f4
+00e4886c: add.w    r1, r1, #0x1a4 
+00e48870: mov      r3, r0 
+00e48872: push     {r7, lr} 
+00e48874: add      r7, sp, #0 
+00e48876: ldm      r1, {r0, r1} 
+00e48878: stm.w    r3, {r0, r1} 
+00e4887c: mov      r0, r3 
+00e4887e: pop      {r7, pc} 
+00e48880: ldr      r3, [r1, #4] 
+00e48882: push     {r7, lr} 
+00e48884: add      r7, sp, #0 
+00e48886: str.w    r3, [r0, #0x128] 
+00e4888a: ldrh     r3, [r1] 
+00e4888c: strh.w   r3, [r0, #0x12c] 
+00e48890: movs     r3, #0 
+00e48892: str.w    r3, [r0, #0x130] 
+00e48896: adds     r3, #1 
+00e48898: strb.w   r3, [r0, #0x124] 
+00e4889c: ldr      r3, [r1, #8] 
+00e4889e: str.w    r3, [r0, #0x1ac] 
+00e488a2: ldr      r3, [r1, #0xc] 
+00e488a4: str.w    r3, [r0, #0x1b0] 
+00e488a8: pop      {r7, pc} 
+00e488aa: ldr      r3, [r1, #4] 
+00e488ac: push     {r7, lr} 
+00e488ae: add      r7, sp, #0 
+00e488b0: str.w    r3, [r0, #0x128] 
+00e488b4: ldrh     r3, [r1] 
+00e488b6: strh.w   r3, [r0, #0x12c] 
+00e488ba: movs     r3, #0 
+00e488bc: str.w    r3, [r0, #0x130] 
+00e488c0: adds     r3, #1 
+00e488c2: strb.w   r3, [r0, #0x124] 
+00e488c6: ldr      r3, [r1, #8] 
+00e488c8: str.w    r2, [r0, #0x1b0] 
+00e488cc: str.w    r3, [r0, #0x1ac] 
+00e488d0: pop      {r7, pc} 
+00e488d2: movs     r3, #0 
+00e488d4: str.w    r2, [r0, #0x128] 
+00e488d8: push     {r7, lr} 
+00e488da: movs     r2, #1 
+00e488dc: add      r7, sp, #0 
+00e488de: strh.w   r1, [r0, #0x12c] 
+00e488e2: str.w    r3, [r0, #0x130] 
+00e488e6: strb.w   r2, [r0, #0x124] 
+00e488ea: str.w    r3, [r0, #0x1ac] 
+00e488ee: str.w    r3, [r0, #0x1b0] 
+00e488f2: pop      {r7, pc} 
+
+FUNCTION 0xe493ac..0xe493e8
+00e493ac: push     {r3, r4, r7, lr} 
+00e493ae: add      r7, sp, #0 
+00e493b0: mov      r4, r0 
+00e493b2: bl       #0xe49160 
+00e493b6: cbnz     r0, #0xe493de 
+00e493b8: mov      r0, r4 
+00e493ba: bl       #0xe491dc 
+00e493be: cbnz     r0, #0xe493de 
+00e493c0: mov      r0, r4 
+00e493c2: bl       #0xe49248 
+00e493c6: cbnz     r0, #0xe493de 
+00e493c8: mov      r0, r4 
+00e493ca: bl       #0xe492bc 
+00e493ce: cbnz     r0, #0xe493e2 
+00e493d0: mov      r0, r4 
+00e493d2: bl       #0xe49338 
+00e493d6: subs     r0, #0 
+00e493d8: it       ne 
+00e493da: movne    r0, #1 
+00e493dc: pop      {r3, r4, r7, pc} 
+00e493de: movs     r0, #1 
+00e493e0: pop      {r3, r4, r7, pc} 
+00e493e2: movs     r0, #1 
+00e493e4: pop      {r3, r4, r7, pc} 
+00e493e6: movs     r0, r0 
+
+FUNCTION 0xe493e8..0xe4941c
+00e493e8: push     {r4, r7, lr} 
+00e493ea: sub      sp, #0xc 
+00e493ec: add      r7, sp, #8 
+00e493ee: ldrb.w   r4, [r0, #0x1bc] 
+00e493f2: cbnz     r4, #0xe49410 
+00e493f4: bl       #0x172a4c 
+00e493f8: cmp      r0, #0 
+00e493fa: ble      #0xe49410 
+00e493fc: ldr      r3, [pc, #0x18] 
+00e493fe: movs     r0, #0x35 
+00e49400: mov      r1, r4 
+00e49402: movs     r2, #3 
+00e49404: add      r3, pc '[ObjEffect]WARNING: YC SDS is invalid'
+00e49406: str      r3, [sp] 
+00e49408: movw     r3, #0x35b 
+00e4940c: blx      #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+00e49410: add.w    r7, r7, #4 
+00e49414: mov      sp, r7 
+00e49416: pop      {r4, r7, pc} 
+00e49418: str      r3, [sp, #0x1e8] 
+00e4941a: movs     r1, r7 

@@ -1,0 +1,93 @@
+{
+  "snapshot_us": [
+    {
+      "snapshot_id": 1,
+      "microseconds": 107841,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 2,
+      "microseconds": 84722,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 3,
+      "microseconds": 99645,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 4,
+      "microseconds": 94443,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 5,
+      "microseconds": 101899,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 6,
+      "microseconds": 92859,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 7,
+      "microseconds": 116086,
+      "allocation_bytes": 2073600
+    }
+  ],
+  "first_packet_assembly_us": [
+    {
+      "snapshot_id": 1,
+      "microseconds": 304686,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 2,
+      "microseconds": 350384,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 3,
+      "microseconds": 332648,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 4,
+      "microseconds": 320640,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 5,
+      "microseconds": 359570,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 6,
+      "microseconds": 330852,
+      "allocation_bytes": 2073600
+    },
+    {
+      "snapshot_id": 7,
+      "microseconds": 354560,
+      "allocation_bytes": 2073600
+    }
+  ],
+  "summary": {
+    "snapshot_us": {
+      "min_ms": 84.722,
+      "max_ms": 116.086,
+      "mean_ms": 99.64214285714286
+    },
+    "first_packet_assembly_us": {
+      "min_ms": 304.686,
+      "max_ms": 359.57,
+      "mean_ms": 336.19142857142856
+    }
+  },
+  "timing_scope": {
+    "snapshot_us": "native acquisition/copy/Close/Free until owned copy ready, including retries between calls if any",
+    "first_packet_assembly_us": "raw_snapshot_packet on first chunk: memset, memcpy, payload/header CRC; excludes subsequent submit_video and entry sleep",
+    "clock": "gettimeofday wall clock; no detected anomalies, not hard realtime"
+  }
+}

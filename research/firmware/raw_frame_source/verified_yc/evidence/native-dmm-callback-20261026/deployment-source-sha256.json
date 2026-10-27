@@ -1,0 +1,12 @@
+{
+  "cleanup_logs.py": "7d949b0167e42d158be7b50103c273f6684212544045d7f750b32c174719d0fc",
+  "install.sh": "bcacfa5db210a7f9a1f02453efccf5d10b10dfe66e52bcf879d9b5db4db17e28",
+  "live_workbench.py": "62aa1e0bec79c228108570a2c13c4e12da394a7c7882db38465e01ec576739a2",
+  "package.py": "30f5ac26343c7ebdecb20a10573817ff095e8ecf838092a2e59cea244f5ac2d6",
+  "preflight.sh": "2dfe5eae0ccbe69c4b80b8d69740c3fd638a2f730ed48e2568f78e025e52644b",
+  "README.md": "777c9c91b856bc7fc7e9f6a68be8a0dc142a6aad08cca7cb393c0e4961f8a2dd",
+  "rollback.sh": "f7a929b3b9d877b673474d5997d59f8be68c3544abe7d773c980604ed06a6ab4",
+  "run_job.py": "00d45fd9b85408b006b7e7cc7d425084d0f71d999961264369b9f8b9b328450a",
+  "space_check.c": "061a7836bf7fdf741c8cbd786101dfaabe3a84e048feee1dc645a430e62f0c4b",
+  "verify_installer.py": "aac2ee8b2d90349966e264f9959e9d079a67a6b65cdad2852d8802c80e2efbbe"
+}

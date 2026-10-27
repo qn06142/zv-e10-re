@@ -1,0 +1,49 @@
+{
+  "backend": {
+    "select_function": 174584604,
+    "send_function": 174583916,
+    "receive_function": 174583984,
+    "io_context": 0,
+    "private_reply_queue": 90385,
+    "candidate_handle_padded": 18653,
+    "candidate_type": 661,
+    "state": 0,
+    "shared": 0,
+    "opened": 0,
+    "sequence": 7,
+    "physical": 712937472,
+    "bytes": 2073600,
+    "cancel": 0,
+    "token": 0,
+    "requests": 28,
+    "replies": 28,
+    "last_command": 4,
+    "last_status": 0,
+    "last_reply_hex": "04800000dd48116100000000000000000000000000000000"
+  },
+  "snapshot": {
+    "heap_data": 770703368,
+    "bytes": 0,
+    "offset": 0,
+    "id": 7,
+    "sequence": 7,
+    "physical": 712937472,
+    "copied": 0,
+    "ready": 0
+  },
+  "target_initialized": 1,
+  "target_failed": 0,
+  "worker_packets_submitted": 25,
+  "worker_raw_errors": 0,
+  "usb_in_flight": 0,
+  "owned_output": {
+    "pixels": 334516224,
+    "physical": 363855872,
+    "capacity": 3276800,
+    "handle": 3257
+  },
+  "references_released": true,
+  "native_requests_equal_replies": true,
+  "source_type": "0x295",
+  "poststop_output_still_listed": false
+}

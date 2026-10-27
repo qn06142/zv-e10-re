@@ -1,0 +1,45 @@
+{
+  "firmware_md5_matches_last_camera_readback": "90096db2c76148f4f9db5d104e5c608c",
+  "regions": [
+    {
+      "region": "metadata_builder",
+      "start": "0x6374cdd4",
+      "end": "0x6374cf38",
+      "bytes": 356,
+      "sha256": "f1350b4aa43431b98ff68877febeffe6687d28d0ccdb5c6a917fc3c82647a449",
+      "stock_and_installed_patch_identical": true
+    },
+    {
+      "region": "allocator_consumer",
+      "start": "0x6374d088",
+      "end": "0x6374d0d2",
+      "bytes": 74,
+      "sha256": "041425a4c3fa7e214f222b60fbd79f5d00056e324a328dd0a501de05eb06b782",
+      "stock_and_installed_patch_identical": true
+    },
+    {
+      "region": "native_rdv_allocator",
+      "start": "0x637545ec",
+      "end": "0x63754694",
+      "bytes": 168,
+      "sha256": "b0d041907324b9c02482f2b6ca8b9520621f016d0d10c6e872ef413da837cd0d",
+      "stock_and_installed_patch_identical": true
+    },
+    {
+      "region": "vef_lookup_and_selector",
+      "start": "0x63761dcc",
+      "end": "0x63762058",
+      "bytes": 652,
+      "sha256": "5b6f49d4d5f24a2d36ec207174fe3812bd6c5770aaa0d6c32f7ca2812ae34109",
+      "stock_and_installed_patch_identical": true
+    },
+    {
+      "region": "vef_records",
+      "start": "0x645b580c",
+      "end": "0x645b5a74",
+      "bytes": 616,
+      "sha256": "805e695cdd22ac3af9a532bee58b1881639afa4441368c083e0af0b27262ab31",
+      "stock_and_installed_patch_identical": true
+    }
+  ]
+}

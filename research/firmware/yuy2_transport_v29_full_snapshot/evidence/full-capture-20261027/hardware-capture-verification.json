@@ -1,0 +1,50 @@
+{
+  "revision": "2.9",
+  "capture_passed": true,
+  "complete_usb_packets": 16,
+  "packet_bytes": 614400,
+  "capture_bytes": 9830400,
+  "trailing_bytes": 0,
+  "ffmpeg_exit_code": 0,
+  "all_headers_payload_checksums_and_padding_passed": true,
+  "complete_native_snapshots": 3,
+  "native_allocation_bytes": 2073600,
+  "complete_snapshots": {
+    "snapshot-00000002.bin": {
+      "sequence": 2,
+      "bytes": 2073600,
+      "physical": "0x2a3f4800",
+      "sha256": "4b0feb4634b753068f669fa96ec4705d989ecafeb87d12c66940b3cf65fbba47",
+      "completed_frame_guaranteed": false
+    },
+    "snapshot-00000003.bin": {
+      "sequence": 3,
+      "bytes": 2073600,
+      "physical": "0x2a1fa400",
+      "sha256": "df470de0c6cbb0c7c2b30f6448cb7e22a5f14168b687ddff043a47dc94037c5a",
+      "completed_frame_guaranteed": false
+    },
+    "snapshot-00000004.bin": {
+      "sequence": 4,
+      "bytes": 2073600,
+      "physical": "0x2a5eec00",
+      "sha256": "10ba544c9b58cdc45355066123058792a2ec55911c3a7d22f2031574317f04e6",
+      "completed_frame_guaranteed": false
+    }
+  },
+  "incomplete_boundary_ids": [
+    1,
+    5
+  ],
+  "ffmpeg_elapsed_seconds": 6.76,
+  "observed_packets_per_second": 2.366863905325444,
+  "approximate_full_snapshot_cadence_per_second": 0.591715976331361,
+  "native_backend_references_released": true,
+  "native_requests": 28,
+  "native_replies": 28,
+  "poststop_output_handle_retained_but_missing_from_listing": true,
+  "reported_restart_before_test": true,
+  "restart_cause_determined": false,
+  "decoded_image_proven": false,
+  "producer_frame_completion_guaranteed": false
+}

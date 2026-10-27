@@ -1,0 +1,7 @@
+{
+  "isolated_blocks": 34279,
+  "luma_nonzero_bits_unparsed": 29163,
+  "chroma_nonzero_bits_unparsed": 14604,
+  "luma_56_tokens_and_zero_tail": 761,
+  "chroma_64_tokens_and_zero_tail": 896
+}

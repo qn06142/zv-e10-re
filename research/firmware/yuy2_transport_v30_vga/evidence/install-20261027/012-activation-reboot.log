@@ -1,0 +1,12 @@
+/usr/share/app # /bin/busybox sync
+/usr/share/app # echo V30_ACTIVATION_REBOOT_REQUESTED
+V30_ACTIVATION_REBOOT_REQUESTED
+/usr/share/app # /bin/busybox reboot -f
+[  318.316662] Disabling non-boot CPUs ...
+[  318.318452] CPU1: shutdown
+[  318.318468] CPU1: shutdown
+[  318.334065] CPU2: shutdown
+[  318.334084] CPU2: shutdown
+[  318.354421] CPU3: shutdown
+[  318.354439] CPU3: shutdown
+[  318.356684] Restarting system.

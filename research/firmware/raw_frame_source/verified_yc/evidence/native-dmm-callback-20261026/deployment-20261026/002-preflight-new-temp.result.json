@@ -1,0 +1,5 @@
+{
+  "id": "002-preflight-new-temp",
+  "ok": false,
+  "error": "ValueError('upload outside prototype folder')"
+}

@@ -1,0 +1,1502 @@
+[
+  {
+    "start": 13,
+    "kind": "raw",
+    "k": 7,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.052160030638978075,
+    "range": [
+      0,
+      121
+    ],
+    "mean": 33.49395833333333,
+    "std": 23.830328298863137,
+    "distinct": 40
+  },
+  {
+    "start": 11,
+    "kind": "eg",
+    "k": 7,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.052368851133458745,
+    "range": [
+      11,
+      124
+    ],
+    "mean": 80.54,
+    "std": 11.796268124566629,
+    "distinct": 27
+  },
+  {
+    "start": 11,
+    "kind": "rice",
+    "k": 7,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.052368851133458745,
+    "range": [
+      11,
+      124
+    ],
+    "mean": 80.54,
+    "std": 11.796268124566629,
+    "distinct": 27
+  },
+  {
+    "start": 12,
+    "kind": "raw",
+    "k": 7,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.052368851133458745,
+    "range": [
+      11,
+      124
+    ],
+    "mean": 80.54,
+    "std": 11.796268124566629,
+    "distinct": 27
+  },
+  {
+    "start": 8,
+    "kind": "raw",
+    "k": 11,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05236885113345875,
+    "range": [
+      1931,
+      2044
+    ],
+    "mean": 2000.54,
+    "std": 11.796268124566627,
+    "distinct": 27
+  },
+  {
+    "start": 9,
+    "kind": "raw",
+    "k": 10,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05236885113345875,
+    "range": [
+      907,
+      1020
+    ],
+    "mean": 976.54,
+    "std": 11.796268124566627,
+    "distinct": 27
+  },
+  {
+    "start": 10,
+    "kind": "raw",
+    "k": 9,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05236885113345875,
+    "range": [
+      395,
+      508
+    ],
+    "mean": 464.54,
+    "std": 11.796268124566627,
+    "distinct": 27
+  },
+  {
+    "start": 11,
+    "kind": "raw",
+    "k": 8,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05236885113345875,
+    "range": [
+      139,
+      252
+    ],
+    "mean": 208.54,
+    "std": 11.796268124566627,
+    "distinct": 27
+  },
+  {
+    "start": 13,
+    "kind": "raw",
+    "k": 9,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05276503540218715,
+    "range": [
+      2,
+      484
+    ],
+    "mean": 135.58833333333334,
+    "std": 95.64532523280418,
+    "distinct": 73
+  },
+  {
+    "start": 13,
+    "kind": "raw",
+    "k": 10,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05316595875151063,
+    "range": [
+      4,
+      968
+    ],
+    "mean": 271.7325,
+    "std": 191.27785229106723,
+    "distinct": 96
+  },
+  {
+    "start": 13,
+    "kind": "raw",
+    "k": 8,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05346611425403147,
+    "range": [
+      1,
+      242
+    ],
+    "mean": 67.54010416666667,
+    "std": 47.83068506014191,
+    "distinct": 56
+  },
+  {
+    "start": 13,
+    "kind": "raw",
+    "k": 11,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05353276019119673,
+    "range": [
+      8,
+      1936
+    ],
+    "mean": 544.0076041666666,
+    "std": 382.60555575728813,
+    "distinct": 137
+  },
+  {
+    "start": 13,
+    "kind": "raw",
+    "k": 12,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05367171489946318,
+    "range": [
+      16,
+      3873
+    ],
+    "mean": 1088.5385416666666,
+    "std": 765.2150683345216,
+    "distinct": 188
+  },
+  {
+    "start": 8,
+    "kind": "raw",
+    "k": 12,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.053738175611519716,
+    "range": [
+      3862,
+      4089
+    ],
+    "mean": 4001.480625,
+    "std": 23.872526914343226,
+    "distinct": 40
+  },
+  {
+    "start": 9,
+    "kind": "raw",
+    "k": 11,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.053738175611519716,
+    "range": [
+      1814,
+      2041
+    ],
+    "mean": 1953.480625,
+    "std": 23.872526914343226,
+    "distinct": 40
+  },
+  {
+    "start": 10,
+    "kind": "raw",
+    "k": 10,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.053738175611519716,
+    "range": [
+      790,
+      1017
+    ],
+    "mean": 929.480625,
+    "std": 23.872526914343226,
+    "distinct": 40
+  },
+  {
+    "start": 11,
+    "kind": "raw",
+    "k": 9,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.053738175611519716,
+    "range": [
+      278,
+      505
+    ],
+    "mean": 417.480625,
+    "std": 23.872526914343226,
+    "distinct": 40
+  },
+  {
+    "start": 12,
+    "kind": "raw",
+    "k": 8,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.053738175611519716,
+    "range": [
+      22,
+      249
+    ],
+    "mean": 161.480625,
+    "std": 23.872526914343226,
+    "distinct": 40
+  },
+  {
+    "start": 9,
+    "kind": "eg",
+    "k": 0,
+    "polarity": 1,
+    "signed": true,
+    "score": 0.053795469692761375,
+    "range": [
+      -161,
+      134
+    ],
+    "mean": 3.6464583333333334,
+    "std": 12.375244440276614,
+    "distinct": 34
+  },
+  {
+    "start": 12,
+    "kind": "rice",
+    "k": 6,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05403554941854658,
+    "range": [
+      0,
+      217
+    ],
+    "mean": 16.568125,
+    "std": 11.951287614773635,
+    "distinct": 27
+  },
+  {
+    "start": 10,
+    "kind": "raw",
+    "k": 12,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.054336908136410025,
+    "range": [
+      3161,
+      4068
+    ],
+    "mean": 3719.535,
+    "std": 95.81388982466652,
+    "distinct": 73
+  },
+  {
+    "start": 11,
+    "kind": "raw",
+    "k": 11,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.054336908136410025,
+    "range": [
+      1113,
+      2020
+    ],
+    "mean": 1671.535,
+    "std": 95.81388982466652,
+    "distinct": 73
+  },
+  {
+    "start": 12,
+    "kind": "raw",
+    "k": 10,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.054336908136410025,
+    "range": [
+      89,
+      996
+    ],
+    "mean": 647.535,
+    "std": 95.81388982466652,
+    "distinct": 73
+  },
+  {
+    "start": 10,
+    "kind": "eg",
+    "k": 1,
+    "polarity": 1,
+    "signed": true,
+    "score": 0.054588969096400666,
+    "range": [
+      -133,
+      161
+    ],
+    "mean": -2.9132291666666665,
+    "std": 11.949968270075699,
+    "distinct": 34
+  },
+  {
+    "start": 11,
+    "kind": "raw",
+    "k": 12,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.054737136263681214,
+    "range": [
+      2226,
+      4040
+    ],
+    "mean": 3343.6258333333335,
+    "std": 191.61531340850317,
+    "distinct": 96
+  },
+  {
+    "start": 12,
+    "kind": "raw",
+    "k": 11,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.054737136263681214,
+    "range": [
+      178,
+      1992
+    ],
+    "mean": 1295.6258333333333,
+    "std": 191.61531340850317,
+    "distinct": 96
+  },
+  {
+    "start": 9,
+    "kind": "raw",
+    "k": 12,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05503634960401195,
+    "range": [
+      3628,
+      4082
+    ],
+    "mean": 3907.5134375,
+    "std": 47.91509011887863,
+    "distinct": 56
+  },
+  {
+    "start": 10,
+    "kind": "raw",
+    "k": 11,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05503634960401195,
+    "range": [
+      1580,
+      2034
+    ],
+    "mean": 1859.5134375,
+    "std": 47.91509011887863,
+    "distinct": 56
+  },
+  {
+    "start": 11,
+    "kind": "raw",
+    "k": 10,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05503634960401195,
+    "range": [
+      556,
+      1010
+    ],
+    "mean": 835.5134375,
+    "std": 47.91509011887863,
+    "distinct": 56
+  },
+  {
+    "start": 12,
+    "kind": "raw",
+    "k": 9,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05503634960401195,
+    "range": [
+      44,
+      498
+    ],
+    "mean": 323.5134375,
+    "std": 47.91509011887863,
+    "distinct": 56
+  },
+  {
+    "start": 12,
+    "kind": "raw",
+    "k": 12,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.055103056645772884,
+    "range": [
+      356,
+      3984
+    ],
+    "mean": 2591.7942708333335,
+    "std": 383.2806922213492,
+    "distinct": 137
+  },
+  {
+    "start": 13,
+    "kind": "rice",
+    "k": 4,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05510629146856286,
+    "range": [
+      0,
+      68
+    ],
+    "mean": 8.280208333333333,
+    "std": 6.207205486899658,
+    "distinct": 25
+  },
+  {
+    "start": 13,
+    "kind": "rice",
+    "k": 5,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05519221690518288,
+    "range": [
+      0,
+      136
+    ],
+    "mean": 16.959791666666668,
+    "std": 12.620859385290048,
+    "distinct": 36
+  },
+  {
+    "start": 12,
+    "kind": "rice",
+    "k": 7,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05535260678918694,
+    "range": [
+      0,
+      434
+    ],
+    "mean": 33.536875,
+    "std": 24.17804390146237,
+    "distinct": 40
+  },
+  {
+    "start": 8,
+    "kind": "rice",
+    "k": 4,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05602309748736594,
+    "range": [
+      66,
+      148
+    ],
+    "mean": 88.27822916666666,
+    "std": 6.211278802641957,
+    "distinct": 25
+  },
+  {
+    "start": 9,
+    "kind": "rice",
+    "k": 4,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05602309748736594,
+    "range": [
+      50,
+      132
+    ],
+    "mean": 72.27822916666666,
+    "std": 6.211278802641957,
+    "distinct": 25
+  },
+  {
+    "start": 10,
+    "kind": "rice",
+    "k": 4,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05602309748736594,
+    "range": [
+      34,
+      116
+    ],
+    "mean": 56.27822916666667,
+    "std": 6.211278802641957,
+    "distinct": 25
+  },
+  {
+    "start": 11,
+    "kind": "rice",
+    "k": 4,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05602309748736594,
+    "range": [
+      18,
+      100
+    ],
+    "mean": 40.27822916666667,
+    "std": 6.211278802641957,
+    "distinct": 25
+  },
+  {
+    "start": 12,
+    "kind": "rice",
+    "k": 4,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05602309748736594,
+    "range": [
+      2,
+      84
+    ],
+    "mean": 24.278229166666666,
+    "std": 6.211278802641957,
+    "distinct": 25
+  },
+  {
+    "start": 8,
+    "kind": "rice",
+    "k": 5,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.0560954080591793,
+    "range": [
+      133,
+      296
+    ],
+    "mean": 176.95583333333335,
+    "std": 12.62868458334262,
+    "distinct": 36
+  },
+  {
+    "start": 9,
+    "kind": "rice",
+    "k": 5,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.0560954080591793,
+    "range": [
+      101,
+      264
+    ],
+    "mean": 144.95583333333335,
+    "std": 12.62868458334262,
+    "distinct": 36
+  },
+  {
+    "start": 10,
+    "kind": "rice",
+    "k": 5,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.0560954080591793,
+    "range": [
+      69,
+      232
+    ],
+    "mean": 112.95583333333333,
+    "std": 12.62868458334262,
+    "distinct": 36
+  },
+  {
+    "start": 11,
+    "kind": "rice",
+    "k": 5,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.0560954080591793,
+    "range": [
+      37,
+      200
+    ],
+    "mean": 80.95583333333333,
+    "std": 12.62868458334262,
+    "distinct": 36
+  },
+  {
+    "start": 12,
+    "kind": "rice",
+    "k": 5,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.0560954080591793,
+    "range": [
+      5,
+      168
+    ],
+    "mean": 48.95583333333333,
+    "std": 12.62868458334262,
+    "distinct": 36
+  },
+  {
+    "start": 11,
+    "kind": "eg",
+    "k": 2,
+    "polarity": 1,
+    "signed": true,
+    "score": 0.05633816218050312,
+    "range": [
+      -132,
+      160
+    ],
+    "mean": -2.4467708333333333,
+    "std": 11.103400379575136,
+    "distinct": 34
+  },
+  {
+    "start": 12,
+    "kind": "eg",
+    "k": 6,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05811360767918423,
+    "range": [
+      0,
+      648
+    ],
+    "mean": 16.613020833333334,
+    "std": 13.423057635696594,
+    "distinct": 27
+  },
+  {
+    "start": 13,
+    "kind": "rice",
+    "k": 3,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05835516794676482,
+    "range": [
+      0,
+      60
+    ],
+    "mean": 14.0675,
+    "std": 15.251967974111844,
+    "distinct": 31
+  },
+  {
+    "start": 13,
+    "kind": "rice",
+    "k": 7,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.058633605990292735,
+    "range": [
+      1,
+      545
+    ],
+    "mean": 68.96927083333334,
+    "std": 50.91016795839166,
+    "distinct": 62
+  },
+  {
+    "start": 13,
+    "kind": "rice",
+    "k": 6,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05922846918626458,
+    "range": [
+      0,
+      272
+    ],
+    "mean": 34.265208333333334,
+    "std": 25.446632839597147,
+    "distinct": 49
+  },
+  {
+    "start": 12,
+    "kind": "eg",
+    "k": 7,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.05931462751931328,
+    "range": [
+      0,
+      1296
+    ],
+    "mean": 33.626666666666665,
+    "std": 27.090342631441356,
+    "distinct": 40
+  },
+  {
+    "start": 8,
+    "kind": "rice",
+    "k": 7,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05951562258707757,
+    "range": [
+      534,
+      1185
+    ],
+    "mean": 708.9536458333333,
+    "std": 50.94083820594794,
+    "distinct": 62
+  },
+  {
+    "start": 9,
+    "kind": "rice",
+    "k": 7,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05951562258707757,
+    "range": [
+      406,
+      1057
+    ],
+    "mean": 580.9536458333333,
+    "std": 50.94083820594794,
+    "distinct": 62
+  },
+  {
+    "start": 10,
+    "kind": "rice",
+    "k": 7,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05951562258707757,
+    "range": [
+      278,
+      929
+    ],
+    "mean": 452.9536458333333,
+    "std": 50.94083820594794,
+    "distinct": 62
+  },
+  {
+    "start": 11,
+    "kind": "rice",
+    "k": 7,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05951562258707757,
+    "range": [
+      150,
+      801
+    ],
+    "mean": 324.9536458333333,
+    "std": 50.94083820594794,
+    "distinct": 62
+  },
+  {
+    "start": 12,
+    "kind": "rice",
+    "k": 7,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.05951562258707757,
+    "range": [
+      22,
+      673
+    ],
+    "mean": 196.95364583333333,
+    "std": 50.94083820594794,
+    "distinct": 62
+  },
+  {
+    "start": 8,
+    "kind": "rice",
+    "k": 6,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06011056719257039,
+    "range": [
+      267,
+      592
+    ],
+    "mean": 354.2573958333333,
+    "std": 25.461905726365337,
+    "distinct": 49
+  },
+  {
+    "start": 9,
+    "kind": "rice",
+    "k": 6,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06011056719257039,
+    "range": [
+      203,
+      528
+    ],
+    "mean": 290.2573958333333,
+    "std": 25.461905726365337,
+    "distinct": 49
+  },
+  {
+    "start": 10,
+    "kind": "rice",
+    "k": 6,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06011056719257039,
+    "range": [
+      139,
+      464
+    ],
+    "mean": 226.25739583333333,
+    "std": 25.461905726365337,
+    "distinct": 49
+  },
+  {
+    "start": 11,
+    "kind": "rice",
+    "k": 6,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06011056719257039,
+    "range": [
+      75,
+      400
+    ],
+    "mean": 162.25739583333333,
+    "std": 25.461905726365337,
+    "distinct": 49
+  },
+  {
+    "start": 12,
+    "kind": "rice",
+    "k": 6,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06011056719257039,
+    "range": [
+      11,
+      336
+    ],
+    "mean": 98.25739583333333,
+    "std": 25.461905726365337,
+    "distinct": 49
+  },
+  {
+    "start": 13,
+    "kind": "rice",
+    "k": 4,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.06016772205221205,
+    "range": [
+      0,
+      121
+    ],
+    "mean": 28.320625,
+    "std": 30.734439010270574,
+    "distinct": 48
+  },
+  {
+    "start": 12,
+    "kind": "eg",
+    "k": 3,
+    "polarity": 1,
+    "signed": true,
+    "score": 0.06064580028243502,
+    "range": [
+      -130,
+      158
+    ],
+    "mean": -1.5138541666666667,
+    "std": 9.431199096371538,
+    "distinct": 34
+  },
+  {
+    "start": 13,
+    "kind": "rice",
+    "k": 6,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.06111250153973557,
+    "range": [
+      0,
+      486
+    ],
+    "mean": 114.58114583333334,
+    "std": 123.3158008881549,
+    "distinct": 108
+  },
+  {
+    "start": 13,
+    "kind": "rice",
+    "k": 5,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.06118881087179241,
+    "range": [
+      0,
+      243
+    ],
+    "mean": 56.960625,
+    "std": 61.731197471586775,
+    "distinct": 72
+  },
+  {
+    "start": 13,
+    "kind": "rice",
+    "k": 7,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.061275842246670494,
+    "range": [
+      0,
+      973
+    ],
+    "mean": 229.761875,
+    "std": 246.50290136186572,
+    "distinct": 144
+  },
+  {
+    "start": 13,
+    "kind": "eg",
+    "k": 4,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06489306713549137,
+    "range": [
+      0,
+      307
+    ],
+    "mean": 8.7509375,
+    "std": 8.405872770733591,
+    "distinct": 34
+  },
+  {
+    "start": 9,
+    "kind": "eg",
+    "k": 0,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.0653265268625642,
+    "range": [
+      8,
+      322
+    ],
+    "mean": 23.7496875,
+    "std": 8.407322571366608,
+    "distinct": 34
+  },
+  {
+    "start": 10,
+    "kind": "eg",
+    "k": 1,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.0653265268625642,
+    "range": [
+      7,
+      321
+    ],
+    "mean": 22.7496875,
+    "std": 8.407322571366608,
+    "distinct": 34
+  },
+  {
+    "start": 11,
+    "kind": "eg",
+    "k": 2,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.0653265268625642,
+    "range": [
+      5,
+      319
+    ],
+    "mean": 20.7496875,
+    "std": 8.407322571366608,
+    "distinct": 34
+  },
+  {
+    "start": 12,
+    "kind": "eg",
+    "k": 3,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.0653265268625642,
+    "range": [
+      1,
+      315
+    ],
+    "mean": 16.7496875,
+    "std": 8.407322571366608,
+    "distinct": 34
+  },
+  {
+    "start": 13,
+    "kind": "eg",
+    "k": 3,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06586584936130292,
+    "range": [
+      0,
+      153
+    ],
+    "mean": 4.242083333333333,
+    "std": 4.072281791950989,
+    "distinct": 26
+  },
+  {
+    "start": 10,
+    "kind": "eg",
+    "k": 0,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06631174607358724,
+    "range": [
+      3,
+      160
+    ],
+    "mean": 11.241458333333334,
+    "std": 4.0730862017145215,
+    "distinct": 26
+  },
+  {
+    "start": 11,
+    "kind": "eg",
+    "k": 1,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06631174607358724,
+    "range": [
+      2,
+      159
+    ],
+    "mean": 10.241458333333334,
+    "std": 4.0730862017145215,
+    "distinct": 26
+  },
+  {
+    "start": 12,
+    "kind": "eg",
+    "k": 2,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06631174607358724,
+    "range": [
+      0,
+      157
+    ],
+    "mean": 8.241458333333334,
+    "std": 4.0730862017145215,
+    "distinct": 26
+  },
+  {
+    "start": 13,
+    "kind": "eg",
+    "k": 5,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06903027561835916,
+    "range": [
+      0,
+      614
+    ],
+    "mean": 17.845,
+    "std": 16.918848463572612,
+    "distinct": 44
+  },
+  {
+    "start": 13,
+    "kind": "eg",
+    "k": 6,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06932303363270441,
+    "range": [
+      0,
+      1228
+    ],
+    "mean": 35.9215625,
+    "std": 33.88353818683335,
+    "distinct": 55
+  },
+  {
+    "start": 8,
+    "kind": "eg",
+    "k": 0,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06947837438571561,
+    "range": [
+      17,
+      645
+    ],
+    "mean": 48.842395833333335,
+    "std": 16.921825603639302,
+    "distinct": 44
+  },
+  {
+    "start": 9,
+    "kind": "eg",
+    "k": 1,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06947837438571561,
+    "range": [
+      16,
+      644
+    ],
+    "mean": 47.842395833333335,
+    "std": 16.921825603639302,
+    "distinct": 44
+  },
+  {
+    "start": 10,
+    "kind": "eg",
+    "k": 2,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06947837438571561,
+    "range": [
+      14,
+      642
+    ],
+    "mean": 45.842395833333335,
+    "std": 16.921825603639302,
+    "distinct": 44
+  },
+  {
+    "start": 11,
+    "kind": "eg",
+    "k": 3,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06947837438571561,
+    "range": [
+      10,
+      638
+    ],
+    "mean": 41.842395833333335,
+    "std": 16.921825603639302,
+    "distinct": 44
+  },
+  {
+    "start": 12,
+    "kind": "eg",
+    "k": 4,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06947837438571561,
+    "range": [
+      2,
+      630
+    ],
+    "mean": 33.842395833333335,
+    "std": 16.921825603639302,
+    "distinct": 44
+  },
+  {
+    "start": 8,
+    "kind": "eg",
+    "k": 1,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06976162698754944,
+    "range": [
+      35,
+      1290
+    ],
+    "mean": 97.91645833333334,
+    "std": 33.88932507624287,
+    "distinct": 55
+  },
+  {
+    "start": 9,
+    "kind": "eg",
+    "k": 2,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06976162698754944,
+    "range": [
+      33,
+      1288
+    ],
+    "mean": 95.91645833333334,
+    "std": 33.88932507624287,
+    "distinct": 55
+  },
+  {
+    "start": 10,
+    "kind": "eg",
+    "k": 3,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06976162698754944,
+    "range": [
+      29,
+      1284
+    ],
+    "mean": 91.91645833333334,
+    "std": 33.88932507624287,
+    "distinct": 55
+  },
+  {
+    "start": 11,
+    "kind": "eg",
+    "k": 4,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06976162698754944,
+    "range": [
+      21,
+      1276
+    ],
+    "mean": 83.91645833333334,
+    "std": 33.88932507624287,
+    "distinct": 55
+  },
+  {
+    "start": 12,
+    "kind": "eg",
+    "k": 5,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.06976162698754944,
+    "range": [
+      5,
+      1260
+    ],
+    "mean": 67.91645833333334,
+    "std": 33.88932507624287,
+    "distinct": 55
+  },
+  {
+    "start": 13,
+    "kind": "eg",
+    "k": 7,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.0698348913491759,
+    "range": [
+      1,
+      2457
+    ],
+    "mean": 72.33114583333334,
+    "std": 67.82798731549094,
+    "distinct": 72
+  },
+  {
+    "start": 8,
+    "kind": "eg",
+    "k": 2,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.07026854628538295,
+    "range": [
+      71,
+      2581
+    ],
+    "mean": 196.32104166666667,
+    "std": 67.83943094234795,
+    "distinct": 72
+  },
+  {
+    "start": 9,
+    "kind": "eg",
+    "k": 3,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.07026854628538295,
+    "range": [
+      67,
+      2577
+    ],
+    "mean": 192.32104166666667,
+    "std": 67.83943094234795,
+    "distinct": 72
+  },
+  {
+    "start": 10,
+    "kind": "eg",
+    "k": 4,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.07026854628538295,
+    "range": [
+      59,
+      2569
+    ],
+    "mean": 184.32104166666667,
+    "std": 67.83943094234795,
+    "distinct": 72
+  },
+  {
+    "start": 11,
+    "kind": "eg",
+    "k": 5,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.07026854628538295,
+    "range": [
+      43,
+      2553
+    ],
+    "mean": 168.32104166666667,
+    "std": 67.83943094234795,
+    "distinct": 72
+  },
+  {
+    "start": 12,
+    "kind": "eg",
+    "k": 6,
+    "polarity": 1,
+    "signed": false,
+    "score": 0.07026854628538295,
+    "range": [
+      11,
+      2521
+    ],
+    "mean": 136.32104166666667,
+    "std": 67.83943094234795,
+    "distinct": 72
+  },
+  {
+    "start": 13,
+    "kind": "eg",
+    "k": 4,
+    "polarity": 1,
+    "signed": true,
+    "score": 0.07408123592991749,
+    "range": [
+      -126,
+      154
+    ],
+    "mean": 0.35260416666666666,
+    "std": 6.2489285322885,
+    "distinct": 34
+  },
+  {
+    "start": 13,
+    "kind": "rice",
+    "k": 4,
+    "polarity": 1,
+    "signed": true,
+    "score": 0.0745283696301863,
+    "range": [
+      -34,
+      17
+    ],
+    "mean": -4.021770833333333,
+    "std": 3.264557938039387,
+    "distinct": 25
+  },
+  {
+    "start": 13,
+    "kind": "eg",
+    "k": 0,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.07709890181345667,
+    "range": [
+      0,
+      204
+    ],
+    "mean": 10.4646875,
+    "std": 24.47396582140589,
+    "distinct": 64
+  },
+  {
+    "start": 8,
+    "kind": "rice",
+    "k": 4,
+    "polarity": 1,
+    "signed": true,
+    "score": 0.07736316867228323,
+    "range": [
+      -74,
+      57
+    ],
+    "mean": -43.5296875,
+    "std": 7.960995665472823,
+    "distinct": 25
+  },
+  {
+    "start": 13,
+    "kind": "eg",
+    "k": 1,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.0785719318283851,
+    "range": [
+      0,
+      409
+    ],
+    "mean": 21.098020833333333,
+    "std": 49.1007900080664,
+    "distinct": 87
+  },
+  {
+    "start": 13,
+    "kind": "eg",
+    "k": 2,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.07877485172781061,
+    "range": [
+      0,
+      819
+    ],
+    "mean": 42.39041666666667,
+    "std": 98.34012761750104,
+    "distinct": 124
+  },
+  {
+    "start": 16,
+    "kind": "eg",
+    "k": 0,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.07885072758069066,
+    "range": [
+      0,
+      3607
+    ],
+    "mean": 12.279583333333333,
+    "std": 38.32313215487119,
+    "distinct": 40
+  },
+  {
+    "start": 13,
+    "kind": "eg",
+    "k": 3,
+    "polarity": 0,
+    "signed": false,
+    "score": 0.07892082299832241,
+    "range": [
+      0,
+      1639
+    ],
+    "mean": 84.9328125,
+    "std": 196.82568262299134,
+    "distinct": 164
+  }
+]

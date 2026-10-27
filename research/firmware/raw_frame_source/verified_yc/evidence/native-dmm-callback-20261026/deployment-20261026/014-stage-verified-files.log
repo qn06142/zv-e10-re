@@ -1,0 +1,4 @@
+/bin/busybox sh /log/yuy2_640_v27snap/stage-verify.sh
+V27_STAGE_HASHES_VERIFIED
+/usr/share/app # echo V27_DIRECT_014-stage-verified-files
+V27_DIRECT_014-stage-verified-files

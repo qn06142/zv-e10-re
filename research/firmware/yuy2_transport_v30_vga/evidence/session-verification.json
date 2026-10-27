@@ -1,0 +1,13 @@
+{
+  "camera_access": false,
+  "compiled_ARM_module_executed": true,
+  "passed": [
+    "closed-session rebind rejected before any SDK access",
+    "stop before first host capture still closes session",
+    "retained output mapping not written or reused"
+  ],
+  "only_mocked": [
+    "open",
+    "snprintf"
+  ]
+}

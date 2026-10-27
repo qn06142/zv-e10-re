@@ -1,0 +1,41 @@
+{
+  "revision": "2.7",
+  "state": "INSTALLED_READBACK_AND_REBOOT_VERIFIED",
+  "remote_stage": "/log/yuy2_640_v27snap",
+  "recovery": "/usr/share/yuy2-recovery-v27snap/rollback.sh",
+  "recovery_restores": "working permanent 2.4p",
+  "auto_reboot": false,
+  "files": {
+    "install.sh": {
+      "bytes": 3169,
+      "md5": "dc4797b96b4035b5cb37e60b2690079e",
+      "sha256": "bcacfa5db210a7f9a1f02453efccf5d10b10dfe66e52bcf879d9b5db4db17e28"
+    },
+    "libInfraStreamingUsb.persistent.so": {
+      "bytes": 72796,
+      "md5": "c3aa9b92ea6c05ce78aa7894e8dfe35a",
+      "sha256": "f7aed8166717b63dcf02ca357e6df32ee9b2c22203e9e1d8330cac972132c6ca"
+    },
+    "preflight.sh": {
+      "bytes": 1650,
+      "md5": "fdf7f4910d736e5deaf61624d32e407e",
+      "sha256": "2dfe5eae0ccbe69c4b80b8d69740c3fd638a2f730ed48e2568f78e025e52644b"
+    },
+    "rollback.sh": {
+      "bytes": 1498,
+      "md5": "8bf7f491412fd697c9984a0107ebb1fc",
+      "sha256": "f7a929b3b9d877b673474d5997d59f8be68c3544abe7d773c980604ed06a6ab4"
+    },
+    "yuy2_640_v27snap.so": {
+      "bytes": 28620,
+      "md5": "ec185c27deb53f80f6f5a40d9a8f95f1",
+      "sha256": "9919d6049fcbe925a7be44ae130c696e2d90cd17af647b2181b02a4a6a6c130b"
+    },
+    "space-check.elf": {
+      "bytes": 6900,
+      "md5": "dc6be7c97cfb5b97931acff19255fc4d",
+      "sha256": "f86f2fb5ad711ada980e0fe9de1fdf78c9a5ae212b2c5251f1b0ed5749ca18d8"
+    }
+  },
+  "sensor_capture_verified": false
+}

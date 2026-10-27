@@ -1,0 +1,26 @@
+{
+  "camera_access": false,
+  "camera_writes": false,
+  "deployment": "NOT_INSTALLED",
+  "worker_boundary_fixtures": {
+    "passed": 9,
+    "hardware_mocked": true,
+    "cases": [
+      "complete publication and owned SSYC isolation",
+      "no SSYC",
+      "SDF transport error quarantine",
+      "output compression changed",
+      "destination undersized",
+      "ambiguous Open",
+      "producer metadata changed before pin",
+      "MMIO",
+      "USB overlap"
+    ]
+  },
+  "metadata_contract_fixture": "PASS",
+  "source_frame_coherence_proved": false,
+  "hardware_resize_acceptance_proved": false,
+  "native_pixel_packing_proved": false,
+  "target_dynamic_loading_tested": false,
+  "first_test_limit": "one streaming session per cold boot"
+}

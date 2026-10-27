@@ -1,0 +1,129 @@
+{
+  "config_md5": "9f197ff9b300e49ab531b6f9e794253e",
+  "camera_access": false,
+  "physical_addresses_not_recovered": true,
+  "does_not_prove_buffer_pixel_packing_or_active_ownership": true,
+  "units": [
+    {
+      "unit_type": "0x6193f",
+      "matches": [
+        {
+          "unit_record": "0x108d8",
+          "extent": "0x8e",
+          "extent_records": [
+            {
+              "offset": "0xa990",
+              "bytes": 2073600,
+              "words": [
+                "0x8e",
+                "0x1fa400",
+                "0x10f",
+                "0x0",
+                "0x7"
+              ]
+            },
+            {
+              "offset": "0xa9a4",
+              "bytes": 2073600,
+              "words": [
+                "0x8e",
+                "0x1fa400",
+                "0x10f",
+                "0x0",
+                "0x4"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_type": "0x61940",
+      "matches": [
+        {
+          "unit_record": "0x108c8",
+          "extent": "0x8d",
+          "extent_records": [
+            {
+              "offset": "0xaa1c",
+              "bytes": 1036800,
+              "words": [
+                "0x8d",
+                "0xfd200",
+                "0x10f",
+                "0x0",
+                "0x7"
+              ]
+            },
+            {
+              "offset": "0xaa30",
+              "bytes": 1036800,
+              "words": [
+                "0x8d",
+                "0xfd200",
+                "0x10f",
+                "0x0",
+                "0x7"
+              ]
+            },
+            {
+              "offset": "0xaa44",
+              "bytes": 1036800,
+              "words": [
+                "0x8d",
+                "0xfd200",
+                "0x10f",
+                "0x0",
+                "0x7"
+              ]
+            },
+            {
+              "offset": "0xaa58",
+              "bytes": 1036800,
+              "words": [
+                "0x8d",
+                "0xfd200",
+                "0x10f",
+                "0x0",
+                "0x4"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_type": "0x240b2e",
+      "matches": [
+        {
+          "unit_record": "0x10ff8",
+          "extent": "0x14e",
+          "extent_records": [
+            {
+              "offset": "0x29ac",
+              "bytes": 614400,
+              "words": [
+                "0x14e",
+                "0x96000",
+                "0x10f",
+                "0x0",
+                "0x7"
+              ]
+            },
+            {
+              "offset": "0x29c0",
+              "bytes": 614400,
+              "words": [
+                "0x14e",
+                "0x96000",
+                "0x10f",
+                "0x0",
+                "0x4"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

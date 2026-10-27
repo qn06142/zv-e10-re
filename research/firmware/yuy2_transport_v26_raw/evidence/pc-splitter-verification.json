@@ -1,0 +1,20 @@
+{
+  "bytes": 1228807,
+  "frame_bytes": 614400,
+  "complete_frames": 2,
+  "trailing_bytes": 7,
+  "frames": [
+    {
+      "file": "frame-0000.bin",
+      "bytes": 614400,
+      "sha256": "4f1e43421585525b62f995ca00ceb0eee63d1c13039bc58833b3899814924946"
+    },
+    {
+      "file": "frame-0001.bin",
+      "bytes": 614400,
+      "sha256": "26201a968a247dbbe917749f0741997cf5a0f0e54b8380d6465d32606b4b64c6"
+    }
+  ],
+  "source_pixel_format": "UNKNOWN; YUY2 is transport framing only",
+  "conversion_performed": false
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "remote": "/log/yuy2_640_v29full/capture-01/runtime.log",
+    "md5": "2451287f059f7b6b7437677cf0c70f68",
+    "bytes": 1645
+  },
+  {
+    "remote": "/log/yuy2_640_v29full/capture-01/uptime.txt",
+    "md5": "f2b09a3828c2f98338d3947d5f5bf1e7",
+    "bytes": 14
+  },
+  {
+    "remote": "/log/yuy2_640_v29full/capture-01/maps.txt",
+    "md5": "7f2771c76979803669cda044e5b62355",
+    "bytes": 49168
+  },
+  {
+    "remote": "/log/yuy2_640_v29full/capture-01/dmm-units.txt",
+    "md5": "ff510038bffb824358c6df2eaee26d7c",
+    "bytes": 2968
+  },
+  {
+    "remote": "/log/yuy2_640_v29full/capture-01/memory.txt",
+    "md5": "e189addd9a77d85f02781582b9774c4a",
+    "bytes": 924
+  },
+  {
+    "remote": "/log/yuy2_640_v29full/capture-01/kernel.log",
+    "md5": "63e8610d0dfaa9231716174b80d74d18",
+    "bytes": 7919
+  },
+  {
+    "remote": "/log/yuy2_640_v29full/capture-01/installed.md5",
+    "md5": "de7a8f7e648f368f500c56567a10291a",
+    "bytes": 249
+  },
+  {
+    "remote": "/log/yuy2_640_v29full/capture-01/module-state.bin",
+    "md5": "b544b475324ea40c47e0b2d88f59e9dc",
+    "bytes": 135168
+  },
+  {
+    "remote": "/log/yuy2_640_v29full/runtime.log",
+    "md5": "2451287f059f7b6b7437677cf0c70f68",
+    "bytes": 1645
+  }
+]

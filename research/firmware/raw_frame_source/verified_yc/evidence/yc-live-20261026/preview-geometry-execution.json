@@ -1,0 +1,186 @@
+{
+  "actual_Sony_function_executed": "0x6372e57c",
+  "external_calls_stubbed": false,
+  "camera_access": false,
+  "table": "0x63e43e9c",
+  "record_bytes": 20,
+  "record_count": 9,
+  "rows": [
+    {
+      "index": 0,
+      "dimensions": [
+        1920,
+        1080,
+        1920,
+        1080
+      ],
+      "unit_type_if_content2": "0x6193f",
+      "unit_type_other_content": "0x61940",
+      "yc_compress": 1,
+      "raw": "80073804800738043f1906004019060001000000"
+    },
+    {
+      "index": 1,
+      "dimensions": [
+        640,
+        480,
+        640,
+        480
+      ],
+      "unit_type_if_content2": "0x6193f",
+      "unit_type_other_content": "0x61940",
+      "yc_compress": 0,
+      "raw": "8002e0018002e0013f1906004019060000000000"
+    },
+    {
+      "index": 2,
+      "dimensions": [
+        1600,
+        1080,
+        1440,
+        1080
+      ],
+      "unit_type_if_content2": "0x6190d",
+      "unit_type_other_content": "0x6190e",
+      "yc_compress": 1,
+      "raw": "40063804a00538040d1906000e19060001000000"
+    },
+    {
+      "index": 3,
+      "dimensions": [
+        1472,
+        1080,
+        1440,
+        1080
+      ],
+      "unit_type_if_content2": "0x6190d",
+      "unit_type_other_content": "0x6190e",
+      "yc_compress": 1,
+      "raw": "c0053804a00538040d1906000e19060001000000"
+    },
+    {
+      "index": 4,
+      "dimensions": [
+        1472,
+        1080,
+        1440,
+        1080
+      ],
+      "unit_type_if_content2": "0x6190d",
+      "unit_type_other_content": "0x6190e",
+      "yc_compress": 1,
+      "raw": "c0053804a00538040d1906000e19060001000000"
+    },
+    {
+      "index": 5,
+      "dimensions": [
+        1280,
+        720,
+        1280,
+        720
+      ],
+      "unit_type_if_content2": "0x6190f",
+      "unit_type_other_content": "0x6190f",
+      "yc_compress": 1,
+      "raw": "0005d0020005d0020f1906000f19060001000000"
+    },
+    {
+      "index": 6,
+      "dimensions": [
+        768,
+        480,
+        720,
+        480
+      ],
+      "unit_type_if_content2": "0x60b3c",
+      "unit_type_other_content": "0x60b3c",
+      "yc_compress": 0,
+      "raw": "0003e001d002e0013c0b06003c0b060000000000"
+    },
+    {
+      "index": 7,
+      "dimensions": [
+        768,
+        576,
+        720,
+        576
+      ],
+      "unit_type_if_content2": "0x60b3b",
+      "unit_type_other_content": "0x60b3b",
+      "yc_compress": 0,
+      "raw": "00034002d00240023b0b06003b0b060000000000"
+    },
+    {
+      "index": 8,
+      "dimensions": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "unit_type_if_content2": "0x6193f",
+      "unit_type_other_content": "0x61940",
+      "yc_compress": 1,
+      "raw": "00000000000000003f1906004019060001000000"
+    }
+  ],
+  "cases": [
+    {
+      "width": 640,
+      "height": 480,
+      "selected_rows": [
+        1
+      ],
+      "output": "8002e0018002e0013f1906004019060000000000"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "selected_rows": [
+        0
+      ],
+      "output": "80073804800738043f1906004019060001000000"
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "selected_rows": [
+        5
+      ],
+      "output": "0005d0020005d0020f1906000f19060001000000"
+    },
+    {
+      "width": 1440,
+      "height": 1080,
+      "selected_rows": [
+        3,
+        4
+      ],
+      "output": "c0053804a00538040d1906000e19060001000000"
+    },
+    {
+      "width": 720,
+      "height": 240,
+      "selected_rows": [
+        6
+      ],
+      "output": "0003e001d002e0013c0b06003c0b060000000000"
+    },
+    {
+      "width": 720,
+      "height": 288,
+      "selected_rows": [
+        7
+      ],
+      "output": "00034002d00240023b0b06003b0b060000000000"
+    },
+    {
+      "width": 123,
+      "height": 456,
+      "selected_rows": [
+        8
+      ],
+      "output": "00000000000000003f1906004019060001000000"
+    }
+  ]
+}

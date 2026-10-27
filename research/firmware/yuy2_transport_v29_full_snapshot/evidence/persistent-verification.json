@@ -1,0 +1,20 @@
+{
+  "passed": 11,
+  "cases": [
+    "producer_has_no_load_time_constructor_and_exports_lazy_activation",
+    "original_dependencies_preserved_and_patch_dependency_added",
+    "dynamic_tables_mapped_consistent_existing_symbol_and_relocation_indices_stable",
+    "old_bss_stays_zero_and_overlapping_section_names_are_preserved",
+    "activation_pointer_is_resolved_by_dynamic_loader_not_fixed_address",
+    "pic_prepare_1000000_failure_returns_without_original",
+    "pic_prepare_1000000_success_original_prologue",
+    "pic_prepare_a61e000_failure_returns_without_original",
+    "pic_prepare_a61e000_success_original_prologue",
+    "pic_prepare_1c000000_failure_returns_without_original",
+    "pic_prepare_1c000000_success_original_prologue"
+  ],
+  "hardware_services_mocked": true,
+  "limitations": [
+    "ELF/ARM emulation does not replace target dynamic-loader and reboot tests"
+  ]
+}

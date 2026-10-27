@@ -1,0 +1,23 @@
+{
+  "camera_access": false,
+  "original_geometry_method": "0xe48a10",
+  "only_aspect_classifier_mocked": true,
+  "canvas": [
+    640,
+    480
+  ],
+  "valid": [
+    0,
+    0,
+    640,
+    480
+  ],
+  "target": [
+    0,
+    0,
+    640,
+    480
+  ],
+  "yc_compress_not_modified_by_geometry_method": true,
+  "passed": true
+}

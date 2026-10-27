@@ -1,0 +1,19 @@
+{
+  "passed": 10,
+  "cases": [
+    "successful dependency-first installation and exact v24p backup",
+    "rollback restores working v24p, kernel and original module untouched",
+    "loaded streaming mapping rejected before writes",
+    "SDK mismatch rejected before writes",
+    "insufficient space rejected before writes",
+    "damaged module rejected before writes",
+    "fail-module: automatic rollback leaves v24p streaming file",
+    "fail-activation: automatic rollback leaves v24p streaming file",
+    "fail-ro: automatic rollback leaves v24p streaming file",
+    "repeat install refuses to overwrite existing recovery state"
+  ],
+  "target_scripts_translated_to_local_fixture": true,
+  "mounts_and_fixed_baseline_hashes_mocked": true,
+  "space_helper_mocked_in_host_fixture": true,
+  "camera_access": false
+}

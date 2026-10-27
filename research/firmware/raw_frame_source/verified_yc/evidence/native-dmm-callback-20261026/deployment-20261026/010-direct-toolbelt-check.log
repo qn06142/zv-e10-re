@@ -1,0 +1,14 @@
+/usr/share/app # /bin/busybox ls -l /tmp/v27*
+-rw-r--r--    1 0        0              145 Jan  1 00:13 /tmp/v27-cleanup-inventory.md5
+-rw-rw-rw-    1 0        0                0 Jan  1 00:18 /tmp/v27-live-workbench.sh
+---x-----x    1 0        0              543 Jan  1 00:13 /tmp/v27-log-cleanup.sh
+-rw-r--r--    1 0        0               51 Jan  1 00:13 /tmp/v27-old-logger-stop.txt
+---x-----x    1 0        0                0 Jan  1 00:17 /tmp/v27-pfa.sh
+-rw-rw-rw-    1 0        0                0 Jan  1 00:21 /tmp/v27-preflight.sh
+-rw-rw-rw-    1 0        0                0 Jan  1 00:21 /tmp/v27-space-check.elf
+/usr/share/app # echo YQ== | /tmp/bbel base64 -d
+bbel: applet not found
+/usr/share/app # /tmp/bbel df -Pk /tmp /usr /log
+bbel: applet not found
+/usr/share/app # echo V27_DIRECT_010-direct-toolbelt-check
+V27_DIRECT_010-direct-toolbelt-check

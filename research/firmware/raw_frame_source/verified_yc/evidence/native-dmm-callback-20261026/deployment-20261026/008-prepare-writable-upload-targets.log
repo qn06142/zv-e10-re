@@ -1,0 +1,6 @@
+/usr/share/app # /bin/busybox chmod 666 /tmp/v27-live-workbench.sh
+/usr/share/app # /bin/busybox chmod 666 /tmp/v27-preflight.sh
+/usr/share/app # : > /tmp/v27-space-check.elf
+/usr/share/app # /bin/busybox chmod 666 /tmp/v27-space-check.elf
+/usr/share/app # echo V27_DIRECT_008-prepare-writable-upload-targets
+V27_DIRECT_008-prepare-writable-upload-targets

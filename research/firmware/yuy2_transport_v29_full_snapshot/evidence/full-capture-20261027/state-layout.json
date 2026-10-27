@@ -1,0 +1,61 @@
+{
+  "load_base": 174567424,
+  "read_start": 174592000,
+  "read_bytes": 135168,
+  "symbols": {
+    "in_flight": [
+      25928,
+      4
+    ],
+    "capacity": [
+      25936,
+      4
+    ],
+    "physical": [
+      25940,
+      4
+    ],
+    "pixels": [
+      25952,
+      4
+    ],
+    "handle": [
+      25956,
+      2
+    ],
+    "snapshot": [
+      25980,
+      32
+    ],
+    "live_source": [
+      26016,
+      132
+    ],
+    "frames": [
+      26208,
+      4
+    ],
+    "raw_errors": [
+      26232,
+      4
+    ],
+    "listing": [
+      26536,
+      131072
+    ],
+    "backend": [
+      26416,
+      100
+    ],
+    "failed": [
+      26528,
+      4
+    ],
+    "initialized": [
+      26532,
+      4
+    ]
+  },
+  "read_only": true,
+  "addresses_derived_from_this_session_maps": true
+}

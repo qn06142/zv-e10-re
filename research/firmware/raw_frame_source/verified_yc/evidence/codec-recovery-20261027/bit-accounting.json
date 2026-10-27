@@ -1,0 +1,632 @@
+[
+  {
+    "file": "frame-0000.bin",
+    "counts": {
+      "isolated_blocks": 3453,
+      "luma_nonzero_bits_unparsed": 2923,
+      "chroma_nonzero_bits_unparsed": 1479,
+      "luma_56_tokens_and_zero_tail": 80,
+      "chroma_64_tokens_and_zero_tail": 103
+    },
+    "examples": [
+      {
+        "block": 0,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 37,
+          "y0": 42.41840277777777,
+          "consumed": 156,
+          "ones_left": 24
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 108.7734375,
+          "cr_base": 139.974609375,
+          "consumed": 173,
+          "ones_left": 3
+        }
+      },
+      {
+        "block": 9,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 33,
+          "y0": 229.06676136363637,
+          "consumed": 119,
+          "ones_left": 15
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 110.2734375,
+          "cr_base": 140.54960937500002,
+          "consumed": 168,
+          "ones_left": 11
+        }
+      },
+      {
+        "block": 26,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 35,
+          "y0": 61.969907407407405,
+          "consumed": 156,
+          "ones_left": 14
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 121.109375,
+          "cr_base": 134.58984375,
+          "consumed": 145,
+          "ones_left": 10
+        }
+      }
+    ]
+  },
+  {
+    "file": "frame-0001.bin",
+    "counts": {
+      "isolated_blocks": 3446,
+      "luma_nonzero_bits_unparsed": 2928,
+      "chroma_nonzero_bits_unparsed": 1453,
+      "luma_56_tokens_and_zero_tail": 74,
+      "chroma_64_tokens_and_zero_tail": 98
+    },
+    "examples": [
+      {
+        "block": 0,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 34,
+          "y0": 45.79166666666667,
+          "consumed": 141,
+          "ones_left": 22
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 109.8984375,
+          "cr_base": 142.15585937499998,
+          "consumed": 169,
+          "ones_left": 4
+        }
+      },
+      {
+        "block": 7,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 36,
+          "y0": 176.23757102272728,
+          "consumed": 167,
+          "ones_left": 3
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 111.653125,
+          "cr_base": 135.59078125,
+          "consumed": 154,
+          "ones_left": 9
+        }
+      },
+      {
+        "block": 11,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 32,
+          "y0": 176.17524857954547,
+          "consumed": 157,
+          "ones_left": 6
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 110.2734375,
+          "cr_base": 140.54960937500002,
+          "consumed": 159,
+          "ones_left": 13
+        }
+      }
+    ]
+  },
+  {
+    "file": "frame-0002.bin",
+    "counts": {
+      "isolated_blocks": 3436,
+      "luma_nonzero_bits_unparsed": 2918,
+      "chroma_nonzero_bits_unparsed": 1473,
+      "luma_56_tokens_and_zero_tail": 71,
+      "chroma_64_tokens_and_zero_tail": 84
+    },
+    "examples": [
+      {
+        "block": 0,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 36,
+          "y0": 33.80902777777778,
+          "consumed": 139,
+          "ones_left": 31
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 111.653125,
+          "cr_base": 134.19078125,
+          "consumed": 156,
+          "ones_left": 10
+        }
+      },
+      {
+        "block": 6,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 38,
+          "y0": 176.0506036931818,
+          "consumed": 167,
+          "ones_left": 3
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 111.653125,
+          "cr_base": 135.59078125,
+          "consumed": 161,
+          "ones_left": 3
+        }
+      },
+      {
+        "block": 11,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 34,
+          "y0": 196.71235795454547,
+          "consumed": 144,
+          "ones_left": 6
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 111.653125,
+          "cr_base": 135.59078125,
+          "consumed": 158,
+          "ones_left": 5
+        }
+      }
+    ]
+  },
+  {
+    "file": "frame-0003.bin",
+    "counts": {
+      "isolated_blocks": 3445,
+      "luma_nonzero_bits_unparsed": 2953,
+      "chroma_nonzero_bits_unparsed": 1487,
+      "luma_56_tokens_and_zero_tail": 73,
+      "chroma_64_tokens_and_zero_tail": 83
+    },
+    "examples": [
+      {
+        "block": 0,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 39,
+          "y0": 30.234375,
+          "consumed": 137,
+          "ones_left": 28
+        },
+        "chroma": {
+          "tokens": 49,
+          "cb_base": 110.2734375,
+          "cr_base": 141.949609375,
+          "consumed": 145,
+          "ones_left": 4
+        }
+      },
+      {
+        "block": 2,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 36,
+          "y0": 35.82291666666667,
+          "consumed": 153,
+          "ones_left": 3
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 112.403125,
+          "cr_base": 140.77828125,
+          "consumed": 143,
+          "ones_left": 5
+        }
+      },
+      {
+        "block": 7,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 34,
+          "y0": 187.69957386363637,
+          "consumed": 159,
+          "ones_left": 9
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 121.109375,
+          "cr_base": 133.18984375,
+          "consumed": 165,
+          "ones_left": 8
+        }
+      }
+    ]
+  },
+  {
+    "file": "frame-0004.bin",
+    "counts": {
+      "isolated_blocks": 3425,
+      "luma_nonzero_bits_unparsed": 2926,
+      "chroma_nonzero_bits_unparsed": 1469,
+      "chroma_64_tokens_and_zero_tail": 69,
+      "luma_56_tokens_and_zero_tail": 69
+    },
+    "examples": [
+      {
+        "block": 7,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 41,
+          "y0": 179.45436789772728,
+          "consumed": 147,
+          "ones_left": 10
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 110.2734375,
+          "cr_base": 140.54960937500002,
+          "consumed": 157,
+          "ones_left": 10
+        }
+      },
+      {
+        "block": 9,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 36,
+          "y0": 228.8536931818182,
+          "consumed": 140,
+          "ones_left": 12
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 111.653125,
+          "cr_base": 135.59078125,
+          "consumed": 151,
+          "ones_left": 13
+        }
+      },
+      {
+        "block": 11,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 37,
+          "y0": 189.3828125,
+          "consumed": 162,
+          "ones_left": 2
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 111.653125,
+          "cr_base": 135.59078125,
+          "consumed": 170,
+          "ones_left": 4
+        }
+      }
+    ]
+  },
+  {
+    "file": "frame-0005.bin",
+    "counts": {
+      "isolated_blocks": 3399,
+      "luma_nonzero_bits_unparsed": 2847,
+      "chroma_nonzero_bits_unparsed": 1422,
+      "luma_56_tokens_and_zero_tail": 97,
+      "chroma_64_tokens_and_zero_tail": 100
+    },
+    "examples": [
+      {
+        "block": 1,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 36,
+          "y0": 30.318287037037038,
+          "consumed": 159,
+          "ones_left": 5
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 111.653125,
+          "cr_base": 134.19078125,
+          "consumed": 164,
+          "ones_left": 3
+        }
+      },
+      {
+        "block": 6,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 38,
+          "y0": 177.5751065340909,
+          "consumed": 169,
+          "ones_left": 2
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 121.109375,
+          "cr_base": 133.18984375,
+          "consumed": 157,
+          "ones_left": 5
+        }
+      },
+      {
+        "block": 12,
+        "luma": {
+          "tokens": 2,
+          "anchor_end": 41,
+          "y0": 179.521484375,
+          "consumed": 61,
+          "ones_left": 40
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 110.2734375,
+          "cr_base": 140.54960937500002,
+          "consumed": 159,
+          "ones_left": 15
+        }
+      }
+    ]
+  },
+  {
+    "file": "frame-0006.bin",
+    "counts": {
+      "isolated_blocks": 3411,
+      "luma_nonzero_bits_unparsed": 2918,
+      "chroma_nonzero_bits_unparsed": 1458,
+      "luma_56_tokens_and_zero_tail": 79,
+      "chroma_64_tokens_and_zero_tail": 77
+    },
+    "examples": [
+      {
+        "block": 36,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 45,
+          "y0": 177.69975142045453,
+          "consumed": 181,
+          "ones_left": 5
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 121.015625,
+          "cr_base": 133.24140625,
+          "consumed": 153,
+          "ones_left": 16
+        }
+      },
+      {
+        "block": 37,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 35,
+          "y0": 187.94460227272728,
+          "consumed": 171,
+          "ones_left": 1
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 111.653125,
+          "cr_base": 135.59078125,
+          "consumed": 154,
+          "ones_left": 4
+        }
+      },
+      {
+        "block": 40,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 37,
+          "y0": 205.9275568181818,
+          "consumed": 150,
+          "ones_left": 15
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 110.2734375,
+          "cr_base": 140.54960937500002,
+          "consumed": 167,
+          "ones_left": 6
+        }
+      }
+    ]
+  },
+  {
+    "file": "frame-0007.bin",
+    "counts": {
+      "isolated_blocks": 3419,
+      "luma_nonzero_bits_unparsed": 2889,
+      "chroma_nonzero_bits_unparsed": 1436,
+      "chroma_64_tokens_and_zero_tail": 93,
+      "luma_56_tokens_and_zero_tail": 83
+    },
+    "examples": [
+      {
+        "block": 0,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 34,
+          "y0": 52.236111111111114,
+          "consumed": 155,
+          "ones_left": 24
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 108.7734375,
+          "cr_base": 139.974609375,
+          "consumed": 170,
+          "ones_left": 5
+        }
+      },
+      {
+        "block": 5,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 34,
+          "y0": 73.56655092592592,
+          "consumed": 181,
+          "ones_left": 4
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 110.2734375,
+          "cr_base": 140.54960937500002,
+          "consumed": 152,
+          "ones_left": 18
+        }
+      },
+      {
+        "block": 9,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 43,
+          "y0": 199.8125,
+          "consumed": 134,
+          "ones_left": 12
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 111.653125,
+          "cr_base": 135.59078125,
+          "consumed": 165,
+          "ones_left": 3
+        }
+      }
+    ]
+  },
+  {
+    "file": "frame-0008.bin",
+    "counts": {
+      "isolated_blocks": 3443,
+      "luma_nonzero_bits_unparsed": 2952,
+      "chroma_64_tokens_and_zero_tail": 103,
+      "chroma_nonzero_bits_unparsed": 1488,
+      "luma_56_tokens_and_zero_tail": 53
+    },
+    "examples": [
+      {
+        "block": 3,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 33,
+          "y0": 37.06481481481482,
+          "consumed": 151,
+          "ones_left": 5
+        },
+        "chroma": {
+          "tokens": 30,
+          "cb_base": 111.653125,
+          "cr_base": 134.19078125,
+          "consumed": 121,
+          "ones_left": 5
+        }
+      },
+      {
+        "block": 4,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 36,
+          "y0": 45.69097222222223,
+          "consumed": 165,
+          "ones_left": 5
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 111.653125,
+          "cr_base": 134.19078125,
+          "consumed": 160,
+          "ones_left": 1
+        }
+      },
+      {
+        "block": 6,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 39,
+          "y0": 176.2998934659091,
+          "consumed": 172,
+          "ones_left": 5
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 124.59375,
+          "cr_base": 132.6734375,
+          "consumed": 149,
+          "ones_left": 12
+        }
+      }
+    ]
+  },
+  {
+    "file": "frame-0009.bin",
+    "counts": {
+      "isolated_blocks": 3402,
+      "luma_nonzero_bits_unparsed": 2909,
+      "chroma_nonzero_bits_unparsed": 1439,
+      "chroma_64_tokens_and_zero_tail": 86,
+      "luma_56_tokens_and_zero_tail": 82
+    },
+    "examples": [
+      {
+        "block": 3,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 34,
+          "y0": 45.79166666666667,
+          "consumed": 158,
+          "ones_left": 14
+        },
+        "chroma": {
+          "tokens": 36,
+          "cb_base": 111.278125,
+          "cr_base": 138.59703125000001,
+          "consumed": 116,
+          "ones_left": 7
+        }
+      },
+      {
+        "block": 7,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 35,
+          "y0": 166.72620738636363,
+          "consumed": 167,
+          "ones_left": 1
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 110.2734375,
+          "cr_base": 140.54960937500002,
+          "consumed": 160,
+          "ones_left": 12
+        }
+      },
+      {
+        "block": 12,
+        "luma": {
+          "tokens": 56,
+          "anchor_end": 41,
+          "y0": 176.2998934659091,
+          "consumed": 155,
+          "ones_left": 19
+        },
+        "chroma": {
+          "tokens": 64,
+          "cb_base": 110.2734375,
+          "cr_base": 140.54960937500002,
+          "consumed": 163,
+          "ones_left": 14
+        }
+      }
+    ]
+  }
+]

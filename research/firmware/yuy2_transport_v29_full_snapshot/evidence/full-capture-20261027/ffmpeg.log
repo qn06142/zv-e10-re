@@ -1,0 +1,11 @@
+Input #0, dshow, from 'video=ZV-E10':
+  Duration: N/A, start: 23702.679653, bitrate: N/A
+  Stream #0:0: Video: rawvideo (YUY2 / 0x32595559), yuyv422(tv, bt470bg/smpte170m/unknown), 640x480, 10 fps, 10 tbr, 10000k tbn, start 23702.679653
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+Output #0, rawvideo, to 'outputs\native-dmm-v29\capture-first-01\capture.bin':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Video: rawvideo (YUY2 / 0x32595559), yuyv422(tv, bt470bg/smpte170m/unknown), 640x480, q=2-31, 10 fps, 10 tbr, 10000k tbn
+frame=    2 fps=0.0 q=-1.0 size=     512KiB time=00:00:00.20 bitrate=20971.0kbits/s speed=0.391x elapsed=0:00:00.51    frame=    3 fps=2.9 q=-1.0 size=    1024KiB time=00:00:00.30 bitrate=27961.1kbits/s speed=0.291x elapsed=0:00:01.03    frame=    4 fps=2.6 q=-1.0 size=    1792KiB time=00:00:00.40 bitrate=36698.8kbits/s speed=0.259x elapsed=0:00:01.54    frame=    6 fps=2.9 q=-1.0 size=    2816KiB time=00:00:00.60 bitrate=38446.2kbits/s speed=0.291x elapsed=0:00:02.05    frame=    7 fps=2.7 q=-1.0 size=    3584KiB time=00:00:00.70 bitrate=41941.2kbits/s speed=0.272x elapsed=0:00:02.57    frame=    8 fps=2.6 q=-1.0 size=    4096KiB time=00:00:00.80 bitrate=41941.2kbits/s speed=0.259x elapsed=0:00:03.09    frame=   10 fps=2.8 q=-1.0 size=    5376KiB time=00:00:01.00 bitrate=44038.2kbits/s speed=0.277x elapsed=0:00:03.60    frame=   10 fps=2.4 q=-1.0 size=    5376KiB time=00:00:01.00 bitrate=44038.2kbits/s speed=0.243x elapsed=0:00:04.12    frame=   12 fps=2.6 q=-1.0 size=    6400KiB time=00:00:01.20 bitrate=43688.7kbits/s speed=0.258x elapsed=0:00:04.65    frame=   13 fps=2.5 q=-1.0 size=    7168KiB time=00:00:01.30 bitrate=45167.3kbits/s speed=0.252x elapsed=0:00:05.15    frame=   14 fps=2.5 q=-1.0 size=    7680KiB time=00:00:01.40 bitrate=44936.9kbits/s speed=0.246x elapsed=0:00:05.68    frame=   15 fps=2.4 q=-1.0 size=    8192KiB time=00:00:01.50 bitrate=44737.2kbits/s speed=0.242x elapsed=0:00:06.19    [out#0/rawvideo @ 000002158635d700] video:9600KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.000000%
+frame=   16 fps=2.4 q=-1.0 Lsize=    9600KiB time=00:00:01.60 bitrate=49149.7kbits/s speed=0.236x elapsed=0:00:06.76    

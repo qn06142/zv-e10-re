@@ -1,0 +1,11 @@
+/usr/share/app # /bin/busybox mkdir /log/yuy2_640_v27snap
+/usr/share/app # /bin/busybox cp /tmp/bbel /log/yuy2_640_v27snap/busybox
+/usr/share/app # /bin/busybox chmod 755 /log/yuy2_640_v27snap/busybox
+/usr/share/app # echo YQ== | /log/yuy2_640_v27snap/busybox base64 -d
+a/usr/share/app # /log/yuy2_640_v27snap/busybox df -Pk /tmp /usr /log
+Filesystem           1024-blocks    Used Available Capacity Mounted on
+/dev/nflasha10           12256     12256         0 100% /tmp
+/dev/nflasha15          234749    223792     10957  95% /usr
+/dev/nflasha11          511920       144    511776   0% /log
+/usr/share/app # echo V27_DIRECT_012-log-staging-toolbelt
+V27_DIRECT_012-log-staging-toolbelt

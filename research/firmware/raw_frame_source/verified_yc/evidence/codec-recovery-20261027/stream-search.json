@@ -1,0 +1,806 @@
+{
+  "0": [
+    {
+      "offset": 14,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 260,
+      "exact_zero_tail": 203,
+      "mean_trailing_zero_consumed": 11.517241379310345
+    },
+    {
+      "offset": 0,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 249,
+      "exact_zero_tail": 199,
+      "mean_trailing_zero_consumed": 12.050251256281408
+    },
+    {
+      "offset": 1,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 249,
+      "exact_zero_tail": 199,
+      "mean_trailing_zero_consumed": 12.050251256281408
+    },
+    {
+      "offset": 2,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 249,
+      "exact_zero_tail": 199,
+      "mean_trailing_zero_consumed": 12.050251256281408
+    },
+    {
+      "offset": 3,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 249,
+      "exact_zero_tail": 199,
+      "mean_trailing_zero_consumed": 12.050251256281408
+    },
+    {
+      "offset": 4,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 249,
+      "exact_zero_tail": 199,
+      "mean_trailing_zero_consumed": 12.050251256281408
+    },
+    {
+      "offset": 5,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 249,
+      "exact_zero_tail": 199,
+      "mean_trailing_zero_consumed": 12.050251256281408
+    },
+    {
+      "offset": 6,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 248,
+      "exact_zero_tail": 198,
+      "mean_trailing_zero_consumed": 12.04040404040404
+    },
+    {
+      "offset": 7,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 248,
+      "exact_zero_tail": 198,
+      "mean_trailing_zero_consumed": 12.04040404040404
+    },
+    {
+      "offset": 8,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 248,
+      "exact_zero_tail": 198,
+      "mean_trailing_zero_consumed": 12.04040404040404
+    },
+    {
+      "offset": 9,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 248,
+      "exact_zero_tail": 198,
+      "mean_trailing_zero_consumed": 12.04040404040404
+    },
+    {
+      "offset": 10,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 248,
+      "exact_zero_tail": 198,
+      "mean_trailing_zero_consumed": 12.04040404040404
+    },
+    {
+      "offset": 11,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 248,
+      "exact_zero_tail": 198,
+      "mean_trailing_zero_consumed": 12.04040404040404
+    },
+    {
+      "offset": 12,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 248,
+      "exact_zero_tail": 198,
+      "mean_trailing_zero_consumed": 12.04040404040404
+    },
+    {
+      "offset": 13,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 248,
+      "exact_zero_tail": 198,
+      "mean_trailing_zero_consumed": 12.04040404040404
+    },
+    {
+      "offset": 15,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 248,
+      "exact_zero_tail": 198,
+      "mean_trailing_zero_consumed": 12.04040404040404
+    },
+    {
+      "offset": 0,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.364102564102565
+    },
+    {
+      "offset": 1,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.364102564102565
+    },
+    {
+      "offset": 2,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.364102564102565
+    },
+    {
+      "offset": 3,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.364102564102565
+    },
+    {
+      "offset": 4,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.364102564102565
+    },
+    {
+      "offset": 5,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.364102564102565
+    },
+    {
+      "offset": 6,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.374358974358975
+    },
+    {
+      "offset": 7,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.374358974358975
+    },
+    {
+      "offset": 8,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.374358974358975
+    },
+    {
+      "offset": 9,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.374358974358975
+    },
+    {
+      "offset": 10,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.374358974358975
+    },
+    {
+      "offset": 11,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.374358974358975
+    },
+    {
+      "offset": 12,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.374358974358975
+    },
+    {
+      "offset": 13,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 281,
+      "exact_zero_tail": 195,
+      "mean_trailing_zero_consumed": 11.374358974358975
+    },
+    {
+      "offset": 2,
+      "count": 62,
+      "kind": "eg",
+      "k": 0,
+      "polarity": "1",
+      "valid": 272,
+      "exact_zero_tail": 186,
+      "mean_trailing_zero_consumed": 8.381720430107526
+    },
+    {
+      "offset": 21,
+      "count": 63,
+      "kind": "eg",
+      "k": 0,
+      "polarity": "1",
+      "valid": 267,
+      "exact_zero_tail": 185,
+      "mean_trailing_zero_consumed": 8.95135135135135
+    },
+    {
+      "offset": 3,
+      "count": 63,
+      "kind": "eg",
+      "k": 0,
+      "polarity": "1",
+      "valid": 265,
+      "exact_zero_tail": 185,
+      "mean_trailing_zero_consumed": 9.07027027027027
+    },
+    {
+      "offset": 6,
+      "count": 64,
+      "kind": "eg",
+      "k": 0,
+      "polarity": "1",
+      "valid": 265,
+      "exact_zero_tail": 185,
+      "mean_trailing_zero_consumed": 9.12972972972973
+    },
+    {
+      "offset": 23,
+      "count": 63,
+      "kind": "eg",
+      "k": 0,
+      "polarity": "1",
+      "valid": 261,
+      "exact_zero_tail": 185,
+      "mean_trailing_zero_consumed": 9.54054054054054
+    },
+    {
+      "offset": 26,
+      "count": 62,
+      "kind": "eg",
+      "k": 0,
+      "polarity": "1",
+      "valid": 259,
+      "exact_zero_tail": 184,
+      "mean_trailing_zero_consumed": 9.375
+    },
+    {
+      "offset": 34,
+      "count": 62,
+      "kind": "eg",
+      "k": 0,
+      "polarity": "1",
+      "valid": 234,
+      "exact_zero_tail": 184,
+      "mean_trailing_zero_consumed": 10.277173913043478
+    },
+    {
+      "offset": 24,
+      "count": 62,
+      "kind": "eg",
+      "k": 0,
+      "polarity": "1",
+      "valid": 267,
+      "exact_zero_tail": 183,
+      "mean_trailing_zero_consumed": 9.131147540983607
+    },
+    {
+      "offset": 4,
+      "count": 64,
+      "kind": "eg",
+      "k": 0,
+      "polarity": "1",
+      "valid": 257,
+      "exact_zero_tail": 183,
+      "mean_trailing_zero_consumed": 9.551912568306012
+    },
+    {
+      "offset": 32,
+      "count": 62,
+      "kind": "eg",
+      "k": 0,
+      "polarity": "1",
+      "valid": 245,
+      "exact_zero_tail": 183,
+      "mean_trailing_zero_consumed": 10.103825136612022
+    }
+  ],
+  "1": [
+    {
+      "offset": 1,
+      "count": 48,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 369,
+      "exact_zero_tail": 332,
+      "mean_trailing_zero_consumed": 24.596385542168676
+    },
+    {
+      "offset": 5,
+      "count": 64,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 366,
+      "exact_zero_tail": 331,
+      "mean_trailing_zero_consumed": 22.102719033232628
+    },
+    {
+      "offset": 7,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 366,
+      "exact_zero_tail": 331,
+      "mean_trailing_zero_consumed": 22.102719033232628
+    },
+    {
+      "offset": 0,
+      "count": 48,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 374,
+      "exact_zero_tail": 331,
+      "mean_trailing_zero_consumed": 24.15105740181269
+    },
+    {
+      "offset": 3,
+      "count": 47,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 374,
+      "exact_zero_tail": 331,
+      "mean_trailing_zero_consumed": 24.15105740181269
+    },
+    {
+      "offset": 4,
+      "count": 47,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 372,
+      "exact_zero_tail": 331,
+      "mean_trailing_zero_consumed": 24.60725075528701
+    },
+    {
+      "offset": 2,
+      "count": 48,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 365,
+      "exact_zero_tail": 331,
+      "mean_trailing_zero_consumed": 25.268882175226587
+    },
+    {
+      "offset": 5,
+      "count": 47,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 365,
+      "exact_zero_tail": 331,
+      "mean_trailing_zero_consumed": 25.268882175226587
+    },
+    {
+      "offset": 8,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 362,
+      "exact_zero_tail": 329,
+      "mean_trailing_zero_consumed": 22.65045592705167
+    },
+    {
+      "offset": 6,
+      "count": 64,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 358,
+      "exact_zero_tail": 329,
+      "mean_trailing_zero_consumed": 22.911854103343465
+    },
+    {
+      "offset": 11,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 359,
+      "exact_zero_tail": 328,
+      "mean_trailing_zero_consumed": 22.51829268292683
+    },
+    {
+      "offset": 10,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 363,
+      "exact_zero_tail": 327,
+      "mean_trailing_zero_consumed": 22.464831804281346
+    },
+    {
+      "offset": 6,
+      "count": 47,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 359,
+      "exact_zero_tail": 327,
+      "mean_trailing_zero_consumed": 26.65137614678899
+    },
+    {
+      "offset": 9,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 367,
+      "exact_zero_tail": 326,
+      "mean_trailing_zero_consumed": 21.932515337423315
+    },
+    {
+      "offset": 2,
+      "count": 47,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 376,
+      "exact_zero_tail": 326,
+      "mean_trailing_zero_consumed": 23.085889570552148
+    },
+    {
+      "offset": 9,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 355,
+      "exact_zero_tail": 326,
+      "mean_trailing_zero_consumed": 23.466257668711656
+    },
+    {
+      "offset": 1,
+      "count": 47,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 377,
+      "exact_zero_tail": 325,
+      "mean_trailing_zero_consumed": 22.455384615384617
+    },
+    {
+      "offset": 13,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 350,
+      "exact_zero_tail": 325,
+      "mean_trailing_zero_consumed": 24.184615384615384
+    },
+    {
+      "offset": 10,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 350,
+      "exact_zero_tail": 325,
+      "mean_trailing_zero_consumed": 24.22769230769231
+    },
+    {
+      "offset": 11,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 347,
+      "exact_zero_tail": 324,
+      "mean_trailing_zero_consumed": 24.438271604938272
+    },
+    {
+      "offset": 14,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 343,
+      "exact_zero_tail": 324,
+      "mean_trailing_zero_consumed": 24.895061728395063
+    },
+    {
+      "offset": 12,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 341,
+      "exact_zero_tail": 324,
+      "mean_trailing_zero_consumed": 25.265432098765434
+    },
+    {
+      "offset": 3,
+      "count": 48,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 355,
+      "exact_zero_tail": 324,
+      "mean_trailing_zero_consumed": 26.99074074074074
+    },
+    {
+      "offset": 4,
+      "count": 64,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 368,
+      "exact_zero_tail": 323,
+      "mean_trailing_zero_consumed": 21.6656346749226
+    },
+    {
+      "offset": 6,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 368,
+      "exact_zero_tail": 323,
+      "mean_trailing_zero_consumed": 21.6656346749226
+    },
+    {
+      "offset": 12,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 350,
+      "exact_zero_tail": 323,
+      "mean_trailing_zero_consumed": 23.73374613003096
+    },
+    {
+      "offset": 7,
+      "count": 64,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 350,
+      "exact_zero_tail": 323,
+      "mean_trailing_zero_consumed": 24.006191950464395
+    },
+    {
+      "offset": 4,
+      "count": 48,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 351,
+      "exact_zero_tail": 323,
+      "mean_trailing_zero_consumed": 27.430340557275542
+    },
+    {
+      "offset": 7,
+      "count": 47,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 351,
+      "exact_zero_tail": 323,
+      "mean_trailing_zero_consumed": 27.430340557275542
+    },
+    {
+      "offset": 8,
+      "count": 64,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 346,
+      "exact_zero_tail": 322,
+      "mean_trailing_zero_consumed": 24.59006211180124
+    },
+    {
+      "offset": 9,
+      "count": 64,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 341,
+      "exact_zero_tail": 322,
+      "mean_trailing_zero_consumed": 25.236024844720497
+    },
+    {
+      "offset": 15,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 339,
+      "exact_zero_tail": 322,
+      "mean_trailing_zero_consumed": 25.751552795031056
+    },
+    {
+      "offset": 5,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 369,
+      "exact_zero_tail": 321,
+      "mean_trailing_zero_consumed": 20.847352024922117
+    },
+    {
+      "offset": 7,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 369,
+      "exact_zero_tail": 321,
+      "mean_trailing_zero_consumed": 20.847352024922117
+    },
+    {
+      "offset": 3,
+      "count": 64,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 368,
+      "exact_zero_tail": 321,
+      "mean_trailing_zero_consumed": 21.289719626168225
+    },
+    {
+      "offset": 8,
+      "count": 62,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 368,
+      "exact_zero_tail": 321,
+      "mean_trailing_zero_consumed": 21.46417445482866
+    },
+    {
+      "offset": 13,
+      "count": 63,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 337,
+      "exact_zero_tail": 321,
+      "mean_trailing_zero_consumed": 25.91277258566978
+    },
+    {
+      "offset": 10,
+      "count": 64,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 337,
+      "exact_zero_tail": 321,
+      "mean_trailing_zero_consumed": 25.956386292834893
+    },
+    {
+      "offset": 11,
+      "count": 64,
+      "kind": "rice",
+      "k": 1,
+      "polarity": "1",
+      "valid": 334,
+      "exact_zero_tail": 319,
+      "mean_trailing_zero_consumed": 26.225705329153605
+    },
+    {
+      "offset": 8,
+      "count": 47,
+      "kind": "rice",
+      "k": 2,
+      "polarity": "1",
+      "valid": 342,
+      "exact_zero_tail": 318,
+      "mean_trailing_zero_consumed": 28.12578616352201
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Raw-byte webcam diagnostic patch —26 October2026
+
+User changed the immediate objective: skip interpretation/conversion, send camera-source bytes under existing webcam framing, save and analyze packets on the PC. Implemented revision2.6 raw diagnostic recipe in [yuy2_transport_v26_raw](../research/firmware/yuy2_transport_v26_raw/README.md). The worker copies a614400-byte contiguous source window unchanged, advertises the existing640x480 YUY2 framing at10fps, and removes synthetic fallback and counter overlays. Source format/dimensions/stride/color flags are ignored. Byte offset is configurable while inactive.
+
+This is an implemented and compiled opaque byte path, NOT a recovered Sony source adapter. The prior assumption that only format conversion was missing was incorrect: real stable source acquisition is still unbound. Consequently the default module submits no frames until a real source callback is registered. No guessed physical address, fake pin IPC or synthetic frame is used to hide this. Physical span bounds, overlap rejection, cleanup/reference retention and USB readiness checks remain enforced.
+
+Built yuy2_640_v26raw.so and libInfraStreamingUsb.persistent.so offline.13 ARM worker integration cases pass;32 inherited core tests and11 ELF/PIC cases pass; ISA audit finds zero NEON instructions in audited code. The packet splitter preserves two fixture frames exactly and accounts for a partial tail. These are software/emulation tests with mocked camera services. No camera payload has been captured. Windows USB inventory during this work returned no connected Sony device; no install or camera change was attempted.
+
+PC capture helper uses `-c:v copy -f rawvideo` and saves opaque capture.bin plus individual frame-NNNN.bin files, hashes, FFmpeg log and partial-frame accounting. It deliberately performs no output format conversion. Initial frame window is614400 bytes; it is not proof a larger native image occupies only that span or that multiple planes are contiguous.
+
+Local artifacts: C:/Users/qn061/Documents/Codex/2026-10-22/chec/outputs/yuy2-v26raw/candidate/. Actual binary hashes are in manifest.json and persistent metadata. The persistent candidate has an independent module basename and normal prepare activation. No installer is supplied and no existing2.4p file was replaced. Future deployment needs a bound genuine source and the established cold/guarded workflow.
+
+Next source work should now prioritize obtaining a bounded real pixel allocation/reference and exposing it to the diagnostic worker. Do not spend time proving color packing before the first byte capture: that interpretation can happen on the PC, as requested. Preserve allocation lifetime/readiness constraints.24fps remains later work.

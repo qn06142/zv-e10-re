@@ -1,0 +1,5 @@
+{
+  "passed": 32,
+  "scope": "compiled inherited test_raw_live_source.c",
+  "hardware_services_mocked": true
+}

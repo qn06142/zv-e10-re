@@ -1,0 +1,42 @@
+[
+  {
+    "path": "/log/yuy2_640_v27snap/first-capture-01/runtime.log",
+    "md5": "6acc1333b6a2e8b900c2eb211b5f99f0",
+    "bytes": 555
+  },
+  {
+    "path": "/log/yuy2_640_v27snap/first-capture-01/uptime.txt",
+    "md5": "4149678d55c9d39a9bee7b514436bd27",
+    "bytes": 15
+  },
+  {
+    "path": "/log/yuy2_640_v27snap/first-capture-01/maps.txt",
+    "md5": "31dc715449a268e4c9013067824a20e4",
+    "bytes": 48855
+  },
+  {
+    "path": "/log/yuy2_640_v27snap/first-capture-01/dmm-units.txt",
+    "md5": "ff510038bffb824358c6df2eaee26d7c",
+    "bytes": 2968
+  },
+  {
+    "path": "/log/yuy2_640_v27snap/first-capture-01/kernel.log",
+    "md5": "466c9342387aa758e0413f22653aff17",
+    "bytes": 7919
+  },
+  {
+    "path": "/log/yuy2_640_v27snap/first-capture-01/mpr.log",
+    "md5": "0eead6e7fffdd32af4bdf443aa7e1168",
+    "bytes": 602033
+  },
+  {
+    "path": "/log/yuy2_640_v27snap/first-capture-01/module-state.bin",
+    "md5": "016a550630a47219a357bd44ba51c3ac",
+    "bytes": 139264
+  },
+  {
+    "path": "/log/yuy2_640_v27snap/runtime.log",
+    "md5": "6acc1333b6a2e8b900c2eb211b5f99f0",
+    "bytes": 555
+  }
+]

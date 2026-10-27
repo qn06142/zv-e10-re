@@ -1,0 +1,22 @@
+{
+  "compiled_ARM_selector_executed": true,
+  "passed": 10,
+  "cases": [
+    "captured streaming table selects native VEF type0x295",
+    "released allocation rejected",
+    "unopened allocation rejected",
+    "MMIO alias rejected",
+    "DRAM span overflow rejected",
+    "short span rejected",
+    "audio rejected",
+    "USB staging rejected",
+    "owned destination rejected",
+    "legacy explicit source remains supported"
+  ],
+  "captured_live_listing_result": "SELECTED_NATIVE_VEF_295",
+  "actual": [
+    0,
+    "070d000095020000"
+  ],
+  "camera_access": false
+}

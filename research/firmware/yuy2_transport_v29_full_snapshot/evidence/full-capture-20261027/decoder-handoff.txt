@@ -1,0 +1,71 @@
+Sony ZV-E10 full native VEF allocation — captured 27 October 2026
+
+BINARY: zve10-vef295-full-snapshot.bin
+LENGTH: 2073600 bytes (0x1fa400)
+SHA-256: 4b0feb4634b753068f669fa96ec4705d989ecafeb87d12c66940b3cf65fbba47
+
+This is the first COMPLETE native allocation reassembled from revision 2.9's
+successful hardware capture, snapshot ID 2 / native sequence 2. It replaces
+the previous 614400-byte PREFIX as decoding input. The earlier prefix was
+from a different camera session/scene; do not concatenate it with this file.
+
+The camera patch dynamically selects native type 0x295, Share/Open pins its
+allocation, copies the ENTIRE returned contiguous extent to an owned heap
+snapshot, and Close/Free releases its extra native references. It then sends
+four chunks of that owned copy over the existing 640x480/YUY2/10fps USB byte
+envelope. Each USB packet has a 64-byte ZVYC0029 header, source offset, length,
+snapshot ID, source sequence and standard CRC32 checks. Header + payload CRC,
+chunk ranges, consistent identity and zero padding all passed host checks.
+The binary here has ALL transport/application headers and padding REMOVED.
+It contains the unchanged native bytes from offsets 0..2073599, exactly once.
+No conversion, scaling, synthetic bars, brightness mapping or color guesses.
+
+The 16-packet stream-copy FFmpeg capture contained three complete distinct
+2073600-byte allocations (IDs 2/3/4) and incomplete IDs 1/5 at the capture
+boundaries; incomplete groups were NOT exported. This file is one full
+allocation, not a concatenation of different acquisitions. Different USB
+chunks therefore cannot come from different source copies. Producer pixels
+could still change during the initial full copy: frame-completion and
+tear-free image semantics are NOT guaranteed by allocation pinning.
+
+FIRMWARE PROVENANCE: VEF geometry records write type 0x295 into native
+ImageSizeInfo.unit_type and allocate it through native DMM command 12;
+the returned handle is attached as ImageSizeInfo.unit_handle. This is a
+verified YC image-attachment allocation family, not arbitrary workspace.
+The allocation family is reused for multiple geometries and compression
+settings. No matching live ImageSizeInfo/YcStateInfo was captured here.
+Exact plane/content, bit depth, colorimetry and compressed syntax remain
+unverified. The USB YUY2 label does NOT describe these native pixels.
+
+Conditional 1920-byte row interpretation covers 1080 rows now, not 320.
+There are 32400 candidate 64-byte blocks. Byte5 block-lag30 correlation is
+0.84349; no all-zero rows occur under the 1920-byte-pitch interpretation.
+The final 230400-byte region also contains data (zero fraction ~0.27946).
+These statistics support full-span useful structure, not proof of geometry.
+
+The previous heuristic decoder's brightness scales/chroma guesses are NOT
+a recovered exact codec. Independent checks found unparsed nonzero stream
+bits and inconsistent token counts. Use this full capture to recover an
+actual bitstream model; do not treat plausible colors as verified decoding.
+The firmware's codec depth-name enum maps 0/1/2/3 to 8/10/12/14 bits, but its
+identity with live SSYC depth and this buffer's depth remains unproved.
+
+Camera restarted once before the successful test, as reported by user. Both
+installed revision 2.9 file hashes were checked after returning to service
+and match. Passing packet checks validate this transfer, not the crash cause.
+Observed FFmpeg rate was ~2.4 USB PACKETS/s, not full camera images/s. Four
+packets per native snapshot means ~0.6 full snapshots/s in this diagnostic.
+Runtime timings show native acquisition/copy/release ~85..116ms and first
+packet assembly including CRC ~305..360ms, with a separate 100ms worker sleep.
+No measured claim of usable 24fps webcam performance or decoded image output.
+
+Artifacts are in the shared workspace outputs/native-dmm-v29/capture-first-01/.
+Other two complete snapshots remain there under reassembled/. Firmware audit:
+D:/02_Development_And_Projects/pmca-re/docs/uvc_vef295_independent_recovery_20261027.md
+Do not modify the camera while decoding this file offline.
+
+POST-STOP CHECK: Native backend IDLE; 28 requests and 28 replies, zero
+shared/open references or token retained, no pending snapshot or USB in-flight
+flag. Full camera mode off/on reuse remains unverified; the module retains
+its output mapping/handle although that unit is absent from the post-stop
+DMM listing. This observation is separate from native-source reference cleanup.

@@ -1,0 +1,158 @@
+[
+  [
+    "0x63f16723",
+    "11McAvcYcData"
+  ],
+  [
+    "0x63f1d591",
+    "dec/mcYcData.cpp"
+  ],
+  [
+    "0x63f1d7d4",
+    "dataPlacement =%d"
+  ],
+  [
+    "0x63f2e55a",
+    "void sfmc_audio_enc::sfmc_audio_enc_input::open_yc_pin_data(const MSG_PIN_SEND&, McAvcYcData&)"
+  ],
+  [
+    "0x63f2e5b9",
+    "void sfmc_audio_enc::sfmc_audio_enc_input::open_image_data(McAvcYcData&)"
+  ],
+  [
+    "0x63f35385",
+    "void sfmc_enc::sfmc_enc_input_yc::get_yc_create_t(McAvcYcData&, sfmc_enc::sfmc_enc_input_yc::create_vfc_t&)"
+  ],
+  [
+    "0x63f353f1",
+    "__int32_t sfmc_enc::sfmc_enc_input_yc::share_pin_data(McAvcYcData&)"
+  ],
+  [
+    "0x63f35435",
+    "__int32_t sfmc_enc::sfmc_enc_input_yc::close_image_data(McAvcYcData&)"
+  ],
+  [
+    "0x63f3547b",
+    "__int32_t sfmc_enc::sfmc_enc_input_yc::open_image_data(McAvcYcData&)"
+  ],
+  [
+    "0x63f3551a",
+    "__int32_t sfmc_enc::sfmc_enc_input_yc::open_pin_data(const MSG_PIN_SEND&, McAvcYcData&)"
+  ],
+  [
+    "0x63f35572",
+    "__int32_t sfmc_enc::sfmc_enc_input_yc::share_image_data(McAvcYcData&)"
+  ],
+  [
+    "0x63f3b17e",
+    "[SDF] dataPlacement  : %#x"
+  ],
+  [
+    "0x63f4a612",
+    "N4tcub3pin15YcDataProcessorE"
+  ],
+  [
+    "0x63f4a6a0",
+    "N4tcub3pin27AbstractMainYcDataProcessorE"
+  ],
+  [
+    "0x63f4a6c9",
+    "N4tcub3pin19MainYcDataProcessorE"
+  ],
+  [
+    "0x63f4a7d5",
+    "N4tcub3pin19YcDataCopyProcessorE"
+  ],
+  [
+    "0x63f4a7f6",
+    "N4tcub3pin34YcDataFreeForIllegalStateProcessorE"
+  ],
+  [
+    "0x63f4a826",
+    "N4tcub3pin19YcDataSendProcessorE"
+  ],
+  [
+    "0x63f4a876",
+    "N4tcub3pin19NullYcDataProcessorE"
+  ],
+  [
+    "0x63f4a9bf",
+    "N4tcub9structure20YcDataTcubInfoFillerE"
+  ],
+  [
+    "0x63f4b0e2",
+    "N4tcub9structure24YcDataTcubInfoFillerImplE"
+  ],
+  [
+    "0x63f4e31f",
+    "[VDF]s_EvfParallaxCreateYCDataStructure NG(0x%x)"
+  ],
+  [
+    "0x63f51998",
+    "N3VDF28VfxRgba8888ToYuv422ProcessorE"
+  ],
+  [
+    "0x63f52f77",
+    "VDF::VDF_ERR VDF::VdfInputCmdUpdateYuvPin::changeSSYCData(VDF::DrvCallDmm::CtrlData*, VDF::MsgAccessorIf*, VDF::SubsystemAccessorIf*)"
+  ],
+  [
+    "0x63f572e4",
+    "N3VDF20VdfToAdfYcDataSenderE"
+  ],
+  [
+    "0x63f57301",
+    "N3VDF24VdfToAdfYcDataSenderImplE"
+  ],
+  [
+    "0x63f5a4dc",
+    "N3VEF20VefToAdfYcDataSenderE"
+  ],
+  [
+    "0x63f5a4f9",
+    "N3VEF24VefToAdfYcDataSenderImplE"
+  ],
+  [
+    "0x63f82626",
+    "FW: dmm Err: %d, sds_ycc_handle: %x"
+  ],
+  [
+    "0x63f87dc0",
+    "FW: cmpCateID[%d] cmpMsgId[%x] replyOsalId[%x] Raw[%x] RawMakerNote[%x] RawSrcData[%x] RawOffset[%x] RawSize[%x] YcData[%x] StdYcData[%x]"
+  ],
+  [
+    "0x63fe294c",
+    "FC/Api/fc_api_monitoring.cpp"
+  ],
+  [
+    "0x63f1d7b0",
+    "ycCompress    =%d"
+  ],
+  [
+    "0x63f1d7c2",
+    "dataTransfer  =%d"
+  ],
+  [
+    "0x63f3b148",
+    "[SDF] ycCompress     : %#x"
+  ],
+  [
+    "0x63f3b163",
+    "[SDF] dataTransfer   : %#x"
+  ],
+  [
+    "0x63f3fd89",
+    "[SDF][INT_ERROR] inYcCompress & outYcCompress"
+  ],
+  [
+    "0x63f4281f",
+    "SetYcCompress"
+  ],
+  [
+    "0x63f57aae",
+    "void out_pin0_send(VDF::SubsystemAccessorIf*, VDF::MsgAccessorIf*)"
+  ],
+  [
+    "0x63f58b37",
+    "[VEF]send scnenarioEnd out_pin%x"
+  ]
+]

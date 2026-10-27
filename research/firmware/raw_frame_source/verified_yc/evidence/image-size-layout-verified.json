@@ -1,0 +1,207 @@
+{
+  "method": "Executed libObj.so printer0x2c3678 with real framework getter0x246d6 on byte-tagged60-byte fixture; printf intercepted only",
+  "camera_access": false,
+  "format_enums_proven": false,
+  "fields": [
+    {
+      "format": "[ObjRenderer]PIN_YC_IMAGE_SIZE_INFO : imageAttach   [%x]h\n",
+      "value": 0,
+      "call_return": "0x2c36b5",
+      "field": "imageAttach",
+      "offset": 0,
+      "width": 1
+    },
+    {
+      "format": "[ObjRenderer]                         unitType      [%x]h\n",
+      "value": 117835012,
+      "call_return": "0x2c36bf",
+      "field": "unitType",
+      "offset": 4,
+      "width": 4
+    },
+    {
+      "format": "[ObjRenderer]                         unitHandle    [%x]h\n",
+      "value": 2312,
+      "call_return": "0x2c36c9",
+      "field": "unitHandle",
+      "offset": 8,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         unitDataOffset[%x]h\n",
+      "value": 252579084,
+      "call_return": "0x2c36d3",
+      "field": "unitDataOffset",
+      "offset": 12,
+      "width": 4
+    },
+    {
+      "format": "[ObjRenderer]                         recordSizeX   [%d]\n",
+      "value": 5396,
+      "call_return": "0x2c36dd",
+      "field": "recordSizeX",
+      "offset": 20,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         recordSizeY   [%d]\n",
+      "value": 5910,
+      "call_return": "0x2c36e7",
+      "field": "recordSizeY",
+      "offset": 22,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         canvasSizeX   [%d]\n",
+      "value": 6424,
+      "call_return": "0x2c36f1",
+      "field": "canvasSizeX",
+      "offset": 24,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         canvasSizeY   [%d]\n",
+      "value": 6938,
+      "call_return": "0x2c36fb",
+      "field": "canvasSizeY",
+      "offset": 26,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         validOffsetX  [%x]h\n",
+      "value": 7452,
+      "call_return": "0x2c3705",
+      "field": "validOffsetX",
+      "offset": 28,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         validOffsetY  [%x]h\n",
+      "value": 7966,
+      "call_return": "0x2c370f",
+      "field": "validOffsetY",
+      "offset": 30,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         validSizeX    [%d]\n",
+      "value": 8480,
+      "call_return": "0x2c3719",
+      "field": "validSizeX",
+      "offset": 32,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         validSizeY    [%d]\n",
+      "value": 8994,
+      "call_return": "0x2c3723",
+      "field": "validSizeY",
+      "offset": 34,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         targetOffsetX [%x]h\n",
+      "value": 9508,
+      "call_return": "0x2c372d",
+      "field": "targetOffsetX",
+      "offset": 36,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         targetOffsetY [%x]h\n",
+      "value": 10022,
+      "call_return": "0x2c3737",
+      "field": "targetOffsetY",
+      "offset": 38,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         targetSizeX   [%d]\n",
+      "value": 10536,
+      "call_return": "0x2c3741",
+      "field": "targetSizeX",
+      "offset": 40,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         targetSizeY   [%d]\n",
+      "value": 11050,
+      "call_return": "0x2c374b",
+      "field": "targetSizeY",
+      "offset": 42,
+      "width": 2
+    },
+    {
+      "format": "[ObjRenderer]                         dataSite      [%x]h\n",
+      "value": 44,
+      "call_return": "0x2c3757",
+      "field": "dataSite",
+      "offset": 44,
+      "width": 1
+    },
+    {
+      "format": "[ObjRenderer]                         iibNumber     [%x]h\n",
+      "value": 45,
+      "call_return": "0x2c3763",
+      "field": "iibNumber",
+      "offset": 45,
+      "width": 1
+    },
+    {
+      "format": "[ObjRenderer]                         aspect        [%x]h\n",
+      "value": 46,
+      "call_return": "0x2c376f",
+      "field": "aspect",
+      "offset": 46,
+      "width": 1
+    },
+    {
+      "format": "[ObjRenderer]                         ycCompress    [%x]h\n",
+      "value": 47,
+      "call_return": "0x2c377b",
+      "field": "ycCompress",
+      "offset": 47,
+      "width": 1
+    },
+    {
+      "format": "[ObjRenderer]                         dataTransfer  [%x]h\n",
+      "value": 48,
+      "call_return": "0x2c3787",
+      "field": "dataTransfer",
+      "offset": 48,
+      "width": 1
+    },
+    {
+      "format": "[ObjRenderer]                         dataPlacement [%x]h\n",
+      "value": 49,
+      "call_return": "0x2c3793",
+      "field": "dataPlacement",
+      "offset": 49,
+      "width": 1
+    },
+    {
+      "format": "[ObjRenderer]                         dataContent   [%x]h\n",
+      "value": 50,
+      "call_return": "0x2c379f",
+      "field": "dataContent",
+      "offset": 50,
+      "width": 1
+    },
+    {
+      "format": "[ObjRenderer]                         dataScan      [%x]h\n",
+      "value": 51,
+      "call_return": "0x2c37ab",
+      "field": "dataScan",
+      "offset": 51,
+      "width": 1
+    },
+    {
+      "format": "[ObjRenderer]                         stripWidth    [%x]h\n",
+      "value": 13620,
+      "call_return": "0x2c37b5",
+      "field": "stripWidth",
+      "offset": 52,
+      "width": 2
+    }
+  ]
+}

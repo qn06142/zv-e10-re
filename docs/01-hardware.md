@@ -18,7 +18,7 @@ Related: [02-service-shell.md](02-service-shell.md) ·
 [06-method.md](06-method.md)
 
 ## Platform
-- SoC: Sony CXD900X0, quad ARM Cortex-A9 (ARMv7 rev1, NEON/VFPv4), ~1GHz
+- SoC: Sony CXD900X0, four Linux-visible Cortex-A5 cores (ARMv7 rev1, part 0xc05), VFPv4-D16; no NEON advertised; clock unverified
 - RAM: 1GB + 256MB (mem=1G@0 + mem=256M@0x80000000@1 in cmdline)
 - Kernel: 3.0.27_nl-rt106+ (PREEMPT RT), BusyBox v1.34.1, root shell
 - Wi-Fi/BT: Broadcom BCM4339 (bcmdhd driver; bt_firm.hcd = "BCM4339 37.4MHz Sony DI 152H-0178")

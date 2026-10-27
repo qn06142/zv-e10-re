@@ -1,0 +1,55 @@
+{
+  "bytes": 1843200,
+  "frame_bytes": 614400,
+  "complete_frames": 3,
+  "trailing_bytes": 0,
+  "frames": [
+    {
+      "file": "frame-0000.bin",
+      "bytes": 614400,
+      "sha256": "fe1e6e3d91303ad52395125ec5f2aa86c4415f92cd89a1a641a10daa44666f90"
+    },
+    {
+      "file": "frame-0001.bin",
+      "bytes": 614400,
+      "sha256": "a1befd96934440a7a0db6df03c6bca12ca34aa65a50ac3f7a4b822142429163f"
+    },
+    {
+      "file": "frame-0002.bin",
+      "bytes": 614400,
+      "sha256": "b09ac68fb834fc1fe628ffc674d75ea0f1e36a6c6d8b1effc446863427df6cd0"
+    }
+  ],
+  "source_pixel_format": "UNKNOWN; YUY2 is transport framing only",
+  "conversion_performed": false,
+  "exit_code": 0,
+  "command": [
+    "C:\\WINDOWS\\ffmpeg.exe",
+    "-hide_banner",
+    "-nostdin",
+    "-f",
+    "dshow",
+    "-pixel_format",
+    "yuyv422",
+    "-video_size",
+    "640x480",
+    "-framerate",
+    "10",
+    "-rtbufsize",
+    "8M",
+    "-i",
+    "video=ZV-E10",
+    "-map",
+    "0:v:0",
+    "-frames:v",
+    "3",
+    "-an",
+    "-c:v",
+    "copy",
+    "-f",
+    "rawvideo",
+    "-n",
+    "outputs\\native-dmm-v28\\capture-reopen-01\\capture.bin"
+  ],
+  "camera_access": true
+}

@@ -1,0 +1,21 @@
+6374cf00: movs       r2, #2
+6374cf02: strb.w     r3, [r4, #0x31]
+6374cf06: strb.w     r2, [r4, #0x32]
+6374cf0a: strb       r3, [r7, #3]
+6374cf0c: movs       r2, #1
+6374cf0e: movs       r3, #0x40
+6374cf10: strb.w     r2, [r4, #0x33]
+6374cf14: strh       r3, [r4, #0x34]
+6374cf16: movs       r3, #0
+6374cf18: strb       r3, [r7]
+6374cf1a: ldrsh.w    r1, [r8, #2]
+6374cf1e: cbz        r1, #0x6374cf28
+6374cf20: strb.w     r2, [r4, #0x2f]
+6374cf24: strb       r2, [r7, #1]
+6374cf26: b          #0x6374cf2e
+6374cf28: strb.w     r3, [r4, #0x2f]
+6374cf2c: strb       r3, [r7, #1]
+6374cf2e: strb       r3, [r7, #2]
+6374cf30: mov        r0, r5
+6374cf32: strb       r3, [r7, #4]
+6374cf34: movs       r3, #2

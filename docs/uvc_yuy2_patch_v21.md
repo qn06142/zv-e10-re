@@ -1,0 +1,29 @@
+# YUY2 revision 2.1 — live result, 24 October 2026
+
+The RAM bootstrap was installed and read back exactly at streaming base `0x0a73a000`. Runtime marker `INSTALLED_V21` confirms the module loaded. Module MD5: `323fa7be278a1343802b51ba0c41c9a5`; loader MD5: `634950ff319ed3ac893210c5583785f1`. All 35 compiled ARM cases and four Thumb loader cases passed again for the observed map. This remains synthetic 640×480 YUY2 at 10 fps.
+
+Windows enumerated Sony PID `0DE3` with camera/media interfaces. FFmpeg advertised `yuyv422`, 640×480, 10 fps. A separate ten-frame capture timed out after 25 seconds with **zero frame bytes**. This is not a working webcam patch yet.
+
+Runtime evidence: exclusive unit `0x276` allocation succeeded at physical `0x15b00000`, capacity `0x00320000`. At least 180 frame submissions returned success. This proves acceptance by the camera submission API, not USB delivery. There are no `PROBE` or `COMMIT` markers in this run. Five later readiness failures queued error `0x24`; stop/finish retained the source because completion was uncertain (`SOURCE_PINNED`, cleanup result `0x1e`). Their timing relative to host timeout/user mode exit is not yet established. Do not attribute the zero-frame failure to those later errors without a correlated timeline.
+
+The user exited streaming and returned to service mode without reboot. Retrieved 44 files, 7,655,944 bytes, all matching camera MD5s. Application capture is 1,804,349 bytes: 57,346 records, zero slack/corruption. Decoder timestamps include buffered history and are not automatically the live capture duration. Debug capture was stopped after collection. The installer wrote only process RAM; see the separate post-stream common-library hash observation below.
+
+Revision 2's first live failure was an initialization-order bug: source preflight required driver staging before original Ready connect created the gadget. It rejected connect twice without attempting source allocation. Revision 2.1 allocates the owned source first, then validates staging immediately before DMA submission, with bounded missing-staging polls and size/overlap/overflow guards. This correction restored USB enumeration and permitted submissions but has not established host frame delivery.
+
+Next investigation: correlate original connect/start completion and worker notification state with the blocked DirectShow open; inspect why no probe/commit callbacks were logged, then verify gadget streaming/control/DMA completion semantics. Do not treat submission success as a host frame. Keep the allocated source pinned until genuine completion or a real reboot. Do not hot-unload or replace this module while hooks remain active. A normal power switch may hibernate RAM; this session used `/bin/busybox reboot -f` and verified old module absence before installation.
+
+Local evidence: `C:\Users\qn061\Documents\Codex\2026-10-22\chec\outputs\yuy2-640-v21\deployment`. Frozen camera files are in `camera-first-attempt`; `transfer-result.json` verifies all hashes. FFmpeg evidence is `ffmpeg-formats-first.txt`, `ffmpeg-capture-01.log`, and `capture-01.json`. The decoded application log is `app-decoded.txt`.
+
+[Source recipe](../research/firmware/yuy2_transport_v21/README.md).
+
+## Post-stream common-library hash observation
+
+Immediately after arming RAM, `libInfraUsbCmn.so` was stock MD5 `31308976206a837f6f5c571992d2b499`. After streaming it read as `bd32c223e60e363d900c7ac8be06641c`, the previously observed 1080 descriptor candidate. Downloaded `common-file-after.so` confirms exactly eight changed bytes versus stock: file offsets `0x12555..0x12558` and `0x12643..0x12646`, encoding 1920×1080 instead of 1280×720. RTOS and streaming-library hashes remained unchanged. The bootstrap installer writes only process memory, but this observed file-hash transition means the broader post-stream file state must not be described as unchanged. Its source/persistence across reboot remains unresolved; retain it for investigation. No restore or extra reboot was performed after this test.
+
+## Repeat activation — standby without USB enumeration
+
+After the first test and collection, the user attempted USB Streaming again. FFmpeg could not locate ZV-E10; Windows showed no Sony USB device. User reported streaming standby, cable reconnect ineffective, and returned to mass storage. Service access succeeded without a reboot. Saved nine snapshots plus their transfer manifest; all nine snapshots match camera MD5s (`deployment/retry-state/`). Sequential application logging had been stopped after the first collection, so there is no new continuous application capture for this retry.
+
+Runtime grew from 1,001 to 1,241 bytes. New records contain three `CONNECT_REJECTED 00000021 02d888ef 00000000` entries, followed by `SOURCE_PINNED` and `FINISH_CLEANUP 0000001e 00001715 00000001`. In source, error 0x21 (decimal 33) is exclusively `manager && manager != self` in `ensure_source`. Thus later connect requests encountered a different VideoEsManager while the source remained tied to the previous manager with uncertain DMA completion. The preflight rejected them before original Ready connect could create the USB gadget. This explains the repeat attempt's missing enumeration; it does not explain the initial enumerated zero-frame capture. Original allocation address was `0x15b00000`, capacity `0x320000`.
+
+Do not bypass the manager guard, free the uncertain source, or reuse the old manager pointer after its lifetime without proving ownership/lifetime. A proper recovery fix must handle stop/finish across manager destruction/recreation and establish DMA quiescence before release. A genuine reboot clears this RAM state and also removes revision 2.1; it would need a fresh guarded installation afterward. No reboot, new patch or firmware restore was performed for this repeat diagnostic.

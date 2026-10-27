@@ -14,6 +14,7 @@ from .setupapi import listDeviceClass, GUID_DEVINTERFACE_USB_DEVICE, INVALID_HAN
 
 WINUSB_INTERFACE_GUID = GUID('{dee824ef-729b-4a0e-9c14-b7117d33a817}')
 PIPE_TRANSFER_TIMEOUT = 0x03
+FILE_FLAG_OVERLAPPED = 0x40000000
 
 Endpoint = namedtuple('Endpoint', 'bEndpointAddress, bmAttributes')
 
@@ -122,7 +123,7 @@ class WinUsbBackend(BaseUsbBackend):
             FILE_SHARE_READ | FILE_SHARE_WRITE,
             None,
             OPEN_EXISTING,
-            FILE_ATTRIBUTE_NORMAL,
+            FILE_ATTRIBUTE_NORMAL | FILE_FLAG_OVERLAPPED,
             None,
         )
         if self._fileHandle == INVALID_HANDLE_VALUE or not self._fileHandle:
@@ -231,7 +232,7 @@ class VendorSpecificContext(BaseUsbContext):
     def listDevices(self, vendor):
         # 1. Search for WinUSB interface class GUID
         seen = set()
-        for guid in [WINUSB_INTERFACE_GUID, GUID_DEVINTERFACE_USB_DEVICE]:
+        for guid in [WINUSB_INTERFACE_GUID]:
             try:
                 for devInst, (hwid, ifaces) in listDeviceClass(guid=guid):
                     vid, pid = parseDeviceId(hwid)

@@ -1,0 +1,16 @@
+{
+  "camera_access": false,
+  "compiled_ARM_worker": true,
+  "native_protocol_commands": [
+    2,
+    5,
+    6,
+    4
+  ],
+  "complete_allocation_bytes": 2073600,
+  "chunks": 4,
+  "exact_reassembly": true,
+  "submission_retry_preserved_chunk": true,
+  "crc_mocked_in_ARM_test": true,
+  "crc_tested_in_compiled_host_fixture": true
+}

@@ -1,0 +1,41 @@
+{
+  "purpose": "OFFLINE_REFERENCE_NOT_INSTALL_SET",
+  "camera_tests_paused": true,
+  "files": [
+    {
+      "path": "v24p-proven-bars/yuy2_640_v24p.so",
+      "source": "outputs\\yuy2-640-v24p\\candidate\\yuy2_640_v24p.so",
+      "bytes": 16100,
+      "md5": "9181ef744955190d04728cf4ef7965c5",
+      "sha256": "0732de872dc5e287f436e7cfba7b048c7ed93a7ab4d7865606b6ca27bc16881b"
+    },
+    {
+      "path": "v24p-proven-bars/libInfraStreamingUsb.so",
+      "source": "outputs\\yuy2-640-v24p\\candidate\\libInfraStreamingUsb.persistent.so",
+      "bytes": 72792,
+      "md5": "5fde77e394572ebcf420f8941575f6c4",
+      "sha256": "aadb658ca475e16f5e164412a6ed938260a68e3328faf9bd35be2cc40045146e"
+    },
+    {
+      "path": "transport-kernel-v23/usbg_video.ko",
+      "source": "outputs\\yuy2-640-v24p\\candidate\\usbg_video.ko",
+      "bytes": 20668,
+      "md5": "c1cad400372e26eca729e4b9bc47a237",
+      "sha256": "1d5d60758bf9729a235b92ff18531cad04e27482f823aa382db139e4c585c382"
+    },
+    {
+      "path": "v30-experimental/yuy2_640_v30vga.so",
+      "source": "outputs\\vga-v30\\build\\yuy2_640_v30vga.so",
+      "bytes": 30996,
+      "md5": "98acd3ba3d6628e006fe51d88dda25dc",
+      "sha256": "3bf1b96267ddec0e39c3cbe392dc5d74ff69e5fb52a436c2333bb4c761000ade"
+    },
+    {
+      "path": "v30-experimental/libInfraStreamingUsb.so",
+      "source": "outputs\\vga-v30\\build\\libInfraStreamingUsb.so",
+      "bytes": 72796,
+      "md5": "2a4c08511526f2b525c57a1d9bac9bad",
+      "sha256": "8aeb4aad6d6f4a72614585853ba34676fe3331539587c3502ba3e30ab96e92f6"
+    }
+  ]
+}

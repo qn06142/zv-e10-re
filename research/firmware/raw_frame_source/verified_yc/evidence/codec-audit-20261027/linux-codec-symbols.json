@@ -1,0 +1,68 @@
+[
+  {
+    "file": "dataflowInfraFramework.so",
+    "name": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo18SetData_YcCompressEh",
+    "address": "0x248b3",
+    "defined": true
+  },
+  {
+    "file": "dataflowInfraFramework.so",
+    "name": "_ZN46C_DataflowInfra_Entry_MultipleSegmentImageInfo18GetData_YcCompressEPh",
+    "address": "0x26597",
+    "defined": true
+  },
+  {
+    "file": "dataflowInfraFramework.so",
+    "name": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo18GetData_YcCompressEPh",
+    "address": "0x248bd",
+    "defined": true
+  },
+  {
+    "file": "dataflowInfraFramework.so",
+    "name": "_ZN46C_DataflowInfra_Entry_MultipleSegmentImageInfo18SetData_YcCompressEh",
+    "address": "0x2658f",
+    "defined": true
+  },
+  {
+    "file": "dataflowInfraFramework.so",
+    "name": "_ZN40C_DataflowInfra_Entry_RightImageSizeInfo18SetData_YcCompressEh",
+    "address": "0x261a3",
+    "defined": true
+  },
+  {
+    "file": "dataflowInfraFramework.so",
+    "name": "_ZN40C_DataflowInfra_Entry_RightImageSizeInfo18GetData_YcCompressEPh",
+    "address": "0x261ad",
+    "defined": true
+  },
+  {
+    "file": "libAK8975.so",
+    "name": "AKSC_InitDecomp8975",
+    "address": "0x988",
+    "defined": true
+  },
+  {
+    "file": "libAK8975.so",
+    "name": "AKSC_Decomp8975",
+    "address": "0xa1c",
+    "defined": true
+  },
+  {
+    "file": "libcompassutil.so",
+    "name": "AKSC_Decomp8975",
+    "address": "0x0",
+    "defined": false
+  },
+  {
+    "file": "libcompassutil.so",
+    "name": "AKSC_InitDecomp8975",
+    "address": "0x0",
+    "defined": false
+  },
+  {
+    "file": "libObj.so",
+    "name": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo18SetData_YcCompressEh",
+    "address": "0x0",
+    "defined": false
+  }
+]
