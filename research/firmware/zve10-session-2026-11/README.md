@@ -15,6 +15,20 @@ The session established candidate sensor modes and reproduced firmware control-p
 
 The remaining Bayer work is to establish the fast-mode producer's route into a writable buffer and verify a frame boundary and ownership fence. The W0 fixture geometry represents a test input. The native packet stream, Bayer order and physical DMA behavior are outside the RAM-backed model.
 
+## 1080p host frame demo
+
+![Archived v46 host frame, 1920 by 1080, black](1080p-frame-demo.png)
+
+This PNG comes from `captures/test_stream_v46/frame_000000.yuy2`. The host
+receiver wrote the decoded OpenCV frame with `frame.tobytes()`, keeping the
+preset's `.yuy2` filename. The saved file is 6,220,800 bytes, which matches
+1920×1080 BGR24. It decodes to black. All five saved frames have the same
+SHA-256 `1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a`.
+The [session summary](1080p-frame-demo-summary.json) reports 10 frames at
+0.83 fps and marks the run unsuccessful against its 24 fps target. The PNG
+shows the host output from that run. Wire format, USB link speed and live
+sensor content remain unverified.
+
 ## Reproduction and provenance
 
 The Bayer verifiers take the repository root as a positional argument and use local firmware inputs under `dumps/`. The native ARM/Thumb harness requires Unicorn and Capstone. Use the exact `av-cam.bin` identified by the movie audit. Some probes additionally require archived files or build inputs specified in their sources. The derived result JSON files are beside their verifiers.
