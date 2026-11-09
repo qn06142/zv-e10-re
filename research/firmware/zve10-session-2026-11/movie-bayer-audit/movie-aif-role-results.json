@@ -1,0 +1,54 @@
+{
+  "native_diagnostic": "0x6379b694",
+  "format": "IMG:CurAddr: R0%x R1%x R2%x R3%x R4%x R5%x W0%x W1%x",
+  "channels": [
+    {
+      "logical": 7,
+      "role": "R0",
+      "dma": "0x6426b094",
+      "bank": "0xfc0ac000",
+      "port": 0,
+      "register": "0xfc0ac210",
+      "marker": 305419783
+    },
+    {
+      "logical": 8,
+      "role": "R1",
+      "dma": "0x6426b030",
+      "bank": "0xfc0ac000",
+      "port": 1,
+      "register": "0xfc0ac290",
+      "marker": 305419784
+    },
+    {
+      "logical": 5,
+      "role": "W0",
+      "dma": "0x6426af84",
+      "bank": "0xfc0a9000",
+      "port": 0,
+      "register": "0xfc0a9210",
+      "marker": 305419781
+    },
+    {
+      "logical": 6,
+      "role": "W1",
+      "dma": "0x6426ad4c",
+      "bank": "0xfc0a9000",
+      "port": 1,
+      "register": "0xfc0a9290",
+      "marker": 305419782
+    }
+  ],
+  "arguments": [
+    "0x12345607",
+    "0x12345608",
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x12345605",
+    "0x12345606"
+  ],
+  "register_values_are_fixtures": true,
+  "pixels_emulated": false
+}

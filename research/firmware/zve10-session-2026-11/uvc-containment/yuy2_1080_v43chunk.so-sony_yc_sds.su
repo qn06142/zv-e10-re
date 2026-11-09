@@ -1,0 +1,4 @@
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\sony_yc_sds.c:9:12:sds_find_entry.constprop	24	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\sony_yc_sds.c:34:5:sony_yc_sds_decode_image	24	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\sony_yc_sds.c:44:5:sony_yc_sds_decode_state	24	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\sony_yc_sds.c:54:5:sony_yc_sds_decode_multi_segment	24	static

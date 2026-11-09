@@ -1,0 +1,6 @@
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\yc_port.c:19:12:request	64	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\yc_port.c:26:5:yc_port_init	40	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\yc_port.c:42:5:yc_port_next	96	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\yc_port.c:81:5:yc_port_complete	16	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\yc_port.c:85:5:yc_port_close	16	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\yc_port.c:90:5:yc_port_is_closed	0	static

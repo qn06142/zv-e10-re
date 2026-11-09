@@ -1,0 +1,262 @@
+{
+  "native_embedded_getter": "0x639dfb38",
+  "embedded_address": "0x64560700",
+  "size": 65536,
+  "md5": "8c5f3b191dd124cf1ee2cb5055cec37e",
+  "byte_for_byte_equal": true,
+  "irq_cases": 14,
+  "native_irq_handler": "0x0100030c",
+  "script_context": "0x1036d00",
+  "irq_register": "0x1080104",
+  "mocks": [],
+  "fixtures": [
+    "IRQ register",
+    "shared script header and records",
+    "RAM destinations"
+  ],
+  "local_to_host_address_translation_proved": false,
+  "pixels_or_dma_emulated": false,
+  "rows": [
+    {
+      "event": 8,
+      "first": 0,
+      "last": 0,
+      "header_bytes": [
+        1,
+        2,
+        0,
+        1
+      ],
+      "written_indices": []
+    },
+    {
+      "event": 8,
+      "first": 0,
+      "last": 1,
+      "header_bytes": [
+        1,
+        2,
+        0,
+        1
+      ],
+      "written_indices": []
+    },
+    {
+      "event": 8,
+      "first": 0,
+      "last": 3,
+      "header_bytes": [
+        1,
+        2,
+        0,
+        1
+      ],
+      "written_indices": []
+    },
+    {
+      "event": 8,
+      "first": 1,
+      "last": 3,
+      "header_bytes": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "written_indices": [
+        0
+      ]
+    },
+    {
+      "event": 8,
+      "first": 0,
+      "last": 61,
+      "header_bytes": [
+        1,
+        2,
+        0,
+        1
+      ],
+      "written_indices": []
+    },
+    {
+      "event": 8,
+      "first": 0,
+      "last": 62,
+      "header_bytes": [
+        1,
+        2,
+        0,
+        1
+      ],
+      "written_indices": []
+    },
+    {
+      "event": 8,
+      "first": 3,
+      "last": 1,
+      "header_bytes": [
+        1,
+        2,
+        0,
+        1
+      ],
+      "written_indices": []
+    },
+    {
+      "event": 16,
+      "first": 0,
+      "last": 0,
+      "header_bytes": [
+        1,
+        2,
+        0,
+        1
+      ],
+      "written_indices": []
+    },
+    {
+      "event": 16,
+      "first": 0,
+      "last": 1,
+      "header_bytes": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "written_indices": [
+        0
+      ]
+    },
+    {
+      "event": 16,
+      "first": 0,
+      "last": 3,
+      "header_bytes": [
+        1,
+        2,
+        3,
+        1
+      ],
+      "written_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "event": 16,
+      "first": 1,
+      "last": 3,
+      "header_bytes": [
+        1,
+        2,
+        3,
+        1
+      ],
+      "written_indices": [
+        1,
+        2
+      ]
+    },
+    {
+      "event": 16,
+      "first": 0,
+      "last": 61,
+      "header_bytes": [
+        1,
+        2,
+        61,
+        1
+      ],
+      "written_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    },
+    {
+      "event": 16,
+      "first": 0,
+      "last": 62,
+      "header_bytes": [
+        1,
+        2,
+        0,
+        1
+      ],
+      "written_indices": []
+    },
+    {
+      "event": 16,
+      "first": 3,
+      "last": 1,
+      "header_bytes": [
+        1,
+        2,
+        0,
+        1
+      ],
+      "written_indices": []
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "firmware_md5": "cdcae9d4fdbf66a33704a4c7564e346d",
+  "cases": 20,
+  "native_handler": "0x63aa90c4",
+  "native_mailbox_read": "0x63aa0e74",
+  "native_mapping": "0x63aa8bf4",
+  "config_address": "0x6455fb19",
+  "routing_address": "0x64422870",
+  "mocked_boundaries": [
+    "reply router 0x63aa3d68",
+    "trace 0x63dd352e",
+    "trace 0x63aa76f0",
+    "scheduler 0x63dd407c",
+    "harness memory helpers"
+  ],
+  "fixtures": [
+    "prior job routing state",
+    "MMIO register contents",
+    "caller event bytes"
+  ],
+  "pixel_or_dma_emulation": false,
+  "rows": [
+    {
+      "bank": 0,
+      "event_selector": 0,
+      "mailbox_base": "0xf34a0100",
+      "status_byte": 0,
+      "words": [
+        305397760,
+        305397761,
+        305397762,
+        305397763
+      ],
+      "route_hex": "001c230123010000",
+      "message_hex": "1c410101603000000078000000003412010034120200341203003412"
+    },
+    {
+      "bank": 0,
+      "event_selector": 0,
+      "mailbox_base": "0xf34a0100",
+      "status_byte": 1,
+      "words": [
+        305397760,
+        305397761,
+        305397762,
+        305397763
+      ],
+      "route_hex": "001c230123010000",
+      "message_hex": "1c410101603000000078010000003412010034120200341203003412"
+    },
+    {
+      "bank": 0,
+      "event_selector": 0,
+      "mailbox_base": "0xf34a0100",
+      "status_byte": 2,
+      "words": [
+        305397760,
+        305397761,
+        305397762,
+        305397763
+      ],
+      "route_hex": "001c230123010000",
+      "message_hex": "1c410101603000000078020000003412010034120200341203003412"
+    },
+    {
+      "bank": 0,
+      "event_selector": 0,
+      "mailbox_base": "0xf34a0100",
+      "status_byte": 255,
+      "words": [
+        305397760,
+        305397761,
+        305397762,
+        305397763
+      ],
+      "route_hex": "001c230123010000",
+      "message_hex": "1c410101603000000078ff0000003412010034120200341203003412"
+    },
+    {
+      "bank": 1,
+      "event_selector": 3,
+      "mailbox_base": "0xf34b0100",
+      "status_byte": 0,
+      "words": [
+        305397776,
+        305397777,
+        305397778,
+        305397779
+      ],
+      "route_hex": "001c240124010000",
+      "message_hex": "1c410101613100000078000010003412110034121200341213003412"
+    },
+    {
+      "bank": 1,
+      "event_selector": 3,
+      "mailbox_base": "0xf34b0100",
+      "status_byte": 1,
+      "words": [
+        305397776,
+        305397777,
+        305397778,
+        305397779
+      ],
+      "route_hex": "001c240124010000",
+      "message_hex": "1c410101613100000078010010003412110034121200341213003412"
+    },
+    {
+      "bank": 1,
+      "event_selector": 3,
+      "mailbox_base": "0xf34b0100",
+      "status_byte": 2,
+      "words": [
+        305397776,
+        305397777,
+        305397778,
+        305397779
+      ],
+      "route_hex": "001c240124010000",
+      "message_hex": "1c410101613100000078020010003412110034121200341213003412"
+    },
+    {
+      "bank": 1,
+      "event_selector": 3,
+      "mailbox_base": "0xf34b0100",
+      "status_byte": 255,
+      "words": [
+        305397776,
+        305397777,
+        305397778,
+        305397779
+      ],
+      "route_hex": "001c240124010000",
+      "message_hex": "1c410101613100000078ff0010003412110034121200341213003412"
+    },
+    {
+      "bank": 2,
+      "event_selector": 6,
+      "mailbox_base": "0xf34c0100",
+      "status_byte": 0,
+      "words": [
+        305397792,
+        305397793,
+        305397794,
+        305397795
+      ],
+      "route_hex": "001c250125010000",
+      "message_hex": "1c410101623200000078000020003412210034122200341223003412"
+    },
+    {
+      "bank": 2,
+      "event_selector": 6,
+      "mailbox_base": "0xf34c0100",
+      "status_byte": 1,
+      "words": [
+        305397792,
+        305397793,
+        305397794,
+        305397795
+      ],
+      "route_hex": "001c250125010000",
+      "message_hex": "1c410101623200000078010020003412210034122200341223003412"
+    },
+    {
+      "bank": 2,
+      "event_selector": 6,
+      "mailbox_base": "0xf34c0100",
+      "status_byte": 2,
+      "words": [
+        305397792,
+        305397793,
+        305397794,
+        305397795
+      ],
+      "route_hex": "001c250125010000",
+      "message_hex": "1c410101623200000078020020003412210034122200341223003412"
+    },
+    {
+      "bank": 2,
+      "event_selector": 6,
+      "mailbox_base": "0xf34c0100",
+      "status_byte": 255,
+      "words": [
+        305397792,
+        305397793,
+        305397794,
+        305397795
+      ],
+      "route_hex": "001c250125010000",
+      "message_hex": "1c410101623200000078ff0020003412210034122200341223003412"
+    },
+    {
+      "bank": 3,
+      "event_selector": 9,
+      "mailbox_base": "0xf35c0100",
+      "status_byte": 0,
+      "words": [
+        305397808,
+        305397809,
+        305397810,
+        305397811
+      ],
+      "route_hex": "001c260126010000",
+      "message_hex": "1c410101633300000078000030003412310034123200341233003412"
+    },
+    {
+      "bank": 3,
+      "event_selector": 9,
+      "mailbox_base": "0xf35c0100",
+      "status_byte": 1,
+      "words": [
+        305397808,
+        305397809,
+        305397810,
+        305397811
+      ],
+      "route_hex": "001c260126010000",
+      "message_hex": "1c410101633300000078010030003412310034123200341233003412"
+    },
+    {
+      "bank": 3,
+      "event_selector": 9,
+      "mailbox_base": "0xf35c0100",
+      "status_byte": 2,
+      "words": [
+        305397808,
+        305397809,
+        305397810,
+        305397811
+      ],
+      "route_hex": "001c260126010000",
+      "message_hex": "1c410101633300000078020030003412310034123200341233003412"
+    },
+    {
+      "bank": 3,
+      "event_selector": 9,
+      "mailbox_base": "0xf35c0100",
+      "status_byte": 255,
+      "words": [
+        305397808,
+        305397809,
+        305397810,
+        305397811
+      ],
+      "route_hex": "001c260126010000",
+      "message_hex": "1c410101633300000078ff0030003412310034123200341233003412"
+    },
+    {
+      "bank": 4,
+      "event_selector": 12,
+      "mailbox_base": "0xf35d0100",
+      "status_byte": 0,
+      "words": [
+        305397824,
+        305397825,
+        305397826,
+        305397827
+      ],
+      "route_hex": "001c270127010000",
+      "message_hex": "1c410101643400000078000040003412410034124200341243003412"
+    },
+    {
+      "bank": 4,
+      "event_selector": 12,
+      "mailbox_base": "0xf35d0100",
+      "status_byte": 1,
+      "words": [
+        305397824,
+        305397825,
+        305397826,
+        305397827
+      ],
+      "route_hex": "001c270127010000",
+      "message_hex": "1c410101643400000078010040003412410034124200341243003412"
+    },
+    {
+      "bank": 4,
+      "event_selector": 12,
+      "mailbox_base": "0xf35d0100",
+      "status_byte": 2,
+      "words": [
+        305397824,
+        305397825,
+        305397826,
+        305397827
+      ],
+      "route_hex": "001c270127010000",
+      "message_hex": "1c410101643400000078020040003412410034124200341243003412"
+    },
+    {
+      "bank": 4,
+      "event_selector": 12,
+      "mailbox_base": "0xf35d0100",
+      "status_byte": 255,
+      "words": [
+        305397824,
+        305397825,
+        305397826,
+        305397827
+      ],
+      "route_hex": "001c270127010000",
+      "message_hex": "1c410101643400000078ff0040003412410034124200341243003412"
+    }
+  ]
+}

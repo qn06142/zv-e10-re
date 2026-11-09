@@ -1,0 +1,562 @@
+{
+  "cases": 46,
+  "mocks": [
+    "atexit",
+    "OS locks",
+    "logger"
+  ],
+  "results": [
+    {
+      "drive_mode": "0x0",
+      "resource": "0x39",
+      "owner": "0x645bb838",
+      "sensor_script": "0x63e6f624",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x0",
+      "resource": "0x2f",
+      "owner": "0x645bb838",
+      "sensor_script": "0x63e6f624",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x4",
+      "resource": "0x39",
+      "owner": "0x645bb194",
+      "sensor_script": "0x63e72d20",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x4",
+      "resource": "0x2f",
+      "owner": "0x645bb194",
+      "sensor_script": "0x63e72d20",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x15",
+      "resource": "0x37",
+      "owner": "0x645bb428",
+      "sensor_script": "0x63e73c08",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x15",
+      "resource": "0x2f",
+      "owner": "0x645bb428",
+      "sensor_script": "0x63e73c08",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x16",
+      "resource": "0x39",
+      "owner": "0x645bbb1c",
+      "sensor_script": "0x63e71f34",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x16",
+      "resource": "0x2f",
+      "owner": "0x645bbb1c",
+      "sensor_script": "0x63e71f34",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x17",
+      "resource": "0x39",
+      "owner": "0x645bb5a4",
+      "sensor_script": "0x63e7090c",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x17",
+      "resource": "0x2f",
+      "owner": "0x645bb5a4",
+      "sensor_script": "0x63e7090c",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x18",
+      "resource": "0x39",
+      "owner": "0x645bb5a4",
+      "sensor_script": "0x63e7090c",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x18",
+      "resource": "0x2f",
+      "owner": "0x645bb5a4",
+      "sensor_script": "0x63e7090c",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x1a",
+      "resource": "0x36",
+      "owner": "0x645bb25c",
+      "sensor_script": "0x63e71818",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x1a",
+      "resource": "0x2f",
+      "owner": "0x645bb25c",
+      "sensor_script": "0x63e71818",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x1b",
+      "resource": "0x37",
+      "owner": "0x645bb428",
+      "sensor_script": "0x63e73c08",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x1b",
+      "resource": "0x2f",
+      "owner": "0x645bb428",
+      "sensor_script": "0x63e73c08",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x1c",
+      "resource": "0x38",
+      "owner": "0x645bb694",
+      "sensor_script": "0x63e6e388",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x1c",
+      "resource": "0x2f",
+      "owner": "0x645bb694",
+      "sensor_script": "0x63e6e388",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x1d",
+      "resource": "0x36",
+      "owner": "0x645bb0cc",
+      "sensor_script": "0x63e6dcc4",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x1d",
+      "resource": "0x2f",
+      "owner": "0x645bb0cc",
+      "sensor_script": "0x63e6dcc4",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x1e",
+      "resource": "0x37",
+      "owner": "0x645bb75c",
+      "sensor_script": "0x63e6ceb0",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x1e",
+      "resource": "0x2f",
+      "owner": "0x645bb75c",
+      "sensor_script": "0x63e6ceb0",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x2b",
+      "resource": "0x39",
+      "owner": "0x645bbb1c",
+      "sensor_script": "0x63e71f34",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x2b",
+      "resource": "0x2f",
+      "owner": "0x645bbb1c",
+      "sensor_script": "0x63e71f34",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x38",
+      "resource": "0x37",
+      "owner": "0x645bb900",
+      "sensor_script": "0x63e73f78",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x38",
+      "resource": "0x2f",
+      "owner": "0x645bb900",
+      "sensor_script": "0x63e73f78",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x3a",
+      "resource": "0x39",
+      "owner": "0x645bb360",
+      "sensor_script": "0x63e6d644",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x3a",
+      "resource": "0x2f",
+      "owner": "0x645bb360",
+      "sensor_script": "0x63e6d644",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x3f",
+      "resource": "0x48",
+      "owner": "0x645bbc0c",
+      "sensor_script": "0x63e749bc",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x3f",
+      "resource": "0x2f",
+      "owner": "0x645bbc0c",
+      "sensor_script": "0x63e749bc",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x47",
+      "resource": "0x39",
+      "owner": "0x645bb9c8",
+      "sensor_script": "0x63e71f34",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x47",
+      "resource": "0x2f",
+      "owner": "0x645bb9c8",
+      "sensor_script": "0x63e71f34",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x56",
+      "resource": "0x48",
+      "owner": "0x645bbc0c",
+      "sensor_script": "0x63e749bc",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x56",
+      "resource": "0x2f",
+      "owner": "0x645bbc0c",
+      "sensor_script": "0x63e749bc",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x58",
+      "resource": "0x39",
+      "owner": "0x645bb9c8",
+      "sensor_script": "0x63e71f34",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x58",
+      "resource": "0x2f",
+      "owner": "0x645bb9c8",
+      "sensor_script": "0x63e71f34",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x68",
+      "resource": "0x39",
+      "owner": "0x645bb194",
+      "sensor_script": "0x63e72d20",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x68",
+      "resource": "0x2f",
+      "owner": "0x645bb194",
+      "sensor_script": "0x63e72d20",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x91",
+      "resource": "0x39",
+      "owner": "0x645bb5a4",
+      "sensor_script": "0x63e7090c",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x91",
+      "resource": "0x2f",
+      "owner": "0x645bb5a4",
+      "sensor_script": "0x63e7090c",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x92",
+      "resource": "0x39",
+      "owner": "0x645bb5a4",
+      "sensor_script": "0x63e7090c",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x92",
+      "resource": "0x2f",
+      "owner": "0x645bb5a4",
+      "sensor_script": "0x63e7090c",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x93",
+      "resource": "0x39",
+      "owner": "0x645bb838",
+      "sensor_script": "0x63e6f624",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x93",
+      "resource": "0x2f",
+      "owner": "0x645bb838",
+      "sensor_script": "0x63e6f624",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x94",
+      "resource": "0x39",
+      "owner": "0x645bb838",
+      "sensor_script": "0x63e6f624",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    },
+    {
+      "drive_mode": "0x94",
+      "resource": "0x2f",
+      "owner": "0x645bb838",
+      "sensor_script": "0x63e6f624",
+      "raw_geometry": {
+        "0x5c": "0x0",
+        "0x60": "0x0",
+        "0x6c": "0x0",
+        "0x70": "0x0"
+      }
+    }
+  ]
+}

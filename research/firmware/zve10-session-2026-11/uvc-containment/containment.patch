@@ -1,0 +1,65 @@
+--- a/research/firmware/yuy2_transport_v43_usb3_hd/recipe/yuy2_1080_v43chunk.c
++++ b/research/firmware/yuy2_transport_v43_usb3_hd/recipe/yuy2_1080_v43chunk.c
+@@ -22,7 +22,7 @@
+ #define CHUNK_FID 0x40000000u
+ #define CHUNK_MORE 0x80000000u
+ static unsigned frame_offset,frame_sequence;
+-#define INTERVAL_100NS 416667u
++#define INTERVAL_100NS 2000000u
+ #define LOG "/log/yuy2_1080_v43chunk/runtime.log"
+ static u32 sb,cb;
+ static int ready,init_error;
+@@ -349,7 +349,7 @@
+  memcpy(p,old,14);w16(p+4,77);
+  u8*f=p+14;memset(f,0,27);f[0]=27;f[1]=0x24;f[2]=4;f[3]=1;f[4]=1;memcpy(f+5,guid,16);f[21]=16;f[22]=1;
+  f+=27;memset(f,0,30);f[0]=30;f[1]=0x24;f[2]=5;f[3]=1;w16(f+5,1920);w16(f+7,1080);
+- w32(f+9,FRAME_BYTES*8*24);w32(f+13,FRAME_BYTES*8*24);w32(f+17,FRAME_BYTES);w32(f+21,INTERVAL_100NS);f[25]=1;w32(f+26,INTERVAL_100NS);
++ w32(f+9,FRAME_BYTES*8*5);w32(f+13,FRAME_BYTES*8*5);w32(f+17,FRAME_BYTES);w32(f+21,INTERVAL_100NS);f[25]=1;w32(f+26,INTERVAL_100NS);
+  /* Inherited advertised color descriptor; native packing/color still unverified. */
+  f+=30;f[0]=6;f[1]=0x24;f[2]=13;f[3]=4;f[4]=1;f[5]=4;
+ }
+@@ -408,28 +408,6 @@
+  for(unsigned i=0;i<4;i++){u32*t=(u32*)(cb+table_offsets[i]);t[1]=(u32)descriptor[i];t[0]=77;}
+  protect(cb+0x12064,62,5);
+ 
+- /* Force SuperSpeed (5) in CUsbSvc::createGadget speed selection */
+- if(*(u16*)(cb+0xcd7c)==0x2303){
+-  protect(cb+0xcd7c,4,7);
+-  *(u16*)(cb+0xcd7c)=0x2305;
+-  flush(cb+0xcd7c,4);
+-  protect(cb+0xcd7c,4,5);
+-  log3("SPEED_PATCH_INSTALLED",cb+0xcd7c,0x2305,0);
+- }
+- /* Set SuperSpeed mask (0x105) for DID 60 */
+- if(*(u32*)(cb+0x1df28)==0x00000102){
+-  protect(cb+0x1df28,4,7);
+-  *(u32*)(cb+0x1df28)=0x00000105;
+-  protect(cb+0x1df28,4,3);
+-  log3("DID60_MASK_INSTALLED",cb+0x1df28,0x105,0);
+- }
+- if(*(u32*)(cb+0x1e178)==0x00000102){
+-  protect(cb+0x1e178,4,7);
+-  *(u32*)(cb+0x1e178)=0x00000105;
+-  protect(cb+0x1e178,4,3);
+-  log3("DID61_MASK_INSTALLED",cb+0x1e178,0x105,0);
+- }
+-
+  void *targets[6]={connect_hook,start_hook,stop_hook,finish_hook,failure_hook,failure_hook};
+  for(unsigned i=0;i<6;i++)jump_thumb(sb+extra_offsets[i],targets[i]);
+  protect(sb+0x7000,0x3000,5);
+--- a/research/firmware/yuy2_transport_v43_usb3_hd/recipe/build.py
++++ b/research/firmware/yuy2_transport_v43_usb3_hd/recipe/build.py
+@@ -46,10 +46,10 @@
+ patched,report=build_stream(stream)
+ (OUT/'libInfraStreamingUsb.so').write_bytes(patched)
+ (OUT/'libInfraStreamingUsb.persistent.json').write_text(json.dumps(report,indent=2)+'\n')
+-manifest=dict(status='BUILT_NOT_HARDWARE_VERIFIED',deployment='NOT_INSTALLED',revision='4.6-1080p-usb3-24fps-candidate',
+- position_independent=True,width=1920,height=1080,advertised_fps=24,observed_fps=None,
++manifest=dict(status='BUILT_NOT_HARDWARE_VERIFIED',deployment='NOT_INSTALLED',revision='1080p-high-speed-containment',
++ position_independent=True,width=1920,height=1080,advertised_fps=5,observed_fps=None,
+  pixel_format='8-bit YUY2 uncompressed; SDF hardware decompress to owned 1080p destination with Cat0 and Cat1',
+- source_backend='NATIVE_VDF_PIN_SEND_PRIVATE_QUEUE_TO_SONY_SDF_OWNED_HD127_CHUNKED_USB3_24FPS',
++ source_backend='NATIVE_VDF_PIN_SEND_PRIVATE_QUEUE_TO_SONY_SDF_OWNED_HD127_CHUNKED_USB2_5FPS',
+  continuous_video=True,source_pool_scanning=False,source_transfer_free_mode=2,
+  requested_native_output=[0,2,0,0x59000e],private_receiver_index=0x7fffff37,
+  output_busy_behavior='REFUSE_WITHOUT_DISCONNECTING_EXISTING_PEER',

@@ -1,0 +1,29 @@
+{
+  "image": "system.tgz:system/dfe_app.bin",
+  "size": 1956,
+  "sha256": "8f9a8d3f8e270d959088c2cb4029b8a115be8d72c70cb18932f4772c27c3cd5f",
+  "base": "0xfe1ed000",
+  "native_startup": "0xfe1ed010",
+  "native_initializer": "0xfe1ed0a0",
+  "intercepted": [
+    "DMA routine 0xfe1ed5a0, returns fixture status 0"
+  ],
+  "startup_relocation_verified": true,
+  "zero_padding_words_verified": 12,
+  "dma_requests": [
+    {
+      "operand0": "0x1017fd0",
+      "operand1": "0x1010000",
+      "length": 32720
+    },
+    {
+      "operand0": "0x1017fd0",
+      "operand1": "0x1030000",
+      "length": 65536
+    }
+  ],
+  "address_translation": "native 32-bit addition of 0x05000000",
+  "operand_direction_or_fill_mode_assigned": false,
+  "hardware_transfer_executed": false,
+  "pixels_emulated": false
+}

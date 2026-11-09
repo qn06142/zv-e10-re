@@ -1,0 +1,187 @@
+{
+  "cases": 36,
+  "mocks": 0,
+  "fence": "0x643e8a68",
+  "results": [
+    {
+      "channel": 0,
+      "register_base": "0xf3002200",
+      "address": "0x20000000"
+    },
+    {
+      "channel": 0,
+      "register_base": "0xf3002200",
+      "address": "0x23456000"
+    },
+    {
+      "channel": 0,
+      "register_base": "0xf3002200",
+      "address": "0x30000000"
+    },
+    {
+      "channel": 0,
+      "register_base": "0xf3002200",
+      "address": "0xfffffff0"
+    },
+    {
+      "channel": 1,
+      "register_base": "0xf3002280",
+      "address": "0x20000000"
+    },
+    {
+      "channel": 1,
+      "register_base": "0xf3002280",
+      "address": "0x23456000"
+    },
+    {
+      "channel": 1,
+      "register_base": "0xf3002280",
+      "address": "0x30000000"
+    },
+    {
+      "channel": 1,
+      "register_base": "0xf3002280",
+      "address": "0xfffffff0"
+    },
+    {
+      "channel": 3,
+      "register_base": "0xf3002380",
+      "address": "0x20000000"
+    },
+    {
+      "channel": 3,
+      "register_base": "0xf3002380",
+      "address": "0x23456000"
+    },
+    {
+      "channel": 3,
+      "register_base": "0xf3002380",
+      "address": "0x30000000"
+    },
+    {
+      "channel": 3,
+      "register_base": "0xf3002380",
+      "address": "0xfffffff0"
+    },
+    {
+      "channel": 4,
+      "register_base": "0xf3002400",
+      "address": "0x20000000"
+    },
+    {
+      "channel": 4,
+      "register_base": "0xf3002400",
+      "address": "0x23456000"
+    },
+    {
+      "channel": 4,
+      "register_base": "0xf3002400",
+      "address": "0x30000000"
+    },
+    {
+      "channel": 4,
+      "register_base": "0xf3002400",
+      "address": "0xfffffff0"
+    },
+    {
+      "channel": 6,
+      "register_base": "0xf3102200",
+      "address": "0x20000000"
+    },
+    {
+      "channel": 6,
+      "register_base": "0xf3102200",
+      "address": "0x23456000"
+    },
+    {
+      "channel": 6,
+      "register_base": "0xf3102200",
+      "address": "0x30000000"
+    },
+    {
+      "channel": 6,
+      "register_base": "0xf3102200",
+      "address": "0xfffffff0"
+    },
+    {
+      "channel": 10,
+      "register_base": "0xf3102400",
+      "address": "0x20000000"
+    },
+    {
+      "channel": 10,
+      "register_base": "0xf3102400",
+      "address": "0x23456000"
+    },
+    {
+      "channel": 10,
+      "register_base": "0xf3102400",
+      "address": "0x30000000"
+    },
+    {
+      "channel": 10,
+      "register_base": "0xf3102400",
+      "address": "0xfffffff0"
+    },
+    {
+      "channel": 17,
+      "register_base": "0xf3020200",
+      "address": "0x20000000"
+    },
+    {
+      "channel": 17,
+      "register_base": "0xf3020200",
+      "address": "0x23456000"
+    },
+    {
+      "channel": 17,
+      "register_base": "0xf3020200",
+      "address": "0x30000000"
+    },
+    {
+      "channel": 17,
+      "register_base": "0xf3020200",
+      "address": "0xfffffff0"
+    },
+    {
+      "channel": 18,
+      "register_base": "0xf3020280",
+      "address": "0x20000000"
+    },
+    {
+      "channel": 18,
+      "register_base": "0xf3020280",
+      "address": "0x23456000"
+    },
+    {
+      "channel": 18,
+      "register_base": "0xf3020280",
+      "address": "0x30000000"
+    },
+    {
+      "channel": 18,
+      "register_base": "0xf3020280",
+      "address": "0xfffffff0"
+    },
+    {
+      "channel": 22,
+      "register_base": "0xf3020480",
+      "address": "0x20000000"
+    },
+    {
+      "channel": 22,
+      "register_base": "0xf3020480",
+      "address": "0x23456000"
+    },
+    {
+      "channel": 22,
+      "register_base": "0xf3020480",
+      "address": "0x30000000"
+    },
+    {
+      "channel": 22,
+      "register_base": "0xf3020480",
+      "address": "0xfffffff0"
+    }
+  ]
+}

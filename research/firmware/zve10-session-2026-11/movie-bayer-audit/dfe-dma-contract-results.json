@@ -1,0 +1,440 @@
+{
+  "start_cases": 40,
+  "status_cases": 11,
+  "native_core_start": "0x01001458",
+  "native_core_wait": "0x01001498",
+  "native_bootstrap_dma": "0xfe1ed5ac",
+  "function_mocks": [],
+  "fixtures": [
+    "RAM operands, not copied",
+    "DMA register initial values",
+    "fixed DMA status on reads"
+  ],
+  "instruction_budget_per_call": 2000,
+  "hardware_timeout_modeled": false,
+  "dma_executed": false,
+  "pixels_emulated": false,
+  "start_rows": [
+    {
+      "channel": 0,
+      "length": 0,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 0,
+      "length": 1,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 0,
+      "length": 2,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 0,
+      "length": 3,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 0,
+      "length": 4,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 0,
+      "length": 5,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 0,
+      "length": 7,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 0,
+      "length": 8,
+      "core_control": "0xa0800001",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 0,
+      "length": 64,
+      "core_control": "0xa080000f",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 0,
+      "length": 51680,
+      "core_control": "0xa0803277",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 1,
+      "length": 0,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 1,
+      "length": 1,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 1,
+      "length": 2,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 1,
+      "length": 3,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 1,
+      "length": 4,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 1,
+      "length": 5,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 1,
+      "length": 7,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 1,
+      "length": 8,
+      "core_control": "0xa0800001",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 1,
+      "length": 64,
+      "core_control": "0xa080000f",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 1,
+      "length": 51680,
+      "core_control": "0xa0803277",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 2,
+      "length": 0,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 2,
+      "length": 1,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 2,
+      "length": 2,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 2,
+      "length": 3,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 2,
+      "length": 4,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 2,
+      "length": 5,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 2,
+      "length": 7,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 2,
+      "length": 8,
+      "core_control": "0xa0800001",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 2,
+      "length": 64,
+      "core_control": "0xa080000f",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 2,
+      "length": 51680,
+      "core_control": "0xa0803277",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 3,
+      "length": 0,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 3,
+      "length": 1,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 3,
+      "length": 2,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 3,
+      "length": 3,
+      "core_control": "0xffffffff",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 3,
+      "length": 4,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 3,
+      "length": 5,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 3,
+      "length": 7,
+      "core_control": "0xa0800000",
+      "core_register_writes": 5,
+      "bootstrap_return": 16,
+      "bootstrap_register_writes": 0
+    },
+    {
+      "channel": 3,
+      "length": 8,
+      "core_control": "0xa0800001",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 3,
+      "length": 64,
+      "core_control": "0xa080000f",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    },
+    {
+      "channel": 3,
+      "length": 51680,
+      "core_control": "0xa0803277",
+      "core_register_writes": 5,
+      "bootstrap_return": 0,
+      "bootstrap_register_writes": 9
+    }
+  ],
+  "status_rows": [
+    {
+      "status": "0x0",
+      "core_returned": false,
+      "core_return": null,
+      "core_status_reads": 666,
+      "core_poll_writes": 0,
+      "bootstrap_returned": false,
+      "bootstrap_return": null
+    },
+    {
+      "status": "0x10000",
+      "core_returned": true,
+      "core_return": "0x10000",
+      "core_status_reads": 1,
+      "core_poll_writes": 0,
+      "bootstrap_returned": true,
+      "bootstrap_return": 1
+    },
+    {
+      "status": "0x20000",
+      "core_returned": true,
+      "core_return": "0x20000",
+      "core_status_reads": 1,
+      "core_poll_writes": 0,
+      "bootstrap_returned": true,
+      "bootstrap_return": 2
+    },
+    {
+      "status": "0x30000",
+      "core_returned": true,
+      "core_return": "0x30000",
+      "core_status_reads": 1,
+      "core_poll_writes": 0,
+      "bootstrap_returned": true,
+      "bootstrap_return": 3
+    },
+    {
+      "status": "0x40000",
+      "core_returned": true,
+      "core_return": "0x40000",
+      "core_status_reads": 1,
+      "core_poll_writes": 0,
+      "bootstrap_returned": true,
+      "bootstrap_return": 4
+    },
+    {
+      "status": "0x50000",
+      "core_returned": true,
+      "core_return": "0x50000",
+      "core_status_reads": 1,
+      "core_poll_writes": 0,
+      "bootstrap_returned": true,
+      "bootstrap_return": 0
+    },
+    {
+      "status": "0x60000",
+      "core_returned": true,
+      "core_return": "0x60000",
+      "core_status_reads": 1,
+      "core_poll_writes": 0,
+      "bootstrap_returned": true,
+      "bootstrap_return": 255
+    },
+    {
+      "status": "0x70000",
+      "core_returned": true,
+      "core_return": "0x70000",
+      "core_status_reads": 1,
+      "core_poll_writes": 0,
+      "bootstrap_returned": true,
+      "bootstrap_return": 7
+    },
+    {
+      "status": "0x80000",
+      "core_returned": false,
+      "core_return": null,
+      "core_status_reads": 666,
+      "core_poll_writes": 0,
+      "bootstrap_returned": true,
+      "bootstrap_return": 8
+    },
+    {
+      "status": "0x100000",
+      "core_returned": false,
+      "core_return": null,
+      "core_status_reads": 666,
+      "core_poll_writes": 0,
+      "bootstrap_returned": true,
+      "bootstrap_return": 8
+    },
+    {
+      "status": "0x180000",
+      "core_returned": false,
+      "core_return": null,
+      "core_status_reads": 666,
+      "core_poll_writes": 0,
+      "bootstrap_returned": true,
+      "bootstrap_return": 8
+    }
+  ]
+}

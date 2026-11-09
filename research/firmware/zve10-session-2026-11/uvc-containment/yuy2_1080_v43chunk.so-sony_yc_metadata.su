@@ -1,0 +1,7 @@
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\sony_yc_metadata.c:3:7:memcpy	0	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\sony_yc_metadata.c:13:5:sony_yc_metadata_decode	112	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\sony_yc_metadata.c:52:5:sony_yc_resolve_data_span	8	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\sony_yc_metadata.c:59:5:sony_yc_state_decode	8	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\sony_yc_metadata.c:73:5:sony_yc_multiple_segment_decode	368	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\sony_yc_metadata.c:115:5:sony_yc_segment_extract_image_size	112	static
+C:\Users\qn061\Documents\Codex\2026-11-05\d-02-development-and-projects-pmca\work\uvc-containment\recipe\sony_yc_metadata.c:154:5:sony_yc_segment_merge_image_size	112	static

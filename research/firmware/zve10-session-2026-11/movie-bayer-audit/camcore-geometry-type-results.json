@@ -1,0 +1,4856 @@
+{
+  "trials": 736,
+  "supported_profiles": 29,
+  "native_lookup_and_expand": "0x63d0a214",
+  "native_expander": "0x63d0a0dc",
+  "mocked_boundaries": [
+    "harness memcpy/memset helpers"
+  ],
+  "finding": "Fields at +0x438 through +0x5d0 expand packed rectangle geometry; do not reinterpret them as frame addresses.",
+  "pixel_buffers_identified": false,
+  "rows": [
+    {
+      "sensor_mode": "0xb",
+      "selector": "0x1",
+      "profile": "0x63e67250",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            6048,
+            4108,
+            0,
+            84,
+            6024,
+            4024,
+            12,
+            96,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            6024,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            6028,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1376,
+            1196,
+            0,
+            0,
+            1376,
+            1196,
+            4,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1376,
+            1196,
+            0,
+            0,
+            1376,
+            1196,
+            4,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            6048,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            6048,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x37",
+      "selector": "0x1",
+      "profile": "0x63e67250",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            6048,
+            4108,
+            0,
+            84,
+            6024,
+            4024,
+            12,
+            96,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            6024,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            6028,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1376,
+            1196,
+            0,
+            0,
+            1376,
+            1196,
+            4,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1376,
+            1196,
+            0,
+            0,
+            1376,
+            1196,
+            4,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            6048,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            6048,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x68",
+      "selector": "0x1",
+      "profile": "0x63e68210",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            6048,
+            4108,
+            0,
+            84,
+            6024,
+            4024,
+            12,
+            96,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            6024,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            6028,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1376,
+            1196,
+            0,
+            0,
+            1376,
+            1196,
+            4,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1376,
+            1196,
+            0,
+            0,
+            1376,
+            1196,
+            4,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            6048,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            6048,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x4e",
+      "selector": "0x1",
+      "profile": "0x63e68210",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            6048,
+            4108,
+            0,
+            84,
+            6024,
+            4024,
+            12,
+            96,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            6024,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            6028,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1376,
+            1196,
+            0,
+            0,
+            1376,
+            1196,
+            4,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1376,
+            1196,
+            0,
+            0,
+            1376,
+            1196,
+            4,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1392,
+            1196,
+            8,
+            0,
+            1376,
+            1196,
+            12,
+            4,
+            1368,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            6048,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            6048,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x1",
+      "selector": "0x0",
+      "profile": "0x63e691d0",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2020,
+            602,
+            4,
+            28,
+            2004,
+            574,
+            8,
+            30,
+            1996,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2008,
+            574,
+            0,
+            0,
+            2004,
+            574,
+            4,
+            2,
+            1996,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2008,
+            574,
+            0,
+            0,
+            2004,
+            574,
+            4,
+            2,
+            1996,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1616,
+            574,
+            0,
+            0,
+            1616,
+            574,
+            6,
+            2,
+            1600,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1616,
+            574,
+            0,
+            0,
+            1616,
+            574,
+            6,
+            2,
+            1600,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1632,
+            574,
+            8,
+            0,
+            1616,
+            574,
+            14,
+            2,
+            1600,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1632,
+            574,
+            8,
+            0,
+            1616,
+            574,
+            14,
+            2,
+            1600,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1632,
+            574,
+            8,
+            0,
+            1616,
+            574,
+            14,
+            2,
+            1600,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2016,
+            574,
+            0,
+            0,
+            2004,
+            574,
+            4,
+            2,
+            1996,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2016,
+            574,
+            0,
+            0,
+            2004,
+            574,
+            4,
+            2,
+            1996,
+            570
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x12",
+      "selector": "0x0",
+      "profile": "0x63e691d0",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2020,
+            602,
+            4,
+            28,
+            2004,
+            574,
+            8,
+            30,
+            1996,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2008,
+            574,
+            0,
+            0,
+            2004,
+            574,
+            4,
+            2,
+            1996,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2008,
+            574,
+            0,
+            0,
+            2004,
+            574,
+            4,
+            2,
+            1996,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1616,
+            574,
+            0,
+            0,
+            1616,
+            574,
+            6,
+            2,
+            1600,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1616,
+            574,
+            0,
+            0,
+            1616,
+            574,
+            6,
+            2,
+            1600,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1632,
+            574,
+            8,
+            0,
+            1616,
+            574,
+            14,
+            2,
+            1600,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1632,
+            574,
+            8,
+            0,
+            1616,
+            574,
+            14,
+            2,
+            1600,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1632,
+            574,
+            8,
+            0,
+            1616,
+            574,
+            14,
+            2,
+            1600,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2016,
+            574,
+            0,
+            0,
+            2004,
+            574,
+            4,
+            2,
+            1996,
+            570
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2016,
+            574,
+            0,
+            0,
+            2004,
+            574,
+            4,
+            2,
+            1996,
+            570
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x8",
+      "selector": "0x0",
+      "profile": "0x63e6a190",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2020,
+            468,
+            4,
+            26,
+            2004,
+            442,
+            8,
+            28,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2008,
+            442,
+            0,
+            0,
+            2004,
+            442,
+            4,
+            2,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2008,
+            442,
+            0,
+            0,
+            2004,
+            442,
+            4,
+            2,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1192,
+            442,
+            0,
+            0,
+            1192,
+            442,
+            2,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1192,
+            442,
+            0,
+            0,
+            1192,
+            442,
+            2,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1216,
+            442,
+            12,
+            0,
+            1192,
+            442,
+            14,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1216,
+            442,
+            12,
+            0,
+            1192,
+            442,
+            14,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1216,
+            442,
+            12,
+            0,
+            1192,
+            442,
+            14,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2016,
+            442,
+            0,
+            0,
+            2004,
+            442,
+            4,
+            2,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2016,
+            442,
+            0,
+            0,
+            2004,
+            442,
+            4,
+            2,
+            1996,
+            438
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x66",
+      "selector": "0x1",
+      "profile": "0x63e652d0",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2048,
+            468,
+            32,
+            26,
+            2004,
+            442,
+            36,
+            28,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2008,
+            442,
+            0,
+            0,
+            2004,
+            442,
+            4,
+            2,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2008,
+            442,
+            0,
+            0,
+            2004,
+            442,
+            4,
+            2,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1192,
+            442,
+            0,
+            0,
+            1192,
+            442,
+            2,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1192,
+            442,
+            0,
+            0,
+            1192,
+            442,
+            2,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1216,
+            442,
+            12,
+            0,
+            1192,
+            442,
+            14,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1216,
+            442,
+            12,
+            0,
+            1192,
+            442,
+            14,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1216,
+            442,
+            12,
+            0,
+            1192,
+            442,
+            14,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2048,
+            442,
+            32,
+            0,
+            2004,
+            442,
+            36,
+            2,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2048,
+            442,
+            32,
+            0,
+            2004,
+            442,
+            36,
+            2,
+            1996,
+            438
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0xa",
+      "selector": "0x1",
+      "profile": "0x63e652d0",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2048,
+            468,
+            32,
+            26,
+            2004,
+            442,
+            36,
+            28,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2008,
+            442,
+            0,
+            0,
+            2004,
+            442,
+            4,
+            2,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2008,
+            442,
+            0,
+            0,
+            2004,
+            442,
+            4,
+            2,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1192,
+            442,
+            0,
+            0,
+            1192,
+            442,
+            2,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1192,
+            442,
+            0,
+            0,
+            1192,
+            442,
+            2,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1216,
+            442,
+            12,
+            0,
+            1192,
+            442,
+            14,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1216,
+            442,
+            12,
+            0,
+            1192,
+            442,
+            14,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1216,
+            442,
+            12,
+            0,
+            1192,
+            442,
+            14,
+            2,
+            1184,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2048,
+            442,
+            32,
+            0,
+            2004,
+            442,
+            36,
+            2,
+            1996,
+            438
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2048,
+            442,
+            32,
+            0,
+            2004,
+            442,
+            36,
+            2,
+            1996,
+            438
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x3",
+      "selector": "0x0",
+      "profile": "0x63e66290",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2020,
+            834,
+            4,
+            30,
+            2004,
+            804,
+            8,
+            32,
+            1996,
+            800
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2008,
+            804,
+            0,
+            0,
+            2004,
+            804,
+            4,
+            2,
+            1996,
+            800
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2008,
+            804,
+            0,
+            0,
+            2004,
+            804,
+            4,
+            2,
+            1996,
+            800
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1616,
+            804,
+            0,
+            0,
+            1616,
+            804,
+            6,
+            2,
+            1600,
+            800
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1616,
+            804,
+            0,
+            0,
+            1616,
+            804,
+            6,
+            2,
+            1600,
+            800
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1632,
+            804,
+            8,
+            0,
+            1616,
+            804,
+            14,
+            2,
+            1600,
+            800
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1632,
+            804,
+            8,
+            0,
+            1616,
+            804,
+            14,
+            2,
+            1600,
+            800
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1632,
+            804,
+            8,
+            0,
+            1616,
+            804,
+            14,
+            2,
+            1600,
+            800
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2016,
+            804,
+            0,
+            0,
+            2004,
+            804,
+            4,
+            2,
+            1996,
+            800
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2016,
+            804,
+            0,
+            0,
+            2004,
+            804,
+            4,
+            2,
+            1996,
+            800
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x44",
+      "selector": "0x0",
+      "profile": "0x63e66d10",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2020,
+            1366,
+            4,
+            30,
+            2004,
+            1336,
+            8,
+            32,
+            1996,
+            1332
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2008,
+            1336,
+            0,
+            0,
+            2004,
+            1336,
+            4,
+            2,
+            1996,
+            1332
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2008,
+            1336,
+            0,
+            0,
+            2004,
+            1336,
+            4,
+            2,
+            1996,
+            1332
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1616,
+            1192,
+            0,
+            0,
+            1616,
+            1192,
+            6,
+            2,
+            1600,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1616,
+            1192,
+            0,
+            0,
+            1616,
+            1192,
+            6,
+            2,
+            1600,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1632,
+            1192,
+            8,
+            0,
+            1616,
+            1192,
+            14,
+            2,
+            1600,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1632,
+            1192,
+            8,
+            0,
+            1616,
+            1192,
+            14,
+            2,
+            1600,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1632,
+            1192,
+            8,
+            0,
+            1616,
+            1192,
+            14,
+            2,
+            1600,
+            1188
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2016,
+            1336,
+            0,
+            0,
+            2004,
+            1336,
+            4,
+            2,
+            1996,
+            1332
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2016,
+            1336,
+            0,
+            0,
+            2004,
+            1336,
+            4,
+            2,
+            1996,
+            1332
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x5",
+      "selector": "0x0",
+      "profile": "0x63e67cd0",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2020,
+            1162,
+            4,
+            28,
+            2004,
+            1134,
+            8,
+            34,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2008,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2008,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2016,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2016,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x7",
+      "selector": "0x0",
+      "profile": "0x63e67cd0",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2020,
+            1162,
+            4,
+            28,
+            2004,
+            1134,
+            8,
+            34,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2008,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2008,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2016,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2016,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x46",
+      "selector": "0xa",
+      "profile": "0x63e68c90",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            1092,
+            1018,
+            4,
+            20,
+            1088,
+            998,
+            8,
+            26,
+            1084,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            880,
+            998,
+            0,
+            0,
+            880,
+            998,
+            4,
+            6,
+            876,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            1016,
+            998,
+            0,
+            0,
+            1016,
+            998,
+            4,
+            6,
+            1012,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1088,
+            998,
+            0,
+            0,
+            1088,
+            998,
+            4,
+            6,
+            1084,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1008,
+            998,
+            0,
+            0,
+            1008,
+            998,
+            4,
+            6,
+            972,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1016,
+            998,
+            8,
+            0,
+            1008,
+            998,
+            12,
+            6,
+            972,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1104,
+            998,
+            16,
+            0,
+            1088,
+            998,
+            20,
+            6,
+            1084,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1016,
+            998,
+            8,
+            0,
+            1008,
+            998,
+            12,
+            6,
+            972,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            1088,
+            998,
+            0,
+            0,
+            1088,
+            998,
+            4,
+            6,
+            1084,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            1088,
+            998,
+            0,
+            0,
+            1088,
+            998,
+            4,
+            6,
+            1084,
+            986
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x46",
+      "selector": "0x1a",
+      "profile": "0x63e69c50",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            1060,
+            1018,
+            4,
+            20,
+            1056,
+            998,
+            4,
+            26,
+            1052,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            880,
+            998,
+            0,
+            0,
+            880,
+            998,
+            0,
+            6,
+            876,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            1008,
+            998,
+            0,
+            0,
+            1008,
+            998,
+            0,
+            6,
+            1004,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1056,
+            998,
+            0,
+            0,
+            1056,
+            998,
+            0,
+            6,
+            1052,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1008,
+            998,
+            0,
+            0,
+            1008,
+            998,
+            32,
+            6,
+            972,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1016,
+            998,
+            0,
+            0,
+            1008,
+            998,
+            32,
+            6,
+            972,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1072,
+            998,
+            0,
+            0,
+            1056,
+            998,
+            0,
+            6,
+            1052,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1016,
+            998,
+            0,
+            0,
+            1008,
+            998,
+            32,
+            6,
+            972,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            1056,
+            998,
+            0,
+            0,
+            1056,
+            998,
+            0,
+            6,
+            1052,
+            986
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            1056,
+            998,
+            0,
+            0,
+            1056,
+            998,
+            0,
+            6,
+            1052,
+            986
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0xf",
+      "selector": "0x0",
+      "profile": "0x63e6ac10",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            1080,
+            754,
+            24,
+            50,
+            1056,
+            704,
+            40,
+            60,
+            1024,
+            684
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            1056,
+            704,
+            0,
+            0,
+            1056,
+            704,
+            16,
+            10,
+            1024,
+            684
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            1056,
+            704,
+            0,
+            0,
+            1056,
+            704,
+            16,
+            10,
+            1024,
+            684
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1056,
+            704,
+            0,
+            0,
+            1056,
+            704,
+            16,
+            10,
+            1024,
+            684
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1056,
+            704,
+            0,
+            0,
+            1056,
+            704,
+            16,
+            10,
+            1024,
+            684
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1056,
+            704,
+            0,
+            0,
+            1056,
+            704,
+            16,
+            10,
+            1024,
+            684
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1056,
+            704,
+            0,
+            0,
+            1056,
+            704,
+            16,
+            10,
+            1024,
+            684
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1056,
+            704,
+            0,
+            0,
+            1056,
+            704,
+            16,
+            10,
+            1024,
+            684
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            1056,
+            704,
+            0,
+            0,
+            1056,
+            704,
+            16,
+            10,
+            1024,
+            684
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            1056,
+            704,
+            0,
+            0,
+            1056,
+            704,
+            16,
+            10,
+            1024,
+            684
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x13",
+      "selector": "0xa",
+      "profile": "0x63e65d50",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2880,
+            2826,
+            44,
+            50,
+            2836,
+            2776,
+            56,
+            58,
+            2824,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2464,
+            2776,
+            0,
+            0,
+            2464,
+            2776,
+            12,
+            8,
+            2452,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2744,
+            2776,
+            0,
+            0,
+            2744,
+            2776,
+            12,
+            8,
+            2732,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            2816,
+            2776,
+            0,
+            0,
+            2816,
+            2776,
+            12,
+            8,
+            2804,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2224,
+            2388,
+            0,
+            0,
+            2224,
+            2388,
+            12,
+            6,
+            2180,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2224,
+            2388,
+            0,
+            0,
+            2224,
+            2388,
+            12,
+            6,
+            2180,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            2832,
+            2776,
+            16,
+            0,
+            2816,
+            2776,
+            28,
+            8,
+            2804,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2224,
+            2388,
+            0,
+            0,
+            2224,
+            2388,
+            12,
+            6,
+            2180,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2816,
+            2776,
+            0,
+            0,
+            2816,
+            2776,
+            12,
+            8,
+            2804,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2816,
+            2776,
+            0,
+            0,
+            2816,
+            2776,
+            12,
+            8,
+            2804,
+            2760
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x13",
+      "selector": "0x1a",
+      "profile": "0x63e667d0",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2848,
+            2826,
+            32,
+            50,
+            2788,
+            2776,
+            32,
+            58,
+            2776,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2456,
+            2776,
+            0,
+            0,
+            2456,
+            2776,
+            0,
+            8,
+            2444,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2736,
+            2776,
+            0,
+            0,
+            2736,
+            2776,
+            0,
+            8,
+            2724,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            2784,
+            2776,
+            0,
+            0,
+            2784,
+            2776,
+            0,
+            8,
+            2772,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2224,
+            2388,
+            0,
+            0,
+            2224,
+            2388,
+            32,
+            6,
+            2180,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2224,
+            2388,
+            0,
+            0,
+            2224,
+            2388,
+            32,
+            6,
+            2180,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            2800,
+            2776,
+            0,
+            0,
+            2784,
+            2776,
+            0,
+            8,
+            2772,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2224,
+            2388,
+            0,
+            0,
+            2224,
+            2388,
+            32,
+            6,
+            2180,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2784,
+            2776,
+            0,
+            0,
+            2784,
+            2776,
+            0,
+            8,
+            2772,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2784,
+            2776,
+            0,
+            0,
+            2784,
+            2776,
+            0,
+            8,
+            2772,
+            2760
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x1f",
+      "selector": "0xa",
+      "profile": "0x63e67790",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            3232,
+            3442,
+            36,
+            50,
+            3196,
+            3392,
+            48,
+            58,
+            3184,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            3016,
+            3392,
+            0,
+            0,
+            3016,
+            3392,
+            12,
+            8,
+            3004,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            3096,
+            3392,
+            0,
+            0,
+            3096,
+            3392,
+            12,
+            8,
+            3084,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            12,
+            8,
+            3156,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2016,
+            2388,
+            0,
+            0,
+            2016,
+            2388,
+            8,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2020,
+            2388,
+            4,
+            0,
+            2016,
+            2388,
+            12,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            3104,
+            3392,
+            0,
+            0,
+            3104,
+            3392,
+            12,
+            8,
+            3092,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2020,
+            2388,
+            4,
+            0,
+            2016,
+            2388,
+            12,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            12,
+            8,
+            3156,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            12,
+            8,
+            3156,
+            3376
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x1f",
+      "selector": "0x1a",
+      "profile": "0x63e68750",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            3232,
+            3442,
+            32,
+            50,
+            3180,
+            3392,
+            32,
+            58,
+            3168,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            3008,
+            3392,
+            0,
+            0,
+            3008,
+            3392,
+            0,
+            8,
+            2996,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            3096,
+            3392,
+            0,
+            0,
+            3096,
+            3392,
+            0,
+            8,
+            3084,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            0,
+            8,
+            3156,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2016,
+            2388,
+            0,
+            0,
+            2016,
+            2388,
+            40,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2020,
+            2388,
+            0,
+            0,
+            2016,
+            2388,
+            40,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            3104,
+            3392,
+            0,
+            0,
+            3104,
+            3392,
+            0,
+            8,
+            3092,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2020,
+            2388,
+            0,
+            0,
+            2016,
+            2388,
+            40,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            0,
+            8,
+            3156,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            0,
+            8,
+            3156,
+            3376
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x89",
+      "selector": "0xa",
+      "profile": "0x63e67790",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            3232,
+            3442,
+            36,
+            50,
+            3196,
+            3392,
+            48,
+            58,
+            3184,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            3016,
+            3392,
+            0,
+            0,
+            3016,
+            3392,
+            12,
+            8,
+            3004,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            3096,
+            3392,
+            0,
+            0,
+            3096,
+            3392,
+            12,
+            8,
+            3084,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            12,
+            8,
+            3156,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2016,
+            2388,
+            0,
+            0,
+            2016,
+            2388,
+            8,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2020,
+            2388,
+            4,
+            0,
+            2016,
+            2388,
+            12,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            3104,
+            3392,
+            0,
+            0,
+            3104,
+            3392,
+            12,
+            8,
+            3092,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2020,
+            2388,
+            4,
+            0,
+            2016,
+            2388,
+            12,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            12,
+            8,
+            3156,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            12,
+            8,
+            3156,
+            3376
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x89",
+      "selector": "0x1a",
+      "profile": "0x63e68750",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            3232,
+            3442,
+            32,
+            50,
+            3180,
+            3392,
+            32,
+            58,
+            3168,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            3008,
+            3392,
+            0,
+            0,
+            3008,
+            3392,
+            0,
+            8,
+            2996,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            3096,
+            3392,
+            0,
+            0,
+            3096,
+            3392,
+            0,
+            8,
+            3084,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            0,
+            8,
+            3156,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2016,
+            2388,
+            0,
+            0,
+            2016,
+            2388,
+            40,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2020,
+            2388,
+            0,
+            0,
+            2016,
+            2388,
+            40,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            3104,
+            3392,
+            0,
+            0,
+            3104,
+            3392,
+            0,
+            8,
+            3092,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2020,
+            2388,
+            0,
+            0,
+            2016,
+            2388,
+            40,
+            6,
+            1968,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            0,
+            8,
+            3156,
+            3376
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            3168,
+            3392,
+            0,
+            0,
+            3168,
+            3392,
+            0,
+            8,
+            3156,
+            3376
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0x2f",
+      "selector": "0x1",
+      "profile": "0x63e69710",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            6048,
+            4108,
+            0,
+            84,
+            6024,
+            4024,
+            12,
+            96,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            6024,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            6028,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            1736,
+            1250,
+            0,
+            0,
+            1736,
+            1250,
+            4,
+            4,
+            1728,
+            1242
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            1736,
+            1250,
+            0,
+            0,
+            1736,
+            1250,
+            4,
+            4,
+            1728,
+            1242
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            1752,
+            1250,
+            8,
+            0,
+            1736,
+            1250,
+            12,
+            4,
+            1728,
+            1242
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            1752,
+            1250,
+            8,
+            0,
+            1736,
+            1250,
+            12,
+            4,
+            1728,
+            1242
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            1752,
+            1250,
+            8,
+            0,
+            1736,
+            1250,
+            12,
+            4,
+            1728,
+            1242
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            6048,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            6048,
+            4024,
+            0,
+            0,
+            6024,
+            4024,
+            12,
+            12,
+            6000,
+            4000
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0xb2",
+      "selector": "0x0",
+      "profile": "0x63e67cd0",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2020,
+            1162,
+            4,
+            28,
+            2004,
+            1134,
+            8,
+            34,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2008,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2008,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2016,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2016,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0xb3",
+      "selector": "0x0",
+      "profile": "0x63e67cd0",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2020,
+            1162,
+            4,
+            28,
+            2004,
+            1134,
+            8,
+            34,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2008,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2008,
+            1134,
+            0,
+            0,
+            2008,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2024,
+            1134,
+            8,
+            0,
+            2008,
+            1134,
+            12,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2016,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2016,
+            1134,
+            0,
+            0,
+            2004,
+            1134,
+            4,
+            6,
+            1996,
+            1122
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0xb4",
+      "selector": "0xa",
+      "profile": "0x63e6a6d0",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2944,
+            2826,
+            44,
+            50,
+            2900,
+            2776,
+            56,
+            58,
+            2888,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2464,
+            2776,
+            0,
+            0,
+            2464,
+            2776,
+            12,
+            8,
+            2452,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2808,
+            2776,
+            0,
+            0,
+            2808,
+            2776,
+            12,
+            8,
+            2796,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            2880,
+            2776,
+            0,
+            0,
+            2880,
+            2776,
+            12,
+            8,
+            2868,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            12,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            12,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            2896,
+            2776,
+            16,
+            0,
+            2880,
+            2776,
+            28,
+            8,
+            2868,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            12,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2880,
+            2776,
+            0,
+            0,
+            2880,
+            2776,
+            12,
+            8,
+            2868,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2880,
+            2776,
+            0,
+            0,
+            2880,
+            2776,
+            12,
+            8,
+            2868,
+            2760
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0xb4",
+      "selector": "0x1a",
+      "profile": "0x63e65810",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2912,
+            2826,
+            32,
+            50,
+            2852,
+            2776,
+            32,
+            58,
+            2840,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2456,
+            2776,
+            0,
+            0,
+            2456,
+            2776,
+            0,
+            8,
+            2444,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2800,
+            2776,
+            0,
+            0,
+            2800,
+            2776,
+            0,
+            8,
+            2788,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            2848,
+            2776,
+            0,
+            0,
+            2848,
+            2776,
+            0,
+            8,
+            2836,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            32,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            32,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            2864,
+            2776,
+            0,
+            0,
+            2848,
+            2776,
+            0,
+            8,
+            2836,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            32,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2848,
+            2776,
+            0,
+            0,
+            2848,
+            2776,
+            0,
+            8,
+            2836,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2848,
+            2776,
+            0,
+            0,
+            2848,
+            2776,
+            0,
+            8,
+            2836,
+            2760
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0xb5",
+      "selector": "0xa",
+      "profile": "0x63e6a6d0",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2944,
+            2826,
+            44,
+            50,
+            2900,
+            2776,
+            56,
+            58,
+            2888,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2464,
+            2776,
+            0,
+            0,
+            2464,
+            2776,
+            12,
+            8,
+            2452,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2808,
+            2776,
+            0,
+            0,
+            2808,
+            2776,
+            12,
+            8,
+            2796,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            2880,
+            2776,
+            0,
+            0,
+            2880,
+            2776,
+            12,
+            8,
+            2868,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            12,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            12,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            2896,
+            2776,
+            16,
+            0,
+            2880,
+            2776,
+            28,
+            8,
+            2868,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            12,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2880,
+            2776,
+            0,
+            0,
+            2880,
+            2776,
+            12,
+            8,
+            2868,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2880,
+            2776,
+            0,
+            0,
+            2880,
+            2776,
+            12,
+            8,
+            2868,
+            2760
+          ]
+        }
+      ]
+    },
+    {
+      "sensor_mode": "0xb5",
+      "selector": "0x1a",
+      "profile": "0x63e65810",
+      "descriptors": [
+        {
+          "environment_offset": "0x438",
+          "rom_offset": "0x0",
+          "geometry_words": [
+            2912,
+            2826,
+            32,
+            50,
+            2852,
+            2776,
+            32,
+            58,
+            2840,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x460",
+          "rom_offset": "0x14",
+          "geometry_words": [
+            2456,
+            2776,
+            0,
+            0,
+            2456,
+            2776,
+            0,
+            8,
+            2444,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x488",
+          "rom_offset": "0x28",
+          "geometry_words": [
+            2800,
+            2776,
+            0,
+            0,
+            2800,
+            2776,
+            0,
+            8,
+            2788,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4b0",
+          "rom_offset": "0x3c",
+          "geometry_words": [
+            2848,
+            2776,
+            0,
+            0,
+            2848,
+            2776,
+            0,
+            8,
+            2836,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x4d8",
+          "rom_offset": "0x50",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            32,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x510",
+          "rom_offset": "0x6c",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            32,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x538",
+          "rom_offset": "0x80",
+          "geometry_words": [
+            2864,
+            2776,
+            0,
+            0,
+            2848,
+            2776,
+            0,
+            8,
+            2836,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x560",
+          "rom_offset": "0x94",
+          "geometry_words": [
+            2240,
+            2388,
+            0,
+            0,
+            2240,
+            2388,
+            32,
+            6,
+            2196,
+            2376
+          ]
+        },
+        {
+          "environment_offset": "0x588",
+          "rom_offset": "0xbc",
+          "geometry_words": [
+            2848,
+            2776,
+            0,
+            0,
+            2848,
+            2776,
+            0,
+            8,
+            2836,
+            2760
+          ]
+        },
+        {
+          "environment_offset": "0x5d0",
+          "rom_offset": "0xa8",
+          "geometry_words": [
+            2848,
+            2776,
+            0,
+            0,
+            2848,
+            2776,
+            0,
+            8,
+            2836,
+            2760
+          ]
+        }
+      ]
+    }
+  ]
+}

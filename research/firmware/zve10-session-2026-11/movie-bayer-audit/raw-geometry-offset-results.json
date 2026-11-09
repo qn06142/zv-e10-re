@@ -1,0 +1,1039 @@
+{
+  "cases": 16,
+  "native_raw_setup": "0x6379e2b8",
+  "mocked": [
+    "logger",
+    "harness memory helpers"
+  ],
+  "geometry_is_fixture": true,
+  "buffer_is_fixture": true,
+  "pixels_emulated": false,
+  "physical_crop_behavior_proved": false,
+  "finding": "left/top change the DDR destination offset; gap_rows changes destination line gap; formatter writes remain identical",
+  "rows": [
+    {
+      "encoding": 0,
+      "pitch": 1984,
+      "left": 0,
+      "top": 0,
+      "gap_rows": 0,
+      "programmed": [
+        "0x20000000",
+        "0xf00",
+        "0x80",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x0"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 0,
+      "pitch": 1984,
+      "left": 0,
+      "top": 0,
+      "gap_rows": 1,
+      "programmed": [
+        "0x20000000",
+        "0xf00",
+        "0x1000",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x0"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 0,
+      "pitch": 1984,
+      "left": 16,
+      "top": 0,
+      "gap_rows": 0,
+      "programmed": [
+        "0x20000020",
+        "0xf00",
+        "0x80",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x0"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 0,
+      "pitch": 1984,
+      "left": 16,
+      "top": 0,
+      "gap_rows": 1,
+      "programmed": [
+        "0x20000020",
+        "0xf00",
+        "0x1000",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x0"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 0,
+      "pitch": 1984,
+      "left": 0,
+      "top": 2,
+      "gap_rows": 0,
+      "programmed": [
+        "0x20001f00",
+        "0xf00",
+        "0x80",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x0"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 0,
+      "pitch": 1984,
+      "left": 0,
+      "top": 2,
+      "gap_rows": 1,
+      "programmed": [
+        "0x20001f00",
+        "0xf00",
+        "0x1000",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x0"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 0,
+      "pitch": 1984,
+      "left": 16,
+      "top": 2,
+      "gap_rows": 0,
+      "programmed": [
+        "0x20001f20",
+        "0xf00",
+        "0x80",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x0"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 0,
+      "pitch": 1984,
+      "left": 16,
+      "top": 2,
+      "gap_rows": 1,
+      "programmed": [
+        "0x20001f20",
+        "0xf00",
+        "0x1000",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x0"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 3,
+      "pitch": 1984,
+      "left": 0,
+      "top": 0,
+      "gap_rows": 0,
+      "programmed": [
+        "0x20000000",
+        "0xb40",
+        "0x60",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8910",
+          4,
+          "0x770437"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 3,
+      "pitch": 1984,
+      "left": 0,
+      "top": 0,
+      "gap_rows": 1,
+      "programmed": [
+        "0x20000000",
+        "0xb40",
+        "0xc00",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8910",
+          4,
+          "0x770437"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 3,
+      "pitch": 1984,
+      "left": 16,
+      "top": 0,
+      "gap_rows": 0,
+      "programmed": [
+        "0x20000018",
+        "0xb40",
+        "0x60",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8910",
+          4,
+          "0x770437"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 3,
+      "pitch": 1984,
+      "left": 16,
+      "top": 0,
+      "gap_rows": 1,
+      "programmed": [
+        "0x20000018",
+        "0xb40",
+        "0xc00",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8910",
+          4,
+          "0x770437"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 3,
+      "pitch": 1984,
+      "left": 0,
+      "top": 2,
+      "gap_rows": 0,
+      "programmed": [
+        "0x20001740",
+        "0xb40",
+        "0x60",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8910",
+          4,
+          "0x770437"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 3,
+      "pitch": 1984,
+      "left": 0,
+      "top": 2,
+      "gap_rows": 1,
+      "programmed": [
+        "0x20001740",
+        "0xb40",
+        "0xc00",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8910",
+          4,
+          "0x770437"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 3,
+      "pitch": 1984,
+      "left": 16,
+      "top": 2,
+      "gap_rows": 0,
+      "programmed": [
+        "0x20001758",
+        "0xb40",
+        "0x60",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8910",
+          4,
+          "0x770437"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    },
+    {
+      "encoding": 3,
+      "pitch": 1984,
+      "left": 16,
+      "top": 2,
+      "gap_rows": 1,
+      "programmed": [
+        "0x20001758",
+        "0xb40",
+        "0xc00",
+        "0x437"
+      ],
+      "formatter_and_shared_writes": [
+        [
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0xfc0a8910",
+          4,
+          "0x770437"
+        ]
+      ],
+      "input_geometry_register_writes": []
+    }
+  ],
+  "accepted_overflow_cases": [
+    {
+      "encoding": 0,
+      "pitch": 1920,
+      "left": 16,
+      "active_width": 1920,
+      "height": 1080,
+      "capacity": 4147200,
+      "native_required_size": 4147200,
+      "native_logs": [],
+      "programmed_base": "0x20000020",
+      "line_bytes": 3840,
+      "gap_bytes": 0,
+      "descriptor_end": "0x203f4820",
+      "buffer_end": "0x203f4800",
+      "descriptor_exceeds_capacity_by": 32,
+      "actual_dma_executed": false
+    },
+    {
+      "encoding": 3,
+      "pitch": 1920,
+      "left": 16,
+      "active_width": 1920,
+      "height": 1080,
+      "capacity": 3110400,
+      "native_required_size": 3110400,
+      "native_logs": [],
+      "programmed_base": "0x20000018",
+      "line_bytes": 2880,
+      "gap_bytes": 0,
+      "descriptor_end": "0x202f7618",
+      "buffer_end": "0x202f7600",
+      "descriptor_exceeds_capacity_by": 24,
+      "actual_dma_executed": false
+    }
+  ],
+  "packed_alignment_cases": [
+    {
+      "active_width": 15,
+      "height": 1122,
+      "encoding": 3,
+      "formatter_block_word": "0xffff0461",
+      "formatter_whole_blocks": 0,
+      "dma_line_bytes": 24,
+      "dma_blocks": 1,
+      "native_logs": []
+    },
+    {
+      "active_width": 16,
+      "height": 1122,
+      "encoding": 3,
+      "formatter_block_word": "0x461",
+      "formatter_whole_blocks": 1,
+      "dma_line_bytes": 24,
+      "dma_blocks": 1,
+      "native_logs": []
+    },
+    {
+      "active_width": 17,
+      "height": 1122,
+      "encoding": 3,
+      "formatter_block_word": "0x461",
+      "formatter_whole_blocks": 1,
+      "dma_line_bytes": 48,
+      "dma_blocks": 2,
+      "native_logs": []
+    },
+    {
+      "active_width": 1920,
+      "height": 1122,
+      "encoding": 3,
+      "formatter_block_word": "0x770461",
+      "formatter_whole_blocks": 120,
+      "dma_line_bytes": 2880,
+      "dma_blocks": 120,
+      "native_logs": []
+    },
+    {
+      "active_width": 1996,
+      "height": 1122,
+      "encoding": 3,
+      "formatter_block_word": "0x7b0461",
+      "formatter_whole_blocks": 124,
+      "dma_line_bytes": 3000,
+      "dma_blocks": 125,
+      "native_logs": []
+    },
+    {
+      "active_width": 2000,
+      "height": 1122,
+      "encoding": 3,
+      "formatter_block_word": "0x7c0461",
+      "formatter_whole_blocks": 125,
+      "dma_line_bytes": 3000,
+      "dma_blocks": 125,
+      "native_logs": []
+    },
+    {
+      "active_width": 2004,
+      "height": 1122,
+      "encoding": 3,
+      "formatter_block_word": "0x7c0461",
+      "formatter_whole_blocks": 125,
+      "dma_line_bytes": 3024,
+      "dma_blocks": 126,
+      "native_logs": []
+    },
+    {
+      "active_width": 2008,
+      "height": 1122,
+      "encoding": 3,
+      "formatter_block_word": "0x7c0461",
+      "formatter_whole_blocks": 125,
+      "dma_line_bytes": 3024,
+      "dma_blocks": 126,
+      "native_logs": []
+    },
+    {
+      "active_width": 2016,
+      "height": 1122,
+      "encoding": 3,
+      "formatter_block_word": "0x7d0461",
+      "formatter_whole_blocks": 126,
+      "dma_line_bytes": 3024,
+      "dma_blocks": 126,
+      "native_logs": []
+    }
+  ]
+}

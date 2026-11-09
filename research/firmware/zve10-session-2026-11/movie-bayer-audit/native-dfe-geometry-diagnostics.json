@@ -1,0 +1,3107 @@
+{
+  "cases": 4,
+  "native_header_apply": "0x6379a510",
+  "mocks": [
+    "atexit",
+    "OS locks",
+    "logger",
+    "operation lookup returns native default resource",
+    "harness memory helpers"
+  ],
+  "mmio_is_ram": true,
+  "explicit_fixtures": [
+    "clock input72",
+    "native driver-query bytes from prior verifier",
+    "encoder inputs2/8"
+  ],
+  "full_native_parameter_builder": "0x6379cb68",
+  "full_native_final_setup": "0x6379a57c",
+  "sensor_geometry_substituted": false,
+  "pixels_emulated": false,
+  "rows": [
+    {
+      "sensor": "0x5",
+      "drive": "0x17",
+      "resource": "0x39",
+      "owner": "0x645bb5a4",
+      "constructor_aif_7_8_bank_writes": [],
+      "header_diagnostics": [],
+      "zpd_pre_header_descriptors": [
+        {
+          "dma_object": "0x6426b020",
+          "bank": "0xfc098000",
+          "port": 1,
+          "words": [
+            "0xfffa0000",
+            "0x20",
+            "0xc9c0",
+            "0x1",
+            "0xffff3620",
+            "0x5e",
+            "0xffff3620",
+            "0x10",
+            "0x0",
+            "0x0"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "stage": "header_only",
+          "encoder_input": null,
+          "common_record": null,
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    39453847,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    33293458,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "full_native_parameters",
+          "encoder_input": 2,
+          "common_record": "18c0e663000000000000000002000000000000000000000000000000000000004803000000000000",
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [
+            {
+              "logical": 7,
+              "object": "0x6426adb0",
+              "enable_byte": 1
+            },
+            {
+              "logical": 8,
+              "object": "0x6426ae18",
+              "enable_byte": 1
+            }
+          ],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    39453847,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    33293458,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "full_native_parameters",
+          "encoder_input": 8,
+          "common_record": "18c0e663000000000000000008000000000000000000000000000000000000004803000000000000",
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [
+            {
+              "logical": 7,
+              "object": "0x6426adb0",
+              "enable_byte": 1
+            },
+            {
+              "logical": 8,
+              "object": "0x6426ae18",
+              "enable_byte": 1
+            }
+          ],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    39453847,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    33293458,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sensor": "0x7",
+      "drive": "0x18",
+      "resource": "0x39",
+      "owner": "0x645bb5a4",
+      "constructor_aif_7_8_bank_writes": [],
+      "header_diagnostics": [],
+      "zpd_pre_header_descriptors": [
+        {
+          "dma_object": "0x6426b020",
+          "bank": "0xfc098000",
+          "port": 1,
+          "words": [
+            "0xfffa0000",
+            "0x20",
+            "0xc9c0",
+            "0x1",
+            "0xffff3620",
+            "0x5e",
+            "0xffff3620",
+            "0x10",
+            "0x0",
+            "0x0"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "stage": "header_only",
+          "encoder_input": null,
+          "common_record": null,
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    39453847,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    33293458,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "full_native_parameters",
+          "encoder_input": 2,
+          "common_record": "18c0e663000000000000000002000000000000000000000000000000000000005a03000000000000",
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [
+            {
+              "logical": 7,
+              "object": "0x6426adb0",
+              "enable_byte": 1
+            },
+            {
+              "logical": 8,
+              "object": "0x6426ae18",
+              "enable_byte": 1
+            }
+          ],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    39453847,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    33293458,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "full_native_parameters",
+          "encoder_input": 8,
+          "common_record": "18c0e663000000000000000008000000000000000000000000000000000000005a03000000000000",
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [
+            {
+              "logical": 7,
+              "object": "0x6426adb0",
+              "enable_byte": 1
+            },
+            {
+              "logical": 8,
+              "object": "0x6426ae18",
+              "enable_byte": 1
+            }
+          ],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    1211
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105579693,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    39453847,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    33293458,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sensor": "0x1f",
+      "drive": "0x4",
+      "resource": "0x39",
+      "owner": "0x645bb194",
+      "constructor_aif_7_8_bank_writes": [],
+      "header_diagnostics": [],
+      "zpd_pre_header_descriptors": [
+        {
+          "dma_object": "0x6426b020",
+          "bank": "0xfc098000",
+          "port": 1,
+          "words": [
+            "0xfffa0000",
+            "0x20",
+            "0xc9c0",
+            "0x1",
+            "0xffff3620",
+            "0x5e",
+            "0xffff3620",
+            "0x10",
+            "0x0",
+            "0x0"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "stage": "header_only",
+          "encoder_input": null,
+          "common_record": null,
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    3466
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105844091,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    3466
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105844091,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    105778555,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    99618166,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "full_native_parameters",
+          "encoder_input": 2,
+          "common_record": "18c0e663000000000000000002000000020000000000000000000000000000005e03000000000000",
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [
+            {
+              "logical": 7,
+              "object": "0x6426adb0",
+              "enable_byte": 1
+            },
+            {
+              "logical": 8,
+              "object": "0x6426ae18",
+              "enable_byte": 1
+            }
+          ],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    3466
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105844091,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    3466
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105844091,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    105778555,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    99618166,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "full_native_parameters",
+          "encoder_input": 8,
+          "common_record": "18c0e663000000000000000008000000020000000000000000000000000000005e03000000000000",
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [
+            {
+              "logical": 7,
+              "object": "0x6426adb0",
+              "enable_byte": 1
+            },
+            {
+              "logical": 8,
+              "object": "0x6426ae18",
+              "enable_byte": 1
+            }
+          ],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    3466
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105844091,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    3466
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105844091,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    105778555,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    99618166,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sensor": "0xb5",
+      "drive": "0x94",
+      "resource": "0x39",
+      "owner": "0x645bb838",
+      "constructor_aif_7_8_bank_writes": [],
+      "header_diagnostics": [],
+      "zpd_pre_header_descriptors": [
+        {
+          "dma_object": "0x6426b020",
+          "bank": "0xfc098000",
+          "port": 1,
+          "words": [
+            "0xfffa0000",
+            "0x20",
+            "0xc9c0",
+            "0x1",
+            "0xffff3620",
+            "0x5e",
+            "0xffff3620",
+            "0x10",
+            "0x0",
+            "0x0"
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "stage": "header_only",
+          "encoder_input": null,
+          "common_record": null,
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    2850
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105843475,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    2850
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105843475,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    105777939,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    99617550,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "full_native_parameters",
+          "encoder_input": 2,
+          "common_record": "18c0e663000000000000000002000000020000000000000000000000000000001a04000000000000",
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [
+            {
+              "logical": 7,
+              "object": "0x6426adb0",
+              "enable_byte": 1
+            },
+            {
+              "logical": 8,
+              "object": "0x6426ae18",
+              "enable_byte": 1
+            }
+          ],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    2850
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105843475,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    2850
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105843475,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    105777939,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    99617550,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "full_native_parameters",
+          "encoder_input": 8,
+          "common_record": "18c0e663000000000000000008000000020000000000000000000000000000001a04000000000000",
+          "parameter_diagnostics": [],
+          "aif_7_8_bank_writes": [],
+          "cam_aif_parameter_calls": [
+            {
+              "logical": 7,
+              "object": "0x6426adb0",
+              "enable_byte": 1
+            },
+            {
+              "logical": 8,
+              "object": "0x6426ae18",
+              "enable_byte": 1
+            }
+          ],
+          "dumps": [
+            {
+              "label": "ifmt",
+              "object": "0x6426aeb8",
+              "rtti": "N6Camera7DFECore4IfmtE",
+              "native_dump": "0x63d23b4e",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    2850
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674722139
+                  ]
+                },
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105843475,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "receiver",
+              "object": "0x6426acdc",
+              "rtti": "N6Camera7DFECore11Ifmt_RcvSgcE",
+              "native_dump": "0x637a0f14",
+              "diagnostics": [
+                {
+                  "format": "IMG:Rcv%d H%x V%x HVcnt%x %x Fcnt%x status%d start%d",
+                  "register_words": [
+                    0,
+                    810,
+                    2850
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1680256696,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1610612737
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "link",
+              "object": "0x6426b0b8",
+              "rtti": "N6Camera7DFECore11Ifmt_LnkSgcE",
+              "native_dump": "0x637a0588",
+              "diagnostics": [
+                {
+                  "format": "IMG:Lnk%d HV%x HVcnt%x %x Fcnt%X status%d start%d dpath%d bof%d",
+                  "register_words": [
+                    0,
+                    105843475,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "img",
+              "object": "0x6426af28",
+              "rtti": "N6Camera7DFECore3ImgE",
+              "native_dump": "0x63d247f4",
+              "diagnostics": [
+                {
+                  "format": "IMG:Img%d HV%x HVcnt%x %x status%d start%d bof%d",
+                  "register_words": [
+                    0,
+                    105777939,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674725375,
+                    0,
+                    1610612737,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "ofmt",
+              "object": "0x6426afdc",
+              "rtti": "N6Camera7DFECore4OfmtE",
+              "native_dump": "0x63d24dde",
+              "diagnostics": [
+                {
+                  "format": "IMG:Of%d HV%x HVcnt%x %x status%d start%d bof%d enc%d",
+                  "register_words": [
+                    0,
+                    99617550,
+                    0
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1674726889
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "mwrap",
+              "object": "0x6426acc0",
+              "rtti": "N6Camera7DFECore10Ofmt_MwrapE",
+              "native_dump": "0x637a2448",
+              "diagnostics": [
+                {
+                  "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+                  "register_words": [
+                    0,
+                    0,
+                    3
+                  ],
+                  "stack_words": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

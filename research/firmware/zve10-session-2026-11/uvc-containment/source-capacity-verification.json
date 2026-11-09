@@ -1,0 +1,28 @@
+{
+  "compiled_ARM_executed": true,
+  "hardware_calls_mocked": true,
+  "cases": [
+    {
+      "capacity": 614399,
+      "returncode": 22,
+      "mapped_bytes": [],
+      "deallocations": 5
+    },
+    {
+      "capacity": 614400,
+      "returncode": 0,
+      "mapped_bytes": [
+        614400
+      ],
+      "deallocations": 0
+    },
+    {
+      "capacity": 3276800,
+      "returncode": 0,
+      "mapped_bytes": [
+        614400
+      ],
+      "deallocations": 0
+    }
+  ]
+}

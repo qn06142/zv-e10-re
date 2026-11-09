@@ -1,0 +1,2553 @@
+{
+  "allocation_cases": 150,
+  "release_cases": 10,
+  "native_allocator": "0x637a229c",
+  "native_release": "0x63d24f72",
+  "native_index_selector": "0x637a21b4",
+  "mocks": [
+    "OS locks",
+    "logger",
+    "harness memory helpers"
+  ],
+  "fixtures": [
+    "prior counts",
+    "prior enable mask",
+    "RAM-backed hardware owner/index maps"
+  ],
+  "actual_frame_memory_identified": false,
+  "dma_or_pixels_emulated": false,
+  "allocation_rows": [
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 0,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 1,
+      "returned": 1,
+      "new_counts": [
+        1,
+        0
+      ],
+      "enabled_mask": "0x1",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543213"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 2,
+      "returned": 1,
+      "new_counts": [
+        2,
+        0
+      ],
+      "enabled_mask": "0x3",
+      "owner_bits": "0xabcd0a58",
+      "index_map": "0xfedcba9876543243"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 3,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 4,
+      "returned": 1,
+      "new_counts": [
+        4,
+        0
+      ],
+      "enabled_mask": "0xf",
+      "owner_bits": "0xabcd0a50",
+      "index_map": "0xfedcba9876545432"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 5,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 6,
+      "returned": 1,
+      "new_counts": [
+        6,
+        0
+      ],
+      "enabled_mask": "0x3f",
+      "owner_bits": "0xabcd0a40",
+      "index_map": "0xfedcba9876654321"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 7,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 8,
+      "returned": 1,
+      "new_counts": [
+        8,
+        0
+      ],
+      "enabled_mask": "0xff",
+      "owner_bits": "0xabcd0a00",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 9,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 10,
+      "returned": 1,
+      "new_counts": [
+        10,
+        0
+      ],
+      "enabled_mask": "0x3ff",
+      "owner_bits": "0xabcd0800",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 11,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 12,
+      "returned": 1,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0000",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 13,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "requested": 255,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 0,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 1,
+      "returned": 1,
+      "new_counts": [
+        0,
+        1
+      ],
+      "enabled_mask": "0x800",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedc3a9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 2,
+      "returned": 1,
+      "new_counts": [
+        0,
+        2
+      ],
+      "enabled_mask": "0xc00",
+      "owner_bits": "0xabcd0e5a",
+      "index_map": "0xfedc439876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 3,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 4,
+      "returned": 1,
+      "new_counts": [
+        0,
+        4
+      ],
+      "enabled_mask": "0xf00",
+      "owner_bits": "0xabcd0f5a",
+      "index_map": "0xfedc543276543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 5,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 6,
+      "returned": 1,
+      "new_counts": [
+        0,
+        6
+      ],
+      "enabled_mask": "0xfc0",
+      "owner_bits": "0xabcd0fda",
+      "index_map": "0xfedc654321543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 7,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 8,
+      "returned": 1,
+      "new_counts": [
+        0,
+        8
+      ],
+      "enabled_mask": "0xff0",
+      "owner_bits": "0xabcd0ffa",
+      "index_map": "0xfedc765432103210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 9,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 10,
+      "returned": 1,
+      "new_counts": [
+        0,
+        10
+      ],
+      "enabled_mask": "0xffc",
+      "owner_bits": "0xabcd0ffe",
+      "index_map": "0xfedc987654321010"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 11,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 12,
+      "returned": 1,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0fff",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 13,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "requested": 255,
+      "returned": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 0,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 1,
+      "returned": 1,
+      "new_counts": [
+        1,
+        6
+      ],
+      "enabled_mask": "0xfc1",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543213"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 2,
+      "returned": 1,
+      "new_counts": [
+        2,
+        6
+      ],
+      "enabled_mask": "0xfc3",
+      "owner_bits": "0xabcd0a58",
+      "index_map": "0xfedcba9876543243"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 3,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 4,
+      "returned": 1,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a50",
+      "index_map": "0xfedcba9876545432"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 5,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 6,
+      "returned": 1,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a40",
+      "index_map": "0xfedcba9876654321"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 7,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 8,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 9,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 10,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 11,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 12,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 13,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "requested": 255,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 0,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 1,
+      "returned": 1,
+      "new_counts": [
+        4,
+        1
+      ],
+      "enabled_mask": "0x80f",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedc3a9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 2,
+      "returned": 1,
+      "new_counts": [
+        4,
+        2
+      ],
+      "enabled_mask": "0xc0f",
+      "owner_bits": "0xabcd0e5a",
+      "index_map": "0xfedc439876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 3,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 4,
+      "returned": 1,
+      "new_counts": [
+        4,
+        4
+      ],
+      "enabled_mask": "0xf0f",
+      "owner_bits": "0xabcd0f5a",
+      "index_map": "0xfedc543276543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 5,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 6,
+      "returned": 1,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0fda",
+      "index_map": "0xfedc654321543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 7,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 8,
+      "returned": 1,
+      "new_counts": [
+        4,
+        8
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0ffa",
+      "index_map": "0xfedc765432103210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 9,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 10,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 11,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 12,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 13,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "requested": 255,
+      "returned": 0,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 0,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 1,
+      "returned": 1,
+      "new_counts": [
+        1,
+        6
+      ],
+      "enabled_mask": "0xfc1",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543213"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 2,
+      "returned": 1,
+      "new_counts": [
+        2,
+        6
+      ],
+      "enabled_mask": "0xfc3",
+      "owner_bits": "0xabcd0a58",
+      "index_map": "0xfedcba9876543243"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 3,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 4,
+      "returned": 1,
+      "new_counts": [
+        4,
+        6
+      ],
+      "enabled_mask": "0xfcf",
+      "owner_bits": "0xabcd0a50",
+      "index_map": "0xfedcba9876545432"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 5,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 6,
+      "returned": 1,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a40",
+      "index_map": "0xfedcba9876654321"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 7,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 8,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 9,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 10,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 11,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 12,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 13,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "requested": 255,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 0,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 1,
+      "returned": 1,
+      "new_counts": [
+        6,
+        1
+      ],
+      "enabled_mask": "0x83f",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedc3a9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 2,
+      "returned": 1,
+      "new_counts": [
+        6,
+        2
+      ],
+      "enabled_mask": "0xc3f",
+      "owner_bits": "0xabcd0e5a",
+      "index_map": "0xfedc439876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 3,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 4,
+      "returned": 1,
+      "new_counts": [
+        6,
+        4
+      ],
+      "enabled_mask": "0xf3f",
+      "owner_bits": "0xabcd0f5a",
+      "index_map": "0xfedc543276543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 5,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 6,
+      "returned": 1,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0fda",
+      "index_map": "0xfedc654321543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 7,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 8,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 9,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 10,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 11,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 12,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 13,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "requested": 255,
+      "returned": 0,
+      "new_counts": [
+        6,
+        6
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 0,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 1,
+      "returned": 1,
+      "new_counts": [
+        1,
+        0
+      ],
+      "enabled_mask": "0x1",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543213"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 2,
+      "returned": 1,
+      "new_counts": [
+        2,
+        0
+      ],
+      "enabled_mask": "0x3",
+      "owner_bits": "0xabcd0a58",
+      "index_map": "0xfedcba9876543243"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 3,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 4,
+      "returned": 1,
+      "new_counts": [
+        4,
+        0
+      ],
+      "enabled_mask": "0xf",
+      "owner_bits": "0xabcd0a50",
+      "index_map": "0xfedcba9876545432"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 5,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 6,
+      "returned": 1,
+      "new_counts": [
+        6,
+        0
+      ],
+      "enabled_mask": "0x3f",
+      "owner_bits": "0xabcd0a40",
+      "index_map": "0xfedcba9876654321"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 7,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 8,
+      "returned": 1,
+      "new_counts": [
+        8,
+        0
+      ],
+      "enabled_mask": "0xff",
+      "owner_bits": "0xabcd0a00",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 9,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 10,
+      "returned": 1,
+      "new_counts": [
+        10,
+        0
+      ],
+      "enabled_mask": "0x3ff",
+      "owner_bits": "0xabcd0800",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 11,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 12,
+      "returned": 1,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0000",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 13,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "requested": 255,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 0,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 1,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 2,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 3,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 4,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 5,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 6,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 7,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 8,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 9,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 10,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 11,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 12,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 13,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "requested": 255,
+      "returned": 0,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 0,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 1,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 2,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 3,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 4,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 5,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 6,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 7,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 8,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 9,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 10,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 11,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 12,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 13,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "requested": 255,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 0,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 1,
+      "returned": 1,
+      "new_counts": [
+        0,
+        1
+      ],
+      "enabled_mask": "0x800",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedc3a9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 2,
+      "returned": 1,
+      "new_counts": [
+        0,
+        2
+      ],
+      "enabled_mask": "0xc00",
+      "owner_bits": "0xabcd0e5a",
+      "index_map": "0xfedc439876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 3,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 4,
+      "returned": 1,
+      "new_counts": [
+        0,
+        4
+      ],
+      "enabled_mask": "0xf00",
+      "owner_bits": "0xabcd0f5a",
+      "index_map": "0xfedc543276543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 5,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 6,
+      "returned": 1,
+      "new_counts": [
+        0,
+        6
+      ],
+      "enabled_mask": "0xfc0",
+      "owner_bits": "0xabcd0fda",
+      "index_map": "0xfedc654321543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 7,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 8,
+      "returned": 1,
+      "new_counts": [
+        0,
+        8
+      ],
+      "enabled_mask": "0xff0",
+      "owner_bits": "0xabcd0ffa",
+      "index_map": "0xfedc765432103210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 9,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 10,
+      "returned": 1,
+      "new_counts": [
+        0,
+        10
+      ],
+      "enabled_mask": "0xffc",
+      "owner_bits": "0xabcd0ffe",
+      "index_map": "0xfedc987654321010"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 11,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 12,
+      "returned": 1,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0fff",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 13,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "requested": 255,
+      "returned": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "owner_bits": "0xabcd0a5a",
+      "index_map": "0xfedcba9876543210"
+    }
+  ],
+  "release_rows": [
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "mapping_preserved": true
+    },
+    {
+      "old_counts": [
+        0,
+        0
+      ],
+      "output": 1,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "mapping_preserved": true
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 0,
+      "new_counts": [
+        0,
+        6
+      ],
+      "enabled_mask": "0xfc0",
+      "mapping_preserved": true
+    },
+    {
+      "old_counts": [
+        4,
+        6
+      ],
+      "output": 1,
+      "new_counts": [
+        4,
+        0
+      ],
+      "enabled_mask": "0xf",
+      "mapping_preserved": true
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 0,
+      "new_counts": [
+        0,
+        6
+      ],
+      "enabled_mask": "0xfc0",
+      "mapping_preserved": true
+    },
+    {
+      "old_counts": [
+        6,
+        6
+      ],
+      "output": 1,
+      "new_counts": [
+        6,
+        0
+      ],
+      "enabled_mask": "0x3f",
+      "mapping_preserved": true
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 0,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "mapping_preserved": true
+    },
+    {
+      "old_counts": [
+        12,
+        0
+      ],
+      "output": 1,
+      "new_counts": [
+        12,
+        0
+      ],
+      "enabled_mask": "0xfff",
+      "mapping_preserved": true
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 0,
+      "new_counts": [
+        0,
+        12
+      ],
+      "enabled_mask": "0xfff",
+      "mapping_preserved": true
+    },
+    {
+      "old_counts": [
+        0,
+        12
+      ],
+      "output": 1,
+      "new_counts": [
+        0,
+        0
+      ],
+      "enabled_mask": "0x0",
+      "mapping_preserved": true
+    }
+  ]
+}

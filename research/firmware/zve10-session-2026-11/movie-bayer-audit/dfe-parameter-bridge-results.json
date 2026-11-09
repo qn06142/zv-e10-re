@@ -1,0 +1,971 @@
+{
+  "cases": 12,
+  "native_host_publisher": "0x63da0ab6",
+  "native_arm_consumer": "0x01001870",
+  "rom_parameter_getter": "0x639dfcac",
+  "rom_parameters_address": "0x63e8801c",
+  "rom_words": [
+    "0x5f0",
+    "0x11",
+    "0x5f0",
+    "0x22",
+    "0x0",
+    "0x0",
+    "0x1f60000",
+    "0x1f6c9e0",
+    "0x1f92780",
+    "0x1f9f160",
+    "0x0",
+    "0xc"
+  ],
+  "native_arm_register_configurator": "0x01001e3c",
+  "register_config_cases": 24,
+  "mocks": [],
+  "explicit_fixtures": [
+    "RAM wrapper and destination",
+    "mode bits",
+    "crop arguments",
+    "zero subconfiguration +4",
+    "plane selector",
+    "RAM-backed formatter registers"
+  ],
+  "cross_cpu_bytes_copied_by_test": true,
+  "physical_bus_emulated": false,
+  "pixels_emulated": false,
+  "rows": [
+    {
+      "mode": 0,
+      "crop0": 0,
+      "crop1": 0,
+      "derived_width": 1520,
+      "derived_final_width": 1520,
+      "selected_pair": [
+        "0x1f60000",
+        "0x1f6c9e0"
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 0,
+      "crop1": 12,
+      "derived_width": 1508,
+      "derived_final_width": 1508,
+      "selected_pair": [
+        "0x1f60000",
+        "0x1f6c9e0"
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 1,
+      "crop1": 3,
+      "derived_width": 1520,
+      "derived_final_width": 1516,
+      "selected_pair": [
+        "0x1f60000",
+        "0x1f6c9e0"
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 4,
+      "crop1": 8,
+      "derived_width": 1508,
+      "derived_final_width": 1508,
+      "selected_pair": [
+        "0x1f60000",
+        "0x1f6c9e0"
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 7,
+      "crop1": 16,
+      "derived_width": 1500,
+      "derived_final_width": 1497,
+      "selected_pair": [
+        "0x1f60000",
+        "0x1f6c9e0"
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 1521,
+      "crop1": 0,
+      "derived_width": 0,
+      "derived_final_width": 4294967295,
+      "selected_pair": [
+        "0x1f60000",
+        "0x1f6c9e0"
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 0,
+      "crop1": 0,
+      "derived_width": 1520,
+      "derived_final_width": 1520,
+      "selected_pair": [
+        "0x1f92780",
+        "0x1f9f160"
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 0,
+      "crop1": 12,
+      "derived_width": 1508,
+      "derived_final_width": 1508,
+      "selected_pair": [
+        "0x1f92780",
+        "0x1f9f160"
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 1,
+      "crop1": 3,
+      "derived_width": 1520,
+      "derived_final_width": 1516,
+      "selected_pair": [
+        "0x1f92780",
+        "0x1f9f160"
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 4,
+      "crop1": 8,
+      "derived_width": 1508,
+      "derived_final_width": 1508,
+      "selected_pair": [
+        "0x1f92780",
+        "0x1f9f160"
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 7,
+      "crop1": 16,
+      "derived_width": 1500,
+      "derived_final_width": 1497,
+      "selected_pair": [
+        "0x1f92780",
+        "0x1f9f160"
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 1521,
+      "crop1": 0,
+      "derived_width": 0,
+      "derived_final_width": 4294967295,
+      "selected_pair": [
+        "0x1f92780",
+        "0x1f9f160"
+      ]
+    }
+  ],
+  "register_rows": [
+    {
+      "mode": 0,
+      "crop0": 0,
+      "crop1": 0,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff60000",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff60000",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 0,
+      "crop1": 0,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff6c9e0",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff6c9e0",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 0,
+      "crop1": 12,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff60000",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff60000",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 0,
+      "crop1": 12,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff6c9e0",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff6c9e0",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 1,
+      "crop1": 3,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff60000",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff60000",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 1,
+      "crop1": 3,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff6c9e0",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff6c9e0",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 4,
+      "crop1": 8,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff60000",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff60000",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 4,
+      "crop1": 8,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff6c9e0",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff6c9e0",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 7,
+      "crop1": 16,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff60000",
+          "line_bytes": 3000,
+          "gap_bytes": 40,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff60000",
+          "line_bytes": 3000,
+          "gap_bytes": 40,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 7,
+      "crop1": 16,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff6c9e0",
+          "line_bytes": 3000,
+          "gap_bytes": 40,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff6c9e0",
+          "line_bytes": 3000,
+          "gap_bytes": 40,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 1521,
+      "crop1": 0,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff60000",
+          "line_bytes": 0,
+          "gap_bytes": 3040,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff60000",
+          "line_bytes": 0,
+          "gap_bytes": 3040,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "crop0": 1521,
+      "crop1": 0,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff6c9e0",
+          "line_bytes": 0,
+          "gap_bytes": 3040,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff6c9e0",
+          "line_bytes": 0,
+          "gap_bytes": 3040,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 0,
+      "crop1": 0,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff92780",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff92780",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 0,
+      "crop1": 0,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff9f160",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff9f160",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 0,
+      "crop1": 12,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff92780",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff92780",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 0,
+      "crop1": 12,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff9f160",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff9f160",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 1,
+      "crop1": 3,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff92780",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff92780",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 1,
+      "crop1": 3,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff9f160",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff9f160",
+          "line_bytes": 3040,
+          "gap_bytes": 0,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 4,
+      "crop1": 8,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff92780",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff92780",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 4,
+      "crop1": 8,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff9f160",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff9f160",
+          "line_bytes": 3016,
+          "gap_bytes": 24,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 7,
+      "crop1": 16,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff92780",
+          "line_bytes": 3000,
+          "gap_bytes": 40,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff92780",
+          "line_bytes": 3000,
+          "gap_bytes": 40,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 7,
+      "crop1": 16,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff9f160",
+          "line_bytes": 3000,
+          "gap_bytes": 40,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff9f160",
+          "line_bytes": 3000,
+          "gap_bytes": 40,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 1521,
+      "crop1": 0,
+      "plane": 0,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff92780",
+          "line_bytes": 0,
+          "gap_bytes": 3040,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff92780",
+          "line_bytes": 0,
+          "gap_bytes": 3040,
+          "lines_minus_one": 16
+        }
+      ]
+    },
+    {
+      "mode": 16,
+      "crop0": 1521,
+      "crop1": 0,
+      "plane": 1,
+      "ports": [
+        {
+          "port": 2,
+          "register_base": "0x1098300",
+          "address": "0xfff9f160",
+          "line_bytes": 0,
+          "gap_bytes": 3040,
+          "lines_minus_one": 16
+        },
+        {
+          "port": 3,
+          "register_base": "0x1098380",
+          "address": "0xfff9f160",
+          "line_bytes": 0,
+          "gap_bytes": 3040,
+          "lines_minus_one": 16
+        }
+      ]
+    }
+  ],
+  "host_port_crosscheck": [
+    {
+      "kind": 1,
+      "port": 2,
+      "base": "0xfc098000",
+      "register_base": "0xfc098300"
+    },
+    {
+      "kind": 1,
+      "port": 3,
+      "base": "0xfc098000",
+      "register_base": "0xfc098380"
+    }
+  ],
+  "native_default_mode_resource_cases": 23,
+  "default_mode_rows": [
+    {
+      "drive_mode": "0x0",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x4",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x15",
+      "resource": "0x37",
+      "flags": "0x102101",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x16",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x17",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x18",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x1a",
+      "resource": "0x36",
+      "flags": "0x2101",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x1b",
+      "resource": "0x37",
+      "flags": "0x102101",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x1c",
+      "resource": "0x38",
+      "flags": "0x1802111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x1d",
+      "resource": "0x36",
+      "flags": "0x2101",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x1e",
+      "resource": "0x37",
+      "flags": "0x102101",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x2b",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x38",
+      "resource": "0x37",
+      "flags": "0x102101",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x3a",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x3f",
+      "resource": "0x48",
+      "flags": "0x102103",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x47",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x56",
+      "resource": "0x48",
+      "flags": "0x102103",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x58",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x68",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x91",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x92",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x93",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    },
+    {
+      "drive_mode": "0x94",
+      "resource": "0x39",
+      "flags": "0x1902111",
+      "aif_enable_bits": [
+        0,
+        0
+      ]
+    }
+  ]
+}
