@@ -1,0 +1,26 @@
+{
+  "id": "live_bayer_tap_v01",
+  "reviewed_on": "2026-11-18",
+  "status": "offline-candidate",
+  "source_inputs": [
+    {
+      "path": "research/firmware/raw_frame_source/verified_bayer/live_bayer_tap_v01/verify_bayer_tap.py",
+      "sha256": "8eb1b32c42dc7e576af5136fd02d38cef5b06dd32f12e651d18b71ce04e1ddc5",
+      "hash_mode": "lf-normalized"
+    }
+  ],
+  "firmware_hashes": [],
+  "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
+  "reproduction": {
+    "command": "python -B research/firmware/raw_frame_source/verified_bayer/live_bayer_tap_v01/verify_bayer_tap.py",
+    "working_directory": ".",
+    "unresolved": null,
+    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+  },
+  "hardware_result": "Simulation only. Submission ABI and ownership/completion are unresolved in the claim review.",
+  "rollback": "Rollback was not revalidated during housekeeping. Use a matching per-body baseline and the recovery scope in docs/ACCESS_AND_TOOLS.md.",
+  "evidence": [
+    "research/firmware/raw_frame_source/verified_bayer/live_bayer_tap_v01/verify_bayer_tap.py",
+    "docs/CURRENT_STATUS.md"
+  ]
+}

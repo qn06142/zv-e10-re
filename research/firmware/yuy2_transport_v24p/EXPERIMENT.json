@@ -1,0 +1,38 @@
+{
+  "id": "yuy2_transport_v24p",
+  "reviewed_on": "2026-11-18",
+  "status": "hardware-observed",
+  "source_inputs": [
+    {
+      "path": "research/firmware/yuy2_transport_v24p/README.md",
+      "sha256": "b2e6e1fb732167535683cb07193bdd823b79bbd90df0737d1d0ad6d1cedd6669",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v24p/build.py",
+      "sha256": "bb02459cff47fea78145584d5de0f47c3c7b440e2fde1efb1d0a6aca9f6ceccc",
+      "hash_mode": "lf-normalized"
+    }
+  ],
+  "firmware_hashes": [
+    {
+      "input": "pre-install streaming image",
+      "algorithm": "md5",
+      "value": "19461091c07aa6900829defb0060fcd6"
+    }
+  ],
+  "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
+  "reproduction": {
+    "command": "python -B build.py --repo <repo> --output <out> --streaming-image <baseline-image> --stream-base 0x0a61e000\npython -B persistent_stream.py --input <baseline-image> --output <out>/libInfraStreamingUsb.persistent.so\npython -B kernel_patch.py --input <repo>/dumps/camera_2025/usr/usr/kmod/usbg_video.ko --output <out>/usbg_video.ko\npython -B verify.py --repo <repo> --output <out> --streaming-image <out>/libInfraStreamingUsb.persistent.so --stream-base 0x0a61e000\npython -B verify_persistent.py --stock <baseline-image> --candidate <out>/libInfraStreamingUsb.persistent.so --module <out>/yuy2_640_v24p.so\npython -B verify_kernel.py --stock <repo>/dumps/camera_2025/usr/usr/kmod/usbg_video.ko --candidate <out>/usbg_video.ko",
+    "working_directory": "research/firmware/yuy2_transport_v24p",
+    "unresolved": null,
+    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+  },
+  "hardware_result": "Historical FFmpeg capture/reopen and OBS synthetic colour bars verified. Permanent installation read back again on 16 November.",
+  "rollback": "Historical installed rollback path /usr/share/yuy2-recovery-v24p/rollback.sh. Verify current files, mappings and matching backup before using it.",
+  "evidence": [
+    "research/firmware/yuy2_transport_v24p/README.md",
+    "research/firmware/yuy2_transport_v24p/build.py",
+    "docs/CURRENT_STATUS.md"
+  ]
+}

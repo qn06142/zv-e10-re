@@ -1,0 +1,1217 @@
+﻿=== MODULES ===
+devno 2205 21 cec,hdmi,usb_buspwr,usb_darwin,usbg_buspower,dma330,mmc_drv,ms_drv,mcmn_drv,grm_gles,kikilog,usb_extcmd,usbg_sen,usb_portMonitor,stream2,stream,backup,osal_uipc,emmc,ldec,dmac, Live 0x5f000000 (P)
+dmac 12284 3 liro,emmc,ldec, Live 0x5f004000 (P)
+ldec 10106 1 emmc, Live 0x5f00a000 (P)
+emmc 169443 11 - Live 0x5f010000 (P)
+osal_utm 2139 14 cec,hdmi,liro,codec_drv,ms_drv,mcmn_drv,upm,dmm,kikilog,usb_portMonitor,i2c,osal_ulogio,utimer,osal_uipc, Live 0x5f041000 (P)
+osal_uipc 37857 33 mmcioWrapper,wlanIrq,cec,hdmi,usb_buspwr,usb_darwin,usbg_buspower,liro,codec_drv,dma330,mmc_drv,ms_drv,mcmn_drv,compass,mag,accel,grm_gles,grm_ma,upm,dmm,kikilog,usbg_sen,usb_portMonitor,sircs,i2c,indctr,udate,input,osal_ulogio,backup,utimer, Live 0x5f045000 (P)
+utimer 21490 0 - Live 0x5f053000 (P)
+backup 61073 18 mmcioWrapper,wlanIrq,hdmi,usb_buspwr,usb_darwin,liro,mcmn_drv,mag,accel,upm,dmm,usbg_sen,usb_portMonitor,i2c,indctr,udate,input,osal_ulogio, Live 0x5f05c000 (P)
+osal_ulogio 29859 0 - Live 0x5f06f000 (P)
+input 22826 0 - Live 0x5f07b000 (P)
+udate 9637 0 - Live 0x5f085000 (P)
+indctr 7911 0 - Live 0x5f08b000 (P)
+i2c 10261 0 - Live 0x5f090000 (P)
+sircs 15346 0 - Live 0x5f096000 (P)
+stream 1077 8 - Live 0x5f09e000 (P)
+stream2 1629 4 - Live 0x5f0a2000 (P)
+usb_portMonitor 11648 0 - Live 0x5f0a6000 (P)
+usbg_sen 30337 0 - Live 0x5f0ac000 (P)
+usb_extcmd 9499 0 - Live 0x5f0b8000 (P)
+kikilog 26166 1 - Live 0x5f0be000 (P)
+dmm 3149334 2 liro,upm, Live 0x5f0c9000 (P)
+upm 110503 0 - Live 0x5f3cf000 (P)
+grm_ma 19628 0 - Live 0x5f3f0000 (P)
+grm_gles 9304 2 - Live 0x5f3f8000 (P)
+accel 4827 0 - Live 0x5f3fe000 (P)
+mag 6757 0 - Live 0x5f403000 (P)
+compass 2734 0 - Live 0x5f408000 (P)
+mcmn_drv 94138 3 mmcioWrapper,mmc_drv,ms_drv, Live 0x5f40c000 (P)
+ms_drv 162876 0 - Live 0x5f428000 (P)
+mmc_drv 197377 4 mmcioWrapper, Live 0x5f459000 (P)
+dma330 247683 1 liro, Live 0x5f494000 (P)
+codec_drv 12644 0 - Live 0x5f4d4000 (P)
+liro 51420 0 - Live 0x5f4db000 (P)
+usbg_buspower 9293 0 - Live 0x5f4ee000 (P)
+usb_darwin 21440 1 usb_buspwr, Live 0x5f4f4000 (P)
+usb_buspwr 8203 1 - Live 0x5f4fd000 (P)
+hdmi 154551 4 cec, Live 0x5f503000 (P)
+cec 53218 3 - Live 0x5f537000 (P)
+wlanMemoryAllocator 4343 2 bcmdhd,cfg80211, Live 0x5f54c000 (P)
+wlanIrq 1540 0 - Live 0x5f551000 (P)
+compat 3924 2 bcmdhd,cfg80211, Live 0x5f555000
+cfg80211 159400 1 bcmdhd, Live 0x5f559000
+mmc_core 55661 2 bcmdhd,mmcioWrapper, Live 0x5f587000
+mmcioWrapper 3661 0 - Live 0x5f59a000 (P)
+bcmdhd 433203 0 - Live 0x5f59e000
+=== DEVICES ===
+Character devices:
+  1 mem
+  5 /dev/tty
+  5 /dev/console
+  5 /dev/ptmx
+ 10 misc
+ 13 input
+128 ptm
+136 pts
+204 ttyAM
+240 gpio
+241 ttynull
+242 usb/event
+242 usb/gadgetcore
+242 usb/otgcore
+248 usb/sen
+248 usb/ter
+248 usb/usb_extcmd
+248 usb/kikilog
+248 usb/portmon
+248 usb/buspwric
+248 usb/buspwr
+248 usb/usbg_bspwr
+248 hdmi
+248 cec
+249 ms-char
+249 mcmn
+249 stream
+249 stream2
+250 mmca-char
+250 mmcb-char
+250 mmcc-char
+251 ldec
+251 dmac
+251 uipc
+251 backup
+251 dma330
+253 uio
+254 rtc
+
+Block devices:
+  1 ramdisk
+259 blkext
+  7 loop
+252 nflasha
+254 compswap
+=== MISC ===
+ 55 network_throughput
+ 56 network_latency
+ 57 cpu_dma_latency
+ 58 log_radio
+ 59 log_events
+ 60 log_main
+ 61 binder
+ 62 alarm
+223 uinput
+  1 psaux
+200 tun
+229 fuse
+ 63 ashmem
+=== PROC_LS ===
+total 1
+dr-xr-xr-x  278 root     root             0 Jan  1 00:00 .
+drwxr-xr-x   26 root     root          1024 Mar 14  2025 ..
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 1
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 10
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 101
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 102
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 108
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 109
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 11
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 111
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 112
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 113
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 117
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 12
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 120
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 122
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 123
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 124
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 125
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 127
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 13
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 132
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 134
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 138
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 139
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 14
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 140
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 141
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 142
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 143
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 144
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 146
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 149
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 15
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 151
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 152
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 153
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 16
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 161
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 164
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 169
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 17
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 177
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 178
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 18
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 180
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 181
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 182
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 183
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 184
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 185
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 186
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 187
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 188
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 189
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 19
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 190
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 191
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 192
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 193
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 194
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 195
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 196
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 197
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 198
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 199
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 2
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 20
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 200
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 201
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 202
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 203
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 204
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 205
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 206
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 207
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 208
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 209
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 21
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 210
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 211
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 212
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 213
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 214
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 215
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 216
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 217
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 218
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 219
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 22
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 220
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 221
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 222
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 223
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 224
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 225
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 226
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 227
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 228
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 229
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 23
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 230
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 231
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 232
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 233
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 234
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 235
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 236
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 237
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 238
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 239
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 24
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 240
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 241
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 242
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 243
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 244
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 245
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 246
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 247
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 248
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 249
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 25
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 250
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 251
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 252
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 253
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 254
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 255
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 256
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 257
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 258
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 259
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 260
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 261
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 262
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 263
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 264
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 265
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 266
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 267
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 268
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 269
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 27
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 270
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 271
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 272
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 273
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 274
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 275
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 276
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 277
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 278
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 279
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 28
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 280
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 281
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 282
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 283
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 284
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 285
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 286
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 287
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 288
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 289
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 29
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 290
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 291
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 292
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 293
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 294
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 295
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 296
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 297
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 298
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 299
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 3
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 30
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 300
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 301
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 302
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 303
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 304
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 305
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 306
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 307
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 308
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 309
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 31
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 310
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 311
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 312
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 313
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 314
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 315
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 316
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 32
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 323
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 33
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 35
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 355
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 356
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 357
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 361
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 37
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 372
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 38
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 385
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 39
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 4
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 40
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 41
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 42
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 429
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 43
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 44
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 45
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 483
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 5
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 507
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 508
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 534
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 535
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 549
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 550
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 551
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 552
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 553
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 566
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 568
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 571
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 581
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 6
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 600
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 63
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 64
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 65
+dr-xr-xr-x    7 root     root             0 Jan  1 00:01 653
+dr-xr-xr-x    7 root     root             0 Jan  1 00:01 657
+dr-xr-xr-x    7 root     root             0 Jan  1 00:01 658
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 66
+dr-xr-xr-x    7 root     root             0 Jan  1 00:01 661
+dr-xr-xr-x    7 root     root             0 Jan  1 00:01 665
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 67
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 69
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 7
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 70
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 71
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 72
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 73
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 75
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 76
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 78
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 8
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 80
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 81
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 82
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 83
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 84
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 9
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 93
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 95
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 96
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 97
+dr-xr-xr-x    7 root     root             0 Jan  1 00:00 98
+-r--r--r--    1 root     root             0 Jan  1 00:01 bam
+-r--r--r--    1 root     root             0 Jan  1 00:01 buddyinfo
+dr-xr-xr-x    4 root     root             0 Jan  1 00:01 bus
+-r--r--r--    1 root     root             0 Jan  1 00:01 cgroups
+-r--r--r--    1 root     root             0 Jan  1 00:01 cmdline
+-r--r--r--    1 root     root             0 Jan  1 00:01 consoles
+dr-xr-xr-x    2 root     root             0 Jan  1 00:01 cpu
+-r--r--r--    1 root     root             0 Jan  1 00:01 cpuinfo
+-r--r--r--    1 root     root             0 Jan  1 00:01 crypto
+-r--r--r--    1 root     root             0 Jan  1 00:01 devices
+-r--r--r--    1 root     root             0 Jan  1 00:01 diskstats
+dr-xr-xr-x    4 root     root             0 Jan  1 00:01 driver
+-r--r--r--    1 root     root             0 Jan  1 00:01 execdomains
+-r--r--r--    1 root     root             0 Jan  1 00:01 filesystems
+dr-xr-xr-x    3 root     root             0 Jan  1 00:01 fs
+-r--r--r--    1 root     root             0 Jan  1 00:01 hwbp
+dr-xr-xr-x    2 root     root             0 Jan  1 00:01 hwtimer
+-r--r--r--    1 root     root             0 Jan  1 00:01 interrupts
+-r--r--r--    1 root     root             0 Jan  1 00:01 iomem
+-r--r--r--    1 root     root             0 Jan  1 00:01 ioports
+dr-xr-xr-x  229 root     root             0 Jan  1 00:01 irq
+-r--r--r--    1 root     root             0 Jan  1 00:01 kallsyms
+-r--r--r--    1 root     root             0 Jan  1 00:01 klog
+-r--r--r--    1 root     root             0 Jan  1 00:01 kmalloc_trace
+-r--------    1 root     root             0 Jan  1 00:01 kmsg
+-r--------    1 root     root             0 Jan  1 00:01 kpagecount
+-r--------    1 root     root             0 Jan  1 00:01 kpageflags
+-rw-r--r--    1 root     root             0 Jan  1 00:01 kstack
+dr-xr-xr-x    2 root     root             0 Jan  1 00:01 liro
+-r--r--r--    1 root     root             0 Jan  1 00:01 loadavg
+-r--r--r--    1 root     root             0 Jan  1 00:01 locks
+-r--r--r--    1 root     root             0 Jan  1 00:01 meminfo
+-r--r--r--    1 root     root             0 Jan  1 00:01 misc
+-r--r--r--    1 root     root             0 Jan  1 00:01 modules
+lrwxrwxrwx    1 root     root            11 Jan  1 00:01 mounts -> self/mounts
+lrwxrwxrwx    1 root     root             8 Jan  1 00:01 net -> self/net
+-rw-------    1 root     root             0 Jan  1 00:01 nlver
+-r--r--r--    1 root     root             0 Jan  1 00:01 nodeorder
+dr-xr-xr-x    2 root     root             0 Jan  1 00:01 osal
+-r--r--r--    1 root     root             0 Jan  1 00:01 pagetypeinfo
+-r--r--r--    1 root     root             0 Jan  1 00:01 partitions
+-r--r--r--    1 root     root             0 Jan  1 00:01 pgscan
+-r--r--r--    1 root     root             0 Jan  1 00:01 pmon
+-r--r--r--    1 root     root             0 Jan  1 00:01 rmon
+lrwxrwxrwx    1 root     root            64 Jan  1 00:00 self -> 665
+-rw-r--r--    1 root     root             0 Jan  1 00:01 slabinfo
+-rw-rw-rw-    1 root     root             0 Jan  1 00:00 snsc_boot_time
+-r--r--r--    1 root     root             0 Jan  1 00:01 softirqs
+dr-xr-xr-x    4 root     root             0 Jan  1 00:01 ssboot
+-r--r--r--    1 root     root             0 Jan  1 00:01 stat
+-r--r--r--    1 root     root             0 Jan  1 00:01 swaps
+dr-xr-xr-x    1 root     root             0 Jan  1 00:00 sys
+--w-------    1 root     root             0 Jan  1 00:01 sysrq-trigger
+dr-xr-xr-x    2 root     root             0 Jan  1 00:01 sysvipc
+-r--r--r--    1 root     root             0 Jan  1 00:01 timer_list
+-rw-------    1 root     root             0 Jan  1 00:01 tmonitor
+dr-xr-xr-x    4 root     root             0 Jan  1 00:01 tty
+dr-xr-xr-x    2 root     root             0 Jan  1 00:01 udm
+-r--r--r--    1 root     root             0 Jan  1 00:01 uptime
+-r--r--r--    1 root     root             0 Jan  1 00:01 usb_event
+-r--r--r--    1 root     root             0 Jan  1 00:01 usb_otg
+-r--r--r--    1 root     root             0 Jan  1 00:01 version
+-r--------    1 root     root             0 Jan  1 00:01 vmallocinfo
+-r--r--r--    1 root     root             0 Jan  1 00:01 vmstat
+-r--r--r--    1 root     root             0 Jan  1 00:01 vtp
+-rw-------    1 root     root             0 Jan  1 00:01 wdt
+-r--r--r--    1 root     root             0 Jan  1 00:01 zoneinfo
+=== DEV_LS ===
+total 13
+drwxr-xr-x    9 57285    1000          6144 Mar 14  2025 .
+drwxr-xr-x   26 root     root          1024 Mar 14  2025 ..
+crwxrwxrwx    1 root     root      251, 208 Feb 23  2018 backup
+crw-------    1 root     root       10, 191 Aug  6  2012 bootimg
+crwxrwxrwx    1 root     root      251, 250 Feb 23  2018 boss-t1
+crwxrwxrwx    1 root     root      251, 251 Feb 23  2018 boss-t2
+crwxrwxrwx    1 root     root      251, 252 Feb 23  2018 boss-t3
+drwxr-xr-x    3 root     root          1024 Jun  7  2017 bus
+crwxrwxrwx    1 root     root      248,  28 Feb 23  2018 ca
+crwxrwxrwx    1 root     root      248,  27 Feb 23  2018 cec
+brw-r--r--    1 root     root      254,   0 Aug  1  2013 compswap
+crw-------    1 root     5           5,   1 Aug  6  2012 console
+lrwxrwxrwx    1 root     root            11 May 28  2013 core -> /proc/kcore
+crw-------    1 root     root       10, 190 Aug  6  2012 crash
+crwxrwxrwx    1 root     root      251, 209 Feb 23  2018 dma330
+crwxrwxrwx    1 root     root      251, 206 Feb 23  2018 dmac
+crwxrwxrwx    1 root     root      248,  29 Feb 23  2018 dmpgles2
+brwxrwxrwx    1 root     root      252, 128 Feb 23  2018 dnflasha
+brwxrwxrwx    1 root     root      252, 129 Feb 23  2018 dnflasha1
+brwxrwxrwx    1 root     root      252, 138 Feb 23  2018 dnflasha10
+brwxrwxrwx    1 root     root      252, 139 Feb 23  2018 dnflasha11
+brwxrwxrwx    1 root     root      252, 140 Feb 23  2018 dnflasha12
+brwxrwxrwx    1 root     root      252, 141 Feb 23  2018 dnflasha13
+brwxrwxrwx    1 root     root      252, 142 Feb 23  2018 dnflasha14
+brwxrwxrwx    1 root     root      252, 143 Feb 23  2018 dnflasha15
+brwxrwxrwx    1 root     root      252, 144 Feb 23  2018 dnflasha16
+brwxrwxrwx    1 root     root      252, 145 Feb 23  2018 dnflasha17
+brwxrwxrwx    1 root     root      252, 146 Feb 23  2018 dnflasha18
+brwxrwxrwx    1 root     root      252, 147 Feb 23  2018 dnflasha19
+brwxrwxrwx    1 root     root      252, 130 Feb 23  2018 dnflasha2
+brwxrwxrwx    1 root     root      252, 148 Feb 23  2018 dnflasha20
+brwxrwxrwx    1 root     root      252, 149 Feb 23  2018 dnflasha21
+brwxrwxrwx    1 root     root      252, 150 Feb 23  2018 dnflasha22
+brwxrwxrwx    1 root     root      252, 151 Feb 23  2018 dnflasha23
+brwxrwxrwx    1 root     root      252, 152 Feb 23  2018 dnflasha24
+brwxrwxrwx    1 root     root      252, 153 Feb 23  2018 dnflasha25
+brwxrwxrwx    1 root     root      252, 154 Feb 23  2018 dnflasha26
+brwxrwxrwx    1 root     root      252, 155 Feb 23  2018 dnflasha27
+brwxrwxrwx    1 root     root      252, 156 Feb 23  2018 dnflasha28
+brwxrwxrwx    1 root     root      252, 157 Feb 23  2018 dnflasha29
+brwxrwxrwx    1 root     root      252, 131 Feb 23  2018 dnflasha3
+brwxrwxrwx    1 root     root      252, 158 Feb 23  2018 dnflasha30
+brwxrwxrwx    1 root     root      252, 159 Feb 23  2018 dnflasha31
+brwxrwxrwx    1 root     root      252, 132 Feb 23  2018 dnflasha4
+brwxrwxrwx    1 root     root      252, 133 Feb 23  2018 dnflasha5
+brwxrwxrwx    1 root     root      252, 134 Feb 23  2018 dnflasha6
+brwxrwxrwx    1 root     root      252, 135 Feb 23  2018 dnflasha7
+brwxrwxrwx    1 root     root      252, 136 Feb 23  2018 dnflasha8
+brwxrwxrwx    1 root     root      252, 137 Feb 23  2018 dnflasha9
+crwxrwxrwx    1 root     root      251, 210 Feb 23  2018 emif
+crw-r--r--    1 root     root       29,   0 May 28  2013 fb0
+crw-r--r--    1 root     root       29,   1 May 28  2013 fb1
+lrwxrwxrwx    1 root     root            13 May 28  2013 fd -> /proc/self/fd
+crw-rw-rw-    1 root     root        1,   7 Aug  6  2012 full
+crw-rw-rw-    1 root     root       10, 229 May 28  2013 fuse
+crwxrwxrwx    1 root     root      240,   0 Feb 23  2018 gpio
+crwxrwxrwx    1 root     root      248,  25 Feb 23  2018 hdmi
+crwxrwxrwx    1 root     root      248,  26 Feb 23  2018 hdmi_external_tx
+crwxrwxrwx    1 root     root      248,  30 Feb 23  2018 hdmi_input
+drwxr-xr-x    2 root     root          1024 May 28  2013 input
+crwxrwxrwx    1 root     root      251, 213 Feb 23  2018 ioexp
+drwxrwxrwx    2 root     root          1024 Feb 23  2018 jet
+crw-r-----    1 root     9           1,   2 Aug  6  2012 kmem
+crwxrwxrwx    1 root     root      251, 205 Feb 23  2018 ldec
+brw-rw----    1 root     6           7,   0 Aug  6  2012 loop0
+brw-rw----    1 root     6           7,   1 Aug  6  2012 loop1
+brw-rw----    1 root     6           7,   2 Aug  6  2012 loop2
+brw-rw----    1 root     6           7,   3 Aug  6  2012 loop3
+brw-rw----    1 root     6           7,   4 Aug  6  2012 loop4
+brw-rw----    1 root     6           7,   5 Aug  6  2012 loop5
+brw-rw----    1 root     6           7,   6 Aug  6  2012 loop6
+brw-rw----    1 root     6           7,   7 Aug  6  2012 loop7
+crwxrwxrwx    1 root     root      249,   1 Feb 23  2018 mcmn
+crw-r-----    1 root     9           1,   1 Aug  6  2012 mem
+brwxrwxrwx    1 root     root      250,  10 Feb 23  2018 mmca
+crwxrwxrwx    1 root     root      250,   0 Feb 23  2018 mmca-char
+brwxrwxrwx    1 root     root      250,  11 Feb 23  2018 mmca1
+brwxrwxrwx    1 root     root      250,  12 Feb 23  2018 mmca2
+brwxrwxrwx    1 root     root      250,  13 Feb 23  2018 mmca3
+brwxrwxrwx    1 root     root      250,  14 Feb 23  2018 mmca4
+brwxrwxrwx    1 root     root      250,  15 Feb 23  2018 mmcaa
+brwxrwxrwx    1 root     root      250,  16 Feb 23  2018 mmcaa1
+brwxrwxrwx    1 root     root      250,  17 Feb 23  2018 mmcab
+brwxrwxrwx    1 root     root      250,  18 Feb 23  2018 mmcab1
+brwxrwxrwx    1 root     root      250,  19 Feb 23  2018 mmcac
+brwxrwxrwx    1 root     root      250,  20 Feb 23  2018 mmcac1
+brwxrwxrwx    1 root     root      250,  21 Feb 23  2018 mmcad
+brwxrwxrwx    1 root     root      250,  22 Feb 23  2018 mmcad1
+brwxrwxrwx    1 root     root      250,  30 Feb 23  2018 mmcb
+crwxrwxrwx    1 root     root      250,   1 Feb 23  2018 mmcb-char
+brwxrwxrwx    1 root     root      250,  31 Feb 23  2018 mmcb1
+brwxrwxrwx    1 root     root      250,  32 Feb 23  2018 mmcb2
+brwxrwxrwx    1 root     root      250,  33 Feb 23  2018 mmcb3
+brwxrwxrwx    1 root     root      250,  34 Feb 23  2018 mmcb4
+brwxrwxrwx    1 root     root      250,  35 Feb 23  2018 mmcba
+brwxrwxrwx    1 root     root      250,  36 Feb 23  2018 mmcba1
+brwxrwxrwx    1 root     root      250,  37 Feb 23  2018 mmcbb
+brwxrwxrwx    1 root     root      250,  38 Feb 23  2018 mmcbb1
+brwxrwxrwx    1 root     root      250,  39 Feb 23  2018 mmcbc
+brwxrwxrwx    1 root     root      250,  40 Feb 23  2018 mmcbc1
+brwxrwxrwx    1 root     root      250,  41 Feb 23  2018 mmcbd
+brwxrwxrwx    1 root     root      250,  42 Feb 23  2018 mmcbd1
+brwxrwxrwx    1 root     root      250,  50 Feb 23  2018 mmcc
+crwxrwxrwx    1 root     root      250,   2 Feb 23  2018 mmcc-char
+brwxrwxrwx    1 root     root      250,  51 Feb 23  2018 mmcc1
+brwxrwxrwx    1 root     root      250,  52 Feb 23  2018 mmcc2
+brwxrwxrwx    1 root     root      250,  53 Feb 23  2018 mmcc3
+brwxrwxrwx    1 root     root      250,  54 Feb 23  2018 mmcc4
+brwxrwxrwx    1 root     root      250,  55 Feb 23  2018 mmcca
+brwxrwxrwx    1 root     root      250,  56 Feb 23  2018 mmcca1
+brwxrwxrwx    1 root     root      250,  57 Feb 23  2018 mmccb
+brwxrwxrwx    1 root     root      250,  58 Feb 23  2018 mmccb1
+brwxrwxrwx    1 root     root      250,  59 Feb 23  2018 mmccc
+brwxrwxrwx    1 root     root      250,  60 Feb 23  2018 mmccc1
+brwxrwxrwx    1 root     root      250,  61 Feb 23  2018 mmccd
+brwxrwxrwx    1 root     root      250,  62 Feb 23  2018 mmccd1
+brwxrwxrwx    1 root     root      250,  70 Feb 23  2018 mmcd
+crwxrwxrwx    1 root     root      250,   3 Feb 23  2018 mmcd-char
+brwxrwxrwx    1 root     root      250,  71 Feb 23  2018 mmcd1
+brwxrwxrwx    1 root     root      250,  72 Feb 23  2018 mmcd2
+brwxrwxrwx    1 root     root      250,  73 Feb 23  2018 mmcd3
+brwxrwxrwx    1 root     root      250,  74 Feb 23  2018 mmcd4
+brwxrwxrwx    1 root     root      250,  75 Feb 23  2018 mmcda
+brwxrwxrwx    1 root     root      250,  76 Feb 23  2018 mmcda1
+brwxrwxrwx    1 root     root      250,  77 Feb 23  2018 mmcdb
+brwxrwxrwx    1 root     root      250,  78 Feb 23  2018 mmcdb1
+brwxrwxrwx    1 root     root      250,  79 Feb 23  2018 mmcdc
+brwxrwxrwx    1 root     root      250,  80 Feb 23  2018 mmcdc1
+brwxrwxrwx    1 root     root      250,  81 Feb 23  2018 mmcdd
+brwxrwxrwx    1 root     root      250,  82 Feb 23  2018 mmcdd1
+brwxrwxrwx    1 root     root      250,  90 Feb 23  2018 mmce
+crwxrwxrwx    1 root     root      250,   4 Feb 23  2018 mmce-char
+brwxrwxrwx    1 root     root      250,  91 Feb 23  2018 mmce1
+brwxrwxrwx    1 root     root      250,  92 Feb 23  2018 mmce2
+brwxrwxrwx    1 root     root      250,  93 Feb 23  2018 mmce3
+brwxrwxrwx    1 root     root      250,  94 Feb 23  2018 mmce4
+brwxrwxrwx    1 root     root      250,  95 Feb 23  2018 mmcea
+brwxrwxrwx    1 root     root      250,  96 Feb 23  2018 mmcea1
+brwxrwxrwx    1 root     root      250,  97 Feb 23  2018 mmceb
+brwxrwxrwx    1 root     root      250,  98 Feb 23  2018 mmceb1
+brwxrwxrwx    1 root     root      250,  99 Feb 23  2018 mmcec
+brwxrwxrwx    1 root     root      250, 100 Feb 23  2018 mmcec1
+brwxrwxrwx    1 root     root      250, 101 Feb 23  2018 mmced
+brwxrwxrwx    1 root     root      250, 102 Feb 23  2018 mmced1
+brwxrwxrwx    1 root     root      249,   0 Feb 23  2018 ms
+crwxrwxrwx    1 root     root      249,   0 Feb 23  2018 ms-char
+brwxrwxrwx    1 root     root      249,   1 Feb 23  2018 ms1
+brwxrwxrwx    1 root     root      249,   2 Feb 23  2018 ms2
+brwxrwxrwx    1 root     root      249,   3 Feb 23  2018 ms3
+brwxrwxrwx    1 root     root      249,   4 Feb 23  2018 ms4
+brwxrwxrwx    1 root     root      249,   5 Feb 23  2018 ms5
+brwxrwxrwx    1 root     root      249,   6 Feb 23  2018 ms6
+brwxrwxrwx    1 root     root      249,   7 Feb 23  2018 ms7
+brwxrwxrwx    1 root     root      249,   8 Feb 23  2018 ms8
+brwxrwxrwx    1 root     root      249,   9 Feb 23  2018 ms9
+drwxrwxr-x    2 root     root          1024 Oct  2  2015 net
+brwxrwxrwx    1 root     root      252,   0 Feb 23  2018 nflasha
+brwxrwxrwx    1 root     root      252,   1 Feb 23  2018 nflasha1
+brwxrwxrwx    1 root     root      252,  10 Feb 23  2018 nflasha10
+brwxrwxrwx    1 root     root      252,  11 Feb 23  2018 nflasha11
+brwxrwxrwx    1 root     root      252,  12 Feb 23  2018 nflasha12
+brwxrwxrwx    1 root     root      252,  13 Feb 23  2018 nflasha13
+brwxrwxrwx    1 root     root      252,  14 Feb 23  2018 nflasha14
+brwxrwxrwx    1 root     root      252,  15 Feb 23  2018 nflasha15
+brwxrwxrwx    1 root     root      252,  16 Feb 23  2018 nflasha16
+brwxrwxrwx    1 root     root      252,  17 Feb 23  2018 nflasha17
+brwxrwxrwx    1 root     root      252,  18 Feb 23  2018 nflasha18
+brwxrwxrwx    1 root     root      252,  19 Feb 23  2018 nflasha19
+brwxrwxrwx    1 root     root      252,   2 Feb 23  2018 nflasha2
+brwxrwxrwx    1 root     root      252,  20 Feb 23  2018 nflasha20
+brwxrwxrwx    1 root     root      252,  21 Feb 23  2018 nflasha21
+brwxrwxrwx    1 root     root      252,  22 Feb 23  2018 nflasha22
+brwxrwxrwx    1 root     root      252,  23 Feb 23  2018 nflasha23
+brwxrwxrwx    1 root     root      252,  24 Feb 23  2018 nflasha24
+brwxrwxrwx    1 root     root      252,  25 Feb 23  2018 nflasha25
+brwxrwxrwx    1 root     root      252,  26 Feb 23  2018 nflasha26
+brwxrwxrwx    1 root     root      252,  27 Feb 23  2018 nflasha27
+brwxrwxrwx    1 root     root      252,  28 Feb 23  2018 nflasha28
+brwxrwxrwx    1 root     root      252,  29 Feb 23  2018 nflasha29
+brwxrwxrwx    1 root     root      252,   3 Feb 23  2018 nflasha3
+brwxrwxrwx    1 root     root      252,  30 Feb 23  2018 nflasha30
+brwxrwxrwx    1 root     root      252,  31 Feb 23  2018 nflasha31
+brwxrwxrwx    1 root     root      252,   4 Feb 23  2018 nflasha4
+brwxrwxrwx    1 root     root      252,   5 Feb 23  2018 nflasha5
+brwxrwxrwx    1 root     root      252,   6 Feb 23  2018 nflasha6
+brwxrwxrwx    1 root     root      252,   7 Feb 23  2018 nflasha7
+brwxrwxrwx    1 root     root      252,   8 Feb 23  2018 nflasha8
+brwxrwxrwx    1 root     root      252,   9 Feb 23  2018 nflasha9
+brwxrwxrwx    1 root     root      252, 126 Feb 23  2018 nflashaB0
+brwxrwxrwx    1 root     root      252, 127 Feb 23  2018 nflashaB1
+crw-rw-rw-    1 root     root        1,   3 Aug  6  2012 null
+crw-r-----    1 root     9           1,   4 Aug  6  2012 port
+crw-------    1 root     root      108,   0 Feb 16  2017 ppp
+crw-r--r--    1 root     root        5,   2 May 28  2013 ptmx
+drwxr-xr-x    2 root     root             0 Jan  1 00:00 pts
+crw-r--r--    1 root     root      252,   0 Jun  7  2017 qcqmi0
+crw-r--r--    1 root     root      252,   1 Jun 19  2018 qcqmi1
+crw-r--r--    1 root     root      252,   2 Jun 19  2018 qcqmi2
+lrwxrwxrwx    1 root     root             4 May 28  2013 ram -> ram1
+brw-rw----    1 root     6           1,   0 Aug  6  2012 ram0
+brw-rw----    1 root     6           1,   1 Aug  6  2012 ram1
+brw-rw----    1 root     6           1,  10 Aug  6  2012 ram10
+brw-rw----    1 root     6           1,  11 Aug  6  2012 ram11
+brw-rw----    1 root     6           1,  12 Aug  6  2012 ram12
+brw-rw----    1 root     6           1,  13 Aug  6  2012 ram13
+brw-rw----    1 root     6           1,  14 Aug  6  2012 ram14
+brw-rw----    1 root     6           1,  15 Aug  6  2012 ram15
+brw-rw----    1 root     6           1,  16 Aug  6  2012 ram16
+brw-rw----    1 root     6           1,   2 Aug  6  2012 ram2
+brw-rw----    1 root     6           1,   3 Aug  6  2012 ram3
+brw-rw----    1 root     6           1,   4 Aug  6  2012 ram4
+brw-rw----    1 root     6           1,   5 Aug  6  2012 ram5
+brw-rw----    1 root     6           1,   6 Aug  6  2012 ram6
+brw-rw----    1 root     6           1,   7 Aug  6  2012 ram7
+brw-rw----    1 root     6           1,   8 Aug  6  2012 ram8
+brw-rw----    1 root     6           1,   9 Aug  6  2012 ram9
+cr--r--r--    1 root     root        1,   8 Aug  6  2012 random
+crw-------    1 root     root       10, 222 Aug  6  2012 rmon
+crw-rw----    1 root     root       10, 135 Aug  6  2012 rtc
+crwxrwxrwx    1 root     root      249,   2 Feb 23  2018 sata
+crwxrwxrwx    1 root     root      249,   3 Feb 23  2018 sataa
+crwxrwxrwx    1 root     root      249,   4 Feb 23  2018 satab
+crwxrwxrwx    1 root     root      249,   5 Feb 23  2018 satac
+crwxrwxrwx    1 root     root      249,   6 Feb 23  2018 satad
+lrwxrwxrwx    1 root     root             4 May 28  2013 satassd -> sata
+lrwxrwxrwx    1 root     root             4 May 28  2013 satauhs -> sata
+lrwxrwxrwx    1 root     root             5 May 28  2013 satauhsa -> sataa
+lrwxrwxrwx    1 root     root             5 May 28  2013 satauhsb -> satab
+brw-r--r--    1 root     root        8,   0 May 28  2013 sda
+brw-r--r--    1 root     root        8,   1 Jul 30  2013 sda1
+brw-r--r--    1 root     root        8,   2 Oct 11  2013 sda2
+brw-r--r--    1 root     root        8,   3 Oct 11  2013 sda3
+brw-r--r--    1 root     root        8,   4 Oct 11  2013 sda4
+brw-r--r--    1 root     root        8,  16 May 28  2013 sdb
+brw-r--r--    1 root     root        8,  17 Jul 30  2013 sdb1
+brw-r--r--    1 root     root        8,  32 May 28  2013 sdc
+brw-r--r--    1 root     root        8,  33 Jul 30  2013 sdc1
+brw-r--r--    1 root     root        8,  48 May 28  2013 sdd
+brw-r--r--    1 root     root        8,  49 Jul 30  2013 sdd1
+crwxrwxrwx    1 root     root      251, 200 Feb 23  2018 sio0
+crwxrwxrwx    1 root     root      251, 201 Feb 23  2018 sio1
+crwxrwxrwx    1 root     root      251, 202 Feb 23  2018 sio2
+crwxrwxrwx    1 root     root      251, 203 Feb 23  2018 sio3
+crwxrwxrwx    1 root     root      251, 204 Feb 23  2018 sio4
+drwxrwxr-x    2 root     root          1024 Jul  6  2018 snd
+brw-r--r--    1 root     root       11,   0 May 28  2013 sr0
+brw-r--r--    1 root     root       11,   1 May 28  2013 sr1
+lrwxrwxrwx    1 root     root             4 May 28  2013 stderr -> fd/2
+lrwxrwxrwx    1 root     root             4 May 28  2013 stdin -> fd/0
+lrwxrwxrwx    1 root     root             4 May 28  2013 stdout -> fd/1
+crwxrwxrwx    1 root     root      249,   7 Feb 23  2018 stream
+crwxrwxrwx    1 root     root      249,   8 Feb 23  2018 stream2
+crwxrwxrwx    1 root     root      251, 211 Feb 23  2018 sxs_blk0
+crwxrwxrwx    1 root     root      251, 212 Feb 23  2018 sxs_blk1
+crw-rw-rw-    1 root     5           5,   0 Aug  6  2012 tty
+crw-------    1 root     5           4,   0 Aug  6  2012 tty0
+crw-rw-rw-    1 root     5           4,   1 Aug  6  2012 tty1
+crw-rw-rw-    1 root     5           4,  10 Aug  6  2012 tty10
+crw-rw-rw-    1 root     5           4,  11 Aug  6  2012 tty11
+crw-rw-rw-    1 root     5           4,  12 Aug  6  2012 tty12
+crw-rw-rw-    1 root     5           4,  13 Aug  6  2012 tty13
+crw-rw-rw-    1 root     5           4,  14 Aug  6  2012 tty14
+crw-rw-rw-    1 root     5           4,  15 Aug  6  2012 tty15
+crw-rw-rw-    1 root     5           4,  16 Aug  6  2012 tty16
+crw-rw-rw-    1 root     5           4,  17 Aug  6  2012 tty17
+crw-rw-rw-    1 root     5           4,  18 Aug  6  2012 tty18
+crw-rw-rw-    1 root     5           4,  19 Aug  6  2012 tty19
+crw-rw-rw-    1 root     5           4,   2 Aug  6  2012 tty2
+crw-rw-rw-    1 root     5           4,   3 Aug  6  2012 tty3
+crw-rw-rw-    1 root     5           4,   4 Aug  6  2012 tty4
+crw-rw-rw-    1 root     5           4,   5 Aug  6  2012 tty5
+crw-rw-rw-    1 root     5           4,   6 Aug  6  2012 tty6
+crw-rw-rw-    1 root     5           4,   7 Aug  6  2012 tty7
+crw-rw-rw-    1 root     5           4,   8 Aug  6  2012 tty8
+crw-rw-rw-    1 root     5           4,   9 Aug  6  2012 tty9
+crw-r--r--    1 root     root      166,   0 Aug 17  2017 ttyACM0
+crw-r--r--    1 root     root      166,   1 Jun 19  2018 ttyACM1
+crw-r--r--    1 root     root      166,   2 Jun 19  2018 ttyACM2
+crw-r--r--    1 root     root      204,  16 May 28  2013 ttyAM0
+crw-r--r--    1 root     root      204,  17 May 28  2013 ttyAM1
+crw-r--r--    1 root     root      204,  18 May 28  2013 ttyAM2
+crw-r--r--    1 root     root      204,  19 Aug  2  2016 ttyAM3
+lrwxrwxrwx    1 root     root             6 Mar 14  2025 ttyBT -> ttyAM1
+crw-rw----    1 root     14          4,  64 Aug  6  2012 ttyS0
+crw-rw----    1 root     14          4,  65 Aug  6  2012 ttyS1
+crw-rw----    1 root     14          4,  66 Aug  6  2012 ttyS2
+crw-rw----    1 root     14          4,  67 Aug  6  2012 ttyS3
+crw-r--r--    1 root     root      188,   0 Feb 16  2017 ttyUSB0
+crw-r--r--    1 root     root      188,   1 Feb 16  2017 ttyUSB1
+crw-r--r--    1 root     root      188,  10 Jun 19  2018 ttyUSB10
+crw-r--r--    1 root     root      188,  11 Jun 19  2018 ttyUSB11
+crw-r--r--    1 root     root      188,   2 Jun  7  2017 ttyUSB2
+crw-r--r--    1 root     root      188,   3 Jun  7  2017 ttyUSB3
+crw-r--r--    1 root     root      188,   4 Jun 19  2018 ttyUSB4
+crw-r--r--    1 root     root      188,   5 Jun 19  2018 ttyUSB5
+crw-r--r--    1 root     root      188,   6 Jun 19  2018 ttyUSB6
+crw-r--r--    1 root     root      188,   7 Jun 19  2018 ttyUSB7
+crw-r--r--    1 root     root      188,   8 Jun 19  2018 ttyUSB8
+crw-r--r--    1 root     root      188,   9 Jun 19  2018 ttyUSB9
+lrwxrwxrwx    1 root     root             6 May 28  2013 ttycons -> ttyAM0
+crw-r--r--    1 root     root       10, 223 May 28  2013 uinput
+crw-r--r--    1 root     root      253,   0 May 28  2013 uio0
+crwxrwxrwx    1 root     root      251, 207 Feb 23  2018 uipc
+cr--r--r--    1 root     root        1,   9 Aug  6  2012 urandom
+drwxr-xr-x    2 root     root          1024 Sep 10  2020 usb
+lrwxrwxrwx    1 root     root             4 May 28  2013 vcs -> vcs0
+crw-------    1 root     root        7,   0 Aug  6  2012 vcs0
+crw-------    1 root     root        7,   1 Aug  6  2012 vcs1
+crw-------    1 root     root        7,  10 Aug  6  2012 vcs10
+crw-------    1 root     root        7,  11 Aug  6  2012 vcs11
+crw-------    1 root     root        7,  12 Aug  6  2012 vcs12
+crw-------    1 root     root        7,  13 Aug  6  2012 vcs13
+crw-------    1 root     root        7,  14 Aug  6  2012 vcs14
+crw-------    1 root     root        7,  15 Aug  6  2012 vcs15
+crw-------    1 root     root        7,  16 Aug  6  2012 vcs16
+crw-------    1 root     root        7,  17 Aug  6  2012 vcs17
+crw-------    1 root     root        7,  18 Aug  6  2012 vcs18
+crw-------    1 root     root        7,  19 Aug  6  2012 vcs19
+crw-------    1 root     root        7,   2 Aug  6  2012 vcs2
+crw-------    1 root     root        7,   3 Aug  6  2012 vcs3
+crw-------    1 root     root        7,   4 Aug  6  2012 vcs4
+crw-------    1 root     root        7,   5 Aug  6  2012 vcs5
+crw-------    1 root     root        7,   6 Aug  6  2012 vcs6
+crw-------    1 root     root        7,   7 Aug  6  2012 vcs7
+crw-------    1 root     root        7,   8 Aug  6  2012 vcs8
+crw-------    1 root     root        7,   9 Aug  6  2012 vcs9
+lrwxrwxrwx    1 root     root             5 May 28  2013 vcsa -> vcsa0
+crw-------    1 root     root        7, 128 Aug  6  2012 vcsa0
+crw-------    1 root     root        7, 129 Aug  6  2012 vcsa1
+crw-------    1 root     root        7, 138 Aug  6  2012 vcsa10
+crw-------    1 root     root        7, 139 Aug  6  2012 vcsa11
+crw-------    1 root     root        7, 140 Aug  6  2012 vcsa12
+crw-------    1 root     root        7, 141 Aug  6  2012 vcsa13
+crw-------    1 root     root        7, 142 Aug  6  2012 vcsa14
+crw-------    1 root     root        7, 143 Aug  6  2012 vcsa15
+crw-------    1 root     root        7, 144 Aug  6  2012 vcsa16
+crw-------    1 root     root        7, 145 Aug  6  2012 vcsa17
+crw-------    1 root     root        7, 146 Aug  6  2012 vcsa18
+crw-------    1 root     root        7, 147 Aug  6  2012 vcsa19
+crw-------    1 root     root        7, 130 Aug  6  2012 vcsa2
+crw-------    1 root     root        7, 131 Aug  6  2012 vcsa3
+crw-------    1 root     root        7, 132 Aug  6  2012 vcsa4
+crw-------    1 root     root        7, 133 Aug  6  2012 vcsa5
+crw-------    1 root     root        7, 134 Aug  6  2012 vcsa6
+crw-------    1 root     root        7, 135 Aug  6  2012 vcsa7
+crw-------    1 root     root        7, 136 Aug  6  2012 vcsa8
+crw-------    1 root     root        7, 137 Aug  6  2012 vcsa9
+crw-rw-rw-    1 root     root        1,   5 Aug  6  2012 zero
+=== SYS_CLASS ===
+total 0
+drwxr-xr-x   18 root     root             0 Jan  1 00:01 .
+drwxr-xr-x   12 root     root             0 Jan  1 00:00 ..
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 bdi
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 block
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 firmware
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 ieee80211
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 input
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 mem
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 misc
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 mmc_host
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 net
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 pci_bus
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 rtc
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 timed_output
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 tty
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 udc
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 uio
+drwxr-xr-x    2 root     root             0 Jan  1 00:01 xt_idletimer
+=== SYS_MODULE_FILES ===
+/sys/module/dma_mapping
+/sys/module/dma_mapping/parameters
+/sys/module/dma_mapping/parameters/l2th
+/sys/module/tmonitor
+/sys/module/tmonitor/parameters
+/sys/module/tmonitor/parameters/autodump_path
+/sys/module/tmonitor/parameters/autodump
+/sys/module/tmonitor/parameters/autostop_sus
+/sys/module/tmonitor/parameters/autostop_tasklist
+/sys/module/tmonitor/parameters/autostop_segv
+/sys/module/tmonitor/parameters/autostop_ticks
+/sys/module/tmonitor/parameters/autostop_str
+/sys/module/tmonitor/parameters/autostop_retrigger
+/sys/module/tmonitor/parameters/autostop
+/sys/module/tmonitor/parameters/autostart_str
+/sys/module/tmonitor/parameters/autostart
+/sys/module/tmonitor/parameters/mode
+/sys/module/tmonitor/parameters/mask
+/sys/module/tmonitor/parameters/size
+/sys/module/tmonitor/parameters/addr
+/sys/module/devno/holders/dmac
+/sys/module/devno/holders/osal_uipc
+/sys/module/devno/holders/dma330
+/sys/module/dmac
+/sys/module/dmac/holders
+/sys/module/dmac/holders/ldec
+/sys/module/dmac/holders/emmc
+/sys/module/dmac/holders/liro
+/sys/module/dmac/parameters
+/sys/module/dmac/parameters/pri_mode_ch_4_7
+/sys/module/dmac/parameters/pri_mode_ch_0_3
+/sys/module/dmac/initstate
+/sys/module/dmac/refcnt
+/sys/module/dmac/sections
+/sys/module/dmac/sections/.text
+/sys/module/dmac/sections/.init.text
+/sys/module/dmac/sections/.exit.text
+/sys/module/dmac/sections/.note.gnu.build-id
+/sys/module/dmac/sections/__ksymtab
+/sys/module/dmac/sections/.rodata
+/sys/module/dmac/sections/.rodata.str1.1
+/sys/module/dmac/sections/__ksymtab_strings
+/sys/module/dmac/sections/__param
+/sys/module/dmac/sections/.data
+/sys/module/dmac/sections/.gnu.linkonce.this_module
+/sys/module/dmac/sections/.bss
+/sys/module/dmac/sections/.symtab
+/sys/module/dmac/sections/.strtab
+/sys/module/dmac/notes
+/sys/module/dmac/notes/.note.gnu.build-id
+/sys/module/osal_utm/holders/osal_uipc
+/sys/module/osal_utm/holders/dmm
+/sys/module/osal_utm/holders/upm
+/sys/module/osal_utm/holders/codec_drv
+/sys/module/osal_utm/holders/liro
+/sys/module/osal_uipc
+/sys/module/osal_uipc/holders
+/sys/module/osal_uipc/holders/utimer
+/sys/module/osal_uipc/holders/backup
+/sys/module/osal_uipc/holders/osal_ulogio
+/sys/module/osal_uipc/holders/input
+/sys/module/osal_uipc/holders/udate
+/sys/module/osal_uipc/holders/indctr
+/sys/module/osal_uipc/holders/i2c
+/sys/module/osal_uipc/holders/sircs
+/sys/module/osal_uipc/holders/usb_portMonitor
+/sys/module/osal_uipc/holders/usbg_sen
+/sys/module/osal_uipc/holders/kikilog
+/sys/module/osal_uipc/holders/dmm
+/sys/module/osal_uipc/holders/upm
+/sys/module/osal_uipc/holders/grm_ma
+/sys/module/osal_uipc/holders/grm_gles
+/sys/module/osal_uipc/holders/accel
+/sys/module/osal_uipc/holders/mag
+/sys/module/osal_uipc/holders/compass
+/sys/module/osal_uipc/holders/mcmn_drv
+/sys/module/osal_uipc/holders/ms_drv
+/sys/module/osal_uipc/holders/mmc_drv
+/sys/module/osal_uipc/holders/dma330
+/sys/module/osal_uipc/holders/codec_drv
+/sys/module/osal_uipc/holders/liro
+/sys/module/osal_uipc/holders/usbg_buspower
+/sys/module/osal_uipc/holders/usb_darwin
+/sys/module/osal_uipc/holders/usb_buspwr
+/sys/module/osal_uipc/holders/hdmi
+/sys/module/osal_uipc/holders/cec
+/sys/module/osal_uipc/holders/wlanIrq
+/sys/module/osal_uipc/holders/mmcioWrapper
+/sys/module/osal_uipc/initstate
+/sys/module/osal_uipc/refcnt
+/sys/module/osal_uipc/sections
+/sys/module/osal_uipc/sections/.text
+/sys/module/osal_uipc/sections/.exit.text
+/sys/module/osal_uipc/sections/.init.text
+/sys/module/osal_uipc/sections/.note.gnu.build-id
+/sys/module/osal_uipc/sections/__ksymtab
+/sys/module/osal_uipc/sections/.rodata
+/sys/module/osal_uipc/sections/__ksymtab_strings
+/sys/module/osal_uipc/sections/.rodata.str1.1
+/sys/module/osal_uipc/sections/.data
+/sys/module/osal_uipc/sections/.gnu.linkonce.this_module
+/sys/module/osal_uipc/sections/.bss
+/sys/module/osal_uipc/sections/.symtab
+/sys/module/osal_uipc/sections/.strtab
+/sys/module/osal_uipc/notes
+/sys/module/osal_uipc/notes/.note.gnu.build-id
+/sys/module/backup/holders/dmm
+/sys/module/backup/holders/upm
+/sys/module/backup/holders/liro
+/sys/module/backup/parameters/Backup_save
+/sys/module/dmm
+/sys/module/dmm/holders
+/sys/module/dmm/holders/upm
+/sys/module/dmm/holders/liro
+/sys/module/dmm/parameters
+/sys/module/dmm/parameters/DmmConfig
+/sys/module/dmm/parameters/DmmConfigExtra
+/sys/module/dmm/initstate
+/sys/module/dmm/refcnt
+/sys/module/dmm/sections
+/sys/module/dmm/sections/.text
+/sys/module/dmm/sections/.exit.text
+/sys/module/dmm/sections/.init.text
+/sys/module/dmm/sections/.note.gnu.build-id
+/sys/module/dmm/sections/__ksymtab
+/sys/module/dmm/sections/.rodata
+/sys/module/dmm/sections/.rodata.str1.1
+/sys/module/dmm/sections/__ksymtab_strings
+/sys/module/dmm/sections/__param
+/sys/module/dmm/sections/.data
+/sys/module/dmm/sections/.gnu.linkonce.this_module
+/sys/module/dmm/sections/.bss
+/sys/module/dmm/sections/.symtab
+/sys/module/dmm/sections/.strtab
+/sys/module/dmm/notes
+/sys/module/dmm/notes/.note.gnu.build-id
+/sys/module/upm
+/sys/module/upm/holders
+/sys/module/upm/initstate
+/sys/module/upm/refcnt
+/sys/module/upm/sections
+/sys/module/upm/sections/.text
+/sys/module/upm/sections/.init.text
+/sys/module/upm/sections/.exit.text
+/sys/module/upm/sections/.note.gnu.build-id
+/sys/module/upm/sections/__ksymtab
+/sys/module/upm/sections/.rodata
+/sys/module/upm/sections/.rodata.str1.1
+/sys/module/upm/sections/__ksymtab_strings
+/sys/module/upm/sections/.data
+/sys/module/upm/sections/.gnu.linkonce.this_module
+/sys/module/upm/sections/.bss
+/sys/module/upm/sections/.symtab
+/sys/module/upm/sections/.strtab
+/sys/module/upm/notes
+/sys/module/upm/notes/.note.gnu.build-id
+/sys/module/dma330
+/sys/module/dma330/holders
+/sys/module/dma330/holders/liro
+/sys/module/dma330/initstate
+/sys/module/dma330/refcnt
+/sys/module/dma330/sections
+/sys/module/dma330/sections/.text
+/sys/module/dma330/sections/.init.text
+/sys/module/dma330/sections/.exit.text
+/sys/module/dma330/sections/.note.gnu.build-id
+/sys/module/dma330/sections/__ksymtab
+/sys/module/dma330/sections/.rodata
+/sys/module/dma330/sections/.rodata.str1.1
+/sys/module/dma330/sections/__ksymtab_strings
+/sys/module/dma330/sections/.data
+/sys/module/dma330/sections/.gnu.linkonce.this_module
+/sys/module/dma330/sections/.bss
+/sys/module/dma330/sections/.symtab
+/sys/module/dma330/sections/.strtab
+/sys/module/dma330/notes
+/sys/module/dma330/notes/.note.gnu.build-id
+/sys/module/codec_drv
+/sys/module/codec_drv/holders
+/sys/module/codec_drv/parameters
+/sys/module/codec_drv/parameters/BNL_IPL_SIZE
+/sys/module/codec_drv/parameters/BNL_IPL_PATH
+/sys/module/codec_drv/parameters/BNL_FIRM_SIZE
+/sys/module/codec_drv/parameters/BNL_FIRM_PATH
+/sys/module/codec_drv/parameters/partner_id
+/sys/module/codec_drv/initstate
+/sys/module/codec_drv/refcnt
+/sys/module/codec_drv/sections
+/sys/module/codec_drv/sections/.text
+/sys/module/codec_drv/sections/.init.text
+/sys/module/codec_drv/sections/.exit.text
+/sys/module/codec_drv/sections/.rodata
+/sys/module/codec_drv/sections/__param
+/sys/module/codec_drv/sections/.rodata.str1.1
+/sys/module/codec_drv/sections/.data
+/sys/module/codec_drv/sections/.gnu.linkonce.this_module
+/sys/module/codec_drv/sections/.note.gnu.build-id
+/sys/module/codec_drv/sections/.bss
+/sys/module/codec_drv/sections/.symtab
+/sys/module/codec_drv/sections/.strtab
+/sys/module/codec_drv/notes
+/sys/module/codec_drv/notes/.note.gnu.build-id
+/sys/module/liro
+/sys/module/liro/holders
+/sys/module/liro/parameters
+/sys/module/liro/parameters/liro_resume_async
+/sys/module/liro/parameters/resume_cpu
+/sys/module/liro/parameters/debug
+/sys/module/liro/parameters/delay
+/sys/module/liro/parameters/load
+/sys/module/liro/parameters/fn
+/sys/module/liro/parameters/adr
+/sys/module/liro/initstate
+/sys/module/liro/refcnt
+/sys/module/liro/sections
+/sys/module/liro/sections/.text
+/sys/module/liro/sections/.exit.text
+/sys/module/liro/sections/.init.text
+/sys/module/liro/sections/.note.gnu.build-id
+/sys/module/liro/sections/__ksymtab
+/sys/module/liro/sections/.rodata
+/sys/module/liro/sections/.rodata.str1.1
+/sys/module/liro/sections/__ksymtab_strings
+/sys/module/liro/sections/__param
+/sys/module/liro/sections/.data
+/sys/module/liro/sections/.init.data
+/sys/module/liro/sections/.gnu.linkonce.this_module
+/sys/module/liro/sections/.bss
+/sys/module/liro/sections/.symtab
+/sys/module/liro/sections/.strtab
+/sys/module/liro/notes
+/sys/module/liro/notes/.note.gnu.build-id
+=== KALLSYMS_CHECK ===
+-r--r--r--    1 root     root             0 Jan  1 00:01 /proc/kallsyms
+60108160 T asm_do_IRQ
+60108160 T _stext
+60108160 T __exception_text_start
+60108174 T do_undefinstr
+6010830c T do_local_timer
+=== INTERRUPTS ===
+           CPU0       CPU1       CPU2       CPU3       
+ 35:          0          0       3376          0       GIC  liro-35
+ 36:          0          0       3375          0       GIC  liro-36
+ 37:          0          0       1235          0       GIC  liro-37
+ 38:          0          0          0          0       GIC  liro-38
+ 40:          0       1688          0          0       GIC  liro-40
+ 41:          0       1668          0          0       GIC  liro-41
+ 42:          0       1070          0          0       GIC  liro-42
+ 43:          0       1070          0          0       GIC  liro-43
+ 44:          0        618          0          0       GIC  liro-44
+ 45:          0       1109          0          0       GIC  liro-45
+ 46:          0         33          0          0       GIC  liro-46
+ 47:          0       1383          0          0       GIC  liro-47
+ 48:          0          0          0          0       GIC  liro-48
+ 49:          0          0          0          0       GIC  liro-49
+ 50:          0          0          0          0       GIC  liro-50
+ 51:          0          8          0          0       GIC  liro-51
+ 52:          0          0          0          0       GIC  liro-52
+ 53:          0          0          0          0       GIC  liro-53
+ 54:          0       1225          0          0       GIC  liro-54
+ 55:          0        612          0          0       GIC  liro-55
+ 56:          0          0          0          0       GIC  liro-56
+ 58:          0          2          0          0       GIC  liro-58
+ 61:          0        691          0          0       GIC  liro-61
+ 62:          0          0          0          0       GIC  liro-62
+ 63:          0          0          0          0       GIC  liro-63
+ 64:          0          1          0          0       GIC  liro-64
+ 65:          0          0          0          0       GIC  liro-65
+ 66:          0          1          0          0       GIC  liro-66
+ 67:          0          0          0          0       GIC  liro-67
+ 68:          0          0          0          0       GIC  liro-68
+ 69:          0          0          0          0       GIC  liro-69
+ 70:          0          0       3376          0       GIC  liro-70
+ 71:          0          0          0          0       GIC  liro-71
+ 72:          0          0          0          0       GIC  liro-72
+ 73:          0          0        694          0       GIC  liro-73
+ 74:          0          0        615          0       GIC  liro-74
+ 75:          0          0        615          0       GIC  liro-75
+ 76:      17261          0          0          0       GIC  dmpgles2
+ 77:          0          0          0          0       GIC  liro-77
+ 78:          0          0          0          0       GIC  liro-78
+ 79:          0          0          0          0       GIC  liro-79
+ 81:          0       1231          0          0       GIC  liro-81
+ 82:          0       1230          0          0       GIC  liro-82
+ 83:       8441          0          0          0       GIC  liro-83
+ 84:      40512          0          0          0       GIC  liro-84
+ 88:          0          0       1041          0       GIC  liro-88
+ 89:          0          0        346          0       GIC  liro-89
+ 90:          0          0          0          0       GIC  liro-90
+ 91:          0          0          0          0       GIC  liro-91
+ 92:          0          0          0          0       GIC  liro-92
+ 93:          0          0          0          0       GIC  liro-93
+ 94:          0          0          0          0       GIC  liro-94
+ 98:          0       3378          0          0       GIC  liro-98
+ 99:          0       8338          0          0       GIC  liro-99
+101:          0       3688          0          0       GIC  liro-101
+102:          0       3077          0          0       GIC  liro-102
+110:          0          0          0          0       GIC  liro-110
+115:          0          0          0          0       GIC  dm330_0
+116:          0          0          0          0       GIC  dm330_1
+117:          0          0          0          0       GIC  dm330_2
+118:          0          0          0          0       GIC  dm330_3
+119:          0          0          0          0       GIC  dm330_abort
+120:       4291          0          0          0       GIC  cxd900x0-uart
+122:          0          0          6          0       GIC  liro-122
+123:          0          0          0          0       GIC  liro-123
+124:          0          0          0          0       GIC  liro-124
+128:          0          0          0          0       GIC  liro-128
+129:          0       3376          0          0       GIC  liro-129
+130:          0          1          0          0       GIC  liro-130
+132:          3          0          0          0       GIC  liro-132
+135:          0          0          0          0       GIC  liro-135
+136:          0          0       9240          0       GIC  liro-136
+139:          0          0          0          0       GIC  liro-139
+141:          0          0          0          0       GIC  liro-141
+142:          0          0          0          0       GIC  liro-142
+143:          0          0       6720          0       GIC  liro-143
+146:          0          0          0          0       GIC  pmn
+147:          0          0          0          0       GIC  pmn
+148:          0          0          0          0       GIC  pmn
+149:          0          0          0          0       GIC  pmn
+151:          0          0      13458          0       GIC  liro-151
+153:       6337          0          0          0       GIC  tick0
+155:          0       6325          0          0       GIC  tick1
+156:          0          0       6321          0       GIC  tick2
+157:          0          0          0       6321       GIC  tick3
+158:      22080          0          0          0       GIC  hwtimer0
+159:          0       7460          0          0       GIC  hwtimer1
+160:          0          0       8500          0       GIC  hwtimer2
+161:          0          0          0        603       GIC  hwtimer3
+162:          0          0          0          0       GIC  liro-162
+163:          0          0      13439          0       GIC  liro-163
+164:          0          0          9          0       GIC  liro-164
+165:          0          0          0          0       GIC  liro-165
+166:          0          0          0          0       GIC  liro-166
+167:          0          0          0          0       GIC  liro-167
+168:          0          0          1          0       GIC  liro-168
+171:        121          0          0          0       GIC  ldec
+173:          0          0          0          0       GIC  liro-173
+174:          0          0       6717          0       GIC  liro-174
+177:          0          0          0          0       GIC  liro-177
+178:          0          0          0          0       GIC  liro-178
+179:          0          0          0          0       GIC  liro-179
+180:          0          0          0          0       GIC  liro-180
+181:          0          0          0          0       GIC  liro-181
+182:          0          0          0          0       GIC  liro-182
+183:          0          0          0          0       GIC  liro-183
+184:          0          0          0          0       GIC  liro-184
+185:          0          0          0          0       GIC  liro-185
+186:          0          0          0          0       GIC  liro-186
+187:          0          0          0          0       GIC  liro-187
+188:          0          0          0          0       GIC  liro-188
+189:          0          0          0          0       GIC  xdmac0
+190:          0          0          0          0       GIC  xdmac1
+191:          0          0          0          0       GIC  xdmac2
+192:        174          0          0          0       GIC  xdmac3
+193:          0          0          0          0       GIC  xdmac4
+194:       2863          0          0          0       GIC  xdmac5
+195:          0          0          0          0       GIC  xdmac6
+196:          0          0          0          0       GIC  xdmac7
+197:          0          0          0          0       GIC  sircs_overun
+198:          0          0          0          0       GIC  sircs
+199:        156          0          0          0       GIC  i2c0
+200:          0          0          0          0       GIC  i2c1
+201:      27020          0          0          0       GIC  liro-201
+202:       4509          0          0          0       GIC  liro-202
+203:          0          0          0          0       GIC  liro-203
+204:          0      10128          0          0       GIC  liro-204
+205:          0          0          0          0       GIC  liro-205
+206:          0          0          0          0       GIC  ms
+215:      13507          0          0          0       GIC  liro-215
+216:          0       6141          0          0       GIC  liro-216
+218:        543          0          0          0       GIC  mmc0
+221:       6372          0          0          0       GIC  mmc1
+227:      14126          0          0          0       GIC  emmc0
+229:          0          0          0          0       GIC  dwc3
+230:          0          0          0          0       GIC  fusb_usb_vbus
+231:          0          0          0          0       GIC  fusb_usb_id
+237:          0          0          0          0       GIC  PCIe_COM_ERR
+239:          0          0          0          0       GIC  PCIe_OTHER
+245:          0          0          0          0       GIC  PCIe_COM_ERR
+247:          0          0          0          0       GIC  PCIe_OTHER
+254:          0          0          0          0       GIC  rstreq
+255:          0          0          0          0       GIC  L2
+IPI0:          0          0          0          0  Timer broadcast interrupts
+IPI1:     158013     196194     148165     153850  Rescheduling interrupts
+IPI2:          8          7         11          7  Function call interrupts
+IPI3:          0          0          0          0  Single function call interrupts
+IPI4:          0          0          0          0  CPU stop interrupts
+IPI5:          0          0          0          0  Trigger all cpu backtrace
+LOC:          0          0          0          0  Local timer interrupts
+Err:          0
+=== IOMEM ===
+00000000-3fffffff : System RAM
+  00108000-00495023 : Kernel text
+  004c4000-00527357 : Kernel data
+80000000-8fffffff : System RAM
+c0000000-e7ffffff : PCIe0 non-prefetchable
+e8000000-efffffff : PCIe1 non-prefetchable
+f0200000-f02fffff : dwc3.0
+  f020c100-f02fffff : dwc3.0
+f2000000-f2000fff : uart0
+  f2000000-f2000fff : cxd900x0-uart
+f2003000-f2003fff : uart3
+  f2003000-f2003fff : cxd900x0-uart

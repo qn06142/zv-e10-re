@@ -1,0 +1,32 @@
+{
+  "id": "yuy2_transport_v23",
+  "reviewed_on": "2026-11-18",
+  "status": "historical",
+  "source_inputs": [
+    {
+      "path": "research/firmware/yuy2_transport_v23/README.md",
+      "sha256": "1219931fbebe86b309e700ad4ff95447a54b4177d820de82957e108d0aa2fc1f",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v23/build.py",
+      "sha256": "db13fc9f7be01dfee434600ce9e8d46c64f2f71c877e03d092c4a36f411ae0b7",
+      "hash_mode": "lf-normalized"
+    }
+  ],
+  "firmware_hashes": [],
+  "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
+  "reproduction": {
+    "command": "python -B kernel_patch.py --input <repo>/dumps/camera_2025/usr/usr/kmod/usbg_video.ko --output <output>/usbg_video.ko\npython -B verify_kernel.py --stock <repo>/dumps/camera_2025/usr/usr/kmod/usbg_video.ko --candidate <output>/usbg_video.ko\npython -B build.py --repo <repo> --output <output> --streaming-image <checked-startup-image> --stream-base <actual-base>\npython -B verify.py --repo <repo> --output <output> --streaming-image <checked-startup-image> --stream-base <actual-base>\npython -B verify_bootstrap.py --output <output> --stream-base <actual-base>\npython -B package.py --repo <repo> --output <output>",
+    "working_directory": "research/firmware/yuy2_transport_v23",
+    "unresolved": null,
+    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+  },
+  "hardware_result": "Hardware result has not been independently revalidated during housekeeping. Consult the recorded report and current status.",
+  "rollback": "Rollback was not revalidated during housekeeping. Use a matching per-body baseline and the recovery scope in docs/ACCESS_AND_TOOLS.md.",
+  "evidence": [
+    "research/firmware/yuy2_transport_v23/README.md",
+    "research/firmware/yuy2_transport_v23/build.py",
+    "docs/CURRENT_STATUS.md"
+  ]
+}

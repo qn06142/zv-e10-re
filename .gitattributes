@@ -25,3 +25,8 @@ verify/*.txt text eol=crlf
 *.png binary
 *.jpg binary
 *.pdf binary
+
+# Manifests identify the exact captured bytes on every platform.
+/research/firmware/evidence/** -text
+/captures/**/*.json -text
+/docs/archive/commands/*.txt -text

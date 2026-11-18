@@ -1,0 +1,129 @@
+SAMPLE 1
+378.52 727.96
+   1       0 ram0 0 0 0 0 0 0 0 0 0 0 0
+   1       1 ram1 0 0 0 0 0 0 0 0 0 0 0
+   1       2 ram2 0 0 0 0 0 0 0 0 0 0 0
+   1       3 ram3 0 0 0 0 0 0 0 0 0 0 0
+   1       4 ram4 0 0 0 0 0 0 0 0 0 0 0
+   1       5 ram5 0 0 0 0 0 0 0 0 0 0 0
+   1       6 ram6 0 0 0 0 0 0 0 0 0 0 0
+   1       7 ram7 0 0 0 0 0 0 0 0 0 0 0
+   1       8 ram8 0 0 0 0 0 0 0 0 0 0 0
+   1       9 ram9 0 0 0 0 0 0 0 0 0 0 0
+   1      10 ram10 0 0 0 0 0 0 0 0 0 0 0
+   1      11 ram11 0 0 0 0 0 0 0 0 0 0 0
+   1      12 ram12 0 0 0 0 0 0 0 0 0 0 0
+   1      13 ram13 0 0 0 0 0 0 0 0 0 0 0
+   1      14 ram14 0 0 0 0 0 0 0 0 0 0 0
+   1      15 ram15 0 0 0 0 0 0 0 0 0 0 0
+   7       0 loop0 0 0 0 0 0 0 0 0 0 0 0
+   7       1 loop1 0 0 0 0 0 0 0 0 0 0 0
+   7       2 loop2 0 0 0 0 0 0 0 0 0 0 0
+   7       3 loop3 0 0 0 0 0 0 0 0 0 0 0
+   7       4 loop4 0 0 0 0 0 0 0 0 0 0 0
+   7       5 loop5 0 0 0 0 0 0 0 0 0 0 0
+   7       6 loop6 0 0 0 0 0 0 0 0 0 0 0
+   7       7 loop7 0 0 0 0 0 0 0 0 0 0 0
+ 254       0 compswap0 0 0 0 0 0 0 0 0 0 0 0
+ 252       0 nflasha 5465 1202 359365 25360 173 9 3181 640 0 12230 25910
+ 252       1 nflasha1 140 0 140 220 0 0 0 0 0 220 220
+ 252       2 nflasha2 112 71 10011 320 5 0 2416 60 0 310 370
+ 252       3 nflasha3 52 46 413 10 0 0 0 0 0 10 10
+ 252       4 nflasha4 76 362 3504 330 68 7 600 420 0 610 750
+ 252       5 nflasha5 0 0 0 0 0 0 0 0 0 0 0
+ 252       6 nflasha6 0 0 0 0 0 0 0 0 0 0 0
+ 252       7 nflasha7 303 20 8986 1070 0 0 0 0 0 500 1070
+ 252      10 nflasha10 111 1 180 70 82 2 147 160 0 230 230
+ 252      11 nflasha11 162 83 16547 690 18 0 18 0 0 390 690
+ 252      12 nflasha12 37 4 41 10 0 0 0 0 0 10 10
+ 252      13 nflasha13 0 0 0 0 0 0 0 0 0 0 0
+ 252      15 nflasha15 4430 613 318472 22580 0 0 0 0 0 10980 22500
+ 252      16 nflasha16 0 0 0 0 0 0 0 0 0 0 0
+ 252      17 nflasha17 0 0 0 0 0 0 0 0 0 0 0
+ 252      18 nflasha18 35 2 37 10 0 0 0 0 0 10 10
+ 252      23 nflasha23 6 0 1026 40 0 0 0 0 0 40 40
+ 252     126 nflashaB0 0 0 0 0 0 0 0 0 0 0 0
+ 252     127 nflashaB1 0 0 0 0 0 0 0 0 0 0 0
+ 250      10 mmca10 1 0 8 0 0 0 0 0 0 0 0
+ 250      11 mmca10p1 0 0 0 0 0 0 0 0 0 0 0
+218:       1113          0          0          0       GIC  mmc0
+221:      27207          0          0          0       GIC  mmc1
+227:      21862          0          0          0       GIC  emmc0
+SAMPLE 2
+381.67 734.23
+   1       0 ram0 0 0 0 0 0 0 0 0 0 0 0
+   1       1 ram1 0 0 0 0 0 0 0 0 0 0 0
+   1       2 ram2 0 0 0 0 0 0 0 0 0 0 0
+   1       3 ram3 0 0 0 0 0 0 0 0 0 0 0
+   1       4 ram4 0 0 0 0 0 0 0 0 0 0 0
+   1       5 ram5 0 0 0 0 0 0 0 0 0 0 0
+   1       6 ram6 0 0 0 0 0 0 0 0 0 0 0
+   1       7 ram7 0 0 0 0 0 0 0 0 0 0 0
+   1       8 ram8 0 0 0 0 0 0 0 0 0 0 0
+   1       9 ram9 0 0 0 0 0 0 0 0 0 0 0
+   1      10 ram10 0 0 0 0 0 0 0 0 0 0 0
+   1      11 ram11 0 0 0 0 0 0 0 0 0 0 0
+   1      12 ram12 0 0 0 0 0 0 0 0 0 0 0
+   1      13 ram13 0 0 0 0 0 0 0 0 0 0 0
+   1      14 ram14 0 0 0 0 0 0 0 0 0 0 0
+   1      15 ram15 0 0 0 0 0 0 0 0 0 0 0
+   7       0 loop0 0 0 0 0 0 0 0 0 0 0 0
+   7       1 loop1 0 0 0 0 0 0 0 0 0 0 0
+   7       2 loop2 0 0 0 0 0 0 0 0 0 0 0
+   7       3 loop3 0 0 0 0 0 0 0 0 0 0 0
+   7       4 loop4 0 0 0 0 0 0 0 0 0 0 0
+   7       5 loop5 0 0 0 0 0 0 0 0 0 0 0
+   7       6 loop6 0 0 0 0 0 0 0 0 0 0 0
+   7       7 loop7 0 0 0 0 0 0 0 0 0 0 0
+ 254       0 compswap0 0 0 0 0 0 0 0 0 0 0 0
+ 252       0 nflasha 5465 1202 359365 25360 173 9 3181 640 0 12230 25910
+ 252       1 nflasha1 140 0 140 220 0 0 0 0 0 220 220
+ 252       2 nflasha2 112 71 10011 320 5 0 2416 60 0 310 370
+ 252       3 nflasha3 52 46 413 10 0 0 0 0 0 10 10
+ 252       4 nflasha4 76 362 3504 330 68 7 600 420 0 610 750
+ 252       5 nflasha5 0 0 0 0 0 0 0 0 0 0 0
+ 252       6 nflasha6 0 0 0 0 0 0 0 0 0 0 0
+ 252       7 nflasha7 303 20 8986 1070 0 0 0 0 0 500 1070
+ 252      10 nflasha10 111 1 180 70 82 2 147 160 0 230 230
+ 252      11 nflasha11 162 83 16547 690 18 0 18 0 0 390 690
+ 252      12 nflasha12 37 4 41 10 0 0 0 0 0 10 10
+ 252      13 nflasha13 0 0 0 0 0 0 0 0 0 0 0
+ 252      15 nflasha15 4430 613 318472 22580 0 0 0 0 0 10980 22500
+ 252      16 nflasha16 0 0 0 0 0 0 0 0 0 0 0
+ 252      17 nflasha17 0 0 0 0 0 0 0 0 0 0 0
+ 252      18 nflasha18 35 2 37 10 0 0 0 0 0 10 10
+ 252      23 nflasha23 6 0 1026 40 0 0 0 0 0 40 40
+ 252     126 nflashaB0 0 0 0 0 0 0 0 0 0 0 0
+ 252     127 nflashaB1 0 0 0 0 0 0 0 0 0 0 0
+ 250      10 mmca10 1 0 8 0 0 0 0 0 0 0 0
+ 250      11 mmca10p1 0 0 0 0 0 0 0 0 0 0 0
+218:       1113          0          0          0       GIC  mmc0
+221:      27288          0          0          0       GIC  mmc1
+227:      21862          0          0          0       GIC  emmc0
+IM THREADS
+/proc/151/task/332/comm InfraMovieEdito
+/proc/151/task/334/comm InfraMovieEncod
+/proc/151/task/337/comm InfraMovieEncTh
+/proc/151/task/339/comm InfraStillEncod
+/proc/151/task/375/comm AVCodec
+/proc/151/task/395/comm I-TpRecv
+/proc/151/task/398/comm I-HotshoeRecv
+/proc/151/task/404/comm I-InputRecv
+/proc/151/task/523/comm ObjStillRecorde
+/proc/151/task/524/comm ObjStillRecorde
+/proc/151/task/538/comm ObjFaceRecorder
+/proc/151/task/539/comm ObjMovieRecorde
+/proc/151/task/892/comm FaceRecorderRcv
+/proc/151/task/933/comm MovieRecorder
+/proc/151/task/934/comm MovThmStillWrit
+/proc/151/task/935/comm MovThmStillWrit
+/proc/151/task/936/comm MovThmStillWrit
+/proc/151/task/937/comm MovieRecEtc
+MOVIE-RELATED MAPPINGS
+05f98000-05ff2000 r-xp 00000000 fc:0f 18322      /usr/lib/libsencore.so
+05ff2000-05ff9000 ---p 0005a000 fc:0f 18322      /usr/lib/libsencore.so
+05ff9000-05ffb000 rw-p 00059000 fc:0f 18322      /usr/lib/libsencore.so
+EXPOSED LOG ENTRIES
+AccessLog.bak
+AccessLog.dat
+MEDIA_SAMPLES_OK

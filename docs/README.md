@@ -1,71 +1,64 @@
-# Documentation
+# ZV-E10 documentation
 
-Reverse engineering of the Sony ZV-E10, firmware 2.02/2.03.
+The repository-wide starting point is the [camera system overview](CAMERA_OVERVIEW.md). It maps boot, Linux, LiRo imaging, application/UI, lens control, recording, USB, Wi-Fi, storage and recovery, with evidence and open questions for each.
 
-Two kinds of document live here, and they are kept separate on purpose.
+| Need | Start here |
+| --- | --- |
+| Understand the whole camera | [Camera overview](CAMERA_OVERVIEW.md) |
+| Find the latest evidenced state and project direction | [Current status](CURRENT_STATUS.md) |
+| Connect and reproduce diagnostics | [Access and tools](ACCESS_AND_TOOLS.md) |
+| Inspect the November live captures and installation records | [Evidence index](../research/firmware/evidence/zve10-20261117/README.md) |
+| Check the supplied UVC/Bayer hook claims | [Claim review](../research/firmware/evidence/zve10-20261117/CLAIM_REVIEW.md) |
+| Build the small register debugger | [Diagnostic source](../research/device/zve10_diagnostics/README.md) |
+| Browse subsystem docs | [References](reference/README.md), [USB](usb/README.md), [imaging](imaging/README.md), [UI](ui/README.md) and [host tools](tools/README.md) |
+| Follow historical work | [Archive](archive/README.md) |
 
-| | for | when |
-|---|---|---|
-| `01`–`09` + this file | humans | working a subject in depth; every table, every derivation |
-| [`agents/`](agents/) | an agent picking the thread back up | you need the whole state on one page and must not have to open eight files |
+## Current research
 
-**No camera binary, firmware image or UI resource is committed to this
-repository.** Patched objects are reproducible from a tracked script plus a file
-you pull off your own camera; the recipes are in
-[`../research/firmware/PATCHED_OBJECTS.md`](../research/firmware/PATCHED_OBJECTS.md)
-and the boundary is in [09-provenance.md](09-provenance.md).
+The goal is native Bayer RAW over USB. Camera experiments are paused while documentation is consolidated. The latest recorded permanent UVC checkpoint is the November colour-bars installation. The later SuperSpeed rebuild is an offline candidate. Wi-Fi SSH enabled normal-shooting and recording diagnostics. The exact live Bayer output buffer and completion/lifetime contract remain unresolved. See [current status](CURRENT_STATUS.md) for dates, evidence and the next research boundaries.
 
-`90-session/` is a **quarantine**: dated session logs kept for provenance. Nothing
-there is cited as fact — it exists so that a retracted claim is not silently
-re-derived, and so that the reasoning behind a number can be traced. Durable facts
-were extracted from it into the topic docs.
+## Detailed topic documents
 
-Start here:
+| Document | Coverage |
+| --- | --- |
+| [01 hardware](reference/01-hardware.md) | Platform, firmware inventory, dumps and host/toolchain observations |
+| [02 service shell](reference/02-service-shell.md) | Mounts, persistence, boot, application loading and graphics investigation |
+| [03 binaries](reference/03-binaries.md) | ELF inventory, plugins, application objects, LiRo and display structure |
+| [04 messaging](reference/04-messaging.md) | OSAL/UIPC, endpoints, command IDs, application manifest and scenarios |
+| [05 formats](reference/05-formats.md) | UXC, view files, global.xdb, strings and palettes |
+| [06 method](reference/06-method.md) | Decoding pitfalls and verification methods |
+| [07 modification](reference/07-modification.md) | Writable partitions, persistent changes, update routes and file transport |
+| [08 interfaces](reference/08-camera-interfaces.md) | USB/service modes, host tunnels, lens bus and command tools |
+| [09 provenance](reference/09-provenance.md) | Authored research, upstream work and Sony data boundaries |
 
-- **Cold, and you want the state of play** → [`agents/STATE.md`](agents/STATE.md)
-- **Cold, and you want the facts** → [`agents/REFERENCE.md`](agents/REFERENCE.md)
-- **Open Gate 3:2 Deployment Guide** → [`90-session/OPENGATE_PATCH_GUIDE.md`](90-session/OPENGATE_PATCH_GUIDE.md)
-- **Open Gate 3:2 Reverse Engineering Synthesis** → [`90-session/OPENGATE_138_PATCH_SUITE.md`](90-session/OPENGATE_138_PATCH_SUITE.md)
-- **UVC USB Webcam Hijack & Saturation Guide** → [`90-session/UVC_WEBCAM_HIJACK_GUIDE.md`](90-session/UVC_WEBCAM_HIJACK_GUIDE.md)
-- **Verified VGA USB colour bars** → [2.4p hardware report](uvc_yuy2_patch_v24p.md): FFmpeg first capture/reopen and OBS confirmed
-- **Current VGA source candidate** → [3.0 implementation and flash state](uvc_vga_v30_candidate_20261027.md): installed/reboot-verified, frame test paused
-- **Next 4K/12-bit investigation** → [next-push plan](90-session/4K_12BIT_NEXT_PUSH.md): native precision, source allocation and sink verification
-- **USB reverse-engineering history** → [diagnostic handoff](uvc_yuy2_diagnostics_handoff.md) and [encoder workspace fix](uvc_encoder_workspace_fix.md)
-- **Working on one subject** → the table below
-- **Coding** → [`research/README.md`](../research/README.md)
+The [agent reference](archive/agents/REFERENCE.md) and [agent state archive](archive/agents/STATE.md) retain detailed earlier findings. The opening notice on each points to the consolidated pages. The dated entries under 90-session retain session history and superseded claims. Cite their underlying capture or audit when promoting a claim to current status.
 
-## The topic docs
+## Image and USB research
 
-| | doc | what it settles |
-|---|---|---|
-| 01 | [hardware.md](01-hardware.md) | SoC, the two operating systems, firmware images, how to dump one, Windows gotchas |
-| 02 | [service-shell.md](02-service-shell.md) | everything reachable from the root shell: mounts, persistence, boot chain, `im.elf`, code execution, the `grm_*` DMP/SUGILITE graphics path |
-| 03 | [binaries.md](03-binaries.md) | the ELF inventory, the plugin architecture, the `av-cam.bin` RTOS command engine, VDF display |
-| 04 | [messaging.md](04-messaging.md) | the bus, the id spaces, `libSysDef.so` tables, the MWF and scenario vocabularies, the APICD registry |
-| 05 | [formats.md](05-formats.md) | the `.uxc` container, view files, `global.xdb`, the string table, the colour palette |
-| 06 | [method.md](06-method.md) | the nine decoding traps, and why they all fail silently |
-| 07 | [modification.md](07-modification.md) | what is writable, the applied and verified changes, the updater door, the file transport |
-| 08 | [camera-interfaces.md](08-camera-interfaces.md) | USB modes, the shell bridge, the raw tunnel, the lens protocol, `sndcmd`/`rcvcmd` |
-| 09 | [provenance.md](09-provenance.md) | the copyright boundary: what is ours, what is upstream, what is Sony's |
+| Subject | Evidence and scope |
+| --- | --- |
+| VGA synthetic colour bars | [2.4p hardware report](usb/uvc_yuy2_patch_v24p.md) and [source recipe](../research/firmware/yuy2_transport_v24p/README.md) |
+| Live YC acquisition | [YC synthesis](usb/uvc_yc_subsystem_and_codex_findings.md), [backend recovery/corrections](usb/uvc_sony_backend_recovery.md) and [current claim review](../research/firmware/evidence/zve10-20261117/CLAIM_REVIEW.md) |
+| USB ownership and completion | [Lifetime audit](../research/firmware/raw_frame_source/verified_yc/evidence/usb-lifetime-20261029/REPORT.md) |
+| Historical 1080p candidate | [v43 recipe](../research/firmware/yuy2_transport_v43_usb3_hd/README.md). Use the later [candidate manifest](../research/firmware/evidence/zve10-20261117/transport/manifest.json) and current status for its hardware scope. |
+| Native RAW receiver | [Receiver audit](../research/firmware/raw_frame_source/verified_bayer/evidence/native-dump-20261031/REPORT.md), [later gate correction](../research/firmware/raw_frame_source/verified_bayer/evidence/raw-pipeline-audit-20261031/REPORT.md) and [receiver component](../research/firmware/raw_frame_source/verified_bayer/raw_receiver_v01/README.md) |
+| Historical deployment and diagnostic work | [USB diagnostic handoff](usb/uvc_yuy2_diagnostics_handoff.md), [encoder workspace fix](usb/uvc_encoder_workspace_fix.md) and [session archive](archive/sessions/HANDOFF.md) |
+| Research implementation | [Research index](../research/README.md) and [patched-object recipes](../research/firmware/PATCHED_OBJECTS.md) |
 
-## Conventions used throughout
+## Adding evidence
 
-- **Verified** means checked against a positive control, not merely not-contradicted.
-- **Negative results** get their own section. A refuted claim with its null model
-  is worth more than a confirmed one without, because it stops the same work being
-  redone.
-- Everything is labelled as **measured**, **inferred** or **hypothesised**. A
-  hypothesis that was never tested says so where it is stated.
-- Side effects that were not quantified say so, rather than being omitted.
-- Scripts are named by path from the repo root and run as
-  `& ".venv\Scripts\python.exe" -B research\firmware\<name>.py`.
-  Pass `-B`: stale bytecode bit us once.
+Record the capture date, camera mode, boot/process identity where relevant, exact source/build identity, command, raw result and conclusion with its limits. Place shared captures under a dated evidence directory and link to them with repository-relative paths. Update the relevant topic and current status when the evidence changes.
 
-## Checking the docs
+Firmware images, patched Sony binaries, UI resources and private keys stay outside tracked documentation. Keep their identity, reproducible recipe and local provenance under the existing [provenance policy](reference/09-provenance.md).
+
+Use the evidence labels defined in the camera overview. Hardware observation, offline instruction tests and candidate code establish different facts. Keep contradicted claims with a correction and a link to the replacement evidence.
+
+## Checking the documentation
+
+Run from the repo root.
 
 ```powershell
-& ".venv\Scripts\python.exe" -B research\firmware\check_docs.py
+& ".venv/Scripts/python.exe" -B research/firmware/check_docs.py
 ```
 
-Reports the md5 set fingerprint, the file count and any broken markdown links.
-Run it after editing anything here.
+The checker reports the set of MD5 identifiers, local links and heading anchors. When importing evidence, verify its manifest byte counts and SHA-256 values as well.

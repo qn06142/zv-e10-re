@@ -1,0 +1,26 @@
+{
+  "id": "yuy2_transport_v43_usb3_hd",
+  "reviewed_on": "2026-11-18",
+  "status": "offline-candidate",
+  "source_inputs": [
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/README.md",
+      "sha256": "321c90fbf5d7c76122c8dfa66c653e5d2fa8ce74c77935199980e065a452352e",
+      "hash_mode": "lf-normalized"
+    }
+  ],
+  "firmware_hashes": [],
+  "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
+  "reproduction": {
+    "command": null,
+    "working_directory": ".",
+    "unresolved": "No complete checkout-portable invocation has been established. Inspect the source/recipe and supply its required local inputs.",
+    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+  },
+  "hardware_result": "Later rebuilt transport manifest says hardware_tested=false. Sustained SuperSpeed delivery remains unverified.",
+  "rollback": "Rollback was not revalidated during housekeeping. Use a matching per-body baseline and the recovery scope in docs/ACCESS_AND_TOOLS.md.",
+  "evidence": [
+    "research/firmware/yuy2_transport_v43_usb3_hd/README.md",
+    "docs/CURRENT_STATUS.md"
+  ]
+}

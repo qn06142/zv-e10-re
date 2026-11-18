@@ -1,0 +1,26 @@
+{
+  "id": "yuy2_transport_v36_single_snapshot",
+  "reviewed_on": "2026-11-18",
+  "status": "failed",
+  "source_inputs": [
+    {
+      "path": "research/firmware/yuy2_transport_v36_single_snapshot/README.md",
+      "sha256": "424a3c93a271fb1530eb14be967d13ddc293da88d202f99cfac0f7fb39acccb2",
+      "hash_mode": "lf-normalized"
+    }
+  ],
+  "firmware_hashes": [],
+  "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
+  "reproduction": {
+    "command": null,
+    "working_directory": ".",
+    "unresolved": "No complete checkout-portable invocation has been established. Inspect the source/recipe and supply its required local inputs.",
+    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+  },
+  "hardware_result": "Historical report records no OBS frame and repeated camera crashes.",
+  "rollback": "Rollback was not revalidated during housekeeping. Use a matching per-body baseline and the recovery scope in docs/ACCESS_AND_TOOLS.md.",
+  "evidence": [
+    "research/firmware/yuy2_transport_v36_single_snapshot/README.md",
+    "docs/CURRENT_STATUS.md"
+  ]
+}

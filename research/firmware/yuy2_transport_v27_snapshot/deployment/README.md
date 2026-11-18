@@ -33,7 +33,7 @@ Use the repository .venv Python. `--repo` defaults to D:/02_Development_And_Proj
 
 If a test fails, cold-boot back into service mode without entering USB Streaming. The guarded recovery script refuses live streaming mappings. Either run `/bin/busybox sh /usr/share/yuy2-recovery-v27snap/rollback.sh` through the service shell, or use the runner's explicit rollback step with a fresh evidence directory. Verify its success marker, then reboot separately. The inert new module is retained for audit; the streaming library again depends on 2.4p. If either image or its backup has an unexpected hash, stop and inspect instead of bypassing guards.
 
-Raw source recipe and offline evidence: research/firmware/yuy2_transport_v27_snapshot/ and docs/uvc_native_dmm_snapshot_v27.md in the repository. This package is experimental; it has not produced a real sensor capture yet.
+Raw source recipe and offline evidence: research/firmware/yuy2_transport_v27_snapshot/ and docs/usb/uvc_native_dmm_snapshot_v27.md in the repository. This package is experimental; it has not produced a real sensor capture yet.
 
 ## Actual deployment notes
 

@@ -1,0 +1,18 @@
+# Patch av-cam.bin in place using dd split+cat (busybox dd has no conv=notrunc here)
+# /system/av-cam.bin is 17289388 bytes; patch uint16 0x0D30->0x0FA0 at offset 0xff44c8 (16711752)
+OFF=16711752
+SZ=17289388
+# 1. head part: bytes [0, OFF)
+busybox dd if=/system/av-cam.bin of=/log/head.bin bs=1 count=$OFF status=none
+# 2. tail part: bytes [OFF+2, SZ)
+busybox dd if=/system/av-cam.bin of=/log/tail.bin bs=1 skip=$((OFF+2)) status=none
+# 3. patch payload
+printf '\xa0\x0f' > /log/patch2.bin
+# 4. reassemble into patched file
+busybox cat /log/head.bin /log/patch2.bin /log/tail.bin > /log/av-cam.patched
+busybox wc -c /log/av-cam.patched
+# 5. verify the patched byte
+busybox xxd -s $OFF -l 2 /log/av-cam.patched
+# 6. md5 of patched
+busybox md5sum /log/av-cam.patched
+busybox echo PATCH_BUILT_MARKER

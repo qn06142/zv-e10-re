@@ -23,7 +23,7 @@ What it establishes
   reachable from user space by any path.
 
 So the ioctl is a thin scalar control surface, not a display door.  See
-``docs/agents/REFERENCE.md`` and ``docs/06-method.md``.
+``docs/archive/agents/REFERENCE.md`` and ``docs/reference/06-method.md``.
 
 Traps encoded here, each of which silently loses commands
 --------------------------------------------------------

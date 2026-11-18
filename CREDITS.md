@@ -113,7 +113,7 @@ extended to the models this project targets.
 
 Reverse engineered from a **Sony ZV-E10**, firmware 2.02/2.03, kernel
 `3.0.27_nl-rt106+`. No Sony source, binary or resource is redistributed here —
-see [`docs/09-provenance.md`](docs/09-provenance.md) for the boundary and
+see [`docs/reference/09-provenance.md`](docs/reference/09-provenance.md) for the boundary and
 [`research/firmware/PATCHED_OBJECTS.md`](research/firmware/PATCHED_OBJECTS.md)
 for the regeneration recipes. The `updatershell/fdat/` files are the one
 exception, and they predate this project: they came with upstream's MIT release.
@@ -164,7 +164,7 @@ with the test that would settle each one stated alongside.
 **The most important caveat.** These agents produced confident wrong answers, and
 they failed *silently* — a mis-set mask, a mis-guessed table stride or a
 hand-typed byte returned a plausible wrong answer instead of raising. Ten such
-traps are catalogued in [`docs/06-method.md`](docs/06-method.md), with Negative
+traps are catalogued in [`docs/reference/06-method.md`](docs/reference/06-method.md), with Negative
 results sections in the topic docs. Four of the worst:
 
 - **An APICD table stride of 72 instead of 36.** It reads every *second* record,

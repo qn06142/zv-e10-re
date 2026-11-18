@@ -1,0 +1,46 @@
+TIMESTAMP
+292.41 548.40
+5336e710-5381-4c58-9348-91622cbf7148
+MEDIA MOUNTS
+RECORDING CACHE AND IO STATS
+Dirty:                 4 kB
+Writeback:             0 kB
+CAMERA STATE
+im.elf 151
+bootin.elf 144
+sen.elf absent
+CURRENT CAMERA FD PATHS
+lrwx------    1 root     root            64 Jan  1 00:04 0 -> /dev/console
+lrwx------    1 root     root            64 Jan  1 00:04 1 -> /dev/console
+lrwx------    1 root     root            64 Jan  1 00:04 10 -> /dev/usb/buspwr
+lrwx------    1 root     root            64 Jan  1 00:04 100 -> socket:[2097]
+lrwx------    1 root     root            64 Jan  1 00:04 101 -> socket:[2098]
+lrwx------    1 root     root            64 Jan  1 00:04 102 -> socket:[2099]
+lrwx------    1 root     root            64 Jan  1 00:04 103 -> socket:[2100]
+lr-x------    1 root     root            64 Jan  1 00:04 107 -> /dev/urandom
+lrwx------    1 root     root            64 Jan  1 00:04 11 -> /dev/usb/event
+lrwx------    1 root     root            64 Jan  1 00:04 12 -> /dev/hdmi
+lrwx------    1 root     root            64 Jan  1 00:04 13 -> /dev/usb/otgcore
+lrwx------    1 root     root            64 Jan  1 00:04 14 -> /dev/stream
+lrwx------    1 root     root            64 Jan  1 00:04 15 -> /dev/hdmi
+lr-x------    1 root     root            64 Jan  1 00:04 16 -> /dev/mem
+lrwx------    1 root     root            64 Jan  1 00:04 17 -> /dev/hdmi
+lrwx------    1 root     root            64 Jan  1 00:04 18 -> /dev/cec
+lr-x------    1 root     root            64 Jan  1 00:04 19 -> pipe:[2050]
+lrwx------    1 root     root            64 Jan  1 00:04 2 -> /dev/console
+l-wx------    1 root     root            64 Jan  1 00:04 20 -> pipe:[2050]
+lrwx------    1 root     root            64 Jan  1 00:04 21 -> /dev/cec
+lrwx------    1 root     root            64 Jan  1 00:04 22 -> /dev/cec
+lrwx------    1 root     root            64 Jan  1 00:04 23 -> /dev/mem
+lr-x------    1 root     root            64 Jan  1 00:04 24 -> pipe:[2051]
+l-wx------    1 root     root            64 Jan  1 00:04 25 -> pipe:[2051]
+lrwx------    1 root     root            64 Jan  1 00:04 26 -> /dev/mem
+lrwx------    1 root     root            64 Jan  1 00:04 27 -> /dev/mem
+lrwx------    1 root     root            64 Jan  1 00:04 28 -> /dev/mem
+lrwx------    1 root     root            64 Jan  1 00:04 29 -> /dev/stream2
+lrwx------    1 root     root            64 Jan  1 00:04 3 -> /dev/uipc
+lrwx------    1 root     root            64 Jan  1 00:04 30 -> /dev/mem
+lrwx------    1 root     root            64 Jan  1 00:04 31 -> /dev/mem
+lrwx------    1 root     root            64 Jan  1 00:04 32 -> /dev/mem
+IMAGING AND CODEC IRQ COUNTERS
+SNAPSHOT_OK

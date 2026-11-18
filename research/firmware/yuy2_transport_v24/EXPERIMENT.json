@@ -1,0 +1,32 @@
+{
+  "id": "yuy2_transport_v24",
+  "reviewed_on": "2026-11-18",
+  "status": "historical",
+  "source_inputs": [
+    {
+      "path": "research/firmware/yuy2_transport_v24/README.md",
+      "sha256": "5fe890cf3c44b3a037d003d39abec3e3f8033cfc58170d749d2460672e9e31d1",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v24/build.py",
+      "sha256": "f8e3b865ce65f732568f8ab8b59270c59a4513da8eefc7f34bfeaf5a50f73133",
+      "hash_mode": "lf-normalized"
+    }
+  ],
+  "firmware_hashes": [],
+  "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
+  "reproduction": {
+    "command": "python -B build.py --repo <repo> --output <new-output> --streaming-image <checked-startup-image> --stream-base <actual-base>\npython -B kernel_patch.py --input <repo>/dumps/camera_2025/usr/usr/kmod/usbg_video.ko --output <new-output>/usbg_video.ko\npython -B verify.py --repo <repo> --output <new-output> --streaming-image <checked-startup-image> --stream-base <actual-base>\npython -B verify_bootstrap.py --output <new-output> --stream-base <actual-base>\npython -B verify_kernel.py --stock <repo>/dumps/camera_2025/usr/usr/kmod/usbg_video.ko --candidate <new-output>/usbg_video.ko\npython -B package.py --repo <repo> --output <new-output>",
+    "working_directory": "research/firmware/yuy2_transport_v24",
+    "unresolved": null,
+    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+  },
+  "hardware_result": "Hardware result has not been independently revalidated during housekeeping. Consult the recorded report and current status.",
+  "rollback": "Rollback was not revalidated during housekeeping. Use a matching per-body baseline and the recovery scope in docs/ACCESS_AND_TOOLS.md.",
+  "evidence": [
+    "research/firmware/yuy2_transport_v24/README.md",
+    "research/firmware/yuy2_transport_v24/build.py",
+    "docs/CURRENT_STATUS.md"
+  ]
+}

@@ -1,2 +1,0 @@
-busybox dd if=/tmp/sd/av-cam.orig.bin of=/system/av-cam.bin bs=512 status=none
-busybox echo DD_FINISHED_RC=$?

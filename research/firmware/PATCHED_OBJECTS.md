@@ -95,11 +95,11 @@ Sony's expression, and they are the actual output of the work:
 - `research/firmware/elf_catalog.json`, `prop_table.tsv`, `app_manifest.txt`,
   `libobj_exports.txt` — filenames, sizes, export and symbol names
 - `research/firmware/sysdef_tables.py`, `mwf_catalog.py`, … — the tools that
-  generate the tables in `docs/04-messaging.md`
+  generate the tables in `docs/reference/04-messaging.md`
 - `avcam_re/*.md`, `re_symbols/*.json`, `docs/**` — our own prose and analysis
 - `scripts/*.txt`, `verify/*.txt` — device command transcripts we authored
 
 Anything that is Sony's *code* or Sony's *data* stays out.
 
-See [`docs/09-provenance.md`](docs/09-provenance.md) for the full boundary,
+See [`docs/reference/09-provenance.md`](docs/reference/09-provenance.md) for the full boundary,
 including the upstream material that was already published before this work.

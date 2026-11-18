@@ -1,0 +1,58 @@
+{
+  "firmware": "Sony ZV-E10 2.03",
+  "controller_speed_arm_cases_passed": 384,
+  "common_patch_file_offset": "0xcd6c",
+  "common_patch_size_bytes": 30,
+  "hardware_tested": false,
+  "files": {
+    "libInfraUsbCmn.so": {
+      "size": 94612,
+      "sha256": "dc74a2af9e4780f131aa3618e69a31b630fbd28298016ba4010736d3ddf1b0c3"
+    },
+    "usbg_video.ko": {
+      "size": 34876,
+      "sha256": "4ba4b0604d20dabfe25a716044a75cff47f9765bc8035d536941f8f3926a2055"
+    },
+    "yuy2_1080_v43chunk.so": {
+      "size": 48020,
+      "sha256": "5a06e92587af8b96de1ba0ab1602398fcb1c216f33c52121bbabdbd6ac92cf2b"
+    },
+    "libInfraStreamingUsb.so": {
+      "size": 72796,
+      "sha256": "604424797110b48e6d860fb8b65069e1633c80e5098e18de009c0fd48c78e10a"
+    }
+  },
+  "compiled_descriptor_checks": [
+    {
+      "table": "PAL HS",
+      "table_va": "0x1cab8",
+      "bulk_endpoint": "0x81",
+      "max_packet_bytes": 512,
+      "uvc_class_descriptor_bytes": 77
+    },
+    {
+      "table": "NTSC HS",
+      "table_va": "0x1cdb0",
+      "bulk_endpoint": "0x81",
+      "max_packet_bytes": 512,
+      "uvc_class_descriptor_bytes": 77
+    },
+    {
+      "table": "PAL SS",
+      "table_va": "0x1cb30",
+      "bulk_endpoint": "0x81",
+      "max_packet_bytes": 1024,
+      "uvc_class_descriptor_bytes": 77
+    },
+    {
+      "table": "NTSC SS",
+      "table_va": "0x1ce28",
+      "bulk_endpoint": "0x81",
+      "max_packet_bytes": 1024,
+      "uvc_class_descriptor_bytes": 77
+    }
+  ],
+  "frontend_arm_cases_passed": 9,
+  "chunk_producer_arm_cases_passed": 6,
+  "kernel_chunk_arm_cases_passed": 32
+}

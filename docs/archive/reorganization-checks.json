@@ -1,0 +1,20 @@
+{
+  "checked_on": "2026-11-18",
+  "moved_files": 88,
+  "top_level_documentation_files": [
+    "ACCESS_AND_TOOLS.md",
+    "CAMERA_OVERVIEW.md",
+    "CURRENT_STATUS.md",
+    "README.md"
+  ],
+  "source_and_evidence_preservation": "27 imported evidence files retain their manifest SHA-256 and size; historical README content retained in archive.",
+  "md5_identifier_set_preserved": true,
+  "verification": [
+    "Repository docs links and anchors pass",
+    "Research entry-page links pass",
+    "All old move locations are absent and new destinations exist",
+    "Three batch patcher help commands and retool help succeed",
+    "Moved monitor source compiles"
+  ],
+  "documentation_check_output": "markdown scanned: 85 files (docs/ plus repo root)\ndistinct md5 values: 105\n\nfile links: 468, broken targets: 0\nin-page anchors: 57, unmatched: 0\n\nmd5-set fingerprint: b545392f68bf9a6c81456f7c5ec821ed\n"
+}

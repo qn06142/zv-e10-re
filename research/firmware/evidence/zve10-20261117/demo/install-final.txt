@@ -1,0 +1,35 @@
+Using drivers libusb-MSC, libusb-MTP, libusb-vendor-specific
+Looking for Sony devices
+
+Querying mass storage device
+Sony DSC is a camera in mass storage mode
+
+Switching to service mode
+
+Waiting for camera to switch...
+Found a camera in service mode
+Authenticating
+[push] C:\Users\qn061\Documents\Codex\2026-11-16\chrome-plugin-chrome-openai-bundled-file-2/work/zve10-color-bars/usbg_video.ko (20668B, md5=c1cad400372e26eca729e4b9bc47a237) -> /tmp/zv-color-bars-v24p.ko
+[push] C:\Users\qn061\Documents\Codex\2026-11-16\chrome-plugin-chrome-openai-bundled-file-2/work/zve10-color-bars/libInfraStreamingUsb.so (72792B, md5=5fde77e394572ebcf420f8941575f6c4) -> /tmp/zv-color-bars-v24p.so
+[push] C:\Users\qn061\Documents\Codex\2026-11-16\chrome-plugin-chrome-openai-bundled-file-2/work/zve10-color-bars/install.sh (3697B, md5=034ed4785c8aaac2c3d282496dd60680) -> /tmp/zv-color-bars-install.sh
+[cmd rc=0]
+/bin/busybox sh -n /tmp/zv-color-bars-install.sh && /bin/busybo
+
+
+x sh /tmp/zv-color-bars-install.sh
+
+[   39.978038] EXT2-fs (nflasha15): warning: mounting unchecked fs, running e2fsck is recommended
+/dev/nflasha15 /usr ext2 ro,relatime,errors=continue 0 0
+
+c1cad400372e26eca729e4b9bc47a237  /usr/kmod/usbg_video.ko
+
+5fde77e394572ebcf420f8941575f6c4  /usr/lib/libInfraStreamingUsb.so
+
+9181ef744955190d04728cf4ef7965c5  /usr/lib/yuy2_640_v24p.so
+
+COLOR_BARS_PERMANENT_PAIR_VERIFIED
+
+/usr/share/app # echo DONE_M $?
+
+DONE_M 0
+Done

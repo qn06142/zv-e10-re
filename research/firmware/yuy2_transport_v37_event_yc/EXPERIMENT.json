@@ -1,0 +1,32 @@
+{
+  "id": "yuy2_transport_v37_event_yc",
+  "reviewed_on": "2026-11-18",
+  "status": "failed",
+  "source_inputs": [
+    {
+      "path": "research/firmware/yuy2_transport_v37_event_yc/README.md",
+      "sha256": "fa17b4e7a4d8fc929ac456ee1e7600dd32ea8c8aed708843153219bcc2e6f2f1",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v37_event_yc/package.py",
+      "sha256": "a55d4a245de98da90b014ae395f64c6d2d138e64cba65786d48bbeefa3a5ffd8",
+      "hash_mode": "lf-normalized"
+    }
+  ],
+  "firmware_hashes": [],
+  "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
+  "reproduction": {
+    "command": null,
+    "working_directory": ".",
+    "unresolved": "No complete checkout-portable invocation has been established. Inspect the source/recipe and supply its required local inputs.",
+    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+  },
+  "hardware_result": "Historical report records zero frames; descriptor rejected before resize.",
+  "rollback": "Rollback was not revalidated during housekeeping. Use a matching per-body baseline and the recovery scope in docs/ACCESS_AND_TOOLS.md.",
+  "evidence": [
+    "research/firmware/yuy2_transport_v37_event_yc/README.md",
+    "research/firmware/yuy2_transport_v37_event_yc/package.py",
+    "docs/CURRENT_STATUS.md"
+  ]
+}

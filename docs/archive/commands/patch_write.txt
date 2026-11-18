@@ -1,0 +1,19 @@
+# Plan A: write patched av-cam.bin to /system, verify, reboot, read back
+# Card is mounted at /tmp/sd (E: from PC). Patched file: /tmp/sd/av-cam.patched
+# 1. Ensure card mounted
+busybox mount | busybox grep -q /tmp/sd || busybox mount -t vfat /dev/mmca1 /tmp/sd
+busybox echo "card mount rc=$?"
+# 2. Backup original to card
+busybox dd if=/system/av-cam.bin of=/tmp/sd/av-cam.orig bs=512 status=none
+busybox echo "backup rc=$?"
+busybox md5sum /system/av-cam.bin /tmp/sd/av-cam.orig
+busybox echo BACKUP_DONE
+# 3. Write patched file to /system (full overwrite, no conv=notrunc needed)
+busybox dd if=/tmp/sd/av-cam.patched of=/system/av-cam.bin bs=512 status=none
+busybox echo "write rc=$?"
+busybox sync
+busybox echo SYNC_DONE
+# 4. Verify on-disk before reboot
+busybox md5sum /system/av-cam.bin
+busybox xxd -s 0xff44c8 -l 2 /system/av-cam.bin
+busybox echo VERIFY_BEFORE_REBOOT

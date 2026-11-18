@@ -1,0 +1,13 @@
+SAMPLE 1
+478.51 935.43
+InfraMovieEncod InfraMovieEncTh AVCodec ObjMovieRecorde MovieRecorder MovieRecEtc 218:       1113          0          0          0       GIC  mmc0
+221:      28140          0          0          0       GIC  mmc1
+227:      22822          0          0          0       GIC  emmc0
+227:      22822          0          0          0       GIC  emmc0
+SAMPLE 2
+481.87 942.90
+InfraMovieEncod InfraMovieEncTh AVCodec ObjMovieRecorde MovieRecorder MovieRecEtc 218:       1113          0          0          0       GIC  mmc0
+221:      28288          0          0          0       GIC  mmc1
+227:      22822          0          0          0       GIC  emmc0
+227:      22822          0          0          0       GIC  emmc0
+SWITCH_SAMPLES_OK

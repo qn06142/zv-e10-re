@@ -16,3 +16,5 @@ The targeted command was .venv/Scripts/python.exe -B -m pytest tests/test_retool
 The new standard-library housekeeping tests exercise evidence tampering, byte-count mismatch, escaping paths, duplicate evidence entries and artifact classification. The dedicated research workflow is ready for a hosted run after the local commits are pushed.
 
 Source/recipe hashes in EXPERIMENT.json identify what was reviewed for navigation and reproduction context. Hardware result and firmware input fields preserve unresolved items explicitly. They do not turn an offline candidate into a camera-tested release.
+
+The remaining legacy untracked files are listed with byte counts and SHA-256 in LOCAL_RESEARCH_INVENTORY_20261118.json. They remain local pending a detailed source/provenance review. This checkpoint covers the reviewed host edits, organized documentation, source identities, imported evidence and housekeeping automation.

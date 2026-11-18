@@ -1,6 +1,6 @@
 # Revision 2.4p — persistent, lazy YUY2 transport
 
-Installed and reboot verified on 24 October 2026. First FFmpeg capture, same-session FFmpeg reopen, and subsequent user OBS preview passed without a camera-mode restart between clients. Output remains synthetic 640×480 YUY2 bars/counters, nominal 10 fps. See [deployment report](../../../docs/uvc_yuy2_patch_v24p.md).
+Installed and reboot verified on 24 October 2026. First FFmpeg capture, same-session FFmpeg reopen, and subsequent user OBS preview passed without a camera-mode restart between clients. Output remains synthetic 640×480 YUY2 bars/counters, nominal 10 fps. See [deployment report](../../../docs/usb/uvc_yuy2_patch_v24p.md).
 
 `persistent_stream.py` adds a position-independent prepare gate and DT_NEEDED dependency on `yuy2_640_v24p.so` to pre-install streaming image MD5 `19461091c07aa6900829defb0060fcd6`. The producer has no constructor: mapping does not activate it. Video prepare calls `yuy2_activate`, which installs guarded runtime hooks once. Persistence removes manual service RAM bootstrap; the producer still patches process memory during activation. The permanent gate embeds no fixed process/library base.
 

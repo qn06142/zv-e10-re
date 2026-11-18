@@ -79,7 +79,7 @@ class TestDepGraph(unittest.TestCase):
         self.assertEqual(len(orphans) - len(scen) - len(on_dem), 48)
 
     def test_osal_uipc_dependents_corroborates_the_docs(self):
-        """docs/03-binaries.md says 166 dependents; that must still hold."""
+        """docs/reference/03-binaries.md says 166 dependents; that must still hold."""
         import collections
         needed_by = collections.Counter()
         for v in self.real.values():
@@ -103,7 +103,7 @@ class TestDepGraph(unittest.TestCase):
     def test_jiritsu_lead_is_closed_offline(self):
         """libJiritsu.so exists but is degenerate, so it is not a usable lead.
 
-        docs/05-formats.md leaves open that finding a Jiritsu library would give
+        docs/reference/05-formats.md leaves open that finding a Jiritsu library would give
         real member names.  The file is present in the catalog at 114,688 B but
         carries no imports, no DT_NEEDED and no exports, so nothing can be read
         out of it without the binary.

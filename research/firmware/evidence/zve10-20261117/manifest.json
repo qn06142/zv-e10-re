@@ -1,0 +1,194 @@
+{
+  "imported_on": "2026-11-18",
+  "files": [
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/live-view-counters.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-live-4k24\\live-view-counters.txt",
+      "bytes": 2831,
+      "sha256": "0dd8e3cfcfc04a9509b7149cd7e66043e7022f6937c263620d45f22b328ea7db",
+      "context": "17 November camera SSH captures. Filenames and raw context retain mode and trace-state limitations."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/live-view-rearmed.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-live-4k24\\live-view-rearmed.txt",
+      "bytes": 333343,
+      "sha256": "e8cca84250d2bd34d3cbfd5cd54fc9acc5d0e8e96cd5ddc1c5a6c3c140cbad59",
+      "context": "17 November camera SSH captures. Filenames and raw context retain mode and trace-state limitations."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/live-view-recheck.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-live-4k24\\live-view-recheck.txt",
+      "bytes": 1732,
+      "sha256": "bed4fcec4309a85bf6d3cd35bf7d2ad8ab901b63160b3f9abbcdc4ed399c68ab",
+      "context": "17 November camera SSH captures. Filenames and raw context retain mode and trace-state limitations."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/live-view.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-live-4k24\\live-view.txt",
+      "bytes": 549163,
+      "sha256": "e28b8cdef6b52d47b86c87e63fd49f982f743c0b57c64b15278e1c5147e4f791",
+      "context": "17 November camera SSH captures. Filenames and raw context retain mode and trace-state limitations."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/media.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-live-4k24\\media.txt",
+      "bytes": 5801,
+      "sha256": "b80401b96f19b1e7d80009f2c8ee7e3f0c7ac29b4cb63af6f0daa58ec2353428",
+      "context": "17 November camera SSH captures. Filenames and raw context retain mode and trace-state limitations."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/second.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-live-4k24\\second.txt",
+      "bytes": 93301,
+      "sha256": "e8c68aafa2cd1d206dcc7285f269341f634358d8887ba7cc44bb292acaf7f2c9",
+      "context": "17 November camera SSH captures. Filenames and raw context retain mode and trace-state limitations."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/state.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-live-4k24\\state.txt",
+      "bytes": 2711,
+      "sha256": "450977e64653e4f8c4107df0fda796234d1962aed08a51dadb711fc2b34448f7",
+      "context": "17 November camera SSH captures. Filenames and raw context retain mode and trace-state limitations."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/switches.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-live-4k24\\switches.txt",
+      "bytes": 765,
+      "sha256": "41f6671165f053ed91933f4e6d9b9c540b857fce60360abb25f1ca13c0923a22",
+      "context": "17 November camera SSH captures. Filenames and raw context retain mode and trace-state limitations."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/threads.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-live-4k24\\threads.txt",
+      "bytes": 2810,
+      "sha256": "66b2c584fac917ce18449bb9f089ff1e795ae3dde4436dc75acab9f0a128a823",
+      "context": "17 November camera SSH captures. Filenames and raw context retain mode and trace-state limitations."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/tmonitor.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-live-4k24\\tmonitor.txt",
+      "bytes": 90667,
+      "sha256": "b5fa3a7be8a407658a5ba7d7c54ed5f7de95f7e500711ceb73f46421916f8138",
+      "context": "17 November camera SSH captures. Filenames and raw context retain mode and trace-state limitations."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/tools-check-tmonitor.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-live-4k24\\tools-check-tmonitor.txt",
+      "bytes": 90187,
+      "sha256": "47820f7af2692e4445e2d33099d9bd8b33cfd53b324e72b9ae3a51768d5c50da",
+      "context": "17 November camera SSH captures. Filenames and raw context retain mode and trace-state limitations."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/codex/sensor-markers.tsv",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\outputs\\zve10-live-view\\sensor-markers.tsv",
+      "bytes": 15031,
+      "sha256": "ced77d86738ddff76ba29a9e0a0aeb39ae7f1d9b3f6cdaa0f0b827b9d4257220",
+      "context": "Derived markers from the explicitly rearmed live-view trace windows."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/additional-captures/camera_surfaces_inventory.txt",
+      "source_path": "C:\\Users\\qn061\\.gemini\\antigravity\\brain\\bca7c27c-cf09-45ef-b1b9-36890665d923\\scratch\\camera_surfaces_inventory.txt",
+      "bytes": 67841,
+      "sha256": "821a998d8c3138f6be6e1d6a8fc8260662c9f1a2afbdfa1dca3558ed17a3d831",
+      "context": "Imported supplied-analysis hardware transcript. Mode labels follow source filenames. Empty captures are retained as failed collection evidence."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/additional-captures/kallsyms_and_proc_subdirs.txt",
+      "source_path": "C:\\Users\\qn061\\.gemini\\antigravity\\brain\\bca7c27c-cf09-45ef-b1b9-36890665d923\\scratch\\kallsyms_and_proc_subdirs.txt",
+      "bytes": 40342,
+      "sha256": "04cc705ef74e9fec61d05d946aeefac37a96767051240ca2a20a589d6230d0d1",
+      "context": "Imported supplied-analysis hardware transcript. Mode labels follow source filenames. Empty captures are retained as failed collection evidence."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/additional-captures/live_view_check_1.txt",
+      "source_path": "C:\\Users\\qn061\\.gemini\\antigravity\\brain\\bca7c27c-cf09-45ef-b1b9-36890665d923\\scratch\\live_view_check_1.txt",
+      "bytes": 2896,
+      "sha256": "bef00e6bed07df3515231628c7b7354ed765d7de1a47ca2d6099ead27d53085f",
+      "context": "Imported supplied-analysis hardware transcript. Mode labels follow source filenames. Empty captures are retained as failed collection evidence."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/additional-captures/live_view_dmm_extents_units2.txt",
+      "source_path": "C:\\Users\\qn061\\.gemini\\antigravity\\brain\\bca7c27c-cf09-45ef-b1b9-36890665d923\\scratch\\live_view_dmm_extents_units2.txt",
+      "bytes": 16648,
+      "sha256": "26cd64882ac664660d6dd342d5dfd397070aab0e4a7ac38cc54d0091474cb86d",
+      "context": "Imported supplied-analysis hardware transcript. Mode labels follow source filenames. Empty captures are retained as failed collection evidence."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/additional-captures/live_view_full_1.txt",
+      "source_path": "C:\\Users\\qn061\\.gemini\\antigravity\\brain\\bca7c27c-cf09-45ef-b1b9-36890665d923\\scratch\\live_view_full_1.txt",
+      "bytes": 108121,
+      "sha256": "e8dbfdef994e195bda826702f8887eae08697083a899d4c7739de2df55273bdd",
+      "context": "Imported supplied-analysis hardware transcript. Mode labels follow source filenames. Empty captures are retained as failed collection evidence."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/additional-captures/live_view_mask4_1.txt",
+      "source_path": "C:\\Users\\qn061\\.gemini\\antigravity\\brain\\bca7c27c-cf09-45ef-b1b9-36890665d923\\scratch\\live_view_mask4_1.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "context": "Imported supplied-analysis hardware transcript. Mode labels follow source filenames. Empty captures are retained as failed collection evidence."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/additional-captures/live_view_rapid_dmm_dmac.txt",
+      "source_path": "C:\\Users\\qn061\\.gemini\\antigravity\\brain\\bca7c27c-cf09-45ef-b1b9-36890665d923\\scratch\\live_view_rapid_dmm_dmac.txt",
+      "bytes": 16537,
+      "sha256": "a6e9527776e038773fc80d14ce75d27d12cd2cfaa827a8e1dcff54b3344ceab9",
+      "context": "Imported supplied-analysis hardware transcript. Mode labels follow source filenames. Empty captures are retained as failed collection evidence."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/additional-captures/live_view_threads_disk_dmm.txt",
+      "source_path": "C:\\Users\\qn061\\.gemini\\antigravity\\brain\\bca7c27c-cf09-45ef-b1b9-36890665d923\\scratch\\live_view_threads_disk_dmm.txt",
+      "bytes": 139773,
+      "sha256": "c3c8c10e1e0fbc3f0c1bac1ca7f3f53e8903e60951718a7415498252b7eaa671",
+      "context": "Imported supplied-analysis hardware transcript. Mode labels follow source filenames. Empty captures are retained as failed collection evidence."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/additional-captures/live_view_traces_1.txt",
+      "source_path": "C:\\Users\\qn061\\.gemini\\antigravity\\brain\\bca7c27c-cf09-45ef-b1b9-36890665d923\\scratch\\live_view_traces_1.txt",
+      "bytes": 175159,
+      "sha256": "c21b3578f7cd690c04e162f50173d9e25e86e961a98382424322f37b01130101",
+      "context": "Imported supplied-analysis hardware transcript. Mode labels follow source filenames. Empty captures are retained as failed collection evidence."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/additional-captures/live_view_udm_osal_1.txt",
+      "source_path": "C:\\Users\\qn061\\.gemini\\antigravity\\brain\\bca7c27c-cf09-45ef-b1b9-36890665d923\\scratch\\live_view_udm_osal_1.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "context": "Imported supplied-analysis hardware transcript. Mode labels follow source filenames. Empty captures are retained as failed collection evidence."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/additional-captures/rec_4k24_full_1.txt",
+      "source_path": "C:\\Users\\qn061\\.gemini\\antigravity\\brain\\bca7c27c-cf09-45ef-b1b9-36890665d923\\scratch\\rec_4k24_full_1.txt",
+      "bytes": 305166,
+      "sha256": "ea3d430db0b74160463d6bc77ad169cdeb96d1d2442c3e76a6feebe4689a2597",
+      "context": "Imported supplied-analysis hardware transcript. Mode labels follow source filenames. Empty captures are retained as failed collection evidence."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/demo/install-final.txt",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\work\\zve10-color-bars\\install-final.txt",
+      "bytes": 1463,
+      "sha256": "91541fa78f1043d819caddab9dd6b19475e388d8bb63d28b79f3d31b544cdc0c",
+      "context": "16 November permanent colour-bars installation readback."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/transport/manifest.json",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\outputs\\zve10-uvc-superspeed\\manifest.json",
+      "bytes": 1642,
+      "sha256": "01d8f7ac7fb2c2bb6c6a1df192a1e3ed0c5df391d8be07f355e87fb9012b204d",
+      "context": "Later offline SuperSpeed candidate. Manifest says hardware_tested=false."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/transport/producer-source.patch",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\outputs\\zve10-uvc-superspeed\\producer-source.patch",
+      "bytes": 1190,
+      "sha256": "eba23b5e6c2fd2a404f20f9dee193d07358999ce438a046a654044d1fa0372da",
+      "context": "Later offline SuperSpeed candidate. Manifest says hardware_tested=false."
+    },
+    {
+      "path": "research/firmware/evidence/zve10-20261117/transport/build.py",
+      "source_path": "C:\\Users\\qn061\\Documents\\Codex\\2026-11-16\\chrome-plugin-chrome-openai-bundled-file-2\\outputs\\zve10-uvc-superspeed\\build.py",
+      "bytes": 4923,
+      "sha256": "06ed242f4d96582db3be74450de8b0cdcadd0a0aa098f701950b6e4a3bb28c8e",
+      "context": "Later offline SuperSpeed candidate. Manifest says hardware_tested=false."
+    }
+  ]
+}

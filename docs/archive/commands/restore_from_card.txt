@@ -1,0 +1,12 @@
+# Restore known-good av-cam.bin from card backup
+busybox mount | busybox grep -q /tmp/sd || busybox mount -t vfat /dev/mmca1 /tmp/sd
+busybox echo MOUNT_RC=$?
+busybox ls -la /tmp/sd/av-cam.orig.bin
+busybox md5sum /tmp/sd/av-cam.orig.bin
+busybox dd if=/tmp/sd/av-cam.orig.bin of=/system/av-cam.bin bs=512 status=none
+busybox echo WRITE_RC=$?
+busybox sync
+busybox echo SYNC_DONE
+busybox md5sum /system/av-cam.bin
+busybox xxd -s 0xff44c8 -l 2 /system/av-cam.bin
+busybox echo RESTORE_VERIFY_DONE

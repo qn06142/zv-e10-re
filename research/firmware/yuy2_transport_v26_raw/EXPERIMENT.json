@@ -1,0 +1,32 @@
+{
+  "id": "yuy2_transport_v26_raw",
+  "reviewed_on": "2026-11-18",
+  "status": "historical",
+  "source_inputs": [
+    {
+      "path": "research/firmware/yuy2_transport_v26_raw/README.md",
+      "sha256": "3edfe36c0cf9ca161e9371360b3294d5d2e433c83c2fc705f42ab92c26cb5f23",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v26_raw/build.py",
+      "sha256": "3a2ff4a446bc93d28b958662763fa8e1bf8d03ab031a7f245631abba620e05fd",
+      "hash_mode": "lf-normalized"
+    }
+  ],
+  "firmware_hashes": [],
+  "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
+  "reproduction": {
+    "command": "python -B build.py --repo D:/02_Development_And_Projects/pmca-re --output <candidate> --streaming-image <19461091c07aa6900829defb0060fcd6 baseline> --stream-base 0x0a61e000\npython -B persistent_stream.py --input <same baseline> --output <candidate>/libInfraStreamingUsb.persistent.so\npython -B verify_opaque.py --repo D:/02_Development_And_Projects/pmca-re --output <candidate> --streaming-image <candidate>/libInfraStreamingUsb.persistent.so --stream-base 0x0a61e000\npython -B verify_persistent.py --stock <same baseline> --candidate <candidate>/libInfraStreamingUsb.persistent.so --module <candidate>/yuy2_640_v26raw.so\npython -B verify_isa.py --module <candidate>/yuy2_640_v26raw.so",
+    "working_directory": "research/firmware/yuy2_transport_v26_raw",
+    "unresolved": null,
+    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+  },
+  "hardware_result": "Hardware result has not been independently revalidated during housekeeping. Consult the recorded report and current status.",
+  "rollback": "Rollback was not revalidated during housekeeping. Use a matching per-body baseline and the recovery scope in docs/ACCESS_AND_TOOLS.md.",
+  "evidence": [
+    "research/firmware/yuy2_transport_v26_raw/README.md",
+    "research/firmware/yuy2_transport_v26_raw/build.py",
+    "docs/CURRENT_STATUS.md"
+  ]
+}

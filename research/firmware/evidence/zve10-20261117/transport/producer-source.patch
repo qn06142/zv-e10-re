@@ -1,0 +1,31 @@
+--- a/research/firmware/yuy2_transport_v43_usb3_hd/recipe/yuy2_1080_v43chunk.c
++++ b/research/firmware/yuy2_transport_v43_usb3_hd/recipe/yuy2_1080_v43chunk.c
+@@ -408,28 +408,6 @@
+  for(unsigned i=0;i<4;i++){u32*t=(u32*)(cb+table_offsets[i]);t[1]=(u32)descriptor[i];t[0]=77;}
+  protect(cb+0x12064,62,5);
+ 
+- /* Force SuperSpeed (5) in CUsbSvc::createGadget speed selection */
+- if(*(u16*)(cb+0xcd7c)==0x2303){
+-  protect(cb+0xcd7c,4,7);
+-  *(u16*)(cb+0xcd7c)=0x2305;
+-  flush(cb+0xcd7c,4);
+-  protect(cb+0xcd7c,4,5);
+-  log3("SPEED_PATCH_INSTALLED",cb+0xcd7c,0x2305,0);
+- }
+- /* Set SuperSpeed mask (0x105) for DID 60 */
+- if(*(u32*)(cb+0x1df28)==0x00000102){
+-  protect(cb+0x1df28,4,7);
+-  *(u32*)(cb+0x1df28)=0x00000105;
+-  protect(cb+0x1df28,4,3);
+-  log3("DID60_MASK_INSTALLED",cb+0x1df28,0x105,0);
+- }
+- if(*(u32*)(cb+0x1e178)==0x00000102){
+-  protect(cb+0x1e178,4,7);
+-  *(u32*)(cb+0x1e178)=0x00000105;
+-  protect(cb+0x1e178,4,3);
+-  log3("DID61_MASK_INSTALLED",cb+0x1e178,0x105,0);
+- }
+-
+  void *targets[6]={connect_hook,start_hook,stop_hook,finish_hook,failure_hook,failure_hook};
+  for(unsigned i=0;i<6;i++)jump_thumb(sb+extra_offsets[i],targets[i]);
+  protect(sb+0x7000,0x3000,5);

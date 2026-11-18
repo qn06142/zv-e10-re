@@ -1,0 +1,32 @@
+{
+  "id": "yuy2_transport_v25",
+  "reviewed_on": "2026-11-18",
+  "status": "historical",
+  "source_inputs": [
+    {
+      "path": "research/firmware/yuy2_transport_v25/README.md",
+      "sha256": "8c020ef3ac2a9e88874947e91e00b7b98b0c0d983e0b7a8ffec9f3e86ca391dd",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v25/build.py",
+      "sha256": "f428797c2f7b526b65408795a63561be8cc85084a477c39fd45dd38963b14a85",
+      "hash_mode": "lf-normalized"
+    }
+  ],
+  "firmware_hashes": [],
+  "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
+  "reproduction": {
+    "command": "python -B build.py --repo <repo> --output <out> --streaming-image <19461091-baseline> --stream-base 0x0a61e000\npython -B persistent_stream.py --input <19461091-baseline> --output <out>/libInfraStreamingUsb.persistent.so\npython -B verify.py --repo <repo> --output <out> --streaming-image <out>/libInfraStreamingUsb.persistent.so --stream-base 0x0a61e000\npython -B verify_persistent.py --stock <19461091-baseline> --candidate <out>/libInfraStreamingUsb.persistent.so --module <out>/yuy2_640_v25.so\npython -B verify_isa.py --module <out>/yuy2_640_v25.so",
+    "working_directory": "research/firmware/yuy2_transport_v25",
+    "unresolved": null,
+    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+  },
+  "hardware_result": "Hardware result has not been independently revalidated during housekeeping. Consult the recorded report and current status.",
+  "rollback": "Rollback was not revalidated during housekeeping. Use a matching per-body baseline and the recovery scope in docs/ACCESS_AND_TOOLS.md.",
+  "evidence": [
+    "research/firmware/yuy2_transport_v25/README.md",
+    "research/firmware/yuy2_transport_v25/build.py",
+    "docs/CURRENT_STATUS.md"
+  ]
+}

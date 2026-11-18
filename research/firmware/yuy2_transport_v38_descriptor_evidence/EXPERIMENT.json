@@ -1,0 +1,32 @@
+{
+  "id": "yuy2_transport_v38_descriptor_evidence",
+  "reviewed_on": "2026-11-18",
+  "status": "historical",
+  "source_inputs": [
+    {
+      "path": "research/firmware/yuy2_transport_v38_descriptor_evidence/README.md",
+      "sha256": "20c7e5dfef841767a188af77b2d6ac4045c90514801403873e71ee5915b6f5a5",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v38_descriptor_evidence/package.py",
+      "sha256": "4af4a29835c5eb7519a9f56cae497831b2e7a84f9413a1f419ae46bf6225606d",
+      "hash_mode": "lf-normalized"
+    }
+  ],
+  "firmware_hashes": [],
+  "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
+  "reproduction": {
+    "command": null,
+    "working_directory": ".",
+    "unresolved": "No complete checkout-portable invocation has been established. Inspect the source/recipe and supply its required local inputs.",
+    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+  },
+  "hardware_result": "Hardware result has not been independently revalidated during housekeeping. Consult the recorded report and current status.",
+  "rollback": "Rollback was not revalidated during housekeeping. Use a matching per-body baseline and the recovery scope in docs/ACCESS_AND_TOOLS.md.",
+  "evidence": [
+    "research/firmware/yuy2_transport_v38_descriptor_evidence/README.md",
+    "research/firmware/yuy2_transport_v38_descriptor_evidence/package.py",
+    "docs/CURRENT_STATUS.md"
+  ]
+}

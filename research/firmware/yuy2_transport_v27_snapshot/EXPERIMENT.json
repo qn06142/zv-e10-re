@@ -1,0 +1,32 @@
+{
+  "id": "yuy2_transport_v27_snapshot",
+  "reviewed_on": "2026-11-18",
+  "status": "historical",
+  "source_inputs": [
+    {
+      "path": "research/firmware/yuy2_transport_v27_snapshot/README.md",
+      "sha256": "6db0355aebec5ad1c1cdab26d2b220fa776fd65de93bfdb5f1f354898c2dec0a",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v27_snapshot/build.py",
+      "sha256": "275c6c244471d00c0f8d1318ca6159b6d2c0ff2c27b92c6b7008502d2abab95b",
+      "hash_mode": "lf-normalized"
+    }
+  ],
+  "firmware_hashes": [],
+  "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
+  "reproduction": {
+    "command": "python -B build.py --repo <repo> --output <candidate> --streaming-image <baseline>\npython -B persistent_stream.py --input <baseline> --output <candidate>/libInfraStreamingUsb.persistent.so\npython -B verify_opaque.py --repo <repo> --output <candidate> --streaming-image <candidate>/libInfraStreamingUsb.persistent.so\npython -B verify_persistent.py --stock <baseline> --candidate <candidate>/libInfraStreamingUsb.persistent.so --module <candidate>/yuy2_640_v27snap.so\npython -B verify_isa.py --module <candidate>/yuy2_640_v27snap.so",
+    "working_directory": "research/firmware/yuy2_transport_v27_snapshot",
+    "unresolved": null,
+    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+  },
+  "hardware_result": "Hardware result has not been independently revalidated during housekeeping. Consult the recorded report and current status.",
+  "rollback": "Rollback was not revalidated during housekeeping. Use a matching per-body baseline and the recovery scope in docs/ACCESS_AND_TOOLS.md.",
+  "evidence": [
+    "research/firmware/yuy2_transport_v27_snapshot/README.md",
+    "research/firmware/yuy2_transport_v27_snapshot/build.py",
+    "docs/CURRENT_STATUS.md"
+  ]
+}

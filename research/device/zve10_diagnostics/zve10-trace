@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+case "${1:-liro}" in
+    liro) exec /tmp/busybox cat /proc/tmonitor ;;
+    *)
+        printf 'Usage: %s [liro]\n' "$0" >&2
+        exit 2
+        ;;
+esac

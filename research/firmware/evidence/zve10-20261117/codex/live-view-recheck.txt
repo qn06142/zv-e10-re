@@ -1,0 +1,39 @@
+PARAMS
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/addr
+0x00f00000
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/autodump
+0
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/autodump_path
+(null)
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/autostart
+0
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/autostart_str
+(null)
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/autostop
+0
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/autostop_retrigger
+0
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/autostop_segv
+N
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/autostop_str
+(null)
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/autostop_sus
+N
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/autostop_tasklist
+N
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/autostop_ticks
+0
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/mask
+0
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/mode
+0
+-rw-------    1 root     root          4096 Jan  1 00:14 /sys/module/tmonitor/parameters/size
+0x00008000
+CMDLINE
+tmonitor.addr=0xF00000
+tmonitor.size=0x8000
+tmonitor.mask=0
+TRACE_BEGIN 7
+TRACE_END 7
+TRACE_BEGIN 8
+TRACE_END 8

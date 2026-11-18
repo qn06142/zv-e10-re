@@ -1,0 +1,27 @@
+{
+  "checked_on": "2026-11-18",
+  "manifest_files_verified": 27,
+  "all_imports_match_originals": true,
+  "tool_sources_match_originals": true,
+  "central_relative_links_verified": 134,
+  "docs_checker": {
+    "markdown_files": 73,
+    "file_links": 391,
+    "broken_targets": 0,
+    "unmatched_anchors": 0,
+    "md5_set_fingerprint": "b545392f68bf9a6c81456f7c5ec821ed",
+    "md5_set_preserved_from_before": true
+  },
+  "existing_pages_updated": [
+    "README.md",
+    "docs/README.md",
+    "docs/agents/STATE.md",
+    "docs/agents/REFERENCE.md",
+    "docs/90-session/HANDOFF.md",
+    "docs/02-service-shell.md",
+    "docs/08-camera-interfaces.md",
+    "docs/01-hardware.md",
+    "docs/uvc_yc_subsystem_and_codex_findings.md",
+    "docs/uvc_live_frame_implementation.md"
+  ]
+}

@@ -1,0 +1,44 @@
+﻿           CPU0       CPU1       CPU2       CPU3       
+115:          0          0          0          0       GIC  dm330_0
+116:          0          0          0          0       GIC  dm330_1
+117:          0          0          0          0       GIC  dm330_2
+118:          0          0          0          0       GIC  dm330_3
+119:          0          0          0          0       GIC  dm330_abort
+120:      12414          0          0          0       GIC  cxd900x0-uart
+171:        233          0          0          0       GIC  ldec
+189:          0          0          0          0       GIC  xdmac0
+190:          0          0          0          0       GIC  xdmac1
+191:          0          0          0          0       GIC  xdmac2
+192:        397          0          0          0       GIC  xdmac3
+193:          0          0          0          0       GIC  xdmac4
+194:      58983          0          0          0       GIC  xdmac5
+195:          0          0          0          0       GIC  xdmac6
+196:          0          0          0          0       GIC  xdmac7
+218:       1113          0          0          0       GIC  mmc0
+221:      37892          0          0          0       GIC  mmc1
+227:      24204          0          0          0       GIC  emmc0
+229:          0          0          0          0       GIC  dwc3
+IPI4:          0          0          0          0  CPU stop interrupts
+=== IRQ_2 ===
+           CPU0       CPU1       CPU2       CPU3       
+115:          0          0          0          0       GIC  dm330_0
+116:          0          0          0          0       GIC  dm330_1
+117:          0          0          0          0       GIC  dm330_2
+118:          0          0          0          0       GIC  dm330_3
+119:          0          0          0          0       GIC  dm330_abort
+120:      12414          0          0          0       GIC  cxd900x0-uart
+171:        233          0          0          0       GIC  ldec
+189:          0          0          0          0       GIC  xdmac0
+190:          0          0          0          0       GIC  xdmac1
+191:          0          0          0          0       GIC  xdmac2
+192:        397          0          0          0       GIC  xdmac3
+193:          0          0          0          0       GIC  xdmac4
+194:      59035          0          0          0       GIC  xdmac5
+195:          0          0          0          0       GIC  xdmac6
+196:          0          0          0          0       GIC  xdmac7
+218:       1113          0          0          0       GIC  mmc0
+221:      37912          0          0          0       GIC  mmc1
+227:      24204          0          0          0       GIC  emmc0
+229:          0          0          0          0       GIC  dwc3
+IPI4:          0          0          0          0  CPU stop interrupts
+=== TRACE_MASK_4 ===

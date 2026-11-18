@@ -1,0 +1,171 @@
+"""Assemble guarded three-file revision 3.7 package offline. Never contacts camera."""
+from pathlib import Path
+import hashlib,json,shutil,zipfile
+W=Path(__file__).resolve().parent;ROOT=W.parent.parent;O=ROOT/'outputs/vga-v37';P=O/'flash-package';P.mkdir(exist_ok=True)
+md=lambda p:hashlib.md5(p.read_bytes()).hexdigest()
+OLD='886445056d2eba99ef62df3a9def5e0f';OM='c2e06b5a7a9f1361c4fb2a087d5e8fe2';OK='c1cad400372e26eca729e4b9bc47a237'
+NW=md(O/'build/libInfraStreamingUsb.so');NM=md(O/'build/yuy2_640_v37vga.so');NK=md(O/'usbg_video.ko')
+assert NW=='277c023942dd4d3d347d9829eaf8be85' and NM=='7c339b924987e6baa8e7046e041798c5' and NK=='388799d95bbb524ca581c66b077b6dc2'
+STABLE='5fde77e394572ebcf420f8941575f6c4'
+STATIC={
+ '/usr/lib/yuy2_640_v36vga.so':OM,
+ '/usr/lib/yuy2_640_v24p.so':'9181ef744955190d04728cf4ef7965c5',
+ '/usr/share/yuy2-recovery-v29full/libInfraStreamingUsb.v24p.so':STABLE,
+ '/usr/kmod/dmm.ko':'15c8f7807b291c0af3c77fe55848577f',
+ '/usr/lib/libInfraUsbCmn.so':'31308976206a837f6f5c571992d2b499',
+ '/usr/lib/libObj.so':'0b4be3fb599b539c69c782bd400dd8e9',
+ '/usr/lib/libBizFw.so':'6416a5a6780bbe829eb30d85fc8e8dad',
+ '/usr/lib/dataflowInfraFramework.so':'f70f50f931e9c2cf415cc2728e324f60',
+ '/lib/libpthread.so.0':'09cb541e6e785dd6bfeb76d74f29f5d2',
+ '/system/av-cam.bin':'90096db2c76148f4f9db5d104e5c608c',
+ '/setting/DmmConfig.bin':'9f197ff9b300e49ab531b6f9e794253e',
+}
+COMMON='''#!/bin/sh
+set -eu
+BB=/bin/busybox
+D=/log/yuy2_640_v37vga
+B=/usr/share/yuy2-recovery-v37vga
+hash() { $BB md5sum "$1" | $BB cut -d ' ' -f 1; }
+guard() { [ "$(hash "$1")" = "$2" ] || { echo "HASH_GUARD_FAILED:$1"; exit 1; }; }
+cold() {
+ P=$($BB pidof im.elf)
+ case "$P" in ''|*[!0-9]*) echo PROCESS_GUARD_FAILED; exit 1;; esac
+ [ -r /proc/$P/maps ]
+ if $BB grep -E 'libInfraStreamingUsb|yuy2_640|yc_observer|yc_probe' /proc/$P/maps; then echo COLD_BOOT_REQUIRED; exit 1; fi
+ [ -r /proc/mounts ]
+ if $BB grep -E ' /usr/(lib/libInfraStreamingUsb.so|lib/libInfraUsbCmn.so|lib/libBizFw.so|lib/dataflowInfraFramework.so|kmod/usbg_video.ko) ' /proc/mounts; then echo OVERLAY_GUARD_FAILED; exit 1; fi
+}
+'''
+pre=COMMON+f'''cold
+guard /usr/lib/libInfraStreamingUsb.so {OLD}
+guard /usr/kmod/usbg_video.ko {OK}
+'''+''.join(f'guard {p} {h}\n' for p,h in STATIC.items())+'''[ ! -e /usr/lib/yuy2_640_v37vga.so ]
+[ ! -e "$B" ]
+for F in /usr/lib/.yuy2_v37vga.new /usr/lib/.libInfraStreamingUsb.v37vga.new /usr/kmod/.usbg_video.v37vga.new /usr/lib/.libInfraStreamingUsb.v37vga.restore /usr/kmod/.usbg_video.v37vga.restore; do [ ! -e "$F" ]; done
+SPACE=${1:-/log/yuy2_640_v37vga/space-check.elf}
+guard "$SPACE" c2c8b809405bf52e3a7fa8df88aa95eb
+$BB chmod 755 "$SPACE"
+"$SPACE"
+$BB cat /proc/uptime
+echo V37_PREFLIGHT_OK
+'''
+# Rollback selects a matched wrapper+kernel pair and verifies both staged copies
+# before replacing either pathname. Stable bars are an explicit alternative.
+rollback=COMMON+f'''cold
+guard "$B/libInfraStreamingUsb.previous.so" {OLD}
+guard "$B/usbg_video.previous.ko" {OK}
+MODE=${{1:-previous}}
+case "$MODE" in
+ previous) SRC="$B/libInfraStreamingUsb.previous.so"; EXPECT={OLD}; guard /usr/lib/yuy2_640_v36vga.so {OM};;
+ --bars) SRC="$B/libInfraStreamingUsb.v24p.so"; EXPECT={STABLE}; guard "$SRC" {STABLE}; guard /usr/lib/yuy2_640_v24p.so 9181ef744955190d04728cf4ef7965c5;;
+ *) echo BAD_ROLLBACK_MODE; exit 1;;
+esac
+case "$(hash /usr/lib/libInfraStreamingUsb.so)" in {NW}|{OLD}|{STABLE}) ;; *) echo UNKNOWN_WRAPPER_REFUSED; exit 1;; esac
+case "$(hash /usr/kmod/usbg_video.ko)" in {NK}|{OK}) ;; *) echo UNKNOWN_KERNEL_REFUSED; exit 1;; esac
+RW=0
+finish() {{ RC=$?; trap - 0; set +e; $BB sync; if [ "$RW" = 1 ]; then $BB mount -o remount,ro /usr || RC=1; fi; exit "$RC"; }}
+trap finish 0
+trap 'exit 1' 1 2 15
+$BB mount -o remount,rw /usr
+RW=1
+$BB cp "$SRC" /usr/lib/.libInfraStreamingUsb.v37vga.restore
+$BB cp "$B/usbg_video.previous.ko" /usr/kmod/.usbg_video.v37vga.restore
+$BB chmod 755 /usr/lib/.libInfraStreamingUsb.v37vga.restore
+$BB chmod 644 /usr/kmod/.usbg_video.v37vga.restore
+guard /usr/lib/.libInfraStreamingUsb.v37vga.restore "$EXPECT"
+guard /usr/kmod/.usbg_video.v37vga.restore {OK}
+$BB mv /usr/kmod/.usbg_video.v37vga.restore /usr/kmod/usbg_video.ko
+$BB mv /usr/lib/.libInfraStreamingUsb.v37vga.restore /usr/lib/libInfraStreamingUsb.so
+guard /usr/kmod/usbg_video.ko {OK}
+guard /usr/lib/libInfraStreamingUsb.so "$EXPECT"
+$BB sync
+$BB mount -o remount,ro /usr
+RW=0
+echo V37_ROLLBACK_VERIFIED_${{MODE}}_REBOOT_REQUIRED
+'''
+RH=hashlib.md5(rollback.encode()).hexdigest()
+install=COMMON+f'''$BB sh "$D/preflight.sh"
+guard "$D/yuy2_640_v37vga.so" {NM}
+guard "$D/libInfraStreamingUsb.persistent.so" {NW}
+guard "$D/usbg_video.ko" {NK}
+guard "$D/rollback.sh" {RH}
+$BB sh -n "$D/rollback.sh"
+BACKED=0
+DONE=0
+RW=0
+on_exit() {{
+ RC=$?
+ trap - 0
+ set +e
+ if [ "$DONE" != 1 ] && [ "$BACKED" = 1 ]; then
+  echo V37_INSTALL_FAILED_RESTORING_PAIR
+  $BB mount -o remount,rw /usr
+  RW=1
+  $BB cp "$B/libInfraStreamingUsb.previous.so" /usr/lib/.libInfraStreamingUsb.v37vga.restore
+  $BB cp "$B/usbg_video.previous.ko" /usr/kmod/.usbg_video.v37vga.restore
+  $BB chmod 755 /usr/lib/.libInfraStreamingUsb.v37vga.restore
+  $BB chmod 644 /usr/kmod/.usbg_video.v37vga.restore
+  if [ "$(hash /usr/lib/.libInfraStreamingUsb.v37vga.restore)" = {OLD} ] && [ "$(hash /usr/kmod/.usbg_video.v37vga.restore)" = {OK} ]; then
+   $BB mv /usr/kmod/.usbg_video.v37vga.restore /usr/kmod/usbg_video.ko
+   $BB mv /usr/lib/.libInfraStreamingUsb.v37vga.restore /usr/lib/libInfraStreamingUsb.so
+  fi
+  if [ "$(hash /usr/lib/libInfraStreamingUsb.so)" = {OLD} ] && [ "$(hash /usr/kmod/usbg_video.ko)" = {OK} ]; then echo V37_FAILURE_RESTORED_PAIR; else echo V37_RECOVERY_REQUIRED; fi
+ fi
+ $BB sync
+ if [ "$RW" = 1 ]; then $BB mount -o remount,ro /usr || {{ echo V37_REMOUNT_RO_FAILED; RC=1; }}; fi
+ exit "$RC"
+}}
+trap on_exit 0
+trap 'exit 1' 1 2 15
+$BB mount -o remount,rw /usr
+RW=1
+$BB mkdir "$B"
+$BB cp /usr/lib/libInfraStreamingUsb.so "$B/libInfraStreamingUsb.previous.so"
+$BB cp /usr/kmod/usbg_video.ko "$B/usbg_video.previous.ko"
+guard "$B/libInfraStreamingUsb.previous.so" {OLD}
+guard "$B/usbg_video.previous.ko" {OK}
+BACKED=1
+$BB cp /usr/share/yuy2-recovery-v29full/libInfraStreamingUsb.v24p.so "$B/libInfraStreamingUsb.v24p.so"
+guard "$B/libInfraStreamingUsb.v24p.so" {STABLE}
+$BB cp "$D/rollback.sh" "$B/rollback.sh"
+$BB chmod 755 "$B/rollback.sh"
+guard "$B/rollback.sh" {RH}
+$BB sync
+$BB cp "$D/yuy2_640_v37vga.so" /usr/lib/.yuy2_v37vga.new
+$BB chmod 755 /usr/lib/.yuy2_v37vga.new
+guard /usr/lib/.yuy2_v37vga.new {NM}
+$BB mv /usr/lib/.yuy2_v37vga.new /usr/lib/yuy2_640_v37vga.so
+$BB cp "$D/usbg_video.ko" /usr/kmod/.usbg_video.v37vga.new
+$BB chmod 644 /usr/kmod/.usbg_video.v37vga.new
+guard /usr/kmod/.usbg_video.v37vga.new {NK}
+$BB cp "$D/libInfraStreamingUsb.persistent.so" /usr/lib/.libInfraStreamingUsb.v37vga.new
+$BB chmod 755 /usr/lib/.libInfraStreamingUsb.v37vga.new
+guard /usr/lib/.libInfraStreamingUsb.v37vga.new {NW}
+# All staged artifacts and rescue copies exist before activating either path.
+$BB sync
+$BB mv /usr/kmod/.usbg_video.v37vga.new /usr/kmod/usbg_video.ko
+guard /usr/kmod/usbg_video.ko {NK}
+$BB mv /usr/lib/.libInfraStreamingUsb.v37vga.new /usr/lib/libInfraStreamingUsb.so
+guard /usr/lib/libInfraStreamingUsb.so {NW}
+guard /usr/lib/yuy2_640_v37vga.so {NM}
+guard /usr/kmod/usbg_video.ko {NK}
+guard /usr/lib/yuy2_640_v24p.so 9181ef744955190d04728cf4ef7965c5
+$BB md5sum /usr/lib/libInfraStreamingUsb.so /usr/lib/yuy2_640_v37vga.so /usr/kmod/usbg_video.ko "$B/libInfraStreamingUsb.previous.so" "$B/usbg_video.previous.ko" "$B/rollback.sh" > "$D/installed.md5"
+$BB sync
+$BB mount -o remount,ro /usr
+RW=0
+DONE=1
+echo V37_FILES_VERIFIED_REBOOT_REQUIRED
+'''
+for n,s in [('preflight.sh',pre),('rollback.sh',rollback),('install.sh',install)]: (P/n).write_bytes(s.encode('ascii'))
+for src,n in [(O/'build/yuy2_640_v37vga.so','yuy2_640_v37vga.so'),(O/'build/libInfraStreamingUsb.so','libInfraStreamingUsb.persistent.so'),(O/'usbg_video.ko','usbg_video.ko'),(ROOT/'outputs/vga-v36/flash-package/space-check.elf','space-check.elf')]:shutil.copyfile(src,P/n)
+manifest=json.loads((O/'build/manifest.json').read_text());manifest['files']={}
+manifest.update(installed_baseline=dict(revision='3.6',wrapper_md5=OLD,module_md5=OM,kernel_md5=OK),rollback='previous restores unstable 3.6 wrapper and original matched kernel; --bars selects stable 2.4p wrapper and original matched kernel',deployment='NOT_INSTALLED',hardware_verified=False)
+for n in ['preflight.sh','rollback.sh','install.sh','yuy2_640_v37vga.so','libInfraStreamingUsb.persistent.so','usbg_video.ko','space-check.elf']:
+ d=(P/n).read_bytes();manifest['files'][n]=dict(bytes=len(d),md5=hashlib.md5(d).hexdigest(),sha256=hashlib.sha256(d).hexdigest())
+(P/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+shutil.copyfile(W/'README.md',P/'README.md')
+(P/'evidence').mkdir(exist_ok=True)
+for src in [*O.glob('*verification.json'),O/'build/persistent-verification.json',O/'build/isa-verification.json']:
+ shutil.copyfile(src,P/'evidence'/src.name)
+print(json.dumps(manifest,indent=2))

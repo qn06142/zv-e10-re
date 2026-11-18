@@ -1,0 +1,15 @@
+# Apply the zero-risk string patch: cp text-mod from card to /system
+busybox mount | busybox grep -q /tmp/sd || busybox mount -t vfat /dev/mmca1 /tmp/sd
+busybox echo MOUNT_RC=$?
+busybox ls -la /tmp/sd/av-cam-text-mod.bin
+busybox md5sum /tmp/sd/av-cam-text-mod.bin
+busybox cp /tmp/sd/av-cam-text-mod.bin /system/av-cam.bin
+busybox echo CP_RC=$?
+busybox sync
+busybox echo SYNC_DONE
+busybox wc -c /system/av-cam.bin
+busybox md5sum /system/av-cam.bin
+busybox echo STRING_CHECK
+busybox xxd -s 0x9f9586 -l 9 /system/av-cam.bin
+busybox xxd -s 0x9f95b3 -l 8 /system/av-cam.bin
+busybox echo RESTORE_VERIFY_DONE

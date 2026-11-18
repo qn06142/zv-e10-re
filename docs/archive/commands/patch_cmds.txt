@@ -1,0 +1,11 @@
+# Minimal patch verify: write 0x0FA0 (4000) at file offset 0xff44c8 of /system/av-cam.bin
+# Step 1: make the 2-byte patch payload in /tmp (vfat scratch, writable)
+printf '\xa0\x0f' > /tmp/patch2.bin
+busybox echo "payload:"; busybox xxd /tmp/patch2.bin
+# Step 2: dd it into av-cam.bin at seek=0xff44c8
+busybox dd if=/tmp/patch2.bin of=/system/av-cam.bin bs=1 seek=16711752 count=2 conv=notrunc 2>&1
+busybox echo "patch done, rc=$?"
+# Step 3: verify on-disk immediately (before reboot)
+busybox echo "after-patch:"; busybox xxd -s 0xff44c8 -l 2 /system/av-cam.bin
+busybox md5sum /system/av-cam.bin
+busybox echo "PATCH_APPLIED_MARKER"

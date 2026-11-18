@@ -1,0 +1,11 @@
+# Restore known-good av-cam.bin: rm corrupt, cp from card, sync, verify
+busybox rm -f /system/av-cam.bin
+busybox echo RM_RC=$?
+busybox cp /tmp/sd/av-cam.orig.bin /system/av-cam.bin
+busybox echo CP_RC=$?
+busybox sync
+busybox echo SYNC_DONE
+busybox wc -c /system/av-cam.bin
+busybox md5sum /system/av-cam.bin
+busybox xxd -s 0xff44c8 -l 2 /system/av-cam.bin
+busybox echo RESTORE_VERIFY_DONE

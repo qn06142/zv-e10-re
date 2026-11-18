@@ -1,0 +1,127 @@
+{
+  "origin": "Retained source_snapshot copied by camera worker from pinned SSYC metadata before pixel Share failure; read-only process-memory extraction after stop",
+  "sha256": "9c60c7088da03631af4cd06fbd8f9d444d084e9104ead87cb0147ef76ac45f9c",
+  "bytes": 4096,
+  "entries": [
+    {
+      "category": 0,
+      "entry_offset": 32,
+      "data_offset": 64,
+      "bytes": 64,
+      "prefix_hex": "0100000095020000247f000000000000020000008007380480073804000000008007380400000000800738040000020101010201400000006700000000000000"
+    },
+    {
+      "category": 1,
+      "entry_offset": 128,
+      "data_offset": 160,
+      "bytes": 32,
+      "prefix_hex": "000500010005ffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "category": 2,
+      "entry_offset": 192,
+      "data_offset": 224,
+      "bytes": 32,
+      "prefix_hex": "79190000000000007c1900000100000000000000007600000000000000000000"
+    },
+    {
+      "category": 6,
+      "entry_offset": 256,
+      "data_offset": 288,
+      "bytes": 224,
+      "prefix_hex": "7a1900000000000064000000640000007a190000000000000100000075190000000000002b350b002d0baa15010000007919000000000000005e2031d007ff07"
+    },
+    {
+      "category": 4,
+      "entry_offset": 512,
+      "data_offset": 544,
+      "bytes": 256,
+      "prefix_hex": "79190000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "category": 5,
+      "entry_offset": 800,
+      "data_offset": 832,
+      "bytes": 800,
+      "prefix_hex": "7a19000000000000b40000006400000001000000320000000b001e000000000000000000b4000000640000000000000000000000200000000a00000000000001"
+    },
+    {
+      "category": 18,
+      "entry_offset": 1632,
+      "data_offset": 1664,
+      "bytes": 256,
+      "prefix_hex": "00000002020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "category": 12,
+      "entry_offset": 1920,
+      "data_offset": 1952,
+      "bytes": 32,
+      "prefix_hex": "c502000000000000000828e88a22aefa55570479c7113895881a800a12a0060e"
+    },
+    {
+      "category": 16,
+      "entry_offset": 1984,
+      "data_offset": 2016,
+      "bytes": 32,
+      "prefix_hex": "000000005858b079a22884a02838abaa004d515c841d455969a82908aae7a828"
+    },
+    {
+      "category": 10,
+      "entry_offset": 2048,
+      "data_offset": 2080,
+      "bytes": 92,
+      "prefix_hex": "01000000000000005238291301000000000000000000000000000000000000000000000000000000010000002620102821394700262010282139480004000000"
+    },
+    {
+      "category": 22,
+      "entry_offset": 2172,
+      "data_offset": 2204,
+      "bytes": 760,
+      "prefix_hex": "000000000000000000000a0000800700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "category": 23,
+      "entry_offset": 2964,
+      "data_offset": 2996,
+      "bytes": 28,
+      "prefix_hex": "00000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "image_size_info": {
+    "image_attach": 1,
+    "unit_type": 661,
+    "unit_handle": 32548,
+    "unit_data_offset": 0,
+    "exposure_time": 2,
+    "expose_pic_delay": 0,
+    "scenario_end": 0,
+    "mirror": 0,
+    "record_size_x": 1920,
+    "record_size_y": 1080,
+    "canvas_size_x": 1920,
+    "canvas_size_y": 1080,
+    "valid_offset_x": 0,
+    "valid_offset_y": 0,
+    "valid_size_x": 1920,
+    "valid_size_y": 1080,
+    "target_offset_x": 0,
+    "target_offset_y": 0,
+    "target_size_x": 1920,
+    "target_size_y": 1080,
+    "data_site": 0,
+    "iib_number": 0,
+    "aspect": 2,
+    "yc_compress": 1,
+    "data_transfer": 1,
+    "data_placement": 1,
+    "data_content": 2,
+    "data_scan": 1,
+    "strip_width": 64,
+    "yc_bit_depth": 0,
+    "cam_freq_char_h": 103
+  },
+  "live_pixels_acquired": false,
+  "frame_freshness_established": false,
+  "verified_against_compiled_C_SDS_decoder": true
+}

@@ -1,0 +1,19 @@
+{
+  "checked_on": "2026-11-18",
+  "targeted_tests_passed": 79,
+  "housekeeping_tests_passed": 7,
+  "mocked_shell_verification": "ALL PASS",
+  "isolated_staged_checkout": true,
+  "documentation": {
+    "files": 88,
+    "links": 506,
+    "broken": 0,
+    "unmatched_anchors": 0
+  },
+  "evidence_files_verified": 27,
+  "experiment_records_verified": 31,
+  "historical_reproduction_commands": 7,
+  "unresolved_reproduction_commands": 24,
+  "hosted_ci_run": "Pending push",
+  "legacy_untracked_files_inventoried": 1274
+}

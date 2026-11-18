@@ -1,0 +1,47 @@
+SAMPLE 1
+855.06 1799.67
+47820f7af2692e4445e2d33099d9bd8b33cfd53b324e72b9ae3a51768d5c50da  /proc/tmonitor
+ 83:     108658          0          0          0       GIC  liro-83
+ 84:     501960          0          0          0       GIC  liro-84
+ 99:          0     189290          0          0       GIC  liro-99
+151:          0          0     167169          0       GIC  liro-151
+155:          0      85504          0          0       GIC  tick1
+156:          0          0      85500          0       GIC  tick2
+158:     307870          0          0          0       GIC  hwtimer0
+159:          0     103886          0          0       GIC  hwtimer1
+160:          0          0     105965          0       GIC  hwtimer2
+163:          0          0     166735          0       GIC  liro-163
+174:          0          0      83364          0       GIC  liro-174
+201:     334658          0          0          0       GIC  liro-201
+202:      57124          0          0          0       GIC  liro-202
+204:          0     125547          0          0       GIC  liro-204
+215:     167323          0          0          0       GIC  liro-215
+216:          0      85088          0          0       GIC  liro-216
+221:      33209          0          0          0       GIC  mmc1
+SAMPLE 2
+857.23 1804.78
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /proc/tmonitor
+ 83:     108911          0          0          0       GIC  liro-83
+ 84:     503168          0          0          0       GIC  liro-84
+ 99:          0     189793          0          0       GIC  liro-99
+151:          0          0     167570          0       GIC  liro-151
+155:          0      85713          0          0       GIC  tick1
+156:          0          0      85709          0       GIC  tick2
+158:     308620          0          0          0       GIC  hwtimer0
+159:          0     104139          0          0       GIC  hwtimer1
+160:          0          0     106217          0       GIC  hwtimer2
+163:          0          0     167135          0       GIC  liro-163
+174:          0          0      83564          0       GIC  liro-174
+201:     335460          0          0          0       GIC  liro-201
+202:      57263          0          0          0       GIC  liro-202
+204:          0     125850          0          0       GIC  liro-204
+215:     167724          0          0          0       GIC  liro-215
+216:          0      85296          0          0       GIC  liro-216
+221:      33242          0          0          0       GIC  mmc1
+TRACE_PROC
+-rw-------    1 root     root             0 Jan  1 00:14 /proc/tmonitor
+-rw-------    1 root     root             0 Jan  1 00:14 /proc/tmonitor
+
+/sys/module/tmonitor:
+total 0
+drwxr-xr-x    2 root     root             0 Jan  1 00:14 parameters
