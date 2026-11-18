@@ -1,0 +1,17 @@
+{
+  "mode": "uvc",
+  "preset": "yuy2_1080p",
+  "target_fps": 24.0,
+  "width": 1920,
+  "height": 1080,
+  "frame_size_bytes": 4147200,
+  "total_frames": 0,
+  "total_bytes": 0,
+  "duration_sec": 0.0,
+  "actual_fps": 0.0,
+  "average_throughput_mb_s": 0.0,
+  "min_interval_ms": 0,
+  "max_interval_ms": 0.0,
+  "success": false,
+  "error": "OpenCV (cv2) not installed in python environment"
+}

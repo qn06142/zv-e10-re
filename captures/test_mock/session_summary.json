@@ -1,0 +1,17 @@
+{
+  "mode": "mock",
+  "preset": "yuy2_1080p",
+  "target_fps": 24.0,
+  "width": 1920,
+  "height": 1080,
+  "frame_size_bytes": 4147200,
+  "total_frames": 24,
+  "total_bytes": 99532800,
+  "duration_sec": 0.03,
+  "actual_fps": 788.87,
+  "average_throughput_mb_s": 3120.04,
+  "min_interval_ms": 0.95,
+  "max_interval_ms": 2.29,
+  "success": true,
+  "error": null
+}

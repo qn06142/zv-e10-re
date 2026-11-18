@@ -130,6 +130,58 @@ avcam_proj/
 
 # Generated experiment captures, packages and agent scratch stay local.
 /outputs/
-/.agents/teamwork/
+/.agents/
 /research/**/*.zip
 *.su
+
+# ---- Root ephemeral test binaries, objects, logs and scratch ----
+/*.elf
+/*.so
+/*.ko
+/*.exe
+/*.dll
+/*.obj
+/*.lib
+/*.a
+/*.log
+/*.tmp
+/*.temp
+
+# ---- Test, coverage and packaging caches ----
+*.pyo
+*.pyd
+.coverage
+htmlcov/
+.cache/
+.pytest_cache/
+.tox/
+*.egg-info/
+*.egg
+
+# ---- IDE, editor and OS artifacts ----
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+*~
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Local build scratch and capture payloads. Capture metadata remains reviewable.
+/work/
+/captures/**
+!/captures/**/
+!/captures/**/*.json
+!/captures/**/*.md
+!/captures/**/*.tsv
+/bin/**/*.so
+/bin/**/*.elf
+/bin/**/*.exe
+/bin/**/*.dll
+/bin/**/*.bin
+/research/**/*.exe
+/research/**/*.dll
+/research/**/*.a
+

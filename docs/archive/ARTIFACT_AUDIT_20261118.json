@@ -1,0 +1,233 @@
+{
+  "reviewed_on": "2026-11-18",
+  "files": [
+    {
+      "path": "captures/test_mock/frame_000000.yuy2",
+      "bytes": 4147200,
+      "sha256": "3019f9228b16706bf8ff9507386c313fa3cfdfe26330f91627e5163541ef1cd0",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_mock/frame_000001.yuy2",
+      "bytes": 4147200,
+      "sha256": "3019f9228b16706bf8ff9507386c313fa3cfdfe26330f91627e5163541ef1cd0",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_mock/frame_000002.yuy2",
+      "bytes": 4147200,
+      "sha256": "3019f9228b16706bf8ff9507386c313fa3cfdfe26330f91627e5163541ef1cd0",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_mock/frame_000003.yuy2",
+      "bytes": 4147200,
+      "sha256": "3019f9228b16706bf8ff9507386c313fa3cfdfe26330f91627e5163541ef1cd0",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_mock/frame_000004.yuy2",
+      "bytes": 4147200,
+      "sha256": "3019f9228b16706bf8ff9507386c313fa3cfdfe26330f91627e5163541ef1cd0",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_mock/session_summary.json",
+      "bytes": 375,
+      "sha256": "e4a3357c47832f7cd4b3df3b5bcf910515d703d9b9eed309e431e1c10d533af7",
+      "treatment": "metadata reviewable"
+    },
+    {
+      "path": "captures/test_stream_01/frame_000000.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_01/frame_000001.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_01/frame_000002.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_01/frame_000003.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_01/frame_000004.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_01/frame_000005.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_01/frame_000006.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_01/frame_000007.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_01/frame_000008.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_01/frame_000009.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_01/session_summary.json",
+      "bytes": 378,
+      "sha256": "9582facbebe857e0b81872a391d7eabe50f3bc65d0f66a494c24a071a14c676e",
+      "treatment": "metadata reviewable"
+    },
+    {
+      "path": "captures/test_stream_v45/frame_000000.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_v45/frame_000001.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_v45/frame_000002.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_v45/frame_000003.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_v45/frame_000004.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_v45/session_summary.json",
+      "bytes": 378,
+      "sha256": "84f54b22d78230f5ede40959e93e451a52fdd7908465518153841853f1a5a3f2",
+      "treatment": "metadata reviewable"
+    },
+    {
+      "path": "captures/test_stream_v46/frame_000000.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_v46/frame_000001.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_v46/frame_000002.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_v46/frame_000003.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_v46/frame_000004.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/test_stream_v46/session_summary.json",
+      "bytes": 377,
+      "sha256": "7a97ca1dfc4f86a07b14784bba768e41e1954daca7e70d9b74180486cb08ad7f",
+      "treatment": "metadata reviewable"
+    },
+    {
+      "path": "captures/usb3_24fps_session/frame_000000.raw",
+      "bytes": 2592000,
+      "sha256": "f071f013776208e2223b51849690e969428852ae21f36851f223a11bba8dd027",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/usb3_24fps_session/frame_000000.yuy2",
+      "bytes": 6220800,
+      "sha256": "1f56bd4f609fab80a2b9cce7487d5c08de2768476849e1353881ca748d8d3b6a",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/usb3_24fps_session/frame_000001.raw",
+      "bytes": 2592000,
+      "sha256": "f071f013776208e2223b51849690e969428852ae21f36851f223a11bba8dd027",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/usb3_24fps_session/frame_000002.raw",
+      "bytes": 2592000,
+      "sha256": "f071f013776208e2223b51849690e969428852ae21f36851f223a11bba8dd027",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/usb3_24fps_session/frame_000003.raw",
+      "bytes": 2592000,
+      "sha256": "f071f013776208e2223b51849690e969428852ae21f36851f223a11bba8dd027",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/usb3_24fps_session/frame_000004.raw",
+      "bytes": 2592000,
+      "sha256": "f071f013776208e2223b51849690e969428852ae21f36851f223a11bba8dd027",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "captures/usb3_24fps_session/session_summary.json",
+      "bytes": 401,
+      "sha256": "009d6da6bf582e23d330097cd6396be1bd22d526f94e8acb5730e19e81c7c49d",
+      "treatment": "metadata reviewable"
+    },
+    {
+      "path": "bin/opengate/mem_patch.elf",
+      "bytes": 6124,
+      "sha256": "b518a127d7b0686f86ebf76828f7b8a4e1a15b7e693dfc4ecc831e5a351335b1",
+      "treatment": "local generated payload"
+    },
+    {
+      "path": "bin/opengate/opengate.so",
+      "bytes": 8592,
+      "sha256": "0efcbdaec06b2d21ddb449a80022f6aa27834bb48cf98eba60868a19937c0f23",
+      "treatment": "local generated payload"
+    }
+  ]
+}

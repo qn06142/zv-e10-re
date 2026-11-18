@@ -1,6 +1,6 @@
-# Sony ZV-E10 Open Gate 3:2 Pre-Compiled Binaries & Staging Kit
+# Sony ZV-E10 Open Gate staging recipes
 
-This directory contains verified, production-ready ARM binaries compiled for the Sony ZV-E10 (Cortex-A7 softfp).
+This directory retains historical staging scripts, configuration and binary identities. Generated opengate.so and mem_patch.elf are local build artifacts and are ignored by Git. Their earlier compilation used Cortex-A7 softfp. Hardware compatibility and the installed state need the matching experiment evidence. See the [current checkpoint](../../docs/CURRENT_STATUS.md) before using a deployment recipe.
 
 ## Binary Manifest
 
