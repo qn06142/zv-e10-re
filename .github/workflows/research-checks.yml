@@ -1,0 +1,24 @@
+name: Research housekeeping
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Check documentation links
+        run: python -B research/firmware/check_docs.py --portable
+      - name: Verify evidence, experiment records and tracked artifacts
+        run: python -B scripts/check_research.py
+      - name: Test housekeeping validators
+        run: python -B -m unittest discover -s tests -p test_housekeeping.py

@@ -15,7 +15,9 @@ thing a visitor hits and the least likely to be noticed.
 Run before and after a restructure and diff the two reports.  The md5-set
 fingerprint is the number to compare; it is order-independent by construction.
 """
+import argparse
 import hashlib
+import os
 import pathlib
 import re
 import sys
@@ -82,13 +84,30 @@ def scan():
     return md5s, links, n_anchor
 
 
+def local_input(path):
+    """Identify documented inputs that are intentionally absent from a checkout."""
+    try:
+        relative = pathlib.Path(os.path.abspath(path)).relative_to(ROOT).as_posix()
+    except ValueError:
+        return False
+    return relative.startswith((
+        "dumps/", "outputs/", "work/", "scratch/", "build_sysroot/",
+        "tools/rizin/", "fw/", "fw_update/",
+    ))
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--portable", action="store_true",
+                        help="Allow links to declared local firmware/build inputs.")
+    args = parser.parse_args()
     md5s, links, n_anchor = scan()
     print("markdown scanned: %d files (docs/ plus repo root)" % len(targets()))
     print("distinct md5 values: %d" % len(md5s))
     print()
 
     broken, bad_anchors = [], []
+    local_links = 0
     for src, label, tgt, anchors in links:
         if tgt.startswith(("http://", "https://", "file:///")):
             continue
@@ -98,6 +117,9 @@ def main():
             continue
         # resolve relative to the linking file's directory
         cand = (ROOT / src).parent / tgt
+        if args.portable and local_input(cand):
+            local_links += 1
+            continue
         if not cand.exists():
             cand = DOCS / tgt          # tolerate root-relative
         if not cand.exists():
@@ -111,6 +133,8 @@ def main():
     print("in-page anchors: %d, unmatched: %d" % (n_anchor, len(bad_anchors)))
     for src, label, tgt in bad_anchors:
         print("  NO ANCHOR %s  [%s](%s)" % (src, label, tgt))
+    if args.portable:
+        print("declared local-input links: %d" % local_links)
     print()
 
     digest = hashlib.md5("\n".join(sorted(md5s)).encode()).hexdigest()
