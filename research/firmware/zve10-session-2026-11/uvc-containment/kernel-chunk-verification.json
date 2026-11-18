@@ -1,0 +1,230 @@
+{
+  "cross_section_relocations_executed": true,
+  "cases": [
+    {
+      "tagged": false,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": false,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": false,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": false,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": false,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": false,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": false,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": false,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": false,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": false,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": false,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": false,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": false,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": false,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": false,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": false,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": true,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": true,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": true,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": true,
+      "fid": 0,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 142
+    },
+    {
+      "tagged": true,
+      "fid": 0,
+      "more": true,
+      "payload_bytes": 460800,
+      "uvc_flags": 140
+    },
+    {
+      "tagged": true,
+      "fid": 0,
+      "more": true,
+      "payload_bytes": 460800,
+      "uvc_flags": 140
+    },
+    {
+      "tagged": true,
+      "fid": 0,
+      "more": true,
+      "payload_bytes": 614400,
+      "uvc_flags": 140
+    },
+    {
+      "tagged": true,
+      "fid": 0,
+      "more": true,
+      "payload_bytes": 614400,
+      "uvc_flags": 140
+    },
+    {
+      "tagged": true,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": true,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 460800,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": true,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": true,
+      "fid": 1,
+      "more": false,
+      "payload_bytes": 614400,
+      "uvc_flags": 143
+    },
+    {
+      "tagged": true,
+      "fid": 1,
+      "more": true,
+      "payload_bytes": 460800,
+      "uvc_flags": 141
+    },
+    {
+      "tagged": true,
+      "fid": 1,
+      "more": true,
+      "payload_bytes": 460800,
+      "uvc_flags": 141
+    },
+    {
+      "tagged": true,
+      "fid": 1,
+      "more": true,
+      "payload_bytes": 614400,
+      "uvc_flags": 141
+    },
+    {
+      "tagged": true,
+      "fid": 1,
+      "more": true,
+      "payload_bytes": 614400,
+      "uvc_flags": 141
+    }
+  ],
+  "hardware_DMA_mocked": true
+}

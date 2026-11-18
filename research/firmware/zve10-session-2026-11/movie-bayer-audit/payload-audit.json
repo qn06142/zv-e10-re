@@ -1,0 +1,53 @@
+{
+  "summary": {
+    "mode": "uvc",
+    "preset": "yuy2_1080p",
+    "target_fps": 24.0,
+    "width": 1920,
+    "height": 1080,
+    "frame_size_bytes": 4147200,
+    "total_frames": 0,
+    "total_bytes": 0,
+    "duration_sec": 0.0,
+    "actual_fps": 0.0,
+    "average_throughput_mb_s": 0.0,
+    "min_interval_ms": 0,
+    "max_interval_ms": 0.0,
+    "success": false,
+    "error": "OpenCV (cv2) not installed in python environment"
+  },
+  "raw_files": [
+    {
+      "name": "frame_000000.raw",
+      "length": 2592000,
+      "sha256": "f071f013776208e2223b51849690e969428852ae21f36851f223a11bba8dd027",
+      "matches_mock_aa55": true
+    },
+    {
+      "name": "frame_000001.raw",
+      "length": 2592000,
+      "sha256": "f071f013776208e2223b51849690e969428852ae21f36851f223a11bba8dd027",
+      "matches_mock_aa55": true
+    },
+    {
+      "name": "frame_000002.raw",
+      "length": 2592000,
+      "sha256": "f071f013776208e2223b51849690e969428852ae21f36851f223a11bba8dd027",
+      "matches_mock_aa55": true
+    },
+    {
+      "name": "frame_000003.raw",
+      "length": 2592000,
+      "sha256": "f071f013776208e2223b51849690e969428852ae21f36851f223a11bba8dd027",
+      "matches_mock_aa55": true
+    },
+    {
+      "name": "frame_000004.raw",
+      "length": 2592000,
+      "sha256": "f071f013776208e2223b51849690e969428852ae21f36851f223a11bba8dd027",
+      "matches_mock_aa55": true
+    }
+  ],
+  "valid_bayer_source_evidence": false,
+  "reason": "Every RAW file exactly matches the receiver mock fill; the current summary records zero UVC frames."
+}

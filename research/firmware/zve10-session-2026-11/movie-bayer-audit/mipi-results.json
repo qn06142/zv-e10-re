@@ -1,0 +1,202 @@
+{
+  "cases": 23,
+  "mocks": [
+    "atexit",
+    "OS locks",
+    "logger",
+    "MIPI acquire hardware boundary"
+  ],
+  "data_type_decoder": {
+    "0x2b": 10,
+    "0x2c": 12,
+    "0x2d": 14,
+    "0x30": 4,
+    "0x31": 8
+  },
+  "results": [
+    {
+      "drive_mode": "0x0",
+      "resource": "0x39",
+      "vc0_data_type": "0x31",
+      "native_bit_length": 8,
+      "vc0_packet_word_count": 6080,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x4",
+      "resource": "0x39",
+      "vc0_data_type": "0x31",
+      "native_bit_length": 8,
+      "vc0_packet_word_count": 6080,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x15",
+      "resource": "0x37",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2032,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x16",
+      "resource": "0x39",
+      "vc0_data_type": "0x2d",
+      "native_bit_length": 14,
+      "vc0_packet_word_count": 6048,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x17",
+      "resource": "0x39",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2032,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x18",
+      "resource": "0x39",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2032,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x1a",
+      "resource": "0x36",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2048,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x1b",
+      "resource": "0x37",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2032,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x1c",
+      "resource": "0x38",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 6112,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x1d",
+      "resource": "0x36",
+      "vc0_data_type": "0x2d",
+      "native_bit_length": 14,
+      "vc0_packet_word_count": 6048,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x1e",
+      "resource": "0x37",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2032,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x2b",
+      "resource": "0x39",
+      "vc0_data_type": "0x2d",
+      "native_bit_length": 14,
+      "vc0_packet_word_count": 6048,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x38",
+      "resource": "0x37",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2048,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x3a",
+      "resource": "0x39",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2032,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x3f",
+      "resource": "0x48",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2048,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x47",
+      "resource": "0x39",
+      "vc0_data_type": "0x31",
+      "native_bit_length": 8,
+      "vc0_packet_word_count": 6048,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x56",
+      "resource": "0x48",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2048,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x58",
+      "resource": "0x39",
+      "vc0_data_type": "0x31",
+      "native_bit_length": 8,
+      "vc0_packet_word_count": 6048,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x68",
+      "resource": "0x39",
+      "vc0_data_type": "0x31",
+      "native_bit_length": 8,
+      "vc0_packet_word_count": 6080,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x91",
+      "resource": "0x39",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2032,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x92",
+      "resource": "0x39",
+      "vc0_data_type": "0x2c",
+      "native_bit_length": 12,
+      "vc0_packet_word_count": 2032,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x93",
+      "resource": "0x39",
+      "vc0_data_type": "0x31",
+      "native_bit_length": 8,
+      "vc0_packet_word_count": 6080,
+      "mipi_tx_object": "0x6426ac50"
+    },
+    {
+      "drive_mode": "0x94",
+      "resource": "0x39",
+      "vc0_data_type": "0x31",
+      "native_bit_length": 8,
+      "vc0_packet_word_count": 6080,
+      "mipi_tx_object": "0x6426ac50"
+    }
+  ]
+}

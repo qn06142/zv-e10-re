@@ -1,0 +1,70 @@
+{
+  "cases": 4,
+  "mocks": [
+    "atexit",
+    "OS locks",
+    "logger",
+    "operation lookup returns constructed resource0x39",
+    "final native SetParams boundary"
+  ],
+  "native_driver_parameters": true,
+  "mmio_is_ram": true,
+  "rows": [
+    {
+      "args": [
+        1680255504,
+        123,
+        1342242712,
+        1094697776
+      ],
+      "param": "18c0e663000000000000000002000000020000000000000000000000000000005e03000000aa2664",
+      "mode_byte": 0,
+      "compression_strategy": 2,
+      "rdc_enc_type": 2,
+      "sensor": "0x1f",
+      "enc": 2
+    },
+    {
+      "args": [
+        1680255504,
+        123,
+        1342242712,
+        1094697776
+      ],
+      "param": "18c0e663000000000000000008000000020000000000000000000000000000005e03000000aa2664",
+      "mode_byte": 0,
+      "compression_strategy": 2,
+      "rdc_enc_type": 8,
+      "sensor": "0x1f",
+      "enc": 8
+    },
+    {
+      "args": [
+        1680255504,
+        123,
+        1342242712,
+        1097422165
+      ],
+      "param": "18c0e663000000000000000002000000020000000000000000000000000000001a04000000aa2664",
+      "mode_byte": 0,
+      "compression_strategy": 2,
+      "rdc_enc_type": 2,
+      "sensor": "0xb5",
+      "enc": 2
+    },
+    {
+      "args": [
+        1680255504,
+        123,
+        1342242712,
+        1097422165
+      ],
+      "param": "18c0e663000000000000000008000000020000000000000000000000000000001a04000000aa2664",
+      "mode_byte": 0,
+      "compression_strategy": 2,
+      "rdc_enc_type": 8,
+      "sensor": "0xb5",
+      "enc": 8
+    }
+  ]
+}

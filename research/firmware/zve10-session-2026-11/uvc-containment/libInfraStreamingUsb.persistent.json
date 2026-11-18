@@ -1,0 +1,18 @@
+{
+  "dependency": "yuy2_1080_v43chunk.so",
+  "activation_symbol": "yuy2_activate",
+  "activation_symbol_index": 317,
+  "activation_got": 103680,
+  "entry": 36096,
+  "cave": 37056,
+  "bss_file_range": [
+    51152,
+    51184
+  ],
+  "baseline_md5": "19461091c07aa6900829defb0060fcd6",
+  "md5": "4c5deb4a89474c0a3b65356f034a5d9e",
+  "sha256": "604424797110b48e6d860fb8b65069e1633c80e5098e18de009c0fd48c78e10a",
+  "bytes": 72796,
+  "address_independent": true,
+  "activation": "normal video prepare only; no patch constructor"
+}

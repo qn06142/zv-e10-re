@@ -1,0 +1,1160 @@
+{
+  "cases": 40,
+  "seeds": 2,
+  "rows": [
+    {
+      "role": "R2",
+      "object": "0x6426ac2c",
+      "method": "0x63d254b6",
+      "encoding": 0,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x3"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x3"
+        ]
+      ],
+      "owned_mask": "0x3"
+    },
+    {
+      "role": "R2",
+      "object": "0x6426ac2c",
+      "method": "0x63d254b6",
+      "encoding": 1,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x1"
+        ],
+        [
+          "0x63d25358",
+          "0xfc0a0560",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d252ce",
+          "0xfc0a0500",
+          4,
+          "0x2"
+        ]
+      ],
+      "owned_mask": "0x3"
+    },
+    {
+      "role": "R2",
+      "object": "0x6426ac2c",
+      "method": "0x63d254b6",
+      "encoding": 2,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x2"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d2534a",
+          "0xfc0a0560",
+          4,
+          "0x1"
+        ],
+        [
+          "0x63d252c0",
+          "0xfc0a0500",
+          4,
+          "0x1"
+        ]
+      ],
+      "owned_mask": "0x3"
+    },
+    {
+      "role": "R2",
+      "object": "0x6426ac2c",
+      "method": "0x63d254b6",
+      "encoding": 3,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x3"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x3"
+        ]
+      ],
+      "owned_mask": "0x3"
+    },
+    {
+      "role": "R2",
+      "object": "0x6426ac2c",
+      "method": "0x63d254b6",
+      "encoding": 4,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x1"
+        ],
+        [
+          "0x63d25358",
+          "0xfc0a0560",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d252ce",
+          "0xfc0a0500",
+          4,
+          "0x2"
+        ]
+      ],
+      "owned_mask": "0x3"
+    },
+    {
+      "role": "R2",
+      "object": "0x6426ac2c",
+      "method": "0x63d254b6",
+      "encoding": 5,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x1"
+        ],
+        [
+          "0x63d25358",
+          "0xfc0a0560",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d252ce",
+          "0xfc0a0500",
+          4,
+          "0x2"
+        ]
+      ],
+      "owned_mask": "0x3"
+    },
+    {
+      "role": "R2",
+      "object": "0x6426ac2c",
+      "method": "0x63d254b6",
+      "encoding": 6,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x1"
+        ],
+        [
+          "0x63d25358",
+          "0xfc0a0560",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d252ce",
+          "0xfc0a0500",
+          4,
+          "0x2"
+        ]
+      ],
+      "owned_mask": "0x3"
+    },
+    {
+      "role": "R2",
+      "object": "0x6426ac2c",
+      "method": "0x63d254b6",
+      "encoding": 7,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x2"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d2534a",
+          "0xfc0a0560",
+          4,
+          "0x1"
+        ],
+        [
+          "0x63d252c0",
+          "0xfc0a0500",
+          4,
+          "0x1"
+        ]
+      ],
+      "owned_mask": "0x3"
+    },
+    {
+      "role": "R2",
+      "object": "0x6426ac2c",
+      "method": "0x63d254b6",
+      "encoding": 8,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x3"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x3"
+        ]
+      ],
+      "owned_mask": "0x3"
+    },
+    {
+      "role": "R2",
+      "object": "0x6426ac2c",
+      "method": "0x63d254b6",
+      "encoding": 9,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x3"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x3"
+        ]
+      ],
+      "owned_mask": "0x3"
+    },
+    {
+      "role": "R3",
+      "object": "0x6426add8",
+      "method": "0x63d256e8",
+      "encoding": 0,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x18"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x18"
+        ]
+      ],
+      "owned_mask": "0x18"
+    },
+    {
+      "role": "R3",
+      "object": "0x6426add8",
+      "method": "0x63d256e8",
+      "encoding": 1,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x8"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x8"
+        ],
+        [
+          "0x63d25374",
+          "0xfc0a0560",
+          4,
+          "0x10"
+        ],
+        [
+          "0x63d252ea",
+          "0xfc0a0500",
+          4,
+          "0x10"
+        ]
+      ],
+      "owned_mask": "0x18"
+    },
+    {
+      "role": "R3",
+      "object": "0x6426add8",
+      "method": "0x63d256e8",
+      "encoding": 2,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x10"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x10"
+        ],
+        [
+          "0x63d25366",
+          "0xfc0a0560",
+          4,
+          "0x8"
+        ],
+        [
+          "0x63d252dc",
+          "0xfc0a0500",
+          4,
+          "0x8"
+        ]
+      ],
+      "owned_mask": "0x18"
+    },
+    {
+      "role": "R3",
+      "object": "0x6426add8",
+      "method": "0x63d256e8",
+      "encoding": 3,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x18"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x18"
+        ]
+      ],
+      "owned_mask": "0x18"
+    },
+    {
+      "role": "R3",
+      "object": "0x6426add8",
+      "method": "0x63d256e8",
+      "encoding": 4,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x8"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x8"
+        ],
+        [
+          "0x63d25374",
+          "0xfc0a0560",
+          4,
+          "0x10"
+        ],
+        [
+          "0x63d252ea",
+          "0xfc0a0500",
+          4,
+          "0x10"
+        ]
+      ],
+      "owned_mask": "0x18"
+    },
+    {
+      "role": "R3",
+      "object": "0x6426add8",
+      "method": "0x63d256e8",
+      "encoding": 5,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x8"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x8"
+        ],
+        [
+          "0x63d25374",
+          "0xfc0a0560",
+          4,
+          "0x10"
+        ],
+        [
+          "0x63d252ea",
+          "0xfc0a0500",
+          4,
+          "0x10"
+        ]
+      ],
+      "owned_mask": "0x18"
+    },
+    {
+      "role": "R3",
+      "object": "0x6426add8",
+      "method": "0x63d256e8",
+      "encoding": 6,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x8"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x8"
+        ],
+        [
+          "0x63d25374",
+          "0xfc0a0560",
+          4,
+          "0x10"
+        ],
+        [
+          "0x63d252ea",
+          "0xfc0a0500",
+          4,
+          "0x10"
+        ]
+      ],
+      "owned_mask": "0x18"
+    },
+    {
+      "role": "R3",
+      "object": "0x6426add8",
+      "method": "0x63d256e8",
+      "encoding": 7,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x10"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x10"
+        ],
+        [
+          "0x63d25366",
+          "0xfc0a0560",
+          4,
+          "0x8"
+        ],
+        [
+          "0x63d252dc",
+          "0xfc0a0500",
+          4,
+          "0x8"
+        ]
+      ],
+      "owned_mask": "0x18"
+    },
+    {
+      "role": "R3",
+      "object": "0x6426add8",
+      "method": "0x63d256e8",
+      "encoding": 8,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x18"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x18"
+        ]
+      ],
+      "owned_mask": "0x18"
+    },
+    {
+      "role": "R3",
+      "object": "0x6426add8",
+      "method": "0x63d256e8",
+      "encoding": 9,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x18"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x18"
+        ]
+      ],
+      "owned_mask": "0x18"
+    },
+    {
+      "role": "W0",
+      "object": "0x6426aef4",
+      "method": "0x63d25926",
+      "encoding": 0,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ]
+      ],
+      "owned_mask": "0x1c0"
+    },
+    {
+      "role": "W0",
+      "object": "0x6426aef4",
+      "method": "0x63d25926",
+      "encoding": 1,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x140"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x140"
+        ],
+        [
+          "0x63d25390",
+          "0xfc0a0560",
+          4,
+          "0x80"
+        ],
+        [
+          "0x63d25306",
+          "0xfc0a0500",
+          4,
+          "0x80"
+        ]
+      ],
+      "owned_mask": "0x1c0"
+    },
+    {
+      "role": "W0",
+      "object": "0x6426aef4",
+      "method": "0x63d25926",
+      "encoding": 2,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x180"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x180"
+        ],
+        [
+          "0x63d25382",
+          "0xfc0a0560",
+          4,
+          "0x40"
+        ],
+        [
+          "0x63d252f8",
+          "0xfc0a0500",
+          4,
+          "0x40"
+        ]
+      ],
+      "owned_mask": "0x1c0"
+    },
+    {
+      "role": "W0",
+      "object": "0x6426aef4",
+      "method": "0x63d25926",
+      "encoding": 3,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0x63d2539e",
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0x63d25314",
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ]
+      ],
+      "owned_mask": "0x1c0"
+    },
+    {
+      "role": "W0",
+      "object": "0x6426aef4",
+      "method": "0x63d25926",
+      "encoding": 4,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x140"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x140"
+        ],
+        [
+          "0x63d25390",
+          "0xfc0a0560",
+          4,
+          "0x80"
+        ],
+        [
+          "0x63d25306",
+          "0xfc0a0500",
+          4,
+          "0x80"
+        ]
+      ],
+      "owned_mask": "0x1c0"
+    },
+    {
+      "role": "W0",
+      "object": "0x6426aef4",
+      "method": "0x63d25926",
+      "encoding": 5,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x140"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x140"
+        ],
+        [
+          "0x63d25390",
+          "0xfc0a0560",
+          4,
+          "0x80"
+        ],
+        [
+          "0x63d25306",
+          "0xfc0a0500",
+          4,
+          "0x80"
+        ]
+      ],
+      "owned_mask": "0x1c0"
+    },
+    {
+      "role": "W0",
+      "object": "0x6426aef4",
+      "method": "0x63d25926",
+      "encoding": 6,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x140"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x140"
+        ],
+        [
+          "0x63d25390",
+          "0xfc0a0560",
+          4,
+          "0x80"
+        ],
+        [
+          "0x63d25306",
+          "0xfc0a0500",
+          4,
+          "0x80"
+        ]
+      ],
+      "owned_mask": "0x1c0"
+    },
+    {
+      "role": "W0",
+      "object": "0x6426aef4",
+      "method": "0x63d25926",
+      "encoding": 7,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x180"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x180"
+        ],
+        [
+          "0x63d25382",
+          "0xfc0a0560",
+          4,
+          "0x40"
+        ],
+        [
+          "0x63d252f8",
+          "0xfc0a0500",
+          4,
+          "0x40"
+        ]
+      ],
+      "owned_mask": "0x1c0"
+    },
+    {
+      "role": "W0",
+      "object": "0x6426aef4",
+      "method": "0x63d25926",
+      "encoding": 8,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ]
+      ],
+      "owned_mask": "0x1c0"
+    },
+    {
+      "role": "W0",
+      "object": "0x6426aef4",
+      "method": "0x63d25926",
+      "encoding": 9,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ]
+      ],
+      "owned_mask": "0x1c0"
+    },
+    {
+      "role": "W1",
+      "object": "0x6426ac38",
+      "method": "0x63d25b62",
+      "encoding": 0,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xe00"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xe00"
+        ]
+      ],
+      "owned_mask": "0xe00"
+    },
+    {
+      "role": "W1",
+      "object": "0x6426ac38",
+      "method": "0x63d25b62",
+      "encoding": 1,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xa00"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xa00"
+        ],
+        [
+          "0x63d253ba",
+          "0xfc0a0560",
+          4,
+          "0x400"
+        ],
+        [
+          "0x63d25330",
+          "0xfc0a0500",
+          4,
+          "0x400"
+        ]
+      ],
+      "owned_mask": "0xe00"
+    },
+    {
+      "role": "W1",
+      "object": "0x6426ac38",
+      "method": "0x63d25b62",
+      "encoding": 2,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xc00"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xc00"
+        ],
+        [
+          "0x63d253ac",
+          "0xfc0a0560",
+          4,
+          "0x200"
+        ],
+        [
+          "0x63d25322",
+          "0xfc0a0500",
+          4,
+          "0x200"
+        ]
+      ],
+      "owned_mask": "0xe00"
+    },
+    {
+      "role": "W1",
+      "object": "0x6426ac38",
+      "method": "0x63d25b62",
+      "encoding": 3,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x600"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x600"
+        ],
+        [
+          "0x63d253c8",
+          "0xfc0a0560",
+          4,
+          "0x800"
+        ],
+        [
+          "0x63d2533e",
+          "0xfc0a0500",
+          4,
+          "0x800"
+        ]
+      ],
+      "owned_mask": "0xe00"
+    },
+    {
+      "role": "W1",
+      "object": "0x6426ac38",
+      "method": "0x63d25b62",
+      "encoding": 4,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xa00"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xa00"
+        ],
+        [
+          "0x63d253ba",
+          "0xfc0a0560",
+          4,
+          "0x400"
+        ],
+        [
+          "0x63d25330",
+          "0xfc0a0500",
+          4,
+          "0x400"
+        ]
+      ],
+      "owned_mask": "0xe00"
+    },
+    {
+      "role": "W1",
+      "object": "0x6426ac38",
+      "method": "0x63d25b62",
+      "encoding": 5,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xa00"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xa00"
+        ],
+        [
+          "0x63d253ba",
+          "0xfc0a0560",
+          4,
+          "0x400"
+        ],
+        [
+          "0x63d25330",
+          "0xfc0a0500",
+          4,
+          "0x400"
+        ]
+      ],
+      "owned_mask": "0xe00"
+    },
+    {
+      "role": "W1",
+      "object": "0x6426ac38",
+      "method": "0x63d25b62",
+      "encoding": 6,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xa00"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xa00"
+        ],
+        [
+          "0x63d253ba",
+          "0xfc0a0560",
+          4,
+          "0x400"
+        ],
+        [
+          "0x63d25330",
+          "0xfc0a0500",
+          4,
+          "0x400"
+        ]
+      ],
+      "owned_mask": "0xe00"
+    },
+    {
+      "role": "W1",
+      "object": "0x6426ac38",
+      "method": "0x63d25b62",
+      "encoding": 7,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xc00"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xc00"
+        ],
+        [
+          "0x63d253ac",
+          "0xfc0a0560",
+          4,
+          "0x200"
+        ],
+        [
+          "0x63d25322",
+          "0xfc0a0500",
+          4,
+          "0x200"
+        ]
+      ],
+      "owned_mask": "0xe00"
+    },
+    {
+      "role": "W1",
+      "object": "0x6426ac38",
+      "method": "0x63d25b62",
+      "encoding": 8,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xe00"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xe00"
+        ]
+      ],
+      "owned_mask": "0xe00"
+    },
+    {
+      "role": "W1",
+      "object": "0x6426ac38",
+      "method": "0x63d25b62",
+      "encoding": 9,
+      "shared_writes": [
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xe00"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xe00"
+        ]
+      ],
+      "owned_mask": "0xe00"
+    }
+  ],
+  "shared_register_reads": 0,
+  "mmio_is_ram": true
+}

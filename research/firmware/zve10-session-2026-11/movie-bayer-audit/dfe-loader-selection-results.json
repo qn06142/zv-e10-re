@@ -1,0 +1,71 @@
+{
+  "cases": 3,
+  "native_loader": "0x639daeb4",
+  "native_getter": "0x639dfb38",
+  "default_getter_mocked": false,
+  "intercepted": [
+    "logger",
+    "transfer preparation",
+    "transfer submission",
+    "external I/O gate/load/close"
+  ],
+  "hardware_transfer_executed": false,
+  "rows": [
+    {
+      "case": "native_embedded",
+      "returned": 1,
+      "observed": [
+        {
+          "boundary": "prepare_transfer",
+          "source": "0x64560700",
+          "length": 65536,
+          "descriptor": "0x40001000",
+          "extra_descriptor": "0x40000000"
+        },
+        {
+          "boundary": "submit_transfer",
+          "source": "0x64560700",
+          "length": 65536,
+          "descriptor": "0x40001000",
+          "extra_descriptor": "0x40000000"
+        }
+      ]
+    },
+    {
+      "case": "forced_fallback_gate_closed",
+      "returned": 0,
+      "observed": [
+        {
+          "boundary": "external_io_gate"
+        }
+      ]
+    },
+    {
+      "case": "forced_fallback_gate_open",
+      "returned": 1,
+      "observed": [
+        {
+          "boundary": "external_io_gate"
+        },
+        {
+          "boundary": "external_file",
+          "path": "/usr/dfe/dfe.bin"
+        },
+        {
+          "boundary": "prepare_transfer",
+          "source": "0x40020000",
+          "length": 4660,
+          "descriptor": "0x40001000",
+          "extra_descriptor": "0x40000000"
+        },
+        {
+          "boundary": "submit_transfer",
+          "source": "0x40020000",
+          "length": 4660,
+          "descriptor": "0x40001000",
+          "extra_descriptor": "0x40000000"
+        }
+      ]
+    }
+  ]
+}

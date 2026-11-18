@@ -1,0 +1,76 @@
+{
+  "cases": 4,
+  "mocks": [
+    "atexit",
+    "OS locks",
+    "logger",
+    "operation lookup returns constructed resource0x39"
+  ],
+  "final_SetParams_original": true,
+  "raw_setup_original": true,
+  "extra_RAW_flag_forced_in_emulator": true,
+  "buffer_address_and_capacity_are_fixtures": true,
+  "raw_mmio_writes": [],
+  "logs": [
+    "IMG:DfeCamAif%d: SgcParam Not Found",
+    "IMG:DfeCamAif%d: SgcParam Not Found",
+    "IMG:DfeCamAif%d: SgcParam Not Found",
+    "IMG:DfeCamAif%d: SgcParam Not Found"
+  ],
+  "rows": [
+    {
+      "param": "18c0e663010000000000000002000000020000000000002000000004010000005e03000000aa2664",
+      "parameter_table": "0x63e6c018",
+      "header_table": "0x645bb194",
+      "sensor": "0x1f",
+      "enc": 2
+    },
+    {
+      "param": "18c0e663010000000000000008000000020000000000002000000004010000005e03000000aa2664",
+      "parameter_table": "0x63e6c018",
+      "header_table": "0x645bb194",
+      "sensor": "0x1f",
+      "enc": 8
+    },
+    {
+      "param": "18c0e663010000000000000002000000020000000000002000000004010000001a04000000aa2664",
+      "parameter_table": "0x63e6c018",
+      "header_table": "0x645bb838",
+      "sensor": "0xb5",
+      "enc": 2
+    },
+    {
+      "param": "18c0e663010000000000000008000000020000000000002000000004010000001a04000000aa2664",
+      "parameter_table": "0x63e6c018",
+      "header_table": "0x645bb838",
+      "sensor": "0xb5",
+      "enc": 8
+    }
+  ],
+  "raw_calls": [
+    {
+      "header_table": "0x645bb194",
+      "raw_geometry": "0x0",
+      "buffer": "0x20000000",
+      "capacity": 67108864
+    },
+    {
+      "header_table": "0x645bb194",
+      "raw_geometry": "0x0",
+      "buffer": "0x20000000",
+      "capacity": 67108864
+    },
+    {
+      "header_table": "0x645bb838",
+      "raw_geometry": "0x0",
+      "buffer": "0x20000000",
+      "capacity": 67108864
+    },
+    {
+      "header_table": "0x645bb838",
+      "raw_geometry": "0x0",
+      "buffer": "0x20000000",
+      "capacity": 67108864
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "status": "BUILT_NOT_HARDWARE_VERIFIED",
+  "deployment": "NOT_INSTALLED",
+  "revision": "1080p-high-speed-containment",
+  "position_independent": true,
+  "width": 1920,
+  "height": 1080,
+  "advertised_fps": 5,
+  "observed_fps": null,
+  "pixel_format": "8-bit YUY2 uncompressed; SDF hardware decompress to owned 1080p destination with Cat0 and Cat1",
+  "source_backend": "NATIVE_VDF_PIN_SEND_PRIVATE_QUEUE_TO_SONY_SDF_OWNED_HD127_CHUNKED_USB2_5FPS",
+  "continuous_video": true,
+  "source_pool_scanning": false,
+  "source_transfer_free_mode": 2,
+  "requested_native_output": [
+    0,
+    2,
+    0,
+    5832718
+  ],
+  "private_receiver_index": 2147483447,
+  "output_busy_behavior": "REFUSE_WITHOUT_DISCONNECTING_EXISTING_PEER",
+  "native_output_availability": "VGA_INPUT_PREVIOUSLY_CAPTURED; HD_RESIZER_OUTPUT_WITH_CAT1_TESTED",
+  "diagnostic_revision": false,
+  "functional_descriptor_fix": true,
+  "reference_cleanup_changed": false,
+  "metadata_settle_attempts": 32,
+  "metadata_retry_delay_us": 0,
+  "metadata_max_sleeps": 0,
+  "rejected_descriptor_record": "YC38RJ01",
+  "rejected_record_max_bytes": 131152,
+  "no_image_metadata_handled": true,
+  "remaining_rejection_gates_unchanged": true,
+  "artificial_pacing_removed": true,
+  "hardware_completion_waits_preserved": true,
+  "required_kernel_version": "yc42_chunk",
+  "required_kernel_md5": "702b82f347b6fc25e8d46ddba1836743",
+  "crash_fix_verified": false,
+  "independent_usb_source_credit_retained_until_boot": true,
+  "synthetic_fallback": false,
+  "frame_bytes": 4147200,
+  "packet_header_bytes": 0,
+  "cold_boot_required": true,
+  "stream_sessions_per_boot": 1,
+  "required_dmm_config_md5": "9f197ff9b300e49ab531b6f9e794253e",
+  "source_requires_1920x1080": true,
+  "high_depth_target_deferred_by_user": true,
+  "physical_pool_sizes_changed": false,
+  "live_allocation_availability_unverified": true,
+  "chunk_bytes": 614400,
+  "transport_fragments_per_frame": 7,
+  "dmm_aliases_unchanged": true,
+  "files": {
+    "yuy2_1080_v43chunk.so": {
+      "bytes": 48020,
+      "md5": "e0958b066d3c12e830ccc693cb456419",
+      "sha256": "7b9e3f8c01da44c00242000f2451affc3cde1a1f161b4422a83c7b4e0e84023c"
+    },
+    "libInfraStreamingUsb.so": {
+      "bytes": 72796,
+      "md5": "4c5deb4a89474c0a3b65356f034a5d9e",
+      "sha256": "604424797110b48e6d860fb8b65069e1633c80e5098e18de009c0fd48c78e10a"
+    },
+    "usbg_video.ko": {
+      "bytes": 34876,
+      "md5": "702b82f347b6fc25e8d46ddba1836743",
+      "sha256": "4ba4b0604d20dabfe25a716044a75cff47f9765bc8035d536941f8f3926a2055"
+    }
+  }
+}

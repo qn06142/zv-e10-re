@@ -1,0 +1,1810 @@
+{
+  "paired_cases": 6,
+  "rows": [
+    {
+      "sensor": "0x5",
+      "drive": "0x17",
+      "width_fixture": 1996,
+      "encoding": 0,
+      "descriptor": [
+        "0x20000000",
+        "0xf98",
+        "0x28",
+        "0x461"
+      ],
+      "added_writes": [
+        [
+          "0x637a31fe",
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a3136",
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0x63d25922",
+          "0xfc0a8900",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0x63d25416",
+          "0xfc0a8014",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d262cc",
+          "0xfc0a9220",
+          4,
+          "0x20000000"
+        ],
+        [
+          "0x63d262da",
+          "0xfc0a9224",
+          4,
+          "0xf98"
+        ],
+        [
+          "0x63d262e8",
+          "0xfc0a9228",
+          4,
+          "0x28"
+        ],
+        [
+          "0x63d26302",
+          "0xfc0a9230",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2631c",
+          "0xfc0a9238",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26336",
+          "0xfc0a9240",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d262f4",
+          "0xfc0a922c",
+          4,
+          "0x461"
+        ],
+        [
+          "0x63d2630e",
+          "0xfc0a9234",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26328",
+          "0xfc0a923c",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26342",
+          "0xfc0a9244",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2634e",
+          "0xfc0a9250",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2624a",
+          "0xfc0a9204",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d261f8",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26218",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26366",
+          "0xfc0a9278",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2635a",
+          "0xfc0a9274",
+          4,
+          "0x0"
+        ]
+      ],
+      "removed_writes": [],
+      "baseline_logs": [],
+      "enabled_logs": [
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d",
+        "IMG:Release ofmt0Block Vcount always <= 2",
+        "IMG:MIPI-Tx CSI-2 %d Deactivate Error (not Initialized)",
+        "IMG:MIPI-Tx D-PHY %d Deactivate Error (not Initialized)",
+        "IMG:Aif %x CH%d:stop wait err",
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d"
+      ],
+      "baseline_start": {
+        "w0_start_objects": [],
+        "irq_selector": 17,
+        "w0_control": "0x0",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ]
+      },
+      "enabled_start": {
+        "w0_start_objects": [
+          "0x6426aea0"
+        ],
+        "irq_selector": 17,
+        "w0_control": "0x3",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x63d261e8",
+            "0xfc0a9200",
+            4,
+            "0x3"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ],
+        "injected_irq_callback_while_w0_busy": true,
+        "teardown": {
+          "release_result": 0,
+          "w0_busy_after_release": true,
+          "conflicting_resource": "0x2f",
+          "contender_rejected_before_release": true,
+          "active_mask_after_release": "0x200000",
+          "contender_acquired_after_release": false
+        }
+      }
+    },
+    {
+      "sensor": "0x5",
+      "drive": "0x17",
+      "width_fixture": 1996,
+      "encoding": 3,
+      "descriptor": [
+        "0x20000000",
+        "0xbb8",
+        "0x18",
+        "0x461"
+      ],
+      "added_writes": [
+        [
+          "0x637a31fe",
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a3136",
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0x63d2539e",
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0x63d25314",
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0x63d25922",
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d25416",
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0x637a32a2",
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a32b2",
+          "0xfc0a8910",
+          4,
+          "0x7b0461"
+        ],
+        [
+          "0x63d262cc",
+          "0xfc0a9220",
+          4,
+          "0x20000000"
+        ],
+        [
+          "0x63d262da",
+          "0xfc0a9224",
+          4,
+          "0xbb8"
+        ],
+        [
+          "0x63d262e8",
+          "0xfc0a9228",
+          4,
+          "0x18"
+        ],
+        [
+          "0x63d26302",
+          "0xfc0a9230",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2631c",
+          "0xfc0a9238",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26336",
+          "0xfc0a9240",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d262f4",
+          "0xfc0a922c",
+          4,
+          "0x461"
+        ],
+        [
+          "0x63d2630e",
+          "0xfc0a9234",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26328",
+          "0xfc0a923c",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26342",
+          "0xfc0a9244",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2634e",
+          "0xfc0a9250",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2624a",
+          "0xfc0a9204",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d261f8",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26218",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26366",
+          "0xfc0a9278",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2635a",
+          "0xfc0a9274",
+          4,
+          "0x0"
+        ]
+      ],
+      "removed_writes": [],
+      "baseline_logs": [],
+      "enabled_logs": [
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d",
+        "IMG:Release ofmt0Block Vcount always <= 2",
+        "IMG:MIPI-Tx CSI-2 %d Deactivate Error (not Initialized)",
+        "IMG:MIPI-Tx D-PHY %d Deactivate Error (not Initialized)",
+        "IMG:Aif %x CH%d:stop wait err",
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d"
+      ],
+      "baseline_start": {
+        "w0_start_objects": [],
+        "irq_selector": 17,
+        "w0_control": "0x0",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ]
+      },
+      "enabled_start": {
+        "w0_start_objects": [
+          "0x6426aea0"
+        ],
+        "irq_selector": 17,
+        "w0_control": "0x3",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x63d261e8",
+            "0xfc0a9200",
+            4,
+            "0x3"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ],
+        "injected_irq_callback_while_w0_busy": true,
+        "teardown": {
+          "release_result": 0,
+          "w0_busy_after_release": true,
+          "conflicting_resource": "0x2f",
+          "contender_rejected_before_release": true,
+          "active_mask_after_release": "0x200000",
+          "contender_acquired_after_release": false
+        }
+      }
+    },
+    {
+      "sensor": "0x5",
+      "drive": "0x17",
+      "width_fixture": 2000,
+      "encoding": 3,
+      "descriptor": [
+        "0x20000000",
+        "0xbb8",
+        "0x18",
+        "0x461"
+      ],
+      "added_writes": [
+        [
+          "0x637a31fe",
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a3136",
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0x63d2539e",
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0x63d25314",
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0x63d25922",
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d25416",
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0x637a32a2",
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a32b2",
+          "0xfc0a8910",
+          4,
+          "0x7c0461"
+        ],
+        [
+          "0x63d262cc",
+          "0xfc0a9220",
+          4,
+          "0x20000000"
+        ],
+        [
+          "0x63d262da",
+          "0xfc0a9224",
+          4,
+          "0xbb8"
+        ],
+        [
+          "0x63d262e8",
+          "0xfc0a9228",
+          4,
+          "0x18"
+        ],
+        [
+          "0x63d26302",
+          "0xfc0a9230",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2631c",
+          "0xfc0a9238",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26336",
+          "0xfc0a9240",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d262f4",
+          "0xfc0a922c",
+          4,
+          "0x461"
+        ],
+        [
+          "0x63d2630e",
+          "0xfc0a9234",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26328",
+          "0xfc0a923c",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26342",
+          "0xfc0a9244",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2634e",
+          "0xfc0a9250",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2624a",
+          "0xfc0a9204",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d261f8",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26218",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26366",
+          "0xfc0a9278",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2635a",
+          "0xfc0a9274",
+          4,
+          "0x0"
+        ]
+      ],
+      "removed_writes": [],
+      "baseline_logs": [],
+      "enabled_logs": [
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d",
+        "IMG:Release ofmt0Block Vcount always <= 2",
+        "IMG:MIPI-Tx CSI-2 %d Deactivate Error (not Initialized)",
+        "IMG:MIPI-Tx D-PHY %d Deactivate Error (not Initialized)",
+        "IMG:Aif %x CH%d:stop wait err",
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d"
+      ],
+      "baseline_start": {
+        "w0_start_objects": [],
+        "irq_selector": 17,
+        "w0_control": "0x0",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ]
+      },
+      "enabled_start": {
+        "w0_start_objects": [
+          "0x6426aea0"
+        ],
+        "irq_selector": 17,
+        "w0_control": "0x3",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x63d261e8",
+            "0xfc0a9200",
+            4,
+            "0x3"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ],
+        "injected_irq_callback_while_w0_busy": true,
+        "teardown": {
+          "release_result": 0,
+          "w0_busy_after_release": true,
+          "conflicting_resource": "0x2f",
+          "contender_rejected_before_release": true,
+          "active_mask_after_release": "0x200000",
+          "contender_acquired_after_release": false
+        }
+      }
+    },
+    {
+      "sensor": "0x7",
+      "drive": "0x18",
+      "width_fixture": 1996,
+      "encoding": 0,
+      "descriptor": [
+        "0x20000000",
+        "0xf98",
+        "0x28",
+        "0x461"
+      ],
+      "added_writes": [
+        [
+          "0x637a31fe",
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a3136",
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0x63d25922",
+          "0xfc0a8900",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0x1c0"
+        ],
+        [
+          "0x63d25416",
+          "0xfc0a8014",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d262cc",
+          "0xfc0a9220",
+          4,
+          "0x20000000"
+        ],
+        [
+          "0x63d262da",
+          "0xfc0a9224",
+          4,
+          "0xf98"
+        ],
+        [
+          "0x63d262e8",
+          "0xfc0a9228",
+          4,
+          "0x28"
+        ],
+        [
+          "0x63d26302",
+          "0xfc0a9230",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2631c",
+          "0xfc0a9238",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26336",
+          "0xfc0a9240",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d262f4",
+          "0xfc0a922c",
+          4,
+          "0x461"
+        ],
+        [
+          "0x63d2630e",
+          "0xfc0a9234",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26328",
+          "0xfc0a923c",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26342",
+          "0xfc0a9244",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2634e",
+          "0xfc0a9250",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2624a",
+          "0xfc0a9204",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d261f8",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26218",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26366",
+          "0xfc0a9278",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2635a",
+          "0xfc0a9274",
+          4,
+          "0x0"
+        ]
+      ],
+      "removed_writes": [],
+      "baseline_logs": [],
+      "enabled_logs": [
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d",
+        "IMG:Release ofmt0Block Vcount always <= 2",
+        "IMG:MIPI-Tx CSI-2 %d Deactivate Error (not Initialized)",
+        "IMG:MIPI-Tx D-PHY %d Deactivate Error (not Initialized)",
+        "IMG:Aif %x CH%d:stop wait err",
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d"
+      ],
+      "baseline_start": {
+        "w0_start_objects": [],
+        "irq_selector": 17,
+        "w0_control": "0x0",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ]
+      },
+      "enabled_start": {
+        "w0_start_objects": [
+          "0x6426aea0"
+        ],
+        "irq_selector": 17,
+        "w0_control": "0x3",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x63d261e8",
+            "0xfc0a9200",
+            4,
+            "0x3"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ],
+        "injected_irq_callback_while_w0_busy": true,
+        "teardown": {
+          "release_result": 0,
+          "w0_busy_after_release": true,
+          "conflicting_resource": "0x2f",
+          "contender_rejected_before_release": true,
+          "active_mask_after_release": "0x200000",
+          "contender_acquired_after_release": false
+        }
+      }
+    },
+    {
+      "sensor": "0x7",
+      "drive": "0x18",
+      "width_fixture": 1996,
+      "encoding": 3,
+      "descriptor": [
+        "0x20000000",
+        "0xbb8",
+        "0x18",
+        "0x461"
+      ],
+      "added_writes": [
+        [
+          "0x637a31fe",
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a3136",
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0x63d2539e",
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0x63d25314",
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0x63d25922",
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d25416",
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0x637a32a2",
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a32b2",
+          "0xfc0a8910",
+          4,
+          "0x7b0461"
+        ],
+        [
+          "0x63d262cc",
+          "0xfc0a9220",
+          4,
+          "0x20000000"
+        ],
+        [
+          "0x63d262da",
+          "0xfc0a9224",
+          4,
+          "0xbb8"
+        ],
+        [
+          "0x63d262e8",
+          "0xfc0a9228",
+          4,
+          "0x18"
+        ],
+        [
+          "0x63d26302",
+          "0xfc0a9230",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2631c",
+          "0xfc0a9238",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26336",
+          "0xfc0a9240",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d262f4",
+          "0xfc0a922c",
+          4,
+          "0x461"
+        ],
+        [
+          "0x63d2630e",
+          "0xfc0a9234",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26328",
+          "0xfc0a923c",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26342",
+          "0xfc0a9244",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2634e",
+          "0xfc0a9250",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2624a",
+          "0xfc0a9204",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d261f8",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26218",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26366",
+          "0xfc0a9278",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2635a",
+          "0xfc0a9274",
+          4,
+          "0x0"
+        ]
+      ],
+      "removed_writes": [],
+      "baseline_logs": [],
+      "enabled_logs": [
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d",
+        "IMG:Release ofmt0Block Vcount always <= 2",
+        "IMG:MIPI-Tx CSI-2 %d Deactivate Error (not Initialized)",
+        "IMG:MIPI-Tx D-PHY %d Deactivate Error (not Initialized)",
+        "IMG:Aif %x CH%d:stop wait err",
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d"
+      ],
+      "baseline_start": {
+        "w0_start_objects": [],
+        "irq_selector": 17,
+        "w0_control": "0x0",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ]
+      },
+      "enabled_start": {
+        "w0_start_objects": [
+          "0x6426aea0"
+        ],
+        "irq_selector": 17,
+        "w0_control": "0x3",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x63d261e8",
+            "0xfc0a9200",
+            4,
+            "0x3"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ],
+        "injected_irq_callback_while_w0_busy": true,
+        "teardown": {
+          "release_result": 0,
+          "w0_busy_after_release": true,
+          "conflicting_resource": "0x2f",
+          "contender_rejected_before_release": true,
+          "active_mask_after_release": "0x200000",
+          "contender_acquired_after_release": false
+        }
+      }
+    },
+    {
+      "sensor": "0x7",
+      "drive": "0x18",
+      "width_fixture": 2000,
+      "encoding": 3,
+      "descriptor": [
+        "0x20000000",
+        "0xbb8",
+        "0x18",
+        "0x461"
+      ],
+      "added_writes": [
+        [
+          "0x637a31fe",
+          "0xfc0a8704",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a3136",
+          "0xfc0a8804",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a2c14",
+          "0xfc0a0504",
+          4,
+          "0xc0"
+        ],
+        [
+          "0x637a2c5c",
+          "0xfc0a0564",
+          4,
+          "0xc0"
+        ],
+        [
+          "0x63d2539e",
+          "0xfc0a0560",
+          4,
+          "0x100"
+        ],
+        [
+          "0x63d25314",
+          "0xfc0a0500",
+          4,
+          "0x100"
+        ],
+        [
+          "0x63d25922",
+          "0xfc0a8900",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d25416",
+          "0xfc0a8014",
+          4,
+          "0x3"
+        ],
+        [
+          "0x637a32a2",
+          "0xfc0a890c",
+          4,
+          "0x1"
+        ],
+        [
+          "0x637a32b2",
+          "0xfc0a8910",
+          4,
+          "0x7c0461"
+        ],
+        [
+          "0x63d262cc",
+          "0xfc0a9220",
+          4,
+          "0x20000000"
+        ],
+        [
+          "0x63d262da",
+          "0xfc0a9224",
+          4,
+          "0xbb8"
+        ],
+        [
+          "0x63d262e8",
+          "0xfc0a9228",
+          4,
+          "0x18"
+        ],
+        [
+          "0x63d26302",
+          "0xfc0a9230",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2631c",
+          "0xfc0a9238",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26336",
+          "0xfc0a9240",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d262f4",
+          "0xfc0a922c",
+          4,
+          "0x461"
+        ],
+        [
+          "0x63d2630e",
+          "0xfc0a9234",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26328",
+          "0xfc0a923c",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d26342",
+          "0xfc0a9244",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2634e",
+          "0xfc0a9250",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2624a",
+          "0xfc0a9204",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d261f8",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26218",
+          "0xfc0a9200",
+          4,
+          "0x2"
+        ],
+        [
+          "0x63d26366",
+          "0xfc0a9278",
+          4,
+          "0x0"
+        ],
+        [
+          "0x63d2635a",
+          "0xfc0a9274",
+          4,
+          "0x0"
+        ]
+      ],
+      "removed_writes": [],
+      "baseline_logs": [],
+      "enabled_logs": [
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d",
+        "IMG:Release ofmt0Block Vcount always <= 2",
+        "IMG:MIPI-Tx CSI-2 %d Deactivate Error (not Initialized)",
+        "IMG:MIPI-Tx D-PHY %d Deactivate Error (not Initialized)",
+        "IMG:Aif %x CH%d:stop wait err",
+        "IMG:Acquire Error. : acquired = %x, request = %x, mode = %d"
+      ],
+      "baseline_start": {
+        "w0_start_objects": [],
+        "irq_selector": 17,
+        "w0_control": "0x0",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ]
+      },
+      "enabled_start": {
+        "w0_start_objects": [
+          "0x6426aea0"
+        ],
+        "irq_selector": 17,
+        "w0_control": "0x3",
+        "writes": [
+          [
+            "0x6379e7d6",
+            "0xfc0a0014",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e81e",
+            "0xfc0a002c",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x6379e7ee",
+            "0xfc0a0018",
+            4,
+            "0x80000"
+          ],
+          [
+            "0x6379e836",
+            "0xfc0a0030",
+            4,
+            "0x1000"
+          ],
+          [
+            "0x637a28ec",
+            "0xfc0ad610",
+            4,
+            "0x1"
+          ],
+          [
+            "0x63d261e8",
+            "0xfc0a9200",
+            4,
+            "0x3"
+          ],
+          [
+            "0x637a120c",
+            "0xfc0a1410",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0350",
+            "0xfc0a1310",
+            4,
+            "0x1"
+          ],
+          [
+            "0x637a0d68",
+            "0xfc0a1210",
+            4,
+            "0x1"
+          ]
+        ],
+        "injected_irq_callback_while_w0_busy": true,
+        "teardown": {
+          "release_result": 0,
+          "w0_busy_after_release": true,
+          "conflicting_resource": "0x2f",
+          "contender_rejected_before_release": true,
+          "active_mask_after_release": "0x200000",
+          "contender_acquired_after_release": false
+        }
+      }
+    }
+  ],
+  "mmio_is_ram": true,
+  "w0_in_default_flags_teardown": {
+    "release_result": 0,
+    "w0_busy_after_release": true,
+    "conflicting_resource": "0x2f",
+    "contender_rejected_before_release": true,
+    "active_mask_after_release": "0x0",
+    "contender_acquired_after_release": true
+  },
+  "dma_executed": false,
+  "w0_geometry_is_fixture": true
+}

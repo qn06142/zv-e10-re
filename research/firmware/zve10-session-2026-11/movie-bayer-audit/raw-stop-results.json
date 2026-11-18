@@ -1,0 +1,259 @@
+{
+  "cases": 24,
+  "native_stop": "0x637a3c48",
+  "native_busy_getter": "0x63d2626e",
+  "native_raw_busy_read": "0x63d26260",
+  "mocked_boundaries": [
+    "logger",
+    "harness memory helpers"
+  ],
+  "register_fixtures": [
+    "busy observation sequence",
+    "status bits",
+    "snapshot word"
+  ],
+  "finding": "Native stop returns after 1000 busy observations even if busy remains asserted; return value is a register snapshot.",
+  "dma_or_timing_emulated": false,
+  "rows": [
+    {
+      "clear_after_busy_observations": 0,
+      "status_low5": 0,
+      "polls": 1,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x0"
+    },
+    {
+      "clear_after_busy_observations": 0,
+      "status_low5": 1,
+      "polls": 1,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x80000001"
+    },
+    {
+      "clear_after_busy_observations": 0,
+      "status_low5": 31,
+      "polls": 1,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x8000001f"
+    },
+    {
+      "clear_after_busy_observations": 1,
+      "status_low5": 0,
+      "polls": 2,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x0"
+    },
+    {
+      "clear_after_busy_observations": 1,
+      "status_low5": 1,
+      "polls": 2,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x80000001"
+    },
+    {
+      "clear_after_busy_observations": 1,
+      "status_low5": 31,
+      "polls": 2,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x8000001f"
+    },
+    {
+      "clear_after_busy_observations": 2,
+      "status_low5": 0,
+      "polls": 3,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x0"
+    },
+    {
+      "clear_after_busy_observations": 2,
+      "status_low5": 1,
+      "polls": 3,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x80000001"
+    },
+    {
+      "clear_after_busy_observations": 2,
+      "status_low5": 31,
+      "polls": 3,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x8000001f"
+    },
+    {
+      "clear_after_busy_observations": 998,
+      "status_low5": 0,
+      "polls": 999,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x0"
+    },
+    {
+      "clear_after_busy_observations": 998,
+      "status_low5": 1,
+      "polls": 999,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x80000001"
+    },
+    {
+      "clear_after_busy_observations": 998,
+      "status_low5": 31,
+      "polls": 999,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x8000001f"
+    },
+    {
+      "clear_after_busy_observations": 999,
+      "status_low5": 0,
+      "polls": 1000,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x0"
+    },
+    {
+      "clear_after_busy_observations": 999,
+      "status_low5": 1,
+      "polls": 1000,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x80000001"
+    },
+    {
+      "clear_after_busy_observations": 999,
+      "status_low5": 31,
+      "polls": 1000,
+      "logs": 0,
+      "returned": "0x12345678",
+      "busy_after_return": 0,
+      "control": "0x40000000",
+      "status": "0x8000001f"
+    },
+    {
+      "clear_after_busy_observations": 1000,
+      "status_low5": 0,
+      "polls": 1000,
+      "logs": 1,
+      "returned": "0x12345678",
+      "busy_after_return": 1,
+      "control": "0xc0000000",
+      "status": "0x0"
+    },
+    {
+      "clear_after_busy_observations": 1000,
+      "status_low5": 1,
+      "polls": 1000,
+      "logs": 1,
+      "returned": "0x12345678",
+      "busy_after_return": 1,
+      "control": "0xc0000000",
+      "status": "0x80000001"
+    },
+    {
+      "clear_after_busy_observations": 1000,
+      "status_low5": 31,
+      "polls": 1000,
+      "logs": 1,
+      "returned": "0x12345678",
+      "busy_after_return": 1,
+      "control": "0xc0000000",
+      "status": "0x8000001f"
+    },
+    {
+      "clear_after_busy_observations": 1001,
+      "status_low5": 0,
+      "polls": 1000,
+      "logs": 1,
+      "returned": "0x12345678",
+      "busy_after_return": 1,
+      "control": "0xc0000000",
+      "status": "0x0"
+    },
+    {
+      "clear_after_busy_observations": 1001,
+      "status_low5": 1,
+      "polls": 1000,
+      "logs": 1,
+      "returned": "0x12345678",
+      "busy_after_return": 1,
+      "control": "0xc0000000",
+      "status": "0x80000001"
+    },
+    {
+      "clear_after_busy_observations": 1001,
+      "status_low5": 31,
+      "polls": 1000,
+      "logs": 1,
+      "returned": "0x12345678",
+      "busy_after_return": 1,
+      "control": "0xc0000000",
+      "status": "0x8000001f"
+    },
+    {
+      "clear_after_busy_observations": null,
+      "status_low5": 0,
+      "polls": 1000,
+      "logs": 1,
+      "returned": "0x12345678",
+      "busy_after_return": 1,
+      "control": "0xc0000000",
+      "status": "0x0"
+    },
+    {
+      "clear_after_busy_observations": null,
+      "status_low5": 1,
+      "polls": 1000,
+      "logs": 1,
+      "returned": "0x12345678",
+      "busy_after_return": 1,
+      "control": "0xc0000000",
+      "status": "0x80000001"
+    },
+    {
+      "clear_after_busy_observations": null,
+      "status_low5": 31,
+      "polls": 1000,
+      "logs": 1,
+      "returned": "0x12345678",
+      "busy_after_return": 1,
+      "control": "0xc0000000",
+      "status": "0x8000001f"
+    }
+  ]
+}

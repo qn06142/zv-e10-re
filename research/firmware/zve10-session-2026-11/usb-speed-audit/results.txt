@@ -1,0 +1,7 @@
+createGadget fault 1: return=1, state=5, calls=[(1073865484, 5)]
+createGadget fault 2: return=14, state=7, calls=[(1073865484, 5), (58117, None)]
+createGadget fault 3: return=1, state=5, calls=[(1073865484, 5), (58117, None), (1073865484, 5)]
+kernel request 3: operation=2, rejected=False, saved=3
+kernel request 3: operation=2, rejected=True, saved=2
+kernel request 5: operation=4, rejected=False, saved=5
+kernel request 5: operation=4, rejected=True, saved=2

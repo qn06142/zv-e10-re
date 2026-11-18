@@ -1,0 +1,255 @@
+{
+  "cases": 30,
+  "image_md5": "8c5f3b191dd124cf1ee2cb5055cec37e",
+  "size": 65536,
+  "image_base_inferred_from_vectors": "0x1000000",
+  "reset_vector": "0x100c000",
+  "build_string": "20180731_00_1994_LEO",
+  "native_executor": "0x10001d4",
+  "command_record_offset": "context + 0x10 + index*12",
+  "mocks": [],
+  "operands": "RAM fixtures",
+  "sensor_dma_or_cadence_emulated": false,
+  "rows": [
+    {
+      "index": 0,
+      "count": 0,
+      "command": 0,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 0,
+      "count": 1,
+      "command": 0,
+      "status": 0,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 0,
+      "count": 0,
+      "command": 1,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 0,
+      "count": 1,
+      "command": 1,
+      "status": 0,
+      "target": "0x12345678",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 0,
+      "count": 0,
+      "command": 2,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 0,
+      "count": 1,
+      "command": 2,
+      "status": 0,
+      "target": "0x89abcdef",
+      "command_result": "0x89abcdef"
+    },
+    {
+      "index": 0,
+      "count": 0,
+      "command": 5,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 0,
+      "count": 1,
+      "command": 5,
+      "status": 1,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 0,
+      "count": 0,
+      "command": 4294967295,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 0,
+      "count": 1,
+      "command": 4294967295,
+      "status": 1,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 1,
+      "count": 1,
+      "command": 0,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 1,
+      "count": 2,
+      "command": 0,
+      "status": 0,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 1,
+      "count": 1,
+      "command": 1,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 1,
+      "count": 2,
+      "command": 1,
+      "status": 0,
+      "target": "0x12345678",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 1,
+      "count": 1,
+      "command": 2,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 1,
+      "count": 2,
+      "command": 2,
+      "status": 0,
+      "target": "0x89abcdef",
+      "command_result": "0x89abcdef"
+    },
+    {
+      "index": 1,
+      "count": 1,
+      "command": 5,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 1,
+      "count": 2,
+      "command": 5,
+      "status": 1,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 1,
+      "count": 1,
+      "command": 4294967295,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 1,
+      "count": 2,
+      "command": 4294967295,
+      "status": 1,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 61,
+      "count": 61,
+      "command": 0,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 61,
+      "count": 62,
+      "command": 0,
+      "status": 0,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 61,
+      "count": 61,
+      "command": 1,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 61,
+      "count": 62,
+      "command": 1,
+      "status": 0,
+      "target": "0x12345678",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 61,
+      "count": 61,
+      "command": 2,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 61,
+      "count": 62,
+      "command": 2,
+      "status": 0,
+      "target": "0x89abcdef",
+      "command_result": "0x89abcdef"
+    },
+    {
+      "index": 61,
+      "count": 61,
+      "command": 5,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 61,
+      "count": 62,
+      "command": 5,
+      "status": 1,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 61,
+      "count": 61,
+      "command": 4294967295,
+      "status": 2,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    },
+    {
+      "index": 61,
+      "count": 62,
+      "command": 4294967295,
+      "status": 1,
+      "target": "0x89abcdef",
+      "command_result": "0x12345678"
+    }
+  ]
+}

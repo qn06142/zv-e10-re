@@ -1,0 +1,1172 @@
+{
+  "cases": 10,
+  "native_constructor": "0x637a2608",
+  "native_header_apply": "0x63d24fc8",
+  "native_script_executor": "0x637a6c24",
+  "native_report_getters": [
+    "0x63d25034",
+    "0x63d2504c"
+  ],
+  "counter_identification": "native diagnostic argument order at 0x637a2448",
+  "native_diagnostic_cases": [
+    {
+      "format": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+      "register_args": [
+        0,
+        0,
+        3
+      ],
+      "stack_args": [
+        2,
+        4,
+        17970256,
+        6636320,
+        1,
+        0
+      ]
+    }
+  ],
+  "native_diagnostic": "IMG:Mwrap%d-%d trnsmode%d state%d %d tcnt%x %x status%d %d",
+  "function_mocks": [
+    "logger only"
+  ],
+  "fixtures": [
+    "RAM-backed MMIO",
+    "transfer-counter register sentinel values"
+  ],
+  "actual_frame_addresses_recovered": false,
+  "compressed_pixel_decode_proved": false,
+  "pixels_emulated": false,
+  "rows": [
+    {
+      "sensor": "0x1f",
+      "drive": "0x4",
+      "owner": "0x645bb194",
+      "script": "0x63e71d44",
+      "writes": [
+        {
+          "address": "0xfc0a7008",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a700c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7014",
+          "value": "0x3"
+        },
+        {
+          "address": "0xfc0a7018",
+          "value": "0x27f060"
+        },
+        {
+          "address": "0xfc0a701c",
+          "value": "0x2f8"
+        },
+        {
+          "address": "0xfc0a7020",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7024",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a702c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7060",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7064",
+          "value": "0x31"
+        },
+        {
+          "address": "0xfc0a7068",
+          "value": "0x17c0"
+        },
+        {
+          "address": "0xfc0a706c",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7070",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7074",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0dc",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70ec",
+          "value": "0x0"
+        }
+      ],
+      "fixture_counter_register": "0x1234560",
+      "reported_fixture_counters": [
+        "0x1234560",
+        "0x1235560"
+      ]
+    },
+    {
+      "sensor": "0x1f",
+      "drive": "0x4",
+      "owner": "0x645bb194",
+      "script": "0x63e71d44",
+      "writes": [
+        {
+          "address": "0xfc0a7008",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a700c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7014",
+          "value": "0x3"
+        },
+        {
+          "address": "0xfc0a7018",
+          "value": "0x27f060"
+        },
+        {
+          "address": "0xfc0a701c",
+          "value": "0x2f8"
+        },
+        {
+          "address": "0xfc0a7020",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7024",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a702c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7060",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7064",
+          "value": "0x31"
+        },
+        {
+          "address": "0xfc0a7068",
+          "value": "0x17c0"
+        },
+        {
+          "address": "0xfc0a706c",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7070",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7074",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0dc",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70ec",
+          "value": "0x0"
+        }
+      ],
+      "fixture_counter_register": "0xff654320",
+      "reported_fixture_counters": [
+        "0x1654320",
+        "0x1655320"
+      ]
+    },
+    {
+      "sensor": "0xb5",
+      "drive": "0x94",
+      "owner": "0x645bb838",
+      "script": "0x63e6e5e0",
+      "writes": [
+        {
+          "address": "0xfc0a7008",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a700c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7014",
+          "value": "0x3"
+        },
+        {
+          "address": "0xfc0a7018",
+          "value": "0x20cba0"
+        },
+        {
+          "address": "0xfc0a701c",
+          "value": "0x2f8"
+        },
+        {
+          "address": "0xfc0a7020",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7024",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a702c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7060",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7064",
+          "value": "0x31"
+        },
+        {
+          "address": "0xfc0a7068",
+          "value": "0x17c0"
+        },
+        {
+          "address": "0xfc0a706c",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7070",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7074",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0dc",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70ec",
+          "value": "0x0"
+        }
+      ],
+      "fixture_counter_register": "0x1234560",
+      "reported_fixture_counters": [
+        "0x1234560",
+        "0x1235560"
+      ]
+    },
+    {
+      "sensor": "0xb5",
+      "drive": "0x94",
+      "owner": "0x645bb838",
+      "script": "0x63e6e5e0",
+      "writes": [
+        {
+          "address": "0xfc0a7008",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a700c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7014",
+          "value": "0x3"
+        },
+        {
+          "address": "0xfc0a7018",
+          "value": "0x20cba0"
+        },
+        {
+          "address": "0xfc0a701c",
+          "value": "0x2f8"
+        },
+        {
+          "address": "0xfc0a7020",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7024",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a702c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7060",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7064",
+          "value": "0x31"
+        },
+        {
+          "address": "0xfc0a7068",
+          "value": "0x17c0"
+        },
+        {
+          "address": "0xfc0a706c",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7070",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7074",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0dc",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70ec",
+          "value": "0x0"
+        }
+      ],
+      "fixture_counter_register": "0xff654320",
+      "reported_fixture_counters": [
+        "0x1654320",
+        "0x1655320"
+      ]
+    },
+    {
+      "sensor": "0x5",
+      "drive": "0x17",
+      "owner": "0x645bb5a4",
+      "script": "0x63e72740",
+      "writes": [
+        {
+          "address": "0xfc0a7008",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a700c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7014",
+          "value": "0x3"
+        },
+        {
+          "address": "0xfc0a7018",
+          "value": "0x909c8"
+        },
+        {
+          "address": "0xfc0a701c",
+          "value": "0x1fc"
+        },
+        {
+          "address": "0xfc0a7020",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7024",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a702c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7060",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7064",
+          "value": "0x2c"
+        },
+        {
+          "address": "0xfc0a7068",
+          "value": "0x7f0"
+        },
+        {
+          "address": "0xfc0a706c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7070",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7074",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0dc",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70ec",
+          "value": "0x0"
+        }
+      ],
+      "fixture_counter_register": "0x1234560",
+      "reported_fixture_counters": [
+        "0x1234560",
+        "0x1235560"
+      ]
+    },
+    {
+      "sensor": "0x5",
+      "drive": "0x17",
+      "owner": "0x645bb5a4",
+      "script": "0x63e72740",
+      "writes": [
+        {
+          "address": "0xfc0a7008",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a700c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7014",
+          "value": "0x3"
+        },
+        {
+          "address": "0xfc0a7018",
+          "value": "0x909c8"
+        },
+        {
+          "address": "0xfc0a701c",
+          "value": "0x1fc"
+        },
+        {
+          "address": "0xfc0a7020",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7024",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a702c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7060",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7064",
+          "value": "0x2c"
+        },
+        {
+          "address": "0xfc0a7068",
+          "value": "0x7f0"
+        },
+        {
+          "address": "0xfc0a706c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7070",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7074",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0dc",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70ec",
+          "value": "0x0"
+        }
+      ],
+      "fixture_counter_register": "0xff654320",
+      "reported_fixture_counters": [
+        "0x1654320",
+        "0x1655320"
+      ]
+    },
+    {
+      "sensor": "0x7",
+      "drive": "0x18",
+      "owner": "0x645bb5a4",
+      "script": "0x63e72740",
+      "writes": [
+        {
+          "address": "0xfc0a7008",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a700c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7014",
+          "value": "0x3"
+        },
+        {
+          "address": "0xfc0a7018",
+          "value": "0x909c8"
+        },
+        {
+          "address": "0xfc0a701c",
+          "value": "0x1fc"
+        },
+        {
+          "address": "0xfc0a7020",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7024",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a702c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7060",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7064",
+          "value": "0x2c"
+        },
+        {
+          "address": "0xfc0a7068",
+          "value": "0x7f0"
+        },
+        {
+          "address": "0xfc0a706c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7070",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7074",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0dc",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70ec",
+          "value": "0x0"
+        }
+      ],
+      "fixture_counter_register": "0x1234560",
+      "reported_fixture_counters": [
+        "0x1234560",
+        "0x1235560"
+      ]
+    },
+    {
+      "sensor": "0x7",
+      "drive": "0x18",
+      "owner": "0x645bb5a4",
+      "script": "0x63e72740",
+      "writes": [
+        {
+          "address": "0xfc0a7008",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a700c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7014",
+          "value": "0x3"
+        },
+        {
+          "address": "0xfc0a7018",
+          "value": "0x909c8"
+        },
+        {
+          "address": "0xfc0a701c",
+          "value": "0x1fc"
+        },
+        {
+          "address": "0xfc0a7020",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7024",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a702c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7060",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7064",
+          "value": "0x2c"
+        },
+        {
+          "address": "0xfc0a7068",
+          "value": "0x7f0"
+        },
+        {
+          "address": "0xfc0a706c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7070",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7074",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0dc",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70ec",
+          "value": "0x0"
+        }
+      ],
+      "fixture_counter_register": "0xff654320",
+      "reported_fixture_counters": [
+        "0x1654320",
+        "0x1655320"
+      ]
+    },
+    {
+      "sensor": "0xf",
+      "drive": "0x1c",
+      "owner": "0x645bb694",
+      "script": "0x63e71264",
+      "writes": [
+        {
+          "address": "0xfc0a7008",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a700c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7014",
+          "value": "0x3"
+        },
+        {
+          "address": "0xfc0a7018",
+          "value": "0x11ac50"
+        },
+        {
+          "address": "0xfc0a701c",
+          "value": "0x5f8"
+        },
+        {
+          "address": "0xfc0a7020",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7024",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a702c",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7060",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7064",
+          "value": "0x2c"
+        },
+        {
+          "address": "0xfc0a7068",
+          "value": "0x17e0"
+        },
+        {
+          "address": "0xfc0a706c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7070",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7074",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0dc",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70ec",
+          "value": "0x0"
+        }
+      ],
+      "fixture_counter_register": "0x1234560",
+      "reported_fixture_counters": [
+        "0x1234560",
+        "0x1235560"
+      ]
+    },
+    {
+      "sensor": "0xf",
+      "drive": "0x1c",
+      "owner": "0x645bb694",
+      "script": "0x63e71264",
+      "writes": [
+        {
+          "address": "0xfc0a7008",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a700c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7014",
+          "value": "0x3"
+        },
+        {
+          "address": "0xfc0a7018",
+          "value": "0x11ac50"
+        },
+        {
+          "address": "0xfc0a701c",
+          "value": "0x5f8"
+        },
+        {
+          "address": "0xfc0a7020",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7024",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a702c",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7060",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7064",
+          "value": "0x2c"
+        },
+        {
+          "address": "0xfc0a7068",
+          "value": "0x17e0"
+        },
+        {
+          "address": "0xfc0a706c",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a7070",
+          "value": "0x1"
+        },
+        {
+          "address": "0xfc0a7074",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70c8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0d8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0ad0dc",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e0",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e4",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70e8",
+          "value": "0x0"
+        },
+        {
+          "address": "0xfc0a70ec",
+          "value": "0x0"
+        }
+      ],
+      "fixture_counter_register": "0xff654320",
+      "reported_fixture_counters": [
+        "0x1654320",
+        "0x1655320"
+      ]
+    }
+  ]
+}

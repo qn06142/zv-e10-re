@@ -1,0 +1,18 @@
+{
+  "camera_access": false,
+  "compiled_ARM_executed": true,
+  "passed": [
+    "ready_activation_has_no_side_effects",
+    "concurrent_activation_rejected",
+    "self_pin_failure_is_terminal_without_install",
+    "closed_session_rejected_before_procfs_or_sdk",
+    "wrong_kernel_rejected_b''",
+    "wrong_kernel_rejected_b'yuy2_640_v23\\n'",
+    "wrong_kernel_rejected_b'yc42_chunkBAD\\n'",
+    "matched_kernel_allows_retained_mapping_binding",
+    "stop_before_host_capture_retains_mapping_and_closes_session"
+  ],
+  "limitations": [
+    "External libc and loader calls mocked; no live DMA or camera lifecycle execution."
+  ]
+}

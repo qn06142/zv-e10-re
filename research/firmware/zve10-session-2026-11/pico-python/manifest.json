@@ -1,0 +1,14 @@
+{
+  "AUDIT.md": "c2219bc30ec3d8036071d4900de9c905dbb622a5a3838b7b2fd30ab2b25efa89",
+  "diagnose_link.py": "0c6b96d7b4c951a58a0f46b919c0fbe8ce942c0174012c2780f945f5343cbdef",
+  "fastboot-6516-orig.bin": "0a2092aeac20429cfaa91446ea9b965218844893299f61d8ebea215d73ccd5a6",
+  "firmware\\zve10_pico_od_reset\\fixed_identity.h": "c42b8f412e41de7c304630aee071fa0e4af0e48564fc961db2bff49890ef55b5",
+  "firmware\\zve10_pico_od_reset\\serialboot.pio": "ee8a8e2d5e6dce4eaa8455e3027427752a4f5e16acc838605185b6fbf04080a9",
+  "firmware\\zve10_pico_od_reset\\serialboot.pio.h": "7cea210676baab6a4b970aeaec494cfb5a127d0667d45cbd93bec8c654c043fe",
+  "firmware\\zve10_pico_od_reset\\zve10_pico_od_reset.ino": "57ea3553b465e73775a92579c0c88c5f8773981128993ad62082cbecfba0c33d",
+  "inject_payload.py": "8abb97c09c53644338e5cd852df9f04ce1e5ecd72fa65145df51ee86d60c53ea",
+  "inspect_pico.py": "702121c3e9f73dc0d493cb28bebade23719b1b2510ca64a06f4ece711b1d242d",
+  "pico_link.py": "705e10544f076665a9c53af6626c6af4d8cf138c9946e3396b6b0eeb6c8b6af5",
+  "README.md": "2cea70efcd5f631f1219abac261cf5383ae7e887dd8c380ffb8140ebdd322347",
+  "zve10_pico_od_reset.ino.uf2": "9dcfc16566ef565551d739ec88dcb18e4d762a8f14f2de16e04368e00bc94542"
+}

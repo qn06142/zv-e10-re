@@ -1,0 +1,50 @@
+{
+  "camera_access": false,
+  "compiled_arm_with_new_cross_section_relocations": true,
+  "cases": [
+    {
+      "case": "complete",
+      "return_signed": 0,
+      "slot_flags": [
+        1,
+        0
+      ],
+      "unlock_calls": 1,
+      "slot_bytes": 614412
+    },
+    {
+      "case": "timeout",
+      "return_signed": -110,
+      "slot_flags": [
+        0,
+        0
+      ],
+      "unlock_calls": 1,
+      "slot_bytes": 0
+    },
+    {
+      "case": "start_failure",
+      "return_signed": -5,
+      "slot_flags": [
+        0,
+        0
+      ],
+      "unlock_calls": 1,
+      "slot_bytes": 0
+    },
+    {
+      "case": "busy",
+      "return_signed": -16,
+      "slot_flags": [
+        1,
+        1
+      ],
+      "unlock_calls": 1,
+      "slot_bytes": 0
+    }
+  ],
+  "limitations": [
+    "Scheduler, locks, get-this and diagnostics are controlled stubs.",
+    "No real kernel loader, DMA, UDC or disconnect race emulated."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "compiled_ARM_executed": true,
+  "hardware_mocked": true,
+  "passed": [
+    "two_full_HD_frames_each_seven_chunks_stable_FID_final_EOF_only",
+    "pending_source_no_partial_submission",
+    "EBUSY_retries_same_chunk_without_advancing_frame",
+    "changed_frame_sequence_refused_mid_frame",
+    "undersized_chunk_staging_refused",
+    "uncertain_DMA_pins_source_and_retains_publication"
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "mocks": 0,
+  "drive_modes_tested": 149,
+  "nonzero_modes": 23,
+  "raw_resource_2f_present": true,
+  "results": [
+    {
+      "drive_mode": "0x0",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x4",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x15",
+      "resource": "0x37",
+      "flags": "0x102101"
+    },
+    {
+      "drive_mode": "0x16",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x17",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x18",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x1a",
+      "resource": "0x36",
+      "flags": "0x2101"
+    },
+    {
+      "drive_mode": "0x1b",
+      "resource": "0x37",
+      "flags": "0x102101"
+    },
+    {
+      "drive_mode": "0x1c",
+      "resource": "0x38",
+      "flags": "0x1802111"
+    },
+    {
+      "drive_mode": "0x1d",
+      "resource": "0x36",
+      "flags": "0x2101"
+    },
+    {
+      "drive_mode": "0x1e",
+      "resource": "0x37",
+      "flags": "0x102101"
+    },
+    {
+      "drive_mode": "0x2b",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x38",
+      "resource": "0x37",
+      "flags": "0x102101"
+    },
+    {
+      "drive_mode": "0x3a",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x3f",
+      "resource": "0x48",
+      "flags": "0x102103"
+    },
+    {
+      "drive_mode": "0x47",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x56",
+      "resource": "0x48",
+      "flags": "0x102103"
+    },
+    {
+      "drive_mode": "0x58",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x68",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x91",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x92",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x93",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    },
+    {
+      "drive_mode": "0x94",
+      "resource": "0x39",
+      "flags": "0x1902111"
+    }
+  ]
+}

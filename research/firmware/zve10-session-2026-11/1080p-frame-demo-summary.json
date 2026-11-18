@@ -1,0 +1,17 @@
+{
+  "mode": "uvc",
+  "preset": "yuy2_1080p",
+  "target_fps": 24.0,
+  "width": 1920,
+  "height": 1080,
+  "frame_size_bytes": 4147200,
+  "total_frames": 10,
+  "total_bytes": 62208000,
+  "duration_sec": 12.112,
+  "actual_fps": 0.83,
+  "average_throughput_mb_s": 4.9,
+  "min_interval_ms": 1002.18,
+  "max_interval_ms": 1015.57,
+  "success": false,
+  "error": null
+}
