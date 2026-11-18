@@ -1,3 +1,18 @@
+# Current HD package recipe
+
+Reviewed 18 November 2026. The recipe emits revision 4.6 while retaining the historical v43 directory and library names. The package is an offline candidate. Hardware capture and sustained delivery remain unverified.
+
+Run from the repository root with the matching local inputs.
+
+```powershell
+.venv/Scripts/python.exe -B research/firmware/yuy2_transport_v43_usb3_hd/recipe/build.py --repo . --output .local/out/hd-v46 --streaming-image .local/dumps/staged/uvc/encoder-workspace-fix/candidate-1080p/libInfraStreamingUsb.so --kernel .local/outputs/hd-v43/usbg_video.ko
+.venv/Scripts/python.exe -B -m pytest tests/test_usb3_transport.py::TestUsb3SuperSpeedTransport::test_hd_usb3_build_artifacts -q
+```
+
+The builder verifies the supported input kernel, generates installer guards from the packaged producer/wrapper/kernel, and hashes all six required output files. A failed rebuild invalidates the previous manifest. The package test builds in an isolated temporary source/output tree and checks revision, geometry, input-kernel identity, every file hash, installer guards and failed-rebuild behavior.
+
+The report below preserves the earlier revision 4.3 investigation.
+
 # Revision 4.3: 1080p YUY2 over USB 3.0 SuperSpeed at >=24fps (CMP 11 Resolution)
 
 **Date:** 31 October 2026  

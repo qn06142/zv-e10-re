@@ -41,3 +41,7 @@ The [claim review](../research/firmware/evidence/zve10-20261117/CLAIM_REVIEW.md)
 5. Measure transport completion and sustained frame delivery using the actual negotiated link.
 
 For each resumed run, store the command, mode, raw output, input/build identity and conclusion with limits in a dated evidence directory. Update this page with the resulting checkpoint and link to that evidence.
+
+## Offline package regression correction
+
+On 18 November, the HD package test was changed to compile the current revision 4.6 recipe into an isolated package. Installer guards and the kernel dependency now follow the actual packaged files, all required files have checked sizes/MD5/SHA-256, and a failed rebuild invalidates the prior manifest. The full suite passed 294 tests with 12 fixture-dependent skips and no deselections. [Validation record](archive/HD_PACKAGE_FIX_20261118.json) and [recipe instructions](../research/firmware/yuy2_transport_v43_usb3_hd/README.md).

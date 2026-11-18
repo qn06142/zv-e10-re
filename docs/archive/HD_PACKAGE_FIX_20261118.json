@@ -1,0 +1,47 @@
+{
+  "verified_on": "2026-11-18",
+  "scope": "Offline HD package generation and regression validation",
+  "revision": "4.6-1080p-usb3-24fps-candidate",
+  "fixes": [
+    "Build the test package from an isolated source/output tree",
+    "Require an explicitly checked input kernel",
+    "Generate producer/wrapper/kernel installer guards from packaged bytes",
+    "Record the packaged kernel identity and hashes for all six required files",
+    "Invalidate an old success manifest before a rebuild and publish the new manifest last"
+  ],
+  "full_suite": {
+    "passed": 294,
+    "skipped": 12,
+    "deselected": 0,
+    "subtests_passed": 4
+  },
+  "regression_command": ".venv/Scripts/python.exe -B -m pytest tests/test_usb3_transport.py::TestUsb3SuperSpeedTransport::test_hd_usb3_build_artifacts -q",
+  "hardware_access": false,
+  "isolated_source_checkout": [
+    {
+      "command": [
+        "research/firmware/check_docs.py",
+        "--portable"
+      ],
+      "exit_code": 0,
+      "output": "markdown scanned: 89 files (docs/ plus repo root)\ndistinct md5 values: 105\n\nfile links: 511, broken targets: 0\nin-page anchors: 57, unmatched: 0\ndeclared local-input links: 2\n\nmd5-set fingerprint: b545392f68bf9a6c81456f7c5ec821ed\n"
+    },
+    {
+      "command": [
+        "scripts/check_research.py"
+      ],
+      "exit_code": 0,
+      "output": "Verified 27 evidence files and 31 experiment records.\nTracked artifact check passed.\n"
+    },
+    {
+      "command": [
+        "-m",
+        "pytest",
+        "tests/test_usb3_transport.py::TestUsb3SuperSpeedTransport::test_hd_usb3_build_artifacts",
+        "-q"
+      ],
+      "exit_code": 0,
+      "output": ".                                                                        [100%]\n1 passed in 2.95s\n"
+    }
+  ]
+}

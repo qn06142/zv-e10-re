@@ -5,19 +5,155 @@
   "source_inputs": [
     {
       "path": "research/firmware/yuy2_transport_v43_usb3_hd/README.md",
-      "sha256": "f7eb4f0a6580796819ffd7223d210da8cb9e40cc2df0c46eb5146f01cfd99177",
+      "sha256": "354731f6011ddb4e39ad6b5ceffabb1dc8d304cd048229eb32eae58ef49d1ca0",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/install.sh",
+      "sha256": "4576b65ad31f995a65779b00f61dca2a2cfb27ce2196eb948496b4ccd0de072d",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/rollback.sh",
+      "sha256": "43cf4d3673043baf47804824d1b95ab42fc7449a6d3f1aff04ce52954ee1e0ba",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/build.py",
+      "sha256": "aec4319866c05fdf1cce61dade71b4f250c459543b380548b932d02510deee67",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/generate_guards.py",
+      "sha256": "994fadecb827dd4b9c6bc8075831c74d77c46917b42cac1224b9a9d3f46bd5ae",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/generate_port_guards.py",
+      "sha256": "37d842bcd8986453c7897714f4e77e4f26ea26cdf4592541cbc530da792be8e4",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/persistent_stream.py",
+      "sha256": "ec6e2576a0b6af3c4cdaf020550eefd16b49a4689a929a5f6a053512707fc18f",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/yuy2_1080_v43chunk.c",
+      "sha256": "580889791902086f366cf00beffafd35c221948d66a7b3ce07d6e51233e8504c",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/vga_resize.c",
+      "sha256": "92a6e3e0d55b64629a3d1b7821c283c5c2932fcb7d9e00553eb29305d1a1cd09",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/yc_port.c",
+      "sha256": "8031a2b5f0c2bcdfd36dd1c552c6294b9983ae790b8c472a42b92c20c02ad255",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/yc_unpack.c",
+      "sha256": "8e0d40ced93f3b763a10f3b63e4bff6f69327de019d7c3231e8d164bee30fea4",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/vga_contract.c",
+      "sha256": "19937ad1822481346e925bb0c043f8b1ca987aa90d42007aa44de32ed94623d7",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/sony_yc_sds.c",
+      "sha256": "1e37b595cb8ef87f33167b5b8981d487d6ae05f44f07c53de777d0e7e18bd7ee",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/sony_yc_metadata.c",
+      "sha256": "a0a6dfcdcdaedefb9abd0d52c7bdcfc5bd639b8febb08c84192d1798b22c583a",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/raw_frame_source.h",
+      "sha256": "875f9e8ad6b741484c7323d13a838f5a61b256394ca6040f0ceb3325550d2bf8",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/raw_live_source.h",
+      "sha256": "695f2a829aa5f5c422ce0e4b9df7a49b63f9089a1b53a3d89fbe7728e5dbaf32",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/vga_resize.h",
+      "sha256": "23b62478dc0e408b0c737bdc7b43c66c79f42a93212502ed3c4d80f90271429a",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/vga_contract.h",
+      "sha256": "d2afd1268f90366321e1db2b2fa71ddae5256c217443ac852ca9f6046ca42b5e",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/vga_guards.h",
+      "sha256": "0337352c68e53e30397830884d1d18a19cdef1a2c2cf839a4d85fd6dda7cc51b",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/yc_port.h",
+      "sha256": "3837bbd654e5eaa9a49e63feb2db5fc977f98ff0cb154c8879631c60187a1dc4",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/yc_port_guards.h",
+      "sha256": "3249c9e41030e38ce803f5b6c3285227c4247f701b3c8906f79aa52a70a5c5b5",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/yc_unpack.h",
+      "sha256": "b87ca6a5e288fcafc2212687a35ddb65db60e0f44663a40b510c79dd095c9f7d",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/sony_yc_sds.h",
+      "sha256": "a0866c4150961d8454451e133fe06d064bf4ee11a1af00c1dd257790125d1d02",
+      "hash_mode": "lf-normalized"
+    },
+    {
+      "path": "research/firmware/yuy2_transport_v43_usb3_hd/recipe/sony_yc_metadata.h",
+      "sha256": "27855e1f7a7415205e37878d53a65f117df3c9b2e58da14b807816e60366f3cd",
       "hash_mode": "lf-normalized"
     }
   ],
-  "firmware_hashes": [],
+  "firmware_hashes": [
+    {
+      "input": "pre-install streaming image",
+      "algorithm": "md5",
+      "value": "19461091c07aa6900829defb0060fcd6"
+    },
+    {
+      "input": "stock common library",
+      "algorithm": "md5",
+      "value": "31308976206a837f6f5c571992d2b499"
+    },
+    {
+      "input": "factory DMM configuration",
+      "algorithm": "md5",
+      "value": "9f197ff9b300e49ab531b6f9e794253e"
+    },
+    {
+      "input": "kernel used in the package regression",
+      "algorithm": "md5",
+      "value": "9ded6930932e7db541247c4b158b93fc"
+    }
+  ],
   "firmware_inputs": "Source/recipe SHA-256 values identify the instructions below. Camera input identity is historical where explicitly recorded; otherwise it remains unresolved. Read the recipe guards before reproducing.",
   "reproduction": {
-    "command": null,
+    "command": ".venv/Scripts/python.exe -B -m pytest tests/test_usb3_transport.py::TestUsb3SuperSpeedTransport::test_hd_usb3_build_artifacts -q",
     "working_directory": ".",
-    "unresolved": "No complete checkout-portable invocation has been established. Inspect the source/recipe and supply its required local inputs.",
-    "scope": "Historical recipe or offline verifier. Replace placeholders and inspect dependencies before execution. No hardware reproduction performed during housekeeping."
+    "unresolved": null,
+    "scope": "Compiles a fresh offline package from explicit local inputs, validates all files/installer guards, and exercises failed rebuild invalidation. No camera operations."
   },
-  "hardware_result": "Later rebuilt transport manifest says hardware_tested=false. Sustained SuperSpeed delivery remains unverified.",
+  "hardware_result": "Fresh revision 4.6 packaging regression verified offline on 18 November. Hardware capture and sustained delivery remain unverified.",
   "rollback": "Rollback was not revalidated during housekeeping. Use a matching per-body baseline and the recovery scope in docs/ACCESS_AND_TOOLS.md.",
   "evidence": [
     "research/firmware/yuy2_transport_v43_usb3_hd/README.md",
