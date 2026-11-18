@@ -2,7 +2,7 @@ from pathlib import Path
 import struct,hashlib
 from capstone import Cs,CS_ARCH_ARM,CS_MODE_THUMB
 BASE=0x635c6000
-DATA=(Path(__file__).resolve().parents[6] / 'dumps/firmware/av-cam.bin').read_bytes()
+DATA=(Path(__file__).resolve().parents[6] / '.local/dumps/firmware/av-cam.bin').read_bytes()
 assert hashlib.md5(DATA).hexdigest()=='cdcae9d4fdbf66a33704a4c7564e346d'
 def word(a):return struct.unpack_from('<I',DATA,a-BASE)[0]
 def cstr(a):return DATA[a-BASE:].split(b'\0',1)[0].decode('ascii','replace')
