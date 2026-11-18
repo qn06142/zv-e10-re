@@ -1,16 +1,17 @@
 import subprocess, os, time
 
 import pathlib
-ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[1]
 
-names = [l.strip() for l in open((ROOT_REPO / 'dumps/lenslist.txt').as_posix(), encoding="latin1") if l.strip()]
+lenslist_file = ROOT_REPO / 'dumps/lenslist.txt'
+names = [l.strip() for l in open(lenslist_file.as_posix(), encoding="latin1") if l.strip()] if lenslist_file.exists() else []
 outdir = (ROOT_REPO / 'dumps/lens').as_posix()
 os.makedirs(outdir, exist_ok=True)
 
 def pull_one(remote, local):
     for attempt in range(8):
         try:
-            r = subprocess.run(["./.venv/Scripts/python.exe","zve10_pull.py",remote],
+            r = subprocess.run(["./.venv/Scripts/python.exe","research/device/zve10_pull.py",remote],
                                 capture_output=True, text=True, timeout=90,
                                 cwd=ROOT_REPO.as_posix())
             if os.path.exists(local) and os.path.getsize(local) > 0:

@@ -11,6 +11,9 @@ import sys, os, types, tempfile, importlib, time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
+sys.path.insert(0, os.path.join(ROOT, "research", "device"))
+sys.path.insert(0, os.path.join(ROOT, "research", "common"))
+sys.path.insert(0, os.path.join(ROOT, "research", "isp"))
 
 _u = types.ModuleType("pmca.commands.usb")
 _u.senserShellCommand = lambda complete=None, **kw: None
@@ -100,8 +103,14 @@ check("resume at correct block, exact end", steps[0][0] == 1024 and end == 8192 
 # single-session-per-plug budget (this actually happened: importing
 # zve10_dumpall ran the entire 18-partition table and killed the session).
 import re as _re
-for _f in ("zve10_shell.py", "zve10_pull.py", "zve10_dump.py", "zve10_dumpall.py"):
-    _src = open(os.path.join(ROOT, _f), encoding="utf-8").read()
+_script_map = {
+    "zve10_shell.py": os.path.join(ROOT, "research", "device", "zve10_shell.py"),
+    "zve10_pull.py": os.path.join(ROOT, "research", "device", "zve10_pull.py"),
+    "zve10_dump.py": os.path.join(ROOT, "research", "device", "zve10_dump.py"),
+    "zve10_dumpall.py": os.path.join(ROOT, "research", "common", "zve10_dumpall.py"),
+}
+for _f, _path in _script_map.items():
+    _src = open(_path, encoding="utf-8").read()
     # the guard may contain other setup lines (e.g. _preflight()) before the call
     _blk = _re.search(r'if __name__ == ["\']__main__["\']:\n((?:[ \t]+\S.*\n?)+)', _src)
     check("%s guards senserShellCommand behind __main__" % _f,
@@ -111,13 +120,13 @@ for _f in ("zve10_shell.py", "zve10_pull.py", "zve10_dump.py", "zve10_dumpall.py
 
 # the dumper must refuse to run alongside a stale pmca-re python (orphaned
 # background children keep the USB session pinned and wedge the camera)
-_dsrc = open(os.path.join(ROOT, "zve10_dumpall.py"), encoding="utf-8").read()
+_dsrc = open(os.path.join(ROOT, "research", "common", "zve10_dumpall.py"), encoding="utf-8").read()
 check("dumpall preflights for stale pmca-re processes",
       "_preflight()" in _dsrc and "REFUSING TO START" in _dsrc)
 
 # ---------------- sample_isp.py (firmware sampling) ----------------
 _s = load("sample_isp", [])
-_ssrc = open(os.path.join(ROOT, "sample_isp.py"), encoding="utf-8").read()
+_ssrc = open(os.path.join(ROOT, "research", "isp", "sample_isp.py"), encoding="utf-8").read()
 # real file sizes from `ls -la /system` on the camera
 _SZ = {"/system/av-cam.bin": 17289388, "/system/vmlinux.bin": 4117760,
        "/system/bonobo.bin": 172144, "/system/dfe_dat.bin": 65536,

@@ -11,7 +11,7 @@ import json
 import subprocess
 from pathlib import Path
 
-from .config import Config, Target
+from .config import Config, Target, find_rizin
 
 
 class EngineError(RuntimeError):
@@ -23,7 +23,11 @@ class Rizin:
         self.cfg = cfg
         self.bin = str(cfg.rizin)
         if not Path(self.bin).is_file():
-            raise EngineError(f"rizin not found at {self.bin} (set RETOOL_RIZIN or fix reconf.toml)")
+            found = find_rizin(cfg)
+            if found and Path(found).is_file():
+                self.bin = found
+            else:
+                raise EngineError(f"rizin not found at {self.bin} (set RETOOL_RIZIN or fix reconf.toml)")
 
     # ---- low level ----
     def _base_flags(self, t: Target) -> list[str]:

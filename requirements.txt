@@ -11,3 +11,11 @@ pyusb
 pywin32; sys_platform == 'win32'
 pyyaml
 tlslite-ng
+
+# Reverse engineering and analysis pipeline dependencies
+capstone
+unicorn
+keystone-engine
+rzpipe
+pytest
+pyelftools

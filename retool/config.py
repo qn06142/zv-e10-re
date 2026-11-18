@@ -53,7 +53,6 @@ class Config:
     export_dir: Path
     symdb_dir: Path
     targets: dict[str, Target]
-    capstone_bin: str = ""
 
     def target(self, name: str) -> Target:
         if name not in self.targets:
@@ -65,6 +64,48 @@ class Config:
 def _resolve(root: Path, p: str | Path) -> Path:
     p = Path(p)
     return p if p.is_absolute() else (root / p)
+
+
+def _discover_rizin(root: Path) -> Path | None:
+    """Probe tools/rizin/**/rizin.exe, tools/rizin/bin/rizin.exe, and PATH."""
+    tools_dir = root / "tools" / "rizin"
+    if tools_dir.is_dir():
+        cand = tools_dir / "bin" / "rizin.exe"
+        if cand.is_file():
+            return cand
+        for cand in tools_dir.rglob("rizin.exe"):
+            if cand.is_file():
+                return cand
+    dot_tools_dir = root / ".tools" / "rizin"
+    if dot_tools_dir.is_dir():
+        for cand in dot_tools_dir.rglob("rizin.exe"):
+            if cand.is_file():
+                return cand
+    which = shutil.which("rizin") or shutil.which("rizin.exe")
+    return Path(which).resolve() if which else None
+
+
+def _discover_rzbin(root: Path, rizin_path: Path | None = None) -> Path | None:
+    """Probe sibling rz-bin.exe, tools/rizin/**/rz-bin.exe, and PATH."""
+    if rizin_path and rizin_path.is_file():
+        sib = rizin_path.parent / "rz-bin.exe"
+        if sib.is_file():
+            return sib
+    tools_dir = root / "tools" / "rizin"
+    if tools_dir.is_dir():
+        cand = tools_dir / "bin" / "rz-bin.exe"
+        if cand.is_file():
+            return cand
+        for cand in tools_dir.rglob("rz-bin.exe"):
+            if cand.is_file():
+                return cand
+    dot_tools_dir = root / ".tools" / "rizin"
+    if dot_tools_dir.is_dir():
+        for cand in dot_tools_dir.rglob("rz-bin.exe"):
+            if cand.is_file():
+                return cand
+    which = shutil.which("rz-bin") or shutil.which("rz-bin.exe")
+    return Path(which).resolve() if which else None
 
 
 def load(config_path: str | Path | None = None) -> Config:
@@ -84,9 +125,19 @@ def load(config_path: str | Path | None = None) -> Config:
     eng = data.get("engine", {})
     paths = data.get("paths", {})
 
-    rizin = Path(os.environ.get("RETOOL_RIZIN") or _resolve(root, eng.get("rizin", "")))
-    rzbin_raw = eng.get("rzbin", "")
+    rizin_raw = os.environ.get("RETOOL_RIZIN") or eng.get("rizin", "")
+    rizin = _resolve(root, rizin_raw) if rizin_raw else Path("")
+    if not rizin.is_file():
+        discovered_rz = _discover_rizin(root)
+        if discovered_rz:
+            rizin = discovered_rz
+
+    rzbin_raw = os.environ.get("RETOOL_RZBIN") or eng.get("rzbin", "")
     rzbin = _resolve(root, rzbin_raw) if rzbin_raw else None
+    if not rzbin or not rzbin.is_file():
+        discovered_rzbin = _discover_rzbin(root, rizin)
+        if discovered_rzbin:
+            rzbin = discovered_rzbin
 
     targets: dict[str, Target] = {}
     for name, t in (data.get("target", {}) or {}).items():
@@ -109,7 +160,6 @@ def load(config_path: str | Path | None = None) -> Config:
         export_dir=_resolve(root, paths.get("export_dir", "re_out/exports")),
         symdb_dir=_resolve(root, paths.get("symdb_dir", "re_symbols")),
         targets=targets,
-        capstone_bin=eng.get("capstone_bin", ""),
     )
 
 
@@ -117,4 +167,7 @@ def find_rizin(cfg: Config) -> str | None:
     """Return a usable rizin executable path, or None."""
     if cfg.rizin.is_file():
         return str(cfg.rizin)
-    return shutil.which("rizin")
+    disc = _discover_rizin(cfg.root)
+    if disc:
+        return str(disc)
+    return shutil.which("rizin") or shutil.which("rizin.exe")

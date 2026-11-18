@@ -101,7 +101,11 @@ def cmd_migrate(cfg, name, out_path=None):
         _p("no source markdown found")
         sys.exit(1)
     _p(f"scraping {len(sources)} markdown source(s) for {name} ...")
-    db, unparsed = migrate.migrate(name, sources, t.runtime_base)
+    dest = Path(out_path) if out_path else (cfg.symdb_dir / f"{name}.json")
+    default_db_path = cfg.symdb_dir / f"{name}.json"
+    base_path = dest if dest.is_file() else (default_db_path if default_db_path.is_file() else None)
+    base_db = SymDB.load(base_path) if base_path else None
+    db, unparsed = migrate.migrate(name, sources, t.runtime_base, base_db=base_db)
     size = t.path.stat().st_size
     problems = db.validate(size)
     _p(f"collected {len(db.symbols)} symbols; {len(problems)} validation problem(s)")
@@ -257,7 +261,7 @@ def cmd_region(cfg, name, addr, span=0x400):
 def cmd_strings(cfg, name, filt=None):
     t = cfg.target(name)
     rz = engine.Rizin(cfg)
-    ss = rz.run_project_json(t, rz.project_path(t), "izj") or []
+    ss = rz.run_project_json(t, rz.project_path(t), "izzj") or rz.run_project_json(t, rz.project_path(t), "izj") or []
     for s in ss:
         off = int(s.get("vaddr", 0))
         txt = s.get("string", "")
@@ -293,17 +297,27 @@ def cmd_consts(cfg, name, addr, values, whole=False):
         _p("  no encoding of those values found in range")
         return
     for h in sorted(hits, key=lambda h: (h["value"], h["off"])):
-        _p(f"  {h['off']:08x}  va {h['va']:>10}  {h['value']:>8} "
+        _p(f"  {h['off']:08x}  va 0x{h['va']:08x}  {h['value']:>8} "
            f"({hex(h['value'])})  {h['kind']:<12} bytes={h['bytes']}")
 
 
 def _run_bits(rz, t, addr, count, bits):
-    """Run a `pd` with an explicit instruction width against the cached project."""
+    """Run a `pd` with an explicit instruction width against the cached project, falling back to direct binary."""
     import subprocess
-    argv = [str(rz.bin), "-N", "-n", "-q",
-            "-a", t.arch, "-b", str(bits), "-e", f"asm.cpu={t.cpu}",
-            "-p", str(rz.project_path(t)),
-            "-c", f"pd {int(count)} @ {int(addr, 0):#x}"]
+    cmd = f"pd {int(count)} @ {int(addr, 0):#x}"
+    base_argv = [
+        str(rz.bin), "-N", "-n", "-q",
+        "-a", t.arch, "-b", str(bits), "-e", f"asm.cpu={t.cpu}",
+    ]
+    proj = rz.project_path(t)
+    if rz.has_project(t):
+        argv = base_argv + ["-p", str(proj), "-c", cmd]
+        p = subprocess.run(argv, capture_output=True, timeout=600,
+                           encoding="utf-8", errors="replace")
+        if p.returncode == 0 and p.stdout.strip():
+            return p.stdout
+    # Fallback: direct binary disassembly without cached project
+    argv = base_argv + ["-c", cmd, str(t.path)]
     p = subprocess.run(argv, capture_output=True, timeout=600,
                        encoding="utf-8", errors="replace")
     return p.stdout

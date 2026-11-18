@@ -5,65 +5,71 @@
 from ctypes import *
 from ctypes.util import *
 import os
+import sys
 
 from . import *
-
-iokit = cdll.LoadLibrary(find_library('IOKit'))
-cf = cdll.LoadLibrary(find_library('CoreFoundation'))
-
-kIOMasterPortDefault = c_void_p.in_dll(iokit, 'kIOMasterPortDefault')
 
 kSCSIDataTransfer_NoDataTransfer = 0
 kSCSIDataTransfer_FromInitiatorToTarget = 1
 kSCSIDataTransfer_FromTargetToInitiator = 2
 
-iokit.mach_task_self.argtypes = []
-iokit.mach_task_self.restype = c_void_p
+if sys.platform == 'darwin':
+ iokit = cdll.LoadLibrary(find_library('IOKit'))
+ cf = cdll.LoadLibrary(find_library('CoreFoundation'))
 
-iokit.IOServiceMatching.argtypes = [c_char_p]
-iokit.IOServiceMatching.restype = c_void_p
+ kIOMasterPortDefault = c_void_p.in_dll(iokit, 'kIOMasterPortDefault')
 
-iokit.IOServiceGetMatchingServices.argtypes = [c_void_p, c_void_p, c_void_p]
-iokit.IOServiceGetMatchingServices.restype = c_void_p
+ iokit.mach_task_self.argtypes = []
+ iokit.mach_task_self.restype = c_void_p
 
-iokit.IORegistryEntryGetParentEntry.argtypes = [c_void_p, c_char_p, c_void_p]
-iokit.IORegistryEntryGetParentEntry.restype = c_uint
+ iokit.IOServiceMatching.argtypes = [c_char_p]
+ iokit.IOServiceMatching.restype = c_void_p
 
-iokit.IORegistryEntryCreateCFProperty.argtypes = [c_void_p, c_void_p, c_void_p, c_uint]
-iokit.IORegistryEntryCreateCFProperty.restype = c_void_p
+ iokit.IOServiceGetMatchingServices.argtypes = [c_void_p, c_void_p, c_void_p]
+ iokit.IOServiceGetMatchingServices.restype = c_void_p
 
-iokit.IOObjectRelease.argtypes = [c_void_p]
-iokit.IOObjectRelease.restype = c_uint
+ iokit.IORegistryEntryGetParentEntry.argtypes = [c_void_p, c_char_p, c_void_p]
+ iokit.IORegistryEntryGetParentEntry.restype = c_uint
 
-iokit.IOObjectConformsTo.argtypes = [c_void_p, c_char_p]
-iokit.IOObjectConformsTo.restype = c_uint
+ iokit.IORegistryEntryCreateCFProperty.argtypes = [c_void_p, c_void_p, c_void_p, c_uint]
+ iokit.IORegistryEntryCreateCFProperty.restype = c_void_p
 
-iokit.IOServiceOpen.argtypes = [c_void_p, c_void_p, c_int, c_void_p]
-iokit.IOServiceOpen.restype = c_uint
+ iokit.IOObjectRelease.argtypes = [c_void_p]
+ iokit.IOObjectRelease.restype = c_uint
 
-iokit.IOServiceClose.argtypes = [c_void_p]
-iokit.IOServiceClose.restype = c_uint
+ iokit.IOObjectConformsTo.argtypes = [c_void_p, c_char_p]
+ iokit.IOObjectConformsTo.restype = c_uint
 
-iokit.IOConnectCallScalarMethod.argtypes = [c_void_p, c_uint, c_void_p, c_uint, c_void_p, c_void_p]
-iokit.IOConnectCallScalarMethod.restype = c_uint
+ iokit.IOServiceOpen.argtypes = [c_void_p, c_void_p, c_int, c_void_p]
+ iokit.IOServiceOpen.restype = c_uint
 
-iokit.IOConnectCallStructMethod.argtypes = [c_void_p, c_uint, c_void_p, c_size_t, c_void_p, c_void_p]
-iokit.IOConnectCallStructMethod.restype = c_uint
+ iokit.IOServiceClose.argtypes = [c_void_p]
+ iokit.IOServiceClose.restype = c_uint
 
-iokit.KextManagerCopyLoadedKextInfo.argtypes = [c_void_p, c_void_p]
-iokit.KextManagerCopyLoadedKextInfo.restype = c_void_p
+ iokit.IOConnectCallScalarMethod.argtypes = [c_void_p, c_uint, c_void_p, c_uint, c_void_p, c_void_p]
+ iokit.IOConnectCallScalarMethod.restype = c_uint
 
-cf.CFStringCreateWithCString.argtypes = [c_void_p, c_char_p, c_uint]
-cf.CFStringCreateWithCString.restype = c_void_p
+ iokit.IOConnectCallStructMethod.argtypes = [c_void_p, c_uint, c_void_p, c_size_t, c_void_p, c_void_p]
+ iokit.IOConnectCallStructMethod.restype = c_uint
 
-cf.CFNumberGetValue.argtypes = [c_void_p, c_int, c_void_p]
-cf.CFNumberGetValue.restype = c_void_p
+ iokit.KextManagerCopyLoadedKextInfo.argtypes = [c_void_p, c_void_p]
+ iokit.KextManagerCopyLoadedKextInfo.restype = c_void_p
 
-cf.CFDictionaryContainsKey.argtypes = [c_void_p, c_void_p]
-cf.CFDictionaryContainsKey.restype = c_bool
+ cf.CFStringCreateWithCString.argtypes = [c_void_p, c_char_p, c_uint]
+ cf.CFStringCreateWithCString.restype = c_void_p
 
-cf.CFRelease.argtypes = [c_void_p]
-cf.CFRelease.restype = None
+ cf.CFNumberGetValue.argtypes = [c_void_p, c_int, c_void_p]
+ cf.CFNumberGetValue.restype = c_void_p
+
+ cf.CFDictionaryContainsKey.argtypes = [c_void_p, c_void_p]
+ cf.CFDictionaryContainsKey.restype = c_bool
+
+ cf.CFRelease.argtypes = [c_void_p]
+ cf.CFRelease.restype = None
+else:
+ iokit = None
+ cf = None
+ kIOMasterPortDefault = None
 
 kextNames = {
  'SONYDeviceType01': b'com.sony.driver.dsccamFirmwareUpdaterType00',
@@ -99,6 +105,8 @@ class MscContext(BaseUsbContext):
 
 
 def isMscDriverAvailable():
+ if sys.platform != 'darwin':
+  return False
  return _isKextLoaded() or _isKextInstalled()
 
 
@@ -141,6 +149,8 @@ def _getProperty(device, prop):
   return number.value
 
 def _listDevices(vendor):
+ if sys.platform != 'darwin':
+  return
  # Similar to pyserial: https://github.com/pyserial/pyserial/blob/master/serial/tools/list_ports_osx.py
  itr = c_void_p()
  iokit.IOServiceGetMatchingServices(kIOMasterPortDefault, iokit.IOServiceMatching(b'IOBlockStorageServices'), byref(itr))

@@ -243,9 +243,17 @@ def scrape_file(path: Path, db: SymDB) -> tuple[int, int, list[str]]:
     return added, dup, unparsed
 
 
-def migrate(target: SymDB, sources: list[Path], runtime_base: int) -> SymDB:
-    """Scrape all sources into a fresh SymDB for `target`."""
+def migrate(
+    target: str,
+    sources: list[Path],
+    runtime_base: int,
+    base_db: SymDB | None = None,
+) -> tuple[SymDB, list[str]]:
+    """Scrape all sources into a SymDB for `target`, preserving base_db symbols if provided."""
     db = SymDB(target=target, runtime_base=runtime_base)
+    if base_db:
+        for sym in base_db.symbols:
+            db.add(sym.off, sym.name, kind=sym.kind, comment=sym.comment, source=sym.source)
     all_unparsed: list[str] = []
     for src in sources:
         if not src.is_file():

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Non-destructive: report the raw size of PhysicalDrive2 (the Sony DSC MSC disk)
+r"""Non-destructive: report the raw size of PhysicalDrive2 (the Sony DSC MSC disk)
 and dump its full contents to a file for firmware analysis.
 
 We read via the Windows device path \\.\PhysicalDrive2 using a raw handle so we

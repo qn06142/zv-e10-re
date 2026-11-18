@@ -8,8 +8,10 @@ setlocal
 cd /d "%~dp0"
 
 set "PY="
-if exist ".venv-re\bin\python.exe" set "PY=.venv-re\bin\python.exe"
-if exist ".venv-re\Scripts\python.exe" set "PY=.venv-re\Scripts\python.exe"
+if exist ".venv\Scripts\python.exe" set "PY=.venv\Scripts\python.exe"
+if not defined PY if exist ".venv\bin\python.exe" set "PY=.venv\bin\python.exe"
+if not defined PY if exist ".venv-re\Scripts\python.exe" set "PY=.venv-re\Scripts\python.exe"
+if not defined PY if exist ".venv-re\bin\python.exe" set "PY=.venv-re\bin\python.exe"
 if not defined PY (
   for %%P in (python python3 py) do (
     if not defined PY if not "%%~P"=="py" (
@@ -18,7 +20,7 @@ if not defined PY (
   )
 )
 if not defined PY (
-  echo ERROR: no Python found. Create one with:  python -m venv .venv-re
+  echo ERROR: no Python found. Create one with:  python -m venv .venv
   exit /b 1
 )
 

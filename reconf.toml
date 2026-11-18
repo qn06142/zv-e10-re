@@ -4,10 +4,8 @@
 
 [engine]
 # rizin binaries (static build, self-contained, no JDK needed)
-rizin = ".tools/rizin/rizin-win-installer-vs2019_static-64/bin/rizin.exe"
-rzbin = ".tools/rizin/rizin-win-installer-vs2019_static-64/bin/rz-bin.exe"
-# Optional python disasm cross-check engine (capstone). Leave empty to disable.
-capstone_bin = ""
+rizin = "tools/rizin/rizin-win-installer-vs2019_static-64/bin/rizin.exe"
+rzbin = "tools/rizin/rizin-win-installer-vs2019_static-64/bin/rz-bin.exe"
 
 [paths]
 # rizin project cache (analysis is expensive; reuse via .rzdb)

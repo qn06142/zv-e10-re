@@ -16,7 +16,7 @@ for a in ["89058924","89138924","89138925","89438924","89438925","92018924",
 paths = ["/lens/"+v for v in vx]
 print("total lensfiles to pull:", len(paths))
 # pull in one zve10_pull invocation
-cmd = ["./.venv/Scripts/python.exe","zve10_pull.py"] + paths
+cmd = ["./.venv/Scripts/python.exe","research/device/zve10_pull.py"] + paths
 r = subprocess.run(cmd, capture_output=True, text=True, timeout=590)
 out = (r.stdout+r.stderr).splitlines()
 # count ok lines

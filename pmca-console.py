@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """A command line application to install apps on Android-enabled Sony cameras"""
 import argparse
+import sys
 
 from pmca.commands.backup import *
 from pmca.commands.market import *

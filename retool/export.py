@@ -110,7 +110,7 @@ def export_all(
 
     # ---- strings ----
     def _strings():
-        ss = rz.run_project_json(t, project, "izj") or []
+        ss = rz.run_project_json(t, project, "izzj") or rz.run_project_json(t, project, "izj") or []
         rows = []
         for s in ss:
             off = int(s.get("vaddr", 0))

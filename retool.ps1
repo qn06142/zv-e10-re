@@ -25,7 +25,12 @@ Set-Location $root
 
 # --- locate a python ---
 $py = $null
-foreach ($cand in @("$root\.venv-re\bin\python.exe", "$root\.venv-re\Scripts\python.exe")) {
+foreach ($cand in @(
+    "$root\.venv\Scripts\python.exe",
+    "$root\.venv\bin\python.exe",
+    "$root\.venv-re\Scripts\python.exe",
+    "$root\.venv-re\bin\python.exe"
+)) {
     if (Test-Path $cand) { $py = $cand; break }
 }
 if (-not $py) {
@@ -33,17 +38,45 @@ if (-not $py) {
     if ($cmd) { $py = $cmd.Source }
 }
 if (-not $py) {
-    Write-Error "No Python found. Install Python 3.11+ or run: python -m venv .venv-re"
+    Write-Error "No Python found. Install Python 3.11+ or run: python -m venv .venv"
     exit 1
 }
 
-# --- locate rizin (config value, then PATH) ---
-$rizin = $env:RETOOL_RIZIN
-if (-not $rizin) {
-    $rz = Get-ChildItem "$root\.tools\rizin" -Recurse -Filter 'rizin.exe' -ErrorAction SilentlyContinue |
+# --- locate rizin and rz-bin (config value, then tools/ directory, then PATH) ---
+if (-not $env:RETOOL_RIZIN) {
+    $rz = Get-ChildItem "$root\tools\rizin" -Recurse -Filter 'rizin.exe' -ErrorAction SilentlyContinue |
           Select-Object -First 1
-    if ($rz) { $rizin = $rz.FullName }
-    elseif (Get-Command rizin -ErrorAction SilentlyContinue) { $rizin = (Get-Command rizin).Source }
+    if (-not $rz) {
+        $rz = Get-ChildItem "$root\.tools\rizin" -Recurse -Filter 'rizin.exe' -ErrorAction SilentlyContinue |
+              Select-Object -First 1
+    }
+    if ($rz) {
+        $env:RETOOL_RIZIN = $rz.FullName
+    } elseif (Get-Command rizin -ErrorAction SilentlyContinue) {
+        $env:RETOOL_RIZIN = (Get-Command rizin).Source
+    }
+}
+
+if (-not $env:RETOOL_RZBIN) {
+    if ($env:RETOOL_RIZIN) {
+        $rzbinCand = Join-Path (Split-Path -Parent $env:RETOOL_RIZIN) "rz-bin.exe"
+        if (Test-Path $rzbinCand) {
+            $env:RETOOL_RZBIN = $rzbinCand
+        }
+    }
+    if (-not $env:RETOOL_RZBIN) {
+        $rzb = Get-ChildItem "$root\tools\rizin" -Recurse -Filter 'rz-bin.exe' -ErrorAction SilentlyContinue |
+               Select-Object -First 1
+        if (-not $rzb) {
+            $rzb = Get-ChildItem "$root\.tools\rizin" -Recurse -Filter 'rz-bin.exe' -ErrorAction SilentlyContinue |
+                   Select-Object -First 1
+        }
+        if ($rzb) {
+            $env:RETOOL_RZBIN = $rzb.FullName
+        } elseif (Get-Command rz-bin -ErrorAction SilentlyContinue) {
+            $env:RETOOL_RZBIN = (Get-Command rz-bin).Source
+        }
+    }
 }
 
 & $py -m retool @Args

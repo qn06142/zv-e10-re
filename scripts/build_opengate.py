@@ -9,15 +9,19 @@ import os
 import shutil
 import subprocess
 import sys
+from pathlib import Path
 
-CC = r"C:\msys64\ucrt64\bin\arm-none-eabi-gcc.EXE"
-SRC = "research/device/opengate_hook.c"
-OUT_SO = "out/opengate.so"
-STAGED_SO = "dumps/staged/opengate/opengate.so"
-SYSROOT_LIB = "build_sysroot/lib"
+ROOT = Path(__file__).resolve().parent.parent
+CC = os.environ.get("CC") or shutil.which("arm-none-eabi-gcc") or shutil.which("arm-linux-gnueabihf-gcc") or r"C:\msys64\ucrt64\bin\arm-none-eabi-gcc.EXE"
+SRC = ROOT / "research" / "device" / "opengate_hook.c"
+OUT_DIR = ROOT / "out"
+OUT_SO = OUT_DIR / "opengate.so"
+STAGED_DIR = ROOT / "dumps" / "staged" / "opengate"
+STAGED_SO = STAGED_DIR / "opengate.so"
+SYSROOT_LIB = ROOT / "build_sysroot" / "lib"
 
 
-def hash_file(path: str) -> tuple[str, str]:
+def hash_file(path: str | Path) -> tuple[str, str]:
     with open(path, "rb") as f:
         data = f.read()
     md5 = hashlib.md5(data).hexdigest()
@@ -36,11 +40,11 @@ def main():
         print(f"[-] Source file not found: {SRC}")
         sys.exit(1)
 
-    os.makedirs("out", exist_ok=True)
-    os.makedirs("dumps/staged/opengate", exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    STAGED_DIR.mkdir(parents=True, exist_ok=True)
 
     cmd = [
-        CC,
+        str(CC),
         "-mcpu=cortex-a7",
         "-mthumb",
         "-mfloat-abi=softfp",
@@ -53,8 +57,8 @@ def main():
         f"-L{SYSROOT_LIB}",
         "-lc",
         "-o",
-        OUT_SO,
-        SRC,
+        str(OUT_SO),
+        str(SRC),
     ]
 
     print(f"[*] Running: {' '.join(cmd)}")

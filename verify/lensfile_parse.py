@@ -18,7 +18,7 @@ This is READ-ONLY analysis of already-pulled plaintext files.
 import struct, sys, os
 
 import pathlib
-ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[1]
 
 def parse(path):
     d = open(path, "rb").read()
@@ -55,6 +55,9 @@ def parse(path):
 
 if __name__ == "__main__":
     base = (ROOT_REPO / 'dumps').as_posix()
+    if not os.path.exists(base):
+        print("Dumps directory not found:", base)
+        sys.exit(0)
     files = [f for f in os.listdir(base) if f.endswith("lensfile.bin")]
     for f in sorted(files):
         info, sections = parse(os.path.join(base, f))

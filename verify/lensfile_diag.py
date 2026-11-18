@@ -1,11 +1,15 @@
 import struct, os
 
 import pathlib
-ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
+ROOT_REPO = pathlib.Path(__file__).resolve().parents[1]
 
 base = (ROOT_REPO / 'dumps').as_posix()
 for f in ["VX8900_lensfile.bin","VX9101_lensfile.bin"]:
-    d = open(os.path.join(base,f),"rb").read()
+    path = os.path.join(base, f)
+    if not os.path.exists(path):
+        print("=== %s (not present in %s) ===" % (f, base))
+        continue
+    d = open(path, "rb").read()
     print("=== %s (size=%d) ===" % (f, len(d)))
     print("  head:", d[:32].hex())
     # header per real bytes: LF[0:2] ver[2:4] size[4:8] count[8:12] lens[12:16] ED[16:20]
