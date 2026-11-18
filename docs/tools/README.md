@@ -1,5 +1,7 @@
 # Host tooling
 
+The [repository layout](REPOSITORY_LAYOUT.md) lists the source groups and local input/output paths.
+
 The [retool guide](RETOOL.md) covers the binary-analysis CLI. Run its commands from the repository root, where retool.cmd, retool.ps1 and reconf.toml live.
 
 For physical-camera access, SSH, BusyBox and the register snapshot helper, use [access and tools](../ACCESS_AND_TOOLS.md). Source for the helper lives in [research/device](../../research/device/zve10_diagnostics/README.md).

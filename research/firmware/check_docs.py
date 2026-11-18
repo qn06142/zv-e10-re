@@ -91,8 +91,8 @@ def local_input(path):
     except ValueError:
         return False
     return relative.startswith((
-        "dumps/", "outputs/", "work/", "scratch/", "build_sysroot/",
-        "tools/rizin/", "fw/", "fw_update/",
+        ".local/dumps/", ".local/outputs/", ".local/work/", ".local/scratch/", ".local/build_sysroot/",
+        "scripts/tools/rizin/", "fw/", "fw_update/",
     ))
 
 

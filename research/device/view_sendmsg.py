@@ -2,7 +2,7 @@ import capstone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent.parent
-libobj = (HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so").read_bytes()
+libobj = (HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so").read_bytes()
 cs = capstone.Cs(capstone.CS_ARCH_ARM, capstone.CS_MODE_THUMB)
 cs.detail = True
 

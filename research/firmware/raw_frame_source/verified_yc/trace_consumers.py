@@ -2,7 +2,7 @@ from pathlib import Path
 import struct,json,array
 from elftools.elf.elffile import ELFFile
 from capstone import Cs,CS_ARCH_ARM,CS_MODE_ARM,CS_MODE_THUMB
-ROOT=Path(r'D:/02_Development_And_Projects/pmca-re/dumps/camera_2025/usr/usr/lib');OUT=Path('outputs/yc-source-re-20261025');OUT.mkdir(exist_ok=True)
+ROOT=Path(r'D:/02_Development_And_Projects/pmca-re/.local/dumps/camera_2025/usr/usr/lib');OUT=Path('.local/outputs/yc-source-re-20261025');OUT.mkdir(exist_ok=True)
 def imm(w):
  n=w&255;r=((w>>8)&15)*2;return ((n>>r)|(n<<(32-r)))&0xffffffff if r else n
 for filename in ['libBizFw.so','libObj.so']:

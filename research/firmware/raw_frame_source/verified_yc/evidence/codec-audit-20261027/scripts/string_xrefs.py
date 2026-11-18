@@ -1,7 +1,7 @@
 from pathlib import Path
 import struct,json,array
-b=Path('outputs/uvc-startup-fix/candidate-1080p/av-cam.bin').read_bytes();base=0x635c6000
-leads=json.loads(Path('outputs/yc-codec-audit/codec-strings.json').read_text());targets={int(r['address'],16):r['text'] for r in leads};h=array.array('H',b);found=[]
+b=Path('.local/outputs/uvc-startup-fix/candidate-1080p/av-cam.bin').read_bytes();base=0x635c6000
+leads=json.loads(Path('.local/outputs/yc-codec-audit/codec-strings.json').read_text());targets={int(r['address'],16):r['text'] for r in leads};h=array.array('H',b);found=[]
 for off in range(0,len(b)-2,2):
  word=h[off//2]
  if word&0xff00!=0x4400 or (word>>3)&15!=15:continue
@@ -13,5 +13,5 @@ for off in range(0,len(b)-2,2):
   if literal is None or not base<=literal<base+len(b)-3:continue
   value=struct.unpack_from('<I',b,literal-base)[0];dest=(value+address+4)&0xffffffff
   if dest in targets:found.append({'load':hex(base+prev),'add':hex(address),'literal':hex(literal),'target':hex(dest),'string':targets[dest]})
-Path('outputs/yc-codec-audit/string-xrefs.json').write_text(json.dumps(found,indent=2));print('relative string refs',len(found))
+Path('.local/outputs/yc-codec-audit/string-xrefs.json').write_text(json.dumps(found,indent=2));print('relative string refs',len(found))
 for r in found:print(r['add'],r['string'][:130])

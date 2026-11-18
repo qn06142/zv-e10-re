@@ -10,7 +10,7 @@ Integrity mode: development
 ## Requirements
 
 ### R1. Root-Cause Audit of Previous Failure Modes
-Perform instruction-level and data-flow auditing on `libInfraUsbCmn.so`, `libInfraStreamingUsb.so`, and `usbg_video.ko` (from `dumps/trees/` and `dumps/staged/uvc/binaries/`). Determine the precise bugs that broke previous attempts—specifically checking descriptor `wTotalLength` miscalculations, missing format indexes, endpoint max packet constraints, memory allocator exhaustion, and unpatched upstream frame buffer providers.
+Perform instruction-level and data-flow auditing on `libInfraUsbCmn.so`, `libInfraStreamingUsb.so`, and `usbg_video.ko` (from `.local/dumps/trees/` and `.local/dumps/staged/uvc/binaries/`). Determine the precise bugs that broke previous attempts—specifically checking descriptor `wTotalLength` miscalculations, missing format indexes, endpoint max packet constraints, memory allocator exhaustion, and unpatched upstream frame buffer providers.
 
 ### R2. Complete UVC & Pipeline Structural Realignment
 Reconstruct the full UVC descriptor hierarchy and video pipeline control path. Ensure that all modifications maintain strict compliance with UVC specifications (CS_INTERFACE, VS_FORMAT_MJPEG, VS_FRAME_MJPEG) and that frame dimension modifications match upstream video encoder outputs without register clobbering or stack corruption.
@@ -53,7 +53,7 @@ Integrity mode: development
 - State: docs/archive/agents/STATE.md
 - Feasibility: docs/usb/uvc_uncompressed_usb2_feasibility.md
 - Evidence: C:\Users\qn061\Documents\Codex\2026-10-22\chec\outputs\usb-debug-20261024-01\camera\app-sequential.log (1,936,183 bytes)
-- Firmware binaries / leads: dumps/camera_2025/usr/usr/bin/ulogio.elf, dumps/camera_2025/usr/usr/lib/libosal_ulogio.so, dumps/camera_2025/usr/usr/kmod/osal_ulogio.ko
+- Firmware binaries / leads: .local/dumps/camera_2025/usr/usr/bin/ulogio.elf, .local/dumps/camera_2025/usr/usr/lib/libosal_ulogio.so, .local/dumps/camera_2025/usr/usr/kmod/osal_ulogio.ko
 - Python runtime: D:\02_Development_And_Projects\pmca-re\.venv\Scripts\python.exe -B
 - Offline investigation only: do not replay old RAM deployment jobs, flash firmware, or modify persistent partitions.
 - Strictly separate 22 October observations (YUY2 advertised, 25-second zero-frame capture timeout) from 24 October observations (USB disappeared, controls unresponsive before capture, followed by manual restart).
@@ -113,7 +113,7 @@ Integrity mode: development
 - Revision 2.1 live report: `docs/usb/uvc_yuy2_patch_v21.md`
 - Revision 2.2 live report: `docs/usb/uvc_yuy2_patch_v22.md`
 - Feasibility analysis: `docs/usb/uvc_uncompressed_usb2_feasibility.md`
-- Firmware binaries / kernel modules: `dumps/camera_2025/usr/usr/kmod/usbg_video.ko`, `dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so`, `dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so`
+- Firmware binaries / kernel modules: `.local/dumps/camera_2025/usr/usr/kmod/usbg_video.ko`, `.local/dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so`, `.local/dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so`
 - Python runtime: `D:\02_Development_And_Projects\pmca-re\.venv\Scripts\python.exe -B`
 - Offline investigation only: do not flash firmware, alter persistent camera partitions, or replay deployment jobs.
 
@@ -165,7 +165,7 @@ Integrity mode: development
 - Working transport baseline: `docs/usb/uvc_yuy2_patch_v23.md`, `research/firmware/yuy2_transport_v23/`
 - Delivery audit: `docs/usb/uvc_yuy2_delivery_audit_20261024.md`
 - Historical leads & feasibility: `docs/usb/uvc_uncompressed_usb2_feasibility.md`, `docs/usb/uvc_yuy2_diagnostics_handoff.md`
-- Camera dump & disassembly: `outputs/raw-usb-investigation/`, `outputs/offline-uvc-re/`, `dumps/camera_2025/`
+- Camera dump & disassembly: `.local/outputs/raw-usb-investigation/`, `.local/outputs/offline-uvc-re/`, `.local/dumps/camera_2025/`
 - Offline reverse engineering only: do not touch live camera, do not flash firmware, do not reboot camera.
 - Do not modify primary agent's concurrent work in `research/firmware/yuy2_transport_v24/` (same-session host-client reopen fix).
 - Preserve existing working 640×480 YUY2 USB 2 transport; keep synthetic fallback available in prototype design.
@@ -287,7 +287,7 @@ Integrity mode: development
   - Matched pair: `yuy2_640_v33vga.so` (MD5 `87ddc16bd8e0774926e5eb6d16165d20`), `libInfraStreamingUsb.so` (MD5 `909c4ffadc9e5972b25101529d5f8773`).
   - Kernel module: `dmm.ko` (MD5 `15c8f7807b291c0af3c77fe55848577f`).
 - **Primary Live Evidence**:
-  - Genuine 4096-byte retained SSYC descriptor: `outputs/vga-v33/capture-first-01/logs/source-ssyc-retained.bin` (SHA256: `9c60c7088da03631af4cd06fbd8f9d444d084e9104ead87cb0147ef76ac45f9c`).
+  - Genuine 4096-byte retained SSYC descriptor: `.local/outputs/vga-v33/capture-first-01/logs/source-ssyc-retained.bin` (SHA256: `9c60c7088da03631af4cd06fbd8f9d444d084e9104ead87cb0147ef76ac45f9c`).
   - 12 ETRY categories present: 0, 1, 2, 6, 4, 5, 18, 12, 16, 10, 22, 23.
   - ImageSizeInfo: `image_attach=1`, `unit_type=0x295`, `unit_handle=0x7f24` (session-transient, never replay), `record/canvas/valid/target=1920x1080`, `unit_data_offset=0`, `yc_compress=1`, `data_site=0`, `data_transfer=1`, `data_placement=1`, `data_content=2`, `data_scan=1`, `strip_width=64`, `yc_bit_depth=0`, `aspect=2`.
 - **Known Blockers**:
@@ -321,7 +321,7 @@ Trace the captured 12-category SSYC descriptor against original constructors, ge
 Establish the exact SDF hardware input and output descriptor contracts (`0x19fd94`, `0x206c56`, `0x19fc88`, `0x369b4`), including channel/thread setup, accepted compression/transfer flags, cache/coherency requirements, and ACK/CMP semantics. Produce a consolidated, reviewable patch design addressing delivery, generation, format, and resize together, backed by compiled ARM and host verification.
 
 ### R5. Safety, Environment, and Documentation Guards
-Maintain strict offline discipline: zero camera interaction, zero hardware flash/reboot commands. Keep proprietary binaries and captures local under `dumps/camera_2025/` (never committed to Git). Update `docs/archive/sessions/HANDOFF.md` and `docs/archive/sessions/YC_SUBSYSTEM_RESEARCH_PLAN.md` with concrete findings, separating proven facts from hypotheses.
+Maintain strict offline discipline: zero camera interaction, zero hardware flash/reboot commands. Keep proprietary binaries and captures local under `.local/dumps/camera_2025/` (never committed to Git). Update `docs/archive/sessions/HANDOFF.md` and `docs/archive/sessions/YC_SUBSYSTEM_RESEARCH_PLAN.md` with concrete findings, separating proven facts from hypotheses.
 
 ## Acceptance Criteria
 

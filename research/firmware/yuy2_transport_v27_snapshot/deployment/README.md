@@ -1,6 +1,6 @@
 # Revision 2.7 deployment package
 
-Installed on the camera on 26 October 2026, downloaded readbacks verified, reboot persistence verified, and /usr confirmed read-only. Both streaming library and new module remain unmapped before streaming. Working permanent 2.4p is preserved for rollback. No sensor capture has been attempted yet. Ten adapted local installer fixture tests pass; the on-camera preflight, install and reboot evidence is in outputs/native-dmm-callback/deployment/live/.
+Installed on the camera on 26 October 2026, downloaded readbacks verified, reboot persistence verified, and /usr confirmed read-only. Both streaming library and new module remain unmapped before streaming. Working permanent 2.4p is preserved for rollback. No sensor capture has been attempted yet. Ten adapted local installer fixture tests pass; the on-camera preflight, install and reboot evidence is in .local/outputs/native-dmm-callback/deployment/live/.
 
 ## Scope and guards
 
@@ -21,10 +21,10 @@ Verified backup and rollback are stored in /usr/share/yuy2-recovery-v27snap/. Th
 Explicit job examples (run from the workspace; use a new evidence directory each time):
 
 ```
-python -B work/native-dmm-callback/deployment/run_job.py preflight --package outputs/native-dmm-callback/flash-package --output outputs/native-dmm-callback/deployment/preflight-01
-python -B work/native-dmm-callback/deployment/run_job.py stage --package outputs/native-dmm-callback/flash-package --output outputs/native-dmm-callback/deployment/stage-01
-python -B work/native-dmm-callback/deployment/run_job.py install --package outputs/native-dmm-callback/flash-package --output outputs/native-dmm-callback/deployment/install-01
-python -B work/native-dmm-callback/deployment/run_job.py readback --package outputs/native-dmm-callback/flash-package --output outputs/native-dmm-callback/deployment/readback-01
+python -B .local/work/native-dmm-callback/deployment/run_job.py preflight --package .local/outputs/native-dmm-callback/flash-package --output .local/outputs/native-dmm-callback/deployment/preflight-01
+python -B .local/work/native-dmm-callback/deployment/run_job.py stage --package .local/outputs/native-dmm-callback/flash-package --output .local/outputs/native-dmm-callback/deployment/stage-01
+python -B .local/work/native-dmm-callback/deployment/run_job.py install --package .local/outputs/native-dmm-callback/flash-package --output .local/outputs/native-dmm-callback/deployment/install-01
+python -B .local/work/native-dmm-callback/deployment/run_job.py readback --package .local/outputs/native-dmm-callback/flash-package --output .local/outputs/native-dmm-callback/deployment/readback-01
 ```
 
 Use the repository .venv Python. `--repo` defaults to D:/02_Development_And_Projects/pmca-re. The runner stages shell jobs under /log (not /tmp), and opens one authenticated session for exactly one named step, checks both an anchored success marker and exit status, records output, and closes the terminal. It does not poll an install queue, advance to another step, retry a mutation or reboot. It is adapted from the established service workbench; the actual deployment used the established interactive workbench with explicitly queued, reviewed jobs.

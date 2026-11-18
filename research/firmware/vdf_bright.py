@@ -21,7 +21,7 @@ from thumb import mkdis, dis1, walk, calls_of                              # noq
 from capstone.arm import ARM_OP_REG, ARM_OP_MEM, ARM_OP_IMM, ARM_REG_PC      # noqa: E402
 
 BASE = 0x635C6000
-av = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\av-cam.bin.bak').read_bytes()
+av = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\av-cam.bin.bak').read_bytes()
 N = len(av)
 md = mkdis()
 

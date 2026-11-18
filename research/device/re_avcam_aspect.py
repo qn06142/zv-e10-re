@@ -6,7 +6,7 @@ HERE = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(HERE / "research" / "firmware"))
 from thumb import mkdis, pcrel_strrefs, walk, calls_of, is_prologue, strref_at
 
-avcam_path = HERE / "dumps" / "av-cam.bin"
+avcam_path = HERE / '.local/dumps' / "av-cam.bin"
 av = avcam_path.read_bytes()
 md = mkdis()
 

@@ -12,7 +12,7 @@ import hashlib
 from pathlib import Path
 
 N = 17_289_388
-D = Path(r'D:\02_Development_And_Projects\pmca-re\dumps')
+D = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps')
 BASE = (D / 'av-cam.bin.bak').read_bytes()
 
 
@@ -21,7 +21,7 @@ def d_off(a, b):
 
 
 base_off = d_off(BASE, BASE)
-print('baseline dumps/av-cam.bin.bak  md5 %s  %d B'
+print('baseline .local/dumps/av-cam.bin.bak  md5 %s  %d B'
       % (hashlib.md5(BASE).hexdigest(), len(BASE)))
 print()
 

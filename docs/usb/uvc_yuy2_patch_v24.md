@@ -14,7 +14,7 @@ This addresses a demonstrated software shutdown mechanism. It is not yet proof t
 
 ## Build and verification
 
-Source-only recipe: `research/firmware/yuy2_transport_v24/`. Local artifacts: `outputs/yuy2-640-v24/candidate/`. Userspace module is 15,560 bytes, MD5 `c237ec9a3024d4b075e96943dab2ddb5`. Kernel remains the tested revision 2.3 binary, MD5 `c1cad400372e26eca729e4b9bc47a237`, loaded version `yuy2_640_v23`.
+Source-only recipe: `research/firmware/yuy2_transport_v24/`. Local artifacts: `.local/outputs/yuy2-640-v24/candidate/`. Userspace module is 15,560 bytes, MD5 `c237ec9a3024d4b075e96943dab2ddb5`. Kernel remains the tested revision 2.3 binary, MD5 `c1cad400372e26eca729e4b9bc47a237`, loaded version `yuy2_640_v23`.
 
 All **68 offline checks pass**: 50 compiled ARM producer/lifecycle tests, four bootstrap tests, 14 unchanged kernel checks. The eight new producer cases cover 100 busy polls without either stop notification, immutable source/counter preservation until readiness, resumed counters with one source allocation, three client cycles, prestart idle without fabricated completion, nonbusy errors (including missing errno), error-streak reset, and explicit stop during idle. Packaging checks both user descriptors against the kernel geometry/interval. Mocked services do not emulate Windows, UDC or actual DMA completion.
 

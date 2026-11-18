@@ -2,7 +2,7 @@
 from pathlib import Path
 import hashlib,json,shutil
 W=Path(__file__).resolve().parent
-P=Path('outputs/native-dmm-v29/flash-package');P.mkdir(parents=True,exist_ok=True)
+P=Path('.local/outputs/native-dmm-v29/flash-package');P.mkdir(parents=True,exist_ok=True)
 C=P.parent/'candidate'
 def md5(p):return hashlib.md5(p.read_bytes()).hexdigest()
 replacements={'b4c6012cd876210fcfd0cf4b0d6f67e0':md5(C/'yuy2_640_v29full.so'),

@@ -12,7 +12,7 @@ import tarfile
 import urllib.request
 from pathlib import Path
 
-OUT = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camtools')
+OUT = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camtools')
 OUT.mkdir(parents=True, exist_ok=True)
 
 DEBS = [
@@ -98,10 +98,10 @@ for arch, url in DEBS:
     print('  downloaded %d bytes' % len(blob))
     tf = extract_deb(blob)
     want = [m for m in tf.getmembers()
-            if m.isfile() and m.name.lstrip('./') in ('bin/busybox', 'bin/busybox.static')]
+            if m.isfile() and m.name.lstrip('./') in ('scripts/staging/busybox', 'scripts/staging/busybox.static')]
     if not want:
         names = [m.name for m in tf.getmembers() if m.isfile()][:20]
-        print('  bin/busybox not found; first files: %s' % names)
+        print('  scripts/staging/busybox not found; first files: %s' % names)
         continue
     for m in want:
         data = tf.extractfile(m).read()

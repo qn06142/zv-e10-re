@@ -11,14 +11,13 @@ Start with the [camera overview](docs/CAMERA_OVERVIEW.md), then [current status]
 | [docs](docs/README.md) | System overview, topic documentation and dated research history |
 | [research](research/README.md) | Camera diagnostics, firmware analysis, experimental recipes and evidence |
 | [retool](docs/tools/RETOOL.md) | Binary-analysis CLI, configured by reconf.toml |
-| [avcam_re](avcam_re/HARDWARE_OVERVIEW.md) | Recovered camera-firmware structure |
-| re_symbols | Symbol records and provenance |
-| scripts | Patch/build orchestration and device-operation scripts |
+| scripts | Patch/build orchestration, host tools and staging kits |
 | tests | Offline verification suites |
-| verify | Capture and validation utilities |
 | pmca and updatershell | Upstream PMCA transport, shell and application components |
 
-The root batch_patch scripts and retool launchers are existing command entry points. Local dumps, generated outputs, tool downloads and environments are covered by the [provenance rules](docs/reference/09-provenance.md) and .gitignore.
+Camera analysis, symbol records, capture metadata and verification utilities are grouped under research. Firmware dumps, frame payloads, generated output, scratch and vendor checkouts live under the ignored .local directory. See the [layout guide](docs/tools/REPOSITORY_LAYOUT.md) for the full map.
+
+The root batch_patch scripts and retool launchers are existing command entry points. Source and local inputs follow the [provenance rules](docs/reference/09-provenance.md).
 
 ## Verified checkpoint
 

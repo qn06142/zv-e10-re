@@ -2,7 +2,7 @@ from pathlib import Path
 import struct,json,hashlib
 from unicorn import Uc,UC_ARCH_ARM,UC_MODE_THUMB,UC_HOOK_CODE
 from unicorn.arm_const import *
-B=Path('outputs/uvc-startup-fix/candidate-1080p/av-cam.bin').read_bytes();BASE=0x635c6000
+B=Path('.local/outputs/uvc-startup-fix/candidate-1080p/av-cam.bin').read_bytes();BASE=0x635c6000
 u=Uc(UC_ARCH_ARM,UC_MODE_THUMB);u.mem_map(0x63000000,0x2000000);u.mem_write(BASE,B)
 u.mem_map(0x50000000,4096);u.mem_map(0x60000000,0x20000)
 STOP=0x50000000;OBJ=0x60001000;CTX=0x60002000;STACK=0x6001f000
@@ -49,5 +49,5 @@ for index in (0,1,4,5):
  assert metadata[-1]['strip_width']==64 and metadata[-1]['yc_compress']==(0 if index==5 else 1)
  assert metadata[-1]['yc_bit_depth_untouched']
 result={'firmware_md5':hashlib.md5(B).hexdigest(),'camera_access':False,'original_ARM_instructions_executed':True,'logging_only_mocked':True,'alignment_cases':alignment,'strip_width_enum_results':strip,'geometry_table_records':geometry,'metadata_execution':metadata,'limits':'Static code/configuration behavior only; active packet descriptor and codec syntax not established'}
-Path('outputs/yc-codec-audit/firmware-verification.json').write_text(json.dumps(result,indent=2)+'\n')
+Path('.local/outputs/yc-codec-audit/firmware-verification.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps({k:v for k,v in result.items() if k!='alignment_cases'},indent=2));print('alignment cases passed:',len(alignment))

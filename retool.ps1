@@ -42,9 +42,9 @@ if (-not $py) {
     exit 1
 }
 
-# --- locate rizin and rz-bin (config value, then tools/ directory, then PATH) ---
+# --- locate rizin and rz-bin (config value, then scripts/tools/ directory, then PATH) ---
 if (-not $env:RETOOL_RIZIN) {
-    $rz = Get-ChildItem "$root\tools\rizin" -Recurse -Filter 'rizin.exe' -ErrorAction SilentlyContinue |
+    $rz = Get-ChildItem "$root\scripts\tools\rizin" -Recurse -Filter 'rizin.exe' -ErrorAction SilentlyContinue |
           Select-Object -First 1
     if (-not $rz) {
         $rz = Get-ChildItem "$root\.tools\rizin" -Recurse -Filter 'rizin.exe' -ErrorAction SilentlyContinue |
@@ -65,7 +65,7 @@ if (-not $env:RETOOL_RZBIN) {
         }
     }
     if (-not $env:RETOOL_RZBIN) {
-        $rzb = Get-ChildItem "$root\tools\rizin" -Recurse -Filter 'rz-bin.exe' -ErrorAction SilentlyContinue |
+        $rzb = Get-ChildItem "$root\scripts\tools\rizin" -Recurse -Filter 'rz-bin.exe' -ErrorAction SilentlyContinue |
                Select-Object -First 1
         if (-not $rzb) {
             $rzb = Get-ChildItem "$root\.tools\rizin" -Recurse -Filter 'rz-bin.exe' -ErrorAction SilentlyContinue |

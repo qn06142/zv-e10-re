@@ -5,7 +5,7 @@
   "source_inputs": [
     {
       "path": "research/firmware/yc_observer/build.py",
-      "sha256": "f0b90938d8ff3bfe373e84bde4abfd3d5a892433a9e049a11044f53ae8fe453f",
+      "sha256": "17484c5072f3a6421da0ac1a2fc33e0b496ca6990a7a9611212b4da84d1453fe",
       "hash_mode": "lf-normalized"
     }
   ],

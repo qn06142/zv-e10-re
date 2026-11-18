@@ -16,8 +16,8 @@ Q5  Where does the engine LOOK for these files?
     be answered by reading the loader rather than by experiment.
 
 Targets, all local, all already dumped:
-  dumps/av-cam.bin.bak    17.3 MB   the app that draws the UI (vanilla)
-  dumps/fdat_decrypted.bin 371 MB  whole firmware
+  .local/dumps/av-cam.bin.bak    17.3 MB   the app that draws the UI (vanilla)
+  .local/dumps/fdat_decrypted.bin 371 MB  whole firmware
 
 Search strategy: the container magics are 3-byte ASCII ('uxc','uxb','uxa'),
 and the format version byte 0x07 with stream 0x0008 / 0x0009 is a tight
@@ -33,7 +33,7 @@ import re
 import struct
 from pathlib import Path
 
-ROOT = Path(r'D:\02_Development_And_Projects\pmca-re\dumps')
+ROOT = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps')
 
 # strong anchors: names a loader must contain
 NAMES = [

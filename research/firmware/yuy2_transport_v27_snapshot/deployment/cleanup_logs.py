@@ -1,7 +1,7 @@
 """Archive/hash-verify/clear only named diagnostic captures, in one service session."""
 from pathlib import Path,PurePosixPath
 import hashlib,io,json,re,sys,time
-REPO=Path(r'D:/02_Development_And_Projects/pmca-re');OUT=Path('outputs/native-dmm-callback/deployment/log-cleanup-04')
+REPO=Path(r'D:/02_Development_And_Projects/pmca-re');OUT=Path('.local/outputs/native-dmm-callback/deployment/log-cleanup-04')
 assert not OUT.exists();OUT.mkdir(parents=True)
 sys.path[:0]=[str(REPO/'research/common'),str(REPO)]
 import senser_fix

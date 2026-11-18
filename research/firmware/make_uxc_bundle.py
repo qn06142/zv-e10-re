@@ -42,7 +42,7 @@ include whole:
 
 Excluded deliberately: the multi-hundred-megabyte flash images and the decrypted
 firmware.  If the second agent needs those they are on the SD card and in
-dumps/ -- listed in the README rather than duplicated here.
+.local/dumps/ -- listed in the README rather than duplicated here.
 
 The findings file states what is proven, what is unsolved, and which of my own
 earlier claims were wrong, so the work starts from the current state rather than
@@ -56,11 +56,11 @@ import zipfile
 from pathlib import Path
 
 REPO = Path(r'D:\02_Development_And_Projects\pmca-re')
-OUT = REPO / 'out' / 'zv_e10_uxc_research.zip'
-STAGE = REPO / 'out' / 'stage'
+OUT = REPO / '.local/out' / 'zv_e10_uxc_research.zip'
+STAGE = REPO / '.local/out' / 'stage'
 
-UXC = REPO / 'dumps' / 'camera_2025' / 'usr_share_app.tgz'
-CAM = REPO / 'dumps' / 'camera'
+UXC = REPO / '.local/dumps' / 'camera_2025' / 'usr_share_app.tgz'
+CAM = REPO / '.local/dumps' / 'camera'
 
 # proven-edit files, shipped with provenance
 PALETTE_FILES = [
@@ -151,16 +151,16 @@ def main():
                 z.writestr('uxc/' + name, t.extractfile(m).read())
                 n_uxc += 1
         # 4. logo
-        logo = REPO / 'dumps' / 'card' / 'logo.bin'
+        logo = REPO / '.local/dumps' / 'card' / 'logo.bin'
         if logo.exists():
             add(z, 'resources/logo.bin', logo.read_bytes(),
                 'startup logo, plain JFIF JPEG\nmd5 %s\n' % md5(logo))
         # 5. binaries
         for src, arc, note in BINARIES:
             if src.exists():
-                add(z, 'bin/' + arc, src.read_bytes(),
+                add(z, 'scripts/staging/' + arc, src.read_bytes(),
                     '%s\nmd5 %s\n' % (note, md5(src)))
-        eng = REPO / 'dumps' / 'engine'
+        eng = REPO / '.local/dumps' / 'engine'
         for base, note in ENGINE:
             src = eng / base
             if src.exists():
@@ -186,7 +186,7 @@ def main():
             if p.exists():
                 z.writestr('docs/' + d, p.read_bytes())
         # 8. the handoff README, at the zip root
-        rd = REPO / 'out' / 'README_HANDOFF.md'
+        rd = REPO / '.local/out' / 'README_HANDOFF.md'
         if rd.exists():
             z.writestr('README.md', rd.read_bytes())
         # 9. a manifest so the second agent can verify what they got

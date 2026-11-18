@@ -2,7 +2,7 @@ import struct
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
-libmpr_dump = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libmpr.so"
+libmpr_dump = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libmpr.so"
 
 with open(libmpr_dump, "rb") as f:
     buf = f.read()

@@ -5,7 +5,7 @@ from elftools.elf.sections import SymbolTableSection
 
 import pathlib
 ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
-ROOT = (ROOT_REPO / 'kmod').as_posix()
+ROOT = (ROOT_REPO / '.local/kmod').as_posix()
 K = os.path.join(ROOT, "dmm.ko")
 elf = ELFFile(open(K, "rb"))
 text = elf.get_section_by_name(".text"); code = text.data(); base = text["sh_addr"]

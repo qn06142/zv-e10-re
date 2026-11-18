@@ -1,4 +1,4 @@
-"""Is dumps/av-cam.bin really vanilla?
+"""Is .local/dumps/av-cam.bin really vanilla?
 
 The check 'the three patch sites WE found are unmodified' is circular: the mod
 someone flashed almost certainly patches different offsets. So compare against
@@ -8,7 +8,7 @@ import hashlib
 import re
 from pathlib import Path
 
-D = Path(r'D:\02_Development_And_Projects\pmca-re\dumps')
+D = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps')
 PART = D / 'nflasha3_system.bin'
 AV = D / 'av-cam.bin'
 BAK = D / 'av-cam.bin.bak'
@@ -25,7 +25,7 @@ def load(p):
     return b
 
 
-print('=== md5 of the av-cam candidates in dumps/ ===')
+print('=== md5 of the av-cam candidates in .local/dumps/ ===')
 av = load(AV)
 bak = load(BAK) if BAK.exists() else None
 part = load(PART)
@@ -70,12 +70,12 @@ def diff(label, a, b, cap=400):
 
 
 if region is not None:
-    print('=== raw flash capture  vs  dumps/av-cam.bin ===')
+    print('=== raw flash capture  vs  .local/dumps/av-cam.bin ===')
     d1 = diff('flash vs av-cam.bin', region[1], av)
     print()
 
 if bak is not None:
-    print('=== av-cam.bin.bak  vs  dumps/av-cam.bin ===')
+    print('=== av-cam.bin.bak  vs  .local/dumps/av-cam.bin ===')
     d2 = diff('bak vs av-cam.bin', bak, av)
     print()
 
@@ -86,7 +86,7 @@ for p in Path('D:\\02_Development_And_Projects').rglob('av-cam*.bin'):
         if p.stat().st_size != N:
             continue
         h = md5(p.read_bytes())
-        tag = 'SAME as dumps/av-cam.bin' if h == md5(av) else 'differs'
+        tag = 'SAME as .local/dumps/av-cam.bin' if h == md5(av) else 'differs'
         print('  %-58s md5 %s  %s' % (str(p)[-58:], h, tag))
     except Exception as e:
         print('  %-58s (unreadable: %s)' % (str(p)[-58:], e))

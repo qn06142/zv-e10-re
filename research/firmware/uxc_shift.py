@@ -52,7 +52,7 @@ import struct
 import sys
 from pathlib import Path
 
-APP = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\app')
+APP = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\app')
 SRC = APP / 'color_cmn.uxc'
 OUT = APP / 'color_cmn.out.uxc'
 RESTORE = APP / 'color_cmn.restore.uxc'

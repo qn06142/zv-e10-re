@@ -5,6 +5,10 @@ Camera-facing tools, firmware analysis, experimental recipes and evidence live h
 | Directory | Purpose |
 | --- | --- |
 | [device](device/README.md) | SSH/USB inspection, capture and diagnostic utilities |
+| [avcam](avcam/HARDWARE_OVERVIEW.md) | Recovered camera-firmware structure |
+| symbols | Recovered symbol database |
+| verify | Offline helper and capture verification |
+| [captures](captures/README.md) | Curated capture metadata |
 | [firmware](firmware/README.md) | Firmware analysis, UVC revision recipes, RAW-source work and dated evidence |
 | common | Helpers shared by device and analysis scripts |
 | disasm, scan, crypt, diag | Disassembly, byte/string analysis and format diagnostics |

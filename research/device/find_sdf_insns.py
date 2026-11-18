@@ -2,7 +2,7 @@ from pathlib import Path
 import capstone
 
 HERE = Path(__file__).resolve().parent.parent.parent
-avcam_path = HERE / "dumps" / "av-cam.bin"
+avcam_path = HERE / '.local/dumps' / "av-cam.bin"
 AVCAM_BASE = 0x635c6000
 
 data = avcam_path.read_bytes()

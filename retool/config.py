@@ -67,10 +67,10 @@ def _resolve(root: Path, p: str | Path) -> Path:
 
 
 def _discover_rizin(root: Path) -> Path | None:
-    """Probe tools/rizin/**/rizin.exe, tools/rizin/bin/rizin.exe, and PATH."""
-    tools_dir = root / "tools" / "rizin"
+    """Probe scripts/tools/rizin/**/rizin.exe, scripts/tools/rizin/bin/rizin.exe, and PATH."""
+    tools_dir = root / 'scripts/tools' / "rizin"
     if tools_dir.is_dir():
-        cand = tools_dir / "bin" / "rizin.exe"
+        cand = tools_dir / 'bin' / "rizin.exe"
         if cand.is_file():
             return cand
         for cand in tools_dir.rglob("rizin.exe"):
@@ -86,14 +86,14 @@ def _discover_rizin(root: Path) -> Path | None:
 
 
 def _discover_rzbin(root: Path, rizin_path: Path | None = None) -> Path | None:
-    """Probe sibling rz-bin.exe, tools/rizin/**/rz-bin.exe, and PATH."""
+    """Probe sibling rz-bin.exe, scripts/tools/rizin/**/rz-bin.exe, and PATH."""
     if rizin_path and rizin_path.is_file():
         sib = rizin_path.parent / "rz-bin.exe"
         if sib.is_file():
             return sib
-    tools_dir = root / "tools" / "rizin"
+    tools_dir = root / 'scripts/tools' / "rizin"
     if tools_dir.is_dir():
-        cand = tools_dir / "bin" / "rz-bin.exe"
+        cand = tools_dir / 'bin' / "rz-bin.exe"
         if cand.is_file():
             return cand
         for cand in tools_dir.rglob("rz-bin.exe"):
@@ -156,9 +156,9 @@ def load(config_path: str | Path | None = None) -> Config:
         root=root,
         rizin=rizin,
         rzbin=rzbin,
-        project_dir=_resolve(root, paths.get("project_dir", "re_out/projects")),
-        export_dir=_resolve(root, paths.get("export_dir", "re_out/exports")),
-        symdb_dir=_resolve(root, paths.get("symdb_dir", "re_symbols")),
+        project_dir=_resolve(root, paths.get("project_dir", ".local/re_out/projects")),
+        export_dir=_resolve(root, paths.get("export_dir", ".local/re_out/exports")),
+        symdb_dir=_resolve(root, paths.get("symdb_dir", "research/symbols")),
         targets=targets,
     )
 

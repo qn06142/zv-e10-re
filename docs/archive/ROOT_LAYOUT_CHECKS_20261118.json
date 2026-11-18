@@ -1,0 +1,66 @@
+{
+  "checked_on": "2026-11-18",
+  "root_directories_before": 32,
+  "root_directories_after": 13,
+  "visible_source_directories": [
+    "docs",
+    "pmca",
+    "research",
+    "retool",
+    "scripts",
+    "tests",
+    "updatershell"
+  ],
+  "relocated_directories": 20,
+  "preserved_local_input_git_identities": 776,
+  "preserved_audited_artifacts": 38,
+  "targeted_tests_passed": 99,
+  "housekeeping_tests_passed": 8,
+  "broader_suite": {
+    "passed": 293,
+    "skipped": 12,
+    "deselected": 1,
+    "subtests_passed": 4,
+    "known_deselected_test": "tests/test_usb3_transport.py::TestUsb3SuperSpeedTransport::test_v43_usb3_build_artifacts",
+    "reason": "The unchanged external hd-v43 directory contains revision 4.6; the historical test expects revision 4.3. The focused rerun of that test confirms the mismatch."
+  },
+  "additional_checks": [
+    "retool doctor",
+    "PowerShell launcher help",
+    "log decoder help",
+    "PMCA console help",
+    "application certificate lookup",
+    "mocked shell/dumper verification"
+  ],
+  "isolated_staged_checkout": [
+    {
+      "command": [
+        "research/firmware/check_docs.py",
+        "--portable"
+      ],
+      "exit_code": 0,
+      "output": "markdown scanned: 89 files (docs/ plus repo root)\ndistinct md5 values: 105\n\nfile links: 509, broken targets: 0\nin-page anchors: 57, unmatched: 0\ndeclared local-input links: 2\n\nmd5-set fingerprint: b545392f68bf9a6c81456f7c5ec821ed\n"
+    },
+    {
+      "command": [
+        "scripts/check_research.py"
+      ],
+      "exit_code": 0,
+      "output": "Verified 27 evidence files and 31 experiment records.\nTracked artifact check passed.\n"
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_housekeeping.py"
+      ],
+      "exit_code": 0,
+      "output": "scraping 3 markdown source(s) for avcam ...\n........\n----------------------------------------------------------------------\nRan 8 tests in 0.095s\n\nOK\n"
+    }
+  ],
+  "git_history_note": "Obsolete tracked firmware/settings paths are removed from the current index. Their prior Git history is retained."
+}

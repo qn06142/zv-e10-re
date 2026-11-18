@@ -10,7 +10,7 @@
     },
     {
       "path": "research/firmware/raw_frame_source/verified_bayer/raw_receiver_v01/build.py",
-      "sha256": "29b27b49a2671577b749b397855995d2c042af524b487f911b3ccdcc8a4d9a05",
+      "sha256": "db7a07f83d3bb130692830526108f78a2ce84c76962da168b1f2fc35af047fe5",
       "hash_mode": "lf-normalized"
     }
   ],

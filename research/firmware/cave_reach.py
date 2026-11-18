@@ -15,7 +15,7 @@ import struct
 from pathlib import Path
 
 BASE = Path(r'D:\02_Development_And_Projects\pmca-re')
-av = (BASE / 'dumps' / 'av-cam.bin.bak').read_bytes()
+av = (BASE / '.local/dumps' / 'av-cam.bin.bak').read_bytes()
 N = len(av)
 
 # ---------------------------------------------------------------- branches

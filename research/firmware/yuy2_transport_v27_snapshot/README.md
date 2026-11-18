@@ -39,7 +39,7 @@ The inherited builder also emits obsolete fixed-base RAM helper artifacts. Do no
 - Fourteen compiled ARM worker cases pass. The actual compiled native callback is exercised through the USB worker with fixture service replies, byte-identical output, and a second start. Camera services are mocked.
 - Thirty-two inherited ownership/conversion cases and eleven PIC/ELF checks pass. ISA audit: 3876 instructions, zero NEON in module text; external libc excluded.
 
-Evidence is in outputs/native-dmm-callback/ in the workspace, and verified_yc/evidence/native-dmm-callback-20261026 in the repository. The source selectors and native hardware services have not yet been exercised on the camera. No real sensor bytes have been captured by this revision.
+Evidence is in .local/outputs/native-dmm-callback/ in the workspace, and verified_yc/evidence/native-dmm-callback-20261026 in the repository. The source selectors and native hardware services have not yet been exercised on the camera. No real sensor bytes have been captured by this revision.
 
 ## First hardware trial
 

@@ -5,7 +5,7 @@
   "source_inputs": [
     {
       "path": "research/firmware/yuy2_transport_v34_team_candidate/deployment/verify_installer.py",
-      "sha256": "fc89d1988fb725972da869805e67bef1b3136c86fd125a940ee3970354d4fe86",
+      "sha256": "2a6cb823006f121517e9b2dfec59f369cca4cf8a9a67f73377cb4845b3bfa97e",
       "hash_mode": "lf-normalized"
     }
   ],

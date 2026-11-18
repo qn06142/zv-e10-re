@@ -63,4 +63,4 @@ Current patch preparation remains2.9 OFFLINE ONLY, installed camera version rema
 
 ## Reproducibility
 
-Scripts: work/yc-codec-audit/verify_firmware.py, verify_packet_structure.py, audit_decoder.py, audit_decoder_functions.py, string_xrefs.py and disasm.py. Evidence: firmware-verification.json (32alignment cases,13strip-selector cases,4metadata cases), packet-structure-verification.json, decoder-audit.json, disassembly and Linux-symbol scan in this folder. Original reconstruction files were read only and remain unchanged.
+Scripts: .local/work/yc-codec-audit/verify_firmware.py, verify_packet_structure.py, audit_decoder.py, audit_decoder_functions.py, string_xrefs.py and disasm.py. Evidence: firmware-verification.json (32alignment cases,13strip-selector cases,4metadata cases), packet-structure-verification.json, decoder-audit.json, disassembly and Linux-symbol scan in this folder. Original reconstruction files were read only and remain unchanged.

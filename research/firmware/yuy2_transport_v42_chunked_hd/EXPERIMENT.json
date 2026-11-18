@@ -5,7 +5,7 @@
   "source_inputs": [
     {
       "path": "research/firmware/yuy2_transport_v42_chunked_hd/README.md",
-      "sha256": "84c57d829cf4c8046a07bf20adc44e321a6d9c4e0a8f18190aa7a57d0cc7140f",
+      "sha256": "7d833b37c5cc9216086baabd7bb49ae734d5e0dbb8f16952eda6551fc6e148ba",
       "hash_mode": "lf-normalized"
     }
   ],

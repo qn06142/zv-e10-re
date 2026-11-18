@@ -25,7 +25,7 @@ The Open Gate 3:2 Video Unlock patch has been compiled and deployed directly to 
 ```
 
 ### Verified Checksums & Content:
-- `/setting/opengate.so`: MD5 `da99a9e29bce2d644ed5e9e07a23eadd` (Verified identical to `out/opengate.so`)
+- `/setting/opengate.so`: MD5 `da99a9e29bce2d644ed5e9e07a23eadd` (Verified identical to `.local/out/opengate.so`)
 - `/setting/mode/dmode`: `3p` (Developer boot mode with LD_PRELOAD active)
 - `/setting/mode/preload`: `/setting/opengate.so`
 - `/setting/opengate.conf`: `enable=1`, `aspect=2` (DefStruct::MOVIE_ASPECT_3_2)

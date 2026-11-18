@@ -105,9 +105,10 @@ def check_experiments(root):
 def forbidden_artifact(name):
     path = PurePosixPath(name)
     return (
-        name.startswith("work/")
-        or (name.startswith("captures/") and path.suffix not in {".json", ".md", ".tsv"})
-        or (name.startswith(("bin/", "research/"))
+        name.startswith((".local/", "dumps/", "outputs/", "out/", "build_sysroot/",
+                         "work/", "scratch/", "kmod/", "udtrbody_extract/"))
+        or (name.startswith("research/captures/") and path.suffix not in {".json", ".md", ".tsv"})
+        or (name.startswith(("scripts/staging/", "research/"))
             and path.suffix in {".exe", ".dll", ".elf", ".so", ".ko", ".bin", ".a"})
     )
 

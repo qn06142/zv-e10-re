@@ -19,9 +19,9 @@ import struct
 from collections import Counter
 from pathlib import Path
 
-S4 = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\s4.bin').read_bytes()[8:]
-DESC = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\desc.bin').read_bytes()
-FBA = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\fbA.bin').read_bytes()
+S4 = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\s4.bin').read_bytes()[8:]
+DESC = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\desc.bin').read_bytes()
+FBA = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\fbA.bin').read_bytes()
 PAGE_OFF = 0x80000000
 
 

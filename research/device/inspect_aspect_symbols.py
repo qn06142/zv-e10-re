@@ -3,7 +3,7 @@ from elftools.elf.elffile import ELFFile
 import capstone
 
 HERE = Path(__file__).resolve().parent.parent.parent
-lib_dir = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib"
+lib_dir = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib"
 
 def dump_symbols(lib_name):
     print(f"=== Symbols in {lib_name} ===")

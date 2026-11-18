@@ -42,7 +42,7 @@ from pathlib import Path
 
 CANDIDATES = [
     Path(r'F:\RE_DUMP\TREES\usr_share.tgz'),
-    Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz'),
+    Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share_app.tgz'),
 ]
 MARKER = bytes([0xa0, 0x07, 0x26, 0x08])
 GROUND_TRUTH = 0x400C          # the id the framing guides resolve through

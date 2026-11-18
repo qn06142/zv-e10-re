@@ -4,7 +4,7 @@ from pathlib import Path
 
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_LITTLE_ENDIAN
 
-a = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\av-cam.bin.bak').read_bytes()
+a = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\av-cam.bin.bak').read_bytes()
 CALLER = 0x000a4338
 FUNC = 0x000aa14c
 PATCH = 0x000aa15a

@@ -1,4 +1,4 @@
-with open('dumps/camera_2025/usr/usr/lib/libObj.so', 'rb') as f:
+with open('.local/dumps/camera_2025/usr/usr/lib/libObj.so', 'rb') as f:
     f.seek(0x2cd520)
     data = f.read(128)
     for off in range(0, len(data), 4):

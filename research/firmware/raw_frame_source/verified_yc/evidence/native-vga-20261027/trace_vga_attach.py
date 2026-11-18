@@ -2,7 +2,7 @@ from pathlib import Path
 import struct,json,bisect,array
 from elftools.elf.elffile import ELFFile
 from capstone import Cs,CS_ARCH_ARM,CS_MODE_THUMB
-ROOT=Path(r'D:/02_Development_And_Projects/pmca-re/dumps/camera_2025/usr/usr/lib');OUT=Path('outputs/yc-vga-test')
+ROOT=Path(r'D:/02_Development_And_Projects/pmca-re/.local/dumps/camera_2025/usr/usr/lib');OUT=Path('.local/outputs/yc-vga-test')
 name='libObj.so'
 with (ROOT/name).open('rb') as f:
  e=ELFFile(f);segments=[(s['p_vaddr'],s.data()) for s in e.iter_segments() if s['p_type']=='PT_LOAD']

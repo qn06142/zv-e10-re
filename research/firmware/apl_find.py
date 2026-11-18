@@ -26,7 +26,7 @@ from thumb import mkdis, dis1, is_return, is_prologue, walk, decode_movw  # noqa
 from capstone.arm import ARM_OP_REG, ARM_OP_IMM, ARM_OP_MEM                # noqa: E402
 
 BASE = Path(r'D:\02_Development_And_Projects\pmca-re')
-av = (BASE / 'dumps' / 'av-cam.bin.bak').read_bytes()
+av = (BASE / '.local/dumps' / 'av-cam.bin.bak').read_bytes()
 N = len(av)
 md = mkdis()
 

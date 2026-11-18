@@ -23,8 +23,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from thumb import mkdis, dis1, walk, calls_of                              # noqa: E402
 
-DESC = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\desc.bin').read_bytes()
-FBA = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\fbA.bin').read_bytes()
+DESC = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\desc.bin').read_bytes()
+FBA = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\fbA.bin').read_bytes()
 md = mkdis()
 
 
@@ -57,7 +57,7 @@ print()
 # The vtable pairs in s4 point at consecutive addresses 8 bytes apart, which
 # is the stride of 32-bit ARM code? No -- 8 bytes = two instructions.  Check
 # whether those are code by reading a couple of them.
-S4 = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\s4.bin').read_bytes()[8:]
+S4 = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\s4.bin').read_bytes()[8:]
 vas = []
 for i in range(0x38, 0x138, 4):
     v = struct.unpack_from('<I', S4, i)[0]

@@ -24,7 +24,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from thumb import dis1, mkdis                                                # noqa: E402
 
 BASE_DIR = Path(r'D:\02_Development_And_Projects\pmca-re')
-av = (BASE_DIR / 'dumps' / 'av-cam.bin.bak').read_bytes()
+av = (BASE_DIR / '.local/dumps' / 'av-cam.bin.bak').read_bytes()
 N = len(av)
 md = mkdis()
 

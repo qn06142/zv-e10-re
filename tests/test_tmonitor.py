@@ -297,7 +297,7 @@ class TestKernelImages(unittest.TestCase):
     """
 
     def vmlinux(self):
-        cands = sorted(REPO.glob("dumps/**/vmlinux.bin"))
+        cands = sorted(REPO.glob(".local/dumps/**/vmlinux.bin"))
         if not cands:
             self.skipTest("vmlinux.bin not present")
         return cands[0].read_bytes()
@@ -343,7 +343,7 @@ class TestKernelImages(unittest.TestCase):
                              "LiRo/Linux boundary has changed")
 
     def avcam(self):
-        cands = [c for c in sorted(REPO.glob("dumps/**/av-cam.bin"))
+        cands = [c for c in sorted(REPO.glob(".local/dumps/**/av-cam.bin"))
                  if c.stat().st_size > 1_000_000]
         if not cands:
             self.skipTest("av-cam.bin not present")

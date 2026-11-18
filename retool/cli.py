@@ -93,9 +93,9 @@ def cmd_export(cfg, name):
 
 def cmd_migrate(cfg, name, out_path=None):
     t = cfg.target(name)
-    sources = [t.path.parent.parent / "avcam_re" / "RE_STATE.md",
-               t.path.parent.parent / "avcam_re" / "pipeline.md",
-               t.path.parent.parent / "avcam_re" / "OPENGATE_3_2_ANALYSIS.md"]
+    sources = [cfg.root / "research/avcam" / "RE_STATE.md",
+               cfg.root / "research/avcam" / "pipeline.md",
+               cfg.root / "research/avcam" / "OPENGATE_3_2_ANALYSIS.md"]
     sources = [s for s in sources if s.is_file()]
     if not sources:
         _p("no source markdown found")
@@ -152,7 +152,7 @@ def cmd_symbols(cfg, action, name=None):
         # Measured against rizin 0.9.1: '@', '`', '"', "'", '(' and ')' break
         # parsing; ';' silently truncates the comment (and would split the
         # ';'-joined command list).  Rewrite those; the untouched original text
-        # remains authoritative in re_symbols/<target>.json.
+        # remains authoritative in research/symbols/<target>.json.
         def _sanitize(text: str) -> str:
             t = text
             for ch in ("@", "`", '"', "'", ";"):

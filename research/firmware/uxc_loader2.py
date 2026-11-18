@@ -38,7 +38,7 @@ import re
 import struct
 from pathlib import Path
 
-ROOT = Path(r'D:\02_Development_And_Projects\pmca-re\dumps')
+ROOT = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps')
 
 MAGICS = {
     0x63757875: 'uxc',

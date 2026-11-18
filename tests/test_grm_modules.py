@@ -22,8 +22,8 @@ sys.path.insert(0, str(REPO / "research" / "firmware"))
 
 import grm_modules
 
-KMOD = REPO / "dumps" / "camera_2025" / "usr" / "usr" / "kmod"
-LIBOBJ = REPO / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
+KMOD = REPO / '.local/dumps' / "camera_2025" / "usr" / "usr" / 'kmod'
+LIBOBJ = REPO / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
 
 
 def _elf(path):
@@ -123,7 +123,7 @@ class TestLibObjIsTheOnlyConsumer(unittest.TestCase):
         import re
         token = re.compile(r"\b(GLES|GLES2|EGL|libGL\.)\b")
         libdir = LIBOBJ.parent
-        binary_dirs = [libdir, libdir.parent / "bin", libdir.parent / "scenario"]
+        binary_dirs = [libdir, libdir.parent / 'bin', libdir.parent / "scenario"]
 
         ci_hits, raw_hits, run_hits, real_hits = set(), set(), set(), set()
         for d in binary_dirs:

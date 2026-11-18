@@ -2,7 +2,7 @@ import os, zlib, struct, re
 
 import pathlib
 ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
-TOOLS = (ROOT_REPO / 'tools').as_posix()
+TOOLS = (ROOT_REPO / 'scripts/tools').as_posix()
 data = open(os.path.join(TOOLS, "udtrbody.bin"), "rb").read()
 print("size", len(data), "magic", data[:4].hex())
 

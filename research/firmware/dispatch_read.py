@@ -57,7 +57,7 @@ from pathlib import Path
 
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_LITTLE_ENDIAN
 
-SO = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\engine\viewUnified2.so')
+SO = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\engine\viewUnified2.so')
 
 PROP_KEYS = {
     0x0422571b: ('1b572204010e', 6, 10),   # sig, payload_off, payload_len

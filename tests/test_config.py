@@ -26,7 +26,7 @@ MINIMAL = """
 [engine]
 rizin = ""
 [target.avcam]
-path = "dumps/av-cam.bin"
+path = ".local/dumps/av-cam.bin"
 arch = "arm"
 bits = 16
 cpu = "cortex"

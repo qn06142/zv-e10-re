@@ -1,9 +1,9 @@
 from pathlib import Path
-Path("outputs/yc-live-20261026").mkdir(parents=True,exist_ok=True)
+Path(".local/outputs/yc-live-20261026").mkdir(parents=True,exist_ok=True)
 import struct,json
 from unicorn import *
 from unicorn.arm_const import *
-B=Path(r'D:/02_Development_And_Projects/pmca-re/dumps/firmware/av-cam.bin').read_bytes();BASE=0x635c6000
+B=Path(r'D:/02_Development_And_Projects/pmca-re/.local/dumps/firmware/av-cam.bin').read_bytes();BASE=0x635c6000
 u=Uc(UC_ARCH_ARM,UC_MODE_THUMB);u.mem_map(BASE,(len(B)+4095)&~4095);u.mem_write(BASE,B)
 for a,n in [(0x40000000,0x20000),(0x50000000,4096),(0x60000000,0x20000)]:u.mem_map(a,n)
 rows=[]
@@ -20,4 +20,4 @@ for w,h in [(640,480),(1920,1080),(1280,720),(1440,1080),(720,240),(720,288),(12
  assert (w!=640 or selected==[1])
  print(w,h,selected)
 report=dict(actual_Sony_function_executed='0x6372e57c',external_calls_stubbed=False,camera_access=False,table='0x63e43e9c',record_bytes=20,record_count=9,rows=rows,cases=cases)
-Path('outputs/yc-live-20261026/preview-geometry-execution.json').write_text(json.dumps(report,indent=2))
+Path('.local/outputs/yc-live-20261026/preview-geometry-execution.json').write_text(json.dumps(report,indent=2))

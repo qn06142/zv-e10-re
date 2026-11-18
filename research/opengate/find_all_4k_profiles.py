@@ -1,6 +1,6 @@
 import struct
 
-with open('D:/02_Development_And_Projects/pmca-re/dumps/camera_2025/usr/usr/lib/libmpr.so', 'rb') as f:
+with open('D:/02_Development_And_Projects/pmca-re/.local/dumps/camera_2025/usr/usr/lib/libmpr.so', 'rb') as f:
     data = f.read()
 
 print('Scanning FRPA table for 3840x2160 entries...')

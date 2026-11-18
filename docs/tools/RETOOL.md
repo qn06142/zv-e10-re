@@ -23,10 +23,10 @@ directory was an empty 359-byte shell. Its last run logged `EXIT=127`.
 
 The cost was not the tooling — it was that **~120 renamed functions were trapped
 inside the lost project**. They survived only as prose in
-`avcam_re/RE_STATE.md` and `avcam_re/pipeline.md`. `retool migrate` scrapes that
+`research/avcam/RE_STATE.md` and `research/avcam/pipeline.md`. `retool migrate` scrapes that
 prose back into machine-readable data.
 
-Full detail: `avcam_re/_retired_ghidra/README.md`.
+Full detail: `research/avcam/_retired_ghidra/README.md`.
 
 ## Addressing
 
@@ -46,14 +46,14 @@ address unusable against their CSVs — that contradiction is now gone.
 ## Install
 
 rizin 0.9.1, static Windows build, self-contained (no JDK, no installer, no
-admin). Lives in `tools/rizin/` and is gitignored.
+admin). Lives in `scripts/tools/rizin/` and is gitignored.
 
 ```powershell
 # already done on this machine; for a fresh clone:
 New-Item -ItemType Directory -Force tools
-Invoke-WebRequest -Uri https://github.com/rizinorg/rizin/releases/download/v0.9.1/rizin-windows-static-v0.9.1.zip -OutFile tools/rz.zip
-Expand-Archive tools/rz.zip tools/rizin -Force
-Remove-Item tools/rz.zip
+Invoke-WebRequest -Uri https://github.com/rizinorg/rizin/releases/download/v0.9.1/rizin-windows-static-v0.9.1.zip -OutFile scripts/tools/rz.zip
+Expand-Archive scripts/tools/rz.zip scripts/tools/rizin -Force
+Remove-Item scripts/tools/rz.zip
 
 python -m venv .venv-re        # msys2 layout: .venv-re/bin/python.exe
 ```
@@ -70,7 +70,7 @@ pipeline requires it.
 | `doctor` | Verify rizin, rz-bin, and every configured target |
 | `analyze <t> [--force]` | Seeded recursive-descent analysis → cached `.rzdb` |
 | `export <t>` | `functions.csv`, `calls.csv`, `data_xrefs.csv`, `strings.csv`, `ptr_tables.csv` |
-| `migrate <t> [--out f]` | Scrape symbols out of the RE markdown → `re_symbols/<t>.json` |
+| `migrate <t> [--out f]` | Scrape symbols out of the RE markdown → `research/symbols/<t>.json` |
 | `symbols list\|apply <t>` | Inspect / push names+comments into the project |
 | `funcs <t> [filter]` | Search the function list |
 | `xrefs <t> <addr>` | Cross-references to an address |
@@ -99,7 +99,7 @@ pointers into the `0x635c6000` window, plus the reset stub at `0x28`.
 
 ## Symbol database
 
-`re_symbols/avcam.json` is the durable replacement for the Ghidra project.
+`research/symbols/avcam.json` is the durable replacement for the Ghidra project.
 
 ```json
 {
@@ -137,7 +137,7 @@ could not parse, so nothing is silently dropped — the leftovers are ranges
 
 ```toml
 [target.mydll]
-path   = "dumps/libBizFw.so"
+path   = ".local/dumps/libBizFw.so"
 arch   = "arm"
 bits   = 32
 runtime_base = 0x0
@@ -167,7 +167,7 @@ A comment containing `@` aborts the *entire* `-c` string — including a trailin
 `Ps` save — so every rename is lost with no error. Measured unsafe characters
 (rizin 0.9.1): `@`, `` ` ``, `"`, `'`, `(`, `)`; `;` silently truncates.
 `retool` rewrites these when pushing comments. The original text stays
-authoritative in `re_symbols/<target>.json`.
+authoritative in `research/symbols/<target>.json`.
 
 **Only pass one `-c` flag.** A second `-c` is silently dropped by rizin, so a
 trailing save never runs. Commands are joined with `;` inside a single string.

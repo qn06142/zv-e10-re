@@ -10,7 +10,7 @@ yields a root BusyBox prompt without breaking a finger off.
 
 This repository is a fork of **[ma1co/Sony-PMCA-RE](https://github.com/ma1co/Sony-PMCA-RE)**
 (MIT, © 2015 ma1co), which provides the USB plumbing. Everything under `docs/`,
-`avcam_re/`, `retool/` and `research/` is ZV-E10-specific work added on top.
+`research/avcam/`, `retool/` and `research/` is ZV-E10-specific work added on top.
 
 ## Hardware-verified: custom VGA video over USB
 
@@ -111,7 +111,7 @@ and [`docs/archive/sessions/OPENGATE_138_PATCH_SUITE.md`](sessions/OPENGATE_138_
 | [`docs/archive/sessions/OPENGATE_138_PATCH_SUITE.md`](sessions/OPENGATE_138_PATCH_SUITE.md) | **Open Gate 3:2 RE synthesis** — BIONZ X SDF pin disconnect and technical notes |
 | [`docs/archive/sessions/UVC_WEBCAM_HIJACK_GUIDE.md`](sessions/UVC_WEBCAM_HIJACK_GUIDE.md) | **UVC USB webcam research (WIP)** — gadget architecture, descriptor tables |
 | [`docs/README.md`](../README.md) | the granular per-subject reference, `01`–`09` |
-| [`avcam_re/HARDWARE_OVERVIEW.md`](../../avcam_re/HARDWARE_OVERVIEW.md) | `av-cam.bin` internals: topology, register model, ISP/codec pipeline |
+| [`research/avcam/HARDWARE_OVERVIEW.md`](../../research/avcam/HARDWARE_OVERVIEW.md) | `av-cam.bin` internals: topology, register model, ISP/codec pipeline |
 | [`research/README.md`](../../research/README.md) | 322 analysis scripts, indexed |
 
 Every load-bearing claim is reproducible by a tracked script:
@@ -192,9 +192,9 @@ retool.cmd export avcam      # functions / calls / xrefs / strings / tables
 
 Addresses are **file offsets (base 0x0)**; the runtime load address
 (`+0x635c6000` for `av-cam.bin`) is printed alongside. Renamed functions live in
-`re_symbols/*.json` with provenance back to the notes that justify them. See
+`research/symbols/*.json` with provenance back to the notes that justify them. See
 [RETOOL.md](../tools/RETOOL.md). This replaced the retired Ghidra setup
-(`avcam_re/_retired_ghidra/`).
+(`research/avcam/_retired_ghidra/`).
 
 ## No Sony binaries are committed here
 

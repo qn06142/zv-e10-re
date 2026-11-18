@@ -2,7 +2,7 @@ from pathlib import Path
 from elftools.elf.elffile import ELFFile
 
 HERE = Path(__file__).resolve().parent.parent.parent
-sysdef_path = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libSysDef.so"
+sysdef_path = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libSysDef.so"
 
 with open(sysdef_path, "rb") as f:
     elf = ELFFile(f)

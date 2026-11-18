@@ -3,15 +3,15 @@ from pathlib import Path
 import importlib.util,json,hashlib,re
 from unicorn import Uc,UC_ARCH_ARM,UC_MODE_ARM,UC_HOOK_CODE
 from unicorn.arm_const import *
-ROOT=Path(r'D:/02_Development_And_Projects/pmca-re');OUT=Path('outputs/yc-source-re-20261025')
+ROOT=Path(r'D:/02_Development_And_Projects/pmca-re');OUT=Path('.local/outputs/yc-source-re-20261025')
 spec=importlib.util.spec_from_file_location('support',ROOT/'research/firmware/yuy2_transport_v25/verify_support.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 u=Uc(UC_ARCH_ARM,UC_MODE_ARM);handlers={};printed=[]
 for a,n in [(0x10000000,0x20000),(0x40000000,0x10000),(m.STOP,4096),(0x60000000,0x20000)]:u.mem_map(a,n)
 def imp(name):
  if 'ImageSizeInfo11GetData_All' in name and 'Right' not in name:return 0x08000000+0x246d7
  at=0x10000000+len(handlers)*4;handlers[at]=name;return at
-m.load(u,ROOT/'dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so',0x08000000,imp)
-m.load(u,ROOT/'dumps/camera_2025/usr/usr/lib/libObj.so',0x20000000,imp)
+m.load(u,ROOT/'.local/dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so',0x08000000,imp)
+m.load(u,ROOT/'.local/dumps/camera_2025/usr/usr/lib/libObj.so',0x20000000,imp)
 entry=0x40000000;pattern=bytes(range(60));u.mem_write(entry+20,pattern)
 def hook(u,a,n,d):
  if a not in handlers:return

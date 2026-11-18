@@ -25,7 +25,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from thumb import mkdis, dis1, calls_of                                    # noqa: E402
 from capstone.arm import ARM_OP_MEM, ARM_OP_IMM, ARM_OP_REG                  # noqa: E402
 
-DESC = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\desc.bin').read_bytes()
+DESC = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\desc.bin').read_bytes()
 BASE_VA = 0x828B2000
 md = mkdis()
 

@@ -5,7 +5,7 @@ from elftools.elf.sections import SymbolTableSection
 
 import pathlib
 ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
-TOOLS = (ROOT_REPO / 'tools').as_posix()
+TOOLS = (ROOT_REPO / 'scripts/tools').as_posix()
 name = "crypter.elf"
 f = open(os.path.join(TOOLS, name), "rb"); data = f.read()
 elf = ELFFile(f)

@@ -1,22 +1,22 @@
 # retool — binary RE pipeline configuration
 # Canonical addressing = FILE OFFSET (base 0x0). Runtime VA = file_off + runtime_base.
-# This matches all addresses already written in avcam_re/pipeline.md and RE_STATE.md.
+# This matches all addresses already written in research/avcam/pipeline.md and RE_STATE.md.
 
 [engine]
 # rizin binaries (static build, self-contained, no JDK needed)
-rizin = "tools/rizin/rizin-win-installer-vs2019_static-64/bin/rizin.exe"
-rzbin = "tools/rizin/rizin-win-installer-vs2019_static-64/bin/rz-bin.exe"
+rizin = "scripts/tools/rizin/rizin-win-installer-vs2019_static-64/bin/rizin.exe"
+rzbin = "scripts/tools/rizin/rizin-win-installer-vs2019_static-64/bin/rz-bin.exe"
 
 [paths]
 # rizin project cache (analysis is expensive; reuse via .rzdb)
-project_dir = "re_out/projects"
+project_dir = ".local/re_out/projects"
 # exported CSV/JSON artifacts
-export_dir  = "re_out/exports"
+export_dir  = ".local/re_out/exports"
 # symbol database (checked in, machine-readable, versioned)
-symdb_dir   = "re_symbols"
+symdb_dir   = "research/symbols"
 
 [target.avcam]
-path   = "dumps/av-cam.bin"
+path   = ".local/dumps/av-cam.bin"
 arch   = "arm"
 bits   = 16          # thumb code; seeds/vectors are ARM (handled per-address)
 cpu    = "cortex"

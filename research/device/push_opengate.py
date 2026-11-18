@@ -1,6 +1,6 @@
 """
 Transfer & Deploy Open Gate Patch to Live Sony ZV-E10 Camera
-Transfers out/opengate.so and config via base64 chunks directly to /setting/
+Transfers .local/out/opengate.so and config via base64 chunks directly to /setting/
 """
 
 import base64
@@ -50,12 +50,12 @@ def main():
     print("==========================================================")
 
     # 1. Push opengate.so
-    so_ok = push_file_b64("out/opengate.so", "/setting/opengate.so")
+    so_ok = push_file_b64(".local/out/opengate.so", "/setting/opengate.so")
     if not so_ok:
         sys.exit(1)
 
     # 2. Push opengate.conf
-    conf_ok = push_file_b64("dumps/staged/opengate/opengate.conf", "/setting/opengate.conf")
+    conf_ok = push_file_b64(".local/dumps/staged/opengate/opengate.conf", "/setting/opengate.conf")
     if not conf_ok:
         sys.exit(1)
 

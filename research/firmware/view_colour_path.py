@@ -46,7 +46,7 @@ import tarfile
 from collections import Counter, defaultdict
 from pathlib import Path
 
-TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz')
+TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share_app.tgz')
 PAL_LO, PAL_HI = 0x4000, 0x4022
 # style_cmn.uxc index values, solved this session
 STYLE_IDX = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09,

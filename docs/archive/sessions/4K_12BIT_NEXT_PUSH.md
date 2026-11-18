@@ -22,7 +22,7 @@ A hash-verified reference bundle is preserved at ../../research/firmware/4k12bit
 | v30-experimental/yuy2_640_v30vga.so | 98acd3ba3d6628e006fe51d88dda25dc | Installed; live resize untested |
 | v30-experimental/libInfraStreamingUsb.so | 2a4c08511526f2b525c57a1d9bac9bad | Installed matching persistent gate |
 
-The bundle is an offline comparison/reference set, not an instruction to install all files or mix their dependencies. In the original workspace the proven files are outputs/yuy2-640-v24p/candidate/yuy2_640_v24p.so and libInfraStreamingUsb.persistent.so. The earlier similarly named non-persistent libInfraStreamingUsb.so is superseded.
+The bundle is an offline comparison/reference set, not an instruction to install all files or mix their dependencies. In the original workspace the proven files are .local/outputs/yuy2-640-v24p/candidate/yuy2_640_v24p.so and libInfraStreamingUsb.persistent.so. The earlier similarly named non-persistent libInfraStreamingUsb.so is superseded.
 
 ## Next milestone
 
@@ -59,7 +59,7 @@ For UHD3840x2160, tightly packed, without padding, metadata, double buffering or
 
 These are arithmetic requirements, not camera throughput measurements.16-bit storage containers increase the payload. The older~11.87MiB UHD figure corresponds to12-bit Bayer (or8-bit YUV420), not12-bit YUV420. For3240x2160, packed12-bit YUV420 is15746400bytes, about15.02MiB.
 
-The current USB2 VGA transport is a control/diagnostic sink, not a demonstrated continuous4K/12-bit/24fps path. Treat native precision,4K geometry, internal encode/record support and sustained delivery as separate proofs. USB3 remains future work; do not silently change that earlier scope. Bounded full-frame captures/chunking can diagnose a source without proving continuous transport.
+The current USB2 VGA transport is a control/diagnostic sink, not a demonstrated continuous4K/12-bit/24fps path. Treat native precision,4K geometry, internal encode/record support and sustained delivery as separate proofs. USB3 remains future work; do not silently change that earlier scope. Bounded full-frame .local/captures/chunking can diagnose a source without proving continuous transport.
 
 ## Completion criteria for this next push
 

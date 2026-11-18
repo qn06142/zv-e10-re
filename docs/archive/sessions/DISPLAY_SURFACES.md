@@ -103,5 +103,5 @@ Linux helpers are assembled and wrapped in a hand-built ELF32:
 Either a full VDF message transaction with valid subsystem interface pointers,
 or a writable data symbol proven at runtime. Neither is reachable offline, and
 guessing is a hang or brick risk on a device that can only be recovered by
-reflashing. The built-but-unflushed logger payload (`dumps/av-cam.injected.bin`,
+reflashing. The built-but-unflushed logger payload (`.local/dumps/av-cam.injected.bin`,
 md5 `f1f96e3f…`) remains the only verified, reversible change available.

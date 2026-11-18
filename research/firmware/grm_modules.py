@@ -38,8 +38,8 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-KMOD = ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "kmod"
-LIBOBJ = ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
+KMOD = ROOT / '.local/dumps' / "camera_2025" / "usr" / "usr" / 'kmod'
+LIBOBJ = ROOT / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
 
 # The EGL/GL entry points DMP adds on top of GLES2.  Their presence is what
 # identifies the DMP implementation.

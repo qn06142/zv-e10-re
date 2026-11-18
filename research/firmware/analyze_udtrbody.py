@@ -2,7 +2,7 @@ import os, re
 
 import pathlib
 ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
-TOOLS = (ROOT_REPO / 'tools').as_posix()
+TOOLS = (ROOT_REPO / 'scripts/tools').as_posix()
 data = open(os.path.join(TOOLS, "udtrbody.bin"), "rb").read()
 print("udtrbody.bin: %d bytes (0x%x)" % (len(data), len(data)))
 # header

@@ -25,7 +25,7 @@ import struct
 from collections import Counter
 from pathlib import Path
 
-D = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera')
+D = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera')
 p = D / 's4.bin'
 raw = p.read_bytes()
 magic, mmap = struct.unpack_from('<II', raw, 0)

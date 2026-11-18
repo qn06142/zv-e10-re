@@ -19,7 +19,7 @@ The generator also checks both Linux configuration results and their immediate c
 & '.venv\Scripts\python.exe' -B research/firmware/verify_uvc_encoder_workspace.py
 ```
 
-Dependencies: Capstone, Keystone and Unicorn in the existing research environment. The generator accepts `--repo`, `--width 1280|1920`, and `--output`. Default output is `dumps/staged/uvc/encoder-workspace-fix/candidate-1080p`. It validates the source hashes and produces three local files plus a manifest and disassembly. It never accesses a camera.
+Dependencies: Capstone, Keystone and Unicorn in the existing research environment. The generator accepts `--repo`, `--width 1280|1920`, and `--output`. Default output is `.local/dumps/staged/uvc/encoder-workspace-fix/candidate-1080p`. It validates the source hashes and produces three local files plus a manifest and disassembly. It never accesses a camera.
 
 59 binary-execution cases passed: startup/caller success and errors, stack and register preservation, semaphore balance, original RTOS height inference and output limits, original/candidate request comparison, workspace capacity checks and public error translation, allocator selection, and allocation/cleanup routing. OSAL, DMM allocation and hardware services are controlled stubs. Injected capacities are not live measurements.
 

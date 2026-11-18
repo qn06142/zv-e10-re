@@ -12,12 +12,12 @@ explanation, it is probably Sony's. If you had to measure it, it is ours.
 | | |
 |---|---|
 | `docs/**` | the reverse-engineering writeup |
-| `avcam_re/**` | `av-cam.bin` findings |
-| `re_symbols/**` | recovered symbol names, with per-symbol provenance |
+| `research/avcam/**` | `av-cam.bin` findings |
+| `research/symbols/**` | recovered symbol names, with per-symbol provenance |
 | `retool/**`, `tests/**` | the rizin-based analysis package and its tests |
 | `research/**` | the scripts, all authored here |
-| `scripts/**`, `verify/**` | device command transcripts and the verification harness |
-| `tools/zx`, `tools/README_zx.md` | the service-shell toolbelt (a shell script, written here) |
+| `scripts/**`, `research/verify/**` | device command transcripts and the verification harness |
+| `scripts/tools/zx`, `scripts/tools/README_zx.md` | the service-shell toolbelt (a shell script, written here) |
 
 ## 2. Derived facts — tracked on purpose
 
@@ -100,9 +100,9 @@ duplicated here.
 
 | | |
 |---|---|
-| `certs/localtest.me.pem` | a public Let's Encrypt certificate for the `localtest.me` domain, from upstream. Not a camera artefact. |
+| `pmca/resources/certs/localtest.me.pem` | a public Let's Encrypt certificate for the `localtest.me` domain, from upstream. Not a camera artefact. |
 | `LICENSE.txt` | MIT, ma1co 2015 |
-| `.venv*/`, `.tools/`, `re_out/`, `out/` | local environments and regenerable analysis caches |
+| `.venv*/`, `.tools/`, `.local/re_out/`, `.local/out/` | local environments and regenerable analysis caches |
 
 ## 6. History was rewritten before publishing
 

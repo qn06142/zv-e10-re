@@ -1,4 +1,4 @@
-with open('dumps/camera_2025/usr/usr/lib/libObj.so', 'rb') as f:
+with open('.local/dumps/camera_2025/usr/usr/lib/libObj.so', 'rb') as f:
     f.seek(0x1369000)
     data = f.read(0x250)
 import struct

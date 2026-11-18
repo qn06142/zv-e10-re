@@ -3,7 +3,7 @@ import importlib.util,struct,json,subprocess
 from unicorn import Uc,UC_ARCH_ARM,UC_MODE_ARM,UC_HOOK_CODE
 from unicorn.arm_const import *
 ROOT = Path(r'D:/02_Development_And_Projects/pmca-re')
-OUT = Path(r'C:/Users/qn061/Documents/Codex/2026-10-22/chec/outputs/yc-source-re-20261025') if not Path('outputs/yc-source-re-20261025').is_dir() else Path('outputs/yc-source-re-20261025')
+OUT = Path(r'C:/Users/qn061/Documents/Codex/2026-10-22/chec/outputs/yc-source-re-20261025') if not Path('.local/outputs/yc-source-re-20261025').is_dir() else Path('.local/outputs/yc-source-re-20261025')
 WORK = Path(__file__).resolve().parent
 subprocess.run(['C:/msys64/ucrt64/bin/arm-none-eabi-gcc.exe','-mcpu=cortex-a5','-marm','-mfloat-abi=soft','-O2','-fPIC','-fno-builtin','-fno-stack-protector','-nostdlib','-shared','-Wl,--no-undefined,--hash-style=sysv','-o',str(OUT/'sony_yc_pin_wire.so'),str(WORK/'sony_yc_pin_wire.c')],check=True)
 spec=importlib.util.spec_from_file_location('support',ROOT/'research/firmware/yuy2_transport_v25/verify_support.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
@@ -11,7 +11,7 @@ u=Uc(UC_ARCH_ARM,UC_MODE_ARM);handlers={};captured=[];calls=[]
 for a,n in [(0x10000000,0x10000),(0x40000000,0x10000),(m.STOP,4096),(0x60000000,0x20000)]:u.mem_map(a,n)
 def imp(name):
  at=0x10000000+len(handlers)*4;handlers[at]=name;return at
-sdk=m.load(u,ROOT/'dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so',0x08000000,imp)
+sdk=m.load(u,ROOT/'.local/dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so',0x08000000,imp)
 ours=m.load(u,OUT/'sony_yc_pin_wire.so',0x20000000)
 def hook(u,a,n,d):
  if a not in handlers:return

@@ -1,6 +1,6 @@
 from pathlib import Path
 import struct,json
-b=Path('outputs/native-dmm-v28/decoder-handoff/zve10-vef295-snapshot.bin').read_bytes()
+b=Path('.local/outputs/native-dmm-v28/decoder-handoff/zve10-vef295-snapshot.bin').read_bytes()
 rows=[]
 for i,w in enumerate(struct.iter_unpack('<8Q',b)):
  if w[4] or w[5]:continue
@@ -47,4 +47,4 @@ for stream in (0,1):
  ranked.sort(key=lambda x:(-x['exact_zero_tail'],x['mean_trailing_zero_consumed']))
  out[str(stream)]=ranked[:40]
  print('stream',stream,'fixtures',len(rows));print(json.dumps(ranked[:12],indent=2))
-Path('outputs/yc-codec-recovery/stream-sign-search.json').write_text(json.dumps(out,indent=2)+'\n')
+Path('.local/outputs/yc-codec-recovery/stream-sign-search.json').write_text(json.dumps(out,indent=2)+'\n')

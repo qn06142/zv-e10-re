@@ -4,7 +4,7 @@
 WHY THIS EXISTS
 ---------------
 Earlier attempts in this repo failed to decrypt the update package, and
-`dumps/fdat_decrypted.bin` was a *misleading artefact*: its first block decoded to
+`.local/dumps/fdat_decrypted.bin` was a *misleading artefact*: its first block decoded to
 a valid-looking `UDTRFIRM` header, but the CramFS magic was absent at offset
 0x200 and every 1 MB block measured 37.1% printable -- i.e. random.  Only block 0
 had come out right.  Anything concluded from that file was worthless.

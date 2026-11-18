@@ -13,7 +13,7 @@ produces coherent structure (a raster) or noise (compressed).
 import struct
 from pathlib import Path
 
-D = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera')
+D = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera')
 RAMP = ' .:-=+*#%@'
 
 

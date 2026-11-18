@@ -5,7 +5,7 @@
   "source_inputs": [
     {
       "path": "research/firmware/usb3_24fps_transport/verify_usb3_descriptors.py",
-      "sha256": "af8810e6683629fb52a9c919c5e2262d65a8a4c9c3321dfd9b7cfa327d861c93",
+      "sha256": "00c17d16b28d87cdd3b5f35ea68ad68ffde318d818ccb4d7ad4f4185423b4f91",
       "hash_mode": "lf-normalized"
     }
   ],

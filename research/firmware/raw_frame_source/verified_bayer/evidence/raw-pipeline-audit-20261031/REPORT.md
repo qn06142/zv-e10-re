@@ -1,7 +1,7 @@
 # RAW Pipeline Stage Audit & Gating Resolution — 31 October 2026
 
 Offline only. No live camera access, flashing, reboot, or modification.
-Binary analyzed: `dumps/firmware/av-cam.bin` (MD5: `cdcae9d4fdbf66a33704a4c7564e346d`, base `0x635c6000`).
+Binary analyzed: `.local/dumps/firmware/av-cam.bin` (MD5: `cdcae9d4fdbf66a33704a4c7564e346d`, base `0x635c6000`).
 
 ## 1. Critical Correction: Global Debug Gate `0x63d893f4`
 

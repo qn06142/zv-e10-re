@@ -88,7 +88,7 @@ def main():
     pad = SLOT_SIZE - len(code)
     payload = code + b"\x00" * pad
 
-    src_lib = pathlib.Path("dumps/camera_2025/usr/usr/lib/libtestcmd.so")
+    src_lib = pathlib.Path(".local/dumps/camera_2025/usr/usr/lib/libtestcmd.so")
     out = pathlib.Path("research/firmware/libtestcmd.OPX.so")
     d = bytearray(src_lib.read_bytes())
     orig = bytes(d[SLOT_VADDR:SLOT_VADDR + SLOT_SIZE])

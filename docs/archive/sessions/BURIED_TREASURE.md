@@ -1,7 +1,7 @@
 # Buried Treasure — Hidden Capabilities in the ZV-E10 Firmware
 
 > **SESSION RECORD — 2026-10-03.** Everything here was derived from offline
-> analysis of `dumps/`. Nothing has been pushed to the camera in this session.
+> analysis of `.local/dumps/`. Nothing has been pushed to the camera in this session.
 > Cross-references to living docs are noted inline.
 
 ---
@@ -12,7 +12,7 @@
 
 `/usr` is served from `/dev/dnflasha15` (Major 252, Minor 143), **not** from
 `/dev/nflasha15`. The `dn` prefix means "decompressed-nflash": Sony's eMMC
-driver (`dumps/initrd_extracted/kmod/emmc.ko`) contains a hardware LZP
+driver (`.local/dumps/initrd_extracted/kmod/emmc.ko`) contains a hardware LZP
 (Lempel–Ziv Partition) decompressor that decompresses the physical flash block
 into RAM on read. The write path is a stub:
 
@@ -36,7 +36,7 @@ in-memory changes.
 ### 1.2 The ext2 Dirty-Flag Rollback
 
 If `mount -o remount,rw` somehow lands a write (e.g. on a non-LZP partition),
-init's `mount_partition()` (Thumb at `0x9244` in `dumps/staged/audit/init`)
+init's `mount_partition()` (Thumb at `0x9244` in `.local/dumps/staged/audit/init`)
 checks the superblock's dirty flag (`state 0x0002`). On a dirty mount it runs:
 
 ```c

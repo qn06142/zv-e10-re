@@ -1,6 +1,6 @@
 """Extract and dump the complete recovered MWF message vocabulary.
 
-Uncovered from libMWF.so, libNetContUtil.so, and dumps/engine/libObj.so.
+Uncovered from libMWF.so, libNetContUtil.so, and .local/dumps/engine/libObj.so.
 Solves Open Item 1 (Plugin Message Vocabulary) and Open Item 3 (Category 0x2000).
 """
 import pathlib
@@ -16,7 +16,7 @@ from cpp_demangle import demangle
 from mwf_ids import const_reg
 
 def dump_mwf_core_tables():
-    p = REPO / 'dumps' / 'camera_2025' / 'usr' / 'usr' / 'lib' / 'libMWF.so'
+    p = REPO / '.local/dumps' / 'camera_2025' / 'usr' / 'usr' / 'lib' / 'libMWF.so'
     data, f = load(p)
     segs = load_segs(f)
 
@@ -45,7 +45,7 @@ def dump_mwf_core_tables():
             print(f"  0x{mid:08x}  {sname}")
 
 def dump_database_api_methods():
-    p = REPO / 'dumps' / 'camera_2025' / 'usr' / 'usr' / 'lib' / 'libNetContUtil.so'
+    p = REPO / '.local/dumps' / 'camera_2025' / 'usr' / 'usr' / 'lib' / 'libNetContUtil.so'
     data, f = load(p)
     segs = load_segs(f)
     plt = plt_map(f, data, segs)
@@ -82,7 +82,7 @@ def dump_database_api_methods():
         print(f"  cat={c_str}  msg={m_str:<8}  {fn}")
 
 def dump_apicd_database_table():
-    p = REPO / 'dumps' / 'engine' / 'libObj.so'
+    p = REPO / '.local/dumps' / 'engine' / 'libObj.so'
     data = p.read_bytes()
 
     print("\n" + "=" * 80)
@@ -117,7 +117,7 @@ def dump_apicd_database_table():
         print(f"  0x{mid:08x}  {name:<46} (0x{off:x})")
 
 def dump_obj_cnt_mgr_table():
-    p = REPO / 'dumps' / 'engine' / 'libObj.so'
+    p = REPO / '.local/dumps' / 'engine' / 'libObj.so'
     data = p.read_bytes()
 
     print("\n" + "=" * 80)
@@ -138,7 +138,7 @@ def dump_obj_cnt_mgr_table():
         print(f"  {m}")
 
 def dump_obj_player_table():
-    p = REPO / 'dumps' / 'engine' / 'libObj.so'
+    p = REPO / '.local/dumps' / 'engine' / 'libObj.so'
     data = p.read_bytes()
 
     print("\n" + "=" * 80)
@@ -167,7 +167,7 @@ def dump_obj_player_table():
             print(f"  0x{mid:08x}  {name}")
 
 def dump_obj_face_recorder_table():
-    p = REPO / 'dumps' / 'engine' / 'libObj.so'
+    p = REPO / '.local/dumps' / 'engine' / 'libObj.so'
     data = p.read_bytes()
 
     print("\n" + "=" * 80)

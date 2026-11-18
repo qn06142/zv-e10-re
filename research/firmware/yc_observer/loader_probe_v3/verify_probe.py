@@ -2,7 +2,7 @@ from pathlib import Path
 import importlib.util,json
 from unicorn import Uc,UC_ARCH_ARM,UC_MODE_ARM,UC_HOOK_CODE
 from unicorn.arm_const import *
-REPO=Path('D:/02_Development_And_Projects/pmca-re');OUT=Path('outputs/yc-retest-20261024/candidate')
+REPO=Path('D:/02_Development_And_Projects/pmca-re');OUT=Path('.local/outputs/yc-retest-20261024/candidate')
 spec=importlib.util.spec_from_file_location('support',REPO/'research/firmware/yuy2_transport_v25/verify_support.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 results=[]
 for case in ['success','open_failure','short_write']:

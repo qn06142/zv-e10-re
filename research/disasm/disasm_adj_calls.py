@@ -6,7 +6,7 @@ from elftools.elf.relocation import RelocationSection
 
 import pathlib
 ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
-TOOLS = (ROOT_REPO / 'tools').as_posix()
+TOOLS = (ROOT_REPO / 'scripts/tools').as_posix()
 elf = ELFFile(open(os.path.join(TOOLS, "adjstctl.elf"), "rb"))
 
 # 1) what external symbols does it reference (dynamic/static imports)?

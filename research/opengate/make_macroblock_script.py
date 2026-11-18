@@ -48,6 +48,6 @@ lines.append('echo "==================================================="')
 lines.append('echo "[+] MACROBLOCK-ALIGNED 3232x2160 OPEN GATE LIVE!"')
 lines.append('echo "==================================================="')
 
-with open("out/apply_macroblock_opengate.sh", "w", newline="\n") as f:
+with open(".local/out/apply_macroblock_opengate.sh", "w", newline="\n") as f:
     f.write("\n".join(lines) + "\n")
-print(f"Generated out/apply_macroblock_opengate.sh with {len(lines)} lines")
+print(f"Generated .local/out/apply_macroblock_opengate.sh with {len(lines)} lines")

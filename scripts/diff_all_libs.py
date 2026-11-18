@@ -5,7 +5,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import research.device.zve10_retry as zve10
 
-local_lib = Path("dumps/camera_2025/usr/usr/lib")
+local_lib = Path(".local/dumps/camera_2025/usr/usr/lib")
 so_files = [f.name for f in local_lib.glob("*.so")]
 
 cmds = [f"/bin/busybox md5sum /usr/lib/{f}" for f in so_files]

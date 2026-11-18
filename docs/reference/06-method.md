@@ -9,7 +9,7 @@ or a mis-typed byte returns a plausible wrong answer rather than an error. That 
 the single most important thing to know about working in this repo.
 
 The subjects: `libtestcmd.so`, `libIMDB.so`, `im.elf` (all in `/usr/bin` and
-`/usr/lib` on the camera, and mirrored in `dumps/camera_2025/`), plus the
+`/usr/lib` on the camera, and mirrored in `.local/dumps/camera_2025/`), plus the
 `av-cam.bin` RTOS image. Tools: `research/firmware/annotate.py`, `thumb.py`,
 `arm_helper.py`, `elf_catalog.py`, `opx_payload.py`.
 

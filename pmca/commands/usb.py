@@ -46,7 +46,7 @@ def listApps(enableCache=False):
 
 def installApp(dev, apkFile=None, appPackage=None, outFile=None):
  """Installs an app on the specified device."""
- certFile = scriptRoot + '/certs/localtest.me.pem'
+ certFile = scriptRoot + '/pmca/resources/certs/localtest.me.pem'
  with ServerContext(LocalMarketServer(certFile)) as server:
   apkData = None
   if apkFile:

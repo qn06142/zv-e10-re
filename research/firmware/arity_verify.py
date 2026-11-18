@@ -45,7 +45,7 @@ from pathlib import Path
 
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_LITTLE_ENDIAN
 
-SO = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\engine\viewUnified2.so')
+SO = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\engine\viewUnified2.so')
 TEXT_OFF, TEXT_SIZE = 0x0018eec8, 0x074af6c
 TEXT_END = TEXT_OFF + TEXT_SIZE
 BASE_CTOR = 0x1872c8

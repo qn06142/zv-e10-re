@@ -3,7 +3,7 @@ from elftools.elf.elffile import ELFFile
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB
 
 with tarfile.open('F:/RE_DUMP/TREES/usr_bin.tgz') as t:
-    elf_data = t.extractfile('bin/im.elf').read()
+    elf_data = t.extractfile('scripts/staging/im.elf').read()
 
 elf = ELFFile(io.BytesIO(elf_data))
 text = elf.get_section_by_name('.text')

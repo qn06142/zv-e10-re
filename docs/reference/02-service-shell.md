@@ -928,7 +928,7 @@ mov  r0, #0 ; add sp, sp, #16 ; pop {r7, pc}              return 0, as the origi
 ```
 
 Built by `research/firmware/opx_payload.py` with keystone, applied to
-`dumps/camera_2025/usr/usr/lib/libtestcmd.so`, and diffed: **66 of 10,128
+`.local/dumps/camera_2025/usr/usr/lib/libtestcmd.so`, and diffed: **66 of 10,128
 bytes changed, all inside `0x1a48..0x1a8b`; file length unchanged; all 25
 exports still resolve; the object still parses.**
 

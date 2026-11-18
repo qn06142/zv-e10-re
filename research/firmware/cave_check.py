@@ -10,7 +10,7 @@ import re
 from pathlib import Path
 
 BASE = Path(r'D:\02_Development_And_Projects\pmca-re')
-AV = BASE / 'dumps' / 'av-cam.bin.bak'
+AV = BASE / '.local/dumps' / 'av-cam.bin.bak'
 
 TERMS = [b'CamModeGolfShot', b'GolfShot', b'GOLF', b'golf', b'CamMode', b'MotionShot',
          b'Motion Shot', b'ObjRenderer', b'CamUser']
@@ -34,7 +34,7 @@ print('  (%d total)' % len(found))
 print()
 
 print('=== the 2025 front end, for comparison ===')
-fe = BASE / 'dumps' / 'camera_2025' / 'usr_lib_raw' / 'elf_05610c00.so'
+fe = BASE / '.local/dumps' / 'camera_2025' / 'usr_lib_raw' / 'elf_05610c00.so'
 if fe.exists():
     b = fe.read_bytes()
     print('  %s  %d bytes' % (fe.name, len(b)))

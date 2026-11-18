@@ -4,7 +4,7 @@
 
 ## Failure evidence recovered
 
-4.1 activation failed on camera, and the user reported that MSC also failed until restarting. Recovered outputs/hd-v41/diagnostic-01/runtime.log (682 bytes), DMM units/maps/dmesg, original kikilog.dat and AccessLog.dat/.bak. The native allocation succeeded with physical0x30000000 and size0x3f4800; SOURCE_READY/SOURCE_REBOUND were logged. No vga.log existed, and no successful SDF call/frame submission is recorded. The failure is before demonstrated frame production; its exact native wait/fault PC is not established. Do not label0x30000000 an invalid physical address: it was returned by native allocation, and DMM has multiple address roots.
+4.1 activation failed on camera, and the user reported that MSC also failed until restarting. Recovered .local/outputs/hd-v41/diagnostic-01/runtime.log (682 bytes), DMM units/maps/dmesg, original kikilog.dat and AccessLog.dat/.bak. The native allocation succeeded with physical0x30000000 and size0x3f4800; SOURCE_READY/SOURCE_REBOUND were logged. No vga.log existed, and no successful SDF call/frame submission is recorded. The failure is before demonstrated frame production; its exact native wait/fault PC is not established. Do not label0x30000000 an invalid physical address: it was returned by native allocation, and DMM has multiple address roots.
 
 The4.1 staging alias selected a different allocator branch based on capacity alone. A structural parser now follows80-byte root/table headers and20-byte extent records. Extent0x589 belongs under root0x4ec, while extent0x1ba appears under conditional tables0x30/0x2. Unit0x127/extent0x165 is under0x2f with alternative parent paths. Configured capacity did not certify the new staging pool's live compatibility. This is a strong reason to remove that dependency, not proof of the precise native activation failure.
 
@@ -39,4 +39,4 @@ The stock common submission wrapper was inspected and forwards both frame_event 
 
 Matched set: yuy2_1080_v42chunk.so, persistent libInfraStreamingUsb.so and yc42_chunk usbg_video.ko. DmmConfig.bin is guarded and untouched. Installer stages and hash-verifies all artifacts, refuses mapped streaming libraries, saves current files, and performs no automatic restoration on failure per user instruction. Readbacks matched after installation. Fresh-boot persistence and inactive mappings are verified. Streaming capture remains pending.
 
-Recovery-era logs are retained under outputs/hd-v41/diagnostic-01/. The4.1 candidate must not be installed again: it includes the rejected staging alias. Previous stream-end crash remains unresolved. Do not call4.2 stable or hardware validated before capture and cleanup tests.
+Recovery-era logs are retained under .local/outputs/hd-v41/diagnostic-01/. The4.1 candidate must not be installed again: it includes the rejected staging alias. Previous stream-end crash remains unresolved. Do not call4.2 stable or hardware validated before capture and cleanup tests.

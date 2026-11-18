@@ -28,7 +28,7 @@ import tarfile
 from collections import Counter
 from pathlib import Path
 
-TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz')
+TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share_app.tgz')
 MARKER = bytes([0x1b, 0x57, 0x22, 0x04, 0x01, 0x0e, 0x08])
 
 

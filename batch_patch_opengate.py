@@ -187,7 +187,7 @@ def generate_patch_list(width: int = 3240, height: int = 2160, sites=None, image
     # The width & aspect field is 4 bytes at offset +2
     prof_patch_val = struct.pack('<H', width).hex() + "0200"
 
-    mpr_path = HERE / 'dumps' / 'camera_2025' / 'usr' / 'usr' / 'lib' / 'libmpr.so'
+    mpr_path = HERE / '.local/dumps' / 'camera_2025' / 'usr' / 'usr' / 'lib' / 'libmpr.so'
     with open(mpr_path, 'rb') as f:
         data = f.read()
     pat = bytes.fromhex('7008000f01000100')

@@ -10,7 +10,7 @@
     },
     {
       "path": "research/firmware/yuy2_transport_v41_hd_resize/package.py",
-      "sha256": "bd9e463d6a3bf2c0362f353621277626f3b9a08e6309a8dee33410f5005115cc",
+      "sha256": "818c915c8d94387f5ad94811dbed72a141f0a0aa19a0d177f59462c8575adf5d",
       "hash_mode": "lf-normalized"
     }
   ],

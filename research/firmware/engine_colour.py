@@ -48,7 +48,7 @@ from collections import Counter
 from pathlib import Path
 
 USR = Path(r'F:\RE_DUMP\usr.tgz')
-OUT = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\engine')
+OUT = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\engine')
 BLOCK = 512
 PAL_LO, PAL_HI = 0x4000, 0x4022
 NPAL = PAL_HI - PAL_LO + 1

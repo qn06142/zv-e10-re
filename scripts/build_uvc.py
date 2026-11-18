@@ -14,12 +14,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CC = os.environ.get("CC") or shutil.which("arm-none-eabi-gcc") or shutil.which("arm-linux-gnueabihf-gcc") or r"C:\msys64\ucrt64\bin\arm-none-eabi-gcc.EXE"
 SRC = ROOT / "research" / "device" / "uvc_hook.c"
-OUT_DIR = ROOT / "out"
+OUT_DIR = ROOT / '.local/out'
 OUT_SO = OUT_DIR / "uvc_hook.so"
-STAGED_DIR = ROOT / "dumps" / "staged" / "uvc"
+STAGED_DIR = ROOT / '.local/dumps' / "staged" / "uvc"
 STAGED_SO = STAGED_DIR / "uvc_hook.so"
 STAGED_CONF = STAGED_DIR / "uvc.conf"
-SYSROOT_LIB = ROOT / "build_sysroot" / "lib"
+SYSROOT_LIB = ROOT / '.local/build_sysroot' / "lib"
 
 
 def hash_file(path: str | Path) -> tuple[str, str]:
@@ -69,7 +69,7 @@ def main():
         print(res.stderr)
         sys.exit(res.returncode)
 
-    print("[+] Successfully compiled out/uvc_hook.so")
+    print("[+] Successfully compiled .local/out/uvc_hook.so")
 
     # Copy to staging
     shutil.copyfile(OUT_SO, STAGED_SO)

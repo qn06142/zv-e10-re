@@ -7,7 +7,7 @@ u=Uc(UC_ARCH_ARM,UC_MODE_ARM);handlers={};calls=[]
 for a,n in [(0x10000000,0x10000),(m.STOP,4096),(0x60000000,0x20000)]:u.mem_map(a,n)
 def imp(name):
  a=0x10000000+len(handlers)*4;handlers[a]=name;return a
-syms=m.load(u,Path('outputs/vga-v30/build/yuy2_640_v30vga.so'),m.MB,imp)
+syms=m.load(u,Path('.local/outputs/vga-v30/build/yuy2_640_v30vga.so'),m.MB,imp)
 def hook(u,a,n,d):
  if a not in handlers:return
  name=handlers[a];calls.append(name)
@@ -28,4 +28,4 @@ assert not m.word(u,syms['shared_running'])
 assert run('ensure_source',0x1234)==41
 assert m.word(u,syms['pixels'])==0x41000000
 report={'camera_access':False,'compiled_ARM_module_executed':True,'passed':['closed-session rebind rejected before any SDK access','stop before first host capture still closes session','retained output mapping not written or reused'],'only_mocked':sorted(set(calls))}
-Path('outputs/vga-v30/session-verification.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+Path('.local/outputs/vga-v30/session-verification.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

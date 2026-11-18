@@ -52,7 +52,7 @@ The compiled Cortex-A5 ARM decoder matches all25 field values emitted by the rea
 
 ## Reproducible investigation artifacts
 
-Session `outputs/yc-source-re-20261025/`: `image-size-layout-verified.json`, `metadata-decoder-verification.json`, `libObj.yc-raw-xrefs.json`, `libObj.selected-consumers.json/.txt`, `renderer-get-yc-param.txt`, and `libBizFw.so.yc-callers.json/.txt`. Raw scan found190 candidate YC-related callsites in libObj; unwind boundaries from61886 ARM exidx records narrowed consumers and recovered embedded source labels. Raw callsite hits still require function/context validation; do not assume all190 are live-frame paths.
+Session `.local/outputs/yc-source-re-20261025/`: `image-size-layout-verified.json`, `metadata-decoder-verification.json`, `libObj.yc-raw-xrefs.json`, `libObj.selected-consumers.json/.txt`, `renderer-get-yc-param.txt`, and `libBizFw.so.yc-callers.json/.txt`. Raw scan found190 candidate YC-related callsites in libObj; unwind boundaries from61886 ARM exidx records narrowed consumers and recovered embedded source labels. Raw callsite hits still require function/context validation; do not assume all190 are live-frame paths.
 
 Saved baseline application log decodes114050 records /3166203 bytes with zero corruption/slack. It contains viewfinder state transactions but provides no verified source metadata or frame ownership token. Logs were already archived and cleared on camera in the prior session. User standing procedure remains archive/hash-verify/clear diagnostic captures around each hardware test, with bounded fresh logging.
 
@@ -74,7 +74,7 @@ The actual SDK SEND constructor0x219ae emits52 bytes with little-endian header(c
 
 ### RTOS identity, pin registrations and source path
 
-Flat RTOS image is `dumps/firmware/av-cam.bin`, MD5 cdcae9d4fdbf66a33704a4c7564e346d, runtime base0x635c6000. Input hashes are preserved in evidence/input-binary-hashes.json. Most string references are PIC LDR-literal plus ADD-PC, so absolute string scans miss consumers. Raw branch hits require context validation; embedded literal pools can disassemble as instructions.
+Flat RTOS image is `.local/dumps/firmware/av-cam.bin`, MD5 cdcae9d4fdbf66a33704a4c7564e346d, runtime base0x635c6000. Input hashes are preserved in evidence/input-binary-hashes.json. Most string references are PIC LDR-literal plus ADD-PC, so absolute string scans miss consumers. Raw branch hits require context validation; embedded literal pools can disassemble as instructions.
 
 The Linux pin constructor matches RTOS0x63ac1a48; object size0x38, peer property+8, self property+0x18, state+0x28. Native Pin::Send is0x63ac1b8c; SendComp0x63ac1ce4. Direction1 is input,2 output; direction3 exists but its meaning is not established.
 
@@ -137,4 +137,4 @@ The VDF RGBA8888-to-YUV422 class executes hardware VFX configuration, not a CPU 
 
 Trace the native YUVInfo parameter0x11 producer, VDF type0 output index3 and the matching SEND completion handler. Distinguish per-frame reference ownership from allocation lifetime and determine whether a bounded CPU copy can precede acknowledgement. The VdfToAdfYcDataSenderImpl execute0x63748f44 builds a0x74-byte category0x2004/subcommand0x127 message at0x63cfb0b4; this is a metadata/control path, not itself a direct pixel getter. Preserve the verified ABI and keep the guessed backend fail-closed. Integrate only proven metadata additions, recover packing from actual consumers, and bind raw_live_ops only when a stable completed frame source and release semantics are established.
 
-Evidence and scripts are preserved alongside the source under verified_yc/evidence and verified_yc. Full local investigation remains in `C:/Users/qn061/Documents/Codex/2026-10-22/chec/work/yc-source-re/` and `outputs/yc-source-re-20261025/`. Published verification scripts use the repo's existing verify_support loader, GCC at C:/msys64/ucrt64/bin/arm-none-eabi-gcc.exe, and Python from the repo .venv. Run from the workspace above, where the outputs directory exists. Emulation tests validate recovered code paths; they are not hardware webcam tests.
+Evidence and scripts are preserved alongside the source under verified_yc/evidence and verified_yc. Full local investigation remains in `C:/Users/qn061/Documents/Codex/2026-10-22/chec/work/yc-source-re/` and `.local/outputs/yc-source-re-20261025/`. Published verification scripts use the repo's existing verify_support loader, GCC at C:/msys64/ucrt64/bin/arm-none-eabi-gcc.exe, and Python from the repo .venv. Run from the workspace above, where the outputs directory exists. Emulation tests validate recovered code paths; they are not hardware webcam tests.

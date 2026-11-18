@@ -24,7 +24,7 @@ produced when the patches were applied and confirmed on hardware.
 ```powershell
 # 1. put the stock library where the script expects it
 #    (git-ignored: /dumps/ in .gitignore)
-#    dumps/camera_2025/usr/usr/lib/libtestcmd.so   md5 f370de888ae662e7f509f2274846eac6
+#    .local/dumps/camera_2025/usr/usr/lib/libtestcmd.so   md5 f370de888ae662e7f509f2274846eac6
 
 # 2. build
 & ".venv\Scripts\python.exe" -B research\firmware\opx_payload.py
@@ -77,7 +77,7 @@ None of these are in git. Each is re-pullable from the camera with
 
 | what | where it comes from |
 |---|---|
-| `libObj.so`, `libIMDB.so`, `viewUnified2..8.so`, `libSysDef.so`, `libMWF.so` | `/usr/lib`, pulled to `dumps/camera_2025/` |
+| `libObj.so`, `libIMDB.so`, `viewUnified2..8.so`, `libSysDef.so`, `libMWF.so` | `/usr/lib`, pulled to `.local/dumps/camera_2025/` |
 | `im.elf`, `crypter.elf`, `sndcmd.elf`, `rcvcmd.elf`, `scenario.elf`, `libtestcmd.so` | `/usr/bin` |
 | `av-cam.bin` (17,289,388 B), `vmlinux.bin`, `initrd.img`, `bonobo.bin`, `dfe_*.bin` | `/system` — md5 `cdcae9d4fdbf66a33704a4c7564e346d` for `av-cam.bin` |
 | `liro.ko`, `dmm.ko`, `stream*.ko` | `/usr/kmod` and `/kmod` (the latter is on the ramdisk and is freed after boot) |
@@ -96,8 +96,8 @@ Sony's expression, and they are the actual output of the work:
   `libobj_exports.txt` — filenames, sizes, export and symbol names
 - `research/firmware/sysdef_tables.py`, `mwf_catalog.py`, … — the tools that
   generate the tables in `docs/reference/04-messaging.md`
-- `avcam_re/*.md`, `re_symbols/*.json`, `docs/**` — our own prose and analysis
-- `scripts/*.txt`, `verify/*.txt` — device command transcripts we authored
+- `research/avcam/*.md`, `research/symbols/*.json`, `docs/**` — our own prose and analysis
+- `scripts/*.txt`, `research/verify/*.txt` — device command transcripts we authored
 
 Anything that is Sony's *code* or Sony's *data* stays out.
 

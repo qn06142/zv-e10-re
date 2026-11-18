@@ -2,14 +2,14 @@ from pathlib import Path
 import importlib.util,struct,json,subprocess
 from unicorn import *
 from unicorn.arm_const import *
-R=Path(r'D:/02_Development_And_Projects/pmca-re');W=Path('work/native-dmm-callback/recipe');O=Path('outputs/native-dmm-callback')
+R=Path(r'D:/02_Development_And_Projects/pmca-re');W=Path('.local/work/native-dmm-callback/recipe');O=Path('.local/outputs/native-dmm-callback')
 subprocess.run(['C:/msys64/ucrt64/bin/arm-none-eabi-gcc.exe','-mcpu=cortex-a5','-marm','-mfloat-abi=soft','-O2','-fPIC','-fno-builtin','-fno-stack-protector','-nostdlib','-shared','-Wl,-Bsymbolic,--no-undefined,--hash-style=sysv','-o',str(O/'wire.so'),str(W/'native_dmm_wire.c')],check=True)
 spec=importlib.util.spec_from_file_location('support',R/'research/firmware/yuy2_transport_v26_raw/verify_support.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 u=Uc(UC_ARCH_ARM,UC_MODE_ARM);handlers={};sent=[];calls=[]
 for a,n in [(0x10000000,0x10000),(0x40000000,0x10000),(m.STOP,4096),(0x60000000,0x20000)]:u.mem_map(a,n)
 def imp(name):
  a=0x10000000+len(handlers)*4;handlers[a]=name;return a
-sdk=m.load(u,R/'dumps/camera_2025/usr/usr/lib/libBizFw.so',0x08000000,imp);ours=m.load(u,O/'wire.so',0x20000000)
+sdk=m.load(u,R/'.local/dumps/camera_2025/usr/usr/lib/libBizFw.so',0x08000000,imp);ours=m.load(u,O/'wire.so',0x20000000)
 Q=0x12345678;HANDLE=0x408a;TYPE=0x6193f
 
 def hook(u,a,n,d):

@@ -7,15 +7,15 @@ from keystone import Ks, KS_ARCH_ARM, KS_MODE_THUMB
 
 ROOT = Path(r"D:\02_Development_And_Projects\pmca-re")
 WORK = Path(__file__).resolve().parent
-OUT = ROOT / "outputs/raw-uvc-v01"
+OUT = ROOT / ".local/outputs/raw-uvc-v01"
 CC = Path(r"C:\msys64\ucrt64\bin\arm-none-eabi-gcc.exe")
 
-STREAM_BASE = ROOT / "dumps/staged/uvc/encoder-workspace-fix/candidate-1080p/libInfraStreamingUsb.so"
-CMN_BASE = ROOT / "dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so"
-SAVER_BASE = ROOT / "dumps/camera_2025/usr/usr/lib/CameraOnDemandSaver.so"
-DMM_CFG = ROOT / "dumps/camera_2025/usr/setting/DmmConfig.bin"
-KMOD_SRC = ROOT / "outputs/hd-v43/usbg_video.ko"
-PATCH_RECIPE = ROOT / "outputs/yuy2-640-v2/deployment/live-recipe"
+STREAM_BASE = ROOT / ".local/dumps/staged/uvc/encoder-workspace-fix/candidate-1080p/libInfraStreamingUsb.so"
+CMN_BASE = ROOT / ".local/dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so"
+SAVER_BASE = ROOT / ".local/dumps/camera_2025/usr/usr/lib/CameraOnDemandSaver.so"
+DMM_CFG = ROOT / ".local/dumps/camera_2025/usr/setting/DmmConfig.bin"
+KMOD_SRC = ROOT / ".local/outputs/hd-v43/usbg_video.ko"
+PATCH_RECIPE = ROOT / ".local/outputs/yuy2-640-v2/deployment/live-recipe"
 
 
 def check_baselines():
@@ -249,7 +249,7 @@ def main():
     common = [
         "-mcpu=cortex-a5", "-marm", "-mfloat-abi=soft", "-O2",
         "-fno-builtin", "-fno-stack-protector", "-fstack-usage", "-nostdlib",
-        f"-L{ROOT}/build_sysroot/lib", f"-Wl,-rpath-link,{ROOT}/build_sysroot/lib",
+        f"-L{ROOT}/.local/build_sysroot/lib", f"-Wl,-rpath-link,{ROOT}/.local/build_sysroot/lib",
     ]
     start_s = str(PATCH_RECIPE / "arm_linux_start.S")
 

@@ -53,7 +53,7 @@ import tarfile
 from collections import Counter, defaultdict
 from pathlib import Path
 
-TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz')
+TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share_app.tgz')
 TARGET = '8ac3b3620202'
 FLAG_SIGS = ['0fcbce250190', '7fb68c7f0190', '1f0b9b400190', '9975ed000190']
 

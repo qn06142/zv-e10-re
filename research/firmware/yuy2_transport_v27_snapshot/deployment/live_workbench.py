@@ -6,7 +6,7 @@ sys.path[:0]=[str(REPO/'research/common'),str(REPO)]
 import senser_fix
 from pmca.commands.usb import senserShellCommand
 from pmca.platform.backend.senser import SenserPlatformBackend
-JOBS=Path('work/native-dmm-callback/live-jobs'); OUT=Path('outputs/native-dmm-callback/deployment/live')
+JOBS=Path('.local/work/native-dmm-callback/live-jobs'); OUT=Path('.local/outputs/native-dmm-callback/deployment/live')
 JOBS.mkdir(parents=True,exist_ok=True);OUT.mkdir(parents=True,exist_ok=True)
 entered=False
 def complete(dev):

@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 from unicorn import *
 from unicorn.arm_const import *
-O=Path('outputs/yc-retest-20261024/candidate');SB=0xa661000;DL=0x40ba000
+O=Path('.local/outputs/yc-retest-20261024/candidate');SB=0xa661000;DL=0x40ba000
 regs=[UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_REG_R3,UC_ARM_REG_R4,UC_ARM_REG_R5,UC_ARM_REG_R6,UC_ARM_REG_R7,UC_ARM_REG_R8,UC_ARM_REG_R9,UC_ARM_REG_R10,UC_ARM_REG_R11]
 results=[]
 for fail in ['none','dlopen','dlsym','activation']:

@@ -105,5 +105,5 @@ busybox mv /tmp/di.xml /usr/share/pmbp/DeviceInfo.xml
 ```
 
 Original md5 `325881bdde84eb36d006ba13efb54eb5`, and the file is also in the
-local dumps at `dumps/camera_2025/usr_share/pmbp/DeviceInfo.xml`. The card also
+local dumps at `.local/dumps/camera_2025/usr_share/pmbp/DeviceInfo.xml`. The card also
 still holds a full copy of the string-table restore.

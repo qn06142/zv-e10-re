@@ -12,7 +12,7 @@ from annotate import load, load_segs, v2o
 class TestMwfCatalog(unittest.TestCase):
     def test_mwf_core_tables(self):
         """libMWF.so must export base and pin message tables with expected counts."""
-        p = REPO / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libMWF.so"
+        p = REPO / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libMWF.so"
         if not p.exists():
             self.skipTest(f"{p} not found")
         data, f = load(p)
@@ -62,7 +62,7 @@ class TestMwfCatalog(unittest.TestCase):
 
     def test_apicd_database_table(self):
         """libObj.so must contain the APICD table at 0x13ec720."""
-        p = REPO / "dumps" / "engine" / "libObj.so"
+        p = REPO / '.local/dumps' / "engine" / "libObj.so"
         if not p.exists():
             self.skipTest(f"{p} not found")
         data = p.read_bytes()
@@ -107,7 +107,7 @@ class TestMwfCatalog(unittest.TestCase):
         The check that catches it is contiguity: at the correct stride the ids
         run 0x1000, 0x1001, 0x1002 with no gaps. At 72 they skip odd indices.
         """
-        p = REPO / "dumps" / "engine" / "libObj.so"
+        p = REPO / '.local/dumps' / "engine" / "libObj.so"
         if not p.exists():
             self.skipTest(f"{p} not found")
         data = p.read_bytes()

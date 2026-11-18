@@ -14,11 +14,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CC = os.environ.get("CC") or shutil.which("arm-none-eabi-gcc") or shutil.which("arm-linux-gnueabihf-gcc") or r"C:\msys64\ucrt64\bin\arm-none-eabi-gcc.EXE"
 SRC = ROOT / "research" / "device" / "opengate_hook.c"
-OUT_DIR = ROOT / "out"
+OUT_DIR = ROOT / '.local/out'
 OUT_SO = OUT_DIR / "opengate.so"
-STAGED_DIR = ROOT / "dumps" / "staged" / "opengate"
+STAGED_DIR = ROOT / '.local/dumps' / "staged" / "opengate"
 STAGED_SO = STAGED_DIR / "opengate.so"
-SYSROOT_LIB = ROOT / "build_sysroot" / "lib"
+SYSROOT_LIB = ROOT / '.local/build_sysroot' / "lib"
 
 
 def hash_file(path: str | Path) -> tuple[str, str]:
@@ -68,7 +68,7 @@ def main():
         print(res.stderr)
         sys.exit(res.returncode)
 
-    print("[+] Successfully compiled out/opengate.so")
+    print("[+] Successfully compiled .local/out/opengate.so")
 
     # Copy to staging
     shutil.copyfile(OUT_SO, STAGED_SO)

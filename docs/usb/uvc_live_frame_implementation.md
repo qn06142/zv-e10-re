@@ -26,7 +26,7 @@ The prior [source survey](uvc_live_raw_frame_source.md) contains useful accessor
 - A 614,400-byte extent does not prove its active dimensions, pixel order, owner, visibility or retention lifetime. Ping-pong index changes alone do not establish a lease held by a new consumer.
 - CPU is four Linux-visible Cortex-A5 cores with VFPv4 and no advertised NEON, not dual Cortex-A9/VFPv3-only. CPU clock and proposed cycle/percentage budgets are unmeasured. Prior no-tearing/no-autofocus-impact guarantees are unproven.
 
-Saved offline disassembly is under session `outputs/raw-live-implementation/abi-disassembly.txt` and `dmm-dump-handle.txt`. These are the reason for the explicit backend boundary rather than invented IPC. As detailed below, subsequent offline disassembly has resolved the genuine consumer call sites, subscription pin, memory visibility model, and lease lifecycle.
+Saved offline disassembly is under session `.local/outputs/raw-live-implementation/abi-disassembly.txt` and `dmm-dump-handle.txt`. These are the reason for the explicit backend boundary rather than invented IPC. As detailed below, subsequent offline disassembly has resolved the genuine consumer call sites, subscription pin, memory visibility model, and lease lifecycle.
 
 ## Recovered genuine Sony completed-YC consumer and lease architecture
 
@@ -43,10 +43,10 @@ Cryptographic hashes of analyzed binaries:
 
 | Binary File | Size (Bytes) | MD5 Digest | SHA-256 Digest |
 | :--- | :--- | :--- | :--- |
-| `dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so` | 172,680 | `f70f50f931e9c2cf415cc2728e324f60` | `3a7235ab96ed87606fc598f45db8e318afacc1e58a07e51b541923a43de76941` |
-| `dumps/camera_2025/usr/usr/lib/libBizFw.so` | 318,780 | `6416a5a6780bbe829eb30d85fc8e8dad` | `ae3fddb9378ff3852618f3d2055f8be1f1236a299ddac9f66df390640acb3711` |
-| `dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so` | 52,524 | `cde7a1b42c919706aa5f61aba5fc0d75` | `0a9448e364e8f014db02edc8e164470c70f2d2143ce5de74697e9ffba697cce8` |
-| `dumps/firmware/av-cam.bin` | 17,289,388 | `cdcae9d4fdbf66a33704a4c7564e346d` | `bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa` |
+| `.local/dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so` | 172,680 | `f70f50f931e9c2cf415cc2728e324f60` | `3a7235ab96ed87606fc598f45db8e318afacc1e58a07e51b541923a43de76941` |
+| `.local/dumps/camera_2025/usr/usr/lib/libBizFw.so` | 318,780 | `6416a5a6780bbe829eb30d85fc8e8dad` | `ae3fddb9378ff3852618f3d2055f8be1f1236a299ddac9f66df390640acb3711` |
+| `.local/dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so` | 52,524 | `cde7a1b42c919706aa5f61aba5fc0d75` | `0a9448e364e8f014db02edc8e164470c70f2d2143ce5de74697e9ffba697cce8` |
+| `.local/dumps/firmware/av-cam.bin` | 17,289,388 | `cdcae9d4fdbf66a33704a4c7564e346d` | `bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa` |
 
 ### 2. Authentic Consumer Call Sites and Subscription Pin
 
@@ -75,7 +75,7 @@ The BIONZ X ISP writes preview frames into a circular triple-buffer ring (`prc_m
 
 ### 5. Memory Visibility, Non-Cached MMAP, and CPU Barriers
 
-- **Kernel Mapping via `/dev/stream`**: In `dumps/camera_2025/usr/usr/kmod/stream.ko`, `stream_mmap` (VA `0x00000000`–`0x00000048`) clears `0x3c` (`L_PTE_MT_MASK`) and sets `0x40` (`L_PTE_DIRTY`) on `vma->vm_page_prot`. This enforces memory type `0x00` (`L_PTE_MT_UNCACHED`, `pgprot_noncached`) without physical address bounds clipping.
+- **Kernel Mapping via `/dev/stream`**: In `.local/dumps/camera_2025/usr/usr/kmod/stream.ko`, `stream_mmap` (VA `0x00000000`–`0x00000048`) clears `0x3c` (`L_PTE_MT_MASK`) and sets `0x40` (`L_PTE_DIRTY`) on `vma->vm_page_prot`. This enforces memory type `0x00` (`L_PTE_MT_UNCACHED`, `pgprot_noncached`) without physical address bounds clipping.
 - **CPU Reads (Zero Invalidation)**: Virtual mappings generated via `/dev/stream` bypass L1 and L2 caches, reading directly from physical DRAM. No CPU cache invalidation instructions are needed when consuming ISP frames.
 - **CPU Writes & Memory Barriers (`dsb; dmb`)**: Converted pixel data is written to exclusively owned DMM Unit `0x276` (`0x15b00000`). To guarantee that Cortex-A5 write-combining store buffers fully drain into physical DRAM before the CoreLink DMA-330 controller initiates USB bulk transfers via ioctl `0x4008f003` (`UpdateVideoBufEvt`), explicit `dsb; dmb` memory barriers are mandatory:
   ```c
@@ -93,7 +93,7 @@ The BIONZ X ISP writes preview frames into a circular triple-buffer ring (`prc_m
 
 ## Build and verification
 
-Session root `C:/Users/qn061/Documents/Codex/2026-10-22/chec`; candidate and manifests `outputs/yuy2-640-v25/candidate/`. Recipes are source-only in `research/firmware/yuy2_transport_v25/`. Compiler targets Cortex-A5 with soft-float ABI and no auto-vectorization. Actual module text audit finds zero NEON instructions; external libc is outside this audit. Native C harness covers 26 lease/conversion/error cases. ARM integration checks cover busy-host exclusion, exact copied live content, complete fallback restoration, failed release retention, and stop cleanup. All hardware services are mocked; no live frame proof or measured CPU budget is claimed.
+Session root `C:/Users/qn061/Documents/Codex/2026-10-22/chec`; candidate and manifests `.local/outputs/yuy2-640-v25/candidate/`. Recipes are source-only in `research/firmware/yuy2_transport_v25/`. Compiler targets Cortex-A5 with soft-float ABI and no auto-vectorization. Actual module text audit finds zero NEON instructions; external libc is outside this audit. Native C harness covers 26 lease/conversion/error cases. ARM integration checks cover busy-host exclusion, exact copied live content, complete fallback restoration, failed release retention, and stop cleanup. All hardware services are mocked; no live frame proof or measured CPU budget is claimed.
 
 Kernel remains the proven `c1cad400372e26eca729e4b9bc47a237` / `yuy2_640_v23`; no new kernel behavior is required. No revision 2.5 installer is supplied, and the working permanent 2.4p camera installation is untouched.
 
@@ -101,4 +101,4 @@ Kernel remains the proven `c1cad400372e26eca729e4b9bc47a237` / `yuy2_640_v23`; n
 
 Published source tests: 17 pytest tests passed, including the native harness's 26 cases and 16 inherited tests. Candidate ARM suite: 59 cases passed (54 inherited + five new live-source integration cases). Persistent ELF/PIC suite: 11 passed. ISA scan: 23 compiler-marked text code regions, 2,859 instructions, zero NEON. Documentation links/anchors: zero broken/unmatched. Test inputs and callbacks are simulated; these results do not demonstrate a real camera image.
 
-Candidate producer MD5 `97cf011eb517c041d7b53e6a29c502cc` (22,500 bytes); streaming library `d20195011534fa2fa2b95c53e9c58474` (72,792 bytes). Machine-readable status is `outputs/yuy2-640-v25/candidate/live-source-state.json`: `OFFLINE_CORE_INTEGRATED_SONY_BACKEND_NOT_BOUND_NOT_DEPLOYED`. Do not substitute these hashes into the old install scripts.
+Candidate producer MD5 `97cf011eb517c041d7b53e6a29c502cc` (22,500 bytes); streaming library `d20195011534fa2fa2b95c53e9c58474` (72,792 bytes). Machine-readable status is `.local/outputs/yuy2-640-v25/candidate/live-source-state.json`: `OFFLINE_CORE_INTEGRATED_SONY_BACKEND_NOT_BOUND_NOT_DEPLOYED`. Do not substitute these hashes into the old install scripts.

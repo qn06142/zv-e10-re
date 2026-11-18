@@ -2,7 +2,7 @@ from pathlib import Path
 import struct,json
 from unicorn import *
 from unicorn.arm_const import *
-B=Path(r'D:/02_Development_And_Projects/pmca-re/dumps/firmware/av-cam.bin').read_bytes();BASE=0x635c6000
+B=Path(r'D:/02_Development_And_Projects/pmca-re/.local/dumps/firmware/av-cam.bin').read_bytes();BASE=0x635c6000
 u=Uc(UC_ARCH_ARM,UC_MODE_THUMB);u.mem_map(0x63000000,0x2000000);u.mem_write(BASE,B);u.mem_map(0x50000000,0x1000);u.mem_map(0x60000000,0x20000);STACK=0x60010000;STOP=0x50000000
 calls=[]
 def hook(u,a,n,d):
@@ -25,4 +25,4 @@ for mode in range(2,12):
   rows.append({'mode':mode,'geometry':[w,h],'table':hex(table),'native_record':hex(record),'record_stride':56,'unit_offset':40,'unit_type':hex(unit)})
 assert len(rows)>=3
 report={'native_RTOS_setter_and_geometry_lookup_executed':True,'print_service_only_mocked':True,'camera_access':False,'cases':rows}
-Path('outputs/native-dmm-v28/vef-type295-native-verification.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+Path('.local/outputs/native-dmm-v28/vef-type295-native-verification.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

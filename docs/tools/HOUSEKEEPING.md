@@ -14,13 +14,14 @@ The [research workflow](../../.github/workflows/research-checks.yml) runs the sa
 
 | Location | Tracking convention |
 | --- | --- |
-| work | Local scratch and intermediate build inputs |
-| captures | Local payloads with reviewable JSON, Markdown and TSV metadata |
-| bin | Reviewable staging scripts/configuration with local compiled objects |
+| .local/work | Local scratch and intermediate build inputs |
+| .local/captures | Local payloads |
+| research/captures | Reviewable JSON, Markdown and TSV capture metadata |
+| scripts/staging | Reviewable staging scripts/configuration with local compiled objects |
 | research | Authored source and measured evidence with generated binary formats ignored |
-| dumps and outputs | Existing local firmware and build/capture storage |
+| .local/dumps and .local/outputs | Existing local firmware and build/capture storage |
 
-The index check rejects generated objects in bin/research and payloads under captures. The [artifact audit](../archive/ARTIFACT_AUDIT_20261118.json) identifies the payloads and the two generated objects removed from the Git index. The files remain available in local storage.
+The index check rejects tracked .local content, generated objects in scripts/staging and research, and frame payloads in research/captures. The [artifact audit](../archive/ARTIFACT_AUDIT_20261118.json) identifies the payloads and the two generated objects removed from the Git index. The [layout guide](REPOSITORY_LAYOUT.md) lists their current locations.
 
 ## Experiment records
 

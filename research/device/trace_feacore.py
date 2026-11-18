@@ -4,7 +4,7 @@ from elftools.elf.elffile import ELFFile
 import capstone
 
 HERE = Path(__file__).resolve().parent.parent.parent
-libmpr_path = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libmpr.so"
+libmpr_path = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libmpr.so"
 cs = capstone.Cs(capstone.CS_ARCH_ARM, capstone.CS_MODE_THUMB)
 cs.detail = True
 

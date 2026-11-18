@@ -2,7 +2,7 @@ import struct
 from pathlib import Path
 
 for n in ('busybox-armhf', 'busybox-armel'):
-    p = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camtools') / n
+    p = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camtools') / n
     b = p.read_bytes()
     e_flags = struct.unpack_from('<I', b, 36)[0]
     e_entry = struct.unpack_from('<I', b, 24)[0]

@@ -61,7 +61,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-APP = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share\app')
+APP = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share\app')
 OUT = Path(r'C:\Users\qn061\AppData\Local\Temp\opencode\app_res')
 
 MARKER = b'\x1b\x1e'

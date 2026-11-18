@@ -12,7 +12,7 @@ This document outlines the current state, immediate action items, intermediate f
    - **`libObj.so` @ `0x2d229c`**: UIPC encoder aspect configuration packet (`InfraMovieEncoderSeqSetAspect`) payload set to Aspect 2.
    - **`libObj.so` @ `0xeb0f26`**: Live View classification table entry 4 mapped to Case 1 (3240x2160 canvas).
 2. **Volatile In-Memory Hooking (`LD_PRELOAD`):**
-   - Implemented in `research/device/opengate_hook.c` and compiled to `bin/opengate/opengate.so`.
+   - Implemented in `research/device/opengate_hook.c` and compiled to `scripts/staging/opengate/opengate.so`.
    - Modifies code segments via `mprotect` and cache flushing strictly in volatile RAM. Read-only flash partitions remain untouched.
 3. **Hardware Emulation & Verification:**
    - RTOS Unicorn emulator (`research/emulator/avcam_emulator.py` and `simulate_opengate.py`) passes 100% of event dispatches (Event `0x8012`).

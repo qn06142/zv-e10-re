@@ -42,7 +42,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from annotate import load_segs, plt_map, v2o  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SCEN = ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "scenario"
+SCEN = ROOT / '.local/dumps' / "camera_2025" / "usr" / "usr" / "scenario"
 
 
 def demangle(name):

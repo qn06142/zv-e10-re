@@ -18,7 +18,7 @@ Real previously recovered monitoring code0x63b42800..0x63b44200 references Astra
 
 ## Useful new webcam source lead
 
-Existing monitoring disassembly references StartAll fc_pic[VGA] at code0x63b43eec and StartAll fc_pic[40] at0x63b43f10; corresponding strings0x63fe2c02 and0x63fe2c31. GetPrcMemory label is referenced at0x63b4284c. These imply internal reduced-resolution detector input records worth tracing. VGA is a diagnostic label, not proof of readable640x480 full-color YC: the buffers could be luma-only, processed, proprietary, short-lived or inactive during USB streaming. Prove format, dimensions, memory mapping and stable ownership before using them. Full disassembly: existing workspace outputs/yc-source-re-20261025/fc-monitoring-real.txt.
+Existing monitoring disassembly references StartAll fc_pic[VGA] at code0x63b43eec and StartAll fc_pic[40] at0x63b43f10; corresponding strings0x63fe2c02 and0x63fe2c31. GetPrcMemory label is referenced at0x63b4284c. These imply internal reduced-resolution detector input records worth tracing. VGA is a diagnostic label, not proof of readable640x480 full-color YC: the buffers could be luma-only, processed, proprietary, short-lived or inactive during USB streaming. Prove format, dimensions, memory mapping and stable ownership before using them. Full disassembly: existing workspace .local/outputs/yc-source-re-20261025/fc-monitoring-real.txt.
 
 ## Practical conclusions
 

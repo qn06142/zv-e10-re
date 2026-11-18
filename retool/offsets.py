@@ -2,7 +2,7 @@
 
 These are the decoders that were hand-rolled repeatedly while reverse engineering
 av-cam.bin, each one costing a round trip because the obvious reading is wrong.
-They are collected here so the offsets quoted in avcam_re/*.md are reproducible
+They are collected here so the offsets quoted in research/avcam/*.md are reproducible
 from committed tooling rather than from throwaway scripts.
 
 Every decoder below was checked against a known instruction in av-cam.bin rather

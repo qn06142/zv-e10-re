@@ -2,7 +2,7 @@ import os, sys
 from elftools.elf.elffile import ELFFile
 from elftools.elf.sections import SymbolTableSection
 
-SO = (ROOT_REPO / 'udtrbody_extract/bodylib/libupdaterbody.so').as_posix()
+SO = (ROOT_REPO / '.local/udtrbody_extract/bodylib/libupdaterbody.so').as_posix()
 with open(SO,"rb") as f:
     e = ELFFile(f)
     print("type:", e.header['e_type'], "machine:", e.header['e_machine'])

@@ -1,7 +1,7 @@
 """Tests for research/firmware/fdat_decrypt.py -- the FDAT (UDTRFIRM) decrypter.
 
 The decrypter is worth testing carefully because its failure mode is silent and
-very convincing.  `dumps/fdat_decrypted.bin` from an earlier session decoded to a
+very convincing.  `.local/dumps/fdat_decrypted.bin` from an earlier session decoded to a
 flawless-looking `UDTRFIRM` header while every byte after the first 1024-byte
 block was random.  Anything built on that file was wrong.
 
@@ -14,7 +14,7 @@ So these tests cover three things:
   3. the real header and the real payload, so a change to the keys or the
      algorithm cannot pass by being self-consistent.
 
-The image-dependent tests skip when dumps/ is absent.
+The image-dependent tests skip when .local/dumps/ is absent.
 """
 from __future__ import annotations
 
@@ -42,8 +42,8 @@ except ImportError:  # pragma: no cover
     except ImportError:
         pytest.skip("pycryptodome not installed", allow_module_level=True)
 
-DUMP = ROOT / "dumps" / "fdat_cxd90045.bin"
-PAYLOAD = ROOT / "dumps" / "fdat_payload.bin"
+DUMP = ROOT / '.local/dumps' / "fdat_cxd90045.bin"
+PAYLOAD = ROOT / '.local/dumps' / "fdat_payload.bin"
 needs_dump = pytest.mark.skipif(
     not (DUMP.is_file() and PAYLOAD.is_file()),
     reason="decrypted FDAT artefacts not present",
@@ -228,12 +228,12 @@ def test_real_payload_is_a_tar_with_the_expected_partitions():
 def test_decrypting_fdat_raw_reproduces_the_reference_decode():
     """Pins the keys and the mode against a real decode.
 
-    Compares against dumps/fdat_cxd90045.bin, which was produced independently
+    Compares against .local/dumps/fdat_cxd90045.bin, which was produced independently
     via fwtool's own AesCbcCrypter, so a change to the keys or the chaining cannot
     pass by merely staying self-consistent.  Streams both sides: the payload is
     ~370 MB and must not be held twice in memory.
     """
-    src = ROOT / "dumps" / "fdat_raw.bin"
+    src = ROOT / '.local/dumps' / "fdat_raw.bin"
     if not src.is_file():
         pytest.skip("fdat_raw.bin not present")
     raw = src.open("rb").read()

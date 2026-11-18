@@ -2,6 +2,8 @@
 
 This directory contains patch generation, build orchestration, deployment and inspection scripts. Run them from the repository root unless the script documents a different working directory.
 
+The tools subdirectory holds the log decoder and device toolbelt. The staging subdirectory holds the historical deployment kits. Downloaded Rizin tools remain local and ignored under tools/rizin.
+
 | Script family | Role |
 | --- | --- |
 | build_* and gen_* | Build or generate experiment artifacts |

@@ -1,6 +1,6 @@
 from pathlib import Path
 import struct,math,json
-b=Path('outputs/native-dmm-v28/decoder-handoff/zve10-vef295-snapshot.bin').read_bytes()
+b=Path('.local/outputs/native-dmm-v28/decoder-handoff/zve10-vef295-snapshot.bin').read_bytes()
 words=[w[0] for w in struct.iter_unpack('<8Q',b)]
 # Sample every third row to reduce search cost; score neighboring row pairs.
 idx=[i for i in range(0,len(words)-30) if (i//30)%3==0]
@@ -32,5 +32,5 @@ for start in range(8,25):
      score=sum(diffs)/len(diffs)/std
      results.append(dict(start=start,kind=kind,k=k,polarity=pol,signed=signed,score=score,range=[min(v),max(v)],mean=mean,std=std,distinct=len(set(v))))
 results.sort(key=lambda r:r['score'])
-Path('outputs/yc-codec-recovery/anchor-search.json').write_text(json.dumps(results[:100],indent=2)+'\n')
+Path('.local/outputs/yc-codec-recovery/anchor-search.json').write_text(json.dumps(results[:100],indent=2)+'\n')
 print(json.dumps(results[:16],indent=2))

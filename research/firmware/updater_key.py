@@ -45,10 +45,10 @@ import zlib
 from elftools.elf.elffile import ELFFile
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
-TALK = REPO / 'dumps' / 'camera_2025' / 'usr' / 'usr' / 'lib' / 'libupdatertalk.so'
+TALK = REPO / '.local/dumps' / 'camera_2025' / 'usr' / 'usr' / 'lib' / 'libupdatertalk.so'
 BODY = REPO / 'fw' / 'udtrbody.bin'
 if not BODY.exists():
-    BODY = REPO / 'tools' / 'udtrbody.bin'
+    BODY = REPO / 'scripts/tools' / 'udtrbody.bin'
 
 ROMFS_MAGIC = bytes.fromhex('28cd3d45')      # 453dcd28 little-endian
 FW_MAGIC = b'0100UDTRFIRM'

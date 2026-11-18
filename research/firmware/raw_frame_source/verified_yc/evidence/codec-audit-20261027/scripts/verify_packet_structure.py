@@ -1,6 +1,6 @@
 from pathlib import Path
 import math,json,struct,collections
-b=Path('outputs/native-dmm-v28/decoder-handoff/zve10-vef295-snapshot.bin').read_bytes()
+b=Path('.local/outputs/native-dmm-v28/decoder-handoff/zve10-vef295-snapshot.bin').read_bytes()
 def corr(x,s):
  a=x[:-s];c=x[s:];ma=sum(a)/len(a);mc=sum(c)/len(c)
  den=sum((v-ma)**2 for v in a)*sum((v-mc)**2 for v in c)
@@ -14,4 +14,4 @@ packets=list(struct.iter_unpack('<8Q',b))
 result['zero_W4_W5_packets']=sum(w[4]==w[5]==0 for w in packets)
 result['W0_header_counts']=dict(collections.Counter(hex(w[0]>>48) for w in packets).most_common())
 result['limits']='Statistics support 64-byte periodic structure and 30-block row hypothesis; do not prove bitstream semantics, 64 horizontal pixels per block, active live geometry or tear-free capture.'
-Path('outputs/yc-codec-audit/packet-structure-verification.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
+Path('.local/outputs/yc-codec-audit/packet-structure-verification.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))

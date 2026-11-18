@@ -22,7 +22,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-D = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera')
+D = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera')
 SURF = [('s2', 0x20312000, 0x200000), ('s3', 0x3F7ED000, 0x200000),
         ('s4', 0x228B2000, 0x200000), ('s1', 0x22312000, 0x400000)]
 NS = 1200

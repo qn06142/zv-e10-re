@@ -2,7 +2,7 @@ from pathlib import Path
 import capstone
 
 HERE = Path(__file__).resolve().parent.parent.parent
-avcam_path = HERE / "dumps" / "av-cam.bin"
+avcam_path = HERE / '.local/dumps' / "av-cam.bin"
 
 with open(avcam_path, "rb") as f:
     data = f.read()

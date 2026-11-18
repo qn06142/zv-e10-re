@@ -30,7 +30,7 @@ sys.path.insert(0, str(ROOT))
 
 from retool import rtti  # noqa: E402
 
-ELF = ROOT / "dumps" / "camera_2025" / "usr_lib_raw" / "elf_05610c00.so"
+ELF = ROOT / '.local/dumps' / "camera_2025" / "usr_lib_raw" / "elf_05610c00.so"
 needs_elf = pytest.mark.skipif(not ELF.is_file(),
                                reason="carved front-end ELF not present")
 

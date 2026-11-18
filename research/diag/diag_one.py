@@ -23,11 +23,11 @@ def complete(dev):
     try:
         dev.readFile("/tmp/_d.bin", buf)
         print("PULL OK:", len(buf.getvalue()), "bytes", flush=True)
-        open("dumps/_diag.bin", "wb").write(buf.getvalue())
+        open(".local/dumps/_diag.bin", "wb").write(buf.getvalue())
     except Exception as e:
         print("PULL FAILED after", len(buf.getvalue()), "bytes:", repr(e), flush=True)
         if buf.getvalue():
-            open("dumps/_diag.bin", "wb").write(buf.getvalue())
+            open(".local/dumps/_diag.bin", "wb").write(buf.getvalue())
     m.sh(raw, "rm -f /tmp/_d.bin", hard=20.0)
     dev.setTerminalEnable(False)
 

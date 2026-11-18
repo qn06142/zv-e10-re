@@ -8,8 +8,8 @@ import struct
 import pytest
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB
 
-LIBOBJ_PATH = "dumps/camera_2025/usr/usr/lib/libObj.so"
-OPENGATE_SO_PATH = "out/opengate.so"
+LIBOBJ_PATH = ".local/dumps/camera_2025/usr/usr/lib/libObj.so"
+OPENGATE_SO_PATH = ".local/out/opengate.so"
 
 # Expected signatures
 SIG_10B = bytes.fromhex("2c 23 a3 80 01 23 63 81 60 80")
@@ -67,7 +67,7 @@ def test_simulated_patch_transformation():
 
 
 def test_compiled_hook_binary():
-    """Verify that the compiled out/opengate.so is a valid ARMv7 ELF shared library."""
+    """Verify that the compiled .local/out/opengate.so is a valid ARMv7 ELF shared library."""
     assert os.path.exists(OPENGATE_SO_PATH), f"Compiled binary missing: {OPENGATE_SO_PATH}"
     with open(OPENGATE_SO_PATH, "rb") as f:
         hdr = f.read(52)

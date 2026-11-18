@@ -2,7 +2,7 @@ from pathlib import Path
 import struct,json,collections
 from instrumented_candidate import decode_block_luma64,decode_block_chroma64
 result=[]
-for path in sorted(Path('outputs/native-dmm-v28/capture-first-01').glob('frame-*.bin')):
+for path in sorted(Path('.local/outputs/native-dmm-v28/capture-first-01').glob('frame-*.bin')):
  counts=collections.Counter();examples=[]
  b=path.read_bytes()
  for index in range(len(b)//64):
@@ -18,4 +18,4 @@ for path in sorted(Path('outputs/native-dmm-v28/capture-first-01').glob('frame-*
   if len(examples)<3 and y['ones_left'] and c['ones_left']:examples.append({'block':index,'luma':y,'chroma':c})
  result.append({'file':path.name,'counts':dict(counts),'examples':examples})
  print(path.name,dict(counts))
-Path('outputs/yc-codec-recovery/bit-accounting.json').write_text(json.dumps(result,indent=2)+'\n')
+Path('.local/outputs/yc-codec-recovery/bit-accounting.json').write_text(json.dumps(result,indent=2)+'\n')

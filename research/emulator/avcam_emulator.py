@@ -25,8 +25,8 @@ import unicorn
 from unicorn import arm_const
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-BIN_PATH = BASE_DIR / "dumps" / "av-cam.bin"
-TOOLS_RIZIN = BASE_DIR / "tools" / "rizin" / "rizin-win-installer-vs2019_static-64" / "bin"
+BIN_PATH = BASE_DIR / '.local/dumps' / "av-cam.bin"
+TOOLS_RIZIN = BASE_DIR / 'scripts/tools' / "rizin" / "rizin-win-installer-vs2019_static-64" / 'bin'
 
 # Architecture constants
 RTOS_BASE_VA     = 0x635C6000

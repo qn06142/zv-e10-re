@@ -3,7 +3,7 @@ import struct
 import capstone
 
 HERE = Path(__file__).resolve().parent.parent.parent
-lib_mprctrl_path = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libmprctrl.so"
+lib_mprctrl_path = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libmprctrl.so"
 
 with open(lib_mprctrl_path, "rb") as f:
     data = f.read()

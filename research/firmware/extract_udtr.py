@@ -1,8 +1,8 @@
 import os, sys, io
 ROOT = ROOT_REPO.as_posix()
-REPO = os.path.join(ROOT, "fwtool_ma1co_repo")
-UDT = os.path.join(ROOT, "tools", "udtrbody.bin")
-OUT = os.path.join(ROOT, "udtrbody_extract")
+REPO = os.path.join(ROOT, '.local/vendor/fwtool_ma1co_repo')
+UDT = os.path.join(ROOT, 'scripts/tools', "udtrbody.bin")
+OUT = os.path.join(ROOT, '.local/udtrbody_extract')
 sys.path.insert(0, REPO)
 
 data = open(UDT,"rb").read()

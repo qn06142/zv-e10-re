@@ -33,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from thumb import mkdis, pcrel_strrefs, walk, calls_of, is_prologue         # noqa: E402
 
 BASE = 0x635C6000
-av = (ROOT_REPO / 'dumps' / 'av-cam.bin.bak').read_bytes()
+av = (ROOT_REPO / '.local/dumps' / 'av-cam.bin.bak').read_bytes()
 md = mkdis()
 
 print('=== pc-relative reference map ===')

@@ -18,7 +18,7 @@ from pathlib import Path
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_LITTLE_ENDIAN
 
 HDR, STR_OFF, CODE_OFF, VADDR = 0x54, 0x54, 0x200, 0x00010000
-IMG_DIR = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera')
+IMG_DIR = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera')
 
 ok = True
 

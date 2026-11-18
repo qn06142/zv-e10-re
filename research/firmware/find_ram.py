@@ -39,9 +39,9 @@ if p.exists():
 print('=== address-bearing config strings in the dumps ===')
 pat = re.compile(rb'[\x20-\x7e]{4,200}')
 hits = {}
-roots = [BASE / 'dumps' / 'camera_2025' / 'etc',
-         BASE / 'dumps' / 'camera_2025' / 'usr_bin',
-         BASE / 'dumps']
+roots = [BASE / '.local/dumps' / 'camera_2025' / 'etc',
+         BASE / '.local/dumps' / 'camera_2025' / 'usr_bin',
+         BASE / '.local/dumps']
 seen = set()
 for root in roots:
     if not root.is_dir():

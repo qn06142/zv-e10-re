@@ -2,12 +2,12 @@ from pathlib import Path
 import importlib.util,json,struct
 from unicorn import *
 from unicorn.arm_const import *
-O=Path('outputs/native-dmm-callback/deployment/live/first-capture-01');W=Path('work/native-dmm-callback/recipe');spec=importlib.util.spec_from_file_location('support',W/'verify_support.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+O=Path('.local/outputs/native-dmm-callback/deployment/live/first-capture-01');W=Path('.local/work/native-dmm-callback/recipe');spec=importlib.util.spec_from_file_location('support',W/'verify_support.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 u=Uc(UC_ARCH_ARM,UC_MODE_ARM);handlers={}
 for a,n in [(0x10000000,0x10000),(0x40000000,0x40000),(m.STOP,4096),(0x60000000,0x20000)]:u.mem_map(a,n)
 def imp(name):
  a=0x10000000+len(handlers)*4;handlers[a]=name;return a
-syms=m.load(u,Path('outputs/native-dmm-callback/candidate/yuy2_640_v27snap.so'),0x20000000,imp)
+syms=m.load(u,Path('.local/outputs/native-dmm-callback/candidate/yuy2_640_v27snap.so'),0x20000000,imp)
 def hook(u,a,n,d):
  if a not in handlers:return
  name=handlers[a];r=[u.reg_read(x) for x in m.R]

@@ -6,7 +6,7 @@ from unicorn.arm_const import *
 ROOT = Path(r'D:/02_Development_And_Projects/pmca-re')
 OUT = Path(r'C:/Users/qn061/Documents/Codex/2026-10-22/chec/outputs/yc-source-re-20261025')
 WORK = Path(r'C:/Users/qn061/Documents/Codex/2026-10-22/chec/work/yc-source-re')
-BIN_PATH = ROOT / 'dumps/firmware/av-cam.bin'
+BIN_PATH = ROOT / '.local/dumps/firmware/av-cam.bin'
 
 # Compile sony_yc_sds.so and sony_yc_metadata.so with Cortex-A5 GCC
 subprocess.run([

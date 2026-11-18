@@ -9,10 +9,10 @@ import struct
 import pytest
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB
 
-LIBMPR_PATH = "dumps/camera_2025/usr/usr/lib/libmpr.so"
-LIBOBJ_PATH = "dumps/camera_2025/usr/usr/lib/libObj.so"
-LIBBIZ_PATH = "dumps/camera_2025/usr/usr/lib/libBizFw.so"
-AVCAM_PATH = "dumps/av-cam.bin"
+LIBMPR_PATH = ".local/dumps/camera_2025/usr/usr/lib/libmpr.so"
+LIBOBJ_PATH = ".local/dumps/camera_2025/usr/usr/lib/libObj.so"
+LIBBIZ_PATH = ".local/dumps/camera_2025/usr/usr/lib/libBizFw.so"
+AVCAM_PATH = ".local/dumps/av-cam.bin"
 
 
 def test_libmpr_aspect_whitelist():

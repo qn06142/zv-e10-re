@@ -9,7 +9,7 @@ from pathlib import Path
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_LITTLE_ENDIAN
 
 N = 17_289_388
-a = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\av-cam.bin.bak').read_bytes()
+a = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\av-cam.bin.bak').read_bytes()
 FUNC = 0x000aa14c
 CALLER = 0x000a4338
 PATCH = 0x000aa15a

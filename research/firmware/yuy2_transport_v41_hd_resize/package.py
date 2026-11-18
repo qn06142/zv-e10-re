@@ -1,6 +1,6 @@
 from pathlib import Path
 import json,hashlib,shutil,zipfile
-O=Path('outputs/hd-v41');m=json.loads((O/'build/manifest.json').read_text());plan=json.loads((O/'memory-plan.json').read_text())
+O=Path('.local/outputs/hd-v41');m=json.loads((O/'build/manifest.json').read_text());plan=json.loads((O/'memory-plan.json').read_text())
 r='''# Revision 4.1: 1080p uncompressed resizer / USB candidate
 
 30 October 2026. Built and tested offline; NOT installed and NOT hardware verified. This implements the user's pivot to the existing 8-bit YUY2 route at 1920x1080, including direct USB output. The separate native 10/12-bit producer investigation is deferred for this experiment.
@@ -51,10 +51,10 @@ r=r.replace('-video_size1920x1080 -framerate5','-video_size 1920x1080 -framerate
 (O/'README.md').write_text(r)
 P=O/'candidate';P.mkdir(exist_ok=True)
 for name in ['yuy2_1080_v41hd.so','libInfraStreamingUsb.so']:shutil.copy2(O/'build'/name,P/name)
-shutil.copy2(O/'DmmConfig.bin',P/'DmmConfig.bin');shutil.copy2('outputs/vga-v40/usbg_video.ko',P/'usbg_video.ko');shutil.copy2(O/'README.md',P/'README.md')
+shutil.copy2(O/'DmmConfig.bin',P/'DmmConfig.bin');shutil.copy2('.local/outputs/vga-v40/usbg_video.ko',P/'usbg_video.ko');shutil.copy2(O/'README.md',P/'README.md')
 B=P/'baseline-v40';B.mkdir(exist_ok=True)
-for name in ['libInfraStreamingUsb.so','yuy2_640_v40vga.so']:shutil.copy2(Path('outputs/vga-v40/build')/name,B/name)
-shutil.copy2('D:/02_Development_And_Projects/pmca-re/dumps/camera_2025/usr/setting/DmmConfig.bin',B/'DmmConfig.bin')
+for name in ['libInfraStreamingUsb.so','yuy2_640_v40vga.so']:shutil.copy2(Path('.local/outputs/vga-v40/build')/name,B/name)
+shutil.copy2('D:/02_Development_And_Projects/pmca-re/.local/dumps/camera_2025/usr/setting/DmmConfig.bin',B/'DmmConfig.bin')
 m['memory_plan']=plan;m['package_status']='CANDIDATE_NOT_INSTALLED_NO_INSTALLER';m['files']={}
 for p in P.rglob('*'):
  if p.is_file():m['files'][p.relative_to(P).as_posix()]={'bytes':p.stat().st_size,'md5':hashlib.md5(p.read_bytes()).hexdigest(),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}

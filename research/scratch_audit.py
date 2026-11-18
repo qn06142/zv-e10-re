@@ -3,8 +3,8 @@ import struct
 import re
 
 HERE = Path("D:/02_Development_And_Projects/pmca-re")
-mpr_path = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libmpr.so"
-obj_path = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
+mpr_path = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libmpr.so"
+obj_path = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
 
 with open(mpr_path, "rb") as f:
     mpr_data = f.read()

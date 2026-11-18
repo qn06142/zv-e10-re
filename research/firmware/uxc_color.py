@@ -45,7 +45,7 @@ from pathlib import Path
 
 ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 
-SRC = ROOT_REPO / 'dumps' / 'camera' / 'app' / 'color_cmn.uxc'
+SRC = ROOT_REPO / '.local/dumps' / 'camera' / 'app' / 'color_cmn.uxc'
 REC = 8
 HDR = 0x58
 ATTR = 0x3a09

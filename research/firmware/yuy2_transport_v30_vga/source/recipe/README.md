@@ -35,7 +35,7 @@ The module links existing libpthread.so.0. Runtime SDK exports and six private l
 
 ## First hardware test
 
-Archive, download, hash-verify, recheck and clear known previous research captures/logs first. Preserve system /tmp files and use normal error filters; do not enable unbounded application logging.
+Archive, download, hash-verify, recheck and clear known previous research .local/captures/logs first. Preserve system /tmp files and use normal error filters; do not enable unbounded application logging.
 
 After guarded deployment and cold reboot, activate USB Streaming with OBS closed. Run capture_vga.py --output first-vga.bin. It requests five frames by FFmpeg stream-copy with a 25-second host timeout. Each payload is 614400 native bytes, with NO ZVYC0029 header. Do not use the 2.9 reassembler. Complete payloads alone do not prove a decoded image.
 

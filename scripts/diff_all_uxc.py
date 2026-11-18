@@ -5,8 +5,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import research.device.zve10_retry as zve10
 
-# List files in dumps/camera_2025/usr_share/app
-local_app = Path("dumps/camera_2025/usr_share/app")
+# List files in .local/dumps/camera_2025/usr_share/app
+local_app = Path(".local/dumps/camera_2025/usr_share/app")
 files = [f.name for f in local_app.glob("*.uxc")]
 
 cmds = [f"/bin/busybox md5sum /usr/share/app/{f}" for f in files]

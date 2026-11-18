@@ -48,7 +48,7 @@ from fontTools.ttLib import TTFont
 from fontTools.pens.boundsPen import BoundsPen
 from fontTools.pens.recordingPen import RecordingPen
 
-FONT = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share\app\Sony_DI_Icons.ttf')
+FONT = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share\app\Sony_DI_Icons.ttf')
 
 # identified by eye in iconsheet_A (0xE000..0xE05F)
 KNOWN_TEXT = {0xE053: 'BRK', 0xE054: 'STD', 0xE055: 'FINE', 0xE02D: 'HOLD',

@@ -5,7 +5,7 @@ from unicorn import Uc,UC_ARCH_ARM,UC_MODE_ARM,UC_HOOK_CODE
 from unicorn.arm_const import *
 from elftools.elf.elffile import ELFFile
 REPO=Path('D:/02_Development_And_Projects/pmca-re')
-OUT=Path('outputs/sony-backend-recovery/candidate')
+OUT=Path('.local/outputs/sony-backend-recovery/candidate')
 spec=importlib.util.spec_from_file_location('support',REPO/'research/firmware/yuy2_transport_v25/verify_support.py')
 support=importlib.util.module_from_spec(spec);spec.loader.exec_module(support)
 U=Uc(UC_ARCH_ARM,UC_MODE_ARM)
@@ -27,7 +27,7 @@ def imp(name):
     return address
 syms=support.load(U,OUT/'yc_observer.so',0x20000000,imp)
 framework=0x08fa2000
-support.load(U,REPO/'dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so',framework)
+support.load(U,REPO/'.local/dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so',framework)
 CTOR=0x1000f000
 def ctor():
     original_args.append([U.reg_read(r) for r in support.R]);return U.reg_read(UC_ARM_REG_R0)
@@ -47,7 +47,7 @@ def run(name,*args):
 results=[]
 assert run('yc_observer_activate')==0 # no fake callback modules supplied yet
 results.append('activation_resolves_originals_without_hooks_or_camera_calls')
-lib=REPO/'dumps/camera_2025/usr/usr/lib/libBizFw.so';base=0x05792000
+lib=REPO/'.local/dumps/camera_2025/usr/usr/lib/libBizFw.so';base=0x05792000
 support.load(U,lib,base)
 with lib.open('rb') as f:
     e=ELFFile(f);phoff=e['e_phoff'];phnum=e['e_phnum']
@@ -87,7 +87,7 @@ with lib.open('rb') as f:
     e=ELFFile(f);dynamic_address=base+e.get_section_by_name('.dynamic')['sh_addr']
     f.seek(phoff);headers=f.read(phnum*32)
 U.mem_write(base+phoff,headers)
-live=Path('outputs/sony-backend-recovery/deployment/libBizFw.so.dynamic-live.bin').read_bytes()
+live=Path('.local/outputs/sony-backend-recovery/deployment/libBizFw.so.dynamic-live.bin').read_bytes()
 U.mem_write(dynamic_address,live)
 run('visit',INFO,16,0)
 assert support.word(U,slots[0])==syms['getall_hook'] and support.word(U,slots[1])==syms['ctor_hook']

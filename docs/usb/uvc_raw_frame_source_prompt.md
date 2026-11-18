@@ -4,7 +4,7 @@ Read `docs/usb/uvc_live_frame_implementation.md` and `research/firmware/yuy2_tra
 
 ## Live CPU verification — 24 October 2026
 
-Direct service-shell `/proc/cpuinfo` reports four processors (0–3), ARM implementer `0x41`, part `0xc05` (Cortex-A5), revision 1, hardware ARM-CXD900X0. Features: `swp half thumb fastmult vfp edsp vfpv3 vfpv3d16 tls vfpv4`; **no neon**. Earlier Cortex-A9/NEON assumptions are incorrect for the Linux-visible CPU. VFPv4 is not evidence of NEON. Plan scalar integer conversion/copy; do not execute NEON kernels without new capability evidence. Live feature absence establishes unavailable advertised userspace support, not physical absence independently of kernel configuration. No instruction probe performed. Raw-source report NEON kernels/performance estimates need rework; older A9 compiler tuning does not establish A9 hardware. Evidence: session `outputs/zve10-cpuinfo-neon.log`. Read-only query; no firmware writes.
+Direct service-shell `/proc/cpuinfo` reports four processors (0–3), ARM implementer `0x41`, part `0xc05` (Cortex-A5), revision 1, hardware ARM-CXD900X0. Features: `swp half thumb fastmult vfp edsp vfpv3 vfpv3d16 tls vfpv4`; **no neon**. Earlier Cortex-A9/NEON assumptions are incorrect for the Linux-visible CPU. VFPv4 is not evidence of NEON. Plan scalar integer conversion/copy; do not execute NEON kernels without new capability evidence. Live feature absence establishes unavailable advertised userspace support, not physical absence independently of kernel configuration. No instruction probe performed. Raw-source report NEON kernels/performance estimates need rework; older A9 compiler tuning does not establish A9 hardware. Evidence: session `.local/outputs/zve10-cpuinfo-neon.log`. Read-only query; no firmware writes.
 
 # Find live uncompressed camera frames for the working USB YUY2 transport
 
@@ -35,8 +35,8 @@ There is a separate same-session host-client reopen bug: after FFmpeg exits, lat
 - `docs/usb/uvc_yuy2_delivery_audit_20261024.md` — corrected kernel/probe/packetization findings.
 - `docs/usb/uvc_uncompressed_usb2_feasibility.md` and `docs/usb/uvc_yuy2_diagnostics_handoff.md` — source candidates and historical exploration.
 - `research/firmware/yuy2_transport_v23/` — reproducible producer, kernel patch and ARM verification.
-- Local `outputs/yuy2-640-v23/deployment/camera-after-tests/` — 57 camera files / 9,231,531 bytes, hash verified; `app-decoded.txt` has 111,319 clean application records. `captured-01.yuy2` and `first-frame.png` are actual host-delivered synthetic frames.
-- `outputs/raw-usb-investigation/` and `outputs/offline-uvc-re/` — saved disassembly and interface analysis.
+- Local `.local/outputs/yuy2-640-v23/deployment/camera-after-tests/` — 57 camera files / 9,231,531 bytes, hash verified; `app-decoded.txt` has 111,319 clean application records. `captured-01.yuy2` and `first-frame.png` are actual host-delivered synthetic frames.
+- `.local/outputs/raw-usb-investigation/` and `.local/outputs/offline-uvc-re/` — saved disassembly and interface analysis.
 
 ## Source and transport constraints
 

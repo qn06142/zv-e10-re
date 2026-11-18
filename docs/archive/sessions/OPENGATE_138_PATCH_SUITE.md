@@ -21,7 +21,7 @@ Across our interactive hardware and static analysis sessions on the Sony ZV-E10,
    - Preloading libraries via `/setting/mode/preload` fails across reboots. All live testing operates purely in memory on `/proc/$PID/mem`.
 
 3. **The Black Screen Root Cause:**
-   - In BIONZ X RTOS (`dumps/av-cam.bin`), SDF packet offset `0xa` is **Action** (`1 = CONNECT`, `2 = DISCONNECT`), not aspect ratio.
+   - In BIONZ X RTOS (`.local/dumps/av-cam.bin`), SDF packet offset `0xa` is **Action** (`1 = CONNECT`, `2 = DISCONNECT`), not aspect ratio.
    - Writing `2` to offset `0xa` (`0x2ccb56` and `0x2d229c`), or mapping Channel `0x1014` to Event `0x8012` (`SdfPinRequestDisconnect` at `0x34500e`), literally disconnected the video stream pin, halting video clocks and crashing `im.elf`.
    - **Resolution:** Offset `0xa` and `MapChannelToEvent` must remain strictly stock (`CONNECT = 1`, Event `0x8011`).
 
@@ -89,7 +89,7 @@ flowchart TD
 ## 3. Verification & Test Evidence
 
 ### 3.1 Disassembly Alignment
-Every single patch was disassembled and checked against ARM Thumb-2 instruction boundaries via Capstone (`scratch/verify_all_patches.py` and `tests/test_opengate_pipeline.py`):
+Every single patch was disassembled and checked against ARM Thumb-2 instruction boundaries via Capstone (`.local/scratch/verify_all_patches.py` and `tests/test_opengate_pipeline.py`):
 ```
 Summary: 138 patches. Errors: 0, Warnings: 0 (100% instruction aligned)
 ```

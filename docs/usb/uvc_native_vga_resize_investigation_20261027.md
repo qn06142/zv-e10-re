@@ -1,6 +1,6 @@
 # Native VGA and Sony resize path — 27 October 2026
 
-Offline investigation only. No camera access, new installation, RTOS table edit or live VGA success in this investigation. Installed revision remains 2.9. Evidence is in the adjacent repository evidence directory; workspace originals are `outputs/yc-vga-test/` and `outputs/yc-codec-audit/vga-*.txt`.
+Offline investigation only. No camera access, new installation, RTOS table edit or live VGA success in this investigation. Installed revision remains 2.9. Evidence is in the adjacent repository evidence directory; workspace originals are `.local/outputs/yc-vga-test/` and `.local/outputs/yc-codec-audit/vga-*.txt`.
 
 ## Native VGA configuration
 
@@ -52,4 +52,4 @@ Before another live test, clear stale runtime state with a fresh boot: after the
 
 ## Reproduce
 
-Use repository .venv Python (Capstone, Unicorn, pyelftools). From the original workspace run `work/yc-vga-test/verify_resize_request.py` and `verify_capacity_check.py`. Ten original-instruction fixtures passed in total. Supporting caller/parent/allocation/attachment extraction scripts and annotated disassemblies are preserved. `resize-request-example-NOT-FOR-DEVICE.bin` contains synthetic fixture handles only and must never be sent to hardware.
+Use repository .venv Python (Capstone, Unicorn, pyelftools). From the original workspace run `.local/work/yc-vga-test/verify_resize_request.py` and `verify_capacity_check.py`. Ten original-instruction fixtures passed in total. Supporting caller/parent/allocation/attachment extraction scripts and annotated disassemblies are preserved. `resize-request-example-NOT-FOR-DEVICE.bin` contains synthetic fixture handles only and must never be sent to hardware.

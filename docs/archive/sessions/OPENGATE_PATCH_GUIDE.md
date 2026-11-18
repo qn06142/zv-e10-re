@@ -18,7 +18,7 @@ All modifications are applied **purely in volatile RAM** (`/proc/$PID/mem`) whil
 
 ## 2. Why `LD_PRELOAD` Boot Hooks Do Not Persist Across Reboot
 
-Early reverse engineering efforts attempted to persist the patch across reboots by setting `/setting/mode/preload` to load `opengate.so` under `dmode 3p`. Dynamic disassembly of `/usr/bin/bootin.elf` ([`0x99a0`](../../../dumps/camera_2025/usr/usr/bin/bootin.elf)–[`0x9b40`](../../../dumps/camera_2025/usr/usr/bin/bootin.elf)) revealed the exact reason this fails:
+Early reverse engineering efforts attempted to persist the patch across reboots by setting `/setting/mode/preload` to load `opengate.so` under `dmode 3p`. Dynamic disassembly of `/usr/bin/bootin.elf` ([`0x99a0`](../../../.local/dumps/camera_2025/usr/usr/bin/bootin.elf)–[`0x9b40`](../../../.local/dumps/camera_2025/usr/usr/bin/bootin.elf)) revealed the exact reason this fails:
 
 ```arm
 00009b24:  tst.w   r4, #64         @ Check for 'p' flag in /setting/mode/dmode

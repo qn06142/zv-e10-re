@@ -1,4 +1,4 @@
-with open('dumps/camera_2025/usr/usr/lib/libObj.so', 'rb') as f:
+with open('.local/dumps/camera_2025/usr/usr/lib/libObj.so', 'rb') as f:
     # 0x2ccb6a: ldr r3, [pc, #0xf0]
     # In Thumb, pc for 0x2ccb6a is (0x2ccb6a + 4) & ~3 = 0x2ccb70
     # 0x2ccb70 + 0xf0 = 0x2ccc60

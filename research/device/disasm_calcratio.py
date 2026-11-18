@@ -2,7 +2,7 @@ from pathlib import Path
 import capstone
 
 HERE = Path(__file__).resolve().parent.parent.parent
-lib_obj_path = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
+lib_obj_path = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
 
 with open(lib_obj_path, "rb") as f:
     f.seek(0x260a70)

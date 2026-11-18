@@ -1,6 +1,6 @@
 import struct
 
-with open("dumps/staged/audit/init", "rb") as f:
+with open(".local/dumps/staged/audit/init", "rb") as f:
     data = f.read()
 
 for va in range(0x9fc8, 0xa034, 4):

@@ -11,15 +11,15 @@ Current firmware analysis lives elsewhere and is not duplicated here:
 
 | Path | What it is |
 |---|---|
-| `avcam_re/` | Findings on `av-cam.bin` (see `HARDWARE_OVERVIEW.md`) |
+| `research/avcam/` | Findings on `av-cam.bin` (see `HARDWARE_OVERVIEW.md`) |
 | `retool/` | The rizin-based analysis package |
-| `re_symbols/` | Recovered symbols with per-symbol provenance |
-| `dumps/` | Firmware images and carved payloads (git-ignored) |
+| `research/symbols/` | Recovered symbols with per-symbol provenance |
+| `.local/dumps/` | Firmware images and carved payloads (git-ignored) |
 | `results/` | JSON result data from the probes |
-| `logs/` | Captured probe output |
+| `.local/logs/` | Captured probe output |
 
 **No camera binary or firmware image is tracked in this repository.** Every script
-here takes one as an *input* from the git-ignored `dumps/` tree and emits
+here takes one as an *input* from the git-ignored `.local/dumps/` tree and emits
 inventories, tables or documentation. Patched objects are reproducible from a
 tracked script plus a file you pull off your own camera — the recipes and hashes
 are in [`firmware/PATCHED_OBJECTS.md`](../../research/firmware/PATCHED_OBJECTS.md), and the

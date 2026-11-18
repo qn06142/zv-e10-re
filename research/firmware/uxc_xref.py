@@ -25,13 +25,13 @@ import struct
 import tarfile
 from pathlib import Path
 
-TAR = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\ui.tar')
-APP = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\app')
+TAR = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\ui.tar')
+APP = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\app')
 HDR_UXC = 0x58
 REC = 8
 ID_BASE = 0x4000
 ID_MAX = 0x4022
-UXB = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\app')
+UXB = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\app')
 
 
 def load():

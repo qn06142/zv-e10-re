@@ -1,7 +1,7 @@
 """Scrape renamed symbols out of the RE markdown into a machine-readable SymDB.
 
 The Ghidra project that held these names is gone.  The names survive only as
-prose in avcam_re/RE_STATE.md and avcam_re/pipeline.md.  This recovers them so
+prose in research/avcam/RE_STATE.md and research/avcam/pipeline.md.  This recovers them so
 the knowledge is versioned, diffable, and greppable instead of trapped in a
 binary database.  Re-runnable: it regenerates the DB from the markdown, so
 editing the notes and re-running `retool migrate` is the intended workflow.

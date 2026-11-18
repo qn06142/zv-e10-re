@@ -15,7 +15,7 @@ import senser_fix  # noqa: F401  -- fixes 0x8000 payload loss on PID 0x0336
 from pmca.commands.usb import senserShellCommand
 from pmca.platform.backend.senser import SenserPlatformBackend
 
-OUTDIR = os.environ.get("ZVE10_OUTDIR", "dumps")
+OUTDIR = os.environ.get("ZVE10_OUTDIR", '.local/dumps')
 # Throughput notes: the bottleneck is NOT the USB link, it's tty round-trips --
 # every shell command costs a ~1.5s silence timeout in pump(). So use BIG chunks
 # and as few commands per chunk as possible. dd runs ~1.6MB/s on-camera and

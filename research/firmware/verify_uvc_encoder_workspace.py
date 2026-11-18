@@ -11,7 +11,7 @@ from unicorn import Uc, UC_ARCH_ARM, UC_MODE_THUMB, UC_HOOK_CODE
 from unicorn.arm_const import *
 from patch_uvc_encoder_workspace import build, build_rtos, REPO
 
-OUT=REPO/'dumps/staged/uvc/encoder-workspace-fix'
+OUT=REPO/'.local/dumps/staged/uvc/encoder-workspace-fix'
 REGS=[UC_ARM_REG_R4,UC_ARM_REG_R5,UC_ARM_REG_R6,UC_ARM_REG_R7,
       UC_ARM_REG_R8,UC_ARM_REG_R9,UC_ARM_REG_R10,UC_ARM_REG_R11]
 
@@ -220,7 +220,7 @@ def compare_packet_builders(stock,patched):
     return report
 
 def main():
-    source=REPO/'dumps/camera_2025/usr/usr/lib'
+    source=REPO/'.local/dumps/camera_2025/usr/usr/lib'
     report={'startup':[],'hardware_tested':False}
     for width in (1280,1920):
         pair,stock=build(source,width)
@@ -239,7 +239,7 @@ def main():
             assert (w,h)==(width,width*9//16)
         diff={i for i,(a,b) in enumerate(zip(stock['libInfraUsbCmn.so'],pair['libInfraUsbCmn.so'])) if a!=b}
         assert diff<=set(range(0x12555,0x12559))|set(range(0x12643,0x12647))
-    raw=(REPO/'dumps/av-cam.bin').read_bytes()
+    raw=(REPO/'.local/dumps/av-cam.bin').read_bytes()
     assert hashlib.md5(raw).hexdigest()=='cdcae9d4fdbf66a33704a4c7564e346d'
     report['rtos']=rtos(raw)
     patched,original=build_rtos(REPO,True)

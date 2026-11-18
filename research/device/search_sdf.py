@@ -2,9 +2,9 @@ from pathlib import Path
 import re
 
 HERE = Path(__file__).resolve().parent.parent.parent
-lib_dir = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib"
-bin_dir = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "bin"
-avcam_path = HERE / "dumps" / "av-cam.bin"
+lib_dir = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib"
+bin_dir = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / 'bin'
+avcam_path = HERE / '.local/dumps' / "av-cam.bin"
 
 def search_pattern(patt):
     print(f"=== Searching for pattern: {patt} ===")

@@ -3,13 +3,13 @@ import importlib.util,struct,json
 from unicorn import *
 from unicorn.arm_const import *
 ROOT = Path(r'D:/02_Development_And_Projects/pmca-re')
-OUT = Path(r'C:/Users/qn061/Documents/Codex/2026-10-22/chec/outputs/yc-source-re-20261025') if not Path('outputs/yc-source-re-20261025').is_dir() else Path('outputs/yc-source-re-20261025')
+OUT = Path(r'C:/Users/qn061/Documents/Codex/2026-10-22/chec/outputs/yc-source-re-20261025') if not Path('.local/outputs/yc-source-re-20261025').is_dir() else Path('.local/outputs/yc-source-re-20261025')
 spec=importlib.util.spec_from_file_location('support',ROOT/'research/firmware/yuy2_transport_v25/verify_support.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 u=Uc(UC_ARCH_ARM,UC_MODE_ARM);handlers={};calls=[]
 for a,n in [(0x10000000,0x10000),(0x40000000,0x10000),(m.STOP,4096),(0x60000000,0x20000)]:u.mem_map(a,n)
 def imp(name):
  a=0x10000000+len(handlers)*4;handlers[a]=name;return a
-sdk=m.load(u,ROOT/'dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so',0x08000000,imp)
+sdk=m.load(u,ROOT/'.local/dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so',0x08000000,imp)
 def hook(u,a,n,d):
  if a not in handlers:return
  name=handlers[a];r=[u.reg_read(x) for x in m.R];calls.append(name)

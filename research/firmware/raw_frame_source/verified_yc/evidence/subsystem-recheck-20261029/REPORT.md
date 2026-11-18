@@ -22,7 +22,7 @@ python -B <recipe>/inspect_native_receive.py
 python -B <recipe>/verify_native_type1.py
 ```
 
-Scripts write outputs/yc-subsystem-offline-20261029/. Firmware binaries and raw captures are deliberately not bundled.
+Scripts write .local/outputs/yc-subsystem-offline-20261029/. Firmware binaries and raw captures are deliberately not bundled.
 
 ## 1. Category 2 layout is verified; completion semantics are not
 

@@ -15,7 +15,7 @@ WORK=Path(__file__).resolve().parent;OUT=args.output.resolve();OUT.mkdir(parents
 CC=args.cc
 from generate_guards import build as generate_guards
 generate_guards(ROOT,WORK/"vga_guards.h")
-cmn=(ROOT/'dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so').read_bytes()
+cmn=(ROOT/'.local/dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so').read_bytes()
 stream=args.streaming_image.read_bytes()
 assert hashlib.md5(cmn).hexdigest()=='31308976206a837f6f5c571992d2b499'
 assert hashlib.md5(stream).hexdigest()=='19461091c07aa6900829defb0060fcd6'
@@ -30,12 +30,12 @@ for off in [0x7aa8,0x903e,0x8f9c,0x8dbe,0x894c,0x83c8]:
  assert not any('pc' in i.op_str or i.mnemonic.startswith(('b','cb','it')) for i in instructions)
  guards.append('{'+','.join(hex(x) for x in data)+'}')
 source=source.replace('EXTRA_GUARDS',','.join(guards))
-cfg=(ROOT/'dumps/camera_2025/usr/setting/DmmConfig.bin').read_bytes()
+cfg=(ROOT/'.local/dumps/camera_2025/usr/setting/DmmConfig.bin').read_bytes()
 assert struct.unpack_from('<4I',cfg,0x11c24)==(0x276,0,0x333,0xffffffff)
 assert struct.unpack_from('<5I',cfg,0x2e20)==(0x333,0x320000,0x10f,0,7)
 assert struct.unpack_from('<5I',cfg,0x2e34)==(0x333,0x320000,0x10f,0,4)
 (OUT/'yuy2_640.c').write_text(source)
-common=['-mcpu=cortex-a5','-marm','-mfpu=vfpv4-d16','-fno-tree-vectorize','-fno-tree-slp-vectorize','-mfloat-abi=soft','-O2','-fno-builtin','-fno-stack-protector','-fstack-usage','-nostdlib',f'-L{ROOT}/build_sysroot/lib',f'-Wl,-rpath-link,{ROOT}/build_sysroot/lib']
+common=['-mcpu=cortex-a5','-marm','-mfpu=vfpv4-d16','-fno-tree-vectorize','-fno-tree-slp-vectorize','-mfloat-abi=soft','-O2','-fno-builtin','-fno-stack-protector','-fstack-usage','-nostdlib',f'-L{ROOT}/.local/build_sysroot/lib',f'-Wl,-rpath-link,{ROOT}/.local/build_sysroot/lib']
 cmd=[str(CC),*common,'-fPIC','-fvisibility=hidden','-shared','-Wl,--hash-style=sysv,-soname,yuy2_640_v30vga.so,--no-undefined','-o',str(OUT/'yuy2_640_v30vga.so'),str(OUT/'yuy2_640.c'),'-DRAW_FRAME_CONVERSION_ONLY','-DRAW_LIVE_TARGET_ARM',f'-I{WORK}',str(WORK/'vga_resize.c'),str(WORK/'vga_contract.c'),str(WORK/'sony_yc_sds.c'),str(WORK/'sony_yc_metadata.c'),'-l:libc.so.6','-l:libdl.so.2','-l:libpthread-2.11.2.so','-lgcc']
 subprocess.run(cmd,check=True)
 

@@ -33,7 +33,7 @@ import re
 import struct
 from pathlib import Path
 
-SO = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\libIMDB.so')
+SO = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\libIMDB.so')
 img = SO.read_bytes()
 SHT_SYMTAB, SHT_STRTAB, SHT_DYNSYM = 2, 3, 11
 

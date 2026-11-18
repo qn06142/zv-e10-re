@@ -4,7 +4,7 @@ from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM
 import pathlib
 ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 
-BOOT = (ROOT_REPO / 'dumps/bootrom').as_posix()
+BOOT = (ROOT_REPO / '.local/dumps/bootrom').as_posix()
 br = open(BOOT, "rb").read()
 md = Cs(CS_ARCH_ARM, CS_MODE_ARM)
 

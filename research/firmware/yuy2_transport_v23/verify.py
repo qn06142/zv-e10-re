@@ -35,7 +35,7 @@ class Case(v1.Case):
               (0x42000000,0x10000),(0x50000000,4096),(0x60000000,0x20000)]:u.mem_map(a,n)
   self.syms=v1.load(u,OUT/'yuy2_640_v23.so',MB,self.imp)
   v1.load(u,args.streaming_image.resolve(),SB)
-  v1.load(u,v1.ROOT/'dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so',CB)
+  v1.load(u,v1.ROOT/'.local/dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so',CB)
   if bad_guard:u.mem_write(SB+0x8e14,b'\x00')
   if bad_lifecycle_guard:u.mem_write(SB+0x7aa8,b'\x00')
   self.handlers[self.syms['get_base']]=self.getbase

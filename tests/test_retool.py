@@ -2,7 +2,7 @@
 
 These cover the parts that do not need a rizin round-trip: config, the address
 convention, the symbol DB, and the markdown scraper.  The scraper tests pin the
-exact prose shapes found in avcam_re/RE_STATE.md and avcam_re/pipeline.md, so a
+exact prose shapes found in research/avcam/RE_STATE.md and research/avcam/pipeline.md, so a
 future edit that silently stops recovering names will fail here.
 """
 from __future__ import annotations

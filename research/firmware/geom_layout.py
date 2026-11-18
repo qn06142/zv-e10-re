@@ -63,7 +63,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import uxc_safe as S
 
-TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz')
+TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share_app.tgz')
 SIG = '1f0280550208'
 LIMIT = 999
 

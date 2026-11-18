@@ -15,7 +15,7 @@ from thumb import (mkdis, dis1, is_return, is_prologue, walk, calls_of,  # noqa:
                    decode_movw)
 
 BASE = Path(r'D:\02_Development_And_Projects\pmca-re')
-av = (BASE / 'dumps' / 'av-cam.bin.bak').read_bytes()
+av = (BASE / '.local/dumps' / 'av-cam.bin.bak').read_bytes()
 N = len(av)
 md = mkdis()
 

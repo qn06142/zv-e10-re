@@ -1,4 +1,4 @@
-"""Independent verification of dumps/av-cam.injected.bin.
+"""Independent verification of .local/dumps/av-cam.injected.bin.
 
 Deliberately does NOT reuse build_inject.py's logic - it re-reads the file
 from disk and re-derives everything, so a bug in the builder cannot hide.
@@ -18,8 +18,8 @@ from pathlib import Path
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_LITTLE_ENDIAN
 
 BASE = Path(r'D:\02_Development_And_Projects\pmca-re')
-VAN = BASE / 'dumps' / 'av-cam.bin.bak'
-INJ = BASE / 'dumps' / 'av-cam.injected.bin'
+VAN = BASE / '.local/dumps' / 'av-cam.bin.bak'
+INJ = BASE / '.local/dumps' / 'av-cam.injected.bin'
 
 FMT = b'ZVE10PATCH: injected code reached sfmc_dec_input'
 SRCNAME = b'av-cam.injected.bin'

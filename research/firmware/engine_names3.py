@@ -53,7 +53,7 @@ import struct
 from collections import Counter, defaultdict
 from pathlib import Path
 
-ENG = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\engine')
+ENG = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\engine')
 
 KNOWN_SIGS = [
     '1b572204010e', '1f0280550208', 'c34c39a70111', '8ac3b3620202',

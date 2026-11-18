@@ -10,7 +10,7 @@
     },
     {
       "path": "research/firmware/yuy2_transport_v24/build.py",
-      "sha256": "f8e3b865ce65f732568f8ab8b59270c59a4513da8eefc7f34bfeaf5a50f73133",
+      "sha256": "29989c1adf29f7368eb1d144e9c9a0eb057c4ec39e2e1a70c211fc8da13d5fa4",
       "hash_mode": "lf-normalized"
     }
   ],

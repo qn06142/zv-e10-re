@@ -32,15 +32,15 @@ import scripts.patch_uvc as patch_uvc
 import scripts.patch_uvc_libraries as pul
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-LIB_USB_CMN_STOCK = REPO_ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libInfraUsbCmn.so"
-LIB_STREAMING_STOCK = REPO_ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libInfraStreamingUsb.so"
-USBG_VIDEO_STOCK = REPO_ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "kmod" / "usbg_video.ko"
+LIB_USB_CMN_STOCK = REPO_ROOT / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libInfraUsbCmn.so"
+LIB_STREAMING_STOCK = REPO_ROOT / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libInfraStreamingUsb.so"
+USBG_VIDEO_STOCK = REPO_ROOT / '.local/dumps' / "camera_2025" / "usr" / "usr" / 'kmod' / "usbg_video.ko"
 
-LIB_USB_CMN_PATCHED = REPO_ROOT / "dumps" / "staged" / "uvc" / "binaries" / "patched" / "libInfraUsbCmn.so"
-LIB_STREAMING_PATCHED = REPO_ROOT / "dumps" / "staged" / "uvc" / "binaries" / "patched" / "libInfraStreamingUsb.so"
+LIB_USB_CMN_PATCHED = REPO_ROOT / '.local/dumps' / "staged" / "uvc" / "binaries" / "patched" / "libInfraUsbCmn.so"
+LIB_STREAMING_PATCHED = REPO_ROOT / '.local/dumps' / "staged" / "uvc" / "binaries" / "patched" / "libInfraStreamingUsb.so"
 
-HOOK_SO = REPO_ROOT / "out" / "uvc_hook.so"
-FILE_PATCH_ELF = REPO_ROOT / "out" / "file_patch.elf"
+HOOK_SO = REPO_ROOT / '.local/out' / "uvc_hook.so"
+FILE_PATCH_ELF = REPO_ROOT / '.local/out' / "file_patch.elf"
 LIVE_SH = REPO_ROOT / "research" / "device" / "apply_uvc_live.sh"
 
 PYTHON_EXE = Path(REPO_ROOT / ".venv" / "Scripts" / "python.exe")
@@ -1187,7 +1187,7 @@ class TestLegacyAndStagedArtifactsIntegrity(unittest.TestCase):
         self.assertEqual(inst_fps, bytes([0x1e, 0x22]), "FPS instruction must match movs r2, #30")
 
     def test_compiled_uvc_hook_elf(self):
-        """Verify out/uvc_hook.so ELF properties if compiled."""
+        """Verify .local/out/uvc_hook.so ELF properties if compiled."""
         self.assertTrue(HOOK_SO.exists(), f"Compiled hook binary not found: {HOOK_SO}")
 
         with open(HOOK_SO, "rb") as f:
@@ -1279,8 +1279,8 @@ class TestLegacyAndStagedArtifactsIntegrity(unittest.TestCase):
             self.assertEqual(ntsc_h, h, f"NTSC height mismatch in mode {mode}")
 
     def test_file_patch_elf_binary(self):
-        """Verify compiled out/file_patch.elf exists and has valid ARM ELF header."""
-        self.assertTrue(FILE_PATCH_ELF.exists(), "out/file_patch.elf must exist")
+        """Verify compiled .local/out/file_patch.elf exists and has valid ARM ELF header."""
+        self.assertTrue(FILE_PATCH_ELF.exists(), ".local/out/file_patch.elf must exist")
         data = FILE_PATCH_ELF.read_bytes()
         self.assertTrue(data.startswith(b"\x7fELF"), "Must have ELF magic")
         self.assertEqual(data[4], 1, "Must be ELFCLASS32")

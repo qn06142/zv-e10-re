@@ -28,8 +28,8 @@ import struct
 import tarfile
 from pathlib import Path
 
-TAR = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\ui.tar')
-OUT = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\app')
+TAR = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\ui.tar')
+OUT = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\app')
 OUT.mkdir(parents=True, exist_ok=True)
 
 

@@ -3,7 +3,7 @@ from pathlib import Path
 from elftools.elf.elffile import ELFFile
 
 HERE = Path(__file__).resolve().parent.parent.parent
-libobj_path = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
+libobj_path = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
 cs = capstone.Cs(capstone.CS_ARCH_ARM, capstone.CS_MODE_THUMB)
 cs.detail = True
 

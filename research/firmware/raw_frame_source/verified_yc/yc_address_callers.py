@@ -1,7 +1,7 @@
 from pathlib import Path
 import array,json
 from capstone import Cs,CS_ARCH_ARM,CS_MODE_THUMB
-b=Path(r'D:/02_Development_And_Projects/pmca-re/dumps/firmware/av-cam.bin').read_bytes();base=0x635c6000;h=array.array('H',b);targets={0x63c6124a:'get_image_data_address'};dec=Cs(CS_ARCH_ARM,CS_MODE_THUMB);hits=[];lines=[]
+b=Path(r'D:/02_Development_And_Projects/pmca-re/.local/dumps/firmware/av-cam.bin').read_bytes();base=0x635c6000;h=array.array('H',b);targets={0x63c6124a:'get_image_data_address'};dec=Cs(CS_ARCH_ARM,CS_MODE_THUMB);hits=[];lines=[]
 for index in range(len(h)-1):
  a,c=h[index],h[index+1]
  if a&0xf800!=0xf000 or c&0xd000 not in [0xd000,0x9000]:continue
@@ -13,4 +13,4 @@ for index in range(len(h)-1):
  at=base+index*2;hits.append(hex(at));lines.append('\nCALL '+hex(at))
  start=max(0,index*2-100)
  for ins in dec.disasm(b[start:index*2+20],base+start):lines.append(f'{ins.address:08x}: {ins.mnemonic:8} {ins.op_str}')
-Path('outputs/yc-source-re-20261025/rtos-yc-address-callers.txt').write_text('\n'.join(lines));Path('outputs/yc-source-re-20261025/rtos-yc-address-callers.json').write_text(json.dumps(hits,indent=2));print(len(hits),'direct constructor callsites');print(hits)
+Path('.local/outputs/yc-source-re-20261025/rtos-yc-address-callers.txt').write_text('\n'.join(lines));Path('.local/outputs/yc-source-re-20261025/rtos-yc-address-callers.json').write_text(json.dumps(hits,indent=2));print(len(hits),'direct constructor callsites');print(hits)

@@ -251,7 +251,7 @@ def deploy_live_patch(width, height, fps, pal_fps, mbps, pid=None):
     if "mem_patch.elf" not in out:
         print("[-] /setting/mem_patch.elf not found on camera! Deploying mem_patch.elf...")
         from research.device.push_opengate import push_file_b64
-        push_file_b64("bin/opengate/mem_patch.elf", "/setting/mem_patch.elf")
+        push_file_b64("scripts/staging/opengate/mem_patch.elf", "/setting/mem_patch.elf")
 
     # 5. Build batch shell script on camera using single-shot cat EOF
     batch_lines = [
@@ -295,9 +295,9 @@ def deploy_overwrite_patch(mode, width, height, fps, pal_fps, mbps, cold_reboot:
     check_out, _ = run(["test -x /setting/file_patch.elf; echo status=$?"])
     if "status=0" not in check_out:
         print("[*] Deploying /setting/file_patch.elf to camera via push_file_b64...")
-        fp_elf = HERE / "dumps" / "staged" / "uvc" / "file_patch.elf"
+        fp_elf = HERE / '.local/dumps' / "staged" / "uvc" / "file_patch.elf"
         if not fp_elf.exists():
-            fp_elf = HERE / "out" / "file_patch.elf"
+            fp_elf = HERE / '.local/out' / "file_patch.elf"
         from research.device.push_opengate import push_file_b64
         ok = push_file_b64(str(fp_elf), "/setting/file_patch.elf")
         if not ok:

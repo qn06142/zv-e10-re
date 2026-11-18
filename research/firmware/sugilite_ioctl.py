@@ -50,7 +50,7 @@ from capstone import CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_LITTLE_ENDIAN, Cs
 from capstone.arm import ARM_OP_IMM, ARM_OP_REG
 from elftools.elf.elffile import ELFFile
 
-KO = pathlib.Path("dumps/camera_2025/usr/usr/kmod/grm_gles.ko")
+KO = pathlib.Path(".local/dumps/camera_2025/usr/usr/kmod/grm_gles.ko")
 FUNC = "sugilite_ioctl"
 
 # _IOC layout, from the kernel's arch/arm/include/uapi/asm/ioctl.h

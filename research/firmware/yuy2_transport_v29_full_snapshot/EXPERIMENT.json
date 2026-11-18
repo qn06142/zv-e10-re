@@ -5,12 +5,12 @@
   "source_inputs": [
     {
       "path": "research/firmware/yuy2_transport_v29_full_snapshot/README.md",
-      "sha256": "083392b63f038dc9435c9299b003cae6b2a0de2f09ec0a505ecf9e6d4846a935",
+      "sha256": "e3e6ec8ec6dcd32230f728aa9852b68d87e9cc7bc88d04a56a30c6ee26fa36ed",
       "hash_mode": "lf-normalized"
     },
     {
       "path": "research/firmware/yuy2_transport_v29_full_snapshot/build.py",
-      "sha256": "0b18d9dd9f2a4067a58fdab3580993992d16898fe45bbb179448521e3b3bc616",
+      "sha256": "82f3d6427fa094d2f55940c3344875b7d369bc449a120a1132b5de33d859703f",
       "hash_mode": "lf-normalized"
     }
   ],

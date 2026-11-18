@@ -3,7 +3,7 @@
 This is the durable replacement for the Ghidra project that used to hold the
 ~120 renamed functions.  Those names existed only inside a Ghidra project that
 was lost with the original machine; they survived as prose in
-avcam_re/RE_STATE.md and avcam_re/pipeline.md.  This module stores them as
+research/avcam/RE_STATE.md and research/avcam/pipeline.md.  This module stores them as
 versioned JSON keyed by FILE OFFSET, and applies them to a rizin project.
 
 Schema (per symbol):

@@ -4,8 +4,8 @@ from elftools.elf.elffile import ELFFile
 import capstone
 
 HERE = Path(__file__).resolve().parent.parent.parent
-lib_dir = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib"
-bin_dir = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "bin"
+lib_dir = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib"
+bin_dir = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / 'bin'
 cs = capstone.Cs(capstone.CS_ARCH_ARM, capstone.CS_MODE_THUMB)
 cs.detail = True
 

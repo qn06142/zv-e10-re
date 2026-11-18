@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from types import SimpleNamespace
+from unittest.mock import patch
 
 
 spec = importlib.util.spec_from_file_location(
@@ -56,10 +58,27 @@ class EvidenceChecks(unittest.TestCase):
             checks.check_evidence(self.root)
 
     def test_generated_artifact_policy(self):
-        for name in ("captures/session/frame.raw", "work/source.c", "research/a/test.exe", "bin/a.so"):
+        for name in (".local/captures/session/frame.raw", "research/captures/frame.raw",
+                     ".local/work/source.c", "research/a/test.exe", "scripts/staging/a.so"):
             self.assertTrue(checks.forbidden_artifact(name), name)
-        for name in ("captures/session/summary.json", "research/a/source.c", "bin/a/README.md"):
+        for name in ("research/captures/session/summary.json", "research/a/source.c", "scripts/staging/a/README.md"):
             self.assertFalse(checks.forbidden_artifact(name), name)
+
+    def test_symbol_migration_finds_notes_independently_of_dump_location(self):
+        from retool import cli
+
+        notes = self.root / "research/avcam"
+        notes.mkdir(parents=True)
+        sources = [notes / name for name in ("RE_STATE.md", "pipeline.md", "OPENGATE_3_2_ANALYSIS.md")]
+        for source in sources:
+            source.write_text("fixture notes")
+        target = SimpleNamespace(path=self.root / "external/input.bin", runtime_base=0)
+        config = SimpleNamespace(root=self.root, symdb_dir=self.root / "research/symbols",
+                                 target=lambda name: target)
+        with patch.object(cli.migrate, "migrate", side_effect=InterruptedError) as migrate:
+            with self.assertRaises(InterruptedError):
+                cli.cmd_migrate(config, "avcam")
+        self.assertEqual(migrate.call_args.args[1], sources)
 
 
 if __name__ == "__main__":

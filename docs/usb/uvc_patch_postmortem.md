@@ -31,7 +31,7 @@ This post-mortem documents the comprehensive forensic audit of the six distinct 
 | **3** | Bitrate Scaling Unit Misinterpretation | Encoder locked at 30 Mbps; potential USB Bulk bandwidth saturation | `libInfraStreamingUsb.so` (`0x908E`), `batch_patch_uvc.py` | **HIGH** |
 | **4** | Upstream `set_path_sync` Zero Height Parameter | Mismatched frame aspect; hardware JPEG encoder timeout (`0x33E`) | `libInfraStreamingUsb.so` (`0x8EB2`), BIONZ X ISP | **CRITICAL** |
 | **5** | Direct Memory Management (DMM) Pool Exhaustion | Allocation failure `0x1D5`; stream start abort | `libInfraStreamingUsb.so` (`0x9534`), `dmm.ko` | **HIGH** |
-| **6** | Artificial Staged Stock Differences | False baseline divergence; regression in stock verification | `dumps/staged/uvc/binaries/stock/` | **MEDIUM** |
+| **6** | Artificial Staged Stock Differences | False baseline divergence; regression in stock verification | `.local/dumps/staged/uvc/binaries/stock/` | **MEDIUM** |
 
 ---
 
@@ -90,7 +90,7 @@ $$\text{wTotalLength} = \sum \text{Length of all descriptors in the VS interface
 If `wTotalLength` does not match the actual byte count transmitted, or if subordinate descriptors are truncated before `wTotalLength` is fulfilled, host USB class drivers (`usbvideo.sys`, `uvcvideo`, `AppleUSBVideoSupport`) reject the device configuration.
 
 ### 3.2 Genuine Binary Descriptor Layout in `libInfraUsbCmn.so`
-In stock `dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so`, the descriptors are stored in `.rodata`:
+In stock `.local/dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so`, the descriptors are stored in `.rodata`:
 
 #### PAL Descriptor Cluster (`0x12537` – `0x12573`):
 ```
@@ -125,7 +125,7 @@ Furthermore, prior research documentation (`survey_failures.md`) published incor
 > *Flawed Claim*: Registration table length fields are located at `0x14AB4` (PAL) and `0x14DB4` (NTSC).
 
 #### Forensic Disproof of Prior Table Offsets:
-Direct analysis of `dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so` reveals the true table structure:
+Direct analysis of `.local/dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so` reveals the true table structure:
 
 ```
 PAL Registration Table:
@@ -329,11 +329,11 @@ The BIONZ X Linux kernel reserves fixed DMA-coherent physical pools defined in `
 
 ## 8. Bug 6: Forensic Audit of Artificial Staged Stock Differences
 
-During repository inspection, comparing genuine factory dump `dumps/camera_2025/usr/usr/lib/` against `dumps/staged/uvc/binaries/stock/` revealed artificial divergences introduced by earlier patching scripts:
+During repository inspection, comparing genuine factory dump `.local/dumps/camera_2025/usr/usr/lib/` against `.local/dumps/staged/uvc/binaries/stock/` revealed artificial divergences introduced by earlier patching scripts:
 
 1. **`libInfraUsbCmn.so`**:
    - The stock dump had PAL bitrate `0x15F90000` (368.64 Mbps) and NTSC bitrate `0x1A5E0000` (442.368 Mbps).
-   - In `dumps/staged/uvc/binaries/stock/libInfraUsbCmn.so`, both bitrates were overwritten with `0x01C9C380` (30.0 Mbps).
+   - In `.local/dumps/staged/uvc/binaries/stock/libInfraUsbCmn.so`, both bitrates were overwritten with `0x01C9C380` (30.0 Mbps).
 2. **`libInfraStreamingUsb.so`**:
    - Stock dump had `4f f4 96 73` (`mov.w r3, #300`).
    - Staged stock had `40 f2 2c 13` (`movw r3, #300`).
@@ -341,7 +341,7 @@ During repository inspection, comparing genuine factory dump `dumps/camera_2025/
 These divergences occurred because previous scripts generated "stock" mode by running their generic encoder over factory binaries instead of preserving genuine factory dumps.
 
 **Standard Established**:
-The single authoritative ground-truth reference for stock binaries is strictly `dumps/camera_2025/usr/usr/lib/`.
+The single authoritative ground-truth reference for stock binaries is strictly `.local/dumps/camera_2025/usr/usr/lib/`.
 
 ---
 
@@ -450,7 +450,7 @@ To permanently prevent future regressions, the following engineering rules are e
    - Modifications in `VideoEsManager::video_stream_start` must modify only scratch registers (`r0-r3`, `ip`).
    - Registers `r4-r11`, `sp`, and `lr` must never be clobbered.
 5. **Authoritative Stock Hash Verification**:
-   - All patching scripts must cryptographically verify source binaries against the genuine factory dumps in `dumps/camera_2025/usr/usr/lib/` before applying any patch.
+   - All patching scripts must cryptographically verify source binaries against the genuine factory dumps in `.local/dumps/camera_2025/usr/usr/lib/` before applying any patch.
 6. **Programmatic Verification with Capstone**:
    - Every opcode patch must be disassembled and checked for valid mnemonics, operands, and branch targets before generating binary outputs.
 

@@ -1,7 +1,7 @@
 import capstone
 from pathlib import Path
 
-p = Path(__file__).resolve().parent.parent.parent / "dumps/camera_2025/usr/usr/lib/libmpr.so"
+p = Path(__file__).resolve().parent.parent.parent / ".local/dumps/camera_2025/usr/usr/lib/libmpr.so"
 raw = p.read_bytes()
 cs = capstone.Cs(capstone.CS_ARCH_ARM, capstone.CS_MODE_THUMB)
 cs.skipdata = True

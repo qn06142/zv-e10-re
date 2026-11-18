@@ -2,7 +2,7 @@ from pathlib import Path
 import re
 
 HERE = Path(__file__).resolve().parent.parent.parent
-avcam_path = HERE / "dumps" / "av-cam.bin"
+avcam_path = HERE / '.local/dumps' / "av-cam.bin"
 data = avcam_path.read_bytes()
 
 keywords = ["ScanMode", "Aspect", "ImageArea", "MovieSize", "StillSize", "SensorMode", "TvScan", "Readout", "Crop"]

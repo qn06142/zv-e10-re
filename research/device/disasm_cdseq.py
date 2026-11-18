@@ -1,4 +1,4 @@
-with open('dumps/av-cam.bin', 'rb') as f:
+with open('.local/dumps/av-cam.bin', 'rb') as f:
     av = f.read()
 import capstone
 

@@ -13,7 +13,7 @@ This is an **offline-verified RAM patch candidate**, not demonstrated camera out
 
 ## Build and verify offline
 
-Requirements: the project's Python environment with Capstone, Keystone, Unicorn and pyelftools, ARM GCC at `C:\msys64\ucrt64\bin\arm-none-eabi-gcc.exe` (override `--cc`), original camera dump, and `build_sysroot/lib` from the inspected camera.
+Requirements: the project's Python environment with Capstone, Keystone, Unicorn and pyelftools, ARM GCC at `C:\msys64\ucrt64\bin\arm-none-eabi-gcc.exe` (override `--cc`), original camera dump, and `.local/build_sysroot/lib` from the inspected camera.
 
 This patch explicitly targets the **checked-startup streaming candidate**, MD5 `19461091c07aa6900829defb0060fcd6`. Its start prologue differs from stock. Use the already generated candidate, or generate it with `research/firmware/patch_uvc_encoder_workspace.py`; do not replace the required image with stock or an old width-only patch. Common-library baseline is stock MD5 `31308976206a837f6f5c571992d2b499`.
 

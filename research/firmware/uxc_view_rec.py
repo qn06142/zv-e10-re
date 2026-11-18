@@ -40,7 +40,7 @@ from pathlib import Path
 
 CANDIDATES = [
     Path(r'F:\RE_DUMP\TREES\usr_share.tgz'),
-    Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz'),
+    Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share_app.tgz'),
 ]
 VIEW_MARKERS = [
     (bytes([0x1b, 0x57, 0x22, 0x04, 0x01, 0x0e, 0x08]), '1b572204010e08'),

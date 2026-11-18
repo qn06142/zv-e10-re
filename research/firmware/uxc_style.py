@@ -36,7 +36,7 @@ from pathlib import Path
 
 TGZ_CANDIDATES = [
     Path(r'F:\RE_DUMP\TREES\usr_share.tgz'),   # the card, when it is attached
-    Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz'),
+    Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share_app.tgz'),
 ]
 
 

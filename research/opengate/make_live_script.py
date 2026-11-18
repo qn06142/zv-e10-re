@@ -49,7 +49,7 @@ lines.append('echo "[+] FULL ASTRA OPEN GATE 3:2 LIVE PATCH COMPLETE!"')
 lines.append('echo "==================================================="')
 
 script_content = '\n'.join(lines) + '\n'
-with open('out/apply_full_opengate.sh', 'w', newline='\n') as f:
+with open('.local/out/apply_full_opengate.sh', 'w', newline='\n') as f:
     f.write(script_content)
 
-print(f'Generated out/apply_full_opengate.sh ({len(script_content)} bytes)')
+print(f'Generated .local/out/apply_full_opengate.sh ({len(script_content)} bytes)')

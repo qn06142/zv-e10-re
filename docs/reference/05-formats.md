@@ -8,7 +8,7 @@ files rather than assumed, and the container arithmetic is verified across all
 byte-exact round trip does **not** prove its field boundaries are right. See
 [Negative results](#negative-results) below.
 
-All sizes below are the real files in `dumps/camera/app/`.
+All sizes below are the real files in `.local/dumps/camera/app/`.
 
 ## The UXC container header
 

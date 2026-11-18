@@ -5,7 +5,7 @@
   "source_inputs": [
     {
       "path": "research/firmware/yuy2_transport_v31_vga_init_fix/README.md",
-      "sha256": "0f543e0bf0d98c9f45d7dc29164183f73bb0cc5a951990cfad7e221750f93355",
+      "sha256": "b57bdeacc5c4e6b0bede6085ba377c9d0a8b579635541be0dbb6616be483e273",
       "hash_mode": "lf-normalized"
     }
   ],

@@ -4,7 +4,7 @@ from elftools.elf.elffile import ELFFile
 import capstone
 
 HERE = Path(__file__).resolve().parent.parent.parent
-p = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
+p = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
 
 def rot(w):
     imm8 = w & 0xFF

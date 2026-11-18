@@ -39,7 +39,7 @@ from pathlib import Path
 
 ROOT_REPO = pathlib.Path(__file__).resolve().parents[2]
 
-TGZ = ROOT_REPO / 'dumps' / 'camera_2025' / 'usr_share_app.tgz'
+TGZ = ROOT_REPO / '.local/dumps' / 'camera_2025' / 'usr_share_app.tgz'
 DESC_WORDS = [(0, 0x7e, 'hi'), (1, 0, '0'), (2, 0, '0'), (3, 2, '2'),
               (4, 0, '0'), (5, 9, '9'), (6, 0, '0'), (7, 0x38, '38')]
 

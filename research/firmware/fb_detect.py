@@ -15,7 +15,7 @@ positions per stride is ample to expose a correlation minimum.
 from collections import Counter
 from pathlib import Path
 
-D = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera')
+D = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera')
 NAMES = [('fb0', 0x20312000), ('fb1', 0x3F7ED000), ('fb2', 0x3E753000)]
 NS = 1500
 

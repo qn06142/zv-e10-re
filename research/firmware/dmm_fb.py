@@ -15,7 +15,7 @@ import re
 import struct
 from pathlib import Path
 
-b = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\DmmConfig.bin').read_bytes()
+b = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\DmmConfig.bin').read_bytes()
 N = len(b)
 
 print('=== 1. does the file mention the aperture we already know? ===')

@@ -1,7 +1,7 @@
 # Credits
 
 This repository exists because other people built the things it stands on. The
-ZV-E10-specific reverse engineering in `docs/`, `avcam_re/` and `research/` is the
+ZV-E10-specific reverse engineering in `docs/`, `research/avcam/` and `research/` is the
 new work.
 
 **This file credits two different categories, and they are not the same thing:**
@@ -33,7 +33,7 @@ Carried over from upstream:
 | `updatershell/*.c`, `*.cpp`, `*.h`, `Makefile` | the native firmware-update shell |
 | `updatershell/fdat/*.dat`, `updatershell/fdat/CXD*/*.hdr` | 12 firmware descriptors and ~70 per-model headers from Sony's PC updater |
 | `pmca-console.py`, `pmca-gui.py`, `*.spec`, `config.py` | entry points and packaging |
-| `certs/localtest.me.pem` | a public certificate for the `localtest.me` domain |
+| `pmca/resources/certs/localtest.me.pem` | a public certificate for the `localtest.me` domain |
 | `.travis.yml`, `appveyor.yml`, `.github/workflows/` | upstream's CI, including its encrypted deploy tokens |
 | `requirements.txt`, `reconf.toml`, `build.spec` | packaging |
 
@@ -95,7 +95,7 @@ ancestor of the unpacking and analysis in this repo. `fwtool.py`'s own README
 states it was *"originally ported from nex-hack's fwtool"*, so the lineage is
 explicit and acknowledged upstream as well as here. Its `fwtool` unpacking and
 the `av-cam` firmware structure are the direct ancestors of the carving and
-format work in `research/firmware/` and the findings in `avcam_re/`.
+format work in `research/firmware/` and the findings in `research/avcam/`.
 
 **[`steelcnn/nex-hack`](https://github.com/steelcnn/nex-hack)** — credited by
 handle; we did not establish a real name and are not guessing. A separate copy
@@ -118,7 +118,7 @@ see [`docs/reference/09-provenance.md`](docs/reference/09-provenance.md) for the
 for the regeneration recipes. The `updatershell/fdat/` files are the one
 exception, and they predate this project: they came with upstream's MIT release.
 
-`dumps/`, `fw/`, `udtrbody_extract/`, `/usr/share/app` UI resources and the
+`.local/dumps/`, `fw/`, `.local/udtrbody_extract/`, `/usr/share/app` UI resources and the
 camera's binaries are all git-ignored and were never committed.
 
 ---
@@ -129,7 +129,7 @@ camera's binaries are all git-ignored and were never committed.
 agents.** Four were used, in combination: **Hermes Agent**, **OpenCode**,
 **Antigravity** and **Codex**. A substantial share of the analysis, the scripts,
 the documentation and the refactors were agent-written, including
-`research/firmware/*.py`, `docs/**`, `avcam_re/**`, `retool/**` and the tooling
+`research/firmware/*.py`, `docs/**`, `research/avcam/**`, `retool/**` and the tooling
 that verifies the rest.
 
 No part of this is a reason to distrust the results without checking, and no part

@@ -13,9 +13,9 @@ import sys
 from elftools.elf.elffile import ELFFile
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent.parent
-LIB_USB_CMN = REPO_ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libInfraUsbCmn.so"
-VMLINUX = REPO_ROOT / "dumps" / "firmware" / "vmlinux.bin"
-AVCAM = REPO_ROOT / "dumps" / "firmware" / "av-cam.bin"
+LIB_USB_CMN = REPO_ROOT / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libInfraUsbCmn.so"
+VMLINUX = REPO_ROOT / '.local/dumps' / "firmware" / "vmlinux.bin"
+AVCAM = REPO_ROOT / '.local/dumps' / "firmware" / "av-cam.bin"
 
 
 def verify_kernel_dwc3(results: dict):

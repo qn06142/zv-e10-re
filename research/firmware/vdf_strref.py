@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from thumb import mkdis, dis1, walk, calls_of, is_prologue                 # noqa: E402
 
 BASE = 0x635C6000
-av = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\av-cam.bin.bak').read_bytes()
+av = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\av-cam.bin.bak').read_bytes()
 N = len(av)
 TEXT_END = 0xAED000
 md = mkdis()

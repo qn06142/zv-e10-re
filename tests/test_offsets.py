@@ -1,12 +1,12 @@
 """Tests for retool.offsets -- the decoders, against av-cam.bin itself.
 
-Every assertion below is anchored to a real instruction in dumps/av-cam.bin whose
+Every assertion below is anchored to a real instruction in .local/dumps/av-cam.bin whose
 disassembly is known, rather than to a hand-derived expectation.  That matters
 because three of these decoders were got wrong at least once during the RE and the
 wrong version agreed with itself.
 
 The image-dependent tests skip if the dump is absent, so the suite still runs in a
-checkout without dumps/.
+checkout without .local/dumps/.
 """
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from retool import offsets  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
-DUMP = ROOT / "dumps" / "av-cam.bin"
+DUMP = ROOT / '.local/dumps' / "av-cam.bin"
 needs_dump = pytest.mark.skipif(not DUMP.is_file(), reason="av-cam.bin not present")
 
 
@@ -122,7 +122,7 @@ def test_movw_movt():
 
 @needs_dump
 def test_validator_bytes_decode_as_documented(data):
-    """The three instructions quoted in avcam_re/MOTION_SHOT.md."""
+    """The three instructions quoted in research/avcam/MOTION_SHOT.md."""
     assert offsets.ldr_str_offset(hw(data, 0x317128), hw(data, 0x31712A)) == \
         ("ldr", 5, 3, 0x10C)
     cond, tgt = offsets.branch_target(hw(data, 0x31712E), 0x31712E)

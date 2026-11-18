@@ -4,7 +4,7 @@ User's clarified sequence: USB Streaming initially entered successfully, OBS rec
 
 ## Retrieved evidence
 
-One authenticated service session preserved 16 files / 6,232,824 bytes, all camera snapshot MD5 verified, with SHA256 values in download-verification.json. Local archive outputs/vga-v36/crash-20261029-01/. Runtime 269B, VGA log5635B, system AccessLog.dat/.bak, ThreadMonitor, kikilog and uipc stats, dmesg, maps/status, uptime/boot ID, memory, mounts, hashes and storage retained. Module c2e06b5a7a9f1361c4fb2a087d5e8fe2 and wrapper886445056d2eba99ef62df3a9def5e0f still match3.6. Initial recovered uptime51.77s; no streaming/probe maps remained in recovered im.elf. This does not reconstruct precrash mappings or identify which crash a log belongs to.
+One authenticated service session preserved 16 files / 6,232,824 bytes, all camera snapshot MD5 verified, with SHA256 values in download-verification.json. Local archive .local/outputs/vga-v36/crash-20261029-01/. Runtime 269B, VGA log5635B, system AccessLog.dat/.bak, ThreadMonitor, kikilog and uipc stats, dmesg, maps/status, uptime/boot ID, memory, mounts, hashes and storage retained. Module c2e06b5a7a9f1361c4fb2a087d5e8fe2 and wrapper886445056d2eba99ef62df3a9def5e0f still match3.6. Initial recovered uptime51.77s; no streaming/probe maps remained in recovered im.elf. This does not reconstruct precrash mappings or identify which crash a log belongs to.
 
 ## What survived
 

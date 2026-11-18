@@ -1,6 +1,6 @@
 from elftools.elf.elffile import ELFFile
 
-with open('dumps/staged/audit/liro.ko', 'rb') as f:
+with open('.local/dumps/staged/audit/liro.ko', 'rb') as f:
     elf = ELFFile(f)
     print('liro.ko ELF type:', elf['e_type'])
     print('Sections:')

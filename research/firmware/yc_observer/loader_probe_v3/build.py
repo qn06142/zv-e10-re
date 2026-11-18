@@ -11,7 +11,7 @@ subprocess.run([a.cc,'-mcpu=cortex-a5','-marm','-mfloat-abi=soft','-mfpu=vfpv4-d
  '-fno-tree-vectorize','-fno-tree-slp-vectorize','-O2','-fno-builtin','-fno-stack-protector',
  '-fPIC','-fvisibility=hidden','-shared','-nostdlib',
  '-Wl,--hash-style=sysv,-soname,yc_probe_v3.so,--no-undefined',
- f'-L{a.repo}/build_sysroot/lib',f'-Wl,-rpath-link,{a.repo}/build_sysroot/lib',
+ f'-L{a.repo}/.local/build_sysroot/lib',f'-Wl,-rpath-link,{a.repo}/.local/build_sysroot/lib',
  '-o',str(module),str(Path(__file__).with_name('yc_probe_v3.c')),
  '-l:libc.so.6','-l:libdl.so.2','-lgcc'],check=True)
 b=module.read_bytes();result={'bytes':len(b),'md5':hashlib.md5(b).hexdigest(),

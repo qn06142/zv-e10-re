@@ -7,7 +7,7 @@ from pathlib import Path
 
 CARD = Path(r'F:\tools')
 CARD.mkdir(parents=True, exist_ok=True)
-SRC = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camtools')
+SRC = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camtools')
 
 FILES = ['busybox-armhf', 'busybox-armel']
 
@@ -57,7 +57,7 @@ for n in FILES:
 )
 
 print()
-print('=== card tools/ ===')
+print('=== card scripts/tools/ ===')
 for p in sorted(CARD.iterdir()):
     print('  %-18s %9d B' % (p.name, p.stat().st_size))
 print()

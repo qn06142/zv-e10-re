@@ -9,7 +9,7 @@ The supplied team's report contains useful binary findings, but its claims of pr
 ## Reproducible binary facts
 
 Original `usbg_video.ko` MD5: `5b59c2e62c80683d754955ab5de0467d`.
-`work/audit_uvc_delivery.py` records SHA-256, constants and bounded execution results in `binary-audit.json`. Tests execute original ARM instruction fragments with simulated state; they do not emulate USB hardware.
+`.local/work/audit_uvc_delivery.py` records SHA-256, constants and bounded execution results in `binary-audit.json`. Tests execute original ARM instruction fragments with simulated state; they do not emulate USB hardware.
 
 | Contract | Kernel behavior | Prototype requirement |
 |---|---|---|
@@ -36,7 +36,7 @@ Probe/commit responses are generated in the kernel. Some class requests also dis
 3. **Missing EOF is not a proven root cause.** Header arithmetic at `0xf44` does produce `0x8c/0x8d`, with EOF clear. However, the official UVC 1.1 class specification, Table 2-5, PDF printed page 31, describes EOF as optional for all payload formats. Its section 2.4.3.7 also describes FID with optional EOF for frame-based formats. The uncompressed supplement section 2.4 describes EOF semantics but does not contain the report's quoted MUST sentence. There is no saved evidence establishing the asserted Windows discard loop. Setting EOF on the final payload is reasonable interoperability work, but cannot be called a demonstrated fix.
 4. **Maximum frame size is not an exact-length completion requirement.** A stale maximum is a negotiation mismatch, but the assertion that DirectShow must wait for 14.75 MB does not follow from its meaning as a maximum. `dwMaxVideoFrameSize` must describe pixel bytes, **614,400**, excluding UVC headers; `614,412` is not an interchangeable alternative.
 5. **Evidence revisions were conflated.** The recovered 180-submission runtime log is revision 2.1. Revision 2.2 has verified RAM bootstrap readback and a zero-byte host capture, but its runtime/application logs have not been retrieved. Do not attribute revision 2.1 counters to revision 2.2.
-6. **Exit 124 is the harness timeout.** `work/capture_yuy2_v22.py` kills the stalled process after 25 seconds and records 124; this is not a demonstrated internal FFmpeg or DirectShow timeout/error diagnosis.
+6. **Exit 124 is the harness timeout.** `.local/work/capture_yuy2_v22.py` kills the stalled process after 25 seconds and records 124; this is not a demonstrated internal FFmpeg or DirectShow timeout/error diagnosis.
 
 ## Implication for the next patch
 
@@ -49,7 +49,7 @@ Instrument kernel queue results, DMA result, completion status and actual/expect
 
 ## Sources and verification
 
-- Sony kernel and library disassemblies under local `outputs/offline-uvc-re/` and `outputs/raw-usb-investigation/`.
-- Original ARM fragment checks: `python -B work/audit_uvc_delivery.py`; all assertions pass. Mock literals resolve only bounded state accesses, as marked in source.
-- [Official USB-IF UVC 1.1 document set](https://www.usb.org/sites/default/files/USB_Video_Class_1_1_090711.zip), downloaded locally as `outputs/USB_Video_Class_1_1_090711.zip`. Extracted reference text is in this audit directory. Class spec Table 2-5, sections 2.4.3.7 and 4.3.1.1; Uncompressed Payload sections 2.4 and 3.2.
-- Preserved revision 2.1 runtime: `outputs/yuy2-640-v21/deployment/camera-first-attempt/runtime.log`; revision 2.2 evidence state: `outputs/yuy2-640-v22/deployment/deployment-state.json`.
+- Sony kernel and library disassemblies under local `.local/outputs/offline-uvc-re/` and `.local/outputs/raw-usb-investigation/`.
+- Original ARM fragment checks: `python -B .local/work/audit_uvc_delivery.py`; all assertions pass. Mock literals resolve only bounded state accesses, as marked in source.
+- [Official USB-IF UVC 1.1 document set](https://www.usb.org/sites/default/files/USB_Video_Class_1_1_090711.zip), downloaded locally as `.local/outputs/USB_Video_Class_1_1_090711.zip`. Extracted reference text is in this audit directory. Class spec Table 2-5, sections 2.4.3.7 and 4.3.1.1; Uncompressed Payload sections 2.4 and 3.2.
+- Preserved revision 2.1 runtime: `.local/outputs/yuy2-640-v21/deployment/camera-first-attempt/runtime.log`; revision 2.2 evidence state: `.local/outputs/yuy2-640-v22/deployment/deployment-state.json`.

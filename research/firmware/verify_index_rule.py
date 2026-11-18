@@ -42,7 +42,7 @@ import tarfile
 from collections import Counter
 from pathlib import Path
 
-TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz')
+TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share_app.tgz')
 
 
 def u16(b, o):

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Generate Pre-Patched UVC Webcam Shared Libraries for Sony ZV-E10
-Surgically patches dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so and libInfraStreamingUsb.so
+Surgically patches .local/dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so and libInfraStreamingUsb.so
 for all modes: 1080p, 1080p60, opengate (3.2K), 2k_opengate, stock.
 """
 
@@ -17,9 +17,9 @@ sys.path[:0] = [str(REPO_ROOT)]
 
 import batch_patch_uvc as bpu
 
-STOCK_CMN_PATH = REPO_ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libInfraUsbCmn.so"
-STOCK_STREAM_PATH = REPO_ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libInfraStreamingUsb.so"
-OUT_BASE = REPO_ROOT / "dumps" / "staged" / "uvc" / "binaries"
+STOCK_CMN_PATH = REPO_ROOT / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libInfraUsbCmn.so"
+STOCK_STREAM_PATH = REPO_ROOT / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libInfraStreamingUsb.so"
+OUT_BASE = REPO_ROOT / '.local/dumps' / "staged" / "uvc" / "binaries"
 
 # Modes configuration
 MODES = {
@@ -89,7 +89,7 @@ def main():
     print("=================================================================")
 
     if not STOCK_CMN_PATH.exists() or not STOCK_STREAM_PATH.exists():
-        print("[-] Error: Stock libraries not found in dumps/camera_2025/!")
+        print("[-] Error: Stock libraries not found in .local/dumps/camera_2025/!")
         sys.exit(1)
 
     for mode, (w, h, fps, pal_fps, mbps) in MODES.items():
@@ -111,7 +111,7 @@ def main():
         print(f"    -> libInfraUsbCmn.so:       MD5={md5_cmn} ({len(cmn_data)} B)")
         print(f"    -> libInfraStreamingUsb.so: MD5={md5_stream} ({len(stream_data)} B)")
 
-    print("\n[+] All modes generated successfully in dumps/staged/uvc/binaries/!")
+    print("\n[+] All modes generated successfully in .local/dumps/staged/uvc/binaries/!")
 
 
 if __name__ == "__main__":

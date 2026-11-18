@@ -16,7 +16,7 @@ MAGENTA_MD5 = "c169428ea6ef0e924235164a0b33e528"
 BLUE_MD5 = "9474c2846a1a952179a2408018ff0295"
 
 HERE = Path(__file__).resolve().parent
-STAGED_PALETTE = HERE / "dumps" / "staged" / "palette"
+STAGED_PALETTE = HERE / '.local/dumps' / "staged" / "palette"
 
 try:
     import research.device.zve10_retry as zve10

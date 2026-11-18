@@ -1,6 +1,6 @@
 """
 Transfer & Deploy UVC Webcam Hijack Patch to Live Sony ZV-E10 Camera
-Transfers out/uvc_hook.so, config, and apply_uvc_live.sh via base64 chunks directly to /setting/
+Transfers .local/out/uvc_hook.so, config, and apply_uvc_live.sh via base64 chunks directly to /setting/
 """
 
 import base64
@@ -50,12 +50,12 @@ def main():
     print("==========================================================")
 
     # 1. Push uvc_hook.so
-    so_ok = push_file_b64("out/uvc_hook.so", "/setting/uvc_hook.so")
+    so_ok = push_file_b64(".local/out/uvc_hook.so", "/setting/uvc_hook.so")
     if not so_ok:
         sys.exit(1)
 
     # 2. Push uvc.conf
-    conf_ok = push_file_b64("dumps/staged/uvc/uvc.conf", "/setting/uvc.conf")
+    conf_ok = push_file_b64(".local/dumps/staged/uvc/uvc.conf", "/setting/uvc.conf")
     if not conf_ok:
         sys.exit(1)
 

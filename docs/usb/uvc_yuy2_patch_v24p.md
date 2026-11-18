@@ -30,7 +30,7 @@ This proves the tested client close/idle/reopen and OBS sequence, not sustained 
 
 ## Evidence and verification
 
-Session root: `C:/Users/qn061/Documents/Codex/2026-10-22/chec`. Artifacts: `outputs/yuy2-640-v24p/candidate/` and `deployment/`. Final streaming artifact is **`libInfraStreamingUsb.persistent.so`**; earlier similarly named `libInfraStreamingUsb.so` is superseded and was not installed.
+Session root: `C:/Users/qn061/Documents/Codex/2026-10-22/chec`. Artifacts: `.local/outputs/yuy2-640-v24p/candidate/` and `deployment/`. Final streaming artifact is **`libInfraStreamingUsb.persistent.so`**; earlier similarly named `libInfraStreamingUsb.so` is superseded and was not installed.
 
 Offline: 54 compiled producer/activation cases, 11 ELF/PIC checks, 14 kernel checks, all pass (79). Tests include PIC success/failure at three arbitrary bases, dormant mapping, and idempotent activation. Target LD_TRACE_LOADED_OBJECTS with LD_BIND_NOW resolved the staged producer and activation import. Original standalone library has 66 unresolved application imports, candidate 32, no new unresolved symbols; normal im.elf supplies these globals. Trace is not proof of standalone execution.
 

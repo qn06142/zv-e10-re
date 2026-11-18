@@ -51,9 +51,9 @@ completed image are still unverified. The file is still only the first 614400
 bytes of the native allocation. The binary and its SHA-256 are unchanged.
 
 Verification scripts/reports, if the shared workspace is available:
- work/native-dmm-v28/verify_provenance.py
- outputs/native-dmm-v28/provenance/vef295-allocation-metadata-verification.json
- outputs/native-dmm-v28/provenance/installed-firmware-region-verification.json
+ .local/work/native-dmm-v28/verify_provenance.py
+ .local/outputs/native-dmm-v28/provenance/vef295-allocation-metadata-verification.json
+ .local/outputs/native-dmm-v28/provenance/installed-firmware-region-verification.json
 
 -----------------------------------------------------------------------
 ORIGINAL CAPTURE HANDOFF (retained below)

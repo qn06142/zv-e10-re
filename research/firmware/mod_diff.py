@@ -1,6 +1,6 @@
 """What did the mod actually change?
 
-vanilla = dumps/av-cam.bin.bak          (md5 cdcae9d4...)
+vanilla = .local/dumps/av-cam.bin.bak          (md5 cdcae9d4...)
 modded  = F:/restore/av-cam.modded.bin  (md5 3c883661...)
 
 The user's report: the ONLY regression was video playback. Everything else
@@ -11,7 +11,7 @@ import hashlib
 from pathlib import Path
 
 N = 17_289_388
-VAN = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\av-cam.bin.bak')
+VAN = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\av-cam.bin.bak')
 MOD = Path(r'F:\restore\av-cam.modded.bin')
 
 a = VAN.read_bytes()

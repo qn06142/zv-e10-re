@@ -5,7 +5,7 @@
   "source_inputs": [
     {
       "path": "research/firmware/yuy2_transport_v36_single_snapshot/README.md",
-      "sha256": "424a3c93a271fb1530eb14be967d13ddc293da88d202f99cfac0f7fb39acccb2",
+      "sha256": "c714bb536daf368c01b1a1f2d8649cfaa7d77090452c862544076fc1634ac8bc",
       "hash_mode": "lf-normalized"
     }
   ],

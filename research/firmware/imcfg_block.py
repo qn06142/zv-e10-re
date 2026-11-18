@@ -44,7 +44,7 @@ import struct
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-LIBOBJ = ROOT / "dumps" / "engine" / "libObj.so"
+LIBOBJ = ROOT / '.local/dumps' / "engine" / "libObj.so"
 
 # device-name families, so the table can be grouped rather than listed flat
 FAMILIES = [

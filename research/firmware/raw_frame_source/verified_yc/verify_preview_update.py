@@ -1,9 +1,9 @@
 from pathlib import Path
-Path("outputs/yc-live-20261026").mkdir(parents=True,exist_ok=True)
+Path(".local/outputs/yc-live-20261026").mkdir(parents=True,exist_ok=True)
 import struct,json,hashlib
 from unicorn import *
 from unicorn.arm_const import *
-B=Path(r'D:/02_Development_And_Projects/pmca-re/dumps/firmware/av-cam.bin').read_bytes();BASE=0x635c6000
+B=Path(r'D:/02_Development_And_Projects/pmca-re/.local/dumps/firmware/av-cam.bin').read_bytes();BASE=0x635c6000
 assert hashlib.md5(B).hexdigest()=='cdcae9d4fdbf66a33704a4c7564e346d'
 u=Uc(UC_ARCH_ARM,UC_MODE_THUMB);u.mem_map(BASE,(len(B)+4095)&~4095);u.mem_write(BASE,B)
 for a,n in [(0x40000000,0x20000),(0x50000000,0x2000),(0x60000000,0x20000)]:u.mem_map(a,n)
@@ -47,4 +47,4 @@ for width,height,content in [(640,480,2),(640,480,1),(640,480,0),(1920,1080,2),(
  else:assert rows[-1]['canvas_size_y']==height//2 and m[0x31]==0
  assert result==0 and final[165]==1
 report=dict(actual_Sony_function_executed='0x6372f54c VdfInputCmdUpdateYuvPin::changeSSYCData',stubs=sorted(set(stubcalls)),real_native_SDS_parser_and_geometry_lookup_executed=True,camera_access=False,pixel_packing_proved=False,cases=rows)
-Path('outputs/yc-live-20261026/preview-metadata-execution.json').write_text(json.dumps(report,indent=2))
+Path('.local/outputs/yc-live-20261026/preview-metadata-execution.json').write_text(json.dumps(report,indent=2))

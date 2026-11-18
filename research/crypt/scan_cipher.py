@@ -8,7 +8,7 @@ FW = os.path.join(ROOT, "fw")
 targets = ["av-cam.bin","vmlinux.bin","initrd.img","bonobo.bin","dfe_dat.bin",
            "dfe_app.bin","ldr_drv.bin","lif_app.bin","wole_app.bin","bt_firm.hcd"]
 # also kernel module we pulled
-MODS = [os.path.join(ROOT,"kmod","osal_uipc.ko")]
+MODS = [os.path.join(ROOT,'.local/kmod',"osal_uipc.ko")]
 
 patterns = [rb"AES", rb"aes", rb"AES128", rb"AES256", rb"AES-", rb"DES", rb"3DES",
             rb"blowfish", rb"BLOWFISH", rb"twofish", rb"TWOFISH", rb"rijndael", rb"RIJNDAEL",

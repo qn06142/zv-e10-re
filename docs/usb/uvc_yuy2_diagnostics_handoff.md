@@ -12,7 +12,7 @@ To prevent conflation of experimental results, the observations from the 22 Octo
 - **Test Objective:** Validate synthetic 640×480 YUY2 at 10 fps via the in-memory RAM prototype (`yuy2_640.so`).
 - **Observed Behavior:**
   - The camera remained fully responsive and enumerated normally as a USB Video Class (UVC) device on Windows.
-  - FFmpeg successfully probed and recognized DirectShow media format `rawvideo` / `yuyv422` at 640×480, 10 fps (`outputs/yuy2-640/evidence/ffmpeg-formats-01.log`).
+  - FFmpeg successfully probed and recognized DirectShow media format `rawvideo` / `yuyv422` at 640×480, 10 fps (`.local/outputs/yuy2-640/evidence/ffmpeg-formats-01.log`).
   - Upon issuing a 10-frame capture command (`ffmpeg-capture-01.log`), the host application waited 25 seconds for video bulk transfers.
   - **Result:** Exact 25-second timeout with **zero frames (0 bytes) received**.
   - **Mechanism (Now Established):** The prototype failed source allocation, latched `init_error = 21`, and entered an infinite 10 Hz error loop where return code 4 was discarded by the worker thread. No start completion event was ever dispatched to the state machine or host.
@@ -23,7 +23,7 @@ To prevent conflation of experimental results, the observations from the 22 Octo
   - Sequential capture for subsystem 131 was armed into `/log/usb_debug_20261024_01/app-sequential.log`.
   - Log file growth was verified from 504,783 bytes (5048.062s uptime) to 508,944 bytes (5049.379s uptime) while navigating service mode.
   - The user manually switched the camera from Service Mode to USB Streaming.
-  - **Result:** Windows detected **no Sony USB device**; FFmpeg reported that the `ZV-E10` DirectShow device was not found (`outputs/usb-debug-20261024-01/ffmpeg-devices.log`). This session **never reached a frame-capture attempt**. It was **not** a 25-second zero-frame timeout.
+  - **Result:** Windows detected **no Sony USB device**; FFmpeg reported that the `ZV-E10` DirectShow device was not found (`.local/outputs/usb-debug-20261024-01/ffmpeg-devices.log`). This session **never reached a frame-capture attempt**. It was **not** a 25-second zero-frame timeout.
   - Physical camera controls and dial buttons became completely unresponsive. The camera would not return to service mode or respond to commands over USB, necessitating a manual battery/power restart.
 
 ### 1.3 Post-Restart Artifact Scope (`*-after.*` Snapshots)
@@ -37,7 +37,7 @@ To prevent conflation of experimental results, the observations from the 22 Octo
 
 ## 2. Requirement 1 (R1): Sony Application-Log Binary Framing & Capture Recovery
 
-Disassembly of `dumps/camera_2025/usr/usr/kmod/osal_ulogio.ko` (at `__ulogio_seqcap_thread_entry` VA `0x29b0` and `ulogio_lbm_record` VA `0x1b98`) and `dumps/camera_2025/usr/usr/bin/ulogio.elf` establishes the exact file framing, timestamp mathematics, and sequential record structure of `app-sequential.log` (1,936,183 bytes).
+Disassembly of `.local/dumps/camera_2025/usr/usr/kmod/osal_ulogio.ko` (at `__ulogio_seqcap_thread_entry` VA `0x29b0` and `ulogio_lbm_record` VA `0x1b98`) and `.local/dumps/camera_2025/usr/usr/bin/ulogio.elf` establishes the exact file framing, timestamp mathematics, and sequential record structure of `app-sequential.log` (1,936,183 bytes).
 
 ### 2.1 The ulogio On-Disk Record Format
 The sequential logging kernel thread extracts records directly from kernel ring buffers and flushes them to disk via `ulogio_file_write()` with `O_WRONLY | O_CREAT | O_TRUNC`. The file contains **no overarching container header, no file magic, and no trailing checksums**.
@@ -131,7 +131,7 @@ YUY2 SOURCE_FAILED 00000015 00000000 00000000
 Full binary disassembly of `libInfraStreamingUsb.so`, `dmm.ko`, and configuration analysis of `DmmConfig.bin` isolates the complete execution chain.
 
 ### 3.1 Client-Side Control Flow & Error 4 Synthesis (VA 0x94f4 – 0x9572)
-In `dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so`, symbol `VideoEsManager::alloc_video_memory(unsigned int unit_type, unsigned short *handle, unsigned int *phys, unsigned int *cap)`:
+In `.local/dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so`, symbol `VideoEsManager::alloc_video_memory(unsigned int unit_type, unsigned short *handle, unsigned int *phys, unsigned int *cap)`:
 - **VA `0x9506`–`0x951a`:** Prepares a 24-byte IPC request packet `req`:
   - `req[0..1] = 1` (Command 1: `dmm_ctrl_AllocUnitNewHdlr`)
   - `req[4..7] = unit_type` (`0x50f`)
@@ -159,7 +159,7 @@ In `dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so`, symbol `VideoEsManag
 - **Finding:** Return code `4` is a **synthetic client error code** generated at instruction VA `0x9556`. It is executed when the DMM kernel module returns any non-zero value in response status field `resp[2..3]`.
 
 ### 3.2 DMM Configuration and Semantic Identity of Unit Type 0x50f
-Inspection of `dumps/camera_2025/usr/setting/DmmConfig.bin`:
+Inspection of `.local/dumps/camera_2025/usr/setting/DmmConfig.bin`:
 - **Unit Table Entries (File offsets `0x13094`–`0x130c4`)**:
   - `0x13094`: Unit Type `0x050e` $\rightarrow$ Extent ID `0x0589`
   - `0x130a4`: Unit Type `0x050f` $\rightarrow$ Extent ID `0x058a`
@@ -170,7 +170,7 @@ Inspection of `dumps/camera_2025/usr/setting/DmmConfig.bin`:
   - `Extent 0x058b` (Unit `0x510`): Size `0x00018000` = **98,304 bytes (96.0 KB)**, Pool `0x0b`.
 
 ### 3.3 Kernel-Side Rejection in dmm.ko: Extent Collision & Ownership Mismatch
-Inspection of `dumps/camera_2025/usr/usr/kmod/dmm.ko` (at `dmm_ctrl_SyncMsg` VA `0x6e74` and `dmm_ctrl_AllocUnitNewHdlr` VA `0x645c`):
+Inspection of `.local/dumps/camera_2025/usr/usr/kmod/dmm.ko` (at `dmm_ctrl_SyncMsg` VA `0x6e74` and `dmm_ctrl_AllocUnitNewHdlr` VA `0x645c`):
 - When the composite USB gadget initializes in streaming mode, both USB Audio (`usbg_audio.ko`) and USB Video (`usbg_video.ko`) are configured.
 - In `usbg_audio.ko` function `usbg_audio_core_open` (VA `0x126c`):
   ```arm
@@ -206,7 +206,7 @@ Inspection of `dumps/camera_2025/usr/usr/kmod/dmm.ko` (at `dmm_ctrl_SyncMsg` VA 
 Analysis of `VideoEsManager::video_thread` (VA `0x9700`), `judge_notify_start_stop_evt` (VA `0x9578`), and `StateMachine` (VA `0x8800`–`0x8956`) reveals the exact causal mechanism behind the 22 October 25-second timeout and 24 October system lockup.
 
 ### 4.1 Stock Worker Thread Return Code Discard (VA 0x9700)
-In `dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so`, `VideoEsManager::video_thread(void*)`:
+In `.local/dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so`, `VideoEsManager::video_thread(void*)`:
 ```arm
 0x973c: ldr  r0, [r4, #0x18]     ; r0 = this->uvc_scalar_sem
 0x973e: blx  #0x6328             ; UFW::Sem::Lock(uvc_scalar_sem)
@@ -305,7 +305,7 @@ All findings documented above are verified against genuine repository binaries a
 | R1: Record Framing & Integrity | `python -B -c "import struct; data=open(r'C:\Users\qn061\Documents\Codex\2026-10-22\chec\outputs\usb-debug-20261024-01\camera\app-sequential.log','rb').read(); pos, cnt = 0, 0; while pos < len(data): plen, sid, aid, ts = struct.unpack('<IHHQ', data[pos:pos+16]); pos += 16 + plen; cnt += 1; assert pos == 1936183 and cnt == 61997; print('VERIFIED')"` | `VERIFIED` |
 | R1: Uptime & Timestamps | Record 15,450 (offset 504,783) = 5048.062s; Record 15,569 (offset 508,944) = 5049.379s; Record 61,996 = 5224.050s | Verified exact to microsecond |
 | R2: Error 4 Synthesis | Capstone disassembly of `libInfraStreamingUsb.so` VA `0x94f4`–`0x9572`: `ldrsh.w r0, [r7, #2]`, `movs r0, #4` at `0x9556` | Verified exact instructions |
-| R2: Unit 0x50f is Audio Extent 0x58a | `struct.unpack_from('<4I', open('dumps/camera_2025/usr/setting/DmmConfig.bin','rb').read(), 0x130a4)` | Extent `0x58a`, size 6,144 bytes |
+| R2: Unit 0x50f is Audio Extent 0x58a | `struct.unpack_from('<4I', open('.local/dumps/camera_2025/usr/setting/DmmConfig.bin','rb').read(), 0x130a4)` | Extent `0x58a`, size 6,144 bytes |
 | R2: usbg_audio.ko Ownership | Disassembly of `usbg_audio_core_open` VA `0x126c`: `movw r0, #0x2db`, `movw r1, #0x50f` | Verified exact instructions |
 | R3: Worker Return Code Discard | Disassembly of `video_thread` VA `0x9746`–`0x9750`: `blx #0x6340`, `ldr r0, [r4, #0x18]`, `blx #0x60dc`, `b #0x9718` | Verified exact instructions |
 | R3: Judge Gate Threshold | Disassembly of `judge_notify_start_stop_evt` VA `0x95a8`: `cmp r3, #0xa`, VA `0x95d8`: `cmp r6, #1; bne #0x9614` | Verified exact instructions |
@@ -324,29 +324,29 @@ Paths below are relative to the local session workspace `C:\Users\qn061\Document
 
 | Location | Contents and evidentiary scope |
 |---|---|
-| `outputs/usb-debug-20261024-01/camera/app-sequential.log` | Preserved 1,936,183-byte binary application capture; 61,997 records, 100% Subsystem 131 |
-| `outputs/usb-debug-20261024-01/camera/prototype-runtime-before.log` and `prototype-runtime-after.log` | Identical 170-byte logs proving `ALLOC_RESULT 4` and `SOURCE_FAILED 21` preceded the 24 October attempt |
-| `outputs/usb-debug-20261024-01/camera/*-before.*` | Baselines from before the latest streaming switch; module still loaded then (uptime 5,049.03s) |
-| `outputs/usb-debug-20261024-01/camera/*-after.*` | Post-restart recovery snapshots (uptime 53.57s); do not treat them as live hang state |
-| `outputs/usb-debug-20261024-01/transfer-result.json` and `camera/transfer.md5` | Per-file verification against camera hashes; originals preserved |
-| `outputs/usb-debug-20261024-01/ffmpeg-formats.log` and `ffmpeg-devices.log` | 24 October: camera missing from DirectShow; no frame capture could begin |
-| `outputs/yuy2-640/evidence/ffmpeg-formats-01.log`, `ffmpeg-capture-01.log`, `capture-01.json` | Separate 22 October run: YUY2 format advertised, then 25-second timeout and zero bytes |
-| `work/yuy2_640.c`, `work/build_yuy2_640.py` | Prototype template and builder |
-| `outputs/yuy2-640/yuy2_640.c`, `yuy2_640_v1.so`, `manifest.json` | Actual generated source/binary and historical build manifest |
-| `work/verify_yuy2_640.py`, `work/verify_yuy2_bootstrap.py` | Ten producer/constructor cases and four bootstrap cases with mocked hardware services |
-| repo `dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so` | Video ES manager daemon; contains `alloc_video_memory`, `video_thread`, and `judge_notify_start_stop_evt` |
-| repo `dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so` | UVC userspace abstraction; defines unused `SendProbeInfo`/`SendCommitInfo` stubs and descriptors |
-| repo `dumps/camera_2025/usr/usr/kmod/usbg_video.ko` | USB video gadget driver; allocates staging unit `0x50e` (1.8 MB) with owner `0x2da`; contains in-kernel probe responder and DMA330 staging |
-| repo `dumps/camera_2025/usr/usr/kmod/usbg_audio.ko` | USB audio gadget driver; allocates audio unit `0x50f` (6 KB) with owner `0x2db` |
-| repo `dumps/camera_2025/usr/usr/kmod/dmm.ko` | Dynamic Memory Manager kernel module; translates unit requests to extents |
-| repo `dumps/camera_2025/usr/usr/kmod/osal_ulogio.ko` | Logging kernel module; defines record framing `<IHHQ` and timestamp math |
-| repo `dumps/camera_2025/usr/setting/DmmConfig.bin` | Configured unit-type to extent mappings (`0x50e` $\rightarrow$ `0x589`, `0x50f` $\rightarrow$ `0x58a`) |
+| `.local/outputs/usb-debug-20261024-01/camera/app-sequential.log` | Preserved 1,936,183-byte binary application capture; 61,997 records, 100% Subsystem 131 |
+| `.local/outputs/usb-debug-20261024-01/camera/prototype-runtime-before.log` and `prototype-runtime-after.log` | Identical 170-byte logs proving `ALLOC_RESULT 4` and `SOURCE_FAILED 21` preceded the 24 October attempt |
+| `.local/outputs/usb-debug-20261024-01/camera/*-before.*` | Baselines from before the latest streaming switch; module still loaded then (uptime 5,049.03s) |
+| `.local/outputs/usb-debug-20261024-01/camera/*-after.*` | Post-restart recovery snapshots (uptime 53.57s); do not treat them as live hang state |
+| `.local/outputs/usb-debug-20261024-01/transfer-result.json` and `camera/transfer.md5` | Per-file verification against camera hashes; originals preserved |
+| `.local/outputs/usb-debug-20261024-01/ffmpeg-formats.log` and `ffmpeg-devices.log` | 24 October: camera missing from DirectShow; no frame capture could begin |
+| `.local/outputs/yuy2-640/evidence/ffmpeg-formats-01.log`, `ffmpeg-capture-01.log`, `capture-01.json` | Separate 22 October run: YUY2 format advertised, then 25-second timeout and zero bytes |
+| `.local/work/yuy2_640.c`, `.local/work/build_yuy2_640.py` | Prototype template and builder |
+| `.local/outputs/yuy2-640/yuy2_640.c`, `yuy2_640_v1.so`, `manifest.json` | Actual generated source/binary and historical build manifest |
+| `.local/work/verify_yuy2_640.py`, `.local/work/verify_yuy2_bootstrap.py` | Ten producer/constructor cases and four bootstrap cases with mocked hardware services |
+| repo `.local/dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so` | Video ES manager daemon; contains `alloc_video_memory`, `video_thread`, and `judge_notify_start_stop_evt` |
+| repo `.local/dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so` | UVC userspace abstraction; defines unused `SendProbeInfo`/`SendCommitInfo` stubs and descriptors |
+| repo `.local/dumps/camera_2025/usr/usr/kmod/usbg_video.ko` | USB video gadget driver; allocates staging unit `0x50e` (1.8 MB) with owner `0x2da`; contains in-kernel probe responder and DMA330 staging |
+| repo `.local/dumps/camera_2025/usr/usr/kmod/usbg_audio.ko` | USB audio gadget driver; allocates audio unit `0x50f` (6 KB) with owner `0x2db` |
+| repo `.local/dumps/camera_2025/usr/usr/kmod/dmm.ko` | Dynamic Memory Manager kernel module; translates unit requests to extents |
+| repo `.local/dumps/camera_2025/usr/usr/kmod/osal_ulogio.ko` | Logging kernel module; defines record framing `<IHHQ` and timestamp math |
+| repo `.local/dumps/camera_2025/usr/setting/DmmConfig.bin` | Configured unit-type to extent mappings (`0x50e` $\rightarrow$ `0x589`, `0x50f` $\rightarrow$ `0x58a`) |
 
 ---
 
 ## 8. Offline delivery audit — 24 October 2026
 
-The previous section's claims of proven 110 MB physical delivery and proven Windows EOF rejection were not supported. They are superseded by the [binary and specification audit](uvc_yuy2_delivery_audit_20261024.md). Its original text is retained locally in `outputs/uvc-delivery-audit/superseded-section-8.md` for provenance.
+The previous section's claims of proven 110 MB physical delivery and proven Windows EOF rejection were not supported. They are superseded by the [binary and specification audit](uvc_yuy2_delivery_audit_20261024.md). Its original text is retained locally in `.local/outputs/uvc-delivery-audit/superseded-section-8.md` for provenance.
 
 The confirmed gap is that the userspace YUY2 prototype leaves kernel probe responses at the stock frame size/rate and 300,000-byte payload maximum, while queueing a 614,412-byte single-header payload. The userspace negotiation hooks do not update the kernel responder. This is the strongest offline failure mechanism; actual Windows rejection and on-wire delivery remain unobserved. EOF is optional in the UVC 1.1 class specification; setting EOF alone is not a demonstrated fix. Success API counters and readiness recycling do not prove successful USB delivery. The 180-submission log belongs to revision 2.1; revision 2.2 runtime logs remain unrecovered.
 

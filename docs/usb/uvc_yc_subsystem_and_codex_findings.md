@@ -74,7 +74,7 @@ A critical architectural boundary was established during reverse engineering:
 ```
 
 ### 2.2 Wire Protocols & Handshake Messages
-Defined in `dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so` and `av-cam.bin`:
+Defined in `.local/dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so` and `av-cam.bin`:
 
 #### 1. Frame Delivery: `_MSG_PIN_SEND` (52 Bytes, Opcode `0x0102`)
 - `+0x00` (2B): Category ID = `0x1000`
@@ -147,7 +147,7 @@ In early naive prototypes (Revision 3.3):
 ## 4. Real Source Metadata: The SSYC Container
 
 ### 4.1 Header & 12 Observed Categories
-Captured authentic descriptor: `outputs/vga-v33/capture-first-01/logs/source-ssyc-retained.bin` (4096 bytes, SHA256 `9c60c7088da03631af4cd06fbd8f9d444d084e9104ead87cb0147ef76ac45f9c`).
+Captured authentic descriptor: `.local/outputs/vga-v33/capture-first-01/logs/source-ssyc-retained.bin` (4096 bytes, SHA256 `9c60c7088da03631af4cd06fbd8f9d444d084e9104ead87cb0147ef76ac45f9c`).
 Magic: `0x43595353` ("SSYC"), Version: 1, Capacity: 4096 B, Entries: 12.
 
 | Index | Cat ID | Hex | C++ RTTI Class Name | Data Off | Size (B) | Functional & Hardware Role |

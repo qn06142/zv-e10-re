@@ -5,7 +5,7 @@
   "source_inputs": [
     {
       "path": "research/firmware/raw_uvc_v01/build.py",
-      "sha256": "ec21c2439a422a4644e3acfe4c1d6624599075e94b92d700c72673237f41db30",
+      "sha256": "9e2e9b71b1bae70822a6ab90fbc5a50f0f83b6a4ad5dc421a4f799eaf4f4cfa9",
       "hash_mode": "lf-normalized"
     }
   ],

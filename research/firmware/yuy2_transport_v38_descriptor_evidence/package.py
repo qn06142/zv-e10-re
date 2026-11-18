@@ -1,7 +1,7 @@
 """Assemble guarded three-file revision 3.7 package offline. Never contacts camera."""
 from pathlib import Path
 import hashlib,json,shutil,zipfile
-W=Path(__file__).resolve().parent;ROOT=W.parent.parent;O=ROOT/'outputs/vga-v38';P=O/'flash-package';P.mkdir(exist_ok=True)
+W=Path(__file__).resolve().parent;ROOT=W.parent.parent;O=ROOT/'.local/outputs/vga-v38';P=O/'flash-package';P.mkdir(exist_ok=True)
 md=lambda p:hashlib.md5(p.read_bytes()).hexdigest()
 OLD='277c023942dd4d3d347d9829eaf8be85';OM='7c339b924987e6baa8e7046e041798c5';OK='388799d95bbb524ca581c66b077b6dc2'
 NW=md(O/'build/libInfraStreamingUsb.so');NM=md(O/'build/yuy2_640_v38vga.so');NK=md(O/'usbg_video.ko')
@@ -36,7 +36,7 @@ cold() {
  [ -r /proc/$P/maps ]
  if $BB grep -E 'libInfraStreamingUsb|yuy2_640|yc_observer|yc_probe' /proc/$P/maps; then echo COLD_BOOT_REQUIRED; exit 1; fi
  [ -r /proc/mounts ]
- if $BB grep -E ' /usr/(lib/libInfraStreamingUsb.so|lib/libInfraUsbCmn.so|lib/libBizFw.so|lib/dataflowInfraFramework.so|kmod/usbg_video.ko) ' /proc/mounts; then echo OVERLAY_GUARD_FAILED; exit 1; fi
+ if $BB grep -E ' /usr/(lib/libInfraStreamingUsb.so|lib/libInfraUsbCmn.so|lib/libBizFw.so|lib/dataflowInfraFramework.so|.local/kmod/usbg_video.ko) ' /proc/mounts; then echo OVERLAY_GUARD_FAILED; exit 1; fi
 }
 '''
 pre=COMMON+f'''cold
@@ -164,7 +164,7 @@ DONE=1
 echo V38_FILES_VERIFIED_REBOOT_REQUIRED
 '''
 for n,s in [('preflight.sh',pre),('rollback.sh',rollback),('install.sh',install)]: (P/n).write_bytes(s.encode('ascii'))
-for src,n in [(O/'build/yuy2_640_v38vga.so','yuy2_640_v38vga.so'),(O/'build/libInfraStreamingUsb.so','libInfraStreamingUsb.persistent.so'),(O/'usbg_video.ko','usbg_video.ko'),(ROOT/'outputs/vga-v36/flash-package/space-check.elf','space-check.elf')]:shutil.copyfile(src,P/n)
+for src,n in [(O/'build/yuy2_640_v38vga.so','yuy2_640_v38vga.so'),(O/'build/libInfraStreamingUsb.so','libInfraStreamingUsb.persistent.so'),(O/'usbg_video.ko','usbg_video.ko'),(ROOT/'.local/outputs/vga-v36/flash-package/space-check.elf','space-check.elf')]:shutil.copyfile(src,P/n)
 manifest=json.loads((O/'build/manifest.json').read_text());manifest['files']={}
 manifest.update(installed_baseline=dict(revision='3.7',wrapper_md5=OLD,module_md5=OM,kernel_md5=OK),rollback='previous restores failing 3.7 pair; --bars restores exact stable 2.4p wrapper and separate c1cad400 kernel',deployment='NOT_INSTALLED',hardware_verified=False,kernel_unchanged_from_revision_37=True,diagnostic_only=True)
 for n in ['preflight.sh','rollback.sh','install.sh','yuy2_640_v38vga.so','libInfraStreamingUsb.persistent.so','usbg_video.ko','space-check.elf']:

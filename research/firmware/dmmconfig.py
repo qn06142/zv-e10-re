@@ -14,7 +14,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-P = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\DmmConfig.bin')
+P = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\DmmConfig.bin')
 b = P.read_bytes()
 N = len(b)
 print('=== %d bytes ===' % N)

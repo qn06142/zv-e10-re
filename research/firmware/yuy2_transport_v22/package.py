@@ -8,7 +8,7 @@ ap.add_argument('--repo',type=Path,required=True)
 ap.add_argument('--output',type=Path,required=True)
 args=ap.parse_args();out=args.output.resolve();root=args.repo.resolve()
 manifest=json.loads((out/'manifest.json').read_text())
-cfg=(root/'dumps/camera_2025/usr/setting/DmmConfig.bin').read_bytes()
+cfg=(root/'.local/dumps/camera_2025/usr/setting/DmmConfig.bin').read_bytes()
 manifest['config_md5']=hashlib.md5(cfg).hexdigest()
 manifest['required_firmware_md5']={
  'av-cam.bin':'90096db2c76148f4f9db5d104e5c608c',

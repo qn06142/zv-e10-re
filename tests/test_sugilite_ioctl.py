@@ -45,7 +45,7 @@ sys.path.insert(0, str(REPO / "research" / "firmware"))
 
 import sugilite_ioctl as si  # noqa: E402
 
-KO = REPO / "dumps" / "camera_2025" / "usr" / "usr" / "kmod" / "grm_gles.ko"
+KO = REPO / '.local/dumps' / "camera_2025" / "usr" / "usr" / 'kmod' / "grm_gles.ko"
 
 # what the recovered table must contain
 CMDS = [0x40048204, 0x80048200, 0x80048205, 0x80048206, 0x80048207,

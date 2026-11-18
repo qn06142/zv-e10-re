@@ -2,7 +2,7 @@ import struct
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent.parent
-av = (HERE / "dumps" / "av-cam.bin").read_bytes()
+av = (HERE / '.local/dumps' / "av-cam.bin").read_bytes()
 base = 0x635c6000
 
 pend = {}

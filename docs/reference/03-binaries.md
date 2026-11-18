@@ -152,7 +152,7 @@ scenario plugins, 40 in the `libInfra*`/`viewUnified*` block that
 One trap worth naming, because it is the same shape as the ones in
 [06-method.md](06-method.md): `libObj.so` appears **twice** in the catalog with
 opposite outcomes — an 81,920-byte truncated decoy that yields nothing, and the
-real 21,305,456-byte file under `dumps/engine/` carrying 1,904 exports. A count
+real 21,305,456-byte file under `.local/dumps/engine/` carrying 1,904 exports. A count
 keyed on basename must treat a name as readable if *any* copy parsed, or the
 real library is discarded along with the decoy.
 
@@ -211,7 +211,7 @@ Named, enumerable, and dispatched by name. `MPR_SCN_SET_FACTORY_MODE` and
 
 1. The camera application is not unreachable. It is `libObj.so` plus
    `viewUnified2..8.so` plus `CautionConfig.so`, all present locally and all
-   unstripped enough to read. `dumps/v203/camuser.elf` (21,305,528 B) is the
+   unstripped enough to read. `.local/dumps/v203/camuser.elf` (21,305,528 B) is the
    matching application binary. (Its section table is unreadable by pyelftools —
    `expected 4, found 0` — which is why an earlier pass saw a container. A raw
    byte search shows an ordinary dynamically-linked ARM ELF.)

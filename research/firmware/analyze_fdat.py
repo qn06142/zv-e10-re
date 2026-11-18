@@ -1,5 +1,5 @@
 import os, sys
-sys.path.insert(0, (ROOT_REPO / 'fwtool_ma1co_repo').as_posix())
+sys.path.insert(0, (ROOT_REPO / '.local/vendor/fwtool_ma1co_repo').as_posix())
 from fwtool.sony import dat as D
 from fwtool.io import FilePart
 

@@ -45,7 +45,7 @@ class Case:
   for a,n in [(0x10000000,0x10000),(0x40000000,0x40000),(0x41000000,0x100000),(0x50000000,4096),(0x60000000,0x20000)]:u.mem_map(a,n)
   self.syms=load(u,OUT/'yuy2_640_v1.so',MB,self.imp)
   load(u,OUT.parent/'uvc-startup-fix/candidate-1080p/libInfraStreamingUsb.so',SB)
-  load(u,ROOT/'dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so',CB)
+  load(u,ROOT/'.local/dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so',CB)
   if bad_guard:u.mem_write(SB+0x8e14,b'\x00')
   self.handlers[self.syms['get_base']]=self.getbase
   u.hook_add(UC_HOOK_CODE,self.hook)

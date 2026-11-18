@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 from reassemble import decode,PACKET
-p=Path('outputs/native-dmm-v29');raw=(p/'fixture-packets.bin').read_bytes()
+p=Path('.local/outputs/native-dmm-v29');raw=(p/'fixture-packets.bin').read_bytes()
 complete,incomplete=decode(raw)
 assert not incomplete and len(complete)==1
 expected=bytes((i*31+(i>>9))&255 for i in range(2073600))

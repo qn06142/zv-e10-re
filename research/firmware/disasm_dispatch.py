@@ -58,7 +58,7 @@ from pathlib import Path
 from capstone import (Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_LITTLE_ENDIAN,
                       CS_MODE_ARM)
 
-SO = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\engine\viewUnified2.so')
+SO = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\engine\viewUnified2.so')
 
 # property signature -> (key bytes hex, total size in the resource file)
 PROPS = {

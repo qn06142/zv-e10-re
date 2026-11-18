@@ -2,9 +2,9 @@
 
 Evidence so far:
   raw flash capture (nflasha3_system.bin @0x14000)
-    == dumps/av-cam.bin.bak  (md5 cdcae9d4...)
+    == .local/dumps/av-cam.bin.bak  (md5 cdcae9d4...)
     == fw/av-cam.bin         (md5 cdcae9d4...)
-  dumps/av-cam.bin          (md5 d1a04a3a...)  differs from those in 18 bytes
+  .local/dumps/av-cam.bin          (md5 d1a04a3a...)  differs from those in 18 bytes
 
 So three artefacts agree and one is the outlier. To decide whether the 18
 bytes are a benign build stamp or an injected change, compare the same
@@ -17,7 +17,7 @@ from pathlib import Path
 
 N = 17_289_388
 GROUPS = [(0x000aa15a, 4), (0x000c474a, 4), (0x0086e006, 10)]
-D = Path(r'D:\02_Development_And_Projects\pmca-re\dumps')
+D = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps')
 
 
 def stamp(b, label):
@@ -31,8 +31,8 @@ print('=== the 18 disputed bytes, by artefact ===')
 print('  %-30s %-13s %-13s %-31s' % ('', '0xaa15a[4]', '0xc474a[4]', '0x86e006[10]'))
 cands = {
     'raw flash capture': (D / 'nflasha3_system.bin').read_bytes()[0x14000:0x14000 + N],
-    'dumps/av-cam.bin': (D / 'av-cam.bin').read_bytes(),
-    'dumps/av-cam.bin.bak': (D / 'av-cam.bin.bak').read_bytes(),
+    '.local/dumps/av-cam.bin': (D / 'av-cam.bin').read_bytes(),
+    '.local/dumps/av-cam.bin.bak': (D / 'av-cam.bin.bak').read_bytes(),
 }
 fw = Path(r'D:\02_Development_And_Projects\pmca-re\fw\av-cam.bin')
 if fw.exists():
@@ -74,7 +74,7 @@ b = cands['raw flash capture']
 print('  raw capture 0x86e000..0x86e01f is all-zero:',
       set(b[0x86e000:0x86e020]) == {0})
 print('  av-cam.bin  0x86e000..0x86e01f is all-zero:',
-      set(cands['dumps/av-cam.bin'][0x86e000:0x86e020]) == {0})
+      set(cands['.local/dumps/av-cam.bin'][0x86e000:0x86e020]) == {0})
 print()
 print('  if the flash capture is blank here and the file is not, the file was')
 print('  stamped by a writer, not hand-edited -- a hand edit would not')

@@ -1,5 +1,5 @@
 import os
-TOOLS = (ROOT_REPO / 'tools').as_posix()
+TOOLS = (ROOT_REPO / 'scripts/tools').as_posix()
 data = open(os.path.join(TOOLS, "adjstctl.elf"), "rb").read()
 print("size", len(data), "magic", data[:4])
 # ELF32 ARM header parse

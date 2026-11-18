@@ -31,13 +31,13 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[3]
 RAW_FRAME_DIR = Path(__file__).resolve().parent
 TRANSPORT_V25_DIR = REPO_ROOT / "research" / "firmware" / "yuy2_transport_v25"
-DUMPS_DIR = REPO_ROOT / "dumps" / "camera_2025"
+DUMPS_DIR = REPO_ROOT / '.local/dumps' / "camera_2025"
 FRAMEWORK_SO = DUMPS_DIR / "usr" / "usr" / "lib" / "dataflowInfraFramework.so"
 LIBBIZFW_SO = DUMPS_DIR / "usr" / "usr" / "lib" / "libBizFw.so"
 STREAMING_USB_SO = DUMPS_DIR / "usr" / "usr" / "lib" / "libInfraStreamingUsb.so"
 USB_CMN_SO = DUMPS_DIR / "usr" / "usr" / "lib" / "libInfraUsbCmn.so"
 DMM_CONFIG_BIN = DUMPS_DIR / "usr" / "setting" / "DmmConfig.bin"
-AVCAM_BIN = REPO_ROOT / "dumps" / "firmware" / "av-cam.bin"
+AVCAM_BIN = REPO_ROOT / '.local/dumps' / "firmware" / "av-cam.bin"
 
 CHEC_OUTPUTS = Path(r"C:\Users\qn061\Documents\Codex\2026-10-22\chec\outputs\yuy2-640-v25\candidate")
 STREAMING_IMAGE = Path(r"C:\Users\qn061\Documents\Codex\2026-10-22\chec\work\encoder-reproduction\libInfraStreamingUsb.so")

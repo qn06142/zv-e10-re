@@ -36,14 +36,14 @@ import sys
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
 DUMPS = [
-    REPO / 'dumps' / 'camera_2025',
-    REPO / 'dumps' / 'v203',
-    REPO / 'dumps' / 'engine',
-    REPO / 'dumps' / 'camera',
-    REPO / 'dumps' / 'camtools',
+    REPO / '.local/dumps' / 'camera_2025',
+    REPO / '.local/dumps' / 'v203',
+    REPO / '.local/dumps' / 'engine',
+    REPO / '.local/dumps' / 'camera',
+    REPO / '.local/dumps' / 'camtools',
     REPO / 'fw',
-    REPO / 'udtrbody_extract',
-    REPO / 'tools',
+    REPO / '.local/udtrbody_extract',
+    REPO / 'scripts/tools',
 ]
 
 ET_EXEC, ET_DYN = 2, 3
@@ -204,7 +204,7 @@ def main():
     if broken:
         print('  ELF magic but unusable section table: %d' % len(broken))
         for r, i in broken[:10]:
-            print('      %-58s %s' % (r.split('dumps/')[-1],
+            print('      %-58s %s' % (r.split('.local/dumps/')[-1],
                                       i.get('error', '?')[:60]))
 
     # the contract symbols: unmangled C exports are what a dlsym can ask for
@@ -212,7 +212,7 @@ def main():
     print('=== unmangled C exports (dlsym contracts) ===')
     for r, i in rows:
         if i.get('c_exports'):
-            print('  %-58s %s' % (r.split('dumps/')[-1], ', '.join(i['c_exports'][:8])))
+            print('  %-58s %s' % (r.split('.local/dumps/')[-1], ', '.join(i['c_exports'][:8])))
 
     print()
     print('=== functional clusters, by what each library exports ===')
@@ -281,7 +281,7 @@ def main():
         if son not in providers and base not in providers and i.get('type') == 'DYN':
             orphans.append((r, i['size']))
     for r, s in sorted(orphans, key=lambda x: -x[1])[:20]:
-        print('  %9d  %s' % (s, r.split('dumps/')[-1]))
+        print('  %9d  %s' % (s, r.split('.local/dumps/')[-1]))
     print('  (%d of %d shared objects are not NEEDED by anything catalogued)'
           % (len(orphans), sum(1 for _r, i in rows if i.get('type') == 'DYN')))
 

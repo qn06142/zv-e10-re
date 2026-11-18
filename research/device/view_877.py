@@ -2,7 +2,7 @@ import capstone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent.parent
-av = (HERE / "dumps" / "av-cam.bin").read_bytes()
+av = (HERE / '.local/dumps' / "av-cam.bin").read_bytes()
 base = 0x635c6000
 cs = capstone.Cs(capstone.CS_ARCH_ARM, capstone.CS_MODE_THUMB)
 cs.detail = True

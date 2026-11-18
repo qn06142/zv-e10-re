@@ -11,7 +11,7 @@ from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_LITTLE_ENDIAN
 from capstone.arm import ARM_OP_REG
 
 BASE = Path(r'D:\02_Development_And_Projects\pmca-re')
-av = (BASE / 'dumps' / 'av-cam.bin.bak').read_bytes()
+av = (BASE / '.local/dumps' / 'av-cam.bin.bak').read_bytes()
 md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_LITTLE_ENDIAN)
 md.detail = True
 

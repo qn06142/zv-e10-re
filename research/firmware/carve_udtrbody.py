@@ -1,5 +1,5 @@
 import os, re
-TOOLS = (ROOT_REPO / 'tools').as_posix()
+TOOLS = (ROOT_REPO / 'scripts/tools').as_posix()
 data = open(os.path.join(TOOLS, "udtrbody.bin"), "rb").read()
 print("udtrbody.bin:", len(data), "bytes; magic", data[:4].hex())
 
@@ -20,7 +20,7 @@ if offs:
         # crude: find end by next ELF or size field; just dump header
         print(f"  ELF@0x{o}: {chunk[:16].hex()}")
         open(os.path.join(TOOLS, f"carve_elf_{o:x}.bin"), "wb").write(data[o:o+min(len(data)-o, 200000)])
-    print("  carved candidate ELFs -> tools/carve_elf_*.bin")
+    print("  carved candidate ELFs -> scripts/tools/carve_elf_*.bin")
 
 # 4) entropy of whole file sections to see if ANY part is uncompressed
 import math

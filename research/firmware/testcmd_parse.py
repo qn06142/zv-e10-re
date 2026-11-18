@@ -31,7 +31,7 @@ from pathlib import Path
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_LITTLE_ENDIAN
 
 sys_path = None
-SO = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\libtestcmd.so')
+SO = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\libtestcmd.so')
 img = SO.read_bytes()
 md = Cs(CS_ARCH_ARM, CS_MODE_ARM | CS_MODE_LITTLE_ENDIAN)
 md.detail = False

@@ -1,7 +1,7 @@
 """Dump a ZV-E10 flash partition over the service-mode terminal via base64.
 
 usage: zve10_dump.py <device> <outfile> [max_bytes]
-   eg: zve10_dump.py /dev/nflashaB0 dumps/nflashaB0.bin
+   eg: zve10_dump.py /dev/nflashaB0 .local/dumps/nflashaB0.bin
 """
 import sys, os, time, base64, re
 from pmca.commands.usb import senserShellCommand

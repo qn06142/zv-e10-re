@@ -28,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from thumb import dis1                                                    # noqa: E402
 
 BASE = Path(r'D:\02_Development_And_Projects\pmca-re')
-av = (BASE / 'dumps' / 'av-cam.bin.bak').read_bytes()
+av = (BASE / '.local/dumps' / 'av-cam.bin.bak').read_bytes()
 N = len(av)
 md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_LITTLE_ENDIAN)
 

@@ -19,7 +19,7 @@ Per the latest architectural direction:
 This milestone establishes the first fully working continuous 1080p video pipeline for the ZV-E10 over USB 3.0 SuperSpeed without requiring sensor Bayer RAW or risk-prone memory pool resizing.
 
 ### Key Deliverables in Revision 4.3:
-1. **Root-Cause Resolution of SDF CMP 11 Failure:** Disassembly of `dumps/firmware/av-cam.bin` at `ApiResizeRotate::parse` (`0x63cade3a`), `0x636ba508`, and `0x63ca44e4` proved that completion code 11 (`0x0b`) is mapped from bit `0x2000`, which was triggered because `destination_sds` lacked Category 1 (`YcStateInfo`). In Rev 4.3, `destination()` in `vga_resize.c` populates Category 1 wire bytes (BT.709 colorimetry `0x05`, progressive scan `0x00`) and calls `obj[VG_STORE_STATE]` (`0xe491dc`), ensuring `destination_sds` contains both Category 0 and Category 1.
+1. **Root-Cause Resolution of SDF CMP 11 Failure:** Disassembly of `.local/dumps/firmware/av-cam.bin` at `ApiResizeRotate::parse` (`0x63cade3a`), `0x636ba508`, and `0x63ca44e4` proved that completion code 11 (`0x0b`) is mapped from bit `0x2000`, which was triggered because `destination_sds` lacked Category 1 (`YcStateInfo`). In Rev 4.3, `destination()` in `vga_resize.c` populates Category 1 wire bytes (BT.709 colorimetry `0x05`, progressive scan `0x00`) and calls `obj[VG_STORE_STATE]` (`0xe491dc`), ensuring `destination_sds` contains both Category 0 and Category 1.
 2. **USB 3.0 SuperSpeed Throughput at $\ge 24\text{ fps}$:** With the physical USB 3.0 SuperSpeed connection active, sustained transport throughput is $\sim 380\text{ MB/s}$. The 7-chunk frame transport (six 614,400 B + one 460,800 B = 4,147,200 B total) transmits in **$11.3\text{ ms}$**, occupying only **$27.1\%$** of the 24.0 fps frame period ($41.67\text{ ms}$) and **$33.9\%$** of the 30.0 fps frame period ($33.33\text{ ms}$).
 3. **Zero `DmmConfig.bin` Modification:** Rev 4.3 retains stock factory `DmmConfig.bin` (MD5: `9f197ff9b300e49ab531b6f9e794253e`) and stock staging buffers (Unit `0x50e`, Extent `0x589`), completely avoiding the MSC / boot failures observed in Rev 4.1 when extent aliasing was attempted.
 4. **Standard Host-Facing UVC Frames:** The kernel module `yc42_chunk` (`usbg_video.ko`) manages FID stability across chunks 1..6 and emits EOF only on chunk 7. Standard host OS drivers (Linux `uvcvideo`, Windows `usbvideo.sys`, macOS UVC) assemble these chunks into standard unfragmented 1920x1080 YUY2 frames.
@@ -28,7 +28,7 @@ This milestone establishes the first fully working continuous 1080p video pipeli
 
 ## 2. Technical Root-Cause Analysis: SDF CMP 11
 
-In Rev 4.2 hardware trials (`outputs/hd-v42/diagnostic-02/`), `vga.log` recorded:
+In Rev 4.2 hardware trials (`.local/outputs/hd-v42/diagnostic-02/`), `vga.log` recorded:
 ```
 VGA RESIZE_READY 000013d7 000013b6 00000000
 VGA RESIZE_ENTER 000013d7 000013b6 00000000
@@ -106,7 +106,7 @@ $$\text{Total frame transfer time} = 6 \times 1.54\text{ ms} + 1.16\text{ ms} = 
 
 ## 4. Build Artifacts & Manifest
 
-Compiled artifacts in `outputs/hd-v43/`:
+Compiled artifacts in `.local/outputs/hd-v43/`:
 - `yuy2_1080_v43chunk.so`: 47,532 bytes, MD5 `35bef2b15d7d2dcb835cbfdfa94a1f71`
 - `libInfraStreamingUsb.so`: 72,796 bytes, MD5 `4c5deb4a89474c0a3b65356f034a5d9e`
 - `usbg_video.ko`: 18,348 bytes, MD5 `702b82f347b6fc25e8d46ddba1836743`

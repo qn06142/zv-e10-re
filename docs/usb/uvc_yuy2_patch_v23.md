@@ -10,7 +10,7 @@ Evidence archive: **57 files / 9,231,531 bytes**, all camera hashes verified. Ap
 
 After tests, kernel version still reads `yuy2_640_v23`; the bind overlay still hashes `c1cad400372e26eca729e4b9bc47a237`. RTOS, common library, streaming library and DMM configuration retain expected baseline hashes. Debug capture was stopped; filters 131/135/136 restored to normal error level and confirmed. Service session closed normally after the user returned to mass storage. The kernel overlay and RAM patch remain volatile; a genuine reboot removes them. No further patch changes were made during evidence collection.
 
-Current machine-readable checkpoint: `outputs/yuy2-640-v23/deployment/deployment-state.json`. Preserved captures: `captured-01.yuy2`, `first-frame.png`, FFmpeg logs/JSON and OBS device-log excerpt. Full camera evidence: `camera-after-tests/`; decoded application log: `app-decoded.txt`. Next engineering work is a separate host-inactivity/client-reopen lifecycle correction, followed by fresh-boot guarded deployment. Earlier checkpoints below document the sequence and are superseded where statuses differ.
+Current machine-readable checkpoint: `.local/outputs/yuy2-640-v23/deployment/deployment-state.json`. Preserved captures: `captured-01.yuy2`, `first-frame.png`, FFmpeg .local/logs/JSON and OBS device-log excerpt. Full camera evidence: `camera-after-tests/`; decoded application log: `app-decoded.txt`. Next engineering work is a separate host-inactivity/client-reopen lifecycle correction, followed by fresh-boot guarded deployment. Earlier checkpoints below document the sequence and are superseded where statuses differ.
 
 
 ## OBS and mode restart confirmed — 24 October 2026
@@ -19,7 +19,7 @@ After exiting and re-entering USB Streaming, the user opened OBS as the first ca
 
 The remaining reproducible defect is same-session host reopening: after the first FFmpeg client disconnected, OBS failed and an FFmpeg reopen timed out with zero bytes. A camera USB Streaming mode restart restored delivery in OBS. Producer shutdown on repeated readiness failures remains a likely explanation, awaiting camera logs. Do not describe OBS compatibility or the mode restart as still failing; do not describe same-session host reconnect as fixed.
 
-User asked to close OBS, return to mass-storage/service mode and reconnect without reboot for evidence extraction. No additional code or firmware changes were made after the successful paired deployment. Current authoritative local state: `outputs/yuy2-640-v23/deployment/deployment-state.json`.
+User asked to close OBS, return to mass-storage/service mode and reconnect without reboot for evidence extraction. No additional code or firmware changes were made after the successful paired deployment. Current authoritative local state: `.local/outputs/yuy2-640-v23/deployment/deployment-state.json`.
 
 
 ## First frame delivery confirmed; client reopen fails — 24 October 2026
@@ -28,7 +28,7 @@ Revision 2.3's first FFmpeg capture succeeded: exit 0, ten complete 640×480 YUY
 
 User then tried OBS and reported it did not work. OBS's latest device log first records configuration failures, then correct 640×480 / 10 fps / YUY2 settings; settings alone do not explain all subsequent failure. With OBS closed and no camera-mode restart confirmed, an FFmpeg host-reopen attempt also timed out after 25 seconds with zero bytes. Thus later-client failure is reproducible outside OBS. Most likely producer readiness/failure lifecycle needs correction: current code stops after five consecutive WaitVideoReadCmp failures, including possible host inactivity. Camera runtime logs are needed before declaring that exact sequence proven. The successful capture proves the combined kernel changes permit delivery, not which single edit was independently necessary.
 
-User asked to exit/re-enter USB Streaming, then open OBS directly as the first client with Custom 640×480, 10 FPS, YUY2. Awaiting whether bars appear. Stop/restart and OBS success remain unverified. Current service session is closed; do not overwrite the loaded patch. Evidence: `outputs/yuy2-640-v23/deployment/capture-01.json`, `captured-01.yuy2`, `first-frame.png`, `capture-host-reopen-01.json`, and `obs-device-log-excerpt.txt`.
+User asked to exit/re-enter USB Streaming, then open OBS directly as the first client with Custom 640×480, 10 FPS, YUY2. Awaiting whether bars appear. Stop/restart and OBS success remain unverified. Current service session is closed; do not overwrite the loaded patch. Evidence: `.local/outputs/yuy2-640-v23/deployment/capture-01.json`, `captured-01.yuy2`, `first-frame.png`, `capture-host-reopen-01.json`, and `obs-device-log-excerpt.txt`.
 
 
 ## Latest live deployment — 24 October 2026
@@ -37,7 +37,7 @@ The paired revision is now installed for a hardware test. Kernel file MD5 `c1cad
 
 Kernel activation uses a temporary bind mount from `/log/yuy2_640_v23/usbg_video.ko` onto `/usr/kmod/usbg_video.ko`, followed by a non-forced module unload/reload after checking reference count zero. The underlying stock module was not overwritten. The module version was read back through sysfs; firmware disables `/dev/kmem` reads and has no `/proc/kcore`. The final kernel includes a sixth edit placing this version marker into optional `.modinfo` documentation storage; runtime `__param` bytes are unchanged. The original five functional edits are unchanged. All 42 producer + four bootstrap + 14 kernel checks pass for the live-map build. Earlier untagged offline artifacts under `candidate/` are preserved but superseded by `live-candidate/`.
 
-Installation verified baseline RTOS/common/streaming/config hashes and exact source blobs, had rollback on failure, and succeeded. A genuine reboot removes both bind overlay and RAM hooks. Do not hot-swap loaded code. Fresh debug capture is active at `/log/yuy2_640_v23/app-sequential.log` (grew 477,392 to 477,738 bytes). Service session closed normally. User was asked to activate streaming, with OBS closed, for the first FFmpeg capture. No host frame result exists yet. Local authoritative state: `outputs/yuy2-640-v23/deployment/deployment-state.json`. Build manifests retain build-time not-installed fields; live deployment state overrides them.
+Installation verified baseline RTOS/common/streaming/config hashes and exact source blobs, had rollback on failure, and succeeded. A genuine reboot removes both bind overlay and RAM hooks. Do not hot-swap loaded code. Fresh debug capture is active at `/log/yuy2_640_v23/app-sequential.log` (grew 477,392 to 477,738 bytes). Service session closed normally. User was asked to activate streaming, with OBS closed, for the first FFmpeg capture. No host frame result exists yet. Local authoritative state: `.local/outputs/yuy2-640-v23/deployment/deployment-state.json`. Build manifests retain build-time not-installed fields; live deployment state overrides them.
 
 
 Built 24 October 2026. **Deployed temporarily; FFmpeg and OBS synthetic frame delivery confirmed.**
@@ -57,7 +57,7 @@ The userspace component retains revision 2.2's module-lifetime source allocation
 
 ## Artifacts
 
-Generated binaries are in the session workspace at `outputs/yuy2-640-v23/live-candidate/`:
+Generated binaries are in the session workspace at `.local/outputs/yuy2-640-v23/live-candidate/`:
 
 - `usbg_video.ko`: MD5 `c1cad400372e26eca729e4b9bc47a237`.
 - `yuy2_640_v23.so`: MD5 `bef71344d4d6308e57ab65bdff3283e5`.

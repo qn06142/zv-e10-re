@@ -34,7 +34,7 @@ from pathlib import Path
 from fontTools.ttLib import TTFont
 from fontTools.pens.svgPathPen import SVGPathPen
 
-FONT = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share\app\Sony_DI_Icons.ttf')
+FONT = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share\app\Sony_DI_Icons.ttf')
 OUT = Path(r'C:\Users\qn061\AppData\Local\Temp\opencode\app_res')
 
 # (codepoint, what it should read, family)

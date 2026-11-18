@@ -49,7 +49,7 @@ from pathlib import Path
 
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_LITTLE_ENDIAN
 
-SO = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\engine\viewUnified6.so')
+SO = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\engine\viewUnified6.so')
 FMT = b'%2d.%02d'
 # a nearby string that is definitely not the version, for the negative control
 CTRL = b'Playback Target'

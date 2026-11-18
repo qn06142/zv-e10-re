@@ -38,7 +38,7 @@ from fontTools.ttLib.tables._g_l_y_f import Glyph, GlyphCoordinates
 from fontTools.ttLib.tables.ttProgram import Program
 from fontTools.pens.recordingPen import RecordingPen
 
-FONT = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share\app\Sony_DI_Icons.ttf')
+FONT = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share\app\Sony_DI_Icons.ttf')
 OUT = Path(r'C:\Users\qn061\AppData\Local\Temp\opencode\app_res')
 
 # A stroke font: each character is a list of segments in a 0..1 x 0..1 box,

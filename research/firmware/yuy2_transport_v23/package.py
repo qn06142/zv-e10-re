@@ -11,7 +11,7 @@ producer=json.loads((out/'verification.json').read_text())
 bootstrap=json.loads((out/'bootstrap-verification.json').read_text())
 kernel=json.loads((out/'kernel-verification.json').read_text())
 assert producer['passed']==42 and len(bootstrap)==4 and kernel['passed']==14
-stock=(repo/'dumps/camera_2025/usr/usr/kmod/usbg_video.ko').read_bytes()
+stock=(repo/'.local/dumps/camera_2025/usr/usr/kmod/usbg_video.ko').read_bytes()
 assert transform(stock)[0]==(out/'usbg_video.ko').read_bytes()
 descriptors=(out/'descriptors.bin').read_bytes();assert len(descriptors)==154
 for offset in (0,77):
@@ -30,7 +30,7 @@ m.update(status='OFFLINE_VERIFIED_PAIRED_CANDIDATE_NOT_INSTALLED',not_installed=
           'libInfraStreamingUsb.so':'19461091c07aa6900829defb0060fcd6',
           'libInfraUsbCmn.so':'31308976206a837f6f5c571992d2b499',
           'stock_usbg_video.ko':hashlib.md5(stock).hexdigest()},
-         config_md5=hashlib.md5((repo/'dumps/camera_2025/usr/setting/DmmConfig.bin').read_bytes()).hexdigest(),
+         config_md5=hashlib.md5((repo/'.local/dumps/camera_2025/usr/setting/DmmConfig.bin').read_bytes()).hexdigest(),
          activation_requirements=[
           'Clear existing RAM hooks with a genuine reboot; never hot-swap active hooks.',
           'Both candidate components are required; kernel candidate must not be used with stock MJPEG producer.',

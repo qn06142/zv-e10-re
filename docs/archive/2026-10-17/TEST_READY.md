@@ -31,7 +31,7 @@ The test suite runs completely offline without network, external dependencies, o
 
 ### CLI Patch Generator Default Mode Invocation
 ```powershell
-& "D:\02_Development_And_Projects\pmca-re\.venv\Scripts\python.exe" scripts/patch_uvc.py -t "dumps/staged/uvc/binaries/patched" -f
+& "D:\02_Development_And_Projects\pmca-re\.venv\Scripts\python.exe" scripts/patch_uvc.py -t ".local/dumps/staged/uvc/binaries/patched" -f
 ```
 
 ---

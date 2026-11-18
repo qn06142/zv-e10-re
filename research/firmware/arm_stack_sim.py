@@ -30,7 +30,7 @@ from pathlib import Path
 
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_LITTLE_ENDIAN
 
-IMG = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\h_probe.bin')
+IMG = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\h_probe.bin')
 ENTRY = 0x00010200
 
 # instructions that touch memory, and how many bytes at the base address

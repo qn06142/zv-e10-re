@@ -25,8 +25,8 @@ from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_LITTLE_ENDIAN
 from keystone import Ks, KS_ARCH_ARM, KS_MODE_THUMB, KsError
 
 BASE = Path(r'D:\02_Development_And_Projects\pmca-re')
-SRC = BASE / 'dumps' / 'av-cam.bin.bak'
-OUT = BASE / 'dumps' / 'av-cam.injected.bin'
+SRC = BASE / '.local/dumps' / 'av-cam.bin.bak'
+OUT = BASE / '.local/dumps' / 'av-cam.injected.bin'
 
 SITE = 0x000AA15A
 CAVE = 0x00BE0000

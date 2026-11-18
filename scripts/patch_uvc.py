@@ -7,8 +7,8 @@ streaming to Full HD 1080p (1920x1080 @ 30fps NTSC / 25fps PAL) without descript
 corruption, pointer clobbering, or instruction-level register faults.
 
 Hardware Target: Sony Alpha ZV-E10 (CXD90045 / BIONZ X)
-Authoritative Baseline: dumps/camera_2025/usr/usr/lib/
-Output Directory: dumps/staged/uvc/binaries/patched/
+Authoritative Baseline: .local/dumps/camera_2025/usr/usr/lib/
+Output Directory: .local/dumps/staged/uvc/binaries/patched/
 """
 
 import argparse
@@ -27,8 +27,8 @@ except ImportError:
     HAS_CAPSTONE = False
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_SOURCE_DIR = REPO_ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "lib"
-DEFAULT_TARGET_DIR = REPO_ROOT / "dumps" / "staged" / "uvc" / "binaries" / "patched"
+DEFAULT_SOURCE_DIR = REPO_ROOT / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib"
+DEFAULT_TARGET_DIR = REPO_ROOT / '.local/dumps' / "staged" / "uvc" / "binaries" / "patched"
 
 
 @dataclass(frozen=True)
@@ -350,8 +350,8 @@ def apply_patches(
     Apply surgical UVC patches to stock firmware binaries.
 
     Args:
-        source_dir: Path to genuine stock binaries. Defaults to dumps/camera_2025/usr/usr/lib.
-        target_dir: Path to write patched binaries. Defaults to dumps/staged/uvc/binaries/patched.
+        source_dir: Path to genuine stock binaries. Defaults to .local/dumps/camera_2025/usr/usr/lib.
+        target_dir: Path to write patched binaries. Defaults to .local/dumps/staged/uvc/binaries/patched.
         patches: Dictionary mapping binary filenames to lists of PatchEntry. Defaults to PATCHES.
         force: Overwrite existing target binaries without prompt.
         validate: Run post-patch Capstone and UVC descriptor verification.

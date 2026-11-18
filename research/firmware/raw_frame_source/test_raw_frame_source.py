@@ -21,7 +21,7 @@ import subprocess
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-FIRMWARE_DUMP_DIR = REPO_ROOT / "dumps" / "camera_2025"
+FIRMWARE_DUMP_DIR = REPO_ROOT / '.local/dumps' / "camera_2025"
 FRAMEWORK_SO = FIRMWARE_DUMP_DIR / "usr" / "usr" / "lib" / "dataflowInfraFramework.so"
 DMM_CONFIG_BIN = FIRMWARE_DUMP_DIR / "usr" / "setting" / "DmmConfig.bin"
 HEADER_PATH = Path(__file__).resolve().parent / "raw_frame_source.h"

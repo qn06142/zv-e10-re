@@ -49,7 +49,7 @@ import tarfile
 from collections import Counter
 from pathlib import Path
 
-TAR = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\ui.tar')
+TAR = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\ui.tar')
 
 
 def load():

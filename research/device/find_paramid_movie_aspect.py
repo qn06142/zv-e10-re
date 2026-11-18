@@ -3,8 +3,8 @@ import struct
 import glob
 
 HERE = Path(__file__).resolve().parent.parent.parent
-lib_dir = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib"
-bin_dir = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "bin"
+lib_dir = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib"
+bin_dir = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / 'bin'
 
 target_str = b"PARAMID_MOVIE_ASPECT_RATIO"
 

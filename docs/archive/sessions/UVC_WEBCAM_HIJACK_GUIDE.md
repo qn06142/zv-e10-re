@@ -145,7 +145,7 @@ Standalone single-shot host patcher mirroring `batch_patch_opengate.py`:
 - Uploads and executes patches in volatile process memory in a single transaction.
 
 ### 2. `research/device/uvc_hook.c`
-Cross-compiled shared library (`out/uvc_hook.so` / `dumps/staged/uvc/uvc_hook.so`).
+Cross-compiled shared library (`.local/out/uvc_hook.so` / `.local/dumps/staged/uvc/uvc_hook.so`).
 - Placed in `/setting/uvc_hook.so`.
 - Automatically invoked by `im.elf` via `/setting/mode/preload`.
 - Reads configuration from `/setting/uvc.conf`.
@@ -163,7 +163,7 @@ Shell script utilizing `/setting/mem_patch.elf`.
   /setting/apply_uvc_live.sh 2k_opengate
   ```
 
-### 4. `dumps/staged/uvc/install_uvc.sh` & `uninstall_uvc.sh`
+### 4. `.local/dumps/staged/uvc/install_uvc.sh` & `uninstall_uvc.sh`
 Device-side installer and uninstaller scripts:
 - `install_uvc.sh`: Installs `uvc_hook.so` and config to `/setting/` and enables developer boot preload (`3p` in `/setting/mode/dmode`).
 - `uninstall_uvc.sh`: Restores stock boot mode (`3` in `/setting/mode/dmode`), removes preload hooks and configs, reverting camera to factory behavior.

@@ -1,7 +1,7 @@
 import capstone
 
 cs = capstone.Cs(capstone.CS_ARCH_ARM, capstone.CS_MODE_THUMB)
-with open('dumps/camera_2025/usr/usr/lib/libObj.so', 'rb') as f:
+with open('.local/dumps/camera_2025/usr/usr/lib/libObj.so', 'rb') as f:
     f.seek(0x2ccb60)
     data = f.read(0x200)
 

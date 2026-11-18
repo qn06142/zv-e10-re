@@ -24,7 +24,7 @@ However, all delivered frames consisted of **synthetic color bars and diagnostic
 
 ### Objective of this Deliverable
 The objective of this specification is to:
-- Exhaustively survey and rank all five potential camera frame sources across offline Linux shared objects, kernel modules, and the RTOS firmware image (`dumps/firmware/av-cam.bin`).
+- Exhaustively survey and rank all five potential camera frame sources across offline Linux shared objects, kernel modules, and the RTOS firmware image (`.local/dumps/firmware/av-cam.bin`).
 - Rigorously differentiate processed, demosaiced YUV/RGB video from unprocessed Bayer sensor RAW and compressed display scanout buffers.
 - Recover the full operational contract (APIs, IPC routes, synchronization fences, buffer formats, physical-to-virtual address mapping, memory ownership, and cache maintenance) for the primary viable live camera source: **DataflowInfra YC (`SdsYcc`) integrated into the Pre-JPEG `VideoEsManager` Producer Boundary**.
 - Specify a bounded, lock-isolated conversion architecture using pure scalar ARMv7-A / Thumb-2 integer algorithms and portable scalar C loops, strictly adhering to the hardware constraint of the Sony CXD90045 (BIONZ X) ARMv7-A core (which implements VFPv3-D16 only and strictly lacks ARM NEON Advanced SIMD extensions, where any NEON instruction triggers a fatal SIGILL fault), budgeting memory bandwidth and scalar CPU overhead for 640×480 @ 10 fps and @ 30 fps.
@@ -320,7 +320,7 @@ When `data_placement == 1`, the source buffer is already byte-identical to UVC `
 
 ### 3.5 Physical vs Virtual Memory Mapping via `/dev/stream`
 
-The Linux kernel character device `/dev/stream` (`dumps/camera_2025/usr/usr/kmod/stream.ko`, major 249, minor 7) provides the universal mechanism for mapping physical camera DRAM into userspace virtual memory:
+The Linux kernel character device `/dev/stream` (`.local/dumps/camera_2025/usr/usr/kmod/stream.ko`, major 249, minor 7) provides the universal mechanism for mapping physical camera DRAM into userspace virtual memory:
 
 ```arm
 /* stream.ko::stream_mmap (VA 0x00000000 - 0x00000048): */
@@ -759,7 +759,7 @@ The following specification table governs the interface contract between the liv
 
 ---
 
-### 6.5 `dumps/firmware/av-cam.bin` (MD5: `cdcae9d4fdbf66a33704a4c7564e346d`)
+### 6.5 `.local/dumps/firmware/av-cam.bin` (MD5: `cdcae9d4fdbf66a33704a4c7564e346d`)
 
 #### RTOS JPEG Encode Descriptor Builder (Offset `0x00810978`)
 ```arm
@@ -803,13 +803,13 @@ Execute the following verification command using Python 3:
 & "D:\02_Development_And_Projects\pmca-re\.venv\Scripts\python.exe" -B -c "
 import hashlib
 targets = [
-    ('dumps/camera_2025/usr/usr/lib/libBizFw.so', '6416a5a6780bbe829eb30d85fc8e8dad'),
-    ('dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so', 'cde7a1b42c919706aa5f61aba5fc0d75'),
-    ('dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so', '31308976206a837f6f5c571992d2b499'),
-    ('dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so', 'f70f50f931e9c2cf415cc2728e324f60'),
-    ('dumps/camera_2025/usr/usr/kmod/stream.ko', '7191da2f6a78d84f9a3f9eac4680eb2a'),
-    ('dumps/camera_2025/usr/setting/DmmConfig.bin', '9f197ff9b300e49ab531b6f9e794253e'),
-    ('dumps/firmware/av-cam.bin', 'cdcae9d4fdbf66a33704a4c7564e346d')
+    ('.local/dumps/camera_2025/usr/usr/lib/libBizFw.so', '6416a5a6780bbe829eb30d85fc8e8dad'),
+    ('.local/dumps/camera_2025/usr/usr/lib/libInfraStreamingUsb.so', 'cde7a1b42c919706aa5f61aba5fc0d75'),
+    ('.local/dumps/camera_2025/usr/usr/lib/libInfraUsbCmn.so', '31308976206a837f6f5c571992d2b499'),
+    ('.local/dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so', 'f70f50f931e9c2cf415cc2728e324f60'),
+    ('.local/dumps/camera_2025/usr/usr/kmod/stream.ko', '7191da2f6a78d84f9a3f9eac4680eb2a'),
+    ('.local/dumps/camera_2025/usr/setting/DmmConfig.bin', '9f197ff9b300e49ab531b6f9e794253e'),
+    ('.local/dumps/firmware/av-cam.bin', 'cdcae9d4fdbf66a33704a4c7564e346d')
 ]
 for path, expected in targets:
     actual = hashlib.md5(open(path, 'rb').read()).hexdigest()

@@ -6,7 +6,7 @@ guard() { [ "$(hash "$1")" = "$2" ] || { echo "HASH_GUARD_FAILED:$1"; exit 1; };
 P=$($BB pidof im.elf)
 case "$P" in ''|*[!0-9]*) echo PROCESS_GUARD_FAILED; exit 1;; esac
 if $BB grep -E 'libInfraStreamingUsb|yuy2_640|yc_observer|yc_probe' /proc/$P/maps; then echo COLD_BOOT_REQUIRED; exit 1; fi
-if $BB grep -E ' /usr/(lib/libInfraStreamingUsb.so|lib/libInfraUsbCmn.so|lib/libBizFw.so|kmod/usbg_video.ko) ' /proc/mounts; then echo OVERLAY_GUARD_FAILED; exit 1; fi
+if $BB grep -E ' /usr/(lib/libInfraStreamingUsb.so|lib/libInfraUsbCmn.so|lib/libBizFw.so|.local/kmod/usbg_video.ko) ' /proc/mounts; then echo OVERLAY_GUARD_FAILED; exit 1; fi
 guard /usr/lib/libInfraStreamingUsb.so c3aa9b92ea6c05ce78aa7894e8dfe35a
 guard /usr/lib/yuy2_640_v27snap.so ec185c27deb53f80f6f5a40d9a8f95f1
 guard /usr/share/yuy2-recovery-v27snap/libInfraStreamingUsb.v24p.so 5fde77e394572ebcf420f8941575f6c4

@@ -13,7 +13,7 @@ artefact.  No camera binaries are needed, so this runs on a fresh checkout.
 Three categories are separated, because conflating them is what makes the
 orphan count meaningless:
 
-1. **Real files** -- ``dumps/camera_2025/usr/usr/lib``, ``.../usr/usr/scenario``
+1. **Real files** -- ``.local/dumps/camera_2025/usr/usr/lib``, ``.../usr/usr/scenario``
    and the other walked directories.
 2. **Carved fragments** -- ``elf_XXXXXXXX.so`` and ``*_0xXXXXXXXX.bin`` under
    ``usr_lib_raw``.  These are ELFs recovered from a raw image dump, not files
@@ -115,7 +115,7 @@ def main():
         print("  %10d B  imports=%-5d needed=%-3d exports=%-5d  %s"
               % (v["size"], v["imports"], len(v["needed"]), v["exp_func"], p))
     print("  The 81,920-byte copy is a truncated decoy in the dump and yields")
-    print("  nothing; the 21 MB copy under dumps/engine is the real library and")
+    print("  nothing; the 21 MB copy under .local/dumps/engine is the real library and")
     print("  carries 1,904 exports.  Both share a basename, so any count keyed on")
     print("  basename has to treat a name as readable only if a copy of it parsed.")
     print()

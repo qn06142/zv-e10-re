@@ -45,7 +45,7 @@ from pathlib import Path
 
 CANDIDATES = [
     Path(r'F:\RE_DUMP\TREES\usr_share.tgz'),
-    Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz'),
+    Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share_app.tgz'),
 ]
 STRIDE = 36
 BODY = 0x58

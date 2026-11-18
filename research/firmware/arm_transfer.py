@@ -14,7 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-D = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera')
+D = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera')
 CHUNK = 1500
 
 

@@ -126,7 +126,7 @@ corrupts data.** The patch removes the spurious read.
 - `sample_isp.py` — pulls 64 KB samples of firmware blobs for entropy/string analysis.
 - `disasm_bootrom.py` / `disasm_key.py` / `disasm_calls.py` — capstone disassembly of the bootrom.
 - `analyze_strings.py` / `analyze_surface.py` — string, crypto and command-surface extraction from `av-cam.bin`.
-- `verify/verify_zve10.py` — offline verification harness (import safety, chunk sizing, read-only invariants, preflight guard).
+- `research/verify/verify_zve10.py` — offline verification harness (import safety, chunk sizing, read-only invariants, preflight guard).
 
 The current index is [`research/README.md`](../../research/README.md); the live
 device link is [`research/device/zve10_retry.py`](../../research/device/zve10_retry.py).

@@ -2,7 +2,7 @@ from pathlib import Path
 import capstone
 
 HERE = Path(__file__).resolve().parent.parent.parent
-lib_path = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
+lib_path = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libObj.so"
 cs = capstone.Cs(capstone.CS_ARCH_ARM, capstone.CS_MODE_THUMB)
 cs.detail = True
 

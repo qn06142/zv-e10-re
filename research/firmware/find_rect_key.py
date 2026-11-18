@@ -45,7 +45,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share\app')
+ROOT = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share\app')
 
 # (name, 4-byte on-disk prefix, 2 trailing bytes known from earlier work)
 KNOWN = [

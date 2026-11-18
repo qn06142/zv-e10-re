@@ -20,7 +20,7 @@ sys.path.insert(0, str(REPO_ROOT))
 
 import research.device.zve10_retry as zve10
 
-STOCK_PALETTE_PATH = REPO_ROOT / "dumps" / "staged" / "palette" / "color_cmn.STOCK.uxc"
+STOCK_PALETTE_PATH = REPO_ROOT / '.local/dumps' / "staged" / "palette" / "color_cmn.STOCK.uxc"
 EXPECTED_STOCK_MD5 = "f468bd3e72ca4e5b948a1c9f1f35c0a1"
 
 

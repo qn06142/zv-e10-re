@@ -70,7 +70,7 @@ import sys
 from elftools.elf.elffile import ELFFile
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SYSDEF = ROOT / "dumps" / "camera_2025" / "usr" / "usr" / "lib" / "libSysDef.so"
+SYSDEF = ROOT / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib" / "libSysDef.so"
 
 STRIDE = 800
 

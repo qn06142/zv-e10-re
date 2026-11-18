@@ -3,7 +3,7 @@ from elftools.elf.elffile import ELFFile
 import capstone
 
 HERE = Path(__file__).resolve().parent.parent.parent
-lib_dir = HERE / "dumps" / "camera_2025" / "usr" / "usr" / "lib"
+lib_dir = HERE / '.local/dumps' / "camera_2025" / "usr" / "usr" / "lib"
 cs = capstone.Cs(capstone.CS_ARCH_ARM, capstone.CS_MODE_THUMB)
 
 def disasm_func(lib_name, sym_name):

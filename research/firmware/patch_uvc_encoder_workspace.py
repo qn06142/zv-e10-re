@@ -13,8 +13,8 @@ from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB
 from keystone import Ks, KS_ARCH_ARM, KS_MODE_THUMB
 
 _HERE=Path(__file__).resolve()
-REPO = _HERE.parents[2] if (_HERE.parents[2]/'dumps').is_dir() else Path(r'D:\02_Development_And_Projects\pmca-re')
-DEFAULT_OUTPUT=(_HERE.parent if _HERE.parent.name!='firmware' else REPO/'dumps/staged/uvc/encoder-workspace-fix')/'candidate-1080p'
+REPO = _HERE.parents[2] if (_HERE.parents[2]/'.local/dumps').is_dir() else Path(r'D:\02_Development_And_Projects\pmca-re')
+DEFAULT_OUTPUT=(_HERE.parent if _HERE.parent.name!='firmware' else REPO/'.local/dumps/staged/uvc/encoder-workspace-fix')/'candidate-1080p'
 STOCK = {
     'libInfraStreamingUsb.so': 'cde7a1b42c919706aa5f61aba5fc0d75',
     'libInfraUsbCmn.so': '31308976206a837f6f5c571992d2b499',
@@ -116,7 +116,7 @@ def build(source, width):
     return {'libInfraStreamingUsb.so':bytes(stream),'libInfraUsbCmn.so':bytes(common)},blobs
 
 def build_rtos(repo, automatic_workspace):
-    raw=(repo/'dumps/av-cam.bin').read_bytes()
+    raw=(repo/'.local/dumps/av-cam.bin').read_bytes()
     assert hashlib.md5(raw).hexdigest()=='cdcae9d4fdbf66a33704a4c7564e346d'
     patched=bytearray(raw)
     if automatic_workspace:
@@ -162,7 +162,7 @@ def main():
     parser.add_argument('--width',type=int,choices=(1280,1920),default=1920)
     parser.add_argument('--output',type=Path,default=DEFAULT_OUTPUT)
     args=parser.parse_args()
-    built,stock=build(args.repo/'dumps/camera_2025/usr/usr/lib',args.width)
+    built,stock=build(args.repo/'.local/dumps/camera_2025/usr/usr/lib',args.width)
     built['av-cam.bin'],stock['av-cam.bin']=build_rtos(args.repo,args.width==1920)
     args.output.mkdir(parents=True,exist_ok=True)
     report={'status':'BUILT_HARDWARE_UNTESTED','width':args.width,

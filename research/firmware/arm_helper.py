@@ -47,7 +47,7 @@ from pathlib import Path
 
 from keystone import Ks, KS_ARCH_ARM, KS_MODE_ARM, KS_MODE_LITTLE_ENDIAN
 
-OUT = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera')
+OUT = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera')
 OUT.mkdir(parents=True, exist_ok=True)
 
 DEV_STREAM = b'/dev/stream\x00'

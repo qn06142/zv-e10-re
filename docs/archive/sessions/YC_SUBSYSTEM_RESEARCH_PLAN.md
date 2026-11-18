@@ -18,7 +18,7 @@
 All findings are established against authentic firmware binaries and genuine runtime evidence extracted from the physical device:
 
 ### Primary Evidence & Captures
-- **Retained Live Descriptor Snapshot**: `outputs/vga-v33/capture-first-01/logs/source-ssyc-retained.bin`
+- **Retained Live Descriptor Snapshot**: `.local/outputs/vga-v33/capture-first-01/logs/source-ssyc-retained.bin`
   - Container size: 4096 bytes
   - SHA256: `9c60c7088da03631af4cd06fbd8f9d444d084e9104ead87cb0147ef76ac45f9c`
 - **Revision 3.3 Runtime Report**: [REPORT.md](../../../research/firmware/yuy2_transport_v33_source_retry/evidence/capture-20261028/REPORT.md)
@@ -26,17 +26,17 @@ All findings are established against authentic firmware binaries and genuine run
 - **Session Handoff Ledger**: [HANDOFF.md](HANDOFF.md)
 
 ### Reference Firmware Binaries
-- **RTOS Monolithic Kernel & Firmware**: `dumps/firmware/av-cam.bin`
+- **RTOS Monolithic Kernel & Firmware**: `.local/dumps/firmware/av-cam.bin`
   - Base Address: `0x635c6000`, Size: 17,289,388 bytes, MD5: `cdcae9d4fdbf66a33704a4c7564e346d`
-- **Linux Dynamic Memory Manager Driver**: `dumps/camera_2025/usr/usr/kmod/dmm.ko`
+- **Linux Dynamic Memory Manager Driver**: `.local/dumps/camera_2025/usr/usr/kmod/dmm.ko`
   - ELF relocatable kernel module, MD5: `15c8f7807b291c0af3c77fe55848577f`
-- **Linux Dataflow Infrastructure Framework**: `dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so`
+- **Linux Dataflow Infrastructure Framework**: `.local/dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so`
   - MD5: `f70f50f931e9c2cf415cc2728e324f60`
-- **Linux Business Framework & DMM/SDF Wrappers**: `dumps/camera_2025/usr/usr/lib/libBizFw.so`
+- **Linux Business Framework & DMM/SDF Wrappers**: `.local/dumps/camera_2025/usr/usr/lib/libBizFw.so`
   - MD5: `6416a5a6780bbe829eb30d85fc8e8dad`
-- **Linux Display & Object Engine**: `dumps/camera_2025/usr/usr/lib/libObj.so`
+- **Linux Display & Object Engine**: `.local/dumps/camera_2025/usr/usr/lib/libObj.so`
   - Size: 18,335,088 bytes
-- **Linux Stream Device Driver**: `dumps/camera_2025/usr/usr/kmod/stream.ko`
+- **Linux Stream Device Driver**: `.local/dumps/camera_2025/usr/usr/kmod/stream.ko`
 
 ### Status Matrix: Baseline vs Resolved Architecture
 
@@ -101,7 +101,7 @@ The Sony video delivery pipeline is an event-driven publish-subscribe system med
 
 ### 1.2 RTOS Producer & Delivery Mechanics
 
-Disassembly of `dumps/firmware/av-cam.bin` (base `0x635c6000`) isolates the exact routines responsible for frame generation, pre-send sharing, and retirement:
+Disassembly of `.local/dumps/firmware/av-cam.bin` (base `0x635c6000`) isolates the exact routines responsible for frame generation, pre-send sharing, and retirement:
 
 1. **YUVInfo Metadata Builder (`0x6374ae88` .. `0x6374af08`)**:
    Populates `ImageSizeInfo` fields from internal driver state:
@@ -135,7 +135,7 @@ Disassembly of `dumps/firmware/av-cam.bin` (base `0x635c6000`) isolates the exac
 
 ### 1.3 Pin Wire Protocol Specification
 
-Defined in `dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so`:
+Defined in `.local/dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so`:
 
 #### Delivery Message: `_MSG_PIN_SEND` (52 Bytes, Opcode `0x0102`)
 - `+0x00` (2B): Category ID = `0x1000`
@@ -159,7 +159,7 @@ Defined in `dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so`:
 
 ### 1.4 Linux Consumer Integration (`libObj.so`)
 
-In `dumps/camera_2025/usr/usr/lib/libObj.so`, the live viewfinder consumer `dmpNative::YC1Pin` connects to the VDF pipeline:
+In `.local/dumps/camera_2025/usr/usr/lib/libObj.so`, the live viewfinder consumer `dmpNative::YC1Pin` connects to the VDF pipeline:
 - Constructor at `0x006f5958`:
   - `property.type = 1` (`PIN_YC`)
   - `property.index = 1`
@@ -360,7 +360,7 @@ Disassembly of `DmmCh::freeSdsAndYc` (`0x364a0` .. `0x36606`):
 
 ### 3.1 Retained Descriptor Verification
 
-The authentic 4096-byte SSYC descriptor captured during live streaming (`outputs/vga-v33/capture-first-01/logs/source-ssyc-retained.bin`, SHA256 `9c60c7088da03631af4cd06fbd8f9d444d084e9104ead87cb0147ef76ac45f9c`) has the following container header:
+The authentic 4096-byte SSYC descriptor captured during live streaming (`.local/outputs/vga-v33/capture-first-01/logs/source-ssyc-retained.bin`, SHA256 `9c60c7088da03631af4cd06fbd8f9d444d084e9104ead87cb0147ef76ac45f9c`) has the following container header:
 - `+0x00` (4B): Magic `0x43595353` ("SSYC")
 - `+0x04` (4B): Version = `1`
 - `+0x08` (4B): Total Capacity = `0x1000` (4096 bytes)
@@ -490,7 +490,7 @@ With `strip_width = 64`:
 
 ### 4.5 Memory Coherency & Barriers
 
-Disassembly of `dumps/camera_2025/usr/usr/kmod/stream.ko` (`stream_mmap` at `.text+0x20`):
+Disassembly of `.local/dumps/camera_2025/usr/usr/kmod/stream.ko` (`stream_mmap` at `.text+0x20`):
 ```armasm
 0x20: bic r2, r2, #0x3c   ; clears L_PTE_MT_MASK
 0x24: str r2, [r1, #0x14] ; sets page type to L_PTE_MT_UNCACHED

@@ -1,6 +1,6 @@
 import os, struct
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM
-TOOLS = (ROOT_REPO / 'tools').as_posix()
+TOOLS = (ROOT_REPO / 'scripts/tools').as_posix()
 
 # Use pyelftools for robust section lookup (installed in venv)
 from elftools.elf.elffile import ELFFile

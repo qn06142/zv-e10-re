@@ -22,7 +22,7 @@ from collections import defaultdict
 from pathlib import Path
 
 BASE = Path(r'D:\02_Development_And_Projects\pmca-re')
-FE = BASE / 'dumps' / 'camera_2025' / 'usr_lib_raw' / 'elf_05610c00.so'
+FE = BASE / '.local/dumps' / 'camera_2025' / 'usr_lib_raw' / 'elf_05610c00.so'
 
 b = FE.read_bytes()
 N = len(b)

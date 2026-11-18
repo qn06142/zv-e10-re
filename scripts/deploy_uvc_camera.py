@@ -31,7 +31,7 @@ EXPECTED_STOCK = {
     "libInfraStreamingUsb.so": "cde7a1b42c919706aa5f61aba5fc0d75",
 }
 
-STAGED_DIR = REPO_ROOT / "dumps" / "staged" / "uvc" / "binaries" / "patched"
+STAGED_DIR = REPO_ROOT / '.local/dumps' / "staged" / "uvc" / "binaries" / "patched"
 
 
 def push_file_gz_b64(local_path: Path, remote_path: str, expected_md5: str, chunk_size: int = 500):

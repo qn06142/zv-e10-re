@@ -51,8 +51,8 @@ from pathlib import Path
 
 import uxc_safe as S
 
-TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz')
-OUT = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera\app')
+TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share_app.tgz')
+OUT = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera\app')
 
 
 def load(only=None):

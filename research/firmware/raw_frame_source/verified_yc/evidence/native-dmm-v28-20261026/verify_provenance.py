@@ -2,7 +2,7 @@ from pathlib import Path
 import struct,json
 from unicorn import *
 from unicorn.arm_const import *
-R=Path(r'D:/02_Development_And_Projects/pmca-re');B=Path('outputs/uvc-startup-fix/candidate-1080p/av-cam.bin').read_bytes();BASE=0x635c6000;O=Path('outputs/native-dmm-v28/provenance');O.mkdir(exist_ok=True)
+R=Path(r'D:/02_Development_And_Projects/pmca-re');B=Path('.local/outputs/uvc-startup-fix/candidate-1080p/av-cam.bin').read_bytes();BASE=0x635c6000;O=Path('.local/outputs/native-dmm-v28/provenance');O.mkdir(exist_ok=True)
 u=Uc(UC_ARCH_ARM,UC_MODE_THUMB);u.mem_map(0x63000000,0x2000000);u.mem_write(BASE,B);u.mem_map(0x50000000,0x1000);u.mem_map(0x60000000,0x20000);u.mem_map(0x62000000,0x1000)
 STACK=0x6001f000;STOP=0x50000000;META=0x60001000;STATE=0x60002000;CTX=0x60003000;MSG=0x60005000;OBJ=0x60006000;OBJ2=0x60007000;FRAME=0x60008000
 RGS=[UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_REG_R3]

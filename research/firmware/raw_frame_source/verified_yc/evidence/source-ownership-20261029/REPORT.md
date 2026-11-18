@@ -1,7 +1,7 @@
 # Source Ownership & Frame Event Report (Workstream A)
 **Date:** 29 October 2026  
 **Status:** COMPLETE (Binary-verified offline)  
-**Binary Source:** `dumps/firmware/av-cam.bin` (`MD5: cdcae9d4fdbf66a33704a4c7564e346d`, Base: `0x635c6000`)  
+**Binary Source:** `.local/dumps/firmware/av-cam.bin` (`MD5: cdcae9d4fdbf66a33704a4c7564e346d`, Base: `0x635c6000`)  
 **Evidence Artifacts:** `pin-handlers-static.json`, `source_ownership_verification.json`  
 **Verification Script:** `recipes/verify_source_ownership.py`
 

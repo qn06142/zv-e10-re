@@ -18,7 +18,7 @@ suffix = {'linux2': '-linux', 'win32': '-win', 'darwin': '-osx'}
 output += '-' + version + suffix.get(sys.platform, '')
 
 # Analyze files
-a = Analysis([input], excludes=excludes, datas=[('certs/*', 'certs')])
+a = Analysis([input], excludes=excludes, datas=[('pmca/resources/certs/*', 'pmca/resources/certs')])
 a.datas = [d for d in a.datas if not (d[0].startswith('certifi') and not d[0].endswith('cacert.pem'))]
 a.datas += Tree('updatershell/fdat', 'updatershell/fdat')
 

@@ -209,7 +209,7 @@ def strref_at(av, refs, off):
 def _selftest():
     """Both conventions are pinned by independently-anchored ground truth."""
     from pathlib import Path
-    av = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\av-cam.bin.bak').read_bytes()
+    av = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\av-cam.bin.bak').read_bytes()
     md = mkdis()
     refs = pcrel_strrefs(md, av, 0x1000, 0x200000)
 

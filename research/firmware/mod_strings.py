@@ -9,7 +9,7 @@ import struct
 from pathlib import Path
 
 N = 17_289_388
-a = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\av-cam.bin.bak').read_bytes()
+a = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\av-cam.bin.bak').read_bytes()
 FUNC = 0x000aa14c          # push {r4,lr} - start of the patched function
 
 

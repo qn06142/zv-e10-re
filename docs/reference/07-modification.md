@@ -144,7 +144,7 @@ No `arm-linux-gnueabi-gcc`, but the venv can hand-build the library:
 | `pyelftools` | 0.33 | emit the `.so` |
 | `unicorn` | 2.1.4 | test the emitted ARM code before it runs |
 
-`udtrbody_extract/` already holds an extracted copy including the stock
+`.local/udtrbody_extract/` already holds an extracted copy including the stock
 `bodylib/libupdaterbody.so` (106,156 B) and the whole updater toolkit, so a
 packer can be written against a known-good round trip. The integrity check is
 `CrcChecker` / `uc_crc32sum.elf` — **CRC, which is forgeable, not a signature.**

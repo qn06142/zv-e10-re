@@ -42,7 +42,7 @@ from collections import Counter, defaultdict
 from fractions import Fraction
 from pathlib import Path
 
-TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\dumps\camera_2025\usr_share_app.tgz')
+TGZ = Path(r'D:\02_Development_And_Projects\pmca-re\.local\dumps\camera_2025\usr_share_app.tgz')
 
 KNOWN = {
     '1b572204010e': 16, '1f0280550208': 15, 'c34c39a70111': 7,

@@ -1,6 +1,6 @@
 from pathlib import Path
 import json,struct,re,hashlib
-O=Path('outputs/native-dmm-callback/deployment/live/first-capture-01');m=json.loads((O/'state-layout.json').read_text());data=(O/'module-state.bin').read_bytes();assert hashlib.md5(data).hexdigest()=='016a550630a47219a357bd44ba51c3ac'
+O=Path('.local/outputs/native-dmm-callback/deployment/live/first-capture-01');m=json.loads((O/'state-layout.json').read_text());data=(O/'module-state.bin').read_bytes();assert hashlib.md5(data).hexdigest()=='016a550630a47219a357bd44ba51c3ac'
 def symbol(name):
  v,n=m['symbols'][name];offset=m['load_base']+v-m['read_start'];return data[offset:offset+n]
 names=['select_function','send_function','receive_function','io_context','private_reply_queue','candidate_handle_padded','candidate_type','state','shared','opened','sequence','physical','bytes','cancel','token']

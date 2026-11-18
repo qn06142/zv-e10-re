@@ -20,7 +20,7 @@ HASH={'libObj.so':'0b4be3fb599b539c69c782bd400dd8e9',
 def build(repo,output):
  rows=['/* Generated from exact inspected Sony files; do not hand edit. */'];report={'input_md5':HASH,'sdk':{},'obj':{}}
  def process(filename,config,prefix,by_symbol):
-  path=repo/'dumps/camera_2025/usr/usr/lib'/filename
+  path=repo/'.local/dumps/camera_2025/usr/usr/lib'/filename
   assert hashlib.md5(path.read_bytes()).hexdigest()==HASH[filename],filename
   guards=[];addresses=[]
   with path.open('rb') as f:

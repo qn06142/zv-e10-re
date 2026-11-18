@@ -20,7 +20,7 @@ def imp(name):
     handlers[a] = name
     return a
 
-sdk = m.load(u, ROOT / 'dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so', 0x08000000, imp)
+sdk = m.load(u, ROOT / '.local/dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so', 0x08000000, imp)
 
 def hook(u, a, n, d):
     if a not in handlers: return

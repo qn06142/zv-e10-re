@@ -3,7 +3,7 @@ import json,struct,hashlib
 from elftools.elf.elffile import ELFFile
 from unicorn import Uc,UC_ARCH_ARM,UC_MODE_THUMB,UC_HOOK_CODE
 from unicorn.arm_const import *
-OUT=Path('outputs/yc-vga-test');ROOT=Path(r'D:/02_Development_And_Projects/pmca-re/dumps/camera_2025/usr/usr/lib')
+OUT=Path('.local/outputs/yc-vga-test');ROOT=Path(r'D:/02_Development_And_Projects/pmca-re/.local/dumps/camera_2025/usr/usr/lib')
 REGS=[UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_REG_R3]
 STOP=0x60000000;DATA=0x50000000;STACK=DATA+0x18000
 

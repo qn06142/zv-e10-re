@@ -115,7 +115,7 @@ def stream_file(local_path: str, remote_path: str) -> bool:
 
 
 if __name__ == "__main__":
-    src = sys.argv[1] if len(sys.argv) > 1 else "out/file_patch.elf"
+    src = sys.argv[1] if len(sys.argv) > 1 else ".local/out/file_patch.elf"
     dst = sys.argv[2] if len(sys.argv) > 2 else "/setting/file_patch.elf"
     ok = stream_file(src, dst)
     sys.exit(0 if ok else 1)
