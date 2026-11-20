@@ -1,0 +1,61 @@
+{
+  "status": "offline-original-instruction-and-RAM-payload-verified",
+  "hardware_tested": false,
+  "input_sha256": "e6459c22859d8978195baa1ef2e93ad6d5f4fcb3dd89c2c2f02c325b46616090",
+  "output_sha256": "c993e1be8ca352de663c4f66bd6df227262fe4697b7c793c9561ef3e8b3e6f70",
+  "output_md5": "9a3cc1f700cbe4a255e29cb5d5b2e2fc",
+  "bytes": 656918,
+  "tests": {
+    "success": [
+      {
+        "load_bias": "0x1000000",
+        "two_payloads_without_gui_reload": true,
+        "real_ram_payload_entries": 2,
+        "rw_to_rx_then_unmapped": true
+      },
+      {
+        "load_bias": "0x2200000",
+        "two_payloads_without_gui_reload": true,
+        "real_ram_payload_entries": 2,
+        "rw_to_rx_then_unmapped": true
+      }
+    ],
+    "failure_cases": 13,
+    "short_reads_and_EINTR": true,
+    "confirmation_required": true,
+    "no_writable_executable_mapping": true,
+    "limits": [
+      "Linux syscalls are mocked; no real kernel policy checked",
+      "Payloads execute real instructions in Unicorn with RX page permissions",
+      "A failed munmap is reported and may leave a mapping",
+      "Arbitrary valid-checksum code is not sandboxed or authenticated"
+    ]
+  },
+  "payloads": {
+    "hello": {
+      "bytes": 100,
+      "sha256": "e7b3172179300d6db836df1aa021d287d33a4fdfcbb8ef94e02a59d3938f4f9b",
+      "crc32_body": "0x69894554"
+    },
+    "second": {
+      "bytes": 100,
+      "sha256": "6af0759b12590325a00070d4d40dbe032506cd5161f7037a4121b239965d835c",
+      "crc32_body": "0x8a9a2684"
+    }
+  },
+  "payload_path": "/log/zve10-ram-loader/payload.bin",
+  "ram_contract": "anonymous RW mapping, validated file, RX protection, instruction-cache flush, returning Thumb ABI, unmap",
+  "os_handoff_implemented": false,
+  "source_sha256_lf": {
+    "version_gui_ram_loader\\build.py": "8138146fe9c4cdb4cc283fdbdf3d52df8b0c3dc3f65cbd998bd35af32c2c6b9b",
+    "version_gui_ram_loader\\hooks.S": "01752656ea29fa5b2df81ec0cdc46a30094f5f4e354f590c01a2964fec3cc9df",
+    "version_gui_ram_loader\\loader.c": "099b5a771c8a4e6d641d4b0b237531722235c2034a700552e4fa5e0efca7099e",
+    "version_gui_ram_loader\\payload.c": "275bb67587443c7fffbcffec222e494af69081cf3a318e3bae0a23da3e527016",
+    "version_gui_ram_loader\\payload.h": "274c1e2faa9d74284a3161be3039e4fb26ad030f3cdf3fcfdd7724053ecdf969",
+    "version_gui_ram_loader\\payload.ld": "c3b0dcaadff5612f58727d4b357ff39212958dbbbfc9bf8143a7fd20162eeadc",
+    "version_gui_ram_loader\\sequence.c": "075bbf3bd9dfc45928d636dd357f4f4855848a135c79ae15aeb853434dd48bd0",
+    "version_gui_ram_loader\\sequence.ld": "28fb4e1117b453911dbb70b5225b7705c42d9d87ba51a36489f6a9625b68d3c8",
+    "version_gui_ram_loader\\syscalls.S": "366f48640f8933328a8756cb6d166a68047cc3506247d55fc7d4a09f7a98b689",
+    "version_gui_ram_loader\\verify_loader.py": "d46c24801a602d96a458098a5280154abbef90ec4120b57f7c1c5700e41e024a"
+  }
+}

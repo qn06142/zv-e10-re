@@ -1,0 +1,162 @@
+{
+  "capture_utc": "2026-11-20T03:18:48.523989+00:00",
+  "mode": "Senser",
+  "boot_id": "9cf87545-6599-4ce7-ae0e-102836877b78",
+  "camera_writes": false,
+  "liro_entry": "0x635c6000",
+  "firmware_va_to_physical_ram": "subtract 0x60000000",
+  "live_mapping_code_fingerprint": "3d06f066ca9f5029d80382c4e0a1d489cf0cd79b68e892a2e2e7d5ad11dc57ed",
+  "reference_image_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "reads_are_sequential": true,
+  "ram_word_base_va": {
+    "dimensions": "0x64626760",
+    "origin": "0x644c12c0",
+    "gate": "0x64522f80",
+    "gate_second": "0x64522ba8",
+    "gate_third": "0x644be154",
+    "adjustments": "0x644c11c4",
+    "mode": "0x6441dc40",
+    "mode_select": "0x6441ddb0",
+    "mode_cached_byte": "0x64523220"
+  },
+  "samples": [
+    {
+      "uptime": "1858.72 6552.26",
+      "raw_ram_words": {
+        "dimensions": [
+          "0x028000f0",
+          "0x001101e0"
+        ],
+        "origin": [
+          "0x00200001"
+        ],
+        "gate": [
+          "0x88000001"
+        ],
+        "gate_second": [
+          "0x02010001"
+        ],
+        "gate_third": [
+          "0x00010080"
+        ],
+        "adjustments": [
+          "0x001a001a",
+          "0x00000000"
+        ],
+        "mode": [
+          "0x00000000"
+        ],
+        "mode_select": [
+          "0x0000001b"
+        ],
+        "mode_cached_byte": [
+          "0x000000ab"
+        ]
+      },
+      "mmio": {
+        "0xf3445000": "0x00010114",
+        "0xf3445048": "0x02800025",
+        "0xf3445058": "0x00000000",
+        "0xf344505c": "0x01df01df",
+        "0xf3446000": "0x00000000",
+        "0xf3440144": "0x02000233",
+        "0xf3441310": "0x22c4db80"
+      },
+      "decoded_abc": [
+        640,
+        480,
+        32
+      ],
+      "decoded_branch_bytes": [
+        1,
+        1,
+        1
+      ],
+      "decoded_adjustments": [
+        26,
+        26,
+        0,
+        0
+      ],
+      "offline_replay": {
+        "0xf3445048": "0x02800025",
+        "0xf3445058": "0x00000000",
+        "0xf344505c": "0x01df01df"
+      },
+      "offline_replay_with_third_gate_byte_zero": {
+        "0xf3445048": "0x02800025",
+        "0xf3445058": "0x001a001a",
+        "0xf344505c": "0x01c501c5"
+      }
+    },
+    {
+      "uptime": "1858.98 6552.79",
+      "raw_ram_words": {
+        "dimensions": [
+          "0x028000f0",
+          "0x003901e0"
+        ],
+        "origin": [
+          "0x00200001"
+        ],
+        "gate": [
+          "0x88000001"
+        ],
+        "gate_second": [
+          "0x02010001"
+        ],
+        "gate_third": [
+          "0x00010080"
+        ],
+        "adjustments": [
+          "0x001a001a",
+          "0x00000000"
+        ],
+        "mode": [
+          "0x00000000"
+        ],
+        "mode_select": [
+          "0x0000001b"
+        ],
+        "mode_cached_byte": [
+          "0x000000ab"
+        ]
+      },
+      "mmio": {
+        "0xf3445000": "0x00010114",
+        "0xf3445048": "0x02800025",
+        "0xf3445058": "0x00000000",
+        "0xf344505c": "0x01df01df",
+        "0xf3446000": "0x00000000",
+        "0xf3440144": "0x02000233",
+        "0xf3441310": "0x22c61b00"
+      },
+      "decoded_abc": [
+        640,
+        480,
+        32
+      ],
+      "decoded_branch_bytes": [
+        1,
+        1,
+        1
+      ],
+      "decoded_adjustments": [
+        26,
+        26,
+        0,
+        0
+      ],
+      "offline_replay": {
+        "0xf3445048": "0x02800025",
+        "0xf3445058": "0x00000000",
+        "0xf344505c": "0x01df01df"
+      },
+      "offline_replay_with_third_gate_byte_zero": {
+        "0xf3445048": "0x02800025",
+        "0xf3445058": "0x001a001a",
+        "0xf344505c": "0x01c501c5"
+      }
+    }
+  ]
+}

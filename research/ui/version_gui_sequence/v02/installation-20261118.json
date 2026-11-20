@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-18",
+  "mode": "Senser USB service",
+  "status": "installed-byte-verified-owner-confirmed-armed-marker",
+  "boot_id": "43ed3348-a90a-462e-a585-fd80e1e81165",
+  "installed_sha256": "d32e37975b39d9e943d3121623d2a41cd98c925e35a641404655a77454024283",
+  "previous_sequence_sha256": "8cd740bd1e13281131be02ab6e37e5855516bf56dbe50ab70b466501585d4ce9",
+  "full_installed_and_backup_readback_verified": true,
+  "usr_read_only": true,
+  "avcam_md5_before": "90096db2c76148f4f9db5d104e5c608c",
+  "avcam_md5_after": "90096db2c76148f4f9db5d104e5c608c",
+  "backup": "/usr/share/version-gui-sequence-v02/viewUnified6.previous-sequence-v01.so",
+  "gui_observation": "Owner reports Reaches ARMED OK after requested full restart and Up/Down/Left/Right then Up confirmation",
+  "sequence": [
+    "Up",
+    "Down",
+    "Left",
+    "Right"
+  ],
+  "confirm": "Up",
+  "center": "original transform result preserved",
+  "os_handoff_implemented": false,
+  "owner_confirmed_gui_sequence": true,
+  "center_exit_separately_confirmed": false,
+  "post_restart_boot_identity_readback": false
+}

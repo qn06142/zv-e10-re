@@ -1,0 +1,51 @@
+{
+  "camera_writes": true,
+  "stage_state": "READY; GO not sent",
+  "installed": true,
+  "module_sha256": "279bc0718128b8dc832163314e4e360582ecf272642f68a679aa6ba0a684038a",
+  "bytes": 7972,
+  "full_readback_match": true,
+  "module_loaded_at_close": false,
+  "status": "resident-heartbeat-owner-confirmed-and-post-trial-readback-verified",
+  "date": "2026-11-18",
+  "runtime_activation_verified": true,
+  "stock_boot_selection_unchanged": true,
+  "usr_read_only": true,
+  "av_cam_md5_unchanged": "90096db2c76148f4f9db5d104e5c608c",
+  "stage_log": "ZVBOOT_STAGE_V1 READY image=5f7ba000 bytes=244 stack=6507c000 delay=8785920; no handoff yet",
+  "baseline_backup": "/log/zve10-ram-boot/runtime-v02/previous-reset.ko",
+  "entry_image_bytes": 244,
+  "limitations": [
+    "Runtime entry inferred from owner-observed distinctive heartbeat; no direct trace/register capture",
+    "Private exception dispatch and timing validated offline only",
+    "Linux shutdown/RTOS ownership not independently instrumented",
+    "Resident image inherits Sony MMU, clocks, RAM and device state",
+    "No display, USB, sensor driver or scheduler implemented",
+    "Watchdog reset disabled; battery removal is the documented exit; exact owner exit method not recorded"
+  ],
+  "activation_evidence": "Owner-reported sustained blinking after requested GUI sequence; direct register/trace capture not collected",
+  "installation_go_sent": false,
+  "installation_mode": "senser",
+  "owner_observation": {
+    "report": "das blinken lights! it works! (the camera is now back to mass storage)",
+    "mode": "normal GUI activation, then returned to Mass Storage",
+    "heartbeat_reported": true,
+    "duration_measured": false,
+    "exit_method_recorded": false
+  },
+  "post_trial_check": {
+    "mode": "Senser after owner returned camera to Mass Storage",
+    "read_only_file_checks": true,
+    "normal_linux_cpus_online": "0-3",
+    "test_modules_absent": true,
+    "usr_read_only": true,
+    "gui_library_md5_unchanged": "9a3cc1f700cbe4a255e29cb5d5b2e2fc",
+    "av_cam_md5_unchanged": "90096db2c76148f4f9db5d104e5c608c",
+    "full_readback_match": [
+      "resident module",
+      "saved reset module",
+      "GUI launcher"
+    ],
+    "session_closed": true
+  }
+}

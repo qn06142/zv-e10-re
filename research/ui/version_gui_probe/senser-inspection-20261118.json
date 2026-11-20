@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-18",
+  "mode": "Senser USB service",
+  "camera_files_written": false,
+  "installed": false,
+  "gui_library": {
+    "bytes": 589336,
+    "md5": "ec8090bbde9b78e2e25a0b33cf735333",
+    "sha256": "e6459c22859d8978195baa1ef2e93ad6d5f4fcb3dd89c2c2f02c325b46616090",
+    "host_backup_verified": true
+  },
+  "boot_id": "1a4dd4b9-d4d6-4140-9522-e55a07914e39",
+  "ssboot": "idle",
+  "im_elf_pid": 151,
+  "gui_library_mapped_in_im_elf": true,
+  "wlan0_ipv4_present": false,
+  "tcp_listeners_observed": false,
+  "interpretation_limit": "Service-mode network state does not establish earlier normal-shooting network state",
+  "installation_status": "Awaiting explicit approval after automatic approval review rejected persistent GUI replacement"
+}

@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-18",
+  "repository": "https://github.com/chocotan/zve10-qemu",
+  "commit": "42554a639e005455a1cc492744bd77341e7c41d2",
+  "remote_HEAD_verified_via_git": true,
+  "remote_HEAD": "42554a639e005455a1cc492744bd77341e7c41d2",
+  "source_files": [
+    {
+      "path": "README.md",
+      "analyzed_worktree_sha256_lf": "28df34af874db677fed37dd8282a75828b5508a31e931044bc51bc618d47efa6",
+      "commit_blob_sha256_lf": "28df34af874db677fed37dd8282a75828b5508a31e931044bc51bc618d47efa6",
+      "worktree_matches_pinned_commit": true
+    },
+    {
+      "path": "THIRD-PARTY.md",
+      "analyzed_worktree_sha256_lf": "4c136cd07dd5d8db2e86f183388055392050de1c707c2c5cfa110cdc61036113",
+      "commit_blob_sha256_lf": "4c136cd07dd5d8db2e86f183388055392050de1c707c2c5cfa110cdc61036113",
+      "worktree_matches_pinned_commit": true
+    },
+    {
+      "path": "source/qemu/hw/arm/zve10.c",
+      "analyzed_worktree_sha256_lf": "aaa6187c0fe10abe46d1123a6caf7808022e30977a919d08e712a4d7d6107132",
+      "commit_blob_sha256_lf": "aaa6187c0fe10abe46d1123a6caf7808022e30977a919d08e712a4d7d6107132",
+      "worktree_matches_pinned_commit": true
+    },
+    {
+      "path": "source/qemu/hw/arm/zve10-gpe-init.h",
+      "analyzed_worktree_sha256_lf": "ec2b67541d5b49c34a518ac2a84b184377ce73915a3d5f5beca5f20b18646b08",
+      "commit_blob_sha256_lf": "ec2b67541d5b49c34a518ac2a84b184377ce73915a3d5f5beca5f20b18646b08",
+      "worktree_matches_pinned_commit": true
+    },
+    {
+      "path": "source/qemu/hw/timer/sony_hwtimer.c",
+      "analyzed_worktree_sha256_lf": "699c742d707930fd976df0aa2d1a78e19cf996d5589299ee46ff2e044a054c22",
+      "commit_blob_sha256_lf": "699c742d707930fd976df0aa2d1a78e19cf996d5589299ee46ff2e044a054c22",
+      "worktree_matches_pinned_commit": true
+    },
+    {
+      "path": "source/modules/dma330-stub/dma330_stub.c",
+      "analyzed_worktree_sha256_lf": "88b839a9843f4e4b3c6db9c5abb78e9d8666e7ab867dcbefcfac442a1b91fdaf",
+      "commit_blob_sha256_lf": "88b839a9843f4e4b3c6db9c5abb78e9d8666e7ab867dcbefcfac442a1b91fdaf",
+      "worktree_matches_pinned_commit": true
+    },
+    {
+      "path": "source/kernel/0001-zve10-qemu.patch",
+      "analyzed_worktree_sha256_lf": "7f47c7388467bc65b652e7e42740ed758bd128e5ab5aff1c81b68169e5f17aae",
+      "commit_blob_sha256_lf": "7f47c7388467bc65b652e7e42740ed758bd128e5ab5aff1c81b68169e5f17aae",
+      "worktree_matches_pinned_commit": true
+    },
+    {
+      "path": "source/ui/ui-present.h",
+      "analyzed_worktree_sha256_lf": "a17052e6a25b5176bba110b140849da09828a25a57a73df4007d2c7f029559e7",
+      "commit_blob_sha256_lf": "a17052e6a25b5176bba110b140849da09828a25a57a73df4007d2c7f029559e7",
+      "worktree_matches_pinned_commit": true
+    },
+    {
+      "path": "source/ui/ui-raster.h",
+      "analyzed_worktree_sha256_lf": "f1a3a74d3a763c8d1ffc45dd6b94192f0dc419780b7a73db2973062cf8c6f719",
+      "commit_blob_sha256_lf": "f1a3a74d3a763c8d1ffc45dd6b94192f0dc419780b7a73db2973062cf8c6f719",
+      "worktree_matches_pinned_commit": true
+    },
+    {
+      "path": "source/ui/ui-headless.h",
+      "analyzed_worktree_sha256_lf": "5a06412a55c54a7f8645ef2552fbff80a41221e9437ca6ca6527318d1ad66429",
+      "commit_blob_sha256_lf": "5a06412a55c54a7f8645ef2552fbff80a41221e9437ca6ca6527318d1ad66429",
+      "worktree_matches_pinned_commit": true
+    },
+    {
+      "path": "scripts/menu_build.py",
+      "analyzed_worktree_sha256_lf": "8a205780125a63223dfac3d8be665ef4c90d2b00c399cf1e7bbdf99399e3947f",
+      "commit_blob_sha256_lf": "3e25ac107f5c61bf3e8f414fd14e66b720a9b4190ba10714fd1766805081f3cb",
+      "worktree_matches_pinned_commit": false
+    },
+    {
+      "path": "docs/shoot-model-assessment.md",
+      "analyzed_worktree_sha256_lf": "4ccbab26aabcc0af4f5ba0cef1e0584b76d5040d75614d0c02025230990a457b",
+      "commit_blob_sha256_lf": "4ccbab26aabcc0af4f5ba0cef1e0584b76d5040d75614d0c02025230990a457b",
+      "worktree_matches_pinned_commit": true
+    }
+  ],
+  "referenced_capture_reports_present_in_checkout": false,
+  "external_repository_modified_by_this_audit": false,
+  "camera_access_performed": false,
+  "external_committed_libObj_guard_sha256": "cfdc59b94fa56116e9d99154ca03a2c1aaf6039dd272679b78b0b76e21c722ac",
+  "local_libObj_dump_sha256": "bc0deb2f0e94218752e42ce6f5a3576d7456971eb63fbde705ffbd9b3a7fdeea"
+}

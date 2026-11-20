@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-18",
+  "mode": "Senser USB service",
+  "status": "installed-and-owner-observed-input-pattern",
+  "boot_id": "8ebf6f9b-1d79-40e2-9a7f-f93be966810b",
+  "installed_sha256": "0a4be0d9835367860dca4d76237d86d0e67fce99c4384c194033635d547ad435",
+  "previous_marker_sha256": "280d1b8f3c5a0682301ddb3da5b0cb5c5fbb7a89a8f49549a7192c9045749ed9",
+  "full_installed_and_backup_readback_verified": true,
+  "usr_read_only": true,
+  "avcam_md5_before": "90096db2c76148f4f9db5d104e5c608c",
+  "avcam_md5_after": "90096db2c76148f4f9db5d104e5c608c",
+  "previous_marker_backup": "/usr/share/version-gui-keys-v01/viewUnified6.previous-marker.so",
+  "backup_method": "hard link before atomic replacement retains original mapped inode",
+  "installer_sha256": "3b66c176e930ce33e9661ce373282fe3d127fbd393d06da1b8657cec11693102",
+  "gui_observation": "Owner reported Center4, Up5, Down6, Right7, Left8 with suffix1 idle,2 press,4 hold",
+  "sequence_implemented": false,
+  "os_handoff_implemented": false
+}

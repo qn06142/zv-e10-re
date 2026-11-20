@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "status": "offline-original-instruction-grm-contracts-verified",
+  "camera_access_performed": false,
+  "read_or_write_permission": false,
+  "grm_gles": {
+    "path": ".local/dumps/camera_2025/usr/usr/kmod/grm_gles.ko",
+    "sha256": "4e4b99e5e17e170ddc13dc432178299512525debd6fb19512521b38867da7a65",
+    "clock_up_writes": [
+      {
+        "address": "0xf28040c4",
+        "size": 4,
+        "value": "0xaaaa0006"
+      },
+      {
+        "address": "0xf28041a8",
+        "size": 4,
+        "value": "0xbbbb0006"
+      },
+      {
+        "address": "0xf28050b8",
+        "size": 4,
+        "value": "0xcccc0006"
+      },
+      {
+        "address": "0xf280518c",
+        "size": 4,
+        "value": "0xdddd0006"
+      },
+      {
+        "address": "0xf3400080",
+        "size": 4,
+        "value": "0x00000015"
+      },
+      {
+        "address": "0xf3400280",
+        "size": 4,
+        "value": "0x00000010"
+      }
+    ],
+    "clock_up_udelay_raw": "0x1a36e",
+    "clock_down_writes": [
+      {
+        "address": "0xf3400084",
+        "size": 4,
+        "value": "0x00000015"
+      },
+      {
+        "address": "0xf3400284",
+        "size": 4,
+        "value": "0x00000010"
+      },
+      {
+        "address": "0xf28040c4",
+        "size": 4,
+        "value": "0xaaaa0007"
+      },
+      {
+        "address": "0xf28041a8",
+        "size": 4,
+        "value": "0xbbbb0007"
+      },
+      {
+        "address": "0xf28050b8",
+        "size": 4,
+        "value": "0xcccc0007"
+      },
+      {
+        "address": "0xf280518c",
+        "size": 4,
+        "value": "0xdddd0007"
+      }
+    ],
+    "register_init_writes": [
+      {
+        "address": "0xf10010c0",
+        "size": 4,
+        "value": "0xffffffff"
+      },
+      {
+        "address": "0xf10010c4",
+        "size": 4,
+        "value": "0xffffffff"
+      },
+      {
+        "address": "0xf1001000",
+        "size": 4,
+        "value": "0x00000000"
+      },
+      {
+        "address": "0xf1001080",
+        "size": 4,
+        "value": "0x12345678"
+      },
+      {
+        "address": "0xf10010c0",
+        "size": 4,
+        "value": "0xfffffff0"
+      },
+      {
+        "address": "0xf10010d0",
+        "size": 4,
+        "value": "0x00000000"
+      },
+      {
+        "address": "0xf1001100",
+        "size": 4,
+        "value": "0x00000001"
+      },
+      {
+        "address": "0xf1001128",
+        "size": 4,
+        "value": "0x00000000"
+      },
+      {
+        "address": "0xf1001110",
+        "size": 4,
+        "value": "0x00000000"
+      },
+      {
+        "address": "0xf1001114",
+        "size": 4,
+        "value": "0x76543210"
+      },
+      {
+        "address": "0xf1001118",
+        "size": 4,
+        "value": "0xfedcba98"
+      },
+      {
+        "address": "0xf1001410",
+        "size": 4,
+        "value": "0x00000000"
+      },
+      {
+        "address": "0xf1000050",
+        "size": 4,
+        "value": "0x22222113"
+      },
+      {
+        "address": "0xf1000054",
+        "size": 4,
+        "value": "0x00000080"
+      },
+      {
+        "address": "0xf10000c0",
+        "size": 4,
+        "value": "0x00000004"
+      },
+      {
+        "address": "0xf1000c1c",
+        "size": 4,
+        "value": "0x00000000"
+      },
+      {
+        "address": "0xf1000004",
+        "size": 4,
+        "value": "0x00070100"
+      },
+      {
+        "address": "0xf1001000",
+        "size": 4,
+        "value": "0x00000000"
+      },
+      {
+        "address": "0xf1000c18",
+        "size": 4,
+        "value": "0x00000000"
+      },
+      {
+        "address": "0xf100001c",
+        "size": 4,
+        "value": "0x00010000"
+      },
+      {
+        "address": "0xf10000c0",
+        "size": 4,
+        "value": "0x20000000"
+      }
+    ],
+    "interrupt_audit": {
+      "return_value": 1,
+      "reads": [
+        {
+          "address": "0xf1000034",
+          "size": 4,
+          "value": "0xc4000001"
+        },
+        {
+          "address": "0xf1000034",
+          "size": 4,
+          "value": "0xc4000001"
+        }
+      ],
+      "ack_writes": [
+        {
+          "address": "0xf1001000",
+          "size": 4,
+          "value": "0x00000000"
+        },
+        {
+          "address": "0xf1000c18",
+          "size": 4,
+          "value": "0x00000000"
+        },
+        {
+          "address": "0xf100001c",
+          "size": 4,
+          "value": "0x00000000"
+        },
+        {
+          "address": "0xf100003c",
+          "size": 4,
+          "value": "0x00000001"
+        },
+        {
+          "address": "0xf1000044",
+          "size": 4,
+          "value": "0x00000001"
+        }
+      ],
+      "woke_waitqueues": [
+        "0x7000014c"
+      ],
+      "completed_all": []
+    },
+    "ioctl_literal_commands": [
+      "0xc0048202",
+      "0x8004820a",
+      "0x80048263",
+      "0xc0048201",
+      "0xc004820d",
+      "0xc0048209",
+      "0xc004820f"
+    ],
+    "mmap_size_classes": {
+      "0x200": "512B control/status mapping",
+      "0x20000": "128 KiB vmalloc page buffer (dev+0xac) via vmalloc_to_pfn + remap_pfn_range",
+      "0x2000000": "32 MiB carveout/aperture",
+      "0x4000_default": "16 KiB direct MMIO at PFN 0xf1000 (physical 0xf1000000)"
+    }
+  },
+  "grm_ma": {
+    "path": ".local/dumps/camera_2025/usr/usr/kmod/grm_ma.ko",
+    "sha256": "c21479fea7b0bc081f72315c0b0b514b383a58b5a3bb5f2fefbfd26e20711879",
+    "cache_ops": [
+      {
+        "va": "0xc8200000",
+        "size": 8192,
+        "direction": 1
+      },
+      {
+        "va": "0xc8200000",
+        "size": 8192,
+        "direction": 2
+      }
+    ],
+    "dmm_uipc_messages": [
+      {
+        "op": "snd",
+        "ep": "0x0061003c",
+        "payload_words": [
+          "0x00000001",
+          "0x0004b000",
+          "0x00000000",
+          "0xffffffff",
+          "0x014c0424",
+          "0x00010000"
+        ]
+      },
+      {
+        "op": "snd",
+        "ep": "0x0061003c",
+        "payload_words": [
+          "0x00120004",
+          "0x00000000",
+          "0x00000000",
+          "0x00000000",
+          "0x014c0424",
+          "0x00020001"
+        ]
+      }
+    ]
+  },
+  "dataflowInfraFramework": {
+    "path": ".local/dumps/camera_2025/usr/usr/lib/dataflowInfraFramework.so",
+    "sha256": "3a7235ab96ed87606fc598f45db8e318afacc1e58a07e51b541923a43de76941",
+    "osd_entry_stride_bytes": 24,
+    "osd_entry_field_layout_runs": {
+      "SetData_Image_Num(val=2)": [
+        "+0x14=0x00000002"
+      ],
+      "SetData_Image_Sel(idx=1, val=3)": [
+        "+0x40=0x00000003"
+      ],
+      "SetData_Image_Address(idx=0, pa=0x22334455)": [
+        "+0x18=0x22334455"
+      ],
+      "SetData_Image_Address(idx=1, pa=0x22445566)": [
+        "+0x30=0x22445566"
+      ],
+      "SetData_Image_SizeH(idx=0, w=640)": [
+        "+0x1c=0x00000280"
+      ],
+      "SetData_Image_SizeV(idx=0, h=480)": [
+        "+0x1c=0x01e00000"
+      ],
+      "SetData_Image_Target_OffsetH(idx=0, x=12)": [
+        "+0x20=0x0000000c"
+      ],
+      "SetData_Image_Target_OffsetV(idx=0, y=34)": [
+        "+0x20=0x00220000"
+      ],
+      "SetData_Image_Target_SizeH(idx=0, w=640)": [
+        "+0x24=0x00000280"
+      ],
+      "SetData_Image_Target_SizeV(idx=0, h=480)": [
+        "+0x24=0x01e00000"
+      ],
+      "SetData_Image_Out_Target(idx=0, t=1)": [
+        "+0x2c=0x00000001"
+      ],
+      "SetData_Image_Channel(idx=0, ch=2)": [
+        "+0x2c=0x00000200"
+      ],
+      "SetData_Image_Trans_Type(idx=0, tt=3)": [
+        "+0x2c=0x00030000"
+      ],
+      "SetData_Image_Read_Orientation(idx=0, ro=1)": [
+        "+0x2c=0x01000000"
+      ]
+    },
+    "serialized_container": {
+      "constructor": "0x000238dc",
+      "set_entry_osd_image_size_info": "0x0002392c",
+      "header_magic": "SSOS",
+      "data_format_version": 1,
+      "entry_sum": 1,
+      "first_entry_offset": "0x00000020",
+      "entry_magic": "ETRY",
+      "entry_cate_id": 0,
+      "entry_cate_version": 0,
+      "entry_data_offset": "0x00000040",
+      "entry_data_size": "0x000000a0",
+      "entry_next_offset": "0x00000000",
+      "payload_offset": "0x00000040",
+      "payload_first_28_bytes_words": [
+        "0x00000001",
+        "0x22334455",
+        "0x01e00280",
+        "0x00000000",
+        "0x01e00280",
+        "0x00000000",
+        "0x01000003"
+      ]
+    }
+  },
+  "libObj": {
+    "path": ".local/dumps/camera_2025/usr/usr/lib/libObj.so",
+    "sha256": "bc0deb2f0e94218752e42ce6f5a3576d7456971eb63fbde705ffbd9b3a7fdeea",
+    "plt_SetEntry_OsdImageSizeInfo": "0x001083a8",
+    "plt_SetData_Image_Address": "0x00109350",
+    "plt_DataflowInfraPin_Send": "0x00109344",
+    "osd_submit_helper": "0x006f6f64",
+    "type5_osd_builder": "0x006fe064",
+    "type5_pin_sender": "0x006fe3b0",
+    "type5_record_stride_bytes": 32,
+    "type5_record_field_map": {
+      "+0x00_u16": "SetData_Image_Target_OffsetH (PLT 0x10b840)",
+      "+0x02_u16": "SetData_Image_Target_OffsetV (PLT 0x108f44)",
+      "+0x04_u16": "SetData_Image_Target_SizeV (PLT 0x1097cc)",
+      "+0x06_u16": "SetData_Image_Target_SizeH (PLT 0x10a880)",
+      "+0x08_u16": "SetData_Image_SizeV (PLT 0x10c61c)",
+      "+0x0a_u16": "SetData_Image_SizeH (PLT 0x10add0)",
+      "+0x0c_s16_bpp": "SetData_Image_Sel (PLT 0x109ebc): 2->0, 4->1",
+      "+0x10_u32_flags_bits_1_0": "SetData_Image_Out_Target (PLT 0x109b84): flags & 3",
+      "+0x10_u32_flags_bit_10": "SetData_Image_Channel (PLT 0x10e39c): (flags >> 10) & 1",
+      "+0x10_u32_flags_bit_4_and_bpp4": "SetData_Image_Trans_Type (PLT 0x10b8a0): ((flags & 0x10) != 0 and bpp == 4) -> 1 else 0",
+      "const_1": "SetData_Image_Read_Orientation (PLT 0x10e7a4): 1",
+      "+0x14_u32": "SetData_Image_Address (PLT 0x109440)",
+      "+0x18_u32_profile_id": "unread by 0x6fe064"
+    },
+    "SetData_Image_Address_callsites": [
+      "0x0028b7cc",
+      "0x0028dcca",
+      "0x0028e716",
+      "0x0028e75c"
+    ],
+    "GRM_bitmapGetPhysicalAddress": "0x00684e6d",
+    "GRM_bitmapWriteLockBits": "0x00684ead",
+    "GRM_bitmapWriteUnlockBits": "0x00684ebd"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "status": "offline-original-instruction-i2c-contract-verified",
+  "module": ".local/dumps/camera_2025/usr/usr/kmod/i2c.ko",
+  "sha256": "37b37633a8cdfd6ce60258d646afc2cf11dc50de67cd71a0b53631584412321e",
+  "current_body_module_identity_checked": false,
+  "camera_access_performed": false,
+  "read_or_write_permission": false,
+  "channels": {
+    "0": {
+      "mmio_base": "0xf2401000",
+      "size": "0x800",
+      "uipc_endpoint": "0x00520250",
+      "thread_name": "i2c_uipc"
+    },
+    "1": {
+      "mmio_base": "0xf2401800",
+      "size": "0x800",
+      "uipc_endpoint": "0x00520607",
+      "thread_name": "i2c_uipc_ch1"
+    }
+  },
+  "backup_property_queried": "0x520000",
+  "register_offsets_16bit": [
+    "0x0",
+    "0x4",
+    "0x8",
+    "0xc",
+    "0x10",
+    "0x14",
+    "0x1c",
+    "0x20",
+    "0x24",
+    "0x28",
+    "0x2c",
+    "0x34",
+    "0x38"
+  ],
+  "busy_poll_mask": "0x8000",
+  "busy_poll_max_iterations": 16,
+  "busy_poll_udelay_raw_arg": "0xa3d6f8",
+  "clk4_reset_sequence": [
+    {
+      "address": "0xf2a30048",
+      "value": "0x2",
+      "role": "CLKRST4(IPCLKEN2)+CLR I2C0 HCLK gate"
+    },
+    {
+      "address": "0xf2a300b8",
+      "value": "0x8",
+      "role": "CLKRST4(11)+CLR assert reset"
+    },
+    {
+      "address": "0xf2a30044",
+      "value": "0x2",
+      "role": "CLKRST4(IPCLKEN2)+SET I2C0 HCLK gate"
+    },
+    {
+      "address": "0xf2a300b4",
+      "value": "0x8",
+      "role": "CLKRST4(11)+SET deassert reset"
+    }
+  ],
+  "clk4_reset_gate": {
+    "struct_offset_in_algo": "0x8c",
+    "executes_clk4_when_zero": true,
+    "zero_in_speed_modes": [
+      "0x10",
+      "0x11"
+    ],
+    "nonzero_in_speed_modes": [
+      "0x0",
+      "0x1"
+    ],
+    "checks_channel_index": false,
+    "note": "Uses fixed CLK4 bit masks matching I2C0 HCLK (bit 1 at 0xf2a30044/48) and CLKRST4(11) bit 3 (0xf2a300b4/b8) whenever algo+0x8c==0, regardless of channel index at algo+0x88."
+  },
+  "command_bits_offset_0x04": {
+    "0x80": "GO / trigger transfer",
+    "0x08": "RX phase",
+    "0x04": "TX phase",
+    "0x02": "STOP condition",
+    "0x01": "START / repeated-START condition"
+  },
+  "fifo_chunk_max_bytes": 16,
+  "speed_divider_modes": [
+    {
+      "mode": "0x0",
+      "reg_0x10": "0x35",
+      "reg_0x14": "0x35",
+      "algo_0x8c_flag": 1,
+      "clk4_reset_triggered": false
+    },
+    {
+      "mode": "0x1",
+      "reg_0x10": "0x9",
+      "reg_0x14": "0x7",
+      "algo_0x8c_flag": 1,
+      "clk4_reset_triggered": false
+    },
+    {
+      "mode": "0x10",
+      "reg_0x10": "0x9",
+      "reg_0x14": "0x7",
+      "algo_0x8c_flag": 0,
+      "clk4_reset_triggered": true
+    },
+    {
+      "mode": "0x11",
+      "reg_0x10": "0x35",
+      "reg_0x14": "0x35",
+      "algo_0x8c_flag": 0,
+      "clk4_reset_triggered": true
+    }
+  ],
+  "nack_status_w1c_bit_0x00": "0x20",
+  "nack_max_retries_from_xfer": 3,
+  "limits": [
+    "Verified against saved camera_2025 i2c.ko in Unicorn; live-body module identity remains unchecked",
+    "Slave addresses, pin mux, pull-ups, and sensor/accessory wiring are not established by driver analysis alone",
+    "CLK4 register 0xf2a300b4/b8 offset 0xb0..0xb8 comes from i2c.ko literals; CLK4 bit semantics remain driver-derived"
+  ]
+}

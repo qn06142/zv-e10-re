@@ -1,0 +1,1053 @@
+{
+  "status": "offline-original-instruction-verified",
+  "hardware_tested": false,
+  "input_sha256": "e6459c22859d8978195baa1ef2e93ad6d5f4fcb3dd89c2c2f02c325b46616090",
+  "output_sha256": "d32e37975b39d9e943d3121623d2a41cd98c925e35a641404655a77454024283",
+  "output_md5": "645d4d85b1b01fb5107313dfc7ae1edf",
+  "bytes": 656160,
+  "sequence": [
+    "Up",
+    "Down",
+    "Left",
+    "Right"
+  ],
+  "confirm": "separate fresh Up press; Center is never consumed",
+  "markers": [
+    "UP FIRST",
+    "1D xxxxx",
+    "2L xxxxx",
+    "3R xxxxx",
+    "UP=YES? ",
+    "ARMED OK"
+  ],
+  "symbols": {
+    "ctor_hook": "0xa00c1",
+    "trigger_hook": "0xa00e1",
+    "format_hook": "0xa0139",
+    "exit_hook": "0xa0145"
+  },
+  "tests": {
+    "events": [
+      {
+        "base": "0x1000000",
+        "event": "0x15010062",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010061",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010054",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10054"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010051",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10051"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x150a02f1",
+        "result": "0x11012004",
+        "phase": 1,
+        "text": []
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010062",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10062"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010062",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10062"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010064",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10064"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010061",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10061"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x150a02f1",
+        "result": "0x11012004",
+        "phase": 2,
+        "text": []
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010082",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10082"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010082",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10082"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010084",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10084"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010081",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10081"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x150a02f1",
+        "result": "0x11012004",
+        "phase": 3,
+        "text": []
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010072",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010072",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010074",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010071",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x150a02f1",
+        "result": "0x11012004",
+        "phase": 4,
+        "text": []
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010072",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010071",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010051",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10051"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010062",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10062"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010061",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10061"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010082",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10082"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010081",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10081"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010072",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010071",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 5,
+        "text": [
+          "ZV-E10",
+          "ARMED OK"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 5,
+        "text": [
+          "ZV-E10",
+          "ARMED OK"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010054",
+        "result": "0x0",
+        "phase": 5,
+        "text": [
+          "ZV-E10",
+          "ARMED OK"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010051",
+        "result": "0x0",
+        "phase": 5,
+        "text": [
+          "ZV-E10",
+          "ARMED OK"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010082",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010081",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15020062",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 20062"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010082",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10082"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15020072",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010041",
+        "result": "0x15010041",
+        "phase": 4,
+        "text": []
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010042",
+        "result": "0x1",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010044",
+        "result": "0x15010044",
+        "phase": 0,
+        "text": []
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010051",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10051"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010022",
+        "result": "0x15010022",
+        "phase": 1,
+        "text": []
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010051",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10051"
+        ]
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010052",
+        "result": "0x2",
+        "phase": 0,
+        "text": []
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010052",
+        "result": "0x2",
+        "phase": 0,
+        "text": []
+      },
+      {
+        "base": "0x1000000",
+        "event": "0x15010052",
+        "result": "0x2",
+        "phase": 0,
+        "text": []
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010062",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010061",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010054",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10054"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010051",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10051"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x150a02f1",
+        "result": "0x11012004",
+        "phase": 1,
+        "text": []
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010062",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10062"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010062",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10062"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010064",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10064"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010061",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10061"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x150a02f1",
+        "result": "0x11012004",
+        "phase": 2,
+        "text": []
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010082",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10082"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010082",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10082"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010084",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10084"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010081",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10081"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x150a02f1",
+        "result": "0x11012004",
+        "phase": 3,
+        "text": []
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010072",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010072",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010074",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010071",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x150a02f1",
+        "result": "0x11012004",
+        "phase": 4,
+        "text": []
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010072",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010071",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010051",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10051"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010062",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10062"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010061",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 10061"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010082",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10082"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010081",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10081"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010072",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010071",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 5,
+        "text": [
+          "ZV-E10",
+          "ARMED OK"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 5,
+        "text": [
+          "ZV-E10",
+          "ARMED OK"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010054",
+        "result": "0x0",
+        "phase": 5,
+        "text": [
+          "ZV-E10",
+          "ARMED OK"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010051",
+        "result": "0x0",
+        "phase": 5,
+        "text": [
+          "ZV-E10",
+          "ARMED OK"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010082",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010081",
+        "result": "0x0",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15020062",
+        "result": "0x0",
+        "phase": 2,
+        "text": [
+          "ZV-E10",
+          "2L 20062"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010082",
+        "result": "0x0",
+        "phase": 3,
+        "text": [
+          "ZV-E10",
+          "3R 10082"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15020072",
+        "result": "0x0",
+        "phase": 4,
+        "text": [
+          "ZV-E10",
+          "UP=YES? "
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010041",
+        "result": "0x15010041",
+        "phase": 4,
+        "text": []
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010042",
+        "result": "0x1",
+        "phase": 0,
+        "text": [
+          "ZV-E10",
+          "UP FIRST"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010044",
+        "result": "0x15010044",
+        "phase": 0,
+        "text": []
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010051",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10051"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010022",
+        "result": "0x15010022",
+        "phase": 1,
+        "text": []
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010052",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10052"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010051",
+        "result": "0x0",
+        "phase": 1,
+        "text": [
+          "ZV-E10",
+          "1D 10051"
+        ]
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010052",
+        "result": "0x2",
+        "phase": 0,
+        "text": []
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010052",
+        "result": "0x2",
+        "phase": 0,
+        "text": []
+      },
+      {
+        "base": "0x2200000",
+        "event": "0x15010052",
+        "result": "0x2",
+        "phase": 0,
+        "text": []
+      }
+    ],
+    "two_load_biases": true,
+    "exit_reset": true,
+    "duplicate_and_hold_rejected": true,
+    "separate_fresh_confirmation": true,
+    "center_pass_through": true,
+    "mixed_event_families": true,
+    "background_notifications_preserve_progress": true,
+    "scope_controls": 6,
+    "buffer_capacity_controls": 12,
+    "neutral_event_transition_controls": 2,
+    "callee_saved_and_stack_checked": true
+  },
+  "os_handoff_implemented": false,
+  "source_sha256_lf": {
+    "version_gui_sequence\\v02\\hooks.S": "01752656ea29fa5b2df81ec0cdc46a30094f5f4e354f590c01a2964fec3cc9df",
+    "version_gui_sequence\\v02\\sequence.c": "e878f5690cfc2424e90bfaf742a4cc82b870e34d468e94d3c1d9799a54dbd035",
+    "version_gui_sequence\\v02\\sequence.ld": "28fb4e1117b453911dbb70b5225b7705c42d9d87ba51a36489f6a9625b68d3c8",
+    "version_gui_sequence\\v02\\build.py": "e926b2f385328a19e705455e57df099a07aa3e2f68c6ef57913e6864dbbfcb0d",
+    "version_gui_keys\\build.py": "2b830c3b77e6221276625dd7cfd4fc04843b321337e70ff224752264306d6fcb",
+    "version_gui_keys\\verify.py": "dd5327a5506dd7456f7dda37e476ec3bf9424a9b6f64a2d4cdf91fb64d45a565"
+  }
+}

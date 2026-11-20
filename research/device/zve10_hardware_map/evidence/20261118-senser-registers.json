@@ -1,0 +1,1341 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-18",
+  "mode": "Senser",
+  "boot_id": "14381fcd-650b-456b-8dde-9de5042e4051",
+  "initial_session_uptime_seconds": 352.67,
+  "camera_firmware_md5": "90096db2c76148f4f9db5d104e5c608c",
+  "source_job": "display-preflight-20261118-01/003-display-rmw-state.json",
+  "source_response_sha256": "5310f72ac206a221485f128de653d74ec6f25b55455393d907679dce8c3e8093",
+  "scope": "read-only register capture before the later module installation in that service session",
+  "register_reads": [
+    {
+      "address": 4081319936,
+      "value": 257
+    },
+    {
+      "address": 4081319940,
+      "value": 257
+    },
+    {
+      "address": 4081319944,
+      "value": 0
+    },
+    {
+      "address": 4081319948,
+      "value": 0
+    },
+    {
+      "address": 4081319952,
+      "value": 0
+    },
+    {
+      "address": 4081319992,
+      "value": 0
+    },
+    {
+      "address": 4081320260,
+      "value": 33554995
+    },
+    {
+      "address": 4081320264,
+      "value": 4128831
+    },
+    {
+      "address": 4081320268,
+      "value": 2490406
+    },
+    {
+      "address": 4081320272,
+      "value": 33948166
+    },
+    {
+      "address": 4081320276,
+      "value": 33685790
+    },
+    {
+      "address": 4081320280,
+      "value": 0
+    },
+    {
+      "address": 4081320284,
+      "value": 17367040
+    },
+    {
+      "address": 4081320288,
+      "value": 0
+    },
+    {
+      "address": 4081320292,
+      "value": 16777536
+    },
+    {
+      "address": 4081320296,
+      "value": 6357089
+    },
+    {
+      "address": 4081320300,
+      "value": 429
+    },
+    {
+      "address": 4081320324,
+      "value": 0
+    },
+    {
+      "address": 4081320328,
+      "value": 131336
+    },
+    {
+      "address": 4081320332,
+      "value": 0
+    },
+    {
+      "address": 4081320336,
+      "value": 0
+    },
+    {
+      "address": 4081320340,
+      "value": 0
+    },
+    {
+      "address": 4081320344,
+      "value": 0
+    },
+    {
+      "address": 4081320348,
+      "value": 17367040
+    },
+    {
+      "address": 4081320356,
+      "value": 0
+    },
+    {
+      "address": 4081320360,
+      "value": 131336
+    },
+    {
+      "address": 4081320364,
+      "value": 0
+    },
+    {
+      "address": 4081320388,
+      "value": 16
+    },
+    {
+      "address": 4081320420,
+      "value": 65538
+    },
+    {
+      "address": 4081320428,
+      "value": 17367040
+    },
+    {
+      "address": 4081320448,
+      "value": 134250500
+    },
+    {
+      "address": 4081320452,
+      "value": 0
+    },
+    {
+      "address": 4081320460,
+      "value": 0
+    },
+    {
+      "address": 4081320464,
+      "value": 0
+    },
+    {
+      "address": 4081320512,
+      "value": 134250500
+    },
+    {
+      "address": 4081320516,
+      "value": 0
+    },
+    {
+      "address": 4081320524,
+      "value": 0
+    },
+    {
+      "address": 4081320528,
+      "value": 0
+    },
+    {
+      "address": 4081320576,
+      "value": 134250500
+    },
+    {
+      "address": 4081320580,
+      "value": 0
+    },
+    {
+      "address": 4081320588,
+      "value": 0
+    },
+    {
+      "address": 4081320592,
+      "value": 0
+    },
+    {
+      "address": 4081320608,
+      "value": 134250500
+    },
+    {
+      "address": 4081320612,
+      "value": 0
+    },
+    {
+      "address": 4081320620,
+      "value": 0
+    },
+    {
+      "address": 4081320624,
+      "value": 0
+    },
+    {
+      "address": 4081320656,
+      "value": 65536
+    },
+    {
+      "address": 4081320660,
+      "value": 31458132
+    },
+    {
+      "address": 4081320664,
+      "value": 0
+    },
+    {
+      "address": 4081320704,
+      "value": 4164419640
+    },
+    {
+      "address": 4081320708,
+      "value": 4390979
+    },
+    {
+      "address": 4081320712,
+      "value": 678307952
+    },
+    {
+      "address": 4081320716,
+      "value": 1644825
+    },
+    {
+      "address": 4081320720,
+      "value": 1
+    },
+    {
+      "address": 4081320768,
+      "value": 6029404
+    },
+    {
+      "address": 4081320772,
+      "value": 0
+    },
+    {
+      "address": 4081320776,
+      "value": 268439096
+    },
+    {
+      "address": 4081320780,
+      "value": 4210752
+    },
+    {
+      "address": 4081320784,
+      "value": 1
+    },
+    {
+      "address": 4081320832,
+      "value": 1745905680
+    },
+    {
+      "address": 4081320836,
+      "value": 8257662
+    },
+    {
+      "address": 4081320840,
+      "value": 403005472
+    },
+    {
+      "address": 4081320844,
+      "value": 2755082
+    },
+    {
+      "address": 4081320848,
+      "value": 1
+    },
+    {
+      "address": 4081320896,
+      "value": 6029404
+    },
+    {
+      "address": 4081320900,
+      "value": 0
+    },
+    {
+      "address": 4081320904,
+      "value": 268439096
+    },
+    {
+      "address": 4081320908,
+      "value": 4210752
+    },
+    {
+      "address": 4081320912,
+      "value": 1
+    },
+    {
+      "address": 4081320960,
+      "value": 65536
+    },
+    {
+      "address": 4081320964,
+      "value": 0
+    },
+    {
+      "address": 4081320968,
+      "value": 0
+    },
+    {
+      "address": 4081320976,
+      "value": 0
+    },
+    {
+      "address": 4081320980,
+      "value": 0
+    },
+    {
+      "address": 4081320992,
+      "value": 70780544
+    },
+    {
+      "address": 4081320996,
+      "value": 3145728
+    },
+    {
+      "address": 4081321000,
+      "value": 640
+    },
+    {
+      "address": 4081321004,
+      "value": 480
+    },
+    {
+      "address": 4081321008,
+      "value": 28050048
+    },
+    {
+      "address": 4081321012,
+      "value": 31457920
+    },
+    {
+      "address": 4081321016,
+      "value": 0
+    },
+    {
+      "address": 4081321024,
+      "value": 15729280
+    },
+    {
+      "address": 4081321028,
+      "value": 0
+    },
+    {
+      "address": 4081321032,
+      "value": 640
+    },
+    {
+      "address": 4081321036,
+      "value": 480
+    },
+    {
+      "address": 4081321040,
+      "value": 15729360
+    },
+    {
+      "address": 4081321044,
+      "value": 15729360
+    },
+    {
+      "address": 4081321048,
+      "value": 0
+    },
+    {
+      "address": 4081321056,
+      "value": 35391424
+    },
+    {
+      "address": 4081321060,
+      "value": 50
+    },
+    {
+      "address": 4081321064,
+      "value": 0
+    },
+    {
+      "address": 4081321072,
+      "value": 23593280
+    },
+    {
+      "address": 4081321076,
+      "value": 0
+    },
+    {
+      "address": 4081321080,
+      "value": 0
+    },
+    {
+      "address": 4081321084,
+      "value": 20972160
+    },
+    {
+      "address": 4081321088,
+      "value": 0
+    },
+    {
+      "address": 4081321104,
+      "value": 0
+    },
+    {
+      "address": 4081321120,
+      "value": 15729360
+    },
+    {
+      "address": 4081321124,
+      "value": 0
+    },
+    {
+      "address": 4081321128,
+      "value": 0
+    },
+    {
+      "address": 4081321136,
+      "value": 15729360
+    },
+    {
+      "address": 4081321140,
+      "value": 0
+    },
+    {
+      "address": 4081321144,
+      "value": 0
+    },
+    {
+      "address": 4081321148,
+      "value": 20972160
+    },
+    {
+      "address": 4081321152,
+      "value": 0
+    },
+    {
+      "address": 4081321160,
+      "value": 0
+    },
+    {
+      "address": 4081321216,
+      "value": 0
+    },
+    {
+      "address": 4081321220,
+      "value": 15728641
+    },
+    {
+      "address": 4081321224,
+      "value": 41943041
+    },
+    {
+      "address": 4081321728,
+      "value": 1023
+    },
+    {
+      "address": 4081321736,
+      "value": 48
+    },
+    {
+      "address": 4081321740,
+      "value": 0
+    },
+    {
+      "address": 4081321744,
+      "value": 0
+    },
+    {
+      "address": 4081321748,
+      "value": 1962623
+    },
+    {
+      "address": 4081321752,
+      "value": 0
+    },
+    {
+      "address": 4081321756,
+      "value": 8386559
+    },
+    {
+      "address": 4081321760,
+      "value": 0
+    },
+    {
+      "address": 4081321764,
+      "value": 8386559
+    },
+    {
+      "address": 4081321768,
+      "value": 0
+    },
+    {
+      "address": 4081321772,
+      "value": 8386559
+    },
+    {
+      "address": 4081321776,
+      "value": 0
+    },
+    {
+      "address": 4081321780,
+      "value": 8386559
+    },
+    {
+      "address": 4081321784,
+      "value": 0
+    },
+    {
+      "address": 4081321788,
+      "value": 8386559
+    },
+    {
+      "address": 4081321792,
+      "value": 0
+    },
+    {
+      "address": 4081321796,
+      "value": 8386559
+    },
+    {
+      "address": 4081321800,
+      "value": 0
+    },
+    {
+      "address": 4081321804,
+      "value": 8386559
+    },
+    {
+      "address": 4081321808,
+      "value": 0
+    },
+    {
+      "address": 4081321812,
+      "value": 8386559
+    },
+    {
+      "address": 4081321816,
+      "value": 0
+    },
+    {
+      "address": 4081321820,
+      "value": 8386559
+    },
+    {
+      "address": 4081321824,
+      "value": 0
+    },
+    {
+      "address": 4081321828,
+      "value": 302121222
+    },
+    {
+      "address": 4081321832,
+      "value": 50855936
+    },
+    {
+      "address": 4081321836,
+      "value": 0
+    },
+    {
+      "address": 4081321840,
+      "value": 50331648
+    },
+    {
+      "address": 4081321844,
+      "value": 190
+    },
+    {
+      "address": 4081321848,
+      "value": 0
+    },
+    {
+      "address": 4081321852,
+      "value": 134154239
+    },
+    {
+      "address": 4081322496,
+      "value": 0
+    },
+    {
+      "address": 4081322500,
+      "value": 15728641
+    },
+    {
+      "address": 4081322504,
+      "value": 41943041
+    },
+    {
+      "address": 4081323008,
+      "value": 0
+    },
+    {
+      "address": 4081323012,
+      "value": 4095
+    },
+    {
+      "address": 4081323016,
+      "value": 0
+    },
+    {
+      "address": 4081323020,
+      "value": 1946713089
+    },
+    {
+      "address": 4081323024,
+      "value": 131077
+    },
+    {
+      "address": 4081323028,
+      "value": 524298
+    },
+    {
+      "address": 4081323036,
+      "value": 0
+    },
+    {
+      "address": 4081323040,
+      "value": 50529027
+    },
+    {
+      "address": 4081323048,
+      "value": 2686837
+    },
+    {
+      "address": 4081323052,
+      "value": 8415999
+    },
+    {
+      "address": 4081323056,
+      "value": 9852490
+    },
+    {
+      "address": 4081323060,
+      "value": 16744576
+    },
+    {
+      "address": 4081323072,
+      "value": 1616
+    },
+    {
+      "address": 4081323076,
+      "value": 0
+    },
+    {
+      "address": 4081323080,
+      "value": 0
+    },
+    {
+      "address": 4081323088,
+      "value": 104071168
+    },
+    {
+      "address": 4081323092,
+      "value": 0
+    },
+    {
+      "address": 4081323096,
+      "value": 0
+    },
+    {
+      "address": 4081323104,
+      "value": 0
+    },
+    {
+      "address": 4081323136,
+      "value": 0
+    },
+    {
+      "address": 4081323140,
+      "value": 4095
+    },
+    {
+      "address": 4081323144,
+      "value": 0
+    },
+    {
+      "address": 4081323148,
+      "value": 1946713089
+    },
+    {
+      "address": 4081323152,
+      "value": 131077
+    },
+    {
+      "address": 4081323156,
+      "value": 524298
+    },
+    {
+      "address": 4081323164,
+      "value": 0
+    },
+    {
+      "address": 4081323168,
+      "value": 50529027
+    },
+    {
+      "address": 4081323176,
+      "value": 2686837
+    },
+    {
+      "address": 4081323180,
+      "value": 8415999
+    },
+    {
+      "address": 4081323184,
+      "value": 9852490
+    },
+    {
+      "address": 4081323188,
+      "value": 16744576
+    },
+    {
+      "address": 4081323200,
+      "value": 640
+    },
+    {
+      "address": 4081323204,
+      "value": 0
+    },
+    {
+      "address": 4081323216,
+      "value": 640
+    },
+    {
+      "address": 4081323220,
+      "value": 0
+    },
+    {
+      "address": 4081323232,
+      "value": 0
+    },
+    {
+      "address": 4081340416,
+      "value": 65812
+    },
+    {
+      "address": 4081340420,
+      "value": 0
+    },
+    {
+      "address": 4081340424,
+      "value": 1703962
+    },
+    {
+      "address": 4081340428,
+      "value": 65568
+    },
+    {
+      "address": 4081340432,
+      "value": 2555943
+    },
+    {
+      "address": 4081340436,
+      "value": 4194368
+    },
+    {
+      "address": 4081340440,
+      "value": 32244204
+    },
+    {
+      "address": 4081340444,
+      "value": 4194909
+    },
+    {
+      "address": 4081340448,
+      "value": 524296
+    },
+    {
+      "address": 4081340452,
+      "value": 6
+    },
+    {
+      "address": 4081340456,
+      "value": 857
+    },
+    {
+      "address": 4081340460,
+      "value": 525
+    },
+    {
+      "address": 4081340464,
+      "value": 1
+    },
+    {
+      "address": 4081340472,
+      "value": 0
+    },
+    {
+      "address": 4081340476,
+      "value": 43909152
+    },
+    {
+      "address": 4081340480,
+      "value": 33947687
+    },
+    {
+      "address": 4081340484,
+      "value": 33947687
+    },
+    {
+      "address": 4081340488,
+      "value": 41943077
+    },
+    {
+      "address": 4081340496,
+      "value": 0
+    },
+    {
+      "address": 4081340504,
+      "value": 0
+    },
+    {
+      "address": 4081340508,
+      "value": 31392223
+    },
+    {
+      "address": 4081340512,
+      "value": 0
+    },
+    {
+      "address": 4081340672,
+      "value": 20496
+    },
+    {
+      "address": 4081340676,
+      "value": 0
+    },
+    {
+      "address": 4081340680,
+      "value": 50364544
+    },
+    {
+      "address": 4081340684,
+      "value": 1
+    },
+    {
+      "address": 4081340688,
+      "value": 0
+    },
+    {
+      "address": 4081340692,
+      "value": 32878
+    },
+    {
+      "address": 4081340696,
+      "value": 65559
+    },
+    {
+      "address": 4081340700,
+      "value": 41943040
+    },
+    {
+      "address": 4081340704,
+      "value": 65515
+    },
+    {
+      "address": 4081340712,
+      "value": 4
+    },
+    {
+      "address": 4081340716,
+      "value": 808857654
+    },
+    {
+      "address": 4081340720,
+      "value": 842216242
+    },
+    {
+      "address": 4081340724,
+      "value": 3859088870
+    },
+    {
+      "address": 4081340728,
+      "value": 50332672
+    },
+    {
+      "address": 4081340732,
+      "value": 16
+    },
+    {
+      "address": 4081340736,
+      "value": 351011600
+    },
+    {
+      "address": 4081340740,
+      "value": 16704
+    },
+    {
+      "address": 4081340744,
+      "value": 0
+    },
+    {
+      "address": 4081340748,
+      "value": 0
+    },
+    {
+      "address": 4081340752,
+      "value": 8388608
+    },
+    {
+      "address": 4081340760,
+      "value": 319
+    },
+    {
+      "address": 4081340764,
+      "value": 11075586
+    },
+    {
+      "address": 4081340768,
+      "value": 319
+    },
+    {
+      "address": 4081340772,
+      "value": 20447234
+    },
+    {
+      "address": 4081340776,
+      "value": 1769926
+    },
+    {
+      "address": 4081340780,
+      "value": 6946817
+    },
+    {
+      "address": 4081340784,
+      "value": 1769926
+    },
+    {
+      "address": 4081340788,
+      "value": 13959169
+    },
+    {
+      "address": 4081340792,
+      "value": 10780800
+    },
+    {
+      "address": 4081340800,
+      "value": 1
+    },
+    {
+      "address": 4081340804,
+      "value": 0
+    },
+    {
+      "address": 4081340808,
+      "value": 0
+    },
+    {
+      "address": 4081340816,
+      "value": 16777472
+    },
+    {
+      "address": 4081340820,
+      "value": 16777216
+    },
+    {
+      "address": 4081340824,
+      "value": 61342150
+    },
+    {
+      "address": 4081340828,
+      "value": 23528265
+    },
+    {
+      "address": 4081340832,
+      "value": 0
+    },
+    {
+      "address": 4081340840,
+      "value": 524288
+    },
+    {
+      "address": 4081340844,
+      "value": 1572880
+    },
+    {
+      "address": 4081340848,
+      "value": 2621472
+    },
+    {
+      "address": 4081340852,
+      "value": 3670064
+    },
+    {
+      "address": 4081340856,
+      "value": 4718656
+    },
+    {
+      "address": 4081340860,
+      "value": 5767248
+    },
+    {
+      "address": 4081340864,
+      "value": 6815840
+    },
+    {
+      "address": 4081340868,
+      "value": 7864432
+    },
+    {
+      "address": 4081340872,
+      "value": 8913024
+    },
+    {
+      "address": 4081340876,
+      "value": 9961616
+    },
+    {
+      "address": 4081340880,
+      "value": 11010208
+    },
+    {
+      "address": 4081340884,
+      "value": 12058800
+    },
+    {
+      "address": 4081340888,
+      "value": 13107392
+    },
+    {
+      "address": 4081340892,
+      "value": 14155984
+    },
+    {
+      "address": 4081340896,
+      "value": 15204576
+    },
+    {
+      "address": 4081340900,
+      "value": 16253168
+    },
+    {
+      "address": 4081340904,
+      "value": 255
+    },
+    {
+      "address": 4081340928,
+      "value": 1
+    },
+    {
+      "address": 4081340932,
+      "value": 109
+    },
+    {
+      "address": 4081340936,
+      "value": 7943
+    },
+    {
+      "address": 4081340940,
+      "value": 67108864
+    },
+    {
+      "address": 4081340944,
+      "value": 84218625
+    },
+    {
+      "address": 4081340948,
+      "value": 655370
+    },
+    {
+      "address": 4081340952,
+      "value": 131499
+    },
+    {
+      "address": 4081340996,
+      "value": 0
+    },
+    {
+      "address": 4081341184,
+      "value": 33554432
+    },
+    {
+      "address": 4081341188,
+      "value": 0
+    },
+    {
+      "address": 4081341192,
+      "value": 33554432
+    },
+    {
+      "address": 4081341196,
+      "value": 0
+    },
+    {
+      "address": 4081341200,
+      "value": 512
+    },
+    {
+      "address": 4081341204,
+      "value": 1
+    },
+    {
+      "address": 4081341208,
+      "value": 0
+    },
+    {
+      "address": 4081341212,
+      "value": 0
+    },
+    {
+      "address": 4081341216,
+      "value": 0
+    },
+    {
+      "address": 4081341220,
+      "value": 4198400
+    },
+    {
+      "address": 4081341224,
+      "value": 8945788
+    },
+    {
+      "address": 4081341228,
+      "value": 640
+    },
+    {
+      "address": 4081341232,
+      "value": 268894464
+    },
+    {
+      "address": 4081341236,
+      "value": 2232576
+    },
+    {
+      "address": 4081341248,
+      "value": 9830429
+    },
+    {
+      "address": 4081341252,
+      "value": 5047211
+    },
+    {
+      "address": 4081341256,
+      "value": 8389589
+    },
+    {
+      "address": 4081341260,
+      "value": 60097515
+    },
+    {
+      "address": 4081341264,
+      "value": 128
+    },
+    {
+      "address": 4081341268,
+      "value": 0
+    },
+    {
+      "address": 4081341272,
+      "value": 3
+    },
+    {
+      "address": 4081341696,
+      "value": 1
+    },
+    {
+      "address": 4081341700,
+      "value": 43647002
+    },
+    {
+      "address": 4081341708,
+      "value": 4352
+    },
+    {
+      "address": 4081341712,
+      "value": 536879104
+    },
+    {
+      "address": 4081341716,
+      "value": 8192
+    },
+    {
+      "address": 4081341724,
+      "value": 2147516416
+    },
+    {
+      "address": 4081341732,
+      "value": 9830477
+    },
+    {
+      "address": 4081341736,
+      "value": 30736413
+    },
+    {
+      "address": 4081341740,
+      "value": 8389035
+    },
+    {
+      "address": 4081341744,
+      "value": 26542208
+    },
+    {
+      "address": 4081341748,
+      "value": 491
+    },
+    {
+      "address": 4081341752,
+      "value": 0
+    },
+    {
+      "address": 4081341756,
+      "value": 273
+    },
+    {
+      "address": 4081341760,
+      "value": 64
+    },
+    {
+      "address": 4081341952,
+      "value": 0
+    },
+    {
+      "address": 4081341956,
+      "value": 0
+    },
+    {
+      "address": 4081341960,
+      "value": 27525120
+    },
+    {
+      "address": 4081341964,
+      "value": 42008576
+    },
+    {
+      "address": 4081341968,
+      "value": 27525120
+    },
+    {
+      "address": 4081341972,
+      "value": 42008576
+    },
+    {
+      "address": 4081341976,
+      "value": 27525120
+    },
+    {
+      "address": 4081341980,
+      "value": 42008576
+    },
+    {
+      "address": 4081341984,
+      "value": 27525120
+    },
+    {
+      "address": 4081341988,
+      "value": 42008576
+    },
+    {
+      "address": 4081341992,
+      "value": 27525120
+    },
+    {
+      "address": 4081341996,
+      "value": 42008576
+    },
+    {
+      "address": 4081342000,
+      "value": 27525120
+    },
+    {
+      "address": 4081342004,
+      "value": 42008576
+    },
+    {
+      "address": 4081342008,
+      "value": 27525120
+    },
+    {
+      "address": 4081342012,
+      "value": 42008576
+    },
+    {
+      "address": 4081342016,
+      "value": 27525120
+    },
+    {
+      "address": 4081342020,
+      "value": 42008576
+    },
+    {
+      "address": 4081342024,
+      "value": 27525120
+    },
+    {
+      "address": 4081342028,
+      "value": 42008576
+    },
+    {
+      "address": 4081342032,
+      "value": 27525120
+    },
+    {
+      "address": 4081342036,
+      "value": 42008576
+    },
+    {
+      "address": 4081342040,
+      "value": 27525120
+    },
+    {
+      "address": 4081342044,
+      "value": 42008576
+    },
+    {
+      "address": 4081342048,
+      "value": 27525120
+    },
+    {
+      "address": 4081342052,
+      "value": 42008576
+    },
+    {
+      "address": 4081342056,
+      "value": 32896
+    },
+    {
+      "address": 4081342060,
+      "value": 32896
+    },
+    {
+      "address": 4081342064,
+      "value": 32896
+    },
+    {
+      "address": 4081342068,
+      "value": 32896
+    },
+    {
+      "address": 4081342072,
+      "value": 32896
+    },
+    {
+      "address": 4081342076,
+      "value": 32896
+    },
+    {
+      "address": 4081342080,
+      "value": 32896
+    },
+    {
+      "address": 4081342084,
+      "value": 32896
+    }
+  ]
+}

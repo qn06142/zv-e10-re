@@ -4,6 +4,7 @@ The repository-wide starting point is the [camera system overview](CAMERA_OVERVI
 
 | Need | Start here |
 | --- | --- |
+| Map physical hardware, registers and peripheral protocols | [Hardware atlas](hardware/README.md) |
 | Understand the whole camera | [Camera overview](CAMERA_OVERVIEW.md) |
 | Find the latest evidenced state and project direction | [Current status](CURRENT_STATUS.md) |
 | Connect and reproduce diagnostics | [Access and tools](ACCESS_AND_TOOLS.md) |
@@ -15,7 +16,7 @@ The repository-wide starting point is the [camera system overview](CAMERA_OVERVI
 
 ## Current research
 
-The goal is native Bayer RAW over USB. Camera experiments are paused while documentation is consolidated. The latest recorded permanent UVC checkpoint is the November colour-bars installation. The later SuperSpeed rebuild is an offline candidate. Wi-Fi SSH enabled normal-shooting and recording diagnostics. The exact live Bayer output buffer and completion/lifetime contract remain unresolved. See [current status](CURRENT_STATUS.md) for dates, evidence and the next research boundaries.
+The goal is native Bayer RAW over USB. Current work is a hardware atlas covering register semantics, mode-specific values, clocks/reset, sensor/DFE/DMA and accessory protocols before further display write trials. The resident runtime displayed full-screen color bars through the inherited LCD path. The latest buffer reuse experiment stopped at its descriptor guard. The latest recorded permanent UVC checkpoint is the November colour-bars installation. The later SuperSpeed rebuild is an offline candidate. Wi-Fi SSH enabled normal-shooting and recording diagnostics. The exact live Bayer output buffer and completion/lifetime contract remain unresolved. See [current status](CURRENT_STATUS.md) for dates, evidence and the next research boundaries.
 
 ## Detailed topic documents
 

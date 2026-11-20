@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-18",
+  "source": "Owner observation on physical Version screen after restart",
+  "mapping": {
+    "Center": 4,
+    "Up": 5,
+    "Down": 6,
+    "Right": 7,
+    "Left": 8
+  },
+  "suffix": {
+    "1": "not held / last button",
+    "2": "press",
+    "4": "hold"
+  },
+  "raw_prefix": "Full six-digit prefix not restated by owner; sequence tests use local family 0x15010000",
+  "status": "owner-observed-input-pattern"
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-18",
+  "mode": "Senser USB service",
+  "status": "installed-byte-verified-owner-observed-gui-marker",
+  "user_approved_installation": true,
+  "target": "/usr/lib/viewUnified6.so",
+  "installed_sha256": "280d1b8f3c5a0682301ddb3da5b0cb5c5fbb7a89a8f49549a7192c9045749ed9",
+  "stock_backup": "/usr/share/version-gui-probe-v01/viewUnified6.stock.so",
+  "stock_backup_sha256": "e6459c22859d8978195baa1ef2e93ad6d5f4fcb3dd89c2c2f02c325b46616090",
+  "full_installed_and_backup_readback_verified": true,
+  "avcam_unchanged": true,
+  "avcam_md5": "90096db2c76148f4f9db5d104e5c608c",
+  "synced": true,
+  "usr_read_only": false,
+  "remount_error": "Device or resource busy",
+  "old_library_mapping": "im.elf PID151 maps original inode18287 as deleted",
+  "boot_id": "1a4dd4b9-d4d6-4140-9522-e55a07914e39",
+  "gui_observation": "Owner reports body version 88.88 after requested full restart and normal GUI navigation",
+  "installer_sha256": "4bc1d969e5a96be687aa35d675b20ab43eea4f6fe60d5760766cfb1054ee01a2",
+  "limits": [
+    "GUI marker is owner-observed; no independent display capture collected",
+    "Post-restart boot ID and read-only mounts have not been read back",
+    "No button sequence or OS handoff implemented"
+  ],
+  "normal_gui_marker_owner_confirmed": true,
+  "post_restart_boot_id": null,
+  "post_restart_usr_read_only": null
+}

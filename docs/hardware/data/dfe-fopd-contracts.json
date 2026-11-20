@@ -1,0 +1,119 @@
+{
+  "image_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "image_base": "0x635c6000",
+  "camera_access_performed": false,
+  "verified_instruction_runs": 1267,
+  "fopd_entries": [
+    "0x63b61540",
+    "0x63b618c8"
+  ],
+  "route": {
+    "address": "0xf302078c",
+    "width_bits": 32,
+    "selector_shifts": [
+      0,
+      4,
+      8,
+      12,
+      16
+    ],
+    "selector_bits": 2,
+    "clear_matching_value": 3,
+    "companion_address": "0xf3020790",
+    "clear_mask_entry": "0x63d20e4e",
+    "companion_sequence": [
+      "incoming r1 OR one bit per enabled field",
+      "0"
+    ]
+  },
+  "dispatch_table": {
+    "address": "0x645f2114",
+    "thumb_pointers": [
+      "0x63d1f26d",
+      "0x63d1f243",
+      "0x63d1f219",
+      "0x63d1f27b",
+      "0x63d1f251",
+      "0x63d1f227",
+      "0x63d1f289",
+      "0x63d1f25f",
+      "0x63d1f235"
+    ]
+  },
+  "first_dispatch_writes": [
+    "0xf3020518",
+    "0xf3020558",
+    "0xf3020598"
+  ],
+  "fopd_aif": {
+    "reference_channel_table": "0x63e89724",
+    "channels": [
+      {
+        "id": "0x11",
+        "firmware_label": "R0",
+        "base": "0xf3020200"
+      },
+      {
+        "id": "0x12",
+        "firmware_label": "W0",
+        "base": "0xf3020280"
+      },
+      {
+        "id": "0x13",
+        "firmware_label": "W1",
+        "base": "0xf3020300"
+      },
+      {
+        "id": "0x14",
+        "firmware_label": "W2",
+        "base": "0xf3020380"
+      },
+      {
+        "id": "0x15",
+        "firmware_label": "W3",
+        "base": "0xf3020400"
+      },
+      {
+        "id": "0x16",
+        "firmware_label": "W4",
+        "base": "0xf3020480"
+      }
+    ],
+    "configuration_entry": "0x639e1f98",
+    "auxiliary_config_word_offset": "0x10",
+    "auxiliary_channel_word_offset": "0x0c",
+    "write_buffer_request_entry": "0x63d1f1bc",
+    "write_buffer_input_offset": "0x0c",
+    "write_buffer_normal_mmio_offset": "0x20",
+    "current_address_read_entry": "0x639e231c",
+    "current_address_mmio_offset": "0x10",
+    "geometry_entry": "0x639e2140",
+    "start_bit": 0,
+    "secondary_word_cleared_bit": 0,
+    "secondary_word_stop_bit": 30,
+    "secondary_word_status_bit": 31,
+    "unit_status_address": "0xf3020000",
+    "unit_status_nibble_shift": "4 * (channel_id - 0x11)",
+    "unit_status_read_entry": "0x639e20dc",
+    "unit_status_write_entry": "0x639e2108"
+  },
+  "fopd_sideband_writes": {
+    "addresses_in_order": [
+      "0xf30207b8",
+      "0xf30207bc",
+      "0xf30207b4"
+    ],
+    "observed_immediate_values_by_path": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ]
+    ]
+  }
+}

@@ -1,0 +1,441 @@
+{
+  "schema_version": 1,
+  "status": "offline-original-instruction-dma-contracts-verified",
+  "camera_access_performed": false,
+  "read_or_write_permission": false,
+  "xdmac": {
+    "module": ".local/dumps/initrd_extracted/kmod/dmac.ko",
+    "sha256": "718284caacf31654151fac234db7293d8338e348687c37b6e3f65dbf24de1522",
+    "current_body_module_identity_checked": false,
+    "unit_bases": [
+      "0xf0000000",
+      "0xf0010000"
+    ],
+    "channel_bases": {
+      "0": "0xf0000010",
+      "1": "0xf0000040",
+      "2": "0xf0000070",
+      "3": "0xf00000a0",
+      "4": "0xf0010010",
+      "5": "0xf0010040",
+      "6": "0xf0010070",
+      "7": "0xf00100a0"
+    },
+    "invalid_channel_8_rejected_einval": true,
+    "unit_registers": [
+      {
+        "offset": "0x0",
+        "name": "XDACS",
+        "access_width_bits": 32
+      }
+    ],
+    "channel_registers": [
+      {
+        "offset": "0x0",
+        "name": "XDTBC",
+        "access_width_bits": 32
+      },
+      {
+        "offset": "0x4",
+        "name": "XDSSA",
+        "access_width_bits": 32
+      },
+      {
+        "offset": "0x8",
+        "name": "XDDSA",
+        "access_width_bits": 32
+      },
+      {
+        "offset": "0xc",
+        "name": "XDSAC",
+        "access_width_bits": 32
+      },
+      {
+        "offset": "0x10",
+        "name": "XDDAC",
+        "access_width_bits": 32
+      },
+      {
+        "offset": "0x14",
+        "name": "XDDCC",
+        "access_width_bits": 32
+      },
+      {
+        "offset": "0x18",
+        "name": "XDDES",
+        "access_width_bits": 32
+      },
+      {
+        "offset": "0x1c",
+        "name": "XDDPC",
+        "access_width_bits": 32
+      },
+      {
+        "offset": "0x20",
+        "name": "XDDSD",
+        "access_width_bits": 32
+      }
+    ],
+    "unit_enable_cases": [
+      {
+        "unit_base": "0xf0000000",
+        "round_robin": 0,
+        "written": "0x10000000"
+      },
+      {
+        "unit_base": "0xf0010000",
+        "round_robin": 1,
+        "written": "0x11000000"
+      }
+    ],
+    "start_transfer_cases": [
+      {
+        "channel_base": "0xf0010040",
+        "lli_phys": "0x10001000",
+        "cache_clean_va": "0x70001000",
+        "cache_clean_bytes": 48,
+        "cache_clean_dir": 2,
+        "write_order": [
+          {
+            "offset": "0x0",
+            "name": "XDTBC",
+            "value": "0x11110000"
+          },
+          {
+            "offset": "0x4",
+            "name": "XDSSA",
+            "value": "0x11110001"
+          },
+          {
+            "offset": "0x8",
+            "name": "XDDSA",
+            "value": "0x11110002"
+          },
+          {
+            "offset": "0xc",
+            "name": "XDSAC",
+            "value": "0x11110003"
+          },
+          {
+            "offset": "0x10",
+            "name": "XDDAC",
+            "value": "0x11110004"
+          },
+          {
+            "offset": "0x14",
+            "name": "XDDCC",
+            "value": "0x11110005"
+          },
+          {
+            "offset": "0x1c",
+            "name": "XDDPC",
+            "value": "0x11"
+          },
+          {
+            "offset": "0x18",
+            "name": "XDDES",
+            "value": "0x11108003"
+          }
+        ]
+      },
+      {
+        "channel_base": "0xf0000010",
+        "lli_phys": "0x81002000",
+        "cache_clean_va": "0xa1002000",
+        "cache_clean_bytes": 48,
+        "cache_clean_dir": 2,
+        "write_order": [
+          {
+            "offset": "0x0",
+            "name": "XDTBC",
+            "value": "0x11110000"
+          },
+          {
+            "offset": "0x4",
+            "name": "XDSSA",
+            "value": "0x11110001"
+          },
+          {
+            "offset": "0x8",
+            "name": "XDDSA",
+            "value": "0x11110002"
+          },
+          {
+            "offset": "0xc",
+            "name": "XDSAC",
+            "value": "0x11110003"
+          },
+          {
+            "offset": "0x10",
+            "name": "XDDAC",
+            "value": "0x11110004"
+          },
+          {
+            "offset": "0x14",
+            "name": "XDDCC",
+            "value": "0x11110005"
+          },
+          {
+            "offset": "0x1c",
+            "name": "XDDPC",
+            "value": "0x11"
+          },
+          {
+            "offset": "0x18",
+            "name": "XDDES",
+            "value": "0x11108003"
+          }
+        ]
+      }
+    ],
+    "transfer_result_cases": [
+      {
+        "xddsd": "0x8",
+        "return_code_s32": 0,
+        "cleared_offset": "0x20"
+      },
+      {
+        "xddsd": "0x18",
+        "return_code_s32": 0,
+        "cleared_offset": "0x20"
+      },
+      {
+        "xddsd": "0x4",
+        "return_code_s32": -13,
+        "cleared_offset": "0x20"
+      },
+      {
+        "xddsd": "0x0",
+        "return_code_s32": -13,
+        "cleared_offset": "0x20"
+      }
+    ],
+    "shutdown_write": {
+      "offset": "0x18",
+      "name": "XDDES",
+      "value": "0x0"
+    },
+    "async_request_layout": {
+      "0x00": "channel (0..7)",
+      "0x04": "lli_phys (48-byte descriptor physical address)",
+      "0x08": "callback (non-null function pointer: void (*)(int result, void *arg))",
+      "0x0c": "callback_arg",
+      "0x10": "kernel list_head (queued while channel busy)"
+    },
+    "read_or_write_permission": false
+  },
+  "dma330": {
+    "module": ".local/dumps/camera_2025/usr/usr/kmod/dma330.ko",
+    "sha256": "a86794fb8ab97fb27adac21bbcb067d424b787f3815d97bf91942b460dffd86d",
+    "current_body_module_identity_checked": false,
+    "mmio_base": "0xf0030000",
+    "channels": 4,
+    "register_offsets": {
+      "dsr": "0x0",
+      "dpc": "0x4",
+      "inten": "0x20",
+      "int_event_ris": "0x24",
+      "intmis": "0x28",
+      "intclr": "0x2c",
+      "fsrd": "0x30",
+      "fsrc": "0x34",
+      "ftrd": "0x38",
+      "ftr[0]": "0x40",
+      "csr[0]": "0x100",
+      "cpc[0]": "0x104",
+      "sar[0]": "0x400",
+      "dar[0]": "0x404",
+      "ccr[0]": "0x408",
+      "lc0[0]": "0x40c",
+      "lc1[0]": "0x410",
+      "ftr[1]": "0x44",
+      "csr[1]": "0x108",
+      "cpc[1]": "0x10c",
+      "sar[1]": "0x420",
+      "dar[1]": "0x424",
+      "ccr[1]": "0x428",
+      "lc0[1]": "0x42c",
+      "lc1[1]": "0x430",
+      "ftr[2]": "0x48",
+      "csr[2]": "0x110",
+      "cpc[2]": "0x114",
+      "sar[2]": "0x440",
+      "dar[2]": "0x444",
+      "ccr[2]": "0x448",
+      "lc0[2]": "0x44c",
+      "lc1[2]": "0x450",
+      "ftr[3]": "0x4c",
+      "csr[3]": "0x118",
+      "cpc[3]": "0x11c",
+      "sar[3]": "0x460",
+      "dar[3]": "0x464",
+      "ccr[3]": "0x468",
+      "lc0[3]": "0x46c",
+      "lc1[3]": "0x470",
+      "dbgstatus": "0xd00",
+      "dbgcmd": "0xd04",
+      "dbginst0": "0xd08",
+      "dbginst1": "0xd0c",
+      "cr[0]": "0xe00",
+      "cr[1]": "0xe04",
+      "cr[2]": "0xe08",
+      "cr[3]": "0xe0c",
+      "cr[4]": "0xe10",
+      "crd": "0xe14",
+      "wd": "0xe80",
+      "periph_id_n[0]": "0xfe0",
+      "periph_id_n[1]": "0xfe4",
+      "periph_id_n[2]": "0xfe8",
+      "periph_id_n[3]": "0xfec",
+      "pcell_id_n[0]": "0xff0",
+      "pcell_id_n[1]": "0xff4",
+      "pcell_id_n[2]": "0xff8",
+      "pcell_id_n[3]": "0xffc"
+    },
+    "intclr_cases": [
+      {
+        "channel": 0,
+        "intclr_write": "0x1"
+      },
+      {
+        "channel": 1,
+        "intclr_write": "0x2"
+      },
+      {
+        "channel": 2,
+        "intclr_write": "0x4"
+      },
+      {
+        "channel": 3,
+        "intclr_write": "0x8"
+      },
+      {
+        "channel": 4,
+        "intclr_write": "0x10"
+      }
+    ],
+    "dmakill_cases": [
+      {
+        "channel": 0,
+        "dbginst0": "0x10001",
+        "return_code": 0
+      },
+      {
+        "channel": 1,
+        "dbginst0": "0x10101",
+        "return_code": 0
+      },
+      {
+        "channel": 2,
+        "dbginst0": "0x10201",
+        "return_code": 0
+      },
+      {
+        "channel": 3,
+        "dbginst0": "0x10301",
+        "return_code": 0
+      }
+    ],
+    "dmakill_busy_returns_eio": -5,
+    "dmago_cases": [
+      {
+        "channel": 0,
+        "prog_pa": "0x12345000",
+        "inten_written": "0x11",
+        "dbginst0": "0xa20000",
+        "dbginst1": "0x12345000"
+      },
+      {
+        "channel": 1,
+        "prog_pa": "0x12345100",
+        "inten_written": "0x12",
+        "dbginst0": "0x1a20100",
+        "dbginst1": "0x12345100"
+      },
+      {
+        "channel": 2,
+        "prog_pa": "0x12345200",
+        "inten_written": "0x14",
+        "dbginst0": "0x2a20200",
+        "dbginst1": "0x12345200"
+      },
+      {
+        "channel": 3,
+        "prog_pa": "0x12345300",
+        "inten_written": "0x18",
+        "dbginst0": "0x3a20300",
+        "dbginst1": "0x12345300"
+      }
+    ],
+    "dmago_busy_returns_eio": -5,
+    "async_transfer_sample": {
+      "size_bytes": "0x1000",
+      "src_pa": "0x10200000",
+      "dst_pa": "0x10300000",
+      "selected_array_type": 1,
+      "launched_prog_pa": "0x14004510",
+      "program_header_24bytes_hex": "a200184500140000bc0000002010bc0200003010bc01f7c2",
+      "dmac_data_cache_flushed_by_driver": false
+    },
+    "microcode_template_arrays": [
+      {
+        "dmamov_sar_offset": "0x02",
+        "dmamov_dar_offset": "0x08",
+        "initial_ccr_le32": "0xbdc2f7",
+        "array_type": 0,
+        "data_section_offset": "0x0",
+        "channel_stride_bytes": "0x4510",
+        "max_segments": 256,
+        "segment_stride_bytes": "0x45",
+        "tail_opcodes_hex": "1334000000000000"
+      },
+      {
+        "dmamov_sar_offset": "0x02",
+        "dmamov_dar_offset": "0x08",
+        "initial_ccr_le32": "0xbdc2f7",
+        "array_type": 1,
+        "data_section_offset": "0x11440",
+        "channel_stride_bytes": "0x3510",
+        "max_segments": 256,
+        "segment_stride_bytes": "0x35",
+        "tail_opcodes_hex": "1334000000000000"
+      },
+      {
+        "dmamov_sar_offset": "0x02",
+        "dmamov_dar_offset": "0x08",
+        "initial_ccr_le32": "0xbdc2f7",
+        "array_type": 2,
+        "data_section_offset": "0x1e880",
+        "channel_stride_bytes": "0x2910",
+        "max_segments": 256,
+        "segment_stride_bytes": "0x29",
+        "tail_opcodes_hex": "1334000000000000"
+      },
+      {
+        "dmamov_sar_offset": "0x02",
+        "dmamov_dar_offset": "0x08",
+        "initial_ccr_le32": "0xbdc2f7",
+        "array_type": 3,
+        "data_section_offset": "0x28cc0",
+        "channel_stride_bytes": "0x2110",
+        "max_segments": 256,
+        "segment_stride_bytes": "0x21",
+        "tail_opcodes_hex": "1334000000000000"
+      }
+    ],
+    "async_request_layout": {
+      "0x00": "channel (0..3)",
+      "0x04": "num_segments (1..256)",
+      "0x08": "area_info_pa (12B entries: size, src_pa, dst_pa)",
+      "0x0c": "callback (non-null function pointer)",
+      "0x10": "cookies"
+    },
+    "coherency_note": "dma330.ko accesses its own microcode via arch_phys_to_noncache and guards MMIO writes with DSB SY + outer_cache+0x1c; caller data cache clean/invalidate is not performed by dma330_mem_transfer_async.",
+    "read_or_write_permission": false
+  },
+  "limits": [
+    "Verified against saved initrd/camera_2025 module copies in Unicorn; live-body module hashes remain unchecked",
+    "MMIO register writes and microcode generation were verified in emulation; no hardware transfers ran",
+    "Physical buffer ownership and sensor/DFE-to-USB DMA wiring remain open"
+  ]
+}

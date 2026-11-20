@@ -1,0 +1,275 @@
+{
+  "status": "offline-original-instruction-verified",
+  "hardware_tested": false,
+  "input_sha256": "e6459c22859d8978195baa1ef2e93ad6d5f4fcb3dd89c2c2f02c325b46616090",
+  "output_sha256": "0a4be0d9835367860dca4d76237d86d0e67fce99c4384c194033635d547ad435",
+  "output_md5": "0aa2e7c2928c261b3f63197a89f38bb3",
+  "bytes": 655806,
+  "symbols": {
+    "ctor_hook": "0xa00c1",
+    "trigger_hook": "0xa00e1",
+    "format_hook": "0xa0139"
+  },
+  "state_va": "0x97b30",
+  "tests": {
+    "event_cases": [
+      {
+        "load_bias": "0x1000000",
+        "event": "0x15010002",
+        "original_result": "0x15010002",
+        "hook_result": "0x15010002",
+        "assigned": [
+          "ZV-E10",
+          "E:010002"
+        ]
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x15010012",
+        "original_result": "0x15010012",
+        "hook_result": "0x15010012",
+        "assigned": [
+          "ZV-E10",
+          "E:010012"
+        ]
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x15010022",
+        "original_result": "0x15010022",
+        "hook_result": "0x15010022",
+        "assigned": [
+          "ZV-E10",
+          "E:010022"
+        ]
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x15010032",
+        "original_result": "0x15010032",
+        "hook_result": "0x15010032",
+        "assigned": [
+          "ZV-E10",
+          "E:010032"
+        ]
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x15010042",
+        "original_result": "0x1",
+        "hook_result": "0x1",
+        "assigned": [
+          "ZV-E10",
+          "E:010042"
+        ]
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x15010052",
+        "original_result": "0x2",
+        "hook_result": "0x2",
+        "assigned": [
+          "ZV-E10",
+          "E:010052"
+        ]
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x15010062",
+        "original_result": "0x3",
+        "hook_result": "0x3",
+        "assigned": [
+          "ZV-E10",
+          "E:010062"
+        ]
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x15010072",
+        "original_result": "0x11012004",
+        "hook_result": "0x11012004",
+        "assigned": [
+          "ZV-E10",
+          "E:010072"
+        ]
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x15010082",
+        "original_result": "0x11012004",
+        "hook_result": "0x11012004",
+        "assigned": [
+          "ZV-E10",
+          "E:010082"
+        ]
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x15020042",
+        "original_result": "0x15020042",
+        "hook_result": "0x15020042",
+        "assigned": [
+          "ZV-E10",
+          "E:020042"
+        ]
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x15020052",
+        "original_result": "0x11012004",
+        "hook_result": "0x11012004",
+        "assigned": [
+          "ZV-E10",
+          "E:020052"
+        ]
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x150a0371",
+        "original_result": "0x11012005",
+        "hook_result": "0x11012005",
+        "assigned": []
+      },
+      {
+        "load_bias": "0x1000000",
+        "event": "0x2108001",
+        "original_result": "0x2108001",
+        "hook_result": "0x2108001",
+        "assigned": []
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x15010002",
+        "original_result": "0x15010002",
+        "hook_result": "0x15010002",
+        "assigned": [
+          "ZV-E10",
+          "E:010002"
+        ]
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x15010012",
+        "original_result": "0x15010012",
+        "hook_result": "0x15010012",
+        "assigned": [
+          "ZV-E10",
+          "E:010012"
+        ]
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x15010022",
+        "original_result": "0x15010022",
+        "hook_result": "0x15010022",
+        "assigned": [
+          "ZV-E10",
+          "E:010022"
+        ]
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x15010032",
+        "original_result": "0x15010032",
+        "hook_result": "0x15010032",
+        "assigned": [
+          "ZV-E10",
+          "E:010032"
+        ]
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x15010042",
+        "original_result": "0x1",
+        "hook_result": "0x1",
+        "assigned": [
+          "ZV-E10",
+          "E:010042"
+        ]
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x15010052",
+        "original_result": "0x2",
+        "hook_result": "0x2",
+        "assigned": [
+          "ZV-E10",
+          "E:010052"
+        ]
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x15010062",
+        "original_result": "0x3",
+        "hook_result": "0x3",
+        "assigned": [
+          "ZV-E10",
+          "E:010062"
+        ]
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x15010072",
+        "original_result": "0x11012004",
+        "hook_result": "0x11012004",
+        "assigned": [
+          "ZV-E10",
+          "E:010072"
+        ]
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x15010082",
+        "original_result": "0x11012004",
+        "hook_result": "0x11012004",
+        "assigned": [
+          "ZV-E10",
+          "E:010082"
+        ]
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x15020042",
+        "original_result": "0x15020042",
+        "hook_result": "0x15020042",
+        "assigned": [
+          "ZV-E10",
+          "E:020042"
+        ]
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x15020052",
+        "original_result": "0x11012004",
+        "hook_result": "0x11012004",
+        "assigned": [
+          "ZV-E10",
+          "E:020052"
+        ]
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x150a0371",
+        "original_result": "0x11012005",
+        "hook_result": "0x11012005",
+        "assigned": []
+      },
+      {
+        "load_bias": "0x2200000",
+        "event": "0x2108001",
+        "original_result": "0x2108001",
+        "hook_result": "0x2108001",
+        "assigned": []
+      }
+    ],
+    "scope_controls": 6,
+    "constructor_resets": 2,
+    "callee_saved_and_stack_checked": true,
+    "writes_limited_to_private_state_object_and_stack": true
+  },
+  "limits": [
+    "External widgets and imported APIs mocked",
+    "Physical button names unresolved",
+    "No sequence or OS handoff"
+  ]
+}

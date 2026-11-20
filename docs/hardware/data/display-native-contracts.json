@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "status": "offline-original-instruction-contracts-verified",
+  "firmware_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "liro_sha256": "72b77031f00679877ac04edf452e9f49e5fbca05cb4ee4554ddd2e5243e8e0cc",
+  "backup_sha256": "bc4a742f6e531e6fe5bd49329a8d3d2e7d8c3dd94b3fb087a95d791d18ce9709",
+  "libobj_sha256": "bc0deb2f0e94218752e42ce6f5a3576d7456971eb63fbde705ffbd9b3a7fdeea",
+  "callback_bindings": {
+    "0x1980c": {
+      "callback_slot": "0x298",
+      "liro_init_data_offset": "0x274",
+      "symbol": "Backup_read"
+    },
+    "0x19828": {
+      "callback_slot": "0x264",
+      "liro_init_data_offset": "0x240",
+      "symbol": "Backup_nread"
+    },
+    "0x19860": {
+      "callback_slot": "0x29c",
+      "liro_init_data_offset": "0x278",
+      "symbol": "Backup_read_multi"
+    },
+    "0x199b8": {
+      "callback_slot": "0x2e0",
+      "liro_init_data_offset": "0x2bc",
+      "symbol": "Backup_read_4Byte"
+    },
+    "0x19208": {
+      "callback_slot": "0x188",
+      "liro_init_data_offset": "0x164",
+      "symbol": "Vspin_lock"
+    },
+    "0x19224": {
+      "callback_slot": "0x190",
+      "liro_init_data_offset": "0x16c",
+      "symbol": "Vspin_unlock"
+    }
+  },
+  "wait_helper": {
+    "file_offset": "0x504190",
+    "cases": [
+      {
+        "selector": 0,
+        "initial_counter": 0,
+        "threshold": 2,
+        "pending": 0,
+        "advanced": false
+      },
+      {
+        "selector": 0,
+        "initial_counter": 0,
+        "threshold": 2,
+        "pending": 1,
+        "advanced": false
+      },
+      {
+        "selector": 0,
+        "initial_counter": 1,
+        "threshold": 2,
+        "pending": 0,
+        "advanced": true
+      },
+      {
+        "selector": 0,
+        "initial_counter": 1,
+        "threshold": 2,
+        "pending": 1,
+        "advanced": false
+      },
+      {
+        "selector": 1,
+        "initial_counter": 0,
+        "threshold": 2,
+        "pending": 0,
+        "advanced": false
+      },
+      {
+        "selector": 1,
+        "initial_counter": 0,
+        "threshold": 2,
+        "pending": 1,
+        "advanced": false
+      },
+      {
+        "selector": 1,
+        "initial_counter": 1,
+        "threshold": 2,
+        "pending": 0,
+        "advanced": true
+      },
+      {
+        "selector": 1,
+        "initial_counter": 1,
+        "threshold": 2,
+        "pending": 1,
+        "advanced": false
+      }
+    ],
+    "time_unit": "invocation count, tick duration not recovered"
+  },
+  "gpio_output_helpers": {
+    "cases": [
+      {
+        "bank": 0,
+        "bit": 0,
+        "high": false,
+        "address": "0xf2910048",
+        "mask": "0x1"
+      },
+      {
+        "bank": 0,
+        "bit": 0,
+        "high": true,
+        "address": "0xf2910044",
+        "mask": "0x1"
+      },
+      {
+        "bank": 0,
+        "bit": 20,
+        "high": false,
+        "address": "0xf2910048",
+        "mask": "0x100000"
+      },
+      {
+        "bank": 0,
+        "bit": 20,
+        "high": true,
+        "address": "0xf2910044",
+        "mask": "0x100000"
+      },
+      {
+        "bank": 0,
+        "bit": 31,
+        "high": false,
+        "address": "0xf2910048",
+        "mask": "0x80000000"
+      },
+      {
+        "bank": 0,
+        "bit": 31,
+        "high": true,
+        "address": "0xf2910044",
+        "mask": "0x80000000"
+      },
+      {
+        "bank": 11,
+        "bit": 0,
+        "high": false,
+        "address": "0xf2910b48",
+        "mask": "0x1"
+      },
+      {
+        "bank": 11,
+        "bit": 0,
+        "high": true,
+        "address": "0xf2910b44",
+        "mask": "0x1"
+      },
+      {
+        "bank": 11,
+        "bit": 20,
+        "high": false,
+        "address": "0xf2910b48",
+        "mask": "0x100000"
+      },
+      {
+        "bank": 11,
+        "bit": 20,
+        "high": true,
+        "address": "0xf2910b44",
+        "mask": "0x100000"
+      },
+      {
+        "bank": 11,
+        "bit": 31,
+        "high": false,
+        "address": "0xf2910b48",
+        "mask": "0x80000000"
+      },
+      {
+        "bank": 11,
+        "bit": 31,
+        "high": true,
+        "address": "0xf2910b44",
+        "mask": "0x80000000"
+      },
+      {
+        "bank": 17,
+        "bit": 0,
+        "high": false,
+        "address": "0xf2911148",
+        "mask": "0x1"
+      },
+      {
+        "bank": 17,
+        "bit": 0,
+        "high": true,
+        "address": "0xf2911144",
+        "mask": "0x1"
+      },
+      {
+        "bank": 17,
+        "bit": 20,
+        "high": false,
+        "address": "0xf2911148",
+        "mask": "0x100000"
+      },
+      {
+        "bank": 17,
+        "bit": 20,
+        "high": true,
+        "address": "0xf2911144",
+        "mask": "0x100000"
+      },
+      {
+        "bank": 17,
+        "bit": 31,
+        "high": false,
+        "address": "0xf2911148",
+        "mask": "0x80000000"
+      },
+      {
+        "bank": 17,
+        "bit": 31,
+        "high": true,
+        "address": "0xf2911144",
+        "mask": "0x80000000"
+      }
+    ],
+    "invalid_bank_18_no_mmio_write": true,
+    "hardware_alias_effects_emulated": false
+  },
+  "selected_saved_backup_properties": {
+    "0x5f0206": {
+      "bytes": 1,
+      "value_le": "0x0",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0x5f01d8": {
+      "bytes": 1,
+      "value_le": "0x1",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0x5f052f": {
+      "bytes": 1,
+      "value_le": "0x1",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf900ac": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf90068": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf901ab": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf901ac": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf9088f": {
+      "bytes": 4,
+      "value_le": "0xb",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf90890": {
+      "bytes": 4,
+      "value_le": "0x14",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf9040d": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf9040e": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf90375": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf90376": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf90377": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf90378": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf90560": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf90561": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf90562": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    },
+    "0xf90563": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "scope": "saved backup only; current-body state not verified"
+    }
+  },
+  "gpio_config_wrapper": {
+    "file_offset": "0x808c26",
+    "cases": [
+      {
+        "bank": 11,
+        "bit": 20,
+        "descriptor_inputs": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "mmio_write_addresses": [
+          "0xf2910b34",
+          "0xf2910b04",
+          "0xf2910b24",
+          "0xf2912b48",
+          "0xf2912b54"
+        ],
+        "lock_ids": [
+          9,
+          9
+        ]
+      },
+      {
+        "bank": 11,
+        "bit": 20,
+        "descriptor_inputs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "mmio_write_addresses": [
+          "0xf2910b38",
+          "0xf2910b08",
+          "0xf2910b28",
+          "0xf2912b48",
+          "0xf2912b58"
+        ],
+        "lock_ids": [
+          9,
+          9
+        ]
+      },
+      {
+        "bank": 11,
+        "bit": 20,
+        "descriptor_inputs": [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "mmio_write_addresses": [
+          "0xf2910b34",
+          "0xf2910b28",
+          "0xf2912b44",
+          "0xf2912b58"
+        ],
+        "lock_ids": [
+          9,
+          9
+        ]
+      },
+      {
+        "bank": 18,
+        "bit": 20,
+        "descriptor_inputs": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "mmio_write_addresses": [],
+        "lock_ids": []
+      }
+    ]
+  },
+  "saved_profile0": {
+    "bytes": 304,
+    "source_id_list_va": "0x645ecaf0",
+    "source_id_list_zero_terminated": true,
+    "all_selected_properties_one_byte": true,
+    "destination_firmware_va": "0x6455fe88",
+    "sha256": "d0556483b795991551142cd359ca03a1711df62503823ac8c63f78db55a7688f",
+    "current_body_binding": false
+  },
+  "saved_pin_slot_2": {
+    "bank_property": "0xf9088f",
+    "bit_property": "0xf90890",
+    "bank": 11,
+    "bit": 20,
+    "set_address": "0xf2910b44",
+    "clear_address": "0xf2910b48",
+    "mask": "0x100000",
+    "electrical_role": "not independently identified"
+  },
+  "empty_exported_apis": [
+    {
+      "symbol": "GRM_screenGetOnBitmap",
+      "elf_va": "0x685a20",
+      "effect": "returns zero without reading arguments or changing pointed-to memory"
+    },
+    {
+      "symbol": "GRM_fbrmInitializeYUV",
+      "elf_va": "0x685a40",
+      "effect": "returns zero without reading arguments or changing pointed-to memory"
+    },
+    {
+      "symbol": "GRM_fbrmPrepareUpdateYUV",
+      "elf_va": "0x685a68",
+      "effect": "returns zero without reading arguments or changing pointed-to memory"
+    },
+    {
+      "symbol": "GRM_fbrmUpdateYUV",
+      "elf_va": "0x685a78",
+      "effect": "returns zero without reading arguments or changing pointed-to memory"
+    },
+    {
+      "symbol": "GRM_fbrmFillrectYUV",
+      "elf_va": "0x685a80",
+      "effect": "returns zero without reading arguments or changing pointed-to memory"
+    },
+    {
+      "symbol": "GRM_fbrmRectblitYUV",
+      "elf_va": "0x685a88",
+      "effect": "returns zero without reading arguments or changing pointed-to memory"
+    }
+  ],
+  "camera_access_performed": false,
+  "hardware_display_initialized": false,
+  "limits": [
+    "GPIO MMIO writes recorded in an emulator; no physical effect modeled or verified",
+    "Saved Backup.bin is not a current-body capture or universal panel configuration",
+    "Full pixel routing, serial panel transaction, clock prerequisites and frame completion remain unresolved"
+  ]
+}

@@ -1,0 +1,2373 @@
+{
+  "schema_version": 1,
+  "complete": false,
+  "registers": [
+    {
+      "name": "GPIO0_DIR",
+      "address_space": "physical_mmio",
+      "address": "0xf2910000",
+      "access_width_bits": 32,
+      "access_semantics": "data",
+      "source": "Sony GPL platform.h and regs-gpio.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "GPIO0_DIR_SET",
+      "address_space": "physical_mmio",
+      "address": "0xf2910004",
+      "access_width_bits": 32,
+      "access_semantics": "write-one set alias",
+      "source": "Sony GPL platform.h and regs-gpio.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "GPIO0_DIR_CLR",
+      "address_space": "physical_mmio",
+      "address": "0xf2910008",
+      "access_width_bits": 32,
+      "access_semantics": "write-one clear alias",
+      "source": "Sony GPL platform.h and regs-gpio.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "GPIO0_RDATA",
+      "address_space": "physical_mmio",
+      "address": "0xf2910010",
+      "access_width_bits": 32,
+      "access_semantics": "read data",
+      "source": "Sony GPL platform.h and regs-gpio.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "GPIO0_INEN",
+      "address_space": "physical_mmio",
+      "address": "0xf2910020",
+      "access_width_bits": 32,
+      "access_semantics": "data",
+      "source": "Sony GPL platform.h and regs-gpio.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "GPIO0_INEN_CLR",
+      "address_space": "physical_mmio",
+      "address": "0xf2910028",
+      "access_width_bits": 32,
+      "access_semantics": "write-one clear alias",
+      "source": "Sony GPL platform.h and regs-gpio.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "GPIO0_FUNC",
+      "address_space": "physical_mmio",
+      "address": "0xf2910030",
+      "access_width_bits": 32,
+      "access_semantics": "data",
+      "source": "Sony GPL platform.h and regs-gpio.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "GPIO0_WDATA",
+      "address_space": "physical_mmio",
+      "address": "0xf2910040",
+      "access_width_bits": 32,
+      "access_semantics": "data",
+      "source": "Sony GPL platform.h and regs-gpio.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "GPIO0_WDATA_SET",
+      "address_space": "physical_mmio",
+      "address": "0xf2910044",
+      "access_width_bits": 32,
+      "access_semantics": "write-one set alias",
+      "source": "Sony GPL platform.h and regs-gpio.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "GPIO0_WDATA_CLR",
+      "address_space": "physical_mmio",
+      "address": "0xf2910048",
+      "access_width_bits": 32,
+      "access_semantics": "write-one clear alias",
+      "source": "Sony GPL platform.h and regs-gpio.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "MISC_RSTREQ_SET",
+      "address_space": "physical_mmio",
+      "address": "0xf2915044",
+      "access_width_bits": 32,
+      "access_semantics": "set command alias",
+      "source": "Sony GPL regs-misc.h; core.c force-reset path",
+      "fields": [
+        {
+          "name": "EN",
+          "mask": "0x10"
+        },
+        {
+          "name": "ASSERT",
+          "mask": "0x1"
+        },
+        {
+          "name": "CPUCLR",
+          "mask": "0x100"
+        }
+      ],
+      "known_commands": [
+        {
+          "value": "0x11",
+          "meaning": "source force-reset request; not a reset default"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "MISC_RSTREQ_CLR",
+      "address_space": "physical_mmio",
+      "address": "0xf2915048",
+      "access_width_bits": 32,
+      "access_semantics": "clear command alias",
+      "source": "Sony GPL regs-misc.h; wdt.c WDT_SET_STOP",
+      "fields": [
+        {
+          "name": "EN",
+          "mask": "0x10"
+        },
+        {
+          "name": "ASSERT",
+          "mask": "0x1"
+        },
+        {
+          "name": "CPUCLR",
+          "mask": "0x100"
+        }
+      ],
+      "known_commands": [
+        {
+          "value": "0x10",
+          "meaning": "source disables board reset-request enable"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "MISC_RSTREQ_STAT",
+      "address_space": "physical_mmio",
+      "address": "0xf2915050",
+      "access_width_bits": 32,
+      "access_semantics": "status; full side effects not independently mapped",
+      "source": "Sony GPL regs-misc.h",
+      "fields": [
+        {
+          "name": "TIM",
+          "mask": "0x10"
+        },
+        {
+          "name": "CPU3_0",
+          "mask": "0xf"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "BOARD_WDT_CTL",
+      "address_space": "physical_mmio",
+      "address": "0xf2402000",
+      "access_width_bits": 32,
+      "access_semantics": "timer control",
+      "source": "Sony GPL regs-timer.h and wdt.c",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x0",
+          "meaning": "source stop operation"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "BOARD_WDT_CLR",
+      "address_space": "physical_mmio",
+      "address": "0xf2402004",
+      "access_width_bits": 32,
+      "access_semantics": "timer command",
+      "source": "Sony GPL regs-timer.h and wdt.c",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x10",
+          "meaning": "TMCLR refresh"
+        },
+        {
+          "value": "0x11",
+          "meaning": "TMCLR | TMINTCLR in stop path"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_WORD_5108",
+      "address_space": "physical_mmio",
+      "address": "0xf3445108",
+      "access_width_bits": 32,
+      "access_semantics": "native 32-bit RMW; device semantics incomplete",
+      "source": "Current-camera-matched reference pages; native wrappers 0x807c14, 0x807c18, 0x807c1c",
+      "fields": [
+        {
+          "name": "component0_likely_Y",
+          "lsb": 16,
+          "width_bits": 8,
+          "meaning_confidence": "inferred"
+        },
+        {
+          "name": "component1_likely_Cb",
+          "lsb": 8,
+          "width_bits": 8,
+          "meaning_confidence": "inferred"
+        },
+        {
+          "name": "component2_likely_Cr",
+          "lsb": 0,
+          "width_bits": 8,
+          "meaning_confidence": "inferred"
+        },
+        {
+          "name": "unknown_control_25",
+          "lsb": 25,
+          "width_bits": 1
+        },
+        {
+          "name": "unknown_control_24",
+          "lsb": 24,
+          "width_bits": 1
+        }
+      ],
+      "known_commands": [],
+      "observations": [
+        {
+          "date": "2026-11-18",
+          "mode": "Senser",
+          "value": "0x03008080",
+          "scope": "single service readback; not required value"
+        }
+      ],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_WORD_510C",
+      "address_space": "physical_mmio",
+      "address": "0xf344510c",
+      "access_width_bits": 32,
+      "access_semantics": "native 32-bit RMW; hardware bit meaning unknown",
+      "source": "Current-camera-matched reference page; wrapper file offset 0x807c36",
+      "fields": [
+        {
+          "name": "unknown_control_0",
+          "lsb": 0,
+          "width_bits": 1
+        }
+      ],
+      "known_commands": [],
+      "observations": [
+        {
+          "date": "2026-11-18",
+          "mode": "Senser",
+          "value": "0x1",
+          "scope": "single service readback; not a proven commit/strobe specification"
+        }
+      ],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "MISC_TYPEID",
+      "address_space": "physical_mmio",
+      "address": "0xf2915000",
+      "access_width_bits": 32,
+      "access_semantics": "type-ID register per source; read side effects not independently tested",
+      "source": "Sony GPL regs-misc.h TYPEID_IDMASK and TYPEID_CXD900X0",
+      "fields": [
+        {
+          "name": "TYPEID",
+          "mask": "0xff00"
+        }
+      ],
+      "expected_identification": [
+        {
+          "mask": "0xff00",
+          "value": "0x500",
+          "scope": "CXD900X0 family source definition; not measured on this body"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_CLOCK_WORD_0",
+      "address_space": "physical_mmio",
+      "address": "0xf28040c4",
+      "access_width_bits": 32,
+      "source": "Identified grm_gles.ko .text+0x248; graphics-clock-transaction.json; current-camera binding not checked",
+      "access_semantics": "native read-modify-write; full device side effects not specified",
+      "fields": [
+        {
+          "name": "mode_low_nibble",
+          "mask": "0xf",
+          "meaning_confidence": "semantic meaning not recovered"
+        }
+      ],
+      "known_commands": [
+        {
+          "operation": "read-modify-write",
+          "clear_mask": "0xf",
+          "set_bits": "0x6",
+          "scope": "only as part of the identified driver transaction; prerequisites unresolved"
+        }
+      ],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_CLOCK_WORD_1",
+      "address_space": "physical_mmio",
+      "address": "0xf28041a8",
+      "access_width_bits": 32,
+      "source": "Identified grm_gles.ko .text+0x248; graphics-clock-transaction.json; current-camera binding not checked",
+      "access_semantics": "native read-modify-write; full device side effects not specified",
+      "fields": [
+        {
+          "name": "mode_low_nibble",
+          "mask": "0xf",
+          "meaning_confidence": "semantic meaning not recovered"
+        }
+      ],
+      "known_commands": [
+        {
+          "operation": "read-modify-write",
+          "clear_mask": "0xf",
+          "set_bits": "0x6",
+          "scope": "only as part of the identified driver transaction; prerequisites unresolved"
+        }
+      ],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_CLOCK_WORD_2",
+      "address_space": "physical_mmio",
+      "address": "0xf28050b8",
+      "access_width_bits": 32,
+      "source": "Identified grm_gles.ko .text+0x248; graphics-clock-transaction.json; current-camera binding not checked",
+      "access_semantics": "native read-modify-write; full device side effects not specified",
+      "fields": [
+        {
+          "name": "mode_low_nibble",
+          "mask": "0xf",
+          "meaning_confidence": "semantic meaning not recovered"
+        }
+      ],
+      "known_commands": [
+        {
+          "operation": "read-modify-write",
+          "clear_mask": "0xf",
+          "set_bits": "0x6",
+          "scope": "only as part of the identified driver transaction; prerequisites unresolved"
+        }
+      ],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_CLOCK_WORD_3",
+      "address_space": "physical_mmio",
+      "address": "0xf280518c",
+      "access_width_bits": 32,
+      "source": "Identified grm_gles.ko .text+0x248; graphics-clock-transaction.json; current-camera binding not checked",
+      "access_semantics": "native read-modify-write; full device side effects not specified",
+      "fields": [
+        {
+          "name": "mode_low_nibble",
+          "mask": "0xf",
+          "meaning_confidence": "semantic meaning not recovered"
+        }
+      ],
+      "known_commands": [
+        {
+          "operation": "read-modify-write",
+          "clear_mask": "0xf",
+          "set_bits": "0x6",
+          "scope": "only as part of the identified driver transaction; prerequisites unresolved"
+        }
+      ],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_CONTROL_0080",
+      "address_space": "physical_mmio",
+      "address": "0xf3400080",
+      "access_width_bits": 32,
+      "source": "Identified grm_gles.ko .text+0x248; graphics-clock-transaction.json; current-camera binding not checked",
+      "access_semantics": "direct native load/store with barrier helpers; complete register semantics unknown",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x15",
+          "scope": "ordered clock-up transaction only; not a reset default"
+        }
+      ],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false,
+      "expected_after_transaction": {
+        "equal": "0x15",
+        "source_behavior_on_mismatch": "__bug_noarg",
+        "polling_loop": false,
+        "hardware_verified": false
+      }
+    },
+    {
+      "name": "SUGILITE_CONTROL_0280",
+      "address_space": "physical_mmio",
+      "address": "0xf3400280",
+      "access_width_bits": 32,
+      "source": "Identified grm_gles.ko .text+0x248; graphics-clock-transaction.json; current-camera binding not checked",
+      "access_semantics": "direct native load/store with barrier helpers; complete register semantics unknown",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x10",
+          "scope": "ordered clock-up transaction only; not a reset default"
+        }
+      ],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "XDMAC0_XDACS",
+      "address_space": "physical_mmio",
+      "address": "0xf0000000",
+      "access_width_bits": 32,
+      "access_semantics": "unit arbitration control; full bit map incomplete",
+      "source": "GPL udif/platform.c; initrd dmac.ko (SHA-256 718284caacf31654151fac234db7293d8338e348687c37b6e3f65dbf24de1522); dma-contracts.json",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x10000000",
+          "meaning": "fixed priority enable (boss_hw_dmac_unit_enable mode=0)"
+        },
+        {
+          "value": "0x11000000",
+          "meaning": "round-robin arbitration enable (boss_hw_dmac_unit_enable mode=1)"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "XDMAC1_XDACS",
+      "address_space": "physical_mmio",
+      "address": "0xf0010000",
+      "access_width_bits": 32,
+      "access_semantics": "unit arbitration control; full bit map incomplete",
+      "source": "GPL udif/platform.c; initrd dmac.ko (SHA-256 718284caacf31654151fac234db7293d8338e348687c37b6e3f65dbf24de1522); dma-contracts.json",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x10000000",
+          "meaning": "fixed priority enable (boss_hw_dmac_unit_enable mode=0)"
+        },
+        {
+          "value": "0x11000000",
+          "meaning": "round-robin arbitration enable (boss_hw_dmac_unit_enable mode=1)"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "XDMAC_CH5_XDTBC",
+      "address_space": "physical_mmio",
+      "address": "0xf0010040",
+      "access_width_bits": 32,
+      "access_semantics": "channel transfer byte count (stride formula unit_base + 0x10 + 0x30*(ch%4))",
+      "source": "initrd dmac.ko boss_hw_dmac_start_transfer / proc_setbuf_reg_ch; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "XDMAC_CH5_XDSSA",
+      "address_space": "physical_mmio",
+      "address": "0xf0010044",
+      "access_width_bits": 32,
+      "access_semantics": "channel source start address (unit_base + 0x10 + 0x30*(ch%4) + 0x04)",
+      "source": "initrd dmac.ko boss_hw_dmac_start_transfer / proc_setbuf_reg_ch; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "XDMAC_CH5_XDDSA",
+      "address_space": "physical_mmio",
+      "address": "0xf0010048",
+      "access_width_bits": 32,
+      "access_semantics": "channel destination start address (unit_base + 0x10 + 0x30*(ch%4) + 0x08)",
+      "source": "initrd dmac.ko boss_hw_dmac_start_transfer / proc_setbuf_reg_ch; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "XDMAC_CH5_XDSAC",
+      "address_space": "physical_mmio",
+      "address": "0xf001004c",
+      "access_width_bits": 32,
+      "access_semantics": "channel source attribute control (unit_base + 0x10 + 0x30*(ch%4) + 0x0c)",
+      "source": "initrd dmac.ko boss_hw_dmac_start_transfer / proc_setbuf_reg_ch; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "XDMAC_CH5_XDDAC",
+      "address_space": "physical_mmio",
+      "address": "0xf0010050",
+      "access_width_bits": 32,
+      "access_semantics": "channel destination attribute control (unit_base + 0x10 + 0x30*(ch%4) + 0x10)",
+      "source": "initrd dmac.ko boss_hw_dmac_start_transfer / proc_setbuf_reg_ch; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "XDMAC_CH5_XDDCC",
+      "address_space": "physical_mmio",
+      "address": "0xf0010054",
+      "access_width_bits": 32,
+      "access_semantics": "channel DMA control (unit_base + 0x10 + 0x30*(ch%4) + 0x14)",
+      "source": "initrd dmac.ko boss_hw_dmac_start_transfer / proc_setbuf_reg_ch; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "XDMAC_CH5_XDDES",
+      "address_space": "physical_mmio",
+      "address": "0xf0010058",
+      "access_width_bits": 32,
+      "access_semantics": "channel enable/start control (written last after XDDPC; unit_base + 0x10 + 0x30*(ch%4) + 0x18)",
+      "source": "initrd dmac.ko boss_hw_dmac_start_transfer / shutdown; dma-contracts.json",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x11108003",
+          "meaning": "driver channel start command after writing LLI descriptor and XDDPC=0x11"
+        },
+        {
+          "value": "0x0",
+          "meaning": "driver channel shutdown command"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "XDMAC_CH5_XDDPC",
+      "address_space": "physical_mmio",
+      "address": "0xf001005c",
+      "access_width_bits": 32,
+      "access_semantics": "channel pre-start control written immediately before XDDES (unit_base + 0x10 + 0x30*(ch%4) + 0x1c)",
+      "source": "initrd dmac.ko boss_hw_dmac_start_transfer / proc_setbuf_reg_ch; dma-contracts.json",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x11",
+          "meaning": "driver pre-start value written before XDDES=0x11108003"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "XDMAC_CH5_XDDSD",
+      "address_space": "physical_mmio",
+      "address": "0xf0010060",
+      "access_width_bits": 32,
+      "access_semantics": "channel completion/error status and acknowledgement (unit_base + 0x10 + 0x30*(ch%4) + 0x20)",
+      "source": "initrd dmac.ko boss_hw_dmac_get_transfer_result / proc_setbuf_reg_ch; dma-contracts.json",
+      "fields": [
+        {
+          "name": "completion_status_low_nibble",
+          "mask": "0xf"
+        }
+      ],
+      "known_commands": [
+        {
+          "value": "0x0",
+          "meaning": "driver status clear written on result read/process"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_DSR",
+      "address_space": "physical_mmio",
+      "address": "0xf0030000",
+      "access_width_bits": 32,
+      "access_semantics": "DMA manager status register",
+      "source": "camera_2025 dma330.ko (SHA-256 a86794fb8ab97fb27adac21bbcb067d424b787f3815d97bf91942b460dffd86d); dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_DPC",
+      "address_space": "physical_mmio",
+      "address": "0xf0030004",
+      "access_width_bits": 32,
+      "access_semantics": "DMA program counter (written with microcode header PA before DBGINST0/1 on dmago)",
+      "source": "camera_2025 dma330.ko dmago / dma330_read_proc; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_INTEN",
+      "address_space": "physical_mmio",
+      "address": "0xf0030020",
+      "access_width_bits": 32,
+      "access_semantics": "interrupt/event enable mask; dmago RMW sets (1 << ch) | 0x10",
+      "source": "camera_2025 dma330.ko dmago / dma330_read_proc; dma-contracts.json",
+      "fields": [
+        {
+          "name": "channel_event_enable_bits_0_3",
+          "mask": "0xf"
+        },
+        {
+          "name": "abort_or_shared_enable_bit_4",
+          "mask": "0x10"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_INT_EVENT_RIS",
+      "address_space": "physical_mmio",
+      "address": "0xf0030024",
+      "access_width_bits": 32,
+      "access_semantics": "raw interrupt/event status",
+      "source": "camera_2025 dma330.ko dma330_read_proc; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_INTMIS",
+      "address_space": "physical_mmio",
+      "address": "0xf0030028",
+      "access_width_bits": 32,
+      "access_semantics": "masked interrupt status checked by dma330_int_cb via (1 << ch)",
+      "source": "camera_2025 dma330.ko dma330_int_cb / dma330_read_proc; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_INTCLR",
+      "address_space": "physical_mmio",
+      "address": "0xf003002c",
+      "access_width_bits": 32,
+      "access_semantics": "write-one interrupt clear (1 << ch for ch 0..3, 0x10 for index 4)",
+      "source": "camera_2025 dma330.ko intclr / dma330_read_proc; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_FSRD",
+      "address_space": "physical_mmio",
+      "address": "0xf0030030",
+      "access_width_bits": 32,
+      "access_semantics": "fault status DMA manager register",
+      "source": "camera_2025 dma330.ko dma330_read_proc; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_FSRC",
+      "address_space": "physical_mmio",
+      "address": "0xf0030034",
+      "access_width_bits": 32,
+      "access_semantics": "fault status DMA channel mask scanned on abort IRQ 119",
+      "source": "camera_2025 dma330.ko dma330_int_cb / dma330_read_proc; dma-contracts.json",
+      "fields": [
+        {
+          "name": "faulting_channels_0_3",
+          "mask": "0xf"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_FTRD",
+      "address_space": "physical_mmio",
+      "address": "0xf0030038",
+      "access_width_bits": 32,
+      "access_semantics": "fault type DMA manager register",
+      "source": "camera_2025 dma330.ko dma330_read_proc; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_DBGSTATUS",
+      "address_space": "physical_mmio",
+      "address": "0xf0030d00",
+      "access_width_bits": 32,
+      "access_semantics": "debug instruction interface status; bit 0 busy checked before DBGINST/DBGCMD",
+      "source": "camera_2025 dma330.ko dmago / dmakill; dma-contracts.json",
+      "fields": [
+        {
+          "name": "dbg_busy",
+          "mask": "0x1"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_DBGCMD",
+      "address_space": "physical_mmio",
+      "address": "0xf0030d04",
+      "access_width_bits": 32,
+      "access_semantics": "debug instruction execute doorbell after DBGINST0 and DBGINST1",
+      "source": "camera_2025 dma330.ko dmago / dmakill; dma-contracts.json",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x0",
+          "meaning": "execute instruction encoded in DBGINST0/DBGINST1"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_DBGINST0",
+      "address_space": "physical_mmio",
+      "address": "0xf0030d08",
+      "access_width_bits": 32,
+      "access_semantics": "debug instruction word 0 (DMAKILL channel thread or DMAGO manager thread)",
+      "source": "camera_2025 dma330.ko dmago / dmakill; dma-contracts.json",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x10001",
+          "meaning": "DMAKILL on channel 0 (0x00010001 | ((ch & 7) << 8))"
+        },
+        {
+          "value": "0xa20000",
+          "meaning": "DMAGO on channel 0 ((0xa2 << 16) | (ch << 24) | ((ch & 7) << 8))"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "DMA330_DBGINST1",
+      "address_space": "physical_mmio",
+      "address": "0xf0030d0c",
+      "access_width_bits": 32,
+      "access_semantics": "debug instruction word 1 (0 on DMAKILL; 32-bit microcode PC from DMAGO bytes 2..5)",
+      "source": "camera_2025 dma330.ko dmago / dmakill; dma-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_00",
+      "address_space": "physical_mmio",
+      "address": "0xf2401000",
+      "access_width_bits": 16,
+      "access_semantics": "status/error register (I2C1 mirrors at +0x800: 0xf2401800); W1C NACK bit 0x20",
+      "source": "camera_2025 i2c.ko (SHA-256 37b37633a8cdfd6ce60258d646afc2cf11dc50de67cd71a0b53631584412321e); i2c-contract.json",
+      "fields": [
+        {
+          "name": "nack_status_w1c",
+          "mask": "0x20"
+        }
+      ],
+      "known_commands": [
+        {
+          "value": "0x20",
+          "meaning": "W1C clear NACK status in i2c_tasklet"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_04",
+      "address_space": "physical_mmio",
+      "address": "0xf2401004",
+      "access_width_bits": 16,
+      "access_semantics": "transfer command register (I2C1 mirrors at 0xf2401804)",
+      "source": "camera_2025 i2c.ko command builder / i2c_tasklet; i2c-contract.json",
+      "fields": [
+        {
+          "name": "go",
+          "mask": "0x80"
+        },
+        {
+          "name": "rx_phase",
+          "mask": "0x8"
+        },
+        {
+          "name": "tx_phase",
+          "mask": "0x4"
+        },
+        {
+          "name": "stop",
+          "mask": "0x2"
+        },
+        {
+          "name": "start",
+          "mask": "0x1"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_08",
+      "address_space": "physical_mmio",
+      "address": "0xf2401008",
+      "access_width_bits": 16,
+      "access_semantics": "chunk count minus 1 on write; RX FIFO count-1 in bits 7:4 on read (I2C1 at 0xf2401808)",
+      "source": "camera_2025 i2c.ko .text+0x14c0 / i2c_tasklet; i2c-contract.json",
+      "fields": [
+        {
+          "name": "tx_or_rx_count_minus_1",
+          "mask": "0xf"
+        },
+        {
+          "name": "rx_fifo_count_minus_1",
+          "mask": "0xf0"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_0C",
+      "address_space": "physical_mmio",
+      "address": "0xf240100c",
+      "access_width_bits": 16,
+      "access_semantics": "TX/RX 16-byte FIFO byte port (low 8 bits; I2C1 at 0xf240180c)",
+      "source": "camera_2025 i2c.ko .text+0x14c0 / i2c_tasklet; i2c-contract.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_10",
+      "address_space": "physical_mmio",
+      "address": "0xf2401010",
+      "access_width_bits": 16,
+      "access_semantics": "timing/divider register 0 with bit-15 busy poll before write (I2C1 at 0xf2401810)",
+      "source": "camera_2025 i2c.ko i2c_xfer / .text+0x1328; i2c-contract.json",
+      "fields": [
+        {
+          "name": "busy_poll_bit_15",
+          "mask": "0x8000"
+        }
+      ],
+      "known_commands": [
+        {
+          "value": "0x35",
+          "meaning": "speed modes 0 / 0x11"
+        },
+        {
+          "value": "0x9",
+          "meaning": "speed modes 1 / 0x10"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_14",
+      "address_space": "physical_mmio",
+      "address": "0xf2401014",
+      "access_width_bits": 16,
+      "access_semantics": "timing/divider register 1 with bit-15 busy poll before write (I2C1 at 0xf2401814)",
+      "source": "camera_2025 i2c.ko i2c_xfer / .text+0x1328; i2c-contract.json",
+      "fields": [
+        {
+          "name": "busy_poll_bit_15",
+          "mask": "0x8000"
+        }
+      ],
+      "known_commands": [
+        {
+          "value": "0x35",
+          "meaning": "speed modes 0 / 0x11"
+        },
+        {
+          "value": "0x7",
+          "meaning": "speed modes 1 / 0x10"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_1C",
+      "address_space": "physical_mmio",
+      "address": "0xf240101c",
+      "access_width_bits": 16,
+      "access_semantics": "enable/ready register; i2c_xfer polls bit 15 clear then requires bit 0 set (I2C1 at 0xf240181c)",
+      "source": "camera_2025 i2c.ko i2c_xfer; i2c-contract.json",
+      "fields": [
+        {
+          "name": "ready_bit_0",
+          "mask": "0x1"
+        },
+        {
+          "name": "busy_poll_bit_15",
+          "mask": "0x8000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_20",
+      "address_space": "physical_mmio",
+      "address": "0xf2401020",
+      "access_width_bits": 16,
+      "access_semantics": "controller soft-reset trigger (I2C1 at 0xf2401820)",
+      "source": "camera_2025 i2c.ko .text+0x119c; i2c-contract.json",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x1",
+          "meaning": "controller soft reset after clearing +0x34"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_24",
+      "address_space": "physical_mmio",
+      "address": "0xf2401024",
+      "access_width_bits": 16,
+      "access_semantics": "transfer arm register written 1 before FIFO fill (I2C1 at 0xf2401824)",
+      "source": "camera_2025 i2c.ko .text+0x14c0; i2c-contract.json",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x1",
+          "meaning": "arm FIFO/command submission"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_28",
+      "address_space": "physical_mmio",
+      "address": "0xf2401028",
+      "access_width_bits": 16,
+      "access_semantics": "interrupt status and RMW bit-0 acknowledgement (I2C1 at 0xf2401828)",
+      "source": "camera_2025 i2c.ko i2c_handler / .text+0x13d4; i2c-contract.json",
+      "fields": [
+        {
+          "name": "irq_pending_ack_bit_0",
+          "mask": "0x1"
+        },
+        {
+          "name": "busy_poll_bit_15",
+          "mask": "0x8000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_2C",
+      "address_space": "physical_mmio",
+      "address": "0xf240102c",
+      "access_width_bits": 16,
+      "access_semantics": "interrupt enable (I2C1 at 0xf240182c)",
+      "source": "camera_2025 i2c.ko i2c_xfer / .text+0x177c; i2c-contract.json",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x1",
+          "meaning": "enable I2C interrupt"
+        },
+        {
+          "value": "0x0",
+          "meaning": "disable I2C interrupt on teardown"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_34",
+      "address_space": "physical_mmio",
+      "address": "0xf2401034",
+      "access_width_bits": 16,
+      "access_semantics": "bus enable control (I2C1 at 0xf2401834)",
+      "source": "camera_2025 i2c.ko i2c_xfer / .text+0x119c; i2c-contract.json",
+      "fields": [],
+      "known_commands": [
+        {
+          "value": "0x1",
+          "meaning": "enable bus during transfer"
+        },
+        {
+          "value": "0x0",
+          "meaning": "disable bus in reset sequence"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "I2C0_REG_38",
+      "address_space": "physical_mmio",
+      "address": "0xf2401038",
+      "access_width_bits": 16,
+      "access_semantics": "controller state register; driver checks == 3 in normal modes and reset (I2C1 at 0xf2401838)",
+      "source": "camera_2025 i2c.ko i2c_xfer / .text+0x119c; i2c-contract.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "CLK4_IPCLKEN2_SET",
+      "address_space": "physical_mmio",
+      "address": "0xf2a30044",
+      "access_width_bits": 32,
+      "access_semantics": "write-one clock enable set alias",
+      "source": "GPL platform.h / regs-clk.h / udif/platform.c; camera_2025 i2c.ko .text+0x119c",
+      "fields": [
+        {
+          "name": "I2C1_HCLK",
+          "mask": "0x1"
+        },
+        {
+          "name": "I2C0_HCLK",
+          "mask": "0x2"
+        },
+        {
+          "name": "SIRCS_HCLK",
+          "mask": "0x4"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "CLK4_IPCLKEN2_CLR",
+      "address_space": "physical_mmio",
+      "address": "0xf2a30048",
+      "access_width_bits": 32,
+      "access_semantics": "write-one clock enable clear alias",
+      "source": "GPL platform.h / regs-clk.h / udif/platform.c; camera_2025 i2c.ko .text+0x119c",
+      "fields": [
+        {
+          "name": "I2C1_HCLK",
+          "mask": "0x1"
+        },
+        {
+          "name": "I2C0_HCLK",
+          "mask": "0x2"
+        },
+        {
+          "name": "SIRCS_HCLK",
+          "mask": "0x4"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "CLK4_IPCLKEN4_SET",
+      "address_space": "physical_mmio",
+      "address": "0xf2a30064",
+      "access_width_bits": 32,
+      "access_semantics": "write-one device clock enable set alias",
+      "source": "GPL platform.h / regs-clk.h / udif/platform.c / clock.c",
+      "fields": [
+        {
+          "name": "SIRCS_12MHZ",
+          "mask": "0x10000"
+        },
+        {
+          "name": "I2C0_12MHZ",
+          "mask": "0x20000"
+        },
+        {
+          "name": "I2C1_12MHZ",
+          "mask": "0x40000"
+        },
+        {
+          "name": "UARTCLK0",
+          "mask": "0x100000"
+        },
+        {
+          "name": "UARTCLK1",
+          "mask": "0x1000000"
+        },
+        {
+          "name": "UARTCLK2",
+          "mask": "0x10000000"
+        },
+        {
+          "name": "UARTCLK3",
+          "mask": "0x80000000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "CLK4_IPCLKEN4_CLR",
+      "address_space": "physical_mmio",
+      "address": "0xf2a30068",
+      "access_width_bits": 32,
+      "access_semantics": "write-one device clock enable clear alias",
+      "source": "GPL platform.h / regs-clk.h / udif/platform.c / clock.c",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "CLK4_CLKRST11_SET",
+      "address_space": "physical_mmio",
+      "address": "0xf2a300b4",
+      "access_width_bits": 32,
+      "access_semantics": "write-one reset-release alias observed in i2c.ko .text+0x119c when algo+0x8c == 0",
+      "source": "camera_2025 i2c.ko .text+0x119c; i2c-contract.json",
+      "fields": [
+        {
+          "name": "driver_reset_deassert_bit_3",
+          "mask": "0x8",
+          "meaning_confidence": "driver-derived"
+        }
+      ],
+      "known_commands": [
+        {
+          "value": "0x8",
+          "meaning": "ordered reset deassert step after 0xf2a30044=2 when algo+0x8c == 0"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "CLK4_CLKRST11_CLR",
+      "address_space": "physical_mmio",
+      "address": "0xf2a300b8",
+      "access_width_bits": 32,
+      "access_semantics": "write-one reset-assert alias observed in i2c.ko .text+0x119c when algo+0x8c == 0",
+      "source": "camera_2025 i2c.ko .text+0x119c; i2c-contract.json",
+      "fields": [
+        {
+          "name": "driver_reset_assert_bit_3",
+          "mask": "0x8",
+          "meaning_confidence": "driver-derived"
+        }
+      ],
+      "known_commands": [
+        {
+          "value": "0x8",
+          "meaning": "ordered reset assert step after 0xf2a30048=2 when algo+0x8c == 0"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "CRG11_40_CRCDC",
+      "address_space": "physical_mmio",
+      "address": "0xf2a31030",
+      "access_width_bits": 32,
+      "access_semantics": "CRG divider update commit/busy handshake (base = CXD900X0_CLKCRG4(0) + 0x30)",
+      "source": "GPL clock.c / udif/clock.c / regs-clk.h",
+      "fields": [
+        {
+          "name": "update_commit_busy_bit_0",
+          "mask": "0x1"
+        }
+      ],
+      "known_commands": [
+        {
+          "value": "0x1",
+          "meaning": "trigger divider update after writing CRG_CRDM(x); poll bit 0 clear (CRCDC_UPDATE_WAIT=1000)"
+        }
+      ],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "OCTRL0_OEN",
+      "address_space": "physical_mmio",
+      "address": "0xf2912000",
+      "access_width_bits": 32,
+      "access_semantics": "pin output-enable control (ch stride 0x100; SET +0x04, CLR +0x08)",
+      "source": "GPL platform.h and regs-octrl.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "OCTRL0_IEN",
+      "address_space": "physical_mmio",
+      "address": "0xf2912010",
+      "access_width_bits": 32,
+      "access_semantics": "pin input-enable control (ch stride 0x100; SET +0x04, CLR +0x08)",
+      "source": "GPL platform.h and regs-octrl.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "OCTRL0_DRV1",
+      "address_space": "physical_mmio",
+      "address": "0xf2912020",
+      "access_width_bits": 32,
+      "access_semantics": "pin drive-strength 1 control (ch stride 0x100; SET +0x04, CLR +0x08)",
+      "source": "GPL platform.h and regs-octrl.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "OCTRL0_DRV2",
+      "address_space": "physical_mmio",
+      "address": "0xf2912030",
+      "access_width_bits": 32,
+      "access_semantics": "pin drive-strength 2 control (ch stride 0x100; SET +0x04, CLR +0x08)",
+      "source": "GPL platform.h and regs-octrl.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "OCTRL0_PUD1",
+      "address_space": "physical_mmio",
+      "address": "0xf2912040",
+      "access_width_bits": 32,
+      "access_semantics": "pin pull-up/down 1 control (ch stride 0x100; SET +0x04, CLR +0x08)",
+      "source": "GPL platform.h and regs-octrl.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "OCTRL0_PUD2",
+      "address_space": "physical_mmio",
+      "address": "0xf2912050",
+      "access_width_bits": 32,
+      "access_semantics": "pin pull-up/down 2 control (ch stride 0x100; SET +0x04, CLR +0x08)",
+      "source": "GPL platform.h and regs-octrl.h; channel 0",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_TOP",
+      "address_space": "physical_mmio",
+      "address": "0xf3441000",
+      "access_width_bits": 32,
+      "access_semantics": "shared AIF top base referenced across VPH channels 0x39..0x40 (see vph-aif-contracts.json)",
+      "source": "av-cam.bin AIF table 0x8c3724 / 0x49a174; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_YUV1_P0_STARTADRS",
+      "address_space": "physical_mmio",
+      "address": "0xf3441220",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x39 YUV1 plane-0 start physical address (ch_base 0xf3441200 + 0x20)",
+      "source": "av-cam.bin AIF table 0x8c3724 / 0x41bf98; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_YUV0_P0_STARTADRS",
+      "address_space": "physical_mmio",
+      "address": "0xf34412a0",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3a YUV0 plane-0 start physical address (ch_base 0xf3441280 + 0x20)",
+      "source": "av-cam.bin AIF table 0x8c3724 / 0x41bf98; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD0_CTRL",
+      "address_space": "physical_mmio",
+      "address": "0xf3441300",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3b OSD0 control/busy register (start sets bit 0)",
+      "source": "av-cam.bin 0x41bf98 / 0x41c1e0 / 0x41c240; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "start_busy_bit_0",
+          "mask": "0x1"
+        },
+        {
+          "name": "cfg_bits_1_4",
+          "mask": "0x1e"
+        },
+        {
+          "name": "fill_mode_bit_11",
+          "mask": "0x800"
+        },
+        {
+          "name": "fill_param_bits_16_19",
+          "mask": "0xf0000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD0_STAT",
+      "address_space": "physical_mmio",
+      "address": "0xf3441304",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3b OSD0 stop/status register (stop sets bit 30, 0x41c2a8 reads bit 31)",
+      "source": "av-cam.bin 0x41c210 / 0x41c2a8; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "stop_request_bit_30",
+          "mask": "0x40000000"
+        },
+        {
+          "name": "status_bit_31",
+          "mask": "0x80000000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD0_STARTADRS",
+      "address_space": "physical_mmio",
+      "address": "0xf3441320",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3b OSD0 source physical address (0xff000000 in fill mode cfg[5]==3)",
+      "source": "av-cam.bin 0x41bf98 / 0x4b5818; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD0_SIZE",
+      "address_space": "physical_mmio",
+      "address": "0xf3441324",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3b OSD0 transfer byte count",
+      "source": "av-cam.bin 0x41bf98 / 0x4b5818; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD0_OFS0",
+      "address_space": "physical_mmio",
+      "address": "0xf3441328",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3b OSD0 offset 0",
+      "source": "av-cam.bin 0x41c140; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD0_CNT0",
+      "address_space": "physical_mmio",
+      "address": "0xf344132c",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3b OSD0 count 0 (line/repeat count)",
+      "source": "av-cam.bin 0x41c140 / 0x4b5818; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD0_GEOM",
+      "address_space": "physical_mmio",
+      "address": "0xf3441348",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3b OSD0 16-bit hi/lo geometry word written via 0x8064fc",
+      "source": "av-cam.bin 0x8064fc / 0x490d94 / 0x490da8; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "lo16",
+          "mask": "0xffff"
+        },
+        {
+          "name": "hi16",
+          "mask": "0xffff0000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD0_ADDR_31B",
+      "address_space": "physical_mmio",
+      "address": "0xf344134c",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3b OSD0 31-bit masked buffer address (bits 30:0 via 0x8064ba)",
+      "source": "av-cam.bin 0x8064ba / 0x490d84 / 0x4b5818; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "addr_bits_0_30",
+          "mask": "0x7fffffff"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD0_RPT_CTRL",
+      "address_space": "physical_mmio",
+      "address": "0xf3441350",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3b OSD0 repeat control (bits 1:0 = rpt[0], bits 5:4 = rpt[1])",
+      "source": "av-cam.bin 0x41c18c / 0x4b589c; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "rpt_enable_bits_0_1",
+          "mask": "0x3"
+        },
+        {
+          "name": "rpt_mode_bits_4_5",
+          "mask": "0x30"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD0_MODE",
+      "address_space": "physical_mmio",
+      "address": "0xf3441370",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3b OSD0 single-bit mode flag (bit 0 via 0x806524)",
+      "source": "av-cam.bin 0x806524 / 0x490dcc; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "mode_bit_0",
+          "mask": "0x1"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD1_CTRL",
+      "address_space": "physical_mmio",
+      "address": "0xf3441380",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3c OSD1 control/busy register (start sets bit 0)",
+      "source": "av-cam.bin 0x41bf98 / 0x41c1e0 / 0x41c240; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "start_busy_bit_0",
+          "mask": "0x1"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD1_STAT",
+      "address_space": "physical_mmio",
+      "address": "0xf3441384",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3c OSD1 stop/status register (stop sets bit 30, 0x41c2a8 reads bit 31)",
+      "source": "av-cam.bin 0x41c210 / 0x41c2a8; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "stop_request_bit_30",
+          "mask": "0x40000000"
+        },
+        {
+          "name": "status_bit_31",
+          "mask": "0x80000000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD1_STARTADRS",
+      "address_space": "physical_mmio",
+      "address": "0xf34413a0",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3c OSD1 source physical address",
+      "source": "av-cam.bin 0x41bf98 / 0x4b58d2; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD1_SIZE",
+      "address_space": "physical_mmio",
+      "address": "0xf34413a4",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3c OSD1 transfer byte count",
+      "source": "av-cam.bin 0x41bf98 / 0x4b58d2; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD1_GEOM",
+      "address_space": "physical_mmio",
+      "address": "0xf34413c8",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3c OSD1 16-bit hi/lo geometry word written via 0x8064fc",
+      "source": "av-cam.bin 0x8064fc / 0x490ddc / 0x490df0; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD1_RPT_CTRL",
+      "address_space": "physical_mmio",
+      "address": "0xf34413d0",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3c OSD1 repeat control (bits 1:0 = rpt[0], bits 5:4 = rpt[1])",
+      "source": "av-cam.bin 0x41c18c; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_AIF_OSD1_MODE",
+      "address_space": "physical_mmio",
+      "address": "0xf34413f0",
+      "access_width_bits": 32,
+      "access_semantics": "VPH AIF ch 0x3c OSD1 single-bit mode flag (bit 0 via 0x806524)",
+      "source": "av-cam.bin 0x806524 / 0x490e14; vph-aif-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_TOP_CTRL_0000",
+      "address_space": "physical_mmio",
+      "address": "0xf3440000",
+      "access_width_bits": 32,
+      "access_semantics": "VPH top control word 0 (bits 0 and 8 toggled by 0x49dfec / 0x49e434 via 0x807190/0x807196)",
+      "source": "av-cam.bin 0x49356c / 0x49357c / 0x807190; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "bit_0",
+          "mask": "0x1"
+        },
+        {
+          "name": "bit_8",
+          "mask": "0x100"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_TOP_CTRL_0008",
+      "address_space": "physical_mmio",
+      "address": "0xf3440008",
+      "access_width_bits": 32,
+      "access_semantics": "VPH top control word 2 (bits 0 and 8 toggled by 0x49dff0 / 0x49e438 via 0x8071a8/0x8071ae)",
+      "source": "av-cam.bin 0x4935ac / 0x4935bc / 0x8071a8; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "bit_0",
+          "mask": "0x1"
+        },
+        {
+          "name": "bit_8",
+          "mask": "0x100"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_TOP_STAT_0048",
+      "address_space": "physical_mmio",
+      "address": "0xf3440048",
+      "access_width_bits": 32,
+      "access_semantics": "VPH top status/IRQ word read by 0x493622 (bit 10) and 0x49a0be",
+      "source": "av-cam.bin 0x493622 / 0x49a0be; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "bit_10",
+          "mask": "0x400"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_TOP_STAT_0068",
+      "address_space": "physical_mmio",
+      "address": "0xf3440068",
+      "access_width_bits": 32,
+      "access_semantics": "VPH top status/IRQ word read by 0x493632 (bit 13) and 0x49a0b2",
+      "source": "av-cam.bin 0x493632 / 0x49a0b2; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "bit_13",
+          "mask": "0x2000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT0_LAYER_EN",
+      "address_space": "physical_mmio",
+      "address": "0xf3440144",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 0 layer enable bits (bit 0 = YUV0, bit 1 = OSD0, plus bits 5:4/9:8/25:24)",
+      "source": "av-cam.bin 0x808366 / 0x80836a / 0x4955d8 / 0x4955e8; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "yuv_enable_bit_0",
+          "mask": "0x1"
+        },
+        {
+          "name": "osd_enable_bit_1",
+          "mask": "0x2"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT1_LAYER_EN",
+      "address_space": "physical_mmio",
+      "address": "0xf3440184",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 1 layer enable bits (bit 0 = YUV1, bit 1 = OSD1)",
+      "source": "av-cam.bin 0x8084a0 / 0x8084a4 / 0x495830 / 0x495844; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "yuv_enable_bit_0",
+          "mask": "0x1"
+        },
+        {
+          "name": "osd_enable_bit_1",
+          "mask": "0x2"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_GEOM_0428",
+      "address_space": "physical_mmio",
+      "address": "0xf3440428",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 0 mixer/scaler geometry word (lo11/hi10 at 0xf3440400 + 0x28)",
+      "source": "av-cam.bin 0x49136c..0x4913a8; 20261118-senser-registers.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_GEOM_042C",
+      "address_space": "physical_mmio",
+      "address": "0xf344042c",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 0 mixer/scaler geometry word (0xf3440400 + 0x2c)",
+      "source": "av-cam.bin 0x4913ac..0x4913ca / 0x806652; 20261118-senser-registers.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_GEOM_0448",
+      "address_space": "physical_mmio",
+      "address": "0xf3440448",
+      "access_width_bits": 32,
+      "access_semantics": "VPH OSD geometry word (0xf3440400 + 0x48)",
+      "source": "av-cam.bin 0x491474..0x4914b2 / 0x8066a6; 20261118-senser-registers.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_GEOM_044C",
+      "address_space": "physical_mmio",
+      "address": "0xf344044c",
+      "access_width_bits": 32,
+      "access_semantics": "VPH OSD geometry word (0xf3440400 + 0x4c)",
+      "source": "av-cam.bin 0x4914b4..0x4914d2 / 0x8066b8; 20261118-senser-registers.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_STATUS_0714",
+      "address_space": "physical_mmio",
+      "address": "0xf3440714",
+      "access_width_bits": 32,
+      "access_semantics": "VPH block word accessed around 0xf3440700 (observed 0x001df27f in Senser)",
+      "source": "av-cam.bin native-accessors / 20261118-senser-registers.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT0_TIMING_5028",
+      "address_space": "physical_mmio",
+      "address": "0xf3445028",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 0 timing word (observed 0x00000359 in Senser)",
+      "source": "av-cam.bin native-accessors / 20261118-senser-registers.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT0_TIMING_502C",
+      "address_space": "physical_mmio",
+      "address": "0xf344502c",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 0 timing word (observed 0x0000020d in Senser)",
+      "source": "av-cam.bin native-accessors / 20261118-senser-registers.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT0_COLORBAR_CTL",
+      "address_space": "physical_mmio",
+      "address": "0xf3445100",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 0 ColorBar control (bits 2:0 pattern, bit 4 enable; 0x4b3f8c)",
+      "source": "av-cam.bin 0x4b3f8c / 0x807c0c / 0x807c10; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "pattern_bits_0_2",
+          "mask": "0x7"
+        },
+        {
+          "name": "enable_bit_4",
+          "mask": "0x10"
+        },
+        {
+          "name": "bits_8_16",
+          "mask": "0x1ff00"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT0_WORD_51A8",
+      "address_space": "physical_mmio",
+      "address": "0xf34451a8",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 0 LUT/gamma ramp word 0 (observed 0x00080000 in Senser)",
+      "source": "20261118-senser-registers.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT0_CSC_5340",
+      "address_space": "physical_mmio",
+      "address": "0xf3445340",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 0 coefficient word (observed 0x0096001d in Senser)",
+      "source": "20261118-senser-registers.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT0_BLEND_5500",
+      "address_space": "physical_mmio",
+      "address": "0xf3445500",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 0 blender/CSC control word (bit 0 via 0x806dae->0x4924e4, bits 27:24/22:20/18:16)",
+      "source": "av-cam.bin 0x806dae / 0x4924e4; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "enable_bit_0",
+          "mask": "0x1"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT0_BLEND_553C",
+      "address_space": "physical_mmio",
+      "address": "0xf344553c",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 0 OSD blend mode flags (bits 0/4/8/18:16 via 0x806e4e; observed 0x00000111 in Senser)",
+      "source": "av-cam.bin 0x806e4e / 0x492684..0x4926be; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "bit_0",
+          "mask": "0x1"
+        },
+        {
+          "name": "bit_4",
+          "mask": "0x10"
+        },
+        {
+          "name": "bit_8",
+          "mask": "0x100"
+        },
+        {
+          "name": "bits_16_18",
+          "mask": "0x70000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT0_BLEND_ALPHA",
+      "address_space": "physical_mmio",
+      "address": "0xf3445540",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 0 OSD blend alpha/gain (bits 6:0 via 0x806e6e->0x4926c4; observed 0x00000040 in Senser)",
+      "source": "av-cam.bin 0x806e6e / 0x4926c4; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "alpha_bits_0_6",
+          "mask": "0x7f"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT1_COLORBAR_CTL",
+      "address_space": "physical_mmio",
+      "address": "0xf3446100",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 1 ColorBar/output control (bit 8 + bits 25:16 via 0x4b3f20)",
+      "source": "av-cam.bin 0x4b3f20 / 0x4944b0..0x4944f0; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "bit_0",
+          "mask": "0x1"
+        },
+        {
+          "name": "bit_8",
+          "mask": "0x100"
+        },
+        {
+          "name": "mode_bits_16_25",
+          "mask": "0x3ff0000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "VPH_OUT1_CTL_6104",
+      "address_space": "physical_mmio",
+      "address": "0xf3446104",
+      "access_width_bits": 32,
+      "access_semantics": "VPH Output 1 control word (bit 27 + bits 31:28 written by 0x4b3f20)",
+      "source": "av-cam.bin 0x4b3f20 / 0x494500..0x494550; vph-aif-contracts.json",
+      "fields": [
+        {
+          "name": "bit_24",
+          "mask": "0x1000000"
+        },
+        {
+          "name": "bit_25",
+          "mask": "0x2000000"
+        },
+        {
+          "name": "bit_27",
+          "mask": "0x8000000"
+        },
+        {
+          "name": "bits_28_31",
+          "mask": "0xf0000000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_IRQ_STAT",
+      "address_space": "physical_mmio",
+      "address": "0xf1000034",
+      "access_width_bits": 32,
+      "access_semantics": "Sugilite GPU interrupt status read by sugilite_interrupt (bits 31, 30, 26, 3:0)",
+      "source": "camera_2025 grm_gles.ko sugilite_interrupt; grm-contracts.json",
+      "fields": [
+        {
+          "name": "event_bits_0_3",
+          "mask": "0xf"
+        },
+        {
+          "name": "bit_26",
+          "mask": "0x4000000"
+        },
+        {
+          "name": "bit_30",
+          "mask": "0x40000000"
+        },
+        {
+          "name": "bit_31",
+          "mask": "0x80000000"
+        }
+      ],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_INIT_1000",
+      "address_space": "physical_mmio",
+      "address": "0xf1001000",
+      "access_width_bits": 32,
+      "access_semantics": "Sugilite register written in sugilite_register_init and cleared in sugilite_interrupt bit-31 path",
+      "source": "camera_2025 grm_gles.ko sugilite_register_init / sugilite_interrupt; grm-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_INIT_1080",
+      "address_space": "physical_mmio",
+      "address": "0xf1001080",
+      "access_width_bits": 32,
+      "access_semantics": "Sugilite register written 0x12345678 in sugilite_register_init",
+      "source": "camera_2025 grm_gles.ko sugilite_register_init; grm-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_INIT_10C0",
+      "address_space": "physical_mmio",
+      "address": "0xf10010c0",
+      "access_width_bits": 32,
+      "access_semantics": "Sugilite interrupt/mask register initialized to 0xffffffff then 0xfffffff0 in sugilite_register_init",
+      "source": "camera_2025 grm_gles.ko sugilite_register_init; grm-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_INIT_1100",
+      "address_space": "physical_mmio",
+      "address": "0xf1001100",
+      "access_width_bits": 32,
+      "access_semantics": "Sugilite register written 0x1 in sugilite_register_init",
+      "source": "camera_2025 grm_gles.ko sugilite_register_init; grm-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_CONTROL_0084_CLR",
+      "address_space": "physical_mmio",
+      "address": "0xf3400084",
+      "access_width_bits": 32,
+      "access_semantics": "Sugilite control clear counterpart to 0xf3400080 (written 0x15 by sugilite_clock_down_internal)",
+      "source": "camera_2025 grm_gles.ko sugilite_clock_down_internal; grm-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    },
+    {
+      "name": "SUGILITE_CONTROL_0284_CLR",
+      "address_space": "physical_mmio",
+      "address": "0xf3400284",
+      "access_width_bits": 32,
+      "access_semantics": "Sugilite control clear counterpart to 0xf3400280 (written 0x10 by sugilite_clock_down_internal)",
+      "source": "camera_2025 grm_gles.ko sugilite_clock_down_internal; grm-contracts.json",
+      "fields": [],
+      "known_commands": [],
+      "observations": [],
+      "reset_value": null,
+      "required_runtime_value": null,
+      "read_or_write_permission": false
+    }
+  ]
+}

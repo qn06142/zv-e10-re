@@ -1,10 +1,10 @@
 # ZV-E10 current research status
 
-Consolidated 18 November 2026. Camera research is paused at the user's request. This page records the latest available checkpoints. No camera query or firmware change was performed for this consolidation. The current powered state and installation need fresh readback when work resumes.
+Updated 20 November 2026. The rear LCD displayed full-screen RGBA4444 color bars from the resident RAM runtime, and the separate-image loader ran its allocator probe on hardware. The current stock-buffer reuse demo stops at the Version-screen descriptor guard with two flashes. See the [session handoff](hardware/HANDOFF.md) for the installed hashes, DMA drain result and next capture. Native Bayer RAW over USB remains the long-term imaging goal.
 
 ## Project direction
 
-The longer-term goal is native Bayer RAW over USB. The paused investigation aims to understand the camera's complete image pipeline beyond the offline map. The immediate organizational milestone is a shared subsystem map and reproducible evidence. Start with the [camera overview](CAMERA_OVERVIEW.md).
+The longer-term goal is native Bayer RAW over USB. The image-pipeline investigation aims to understand the camera beyond the offline map. The resident RAM heartbeat is an established milestone. Current work maps hardware contracts before extending the runtime: sensor/DFE → DMA/buffer ownership → USB, alongside display and accessories. Stock boot remains the fallback; a standalone RTOS and complete hardware initialization remain unfinished. Start with the [camera overview](CAMERA_OVERVIEW.md).
 
 ## Latest checkpoints
 
@@ -17,7 +17,9 @@ The longer-term goal is native Bayer RAW over USB. The paused investigation aims
 | Device utilities | Existing /tmp/busybox supplied 269 applets. A 25,908-byte ARM register dumper and a trace-reader script were installed under /tmp/zve10-tools. | Register attach/detach tested on a disposable sleep process. Debugging im.elf and reboot persistence remain unverified. [Tool source](../research/device/zve10_diagnostics/README.md). |
 | Pipeline timing | SetImgRd intervals 41.629–41.754 ms, with YC::VD_Pre and MEC::VD_Drv near 20.8 ms. | Hardware event cadence. Unique pixel-frame rates and DMA completion semantics remain open. [Trace evidence](../research/firmware/evidence/zve10-20261117/README.md). |
 | Bayer acquisition | Offline native dump and DFE callback leads exist. Live traces have not identified a completed, stable Bayer buffer. | No verified continuous Bayer capture. [Claim review](../research/firmware/evidence/zve10-20261117/CLAIM_REVIEW.md). |
-| RTOS replacement | Owned-buffer hello-world variants were exercised with original loader instructions and mocked services. | Offline experiment, set aside by the user. Physical LCD output and Linux access with LiRo removed remain unresolved. |
+| GUI loader entry | The Version trigger staged and launched a separate RTOS image. The 16 KiB arena allocator probe passed on hardware. | Larger DDR ownership and independent device initialization remain open. [Loader](imaging/RTOS_ITERATION.md) |
+| Resident LCD | v07 displayed full-screen RGBA4444 bars over Output 0 / OSD0. The current reuse demo stops at the stock buffer guard. | Static scanout is hardware-confirmed. The next test needs a stock Version-screen descriptor. [Display checkpoint](hardware/HANDOFF.md) |
+| Hardware map | GPL platform definitions, 64 channel windows, IRQ bindings, 1,245 conservative native accessor candidates and saved service observations are indexed. | Structural inventory, not a complete register specification. Sensor bus and DMA completion/ownership remain priority gaps. [Atlas](hardware/README.md). |
 | QEMU | External project used for Windows build/UI experiments. | Separate provenance. Its results support emulator behavior and do not establish hardware sensor behavior. |
 
 ## Corrections carried forward
@@ -45,3 +47,9 @@ For each resumed run, store the command, mode, raw output, input/build identity 
 ## Offline package regression correction
 
 On 18 November, the HD package test was changed to compile the current revision 4.6 recipe into an isolated package. Installer guards and the kernel dependency now follow the actual packaged files, all required files have checked sizes/MD5/SHA-256, and a failed rebuild invalidates the prior manifest. The full suite passed 294 tests with 12 fixture-dependent skips and no deselections. [Validation record](archive/HD_PACKAGE_FIX_20261118.json) and [recipe instructions](../research/firmware/yuy2_transport_v43_usb3_hd/README.md).
+
+## Version-screen launch and hardware research, 18–20 November
+
+The Version probe displayed 88.88 on the camera. The input mapper identified the directional events. The first sequence failed on hardware because Center exited the menu and only Up registered reliably. The direction-only sequence Up → Down → Left → Right → Up reached ARMED OK. A returning RAM payload then displayed HELLO. A separate resident runtime held an access-LED heartbeat and the camera booted normally after battery removal.
+
+The rear LCD displayed full-screen RGBA4444 bars through inherited Output 0 / OSD0 scanout. The independent image loader validated a 16 KiB arena on hardware. Later probes identified VPH AIF activity after GO and showed that the tested stop sequence cleared the sampled display activity. The installed stock-buffer reuse demo reported two flashes at its descriptor guard. Read-only Senser captures then mapped a separate stock OSD buffer and traced the mode 0x1b request to the panel switch. Cold LCD bring-up, general DDR ownership, and native Bayer RAW transport remain open. [GUI milestones](ui/README.md) · [Session handoff](hardware/HANDOFF.md)

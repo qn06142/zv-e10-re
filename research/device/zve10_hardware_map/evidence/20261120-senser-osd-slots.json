@@ -1,0 +1,73 @@
+{
+  "captured_utc": "2026-11-20T09:49:31.581369+07:00",
+  "mode": "Senser",
+  "camera_writes": false,
+  "access": "Authenticated Senser shell, 32-bit BusyBox devmem reads",
+  "liro_entry": "0x635c6000",
+  "queue_consumer_physical": "0x03a5f6a0",
+  "queue_consumer_bytes": 40,
+  "queue_consumer_sha256": "3d06f066ca9f5029d80382c4e0a1d489cf0cd79b68e892a2e2e7d5ad11dc57ed",
+  "descriptors": {
+    "word_layout": "Dirty flag followed by descriptor words in ascending address order",
+    "primary": {
+      "physical_start": "0x0441b278",
+      "words": [
+        "0x00000000",
+        "0x22c48000",
+        "0x01e00280",
+        "0x00000000",
+        "0x01e00280",
+        "0x00000000",
+        "0x00000000",
+        "0x00000001",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000001",
+        "0x5f04001e",
+        "0x63733989",
+        "0x00000000"
+      ]
+    },
+    "secondary": {
+      "physical_start": "0x044194d4",
+      "words": [
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000",
+        "0x00000000"
+      ]
+    }
+  },
+  "registers_before_descriptors": {
+    "0xf3441300": "0x00000002",
+    "0xf3441304": "0x80000000",
+    "0xf3441310": "0x22c84e80",
+    "0xf3445000": "0x00010114",
+    "0xf3446000": "0x00000000",
+    "0xf3440144": "0x02000233",
+    "0xf3440404": "0x00000000"
+  },
+  "registers_after_descriptors": {
+    "0xf3441300": "0x00000002",
+    "0xf3441304": "0x80000000",
+    "0xf3441310": "0x22cb1200",
+    "0xf3445000": "0x00010114",
+    "0xf3446000": "0x00000000",
+    "0xf3440144": "0x02000233",
+    "0xf3440404": "0x00000000"
+  },
+  "framebuffer_end_exclusive": "0x22cde000",
+  "interpretation": "Both OSD0 current addresses are inside the primary descriptor frame. The installed reuse demo rejects the Senser base at stage 2. Stock Version-screen validation remains unobserved."
+}

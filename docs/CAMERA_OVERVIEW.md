@@ -1,6 +1,6 @@
 # ZV-E10 system overview
 
-Reviewed 18 November 2026. Start here to understand the camera as a system. The [current status](CURRENT_STATUS.md) records the latest evidenced installation and the [access guide](ACCESS_AND_TOOLS.md) records how to inspect it. Research and camera experiments are paused while documentation is consolidated.
+Reviewed 18 November 2026. Start here to understand the camera as a system. The [current status](CURRENT_STATUS.md) records the latest evidenced installation and the [access guide](ACCESS_AND_TOOLS.md) records how to inspect it. The current direction is the [hardware atlas](hardware/README.md): resource/register maps and complete peripheral contracts before further display write trials. The resident RAM heartbeat is owner-confirmed; the first LCD colour trial failed. The sensor/Bayer investigation retains its earlier checkpoint.
 
 ## System map
 

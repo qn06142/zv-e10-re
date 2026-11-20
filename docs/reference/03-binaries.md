@@ -433,34 +433,13 @@ device.
 > a single coincidence with `SetOsdAlpha` and is wrong. **Slot index is
 > unidentified.**
 
-### Negative result: there is no CPU-visible framebuffer
+### Earlier framebuffer hunt: no verified scanout buffer
 
-The display is descriptor-driven (APL/AIC + XDMAC + HME) and the panel is fed by a
-private `ldec` driver. Four independent lines of evidence, each checked against a
-positive control:
+The historical investigation did not identify a linear CPU-visible scanout buffer. Its negative reads and candidate-surface tests do not establish that no such buffer exists. Do not use that conclusion to rule out future framebuffer work.
 
-- `0x6AA00000` is a hardware aperture that **wedges the CPU on a single-byte
-  read** (reproduced 3x).
-- `MemTotal` is 128 MB against a claimed 1 GB window.
-- `/proc/iomem` shows no sensor/ISP or display framebuffer region.
-- The decode-path hook we own, `0xA9F90`, is a **ring-buffer index refill**
-  (`ldr r5,[r4,#4]` / `cmp` against a limit / `str r0,[r4,#4]`) — no decoded
-  pixels pass through it.
+The old claim that ldec was unavailable on disk is superseded: a full ldec.ko is present in the extracted boot ramdisk. The module flag (P) indicates a proprietary module, not static linkage. Its presence and name alone do not establish that it drives the panel. Earlier guessed mappings, including the reported wedging aperture at 0x6aa00000, are not suitable addresses to probe again without new evidence.
 
-`ldec` is **not** in any on-disk module. `/proc/modules` gives it 10,106 bytes
-with flag `(P)` = statically allocated core, so its code is linked into the kernel
-image. `dmm.ko` (85,588 B), `stream.ko` and `stream2.ko` were all pulled and
-checked: no ldec symbols. `init` loads `ldec.ko` from `/kmod/ldec.ko`, which is on
-the ramdisk and is **freed after boot**, so it cannot be dumped from a running
-camera at all.
-
-`stream.ko` / `stream2.ko` do export `stream_mmap`, and `stream2`'s walks a
-5-entry table in `.data` at `0x8c` calling `remap_pfn_range` per entry. Not a
-display surface — a scatter-gather buffer mapper. Noted, not pursued.
-
-Reaching a visible display effect therefore requires a full VDF message
-transaction with valid subsystem interface pointers, or a runtime-proven writable
-data symbol. Neither is available offline, and guessing is a hang risk.
+The current [resident LCD experiment](../../research/device/zve10_ram_boot/DISPLAY.md) instead traces Sony's VPH colour/control accessors and checks the relevant code pages against the camera. A native colour control and panel timing words are accessible through MMIO. That is independent of finding a CPU-visible framebuffer. The first resident trial produced no visible LCD change. The later v07 image displayed full-screen RGBA4444 bars using the inherited Output 0 timing and OSD0 scanout. Further work is organized in the [hardware atlas](../hardware/README.md).
 
 ## The live bus: /proc/osal/uipc
 

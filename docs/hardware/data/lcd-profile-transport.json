@@ -1,0 +1,72 @@
+{
+  "reference_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "profile_sha256": "d0556483b795991551142cd359ca03a1711df62503823ac8c63f78db55a7688f",
+  "profile_fields": {
+    "0x0": "0x10",
+    "0x1": "0x0",
+    "0x18": "0x1",
+    "0x2b": "0x0",
+    "0x2f": "0x60",
+    "0x111": "0x0"
+  },
+  "stage3_shadow_flag_addresses": [
+    "0x64526806",
+    "0x64526b82"
+  ],
+  "panel_request_descriptor_va": "0x64429b5c",
+  "panel_request_queue_id": "0x740017",
+  "queue_gate_trials": [
+    {
+      "entry": "0x63ace390",
+      "type_byte": "0x10",
+      "reached_queue_wrapper": false
+    },
+    {
+      "entry": "0x63ace390",
+      "type_byte": "0x0",
+      "reached_queue_wrapper": false
+    },
+    {
+      "entry": "0x63ace390",
+      "type_byte": "0x1",
+      "reached_queue_wrapper": true
+    },
+    {
+      "entry": "0x63ace390",
+      "type_byte": "0xc",
+      "reached_queue_wrapper": true
+    },
+    {
+      "entry": "0x63ace390",
+      "type_byte": "0xd",
+      "reached_queue_wrapper": false
+    },
+    {
+      "entry": "0x63ace244",
+      "type_byte": "0x10",
+      "reached_queue_wrapper": false
+    },
+    {
+      "entry": "0x63ace244",
+      "type_byte": "0x0",
+      "reached_queue_wrapper": false
+    },
+    {
+      "entry": "0x63ace244",
+      "type_byte": "0x1",
+      "reached_queue_wrapper": true
+    },
+    {
+      "entry": "0x63ace244",
+      "type_byte": "0xc",
+      "reached_queue_wrapper": true
+    },
+    {
+      "entry": "0x63ace244",
+      "type_byte": "0xd",
+      "reached_queue_wrapper": false
+    }
+  ],
+  "camera_access_performed": false,
+  "mmio_writes_in_audit": 0
+}

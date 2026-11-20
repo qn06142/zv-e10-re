@@ -1,0 +1,69 @@
+{
+  "captured_utc": "2026-11-20T10:22:37.879231+07:00",
+  "mode": "Senser",
+  "boot_id": "9cf87545-6599-4ce7-ae0e-102836877b78",
+  "camera_writes": false,
+  "liro_entry": "0x635c6000",
+  "verified_ram_mapping_code_sha256": "3d06f066ca9f5029d80382c4e0a1d489cf0cd79b68e892a2e2e7d5ad11dc57ed",
+  "gpio_configuration_table_va": "0x6441cdc4",
+  "samples": [
+    {
+      "uptime": "2088.11 7362.59",
+      "panel_clock_gpio_table": [
+        "0x00000004",
+        "0x0000001a",
+        "0x00000000",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff"
+      ],
+      "0xf2900000": "0x20010201",
+      "0xf2a00020": "0x90110111",
+      "0xf2a10020": "0x00100110",
+      "0xf2a01130": "0x00000007",
+      "0xf2a01030": "0x00000000",
+      "0xf2a11150": "0x00000003",
+      "0xf2a11030": "0x00000000",
+      "0xf2a12150": "0x00000003",
+      "0xf2a12030": "0x00000000",
+      "0xf3445000": "0x00010114",
+      "0xf3446000": "0x00000000",
+      "0xf3441310": "0x22bb2200"
+    },
+    {
+      "uptime": "2088.48 7363.39",
+      "panel_clock_gpio_table": [
+        "0x00000004",
+        "0x0000001a",
+        "0x00000000",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff",
+        "0xffffffff"
+      ],
+      "0xf2900000": "0x20010201",
+      "0xf2a00020": "0x90110111",
+      "0xf2a10020": "0x00100110",
+      "0xf2a01130": "0x00000007",
+      "0xf2a01030": "0x00000000",
+      "0xf2a11150": "0x00000003",
+      "0xf2a11030": "0x00000000",
+      "0xf2a12150": "0x00000003",
+      "0xf2a12030": "0x00000000",
+      "0xf3445000": "0x00010114",
+      "0xf3446000": "0x00000000",
+      "0xf3441310": "0x22bedd00"
+    }
+  ]
+}

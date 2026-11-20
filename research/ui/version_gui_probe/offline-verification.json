@@ -1,0 +1,163 @@
+{
+  "status": "offline-original-instruction-verified",
+  "hardware_tested": false,
+  "input_sha256": "e6459c22859d8978195baa1ef2e93ad6d5f4fcb3dd89c2c2f02c325b46616090",
+  "output_sha256": "280d1b8f3c5a0682301ddb3da5b0cb5c5fbb7a89a8f49549a7192c9045749ed9",
+  "input_md5": "ec8090bbde9b78e2e25a0b33cf735333",
+  "output_md5": "e0291b75251f665c23ace529bb04e01f",
+  "bytes": 589336,
+  "factory": "ViewVersionNumberToInstance",
+  "factory_thumb_va": "0x41235",
+  "constructor_thumb_va": "0x4108d",
+  "vtable_address_point_va": "0x8c7c0",
+  "layout_callback_slot": "0x130",
+  "layout_callback_thumb_va": "0x41a0d",
+  "marker_render_thumb_va": "0x417e1",
+  "patches": [
+    {
+      "file_offset": "0x41868",
+      "before": "1ab2",
+      "after": "5822"
+    },
+    {
+      "file_offset": "0x4186e",
+      "before": "1b14",
+      "after": "5823"
+    }
+  ],
+  "cases": [
+    {
+      "current": "0x20003",
+      "offered": "0x20003",
+      "stock": {
+        "formatted": [
+          " 2.03"
+        ],
+        "assigned": [
+          "ZV-E10",
+          " 2.03"
+        ],
+        "widget_ids": [
+          2496574518,
+          3681814025
+        ]
+      },
+      "candidate": {
+        "formatted": [
+          "88.88"
+        ],
+        "assigned": [
+          "ZV-E10",
+          "88.88"
+        ],
+        "widget_ids": [
+          2496574518,
+          3681814025
+        ]
+      }
+    },
+    {
+      "current": "0x20003",
+      "offered": "0x20004",
+      "stock": {
+        "formatted": [
+          " 2.03",
+          " 2.04"
+        ],
+        "assigned": [
+          "ZV-E10",
+          " 2.03",
+          " 2.04"
+        ],
+        "widget_ids": [
+          2496574518,
+          3681814025,
+          1793092214,
+          3410864379
+        ]
+      },
+      "candidate": {
+        "formatted": [
+          "88.88",
+          " 2.04"
+        ],
+        "assigned": [
+          "ZV-E10",
+          "88.88",
+          " 2.04"
+        ],
+        "widget_ids": [
+          2496574518,
+          3681814025,
+          1793092214,
+          3410864379
+        ]
+      }
+    },
+    {
+      "current": "0x10000",
+      "offered": "0x10000",
+      "stock": {
+        "formatted": [
+          " 1.00"
+        ],
+        "assigned": [
+          "ZV-E10",
+          " 1.00"
+        ],
+        "widget_ids": [
+          2496574518,
+          3681814025
+        ]
+      },
+      "candidate": {
+        "formatted": [
+          "88.88"
+        ],
+        "assigned": [
+          "ZV-E10",
+          "88.88"
+        ],
+        "widget_ids": [
+          2496574518,
+          3681814025
+        ]
+      }
+    },
+    {
+      "current": "0x30009",
+      "offered": "0x30008",
+      "stock": {
+        "formatted": [
+          " 3.09"
+        ],
+        "assigned": [
+          "ZV-E10",
+          " 3.09"
+        ],
+        "widget_ids": [
+          2496574518,
+          3681814025
+        ]
+      },
+      "candidate": {
+        "formatted": [
+          "88.88"
+        ],
+        "assigned": [
+          "ZV-E10",
+          "88.88"
+        ],
+        "widget_ids": [
+          2496574518,
+          3681814025
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "External GUI/widget APIs are mocked; no physical display tested",
+    "No button-sequence handler or OS handoff implemented",
+    "No storage writes or camera communication by this recipe"
+  ]
+}

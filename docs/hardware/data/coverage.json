@@ -1,0 +1,25 @@
+{
+  "platform_numeric_symbols": 507,
+  "udif_channel_windows": 64,
+  "udif_windows_with_resolved_clocks": 4,
+  "udif_irq_only_channels": 4,
+  "crg_clock_domains": 9,
+  "static_io_mappings": 8,
+  "native_rmw_accessor_candidates": 1245,
+  "native_register_words": 495,
+  "observed_register_words": 332,
+  "udif_windows_with_resolved_irqs": 52,
+  "current_camera_page_matched_accessors": 421,
+  "native_bank_register_counts": {
+    "0xf3030000": 3,
+    "0xf3040000": 6,
+    "0xf3420000": 5,
+    "0xf3440000": 451,
+    "0xf3c00000": 21,
+    "0xf3e00000": 1,
+    "0xfc020000": 7,
+    "0xfc0f0000": 1
+  },
+  "camera_access_performed": false,
+  "complete_hardware_map": false
+}

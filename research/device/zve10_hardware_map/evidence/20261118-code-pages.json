@@ -1,0 +1,32 @@
+[
+  {
+    "offset": "0x0",
+    "bytes": 4096,
+    "sha256": "a7739bd5c637111abad22ca4f41118da79eefc29d73b9d04bf0a3563cb6c67c3",
+    "matches_offline_page": true
+  },
+  {
+    "offset": "0x493000",
+    "bytes": 4096,
+    "sha256": "62b5c7591ab8bf9482b05a58eeab947af86c5d5c934dbd1cb5c56408d1100bf7",
+    "matches_offline_page": true
+  },
+  {
+    "offset": "0x494000",
+    "bytes": 4096,
+    "sha256": "94a841beb04c3016e31de4fb86fdd2228e8d1eff84013a5effa57ce7c7efd3cd",
+    "matches_offline_page": true
+  },
+  {
+    "offset": "0x4b4000",
+    "bytes": 4096,
+    "sha256": "efed43126d55171348c0911cf6b37ebb99ef3a6c23463d7ead523434027dfbdd",
+    "matches_offline_page": true
+  },
+  {
+    "offset": "0x807000",
+    "bytes": 4096,
+    "sha256": "1781d2078baecfcf21bcbfcba9ac4842a7e795feb8114e6e98509b5e4023e028",
+    "matches_offline_page": true
+  }
+]

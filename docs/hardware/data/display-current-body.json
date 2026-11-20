@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "capture_date": "2026-11-18",
+  "mode": "Senser",
+  "boot_id": "3a120049-3106-4c54-8c2f-a0e7ed9a7bf8",
+  "camera_writes": false,
+  "camera_access_performed_by_validator": false,
+  "source_receipts_sha256": {
+    "session.json": "9e85d31d068ea3527a1aba5fceec1fbeefdfa7ba5386f511e2a1b4ad5b5df6ce",
+    "display-backup-units.json": "78f871b27e7c01321794b37eb468443bfeb550646ebb16e1312c644efc86cd2d"
+  },
+  "camera_files": {
+    "av-cam.bin": {
+      "bytes": 17289388,
+      "sha256": "98f05bebd113cb5b4911d71384e5ae7cec21dd4494b0f0569bb2f1b2b3231c6b"
+    },
+    "liro.ko": {
+      "bytes": 65212,
+      "sha256": "72b77031f00679877ac04edf452e9f49e5fbca05cb4ee4554ddd2e5243e8e0cc"
+    },
+    "backup.ko": {
+      "bytes": 73764,
+      "sha256": "4cba1a3f4db44b4836716160dbb2339944a345f454e81aa2333ae2abb46732fd"
+    },
+    "libObj.so": {
+      "bytes": 21305456,
+      "sha256": "bc0deb2f0e94218752e42ce6f5a3576d7456971eb63fbde705ffbd9b3a7fdeea"
+    }
+  },
+  "reference_firmware_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "matched_regions": [
+    {
+      "file_start": "0x503000",
+      "file_end_exclusive": "0x506000",
+      "reference_match": true,
+      "sha256": "2227fd8631453596b6ca2ef7d380b8a3fb1a47df4378fdf8606e6594b6cdb3b4"
+    },
+    {
+      "file_start": "0x4c9000",
+      "file_end_exclusive": "0x4ca000",
+      "reference_match": true,
+      "sha256": "ae4d01ac8e42d4835ebc7a7d34c12a308a10c61c77ec5463b5a18e106cb4e5c5"
+    },
+    {
+      "file_start": "0x808000",
+      "file_end_exclusive": "0x809000",
+      "reference_match": true,
+      "sha256": "093ebaa8351814ef93908bb06b203ac9aa8e0ee3166b64b458560da14389ff99"
+    },
+    {
+      "file_start": "0x1026af0",
+      "file_end_exclusive": "0x1026fb4",
+      "reference_match": true,
+      "sha256": "7dd41020691c2c0e32c8084fbead37f6c7430b8f3ba0c5dd187d2568bba33c68"
+    }
+  ],
+  "backup_units_read": 328,
+  "selected_display_properties": {
+    "0x5f0206": {
+      "bytes": 1,
+      "value_le": "0x0",
+      "matches_saved_backup": true
+    },
+    "0x5f01d8": {
+      "bytes": 1,
+      "value_le": "0x1",
+      "matches_saved_backup": true
+    },
+    "0x5f052f": {
+      "bytes": 1,
+      "value_le": "0x1",
+      "matches_saved_backup": true
+    },
+    "0xf900ac": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf90068": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf901ab": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf901ac": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf9088f": {
+      "bytes": 4,
+      "value_le": "0xb",
+      "matches_saved_backup": true
+    },
+    "0xf90890": {
+      "bytes": 4,
+      "value_le": "0x14",
+      "matches_saved_backup": true
+    },
+    "0xf9040d": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf9040e": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf90375": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf90376": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf90377": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf90378": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf90560": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf90561": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf90562": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    },
+    "0xf90563": {
+      "bytes": 4,
+      "value_le": "0xffffffff",
+      "matches_saved_backup": true
+    }
+  },
+  "lcd_profile0": {
+    "selector": 0,
+    "bytes": 304,
+    "source_id_list_va": "0x645ecaf0",
+    "destination_firmware_va": "0x6455fe88",
+    "sha256": "d0556483b795991551142cd359ca03a1711df62503823ac8c63f78db55a7688f",
+    "matches_saved_backup": true
+  },
+  "pin_slot_2": {
+    "bank": 11,
+    "bit": 20,
+    "set_address": "0xf2910b44",
+    "clear_address": "0xf2910b48",
+    "mask": "0x00100000",
+    "electrical_role": "unresolved"
+  },
+  "limits": [
+    "Backup configuration was read in Senser mode; no normal-shooting or resident MMIO was captured",
+    "No physical display initialization, clock, routing or pin electrical role was established",
+    "File-slice matches do not imply whole firmware identity or runtime memory identity"
+  ]
+}

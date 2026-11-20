@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "kind": "source-derived transaction, not an executable recipe",
+  "subsystem": "Sugilite graphics clock-up",
+  "source_module": "grm_gles.ko",
+  "source_sha256": "4e4b99e5e17e170ddc13dc432178299512525debd6fb19512521b38867da7a65",
+  "function": "sugilite_clock_up_internal",
+  "section": ".text",
+  "section_offset": "0x248",
+  "current_camera_module_identity_checked": false,
+  "hardware_transaction_verified": false,
+  "camera_access_performed": false,
+  "read_or_write_permission": false,
+  "io_helpers": {
+    "read32": "direct LDR then DSB SY",
+    "write32": "DSB SY, optional outer_cache callback at struct offset 0x1c, then direct STR"
+  },
+  "sequence": [
+    {
+      "operation": "read_modify_write32",
+      "address_space": "physical_mmio",
+      "address": "0xf28040c4",
+      "clear_mask": "0xf",
+      "set_bits": "0x6",
+      "preserve": "all other bits"
+    },
+    {
+      "operation": "read_modify_write32",
+      "address_space": "physical_mmio",
+      "address": "0xf28041a8",
+      "clear_mask": "0xf",
+      "set_bits": "0x6",
+      "preserve": "all other bits"
+    },
+    {
+      "operation": "read_modify_write32",
+      "address_space": "physical_mmio",
+      "address": "0xf28050b8",
+      "clear_mask": "0xf",
+      "set_bits": "0x6",
+      "preserve": "all other bits"
+    },
+    {
+      "operation": "read_modify_write32",
+      "address_space": "physical_mmio",
+      "address": "0xf280518c",
+      "clear_mask": "0xf",
+      "set_bits": "0x6",
+      "preserve": "all other bits"
+    },
+    {
+      "operation": "write32",
+      "address": "0xf3400080",
+      "value": "0x15"
+    },
+    {
+      "operation": "call_delay",
+      "function": "__const_udelay",
+      "raw_argument": "0x1a36e",
+      "wall_clock_duration_verified": false
+    },
+    {
+      "operation": "write32",
+      "address": "0xf3400280",
+      "value": "0x10"
+    },
+    {
+      "operation": "read32_and_compare",
+      "address": "0xf3400080",
+      "expected_equal": "0x15",
+      "on_match": "return",
+      "on_mismatch": "__bug_noarg",
+      "polling_loop": false
+    }
+  ],
+  "limits": [
+    "Inputs/prerequisites and shared clock ownership not fully recovered",
+    "Expected 0x15 applies only after this source transaction; not a reset default",
+    "No panel power/timing/routing or sensor initialization is supplied",
+    "Addresses are directly dereferenced by this module; actual device mapping/body state still requires binding"
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "utc": "2026-11-20T03:03:40.349415+00:00",
+  "mode": "Senser",
+  "camera_writes": false,
+  "mmio_access_performed": false,
+  "reference_file_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "pages": [
+    {
+      "va_under_reference_load_base": "0x63784000",
+      "file_offset": "0x1be000",
+      "length": 4096,
+      "ref_sha256": "e45e4e34120c7ca4cd946f13084db2802fc8bb43f51858f1b26d29fb740bb3e2",
+      "camera_sha256": "e45e4e34120c7ca4cd946f13084db2802fc8bb43f51858f1b26d29fb740bb3e2",
+      "match": true,
+      "reference_scope": "FOPD AIF caller"
+    },
+    {
+      "va_under_reference_load_base": "0x63792000",
+      "file_offset": "0x1cc000",
+      "length": 4096,
+      "ref_sha256": "15779a03b7eec2f0e8aefcae9618ecb53bd240577a9af547b232d02aae86c5dd",
+      "camera_sha256": "15779a03b7eec2f0e8aefcae9618ecb53bd240577a9af547b232d02aae86c5dd",
+      "match": true,
+      "reference_scope": "FOPD routing MMIO accessors"
+    },
+    {
+      "va_under_reference_load_base": "0x63793000",
+      "file_offset": "0x1cd000",
+      "length": 4096,
+      "ref_sha256": "ee17d4c60c18cce7bb429b6b93318709375b2f89a879bc35706e2dcb44e1afa9",
+      "camera_sha256": "ee17d4c60c18cce7bb429b6b93318709375b2f89a879bc35706e2dcb44e1afa9",
+      "match": true,
+      "reference_scope": "named status readers"
+    },
+    {
+      "va_under_reference_load_base": "0x63794000",
+      "file_offset": "0x1ce000",
+      "length": 4096,
+      "ref_sha256": "63bec43d036ddaf863a2d200c97312e119b989cd0b842eec6adf299bf1941fd0",
+      "camera_sha256": "63bec43d036ddaf863a2d200c97312e119b989cd0b842eec6adf299bf1941fd0",
+      "match": true,
+      "reference_scope": "error dispatch"
+    },
+    {
+      "va_under_reference_load_base": "0x6390a000",
+      "file_offset": "0x344000",
+      "length": 4096,
+      "ref_sha256": "49ae7facdcd40ae6285461f58b2ce0c9575fd7e07baa3056210614c792f7b781",
+      "camera_sha256": "49ae7facdcd40ae6285461f58b2ce0c9575fd7e07baa3056210614c792f7b781",
+      "match": true,
+      "reference_scope": "RAW readout wrapper"
+    },
+    {
+      "va_under_reference_load_base": "0x6390b000",
+      "file_offset": "0x345000",
+      "length": 4096,
+      "ref_sha256": "f737b574d6c0e9b6d32466d92b0ab28847be04e353ceea0e5b34365ad8752847",
+      "camera_sha256": "f737b574d6c0e9b6d32466d92b0ab28847be04e353ceea0e5b34365ad8752847",
+      "match": true,
+      "reference_scope": "DFE setup wrapper"
+    },
+    {
+      "va_under_reference_load_base": "0x639e1000",
+      "file_offset": "0x41b000",
+      "length": 4096,
+      "ref_sha256": "92bf7d87dfb01d9e037975113488b215971cb8a316fbe0fb5d69d40c47388d8f",
+      "camera_sha256": "92bf7d87dfb01d9e037975113488b215971cb8a316fbe0fb5d69d40c47388d8f",
+      "match": true,
+      "reference_scope": "channel word programming"
+    },
+    {
+      "va_under_reference_load_base": "0x639e2000",
+      "file_offset": "0x41c000",
+      "length": 4096,
+      "ref_sha256": "cf7732c5d78df5a076899acaf2e7aaf34ad8e59d976c79a8874863c1e4407076",
+      "camera_sha256": "cf7732c5d78df5a076899acaf2e7aaf34ad8e59d976c79a8874863c1e4407076",
+      "match": true,
+      "reference_scope": "start, status and unit write helpers"
+    },
+    {
+      "va_under_reference_load_base": "0x639e3000",
+      "file_offset": "0x41d000",
+      "length": 4096,
+      "ref_sha256": "0fb5577a07d353091e0f45bdd983a6560e37df371b70a5245b58bcc4e9343502",
+      "camera_sha256": "0fb5577a07d353091e0f45bdd983a6560e37df371b70a5245b58bcc4e9343502",
+      "match": true,
+      "reference_scope": "configuration and stop wrappers"
+    },
+    {
+      "va_under_reference_load_base": "0x63b61000",
+      "file_offset": "0x59b000",
+      "length": 4096,
+      "ref_sha256": "bb899e5d4fb1177d4d4b47fa886bb52aec4971f953af7966858e0af7e9bb6965",
+      "camera_sha256": "bb899e5d4fb1177d4d4b47fa886bb52aec4971f953af7966858e0af7e9bb6965",
+      "match": true,
+      "reference_scope": "KickFOPD entries"
+    },
+    {
+      "va_under_reference_load_base": "0x63c48000",
+      "file_offset": "0x682000",
+      "length": 4096,
+      "ref_sha256": "211e3ee39b39cd1f8ed770a802b2dac08b39b4d3af40a61e41a725a66d0c6f49",
+      "camera_sha256": "211e3ee39b39cd1f8ed770a802b2dac08b39b4d3af40a61e41a725a66d0c6f49",
+      "match": true,
+      "reference_scope": "address conversion selector"
+    },
+    {
+      "va_under_reference_load_base": "0x63d1f000",
+      "file_offset": "0x759000",
+      "length": 4096,
+      "ref_sha256": "97b1ac2928ffc3e1f0512e07480091c6f322281d665d932bae5d292d75009cea",
+      "camera_sha256": "97b1ac2928ffc3e1f0512e07480091c6f322281d665d932bae5d292d75009cea",
+      "match": true,
+      "reference_scope": "FOPD AIF config adapter"
+    },
+    {
+      "va_under_reference_load_base": "0x63d20000",
+      "file_offset": "0x75a000",
+      "length": 4096,
+      "ref_sha256": "52dd603de4b05763db63f2f77664d793258676d0eab9c845a33a29d90c241f46",
+      "camera_sha256": "52dd603de4b05763db63f2f77664d793258676d0eab9c845a33a29d90c241f46",
+      "match": true,
+      "reference_scope": "routing selectors and companion pulse"
+    },
+    {
+      "va_under_reference_load_base": "0x63e89000",
+      "file_offset": "0x8c3000",
+      "length": 4096,
+      "ref_sha256": "19d92be62a3f00324717b7884c942e9919156f9affcb3ce23d5c8c261eecdfcd",
+      "camera_sha256": "19d92be62a3f00324717b7884c942e9919156f9affcb3ce23d5c8c261eecdfcd",
+      "match": true,
+      "reference_scope": "AIF channel table"
+    }
+  ],
+  "camera_file_sha256": "98f05bebd113cb5b4911d71384e5ae7cec21dd4494b0f0569bb2f1b2b3231c6b"
+}

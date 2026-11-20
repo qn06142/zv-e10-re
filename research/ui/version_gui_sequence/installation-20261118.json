@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-18",
+  "mode": "Senser USB service",
+  "status": "owner-reported-sequence-failure-superseded-by-v02",
+  "boot_id": "7667dca6-9261-47de-b1e0-9260e08aca4e",
+  "installed_sha256": "8cd740bd1e13281131be02ab6e37e5855516bf56dbe50ab70b466501585d4ce9",
+  "previous_mapper_sha256": "0a4be0d9835367860dca4d76237d86d0e67fce99c4384c194033635d547ad435",
+  "full_installed_and_backup_readback_verified": true,
+  "usr_read_only": true,
+  "avcam_md5_before": "90096db2c76148f4f9db5d104e5c608c",
+  "avcam_md5_after": "90096db2c76148f4f9db5d104e5c608c",
+  "backup": "/usr/share/version-gui-sequence-v01/viewUnified6.previous-keys.so",
+  "backup_method": "hard link before atomic replacement",
+  "installer_sha256": "70470f8558a9eedd13339ca37abcb818c7196143d365fb0af457bd62ed13ca79",
+  "gui_observation": "Owner reports only Up worked properly; Center exits menu. Requested a direction-only sequence.",
+  "os_handoff_implemented": false
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-18",
+  "mode": "Senser service session",
+  "takeover_executed": null,
+  "gui_hello_owner_confirmed": true,
+  "final_module_stage": "READY then unloaded",
+  "stage_log": "ZVBOOT_STAGE_V1 READY image=5f7e6000 bytes=124 stack=6a79c000 delay=8785920; no handoff yet",
+  "installed_full_readback_matches": [
+    "boot.ko",
+    "launcher.payload.bin",
+    "previous-hello.payload.bin"
+  ],
+  "module_sha256": "87d5ee9955cfe1229376b8cc36b804de11b8c6aacdeae14612ac5432d53235ad",
+  "launcher_sha256": "9f4cccc252779e7d752fe5680b8c9e0f8624868257c3c4a3aabb3d1ca5a348ce",
+  "av_cam_md5_unchanged": "90096db2c76148f4f9db5d104e5c608c",
+  "usr_read_only": true,
+  "module_loaded_after_install": false,
+  "limits": [
+    "Owner reports successful restart after GUI trial; no post-restart readback collected",
+    "Exact LED count was too fast to verify",
+    "RAM image entry versus an earlier reset path remains unresolved"
+  ],
+  "takeover_attempt_owner_reported": true,
+  "owner_observation": {
+    "mode": "normal GUI trial after Senser installation",
+    "report": "not sure about the flashes (it blinks too fast for me to count properly) but it does restart properly",
+    "restart_into_stock_reported": true,
+    "exact_led_pattern_verified": false,
+    "ram_image_entry_verified": false
+  }
+}
