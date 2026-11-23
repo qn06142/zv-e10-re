@@ -1,0 +1,37 @@
+{
+  "original_instructions": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "gate": 0,
+      "handle": "0x1234",
+      "open_error": 0,
+      "calls": []
+    },
+    {
+      "gate": 1,
+      "handle": "0xffff",
+      "open_error": 0,
+      "calls": []
+    },
+    {
+      "gate": 1,
+      "handle": "0x1234",
+      "open_error": 1,
+      "calls": [
+        "open"
+      ]
+    },
+    {
+      "gate": 1,
+      "handle": "0x1234",
+      "open_error": 0,
+      "calls": [
+        "open",
+        "dump",
+        "close"
+      ]
+    }
+  ],
+  "limitations": "Dump service and resource lookup mocked; establishes call order and address/length forwarding only."
+}

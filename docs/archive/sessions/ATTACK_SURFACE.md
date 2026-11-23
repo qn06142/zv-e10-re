@@ -14,7 +14,7 @@ Camera: Sony ZV-E10, fw 2.02/2.03, kernel 3.0.27-rt, CXD900X0 quad-A9, liro RTOS
 RE path: service-mode root BusyBox shell (MSC->auth), unified `zve10.py` CLI, SD-card dd dump.
 
 ## DUMP INVENTORY (all md5-verified, D:\02_Development_And_Projects\pmca-re\fw\)
-av-cam.bin (17.3MB, encrypted body+LIRO stub), vmlinux.bin, initrd.img, bonobo.bin,
+av-cam.bin (17.3MB; initially misrecorded as encrypted body+LIRO stub, later verified plaintext/unencrypted ARM/Thumb RTOS — see [03-binaries.md](../../reference/03-binaries.md)), vmlinux.bin, initrd.img, bonobo.bin,
 dfe_dat.bin, dfe_app.bin, ldr_drv.bin, lif_app.bin, wole_app.bin, bt_firm.hcd.
 Pulled ELFs: adjstctl.elf, bk.elf, testcmd.elf, sndcmd.elf, rcvcmd.elf, crypter.elf,
 udtrbody.bin (Compressed-ROMFS update body). Kernel modules: osal_uipc.ko, dmm.ko, liro.ko.
@@ -29,7 +29,7 @@ verification. Full chain, all evidenced offline from dumped binaries:
    LIVE: delivered well-formed msgs to liro 0x00dc0000 with RC=0 (accepted).
    Malformed (0:, 9999:AB) rejected RC=255 (fail-closed on format). Camera stayed alive.
 
-2. `av-cam.bin` (the liro RTOS, encrypted body) contains the SDF uipc command framework:
+2. `av-cam.bin` (the liro RTOS; plaintext ARM/Thumb firmware, see `CORRECTION LOG` below) contains the SDF uipc command framework:
    SDF_ERR_*/SDF_INTRA_ERR_* error set, SDF_EXTERNAL_LIB (external-library load path =
    the libupdaterbody.so dlopen), SDF_INTERNAL_QUEUE_DATA (firmware body queue),
    ExecSensCmd/CdCtrlCore handlers, OsalId/rcv_osal_id dispatch. => firmware/update cmds
@@ -59,9 +59,10 @@ verification. Full chain, all evidenced offline from dumped binaries:
 ## WHY THIS IS THE REAL SURFACE (vs. the dead ends)
 - adjstctl.elf / sndcmd.elf / testcmd.elf: thin uipc IPC clients; sndcmd reaches liro
   but liro's dispatcher is hardened (unknown cmds -> silent drop, RC=0/255, no crash).
-- av-cam.bin body, libosal_utm.so, libupdatercommon.so: encrypted (hardware secure-core
-  decrypt at boot); not directly readable. STRICT_DEVMEM + /dev/kmem locked + no
-  /proc/kcore => kernel RAM not directly readable either.
+- `av-cam.bin` body, `libosal_utm.so`, `libupdatercommon.so`: *[SUPERSEDED]* originally assumed
+  encrypted (hardware secure-core decrypt at boot); later measured plaintext/unencrypted
+  (see `CORRECTION LOG` and [03-binaries.md](../../reference/03-binaries.md)). `STRICT_DEVMEM` +
+  `/dev/kmem` locked + no `/proc/kcore` => kernel RAM not directly readable either.
 - osal_uipc.ko / dmm.ko / liro.ko: competently hardened (copy_from_user, bounded ioctl
   index & 0xf, 128B cap + terminator, 0x1000/0x25800 copy caps, overlap guards).
 - The updater dlopen is the ONE place code is loaded from an attacker-influenced path
@@ -78,20 +79,23 @@ Routes to deliver a forged body:
       (Verified live: "touch /usr/bin/_wtest: Read-only file system".)
 (B) Deliver over the SDF uipc firmware queue (SDF_INTERNAL_QUEUE_DATA in av-cam.bin).
     - The actual update path: body arrives via uipc, not by overwriting /usr/bin.
-    - The endpoint osal_id + firmware command format live in the ENCRYPTED
-      libupdatercommon.so (called by crypter.elf via UpdaterAPI). Not visible in
-      plaintext. sndcmd.elf reaches 0x00dc0000 (RC=0) but that is the testcmd endpoint,
-      not confirmed = the firmware queue endpoint.
+    - *[SUPERSEDED]* Earlier thought the endpoint `osal_id` + firmware command format
+      were hidden in an encrypted `libupdatercommon.so`; `libupdatercommon.so` is an
+      unencrypted ARM ELF (see `CORRECTION LOG`). `sndcmd.elf` reaches `0x00dc0000` (RC=0),
+      which is the testcmd endpoint, not confirmed = the firmware queue endpoint.
 (C) Camera SD-card update mode (separate boot path, not the service shell).
     - Not explored live (different mode; deferred).
 
-GAP: live weaponization requires either (i) decrypting libupdatercommon.so to learn the
-firmware-queue endpoint/format (same secure-core wall as av-cam.bin), or (ii) the SD
-update mode entry, or (iii) remounting /usr/bin rw (blocked: RO squashfs). The code-exec
+GAP (historical note; `libupdatercommon.so` / `av-cam.bin` / `/usr/bin` assumptions superseded —
+see `CORRECTION LOG`): live delivery via updater requires either (i) tracing the
+firmware-queue endpoint/format in `libupdatercommon.so` / `av-cam.bin`, or (ii) the SD
+update mode entry, or (iii) writable `/usr/bin` (later verified writable UBIFS, though
+`pformat.elf`/updater attack was superseded by direct Senser + GUI RAM-boot paths). The code-exec
 primitive (dlopen of attacker .so, CRC-only) is proven; delivery is gated by one of the
 above. NOT live-demonstrated (wedge/risk; camera left stable).
 
 ## CORRECTION LOG
+- **Plaintext binaries & writable `/usr/bin` (`2026-11`, superseded above):** Three early assumptions in this file were later disproved by direct measurement (see [03-binaries.md](../../reference/03-binaries.md) and [06-method.md](../../reference/06-method.md)): `av-cam.bin` is plaintext/unencrypted ARM/Thumb code (not secure-core encrypted), `libupdatercommon.so` is an unencrypted ARM ELF, and `/usr/bin` is writable UBIFS rather than read-only squashfs.
 - SDF_EXTERNAL_LIB is NOT a string in av-cam.bin (earlier note withdrawn). The dlopen is
   evidenced via crypter.elf (DllHandler::Open/GetSymbol + /tmp_updater/.../libupdaterbody.so
   path) and udtrbody.bin (contains libupdaterbody.so), not av-cam.bin.

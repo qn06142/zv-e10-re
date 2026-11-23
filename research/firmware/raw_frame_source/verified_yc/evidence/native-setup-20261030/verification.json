@@ -1,0 +1,88 @@
+{
+  "offline_only": true,
+  "original_instructions": true,
+  "config_getter": "0x637cd6b0",
+  "forwarding_pair": [
+    "0x637cf926",
+    "0x637cf92a"
+  ],
+  "setter": "0x638514c0",
+  "downstream_structure": "0x6414fb40",
+  "config_cases": [
+    {
+      "config_37": 0,
+      "getter": 0,
+      "downstream_36": 0
+    },
+    {
+      "config_37": 1,
+      "getter": 1,
+      "downstream_36": 1
+    },
+    {
+      "config_37": 2,
+      "getter": 2,
+      "downstream_36": 1
+    },
+    {
+      "config_37": 10,
+      "getter": 10,
+      "downstream_36": 1
+    },
+    {
+      "config_37": 12,
+      "getter": 12,
+      "downstream_36": 1
+    },
+    {
+      "config_37": 255,
+      "getter": 255,
+      "downstream_36": 1
+    }
+  ],
+  "vtable_address_point": "libmpr.so+0xa0c788",
+  "vtable_depth_converter_slot": "0x14",
+  "virtual_dispatch_cases": [
+    {
+      "color": 0,
+      "depth": 0,
+      "public_quality": 24,
+      "error_flag": 0
+    },
+    {
+      "color": 0,
+      "depth": 1,
+      "public_quality": 67,
+      "error_flag": 0
+    },
+    {
+      "color": 0,
+      "depth": 2,
+      "public_quality": 24,
+      "error_flag": 0
+    },
+    {
+      "color": 1,
+      "depth": 0,
+      "public_quality": 24,
+      "error_flag": 0
+    },
+    {
+      "color": 1,
+      "depth": 1,
+      "public_quality": 68,
+      "error_flag": 0
+    },
+    {
+      "color": 1,
+      "depth": 2,
+      "public_quality": 24,
+      "error_flag": 0
+    }
+  ],
+  "limits": [
+    "Configuration forwarding is not proof of physical pixel precision.",
+    "No allocation, sensor, ISP or hardware IPC was emulated.",
+    "Virtual dispatch executed a bounded original converter slice with a saved ELF vtable and controlled object; it does not prove live object selection."
+  ]
+}

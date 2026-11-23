@@ -1,0 +1,72 @@
+
+osal_record_pro.clone.0 0x0 size 0x180
+
+core_cb_nop 0x67c size 0x10
+
+core_cb_set_halt 0x68c size 0x14
+
+core_cb_clear_halt 0x6ec size 0x38
+
+core_cb_stop 0x744 size 0x184
+
+usbg_video_st_write_comp 0x248c size 0x194
+
+core_cb_start 0x10f0 size 0xcc
+
+uvc_ep0_comp 0x1a74 size 0x54
+
+core_cb_class 0x17b0 size 0x2c4
+
+usbg_cmn_copy_probe_info 0x277c size 0x160
+
+disable_flag 0x243c size 0x50
+
+cleanup_module 0x0 size 0x50
+
+usbg_cmn_clear_ep_list 0x295c size 0x2c
+
+usbg_video_core_release 0x1cac size 0x164
+
+init_module 0x0 size 0x1d8
+
+usbg_video_core_open 0x1ac8 size 0x1e4
+
+usbg_cmn_delete 0x271c size 0x1c
+
+usbg_cmn_clear_probe_info 0x2738 size 0x44
+
+usbg_video_get_this_ex 0x424 size 0x24
+
+usbg_video_get_ep0_buffer 0x588 size 0x1c
+
+usbg_video_delete_this 0x448 size 0x48
+
+uvc_transfer_dmac_cb 0x6a0 size 0x4c
+
+usb_sync_alloc_phys_buffer 0x2988 size 0x124
+
+usbg_cmn_new 0x26c0 size 0x5c
+
+usbg_video_call_user_cb 0x4b4 size 0xd4
+
+usb_sync_free_phys_buffer 0x2aac size 0xe4
+
+usbg_video_link_this_to_file 0x490 size 0x24
+
+usbg_cmn_make_ep_list 0x28dc size 0x80
+
+usbg_video_create_this 0x300 size 0x108
+
+usbg_cmn_reg 0x2620 size 0x70
+
+usbg_video_core_ioctl 0x1e10 size 0x5e0
+
+usbg_video_get_ep_info 0x664 size 0x18
+
+usbg_video_get_this 0x408 size 0x1c
+
+usbg_cmn_dereg 0x2690 size 0x30
+
+usbg_video_core_write 0x23f0 size 0x4c
+
+usbg_video_get_ep 0x5a4 size 0xc0

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "_ZN5MprIf13GetRegionInfoEmPN3MPR10RegionInfoE",
+    "address": "0x0",
+    "bytes": 0,
+    "defined": false
+  },
+  {
+    "name": "_ZN5MprIf10DrawPixelsEmN3MPR9ColorModeEm",
+    "address": "0x0",
+    "bytes": 0,
+    "defined": false
+  }
+]

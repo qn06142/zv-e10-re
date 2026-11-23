@@ -1,0 +1,90 @@
+63ce9d80: mov       r4, r1
+63ce9d82: ldr       r3, [r3, #0x60]
+63ce9d84: movs      r1, #0
+63ce9d86: blx       r3
+63ce9d88: ldr       r3, [r4]
+63ce9d8a: mov       r0, r4
+63ce9d8c: movs      r1, #1
+63ce9d8e: ldr.w     r3, [r3, #0x90]
+63ce9d92: blx       r3
+63ce9d94: movs      r0, #0
+63ce9d96: pop       {r4, pc}
+63ce9d98: push      {r4, lr}
+63ce9d9a: mov       r4, r0
+63ce9d9c: bl        #0x63727b30
+63ce9da0: mov       r0, r4
+63ce9da2: bl        #0x63ae1b90
+63ce9da6: mov       r0, r4
+63ce9da8: pop       {r4, pc}
+63ce9daa: movw      r3, #0x2001
+63ce9dae: movs      r0, #0
+63ce9db0: strh      r3, [r1]
+63ce9db2: movw      r3, #0x50a
+63ce9db6: strh      r3, [r2]
+63ce9db8: bx        lr
+63ce9dba: push      {r4, lr}
+63ce9dbc: mov       r4, r0
+63ce9dbe: bl        #0x63727d50
+63ce9dc2: mov       r0, r4
+63ce9dc4: bl        #0x63ae1b90
+63ce9dc8: mov       r0, r4
+63ce9dca: pop       {r4, pc}
+63ce9dcc: ldrb      r3, [r1]
+63ce9dce: strb      r3, [r0]
+63ce9dd0: ldr       r3, [r1, #0x24]
+63ce9dd2: str       r3, [r0, #4]
+63ce9dd4: ldrh      r3, [r1, #0x28]
+63ce9dd6: strh      r3, [r0, #8]
+63ce9dd8: ldr       r3, [r1, #0x2c]
+63ce9dda: str       r3, [r0, #0xc]
+63ce9ddc: ldrb      r3, [r1, #1]
+63ce9dde: strb      r3, [r0, #0x10]
+63ce9de0: ldrb      r3, [r1, #2]
+63ce9de2: strb      r3, [r0, #0x11]
+63ce9de4: ldrb      r3, [r1, #3]
+63ce9de6: strb      r3, [r0, #0x12]
+63ce9de8: ldrb      r3, [r1, #4]
+63ce9dea: strb      r3, [r0, #0x13]
+63ce9dec: ldrh      r3, [r1, #6]
+63ce9dee: strh      r3, [r0, #0x14]
+63ce9df0: ldrh      r3, [r1, #8]
+63ce9df2: strh      r3, [r0, #0x16]
+63ce9df4: ldrh      r3, [r1, #0x30]
+63ce9df6: strh      r3, [r0, #0x18]
+63ce9df8: ldrh      r3, [r1, #0x32]
+63ce9dfa: strh      r3, [r0, #0x1a]
+63ce9dfc: ldrh      r3, [r1, #0x34]
+63ce9dfe: strh      r3, [r0, #0x1c]
+63ce9e00: ldrh      r3, [r1, #0x36]
+63ce9e02: strh      r3, [r0, #0x1e]
+63ce9e04: ldrh      r3, [r1, #0x38]
+63ce9e06: strh      r3, [r0, #0x20]
+63ce9e08: ldrh      r3, [r1, #0x3a]
+63ce9e0a: strh      r3, [r0, #0x22]
+63ce9e0c: ldrh      r3, [r1, #0x3c]
+63ce9e0e: strh      r3, [r0, #0x24]
+63ce9e10: ldrh      r3, [r1, #0x3e]
+63ce9e12: strh      r3, [r0, #0x26]
+63ce9e14: ldrh.w    r3, [r1, #0x40]
+63ce9e18: strh      r3, [r0, #0x28]
+63ce9e1a: ldrh.w    r3, [r1, #0x42]
+63ce9e1e: strh      r3, [r0, #0x2a]
+63ce9e20: ldrb.w    r3, [r1, #0x44]
+63ce9e24: strb.w    r3, [r0, #0x2c]
+63ce9e28: ldrb.w    r3, [r1, #0x45]
+63ce9e2c: strb.w    r3, [r0, #0x2d]
+63ce9e30: ldrb      r3, [r1, #0xa]
+63ce9e32: strb.w    r3, [r0, #0x2e]
+63ce9e36: ldrb      r3, [r1, #0xb]
+63ce9e38: strb.w    r3, [r0, #0x2f]
+63ce9e3c: ldrb      r3, [r1, #0xc]
+63ce9e3e: strb.w    r3, [r0, #0x30]
+63ce9e42: ldrb      r3, [r1, #0xd]
+63ce9e44: strb.w    r3, [r0, #0x31]
+63ce9e48: ldrb      r3, [r1, #0xe]
+63ce9e4a: strb.w    r3, [r0, #0x32]
+63ce9e4e: ldrb      r3, [r1, #0xf]
+63ce9e50: strb.w    r3, [r0, #0x33]
+63ce9e54: ldrh      r1, [r1, #0x10]
+63ce9e56: strh      r1, [r0, #0x34]
+63ce9e58: bx        lr

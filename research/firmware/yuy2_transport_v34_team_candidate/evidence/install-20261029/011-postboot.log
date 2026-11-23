@@ -1,0 +1,5 @@
+/bin/busybox sh /log/yuy2_640_v34vga/workbench-job.sh; echo YUY
+2_JOB_DONE_011-postboot
+/dev/nflasha15 /usr ext2 ro,relatime,errors=continue 0 0
+V34_PERSISTENT_FILES_AND_INACTIVE_COLD_BOOT_VERIFIED
+YUY2_JOB_DONE_011-postboot

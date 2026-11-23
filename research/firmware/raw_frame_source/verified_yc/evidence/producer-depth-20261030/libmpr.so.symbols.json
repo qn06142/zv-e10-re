@@ -1,0 +1,182 @@
+[
+  {
+    "name": "_ZN7PubUtil34SetVideoBitDepthToEvtReadThumbnailEPN5MprIf17Evt_ReadThumbnailEN3MPR13VideoBitDepthE",
+    "address": "0x739b15",
+    "bytes": 12,
+    "defined": true
+  },
+  {
+    "name": "_ZN11IndexPlayer39SetEvDbJpegThumbnailReadAdditionalParamEPN13IndexPlayerIf21EvDbJpegThumbnailReadEN3MPR6VCodecENS3_11ColorFormatENS3_13VideoBitDepthE",
+    "address": "0x3b83d5",
+    "bytes": 22,
+    "defined": true
+  },
+  {
+    "name": "_ZN5FeaIf10DrawPixelsEmN3MPR9ColorModeEm",
+    "address": "0x55ce69",
+    "bytes": 112,
+    "defined": true
+  },
+  {
+    "name": "_ZN7FeaCore35SetParamColorFormatAndVideoBitDepthEPN5MprIf17Evt_ChgStreamAttrEN3MPR11ColorFormatENS3_13VideoBitDepthE",
+    "address": "0x52d597",
+    "bytes": 14,
+    "defined": true
+  },
+  {
+    "name": "_ZN9BBControl13GetRegionInfoEmPN3MPR10RegionInfoE",
+    "address": "0x364681",
+    "bytes": 164,
+    "defined": true
+  },
+  {
+    "name": "_ZN11IndexPlayer42SetEvDbJpegThumbnailDecodedAdditionalParamEPN13IndexPlayerIf24EvDbJpegThumbnailDecodedEN3MPR6VCodecENS3_11ColorFormatENS3_13VideoBitDepthE",
+    "address": "0x3b7d01",
+    "bytes": 22,
+    "defined": true
+  },
+  {
+    "name": "_ZN5FeaIf19SetRecVideoBitDepthEPN5MprIf14VBitdepthParamEm",
+    "address": "0x5549a5",
+    "bytes": 172,
+    "defined": true
+  },
+  {
+    "name": "_ZN7FeaCore10DrawPixelsEmmN3MPR9ColorModeE",
+    "address": "0x530e61",
+    "bytes": 252,
+    "defined": true
+  },
+  {
+    "name": "_ZN9BBControl10DrawPixelsEmmN3MPR9ColorModeE",
+    "address": "0x364b6d",
+    "bytes": 292,
+    "defined": true
+  },
+  {
+    "name": "_ZN21mxfIfo_CommonSequence20CnvVideoDepthMBtoMPRE18MBP_SCCLIPFORMAT_tPN8PubCodec13VideoBitDepthE",
+    "address": "0x8e0165",
+    "bytes": 72,
+    "defined": true
+  },
+  {
+    "name": "_ZN5MprIf10DrawPixelsEmN3MPR9ColorModeEm",
+    "address": "0x8ae001",
+    "bytes": 48,
+    "defined": true
+  },
+  {
+    "name": "_ZNK10MprMonCtrl16CnvVideoBitDepthEN3MPR13VideoBitDepthE",
+    "address": "0x899775",
+    "bytes": 28,
+    "defined": true
+  },
+  {
+    "name": "_ZN7PubUtil28ConvertPictureQualityMpr2PubEN3MPR8VQualityEbNS0_11ContentTypeENS0_11ColorFormatENS0_13VideoBitDepthE",
+    "address": "0x737fbd",
+    "bytes": 872,
+    "defined": true
+  },
+  {
+    "name": "_ZN5FeaIf10DrawPixelsEmmN3MPR9ColorModeE",
+    "address": "0x55ced9",
+    "bytes": 112,
+    "defined": true
+  },
+  {
+    "name": "_ZN5MprIf19SetRecVideoBitDepthEPNS_14VBitdepthParamEm",
+    "address": "0x8aee09",
+    "bytes": 76,
+    "defined": true
+  },
+  {
+    "name": "_ZN7FeaCore19SetRecVideoBitDepthEPN5MprIf14VBitdepthParamEm",
+    "address": "0x5420dd",
+    "bytes": 132,
+    "defined": true
+  },
+  {
+    "name": "_ZN9MprIfMcmd19DrawPixelsForSingleElPPc",
+    "address": "0x8b4205",
+    "bytes": 112,
+    "defined": true
+  },
+  {
+    "name": "_ZN7FeaCore32SetParamEvMovieThumDecToEvtParamEN3MPR6VCodecENS0_11ColorFormatENS0_13VideoBitDepthEPN5MprIf17Evt_PlayThumbnailE",
+    "address": "0x53d229",
+    "bytes": 14,
+    "defined": true
+  },
+  {
+    "name": "_ZN7FeaCore13GetRegionInfoEmPN3MPR10RegionInfoE",
+    "address": "0x530c11",
+    "bytes": 104,
+    "defined": true
+  },
+  {
+    "name": "_ZN5MprIf10DrawPixelsEmmN3MPR9ColorModeE",
+    "address": "0x8ae031",
+    "bytes": 48,
+    "defined": true
+  },
+  {
+    "name": "_ZN7FeaCore45SetColorFormatAndVideoBitDepthToEnterRecParamEPN11RecorderDef13EnterRecParamEN3MPR11ContentTypeENS3_11ColorFormatENS3_13VideoBitDepthE",
+    "address": "0x54917f",
+    "bytes": 36,
+    "defined": true
+  },
+  {
+    "name": "_ZN11PlayHSIndex37SetVideoInfoToEvMovieThumbnailDecodedEN3MPR6VCodecENS0_11ColorFormatENS0_13VideoBitDepthEPN13IndexPlayerIf23EvMovieThumbnailDecodedE",
+    "address": "0x3bb099",
+    "bytes": 20,
+    "defined": true
+  },
+  {
+    "name": "_ZN5MprIf13GetRegionInfoEmPN3MPR10RegionInfoE",
+    "address": "0x8aec21",
+    "bytes": 240,
+    "defined": true
+  },
+  {
+    "name": "_ZN10MprLibCore28GetPictureQualityForCodecDrvEN3MPR8VQualityENS0_11ColorFormatENS0_13VideoBitDepthEPh",
+    "address": "0x8a4439",
+    "bytes": 574,
+    "defined": true
+  },
+  {
+    "name": "_ZN7FeaCore10DrawPixelsEmN3MPR9ColorModeEm",
+    "address": "0x530f5d",
+    "bytes": 224,
+    "defined": true
+  },
+  {
+    "name": "_ZN7FeaCore33SetParamEvDbJpegThumDecToEvtParamEN3MPR11ContentTypeENS0_11ColorFormatENS0_13VideoBitDepthEPN5MprIf20Evt_PlayAviThumbnailE",
+    "address": "0x53d3f1",
+    "bytes": 30,
+    "defined": true
+  },
+  {
+    "name": "_ZN9BBControl10DrawPixelsEmN3MPR9ColorModeEm",
+    "address": "0x364831",
+    "bytes": 160,
+    "defined": true
+  },
+  {
+    "name": "_ZN5FeaIf13GetRegionInfoEmPN3MPR10RegionInfoE",
+    "address": "0x555ad1",
+    "bytes": 14,
+    "defined": true
+  },
+  {
+    "name": "_ZN9MprIfMcmd19DrawPixelsForBitmapElPPc",
+    "address": "0x8b4275",
+    "bytes": 120,
+    "defined": true
+  },
+  {
+    "name": "_ZN13MovieRecorder28ConvertPictureQualityMpr2PubEN3MPR8VQualityEbNS0_11ContentTypeENS0_11ColorFormatENS0_13VideoBitDepthE",
+    "address": "0x3f6283",
+    "bytes": 38,
+    "defined": true
+  }
+]

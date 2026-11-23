@@ -1,0 +1,32 @@
+{
+  "mocked": false,
+  "limitations": "Static firmware disassembly and parameter tracing; no hardware MMIO or event flag execution.",
+  "av_cam_md5": "cdcae9d4fdbf66a33704a4c7564e346d",
+  "srotate_driver": {
+    "strip_width_mod64_check_addr": "0x638e1e28",
+    "compression_le1_check_addr": "0x638e1e32",
+    "stride_2bpp_shifts": [
+      [
+        "0x638e1ea8",
+        "add.w r3, r3, r2, lsl #1"
+      ],
+      [
+        "0x638e1ece",
+        "add.w r3, r3, r2, lsl #1"
+      ],
+      [
+        "0x638e1edc",
+        "lsls r3, r3, #1"
+      ],
+      [
+        "0x638e1eea",
+        "lsls r3, r3, #1"
+      ]
+    ],
+    "completion_event_flag": {
+      "flag_id": 14,
+      "pattern": "0x04000000",
+      "tk_wai_flg_call_addr": "0x638e7f84"
+    }
+  }
+}

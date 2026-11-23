@@ -1,0 +1,170 @@
+[
+  {
+    "load": "0x63905590",
+    "add": "0x639055b0",
+    "literal": "0x63905684",
+    "target": "0x63f91a1a",
+    "string": "MemAreaMSDebug_YC"
+  },
+  {
+    "load": "0x6390559c",
+    "add": "0x639055be",
+    "literal": "0x6390568c",
+    "target": "0x63f91a1a",
+    "string": "MemAreaMSDebug_YC"
+  },
+  {
+    "load": "0x639055aa",
+    "add": "0x639055cc",
+    "literal": "0x63905694",
+    "target": "0x63f91a1a",
+    "string": "MemAreaMSDebug_YC"
+  },
+  {
+    "load": "0x63908830",
+    "add": "0x6390883a",
+    "literal": "0x6390886c",
+    "target": "0x63f83e8c",
+    "string": "FW: MemAreaMSDebug) Exec MS Dump: filename FILE%04x, addr 0x%08x, size 0x%08x"
+  },
+  {
+    "load": "0x63908858",
+    "add": "0x6390885c",
+    "literal": "0x63908874",
+    "target": "0x63f91a65",
+    "string": "MemAreaMSDebug_Base"
+  },
+  {
+    "load": "0x639088bc",
+    "add": "0x639088c0",
+    "literal": "0x63908900",
+    "target": "0x63f91a91",
+    "string": "MemAreaMSDebug"
+  },
+  {
+    "load": "0x6390892c",
+    "add": "0x63908930",
+    "literal": "0x63908974",
+    "target": "0x63f91a2c",
+    "string": "MemAreaMSDebug"
+  },
+  {
+    "load": "0x639089b6",
+    "add": "0x639089bc",
+    "literal": "0x63908c00",
+    "target": "0x63f91a52",
+    "string": "MemAreaMSDebug_RAW"
+  },
+  {
+    "load": "0x639089dc",
+    "add": "0x639089de",
+    "literal": "0x63908c04",
+    "target": "0x63f83f4f",
+    "string": "FW: MemAreaMSDebug_RAW Error : Captuer_MemOpen %d"
+  },
+  {
+    "load": "0x63908a58",
+    "add": "0x63908a5c",
+    "literal": "0x63908c0c",
+    "target": "0x63f83f81",
+    "string": "FW: MemAreaMSDebug_RAW Error : Decomp area Mem_Alloc %d"
+  },
+  {
+    "load": "0x63908ae6",
+    "add": "0x63908ae8",
+    "literal": "0x63908c18",
+    "target": "0x63f83fb9",
+    "string": "FW: MemAreaMSDebug_RAW: CamCore Start Error!: %02x"
+  },
+  {
+    "load": "0x63908b04",
+    "add": "0x63908b06",
+    "literal": "0x63908c1c",
+    "target": "0x63f83fec",
+    "string": "FW: MemAreaMSDebug_RAW: CamCore Release Error!: %02x"
+  },
+  {
+    "load": "0x63908b12",
+    "add": "0x63908b18",
+    "literal": "0x63908c20",
+    "target": "0x63f84021",
+    "string": "FW: [MemAreaMSDebug_RAW]Raw decomp inputImage: id[0x%02x], encType[%d] addr[0x%08x] size[0x%08x]"
+  },
+  {
+    "load": "0x63908b9a",
+    "add": "0x63908ba0",
+    "literal": "0x63908c24",
+    "target": "0x63f84082",
+    "string": "FW: [MemAreaMSDebug_RAW]IMAGE_SIZE_INFO: id[0x%02x], canvasSize[%d,%d], validOffset[%d,%d], validSize[%d,%d]"
+  },
+  {
+    "load": "0x63908c5c",
+    "add": "0x63908c60",
+    "literal": "0x63908cf8",
+    "target": "0x63f91a79",
+    "string": "MemAreaMSDebug_BolLvRAW"
+  },
+  {
+    "load": "0x63908c7a",
+    "add": "0x63908c7c",
+    "literal": "0x63908cfc",
+    "target": "0x63f840ef",
+    "string": "FW: MemAreaMSDebug_BolLvRAW Error : Captuer_MemOpen %d"
+  },
+  {
+    "load": "0x63908cd4",
+    "add": "0x63908cdc",
+    "literal": "0x63908d00",
+    "target": "0x63f84126",
+    "string": "FW: [MemAreaMSDebug_BolLvRAW]IMAGE_SIZE_INFO: id[0x%02x], canvasSize[%d,%d]"
+  },
+  {
+    "load": "0x63908d2a",
+    "add": "0x63908d2e",
+    "literal": "0x63908da4",
+    "target": "0x63f91a1a",
+    "string": "MemAreaMSDebug_YC"
+  },
+  {
+    "load": "0x63908d76",
+    "add": "0x63908d7c",
+    "literal": "0x63908dac",
+    "target": "0x63f84172",
+    "string": "FW: [MemAreaMSDebug_YC]IMAGE_SIZE_INFO: id[0x%02x], canvasSize[%d,%d], validOffset[%d,%d], validSize[%d,%d]"
+  },
+  {
+    "load": "0x63908fae",
+    "add": "0x63908fb2",
+    "literal": "0x63909028",
+    "target": "0x63f91a3b",
+    "string": "MemAreaMSDebug_MiniRAW"
+  },
+  {
+    "load": "0x63908fcc",
+    "add": "0x63908fce",
+    "literal": "0x6390902c",
+    "target": "0x63f83f4f",
+    "string": "FW: MemAreaMSDebug_RAW Error : Captuer_MemOpen %d"
+  },
+  {
+    "load": "0x63909006",
+    "add": "0x6390900e",
+    "literal": "0x63909030",
+    "target": "0x63f841de",
+    "string": "FW: [MemAreaMSDebug_MiniRAW]IMAGE_SIZE_INFO: id[0x%02x], Size[%d,%d]"
+  },
+  {
+    "load": "0x639a2cc2",
+    "add": "0x639a2cc8",
+    "literal": "0x639a2d84",
+    "target": "0x63f9af59",
+    "string": "/mnt/FILE%04x.dat"
+  },
+  {
+    "load": "0x63b97630",
+    "add": "0x63b97636",
+    "literal": "0x63b97670",
+    "target": "0x63f9af59",
+    "string": "/mnt/FILE%04x.dat"
+  }
+]

@@ -1,0 +1,95 @@
+{
+  "cases": [
+    {
+      "case": 4,
+      "bytes": 8272,
+      "mask": 32
+    },
+    {
+      "case": 10,
+      "bytes": 8272,
+      "mask": 28
+    },
+    {
+      "case": 11,
+      "bytes": 8272,
+      "mask": 28
+    },
+    {
+      "case": 12,
+      "bytes": 8272,
+      "mask": 4
+    },
+    {
+      "case": 13,
+      "bytes": 8272,
+      "mask": 8
+    },
+    {
+      "case": 14,
+      "bytes": 8272,
+      "mask": 16
+    },
+    {
+      "case": 15,
+      "bytes": 8272,
+      "mask": 64
+    },
+    {
+      "case": 16,
+      "bytes": 8272,
+      "mask": 2
+    },
+    {
+      "case": 17,
+      "bytes": 131152,
+      "mask": 1
+    },
+    {
+      "case": 18,
+      "bytes": 112,
+      "mask": 29
+    },
+    {
+      "case": 19,
+      "bytes": 8272,
+      "mask": 128
+    },
+    {
+      "case": 20,
+      "bytes": 8272,
+      "mask": 28
+    },
+    {
+      "case": 22,
+      "bytes": 8272,
+      "mask": 32
+    },
+    {
+      "case": 24,
+      "bytes": 8272,
+      "mask": 32
+    },
+    {
+      "case": 25,
+      "bytes": 8272,
+      "mask": 32
+    },
+    {
+      "case": 26,
+      "bytes": 8272,
+      "mask": 16
+    },
+    {
+      "case": 27,
+      "bytes": 8272,
+      "mask": 32
+    },
+    {
+      "case": 32,
+      "bytes": 8272,
+      "mask": 28
+    }
+  ],
+  "passed": 18
+}

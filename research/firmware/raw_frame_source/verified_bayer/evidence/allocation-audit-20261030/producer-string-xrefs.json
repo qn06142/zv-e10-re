@@ -1,0 +1,366 @@
+[
+  {
+    "load": "0x6379bf0c",
+    "add": "0x6379bf14",
+    "literal": "0x6379bf38",
+    "target": "0x63f65388",
+    "string": "IMG:getDfeCoreResouces unknown : driveMode(%d) Zaf(%d) Snr(%d) Store(%d) Trans(%d)"
+  },
+  {
+    "load": "0x6379e2a6",
+    "add": "0x6379e2aa",
+    "literal": "0x6379e2b4",
+    "target": "0x63f65c7d",
+    "string": "IMG:DfeCore::CamAif::calcMemSize encTypeErr %d"
+  },
+  {
+    "load": "0x6379eb76",
+    "add": "0x6379eb78",
+    "literal": "0x6379ebf8",
+    "target": "0x63f65e24",
+    "string": "IMG:DfeCoreErr:setComplexCallBack CallBack Overlap."
+  },
+  {
+    "load": "0x6379ebce",
+    "add": "0x6379ebd2",
+    "literal": "0x6379ec0c",
+    "target": "0x63f65e87",
+    "string": "IMG:DfeCoreErr:setComplexCallBack CallBack full. %x %x %x %x"
+  },
+  {
+    "load": "0x6379ec5e",
+    "add": "0x6379ec66",
+    "literal": "0x6379eca0",
+    "target": "0x63f65ee0",
+    "string": "IMG:Force clear DfeCoreCallBack cond:%x No:%d fact:%llx"
+  },
+  {
+    "load": "0x6379ef6a",
+    "add": "0x6379ef72",
+    "literal": "0x6379f0bc",
+    "target": "0x63f65fc8",
+    "string": "IMG:DfeCoreErr:judgeComplexCallBack: nowFact%llx holdingFact%llx"
+  },
+  {
+    "load": "0x6379f00a",
+    "add": "0x6379f010",
+    "literal": "0x6379f0cc",
+    "target": "0x63f6601d",
+    "string": "IMG:DfeCoreErr:judgeComplexCallBack: CallBack NULL fact=%llx"
+  },
+  {
+    "load": "0x638ced22",
+    "add": "0x638ced26",
+    "literal": "0x638ced38",
+    "target": "0x63f7a730",
+    "string": "Resource/CoreResource/Leo/dfeCoreResource.cpp"
+  },
+  {
+    "load": "0x638ced64",
+    "add": "0x638ced68",
+    "literal": "0x638cedc0",
+    "target": "0x63f7a75e",
+    "string": "FW: DFECore::getDrvParam(%d) returns NULL"
+  },
+  {
+    "load": "0x638cedf4",
+    "add": "0x638cedf8",
+    "literal": "0x638cee0c",
+    "target": "0x63f7a730",
+    "string": "Resource/CoreResource/Leo/dfeCoreResource.cpp"
+  },
+  {
+    "load": "0x638cee50",
+    "add": "0x638cee52",
+    "literal": "0x638cef84",
+    "target": "0x63f7a75e",
+    "string": "FW: DFECore::getDrvParam(%d) returns NULL"
+  },
+  {
+    "load": "0x638cf006",
+    "add": "0x638cf008",
+    "literal": "0x638cf048",
+    "target": "0x63f7a788",
+    "string": "FW: DfeCoreResource::SetDrvSgc0Nlr nlr_lut_wid Error %d"
+  },
+  {
+    "load": "0x638cf088",
+    "add": "0x638cf08c",
+    "literal": "0x638cf09c",
+    "target": "0x63f7a75e",
+    "string": "FW: DFECore::getDrvParam(%d) returns NULL"
+  },
+  {
+    "load": "0x638cf0b8",
+    "add": "0x638cf0ba",
+    "literal": "0x638cf0d4",
+    "target": "0x63f7a7f7",
+    "string": "FW: DFECore::DdrPowerSaveOff err"
+  },
+  {
+    "load": "0x638cf0f0",
+    "add": "0x638cf0f2",
+    "literal": "0x638cf10c",
+    "target": "0x63f7a818",
+    "string": "FW: DFECore::DdrPowerSaveOn err"
+  },
+  {
+    "load": "0x638cf158",
+    "add": "0x638cf15e",
+    "literal": "0x638cf178",
+    "target": "0x63f7a868",
+    "string": "FW: [%d] DFECore::getDramTicket() error"
+  },
+  {
+    "load": "0x638cf1ae",
+    "add": "0x638cf1b4",
+    "literal": "0x638cf1cc",
+    "target": "0x63f7a890",
+    "string": "FW: [%d] DFECore::returnDramTicket() error"
+  },
+  {
+    "load": "0x638da012",
+    "add": "0x638da016",
+    "literal": "0x638da058",
+    "target": "0x63f7bb24",
+    "string": "FW: AllocMem_Raw_Snr Err: unit_type[0x%08x]"
+  },
+  {
+    "load": "0x638da02e",
+    "add": "0x638da032",
+    "literal": "0x638da05c",
+    "target": "0x63f7bb50",
+    "string": "FW: AllocMem_Raw_Snr Err: unit_type[0x%08x], err[%d]"
+  },
+  {
+    "load": "0x638f406a",
+    "add": "0x638f4072",
+    "literal": "0x638f4158",
+    "target": "0x63f807bb",
+    "string": "Stg>ReadEndBase"
+  },
+  {
+    "load": "0x638f4142",
+    "add": "0x638f4146",
+    "literal": "0x638f4160",
+    "target": "0x63f807cb",
+    "string": "Stg<ReadEndBase"
+  },
+  {
+    "load": "0x638f4b1c",
+    "add": "0x638f4b20",
+    "literal": "0x638f4d08",
+    "target": "0x63f8085f",
+    "string": "Stg>ReadEnd"
+  },
+  {
+    "load": "0x638f4cf4",
+    "add": "0x638f4cf8",
+    "literal": "0x638f4d18",
+    "target": "0x63f8086b",
+    "string": "Stg<ReadEnd"
+  },
+  {
+    "load": "0x638f4d30",
+    "add": "0x638f4d34",
+    "literal": "0x638f4f90",
+    "target": "0x63f80877",
+    "string": "Stg>TDReadEnd"
+  },
+  {
+    "load": "0x638f4f7c",
+    "add": "0x638f4f80",
+    "literal": "0x638f4fa4",
+    "target": "0x63f80885",
+    "string": "Stg<TDReadEnd"
+  },
+  {
+    "load": "0x638f5096",
+    "add": "0x638f509a",
+    "literal": "0x638f56cc",
+    "target": "0x63f808fc",
+    "string": "FW: dfecore_drive_info [0x%02x][0x%08x][0x%02x]"
+  },
+  {
+    "load": "0x638f64c6",
+    "add": "0x638f64ca",
+    "literal": "0x638f6734",
+    "target": "0x63f913ec",
+    "string": "Stage_DfeRawTrans"
+  },
+  {
+    "load": "0x638f8016",
+    "add": "0x638f801c",
+    "literal": "0x638f8170",
+    "target": "0x63f913c1",
+    "string": "Stage_DfeRawTransSnrBranch"
+  },
+  {
+    "load": "0x638f8e3c",
+    "add": "0x638f8e40",
+    "literal": "0x638f8fa0",
+    "target": "0x63f81094",
+    "string": "FW: %s ReadEnd"
+  },
+  {
+    "load": "0x6390b8de",
+    "add": "0x6390b8e2",
+    "literal": "0x6390b8f8",
+    "target": "0x63f91b9e",
+    "string": "DfeCore_Release"
+  },
+  {
+    "load": "0x639103b6",
+    "add": "0x639103d6",
+    "literal": "0x63910458",
+    "target": "0x63f7a730",
+    "string": "Resource/CoreResource/Leo/dfeCoreResource.cpp"
+  },
+  {
+    "load": "0x639128fa",
+    "add": "0x639128fc",
+    "literal": "0x63912964",
+    "target": "0x63f870b1",
+    "string": "FW: Stage_ReadEnd) FOPD_Release Error!"
+  },
+  {
+    "load": "0x63912918",
+    "add": "0x6391291a",
+    "literal": "0x63912968",
+    "target": "0x63f870b1",
+    "string": "FW: Stage_ReadEnd) FOPD_Release Error!"
+  },
+  {
+    "load": "0x63912946",
+    "add": "0x63912948",
+    "literal": "0x6391296c",
+    "target": "0x63f870b1",
+    "string": "FW: Stage_ReadEnd) FOPD_Release Error!"
+  },
+  {
+    "load": "0x63981fbc",
+    "add": "0x63981fc2",
+    "literal": "0x63982038",
+    "target": "0x63f96207",
+    "string": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.clamp_rr = %x"
+  },
+  {
+    "load": "0x63981fc8",
+    "add": "0x63981fce",
+    "literal": "0x6398203c",
+    "target": "0x63f9623a",
+    "string": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.clamp_gr = %x"
+  },
+  {
+    "load": "0x63981fd4",
+    "add": "0x63981fda",
+    "literal": "0x63982040",
+    "target": "0x63f9626d",
+    "string": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.clamp_gb = %x"
+  },
+  {
+    "load": "0x63981fe0",
+    "add": "0x63981fe6",
+    "literal": "0x63982044",
+    "target": "0x63f962a0",
+    "string": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.clamp_bb = %x"
+  },
+  {
+    "load": "0x63981fec",
+    "add": "0x63981ff2",
+    "literal": "0x63982048",
+    "target": "0x63f962d3",
+    "string": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.ofstData = %x"
+  },
+  {
+    "load": "0x63981ff8",
+    "add": "0x63981ffe",
+    "literal": "0x6398204c",
+    "target": "0x63f96306",
+    "string": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.us_MaxOffset_Async = %x"
+  },
+  {
+    "load": "0x63982004",
+    "add": "0x6398200a",
+    "literal": "0x63982050",
+    "target": "0x63f96343",
+    "string": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.offset_sens = %x"
+  },
+  {
+    "load": "0x63982010",
+    "add": "0x63982016",
+    "literal": "0x63982054",
+    "target": "0x63f96379",
+    "string": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.offset_bus = %x"
+  },
+  {
+    "load": "0x6398201c",
+    "add": "0x63982022",
+    "literal": "0x63982058",
+    "target": "0x63f963ae",
+    "string": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.offset_add = %x"
+  },
+  {
+    "load": "0x63982028",
+    "add": "0x6398202e",
+    "literal": "0x6398205c",
+    "target": "0x63f963e3",
+    "string": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.offset_sub = %x"
+  },
+  {
+    "load": "0x639be9d8",
+    "add": "0x639be9dc",
+    "literal": "0x639bf4f8",
+    "target": "0x63f9e0d7",
+    "string": "YC: DBG_SHD_SignalFlow:p_DfecoreSetter != NULL"
+  },
+  {
+    "load": "0x639be9e0",
+    "add": "0x639be9e4",
+    "literal": "0x639bf4fc",
+    "target": "0x63f9e106",
+    "string": "YC: DBG_SHD_SignalFlow:p_DfecoreSetter = NULL"
+  },
+  {
+    "load": "0x639bee1a",
+    "add": "0x639bee1e",
+    "literal": "0x639bf518",
+    "target": "0x63f9e24a",
+    "string": "YC: SetAsyncParam: p_DfecoreSetter is NULL and CamcoreSetter is NULL: 0x%x"
+  },
+  {
+    "load": "0x639bef64",
+    "add": "0x639bef68",
+    "literal": "0x639bf52c",
+    "target": "0x63f9e24a",
+    "string": "YC: SetAsyncParam: p_DfecoreSetter is NULL and CamcoreSetter is NULL: 0x%x"
+  },
+  {
+    "load": "0x639bfa58",
+    "add": "0x639bfa5a",
+    "literal": "0x639bfb34",
+    "target": "0x63f9e0d7",
+    "string": "YC: DBG_SHD_SignalFlow:p_DfecoreSetter != NULL"
+  },
+  {
+    "load": "0x639bfa5e",
+    "add": "0x639bfa60",
+    "literal": "0x639bfb38",
+    "target": "0x63f9e106",
+    "string": "YC: DBG_SHD_SignalFlow:p_DfecoreSetter = NULL"
+  },
+  {
+    "load": "0x639bfae4",
+    "add": "0x639bfaea",
+    "literal": "0x639bfb50",
+    "target": "0x63f9f6a3",
+    "string": "YC: job_YC_SetParamOff: p_DfecoreSetter is NULL and CamcoreSetter is NULL: 0x%x"
+  },
+  {
+    "load": "0x63c33566",
+    "add": "0x63c33568",
+    "literal": "0x63c33574",
+    "target": "0x63ffd037",
+    "string": "YC: [ZDL] DFECore ImgSrswSetter is NULL"
+  }
+]

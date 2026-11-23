@@ -1,0 +1,39 @@
+63d8a42a: push      {r0, r1, r2, r4, r5, r6, r7, lr}
+63d8a42c: mov       r6, r0
+63d8a42e: mov       r4, r1
+63d8a430: mov       r5, r2
+63d8a432: mov       r7, r3
+63d8a434: movs      r0, #4
+63d8a436: movs      r1, #0xf
+63d8a438: mov       r2, r6
+63d8a43a: mov       r3, r4
+63d8a43c: bl        #0x63d94468
+63d8a440: mov       r2, r5
+63d8a442: movs      r3, #5
+63d8a444: mov       r1, r4
+63d8a446: str       r3, [sp]
+63d8a448: mov       r0, r6
+63d8a44a: mov       r3, r7
+63d8a44c: bl        #0x63970228
+63d8a450: movs      r1, #0x10
+63d8a452: mov       r2, r6
+63d8a454: mov       r3, r4
+63d8a456: mov       r5, r0
+63d8a458: movs      r0, #4
+63d8a45a: bl        #0x63d94468
+63d8a45e: cbnz      r5, #0x63d8a47c
+63d8a460: mov       r4, r7
+63d8a462: mov       r6, r5
+63d8a464: b         #0x63d8a474
+63d8a466: movs      r0, #4
+63d8a468: movs      r1, #0x15
+63d8a46a: ldr       r2, [r4, #8]
+63d8a46c: adds      r6, #1
+63d8a46e: ldr       r3, [r4, #0xc]
+63d8a470: bl        #0x63d94468
+63d8a474: ldrh      r3, [r7, #8]
+63d8a476: adds      r4, #8
+63d8a478: cmp       r6, r3
+63d8a47a: blo       #0x63d8a466
+63d8a47c: mov       r0, r5
+63d8a47e: pop       {r1, r2, r3, r4, r5, r6, r7, pc}

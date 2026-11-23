@@ -1,0 +1,42 @@
+{
+  "camera_access": false,
+  "baseline_md5": "c1cad400372e26eca729e4b9bc47a237",
+  "output_md5": "388799d95bbb524ca581c66b077b6dc2",
+  "output_sha256": "5747db3618aa001d425479e448e90bb92e0a15c4f885413bdc89827dc2cd4a5b",
+  "edits": [
+    {
+      "offset": "0xf84",
+      "before": "0xba000031",
+      "change": "__yc37_dma_start_failed"
+    },
+    {
+      "offset": "0xf10",
+      "before": "0x1a00006d",
+      "change": "__yc37_staging_busy"
+    },
+    {
+      "offset": "0x104c",
+      "before": "0xe287400c",
+      "change": "__yc37_dma_waited"
+    },
+    {
+      "offset": "0x10cc",
+      "before": "mov r0,#0",
+      "change": "mov r0,r5: preserve DMA status"
+    }
+  ],
+  "added_sections": [
+    ".text.yc37_fence",
+    ".rel.text.yc37_fence"
+  ],
+  "new_imports": false,
+  "behavior": [
+    "DMA-start error returns -5 without marking slot ready",
+    "DMA timeout returns -110 without marking slot ready",
+    "busy double-staging path unlocks and returns -16",
+    "normal DMA completion returns zero"
+  ],
+  "limitations": [
+    "Target kernel module loading and hardware DMA still need validation."
+  ]
+}

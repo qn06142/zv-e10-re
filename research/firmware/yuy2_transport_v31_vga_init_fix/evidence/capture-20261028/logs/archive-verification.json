@@ -1,0 +1,44 @@
+[
+  {
+    "remote": "/log/yuy2_640_v31vga/runtime.log",
+    "bytes": 506,
+    "md5": "4d1423337fc85105d00c72b297aaad97",
+    "sha256": "f17c6e93599a063c39f8d0d5feb413c4d209726a7c950727a65667b33005fb86"
+  },
+  {
+    "remote": "/log/yuy2_640_v31vga/vga.log",
+    "bytes": 328,
+    "md5": "b67151b3b1e3d3b33d15aa01532be071",
+    "sha256": "389f5aba4d60f34589b8c16ff4e3ab5d8cca547625eed5ba90791082b32c6255"
+  },
+  {
+    "remote": "/log/yuy2_640_v31vga/test-dmesg.txt",
+    "bytes": 7913,
+    "md5": "9da8933e291652de90d0be843601ee8a",
+    "sha256": "179c1dd838f1907c936db370b71382984dc6cc2973fab6fbdcab6b2bcf69f433"
+  },
+  {
+    "remote": "/log/yuy2_640_v31vga/test-dmm.txt",
+    "bytes": 2968,
+    "md5": "ff510038bffb824358c6df2eaee26d7c",
+    "sha256": "99ba5628c21a69099044b394725a3fc96a3f584a9ff6beaf78035e2101729f8b"
+  },
+  {
+    "remote": "/log/yuy2_640_v31vga/test-maps.txt",
+    "bytes": 48894,
+    "md5": "d6daf3ae2d5176d6f704b1cb2f65deee",
+    "sha256": "ddfbff78664baae7a3c5f3f357764823b3170b18975a1c9ec4109925ea82cb1e"
+  },
+  {
+    "remote": "/log/yuy2_640_v31vga/test-memory.txt",
+    "bytes": 924,
+    "md5": "1cbaa6431d3df179d03b4f6112d22269",
+    "sha256": "1f5278a26b48187e9a4d191db96f21be3101015e19bc41c59a5501758f465fcd"
+  },
+  {
+    "remote": "/log/yuy2_640_v31vga/test-uptime.txt",
+    "bytes": 14,
+    "md5": "dbb0ddda928589f87f78db52fbb8cba2",
+    "sha256": "7a5444ca081bfc774a370dd323bf433581a5ac2ca7cd0c2adbfbca15486d81d5"
+  }
+]

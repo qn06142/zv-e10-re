@@ -1,0 +1,48 @@
+
+_ZN17OBJAVBBCBASECLASS5SdfChC1Et @0x36680
+00036680: ldr       r3, [pc, #0x60] 
+00036682: push      {r4, r5, r6, r7, lr} 
+00036684: sub       sp, #0xc 
+00036686: ldr       r2, [pc, #0x60] 
+00036688: add       r3, pc 
+0003668a: mov       r4, r0 
+0003668c: mov       r5, r0 
+0003668e: add       r7, sp, #8 
+00036690: ldr       r3, [r3, r2] 
+00036692: mov       r6, r1 
+00036694: adds      r3, #8 
+00036696: str       r3, [r4], #0xc 
+0003669a: mov       r0, r4 
+0003669c: blx       #0x2cb48 _ZN17OBJAVBBCBASECLASS15DataflowInfraChC1Et
+000366a0: mov       r1, r5 
+000366a2: movs      r3, #0 
+000366a4: mov       r0, r4 
+000366a6: str       r3, [r1, #4]! 
+000366aa: movs      r2, #1 
+000366ac: blx       #0x2acd0 _ZN17OBJAVBBCBASECLASS15DataflowInfraCh11allocOsalIdEPjNS0_21OSALID_AUTO_FREE_MODEE
+000366b0: cbz       r0, #0x366cc 
+000366b2: blx       #0x2cbc4 _ZN17OBJAVBBCBASECLASS13getPrintLevelEv
+000366b6: cmp       r0, #0 
+000366b8: ble       #0x366cc 
+000366ba: ldr       r3, [pc, #0x30] 
+000366bc: movs      r0, #0x55 
+000366be: movs      r1, #6 
+000366c0: movs      r2, #3 
+000366c2: add       r3, pc 
+000366c4: str       r3, [sp] 
+000366c6: movs      r3, #0x1a 
+000366c8: blx       #0x2add4 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+000366cc: strh      r6, [r5, #8] 
+000366ce: mov       r0, r5 
+000366d0: add.w     r7, r7, #4 
+000366d4: mov       sp, r7 
+000366d6: pop       {r4, r5, r6, r7, pc} 
+000366d8: mov       r0, r4 
+000366da: blx       #0x2b77c _ZN17OBJAVBBCBASECLASS15DataflowInfraChD1Ev
+000366de: blx       #0x2aa44 __cxa_end_cleanup
+000366e2: nop        
+000366e4: bgt       #0x366b8 
+000366e6: movs      r1, r0 
+000366e8: asrs      r0, r1, #4 
+000366ea: movs      r0, r0 
+000366ec: cdp       p0, #0xe, c0, c7, c0, #0 

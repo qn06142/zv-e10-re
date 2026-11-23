@@ -1,0 +1,26 @@
+{
+  "revision": "3.6-single-snapshot-native-vga",
+  "deployment": "INSTALLED_REBOOT_VERIFIED",
+  "date": "2026-10-29",
+  "frame_test": "NOT_YET_TESTED",
+  "module_md5": "c2e06b5a7a9f1361c4fb2a087d5e8fe2",
+  "wrapper_md5": "886445056d2eba99ef62df3a9def5e0f",
+  "rollback_md5": "1e03861d438ff6cc2fd58c1c38aa6e71",
+  "readbacks_exact": true,
+  "activation_reboot_observed": true,
+  "postboot_hashes_match": true,
+  "usr_read_only": true,
+  "modules_inactive_before_setup": true,
+  "cold_uptime_seconds": 68.57,
+  "service_session": "CLOSED: job010 WORKBENCH_CLOSED / Done",
+  "cleanup": {
+    "files_archived_verified_cleared": 5,
+    "bytes": 70105,
+    "system_tmp_fonts_tools_preserved": true
+  },
+  "continuous_video": false,
+  "native_captures_per_boot": 1,
+  "packing_corrected": false,
+  "crash_fixed": "UNVERIFIED",
+  "recovery": "/usr/share/yuy2-recovery-v36vga/rollback.sh restores 3.5; 2.4p rescue separately retained"
+}

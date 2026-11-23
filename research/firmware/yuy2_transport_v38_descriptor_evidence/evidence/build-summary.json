@@ -1,0 +1,27 @@
+{
+  "status": "BUILT_OFFLINE_NOT_INSTALLED",
+  "camera_access": false,
+  "camera_current_revision": "3.7",
+  "diagnostic_only": true,
+  "descriptor_acceptance_unchanged": true,
+  "quarantine_cleanup_unchanged": true,
+  "working_frames": false,
+  "package": "outputs\\vga-v38\\zve10-v38-descriptor-evidence.zip",
+  "package_bytes": 81389,
+  "package_sha256": "ffeb1816da82e5b81e1330c8c9766e25771c7ab93f128ba8a98e30acf24686ea",
+  "module_md5": "d577730ce4eeec70904cd4fb164580f5",
+  "wrapper_md5": "f5d42a08e186b0cf2f519bd105457e08",
+  "kernel_md5": "388799d95bbb524ca581c66b077b6dc2",
+  "kernel_unchanged": true,
+  "verification": {
+    "worker_cases": 28,
+    "native_C_records_decoded": 17,
+    "malformed_lengths_rejected": 51,
+    "compiled_ARM_frontend": 9,
+    "SDK_loader_cases": 17,
+    "persistent_gate_cases": 11,
+    "installer_cases": 14,
+    "decoded_instructions": 6163,
+    "neon_instructions": 0
+  }
+}

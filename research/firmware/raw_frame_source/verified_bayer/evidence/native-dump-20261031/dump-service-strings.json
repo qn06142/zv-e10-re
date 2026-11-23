@@ -1,0 +1,78 @@
+[
+  {
+    "address": "0x63f83e8c",
+    "text": "FW: MemAreaMSDebug) Exec MS Dump: filename FILE%04x, addr 0x%08x, size 0x%08x"
+  },
+  {
+    "address": "0x63f83f4f",
+    "text": "FW: MemAreaMSDebug_RAW Error : Captuer_MemOpen %d"
+  },
+  {
+    "address": "0x63f83f81",
+    "text": "FW: MemAreaMSDebug_RAW Error : Decomp area Mem_Alloc %d"
+  },
+  {
+    "address": "0x63f83fb9",
+    "text": "FW: MemAreaMSDebug_RAW: CamCore Start Error!: %02x"
+  },
+  {
+    "address": "0x63f83fec",
+    "text": "FW: MemAreaMSDebug_RAW: CamCore Release Error!: %02x"
+  },
+  {
+    "address": "0x63f84021",
+    "text": "FW: [MemAreaMSDebug_RAW]Raw decomp inputImage: id[0x%02x], encType[%d] addr[0x%08x] size[0x%08x]"
+  },
+  {
+    "address": "0x63f84082",
+    "text": "FW: [MemAreaMSDebug_RAW]IMAGE_SIZE_INFO: id[0x%02x], canvasSize[%d,%d], validOffset[%d,%d], validSize[%d,%d]"
+  },
+  {
+    "address": "0x63f840ef",
+    "text": "FW: MemAreaMSDebug_BolLvRAW Error : Captuer_MemOpen %d"
+  },
+  {
+    "address": "0x63f84126",
+    "text": "FW: [MemAreaMSDebug_BolLvRAW]IMAGE_SIZE_INFO: id[0x%02x], canvasSize[%d,%d]"
+  },
+  {
+    "address": "0x63f84172",
+    "text": "FW: [MemAreaMSDebug_YC]IMAGE_SIZE_INFO: id[0x%02x], canvasSize[%d,%d], validOffset[%d,%d], validSize[%d,%d]"
+  },
+  {
+    "address": "0x63f841de",
+    "text": "FW: [MemAreaMSDebug_MiniRAW]IMAGE_SIZE_INFO: id[0x%02x], Size[%d,%d]"
+  },
+  {
+    "address": "0x63f91a1a",
+    "text": "MemAreaMSDebug_YC"
+  },
+  {
+    "address": "0x63f91a2c",
+    "text": "MemAreaMSDebug"
+  },
+  {
+    "address": "0x63f91a3b",
+    "text": "MemAreaMSDebug_MiniRAW"
+  },
+  {
+    "address": "0x63f91a52",
+    "text": "MemAreaMSDebug_RAW"
+  },
+  {
+    "address": "0x63f91a65",
+    "text": "MemAreaMSDebug_Base"
+  },
+  {
+    "address": "0x63f91a79",
+    "text": "MemAreaMSDebug_BolLvRAW"
+  },
+  {
+    "address": "0x63f91a91",
+    "text": "MemAreaMSDebug"
+  },
+  {
+    "address": "0x63f9af59",
+    "text": "/mnt/FILE%04x.dat"
+  }
+]

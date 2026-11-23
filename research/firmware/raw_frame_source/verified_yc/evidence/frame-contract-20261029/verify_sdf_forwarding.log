@@ -1,0 +1,18 @@
+{
+  "camera_access": false,
+  "original_sdf_forwarder_executed": true,
+  "forwarder": "0x636bdf10",
+  "source_sdk_bytes": 68,
+  "internal_bytes": 232,
+  "raw_command_embedded_at": 28,
+  "source_ref_wire_offset": 24,
+  "source_ref_internal_offset": 52,
+  "destination_ref_wire_offset": 56,
+  "destination_ref_internal_offset": 84,
+  "tail_poison_fixture": true,
+  "limitations": [
+    "This fixture proves the 28-byte envelope insertion, not a complete hardware resize.",
+    "Forwarder copies 204 bytes from the command staging area regardless of original command length. Poison bytes make bytes beyond the 68-byte input visible.",
+    "Need trace destination override masks and tail initialization/length handling before using the expanded request as a complete ABI."
+  ]
+}

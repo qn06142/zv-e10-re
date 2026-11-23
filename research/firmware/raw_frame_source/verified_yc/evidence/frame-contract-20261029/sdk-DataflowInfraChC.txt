@@ -1,0 +1,16 @@
+
+_ZN17OBJAVBBCBASECLASS15DataflowInfraChC1Et @0x34bfc
+00034bfc: push      {r3, r4, r7, lr} 
+00034bfe: mov       r4, r0 
+00034c00: ldr       r3, [pc, #0x18] 
+00034c02: add       r7, sp, #0 
+00034c04: ldr       r2, [pc, #0x18] 
+00034c06: add       r3, pc 
+00034c08: ldr       r3, [r3, r2] 
+00034c0a: strh      r1, [r0, #4] 
+00034c0c: adds      r3, #8 
+00034c0e: str       r3, [r0] 
+00034c10: add.w     r0, r0, #8 
+00034c14: blx       #0x2b19c _ZNSt3mapIjN17OBJAVBBCBASECLASS15DataflowInfraCh21OSALID_AUTO_FREE_MODEESt4lessIjESaISt4pairIKjS2_EEEC1Ev
+00034c18: mov       r0, r4 
+00034c1a: pop       {r3, r4, r7, pc} 

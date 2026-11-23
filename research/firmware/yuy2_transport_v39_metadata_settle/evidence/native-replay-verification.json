@@ -1,0 +1,26 @@
+{
+  "original_RTOS_getter": "0x63c60f76",
+  "camera_access": false,
+  "physical_mapping_and_DMM_transport_mocked": true,
+  "cases": [
+    {
+      "snapshot": "v38_first",
+      "sha256": "7f3b3ff08f2e59860113c2647f88333f3207edb690d72a7f8306d50945b0a5bf",
+      "native_image_lookup_return": 0,
+      "image_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "snapshot": "v38_second",
+      "sha256": "f13cdb4d021682ef169a8e70bfb926203631ac412dc63726449fdd42c50f15cc",
+      "native_image_lookup_return": 0,
+      "image_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "snapshot": "v33_reference",
+      "sha256": "9c60c7088da03631af4cd06fbd8f9d444d084e9104ead87cb0147ef76ac45f9c",
+      "native_image_lookup_return": 1,
+      "image_hex": "0100000095020000247f0000000000000200000080073804800738040000000080073804000000008007380400000201010102014000000067000000"
+    }
+  ],
+  "conclusion": "Both V38 snapshots are rejected by original Sony getter; V33 reference is accepted. This does not establish the cause of malformed metadata."
+}

@@ -1,0 +1,24 @@
+{
+  "all_events": {
+    "MAPS_READ": 1,
+    "QUEUES": 1,
+    "ALLOCATE": 1,
+    "SHARE": 22,
+    "SHARE_OK": 11,
+    "OPEN": 11,
+    "OPEN_OK": 11,
+    "LEASE_READY": 11,
+    "SSYC_HINT": 13,
+    "SSYC_HINT_BYTES": 13,
+    "PIXEL_SHARE_DECLINED": 7,
+    "DMM_REPLY_04": 11,
+    "DMM_REPLY_10": 11,
+    "NO_SOURCE_SSYC": 6,
+    "SOURCE_SHARE_DECLINED": 4
+  },
+  "source": 0,
+  "resize_enter": 0,
+  "complete": 0,
+  "snapshot_ready": 0,
+  "snapshot_dump": 0
+}

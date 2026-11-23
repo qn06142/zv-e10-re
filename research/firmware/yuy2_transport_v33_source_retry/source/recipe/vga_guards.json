@@ -1,0 +1,80 @@
+{
+  "input_md5": {
+    "libObj.so": "0b4be3fb599b539c69c782bd400dd8e9",
+    "libBizFw.so": "6416a5a6780bbe829eb30d85fc8e8dad"
+  },
+  "sdk": {
+    "DMM_CTOR": {
+      "address": "0x35d1c",
+      "guard": "184bf0b583b0184a7b440446054602af",
+      "symbol": "_ZN17OBJAVBBCBASECLASS5DmmChC1Et"
+    },
+    "SDF_CTOR": {
+      "address": "0x36680",
+      "guard": "184bf0b583b0184a7b440446054602af",
+      "symbol": "_ZN17OBJAVBBCBASECLASS5SdfChC1Et"
+    },
+    "SHARE": {
+      "address": "0x35f9c",
+      "guard": "2de9f04788b002af054614469946b7f8",
+      "symbol": "_ZN17OBJAVBBCBASECLASS5DmmCh10allocShareEP17dmm_comp_alc_unitjtt"
+    },
+    "OPEN": {
+      "address": "0x360a4",
+      "guard": "2de9f04389b0054602af144699460e46",
+      "symbol": "_ZN17OBJAVBBCBASECLASS5DmmCh4openEP18dmm_comp_open_unitttj"
+    },
+    "CLOSE": {
+      "address": "0x361ac",
+      "guard": "2de9f04188b0054602af90460e4609b1",
+      "symbol": "_ZN17OBJAVBBCBASECLASS5DmmCh5closeEP19dmm_comp_close_unitt"
+    },
+    "FREE": {
+      "address": "0x362a4",
+      "guard": "2de9f04389b0054602af144699460e46",
+      "symbol": "_ZN17OBJAVBBCBASECLASS5DmmCh4freeEP18dmm_comp_free_unittt"
+    },
+    "RESIZE": {
+      "address": "0x369b4",
+      "guard": "2de9f04784b004af0546884691461c46",
+      "symbol": "_ZN17OBJAVBBCBASECLASS5SdfCh12resizeRotateEPN3SDF18SDF_BASE_CMP_PARAMEPNS1_18SDF_BASE_ACK_PARAMEPNS1_27RESIZE_ROTATE_COMMAND_PARAME"
+    },
+    "ALLOC_NEW": {
+      "address": "0x35d8c",
+      "guard": "2de9f04389b0044602af154699460e46",
+      "symbol": "_ZN17OBJAVBBCBASECLASS5DmmCh8allocNewEP17dmm_comp_alc_unitjtj"
+    }
+  },
+  "obj": {
+    "ALLOC_CTOR": {
+      "address": "0x206ac4",
+      "guard": "98b53521064b0446064a00af7b449b58",
+      "symbol": null
+    },
+    "ALLOC_PAIR": {
+      "address": "0x206c56",
+      "guard": "2de9f04186b00d4602af002114460646",
+      "symbol": null
+    },
+    "YC_CTOR": {
+      "address": "0xe490a4",
+      "guard": "2de9f04f85b002af2a4c05467a6000f1",
+      "symbol": null
+    },
+    "GEOMETRY": {
+      "address": "0xe48a10",
+      "guard": "0a8898b504464b8800afa0f83c218a88",
+      "symbol": null
+    },
+    "STORE": {
+      "address": "0xe49160",
+      "guard": "b0b5044682b000f1380504f592712846",
+      "symbol": null
+    },
+    "YC_DTOR": {
+      "address": "0xe486ec",
+      "guard": "234b244a7b44b0b504469b5800af04f5",
+      "symbol": null
+    }
+  }
+}

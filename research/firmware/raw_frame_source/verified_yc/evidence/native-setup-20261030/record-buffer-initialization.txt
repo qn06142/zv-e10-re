@@ -1,0 +1,105 @@
+
+_ZN14MRecFltMgr_bni22SetBaseRecBufInitParamEP18RecLib_RecLineInfoPN13MovieRecorder17MovieRecConvParamEN3MPR11ContentTypeEPN19BaseRecBufferFilter22BaseRecBufferInitParamE @0x3fd630
+003fd630: push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr} 
+003fd634: sub       sp, #4 
+003fd636: add       r7, sp, #0 
+003fd638: mov       r5, r1 
+003fd63a: mov       r4, r0 
+003fd63c: ldr       r1, [pc, #0xdc] 
+003fd63e: mov       r6, r2 
+003fd640: ldr       r0, [r0, #0x20] 
+003fd642: mov       sl, r3 
+003fd644: ldr.w     sb, [r7, #0x28] 
+003fd648: bl        #0x7ed408 
+003fd64c: movs      r3, #0 
+003fd64e: ldr       r1, [r5] 
+003fd650: mov       r2, r5 
+003fd652: mov       r8, r3 
+003fd654: mov       r5, r3 
+003fd656: mov       fp, r3 
+003fd658: b         #0x3fd66e 
+003fd65a: ldr       r0, [r2, #8] 
+003fd65c: cmp       r0, sl 
+003fd65e: bne       #0x3fd66a 
+003fd660: ldr.w     fp, [r2, #4] 
+003fd664: ldrb.w    r8, [r2, #0x1c] 
+003fd668: ldrb      r5, [r2, #0x1d] 
+003fd66a: adds      r3, #1 
+003fd66c: adds      r2, #0xf0 
+003fd66e: cmp       r3, r1 
+003fd670: bne       #0x3fd65a 
+003fd672: mov.w     r3, #0x1cc 
+003fd676: mla       r6, r3, fp, r6 
+003fd67a: ldr       r0, [r6, #0x74] 
+003fd67c: bl        #0x7395cc 
+003fd680: mov       sl, r0 
+003fd682: cmp.w     r8, #0 
+003fd686: beq       #0x3fd690 
+003fd688: cbnz      r5, #0x3fd690 
+003fd68a: ldrh.w    r6, [r6, #0xb8] 
+003fd68e: b         #0x3fd692 
+003fd690: mov       r6, sl 
+003fd692: ldr       r0, [r4, #0x20] 
+003fd694: str.w     sl, [sb, #0x24] 
+003fd698: str.w     r6, [sb, #0x28] 
+003fd69c: ldr       r1, [pc, #0x80] 
+003fd69e: bl        #0x7ed408 
+003fd6a2: ldr       r0, [r4, #0x20] 
+003fd6a4: mov       r1, fp 
+003fd6a6: bl        #0x7ed384 
+003fd6aa: ldr       r0, [r4, #0x20] 
+003fd6ac: ldr       r1, [pc, #0x74] 
+003fd6ae: bl        #0x7ed408 
+003fd6b2: ldr       r0, [r4, #0x20] 
+003fd6b4: ldr       r1, [pc, #0x70] 
+003fd6b6: bl        #0x7ed408 
+003fd6ba: ldr       r0, [r4, #0x20] 
+003fd6bc: mov       r1, r8 
+003fd6be: bl        #0x7ed384 
+003fd6c2: ldr       r0, [r4, #0x20] 
+003fd6c4: ldr       r1, [pc, #0x5c] 
+003fd6c6: bl        #0x7ed408 
+003fd6ca: ldr       r0, [r4, #0x20] 
+003fd6cc: ldr       r1, [pc, #0x5c] 
+003fd6ce: bl        #0x7ed408 
+003fd6d2: ldr       r0, [r4, #0x20] 
+003fd6d4: mov       r1, r5 
+003fd6d6: bl        #0x7ed384 
+003fd6da: ldr       r0, [r4, #0x20] 
+003fd6dc: ldr       r1, [pc, #0x44] 
+003fd6de: bl        #0x7ed408 
+003fd6e2: ldr       r0, [r4, #0x20] 
+003fd6e4: ldr       r1, [pc, #0x48] 
+003fd6e6: bl        #0x7ed408 
+003fd6ea: ldr       r0, [r4, #0x20] 
+003fd6ec: mov       r1, sl 
+003fd6ee: bl        #0x7ed384 
+003fd6f2: ldr       r0, [r4, #0x20] 
+003fd6f4: ldr       r1, [pc, #0x2c] 
+003fd6f6: bl        #0x7ed408 
+003fd6fa: ldr       r0, [r4, #0x20] 
+003fd6fc: ldr       r1, [pc, #0x34] 
+003fd6fe: bl        #0x7ed408 
+003fd702: ldr       r0, [r4, #0x20] 
+003fd704: mov       r1, r6 
+003fd706: bl        #0x7ed384 
+003fd70a: ldr       r0, [r4, #0x20] 
+003fd70c: ldr       r1, [pc, #0x14] 
+003fd70e: add.w     r7, r7, #4 
+003fd712: mov       sp, r7 
+003fd714: pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, lr} 
+003fd718: b.w       #0x7ed408 
+003fd71c: bhs       #0x3fd718 
+003fd71e: lsls      r0, r4, #2 
+003fd720: blo       #0x3fd75a 
+003fd722: lsls      r0, r4, #2 
+003fd724: strh      r7, [r6, r0] 
+003fd726: lsls      r4, r4, #2 
+003fd728: blo       #0x3fd78e 
+003fd72a: lsls      r0, r4, #2 
+003fd72c: blo       #0x3fd7be 
+003fd72e: lsls      r0, r4, #2 
+003fd730: blo       #0x3fd7ee 
+003fd732: lsls      r0, r4, #2 
+003fd734: blo       #0x3fd81e 
+003fd736: lsls      r0, r4, #2 

@@ -1,0 +1,164 @@
+{
+  "hardware_services_mocked": true,
+  "width": 1920,
+  "height": 1080,
+  "frame_bytes": 4147200,
+  "cases": [
+    {
+      "mode": 0,
+      "returncode": 0
+    },
+    {
+      "mode": 1,
+      "returncode": 0
+    },
+    {
+      "mode": 2,
+      "returncode": 0
+    },
+    {
+      "mode": 3,
+      "returncode": 0
+    },
+    {
+      "mode": 4,
+      "returncode": 0
+    },
+    {
+      "mode": 5,
+      "returncode": 0
+    },
+    {
+      "mode": 6,
+      "returncode": 0
+    },
+    {
+      "mode": 7,
+      "returncode": 0
+    },
+    {
+      "mode": 8,
+      "returncode": 0
+    },
+    {
+      "mode": 9,
+      "returncode": 0
+    },
+    {
+      "mode": 10,
+      "returncode": 0
+    },
+    {
+      "mode": 11,
+      "returncode": 0
+    },
+    {
+      "mode": 12,
+      "returncode": 0
+    },
+    {
+      "mode": 13,
+      "returncode": 0
+    },
+    {
+      "mode": 14,
+      "returncode": 0
+    },
+    {
+      "mode": 15,
+      "returncode": 0
+    },
+    {
+      "mode": 16,
+      "returncode": 0
+    },
+    {
+      "mode": 17,
+      "returncode": 0
+    },
+    {
+      "mode": 18,
+      "returncode": 0
+    },
+    {
+      "mode": 19,
+      "returncode": 0
+    },
+    {
+      "mode": 20,
+      "returncode": 0
+    },
+    {
+      "mode": 21,
+      "returncode": 0
+    },
+    {
+      "mode": 22,
+      "returncode": 0
+    },
+    {
+      "mode": 23,
+      "returncode": 0
+    },
+    {
+      "mode": 24,
+      "returncode": 0
+    },
+    {
+      "mode": 25,
+      "returncode": 0
+    },
+    {
+      "mode": 26,
+      "returncode": 0
+    },
+    {
+      "mode": 27,
+      "returncode": 0
+    },
+    {
+      "mode": 28,
+      "returncode": 0
+    },
+    {
+      "mode": 29,
+      "returncode": 0
+    },
+    {
+      "mode": 30,
+      "returncode": 0
+    },
+    {
+      "mode": 31,
+      "returncode": 0
+    },
+    {
+      "mode": 32,
+      "returncode": 0
+    },
+    {
+      "mode": 33,
+      "returncode": 0
+    },
+    {
+      "mode": 34,
+      "returncode": 0
+    },
+    {
+      "mode": 35,
+      "returncode": 0
+    },
+    {
+      "mode": 36,
+      "returncode": 0
+    },
+    {
+      "mode": 37,
+      "returncode": 0
+    },
+    {
+      "mode": 38,
+      "returncode": 0
+    }
+  ]
+}

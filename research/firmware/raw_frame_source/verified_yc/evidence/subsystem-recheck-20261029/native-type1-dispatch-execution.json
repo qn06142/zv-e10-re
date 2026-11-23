@@ -1,0 +1,32 @@
+{
+  "camera_access": false,
+  "original_switch_and_abort_wrappers_executed": true,
+  "entry": "libObj.so+0x6f71e8 Thumb",
+  "records": [
+    {
+      "opcode": "0x100",
+      "branch_target": "0x6f7070",
+      "outcome": "connection wrapper reached; stopped before operation"
+    },
+    {
+      "opcode": "0x8100",
+      "branch_target": "0x6f70ac",
+      "outcome": "connection wrapper reached; stopped before operation"
+    },
+    {
+      "opcode": "0x102",
+      "branch_target": "0x6f7124",
+      "outcome": "abort PLT reached"
+    },
+    {
+      "opcode": "0x8102",
+      "branch_target": "0x6f712c",
+      "outcome": "abort PLT reached"
+    }
+  ],
+  "conclusion": "The type-1 native handler connected to YC1Pin accepts connect/control paths but unconditionally calls abort for PIN_SEND and PIN_SEND_COMP; it is not a drop-in frame receiver.",
+  "limitations": [
+    "No real OSAL messages or producer registration used.",
+    "Other endpoints may receive frames; this does not prove no receive endpoint exists."
+  ]
+}

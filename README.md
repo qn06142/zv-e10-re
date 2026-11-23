@@ -1,8 +1,8 @@
 # Sony ZV-E10 research
 
-Reverse engineering and tooling for the Sony ZV-E10, firmware 2.02/2.03. The project goal is native Bayer RAW over USB. Camera experiments are paused while the system model and evidence are organized.
+Reverse engineering, bare-metal OS runtime (`ZVOS`), standalone QEMU emulation, and tooling for the Sony ZV-E10 (firmware 2.02/2.03). The project goal is native Bayer RAW acquisition and USB delivery.
 
-Start with the [camera overview](docs/CAMERA_OVERVIEW.md), then [current status](docs/CURRENT_STATUS.md) and [access and tools](docs/ACCESS_AND_TOOLS.md).
+Start with the [camera overview](docs/CAMERA_OVERVIEW.md), [current status](docs/CURRENT_STATUS.md), [hardware handoff](docs/hardware/HANDOFF.md), and [access and tools](docs/ACCESS_AND_TOOLS.md).
 
 ## Repository layout
 
@@ -21,7 +21,11 @@ The root batch_patch scripts and retool launchers are existing command entry poi
 
 ## Verified checkpoint
 
-Synthetic VGA colour bars were captured through the custom USB transport. The latest recorded permanent UVC installation is the 16 November colour-bars build. Native Bayer acquisition and sustained SuperSpeed delivery remain open. The [status page](docs/CURRENT_STATUS.md) links the evidence and distinguishes hardware observations from offline candidates.
+- **Bare-metal ZVOS runtime (`research/device/zve10_ram_boot/`):** GUI-triggered takeover (`boot.ko` v3 + `crt0.S` + `zvrt_runtime.c`), self-owned 1 GiB DDR0 MMU takeover, platform quiesce, tear-free uncached 640×480 RGBA4444 double-buffered LCD scanout, animated fire, 5,258-frame 24 fps Bad Apple!! playback, and interactive button shell ([os_shell.c](research/device/zve10_ram_boot/os_shell.c), [ZVOS_SPEC.md](docs/hardware/ZVOS_SPEC.md)) verified on hardware/Unicorn.
+- **Bayer RAW & UVC tracks:** Synthetic VGA colour bars (`2.4p`) were captured over the custom USB transport; bare-metal IMX284 + DFE RAW capture (`bayer_capture.h`, `senser_bayer_runner.c`) is in active bring-up ([BAYER_HANDOFF.md](research/device/zve10_ram_boot/BAYER_HANDOFF.md)).
+- **QEMU 11.1.2 (`-M zve10`):** Standalone ARMv7 emulator boots stock `vmlinux.bin` + `initrd.img` to BusyBox `ash`, models OSD0/ADC/GPIO, and displays the adapted Sony menu (`emulator/`, [QEMU_EMULATOR.md](docs/hardware/QEMU_EMULATOR.md)).
+
+See the [status page](docs/CURRENT_STATUS.md) and [hardware handoff](docs/hardware/HANDOFF.md) for evidence, hashes, and hardware vs. offline boundaries.
 
 ## Development
 

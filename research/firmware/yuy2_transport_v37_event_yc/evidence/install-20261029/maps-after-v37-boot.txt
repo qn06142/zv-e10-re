@@ -1,0 +1,827 @@
+00008000-0000d000 r-xp 00000000 fc:0f 12155      /usr/bin/im.elf
+00015000-00016000 rw-p 00005000 fc:0f 12155      /usr/bin/im.elf
+00016000-00375000 rw-p 00000000 00:00 0          [heap]
+04003000-04007000 rw-s f1000000 fc:07 138        /dev/mem
+04010000-04013000 r-xp 00000000 fc:0f 2160       /usr/lib/libtestcmd.so
+04013000-0401a000 ---p 00003000 fc:0f 2160       /usr/lib/libtestcmd.so
+0401a000-0401b000 rw-p 00002000 fc:0f 2160       /usr/lib/libtestcmd.so
+0401f000-04026000 r-xp 00000000 fc:0f 18255      /usr/lib/libIMDB.so
+04026000-0402d000 ---p 00007000 fc:0f 18255      /usr/lib/libIMDB.so
+0402d000-04030000 rw-p 00006000 fc:0f 18255      /usr/lib/libIMDB.so
+04030000-04031000 rw-p 00000000 00:00 0 
+04032000-04033000 rw-s f2910000 fc:07 138        /dev/mem
+04034000-0403a000 r-xp 00000000 fc:0f 18219      /usr/lib/libosal_uipc.so
+0403a000-04042000 ---p 00006000 fc:0f 18219      /usr/lib/libosal_uipc.so
+04042000-04043000 rw-p 00006000 fc:0f 18219      /usr/lib/libosal_uipc.so
+04043000-04044000 ---p 00000000 00:00 0 
+04044000-0404b000 rw-p 00000000 00:00 0 
+0404b000-0404c000 r--p 00000000 fc:0f 4133       /usr/share/app/lang_cmn.uxc
+0404c000-0404e000 r-xp 00000000 fc:0f 18258      /usr/lib/libbackup.so
+0404e000-04055000 ---p 00002000 fc:0f 18258      /usr/lib/libbackup.so
+04055000-04056000 rw-p 00001000 fc:0f 18258      /usr/lib/libbackup.so
+04056000-04059000 r-xp 00000000 fc:07 593        /lib/libdl-2.11.2.so
+04059000-04060000 ---p 00003000 fc:07 593        /lib/libdl-2.11.2.so
+04060000-04061000 r--p 00002000 fc:07 593        /lib/libdl-2.11.2.so
+04061000-04062000 rw-p 00003000 fc:07 593        /lib/libdl-2.11.2.so
+04062000-04063000 r-xp 00000000 fc:07 475        /lib/libSTMcmdexecute.so
+04063000-0406a000 ---p 00001000 fc:07 475        /lib/libSTMcmdexecute.so
+0406a000-0406b000 rw-p 00000000 fc:07 475        /lib/libSTMcmdexecute.so
+0406b000-0406c000 r-xp 00000000 fc:0f 18218      /usr/lib/libosal_utm.so
+0406c000-04073000 ---p 00001000 fc:0f 18218      /usr/lib/libosal_utm.so
+04073000-04074000 rw-p 00000000 fc:0f 18218      /usr/lib/libosal_utm.so
+04074000-04076000 r-xp 00000000 fc:0f 18236      /usr/lib/libcompassutil.so
+04076000-0407d000 ---p 00002000 fc:0f 18236      /usr/lib/libcompassutil.so
+0407d000-0407e000 rw-p 00001000 fc:0f 18236      /usr/lib/libcompassutil.so
+0407e000-0407f000 rw-s 1196b000 fc:07 138        /dev/mem
+04080000-04081000 rw-p 00000000 00:00 0 
+04081000-04084000 r--p 00000000 fc:0f 4307       /usr/share/app/global.xdb
+04084000-0409c000 r-xp 00000000 fc:07 588        /lib/ld-2.11.2.so
+0409c000-0409d000 rw-s 1196b000 fc:07 138        /dev/mem
+0409d000-0409e000 r--p 00000000 fc:0f 4328       /usr/share/app/lang.uxb
+0409e000-040a0000 rw-p 00000000 00:00 0 
+040a3000-040a4000 r--p 00017000 fc:07 588        /lib/ld-2.11.2.so
+040a4000-040a5000 rw-p 00018000 fc:07 588        /lib/ld-2.11.2.so
+040a5000-040ae000 r-xp 00000000 fc:07 589        /lib/libgcc_s.so.1
+040ae000-040b5000 ---p 00009000 fc:07 589        /lib/libgcc_s.so.1
+040b5000-040b6000 rw-p 00008000 fc:07 589        /lib/libgcc_s.so.1
+040b6000-040b9000 -w-s 03103000 fc:07 138        /dev/mem
+040b9000-040ba000 rw-p 00000000 00:00 0 
+040bb000-040cb000 r-xp 00000000 fc:07 483        /lib/libpthread-2.11.2.so
+040cb000-040d2000 ---p 00010000 fc:07 483        /lib/libpthread-2.11.2.so
+040d2000-040d3000 r--p 0000f000 fc:07 483        /lib/libpthread-2.11.2.so
+040d3000-040d4000 rw-p 00010000 fc:07 483        /lib/libpthread-2.11.2.so
+040d4000-040d6000 rw-p 00000000 00:00 0 
+040d6000-040db000 r-xp 00000000 fc:07 481        /lib/librt-2.11.2.so
+040db000-040e2000 ---p 00005000 fc:07 481        /lib/librt-2.11.2.so
+040e2000-040e3000 r--p 00004000 fc:07 481        /lib/librt-2.11.2.so
+040e3000-040e4000 rw-p 00005000 fc:07 481        /lib/librt-2.11.2.so
+040e4000-040e5000 rw-p 00000000 00:00 0 
+040e5000-04141000 r-xp 00000000 fc:0f 18411      /usr/lib/libssl.so.3
+04141000-04149000 ---p 0005c000 fc:0f 18411      /usr/lib/libssl.so.3
+04149000-04152000 rw-p 0005c000 fc:0f 18411      /usr/lib/libssl.so.3
+04152000-04153000 rw-p 00000000 00:00 0 
+04153000-0415d000 r-xp 00000000 fc:0f 18281      /usr/lib/libOnDemandLoader.so
+0415d000-04164000 ---p 0000a000 fc:0f 18281      /usr/lib/libOnDemandLoader.so
+04164000-04165000 rw-p 00009000 fc:0f 18281      /usr/lib/libOnDemandLoader.so
+04165000-04168000 r-xp 00000000 fc:0f 18316      /usr/lib/libInfraKikiLogGenerator.so
+04168000-0416f000 ---p 00003000 fc:0f 18316      /usr/lib/libInfraKikiLogGenerator.so
+0416f000-04170000 rw-p 00002000 fc:0f 18316      /usr/lib/libInfraKikiLogGenerator.so
+04170000-04183000 r-xp 00000000 fc:0f 18340      /usr/lib/libz.so.1.2.11
+04183000-0418a000 ---p 00013000 fc:0f 18340      /usr/lib/libz.so.1.2.11
+0418a000-0418b000 rw-p 00012000 fc:0f 18340      /usr/lib/libz.so.1.2.11
+0418b000-0418e000 r-xp 00000000 fc:0f 18383      /usr/lib/libInfraAccessLog.so
+0418e000-04195000 ---p 00003000 fc:0f 18383      /usr/lib/libInfraAccessLog.so
+04195000-04196000 rw-p 00002000 fc:0f 18383      /usr/lib/libInfraAccessLog.so
+04196000-0419e000 rw-s 034fd000 fc:07 138        /dev/mem
+0419e000-0419f000 rw-p 00000000 00:00 0 
+0419f000-041a0000 r-xp 00000000 fc:0f 18337      /usr/lib/libutil_date.so
+041a0000-041a8000 ---p 00001000 fc:0f 18337      /usr/lib/libutil_date.so
+041a8000-041a9000 rw-p 00001000 fc:0f 18337      /usr/lib/libutil_date.so
+041a9000-041aa000 rw-s 1196b000 fc:07 138        /dev/mem
+041aa000-041ab000 rw-s f2912000 fc:07 138        /dev/mem
+041ab000-041ac000 rw-p 00000000 00:00 0 
+041ac000-041ad000 r-xp 00000000 fc:0f 18382      /usr/lib/libBackupManager.so
+041ad000-041b5000 ---p 00001000 fc:0f 18382      /usr/lib/libBackupManager.so
+041b5000-041b6000 rw-p 00001000 fc:0f 18382      /usr/lib/libBackupManager.so
+041b6000-041b7000 ---p 00000000 00:00 0 
+041b7000-041be000 rw-p 00000000 00:00 0 
+041be000-041bf000 r-xp 00000000 fc:0f 18333      /usr/lib/libjemalloc_ds.so.1
+041bf000-041c6000 ---p 00001000 fc:0f 18333      /usr/lib/libjemalloc_ds.so.1
+041c6000-041c7000 rw-p 00000000 fc:0f 18333      /usr/lib/libjemalloc_ds.so.1
+041c7000-04266000 r-xp 00000000 fc:0f 18407      /usr/lib/libstdc++.so.6.0.14
+04266000-0426e000 ---p 0009f000 fc:0f 18407      /usr/lib/libstdc++.so.6.0.14
+0426e000-04271000 r--p 0009f000 fc:0f 18407      /usr/lib/libstdc++.so.6.0.14
+04271000-04273000 rw-p 000a2000 fc:0f 18407      /usr/lib/libstdc++.so.6.0.14
+04273000-04279000 rw-p 00000000 00:00 0 
+04279000-042e1000 r-xp 00000000 fc:07 467        /lib/libm-2.11.2.so
+042e1000-042e8000 ---p 00068000 fc:07 467        /lib/libm-2.11.2.so
+042e8000-042e9000 r--p 00067000 fc:07 467        /lib/libm-2.11.2.so
+042e9000-042ea000 rw-p 00068000 fc:07 467        /lib/libm-2.11.2.so
+042ea000-043d7000 r-xp 00000000 fc:07 471        /lib/libc-2.11.2.so
+043d7000-043de000 ---p 000ed000 fc:07 471        /lib/libc-2.11.2.so
+043de000-043e0000 r--p 000ec000 fc:07 471        /lib/libc-2.11.2.so
+043e0000-043e1000 rw-p 000ee000 fc:07 471        /lib/libc-2.11.2.so
+043e1000-043e4000 rw-p 00000000 00:00 0 
+043e4000-0463c000 r-xp 00000000 fc:0f 18401      /usr/lib/libcrypto.so.3
+0463c000-0466d000 rw-p 00258000 fc:0f 18401      /usr/lib/libcrypto.so.3
+0466d000-0466f000 rw-p 00000000 00:00 0 
+0466f000-0476f000 rw-s 09800000 fc:07 225        /dev/uipc
+0476f000-047aa000 r-xp 00000000 fc:0f 18270      /usr/lib/libMWF.so
+047aa000-047b1000 ---p 0003b000 fc:0f 18270      /usr/lib/libMWF.so
+047b1000-047b4000 rw-p 0003a000 fc:0f 18270      /usr/lib/libMWF.so
+047b4000-047b7000 rw-p 00000000 00:00 0 
+047b7000-04833000 rw-s 20098000 fc:07 138        /dev/mem
+04833000-04847000 r-xp 00000000 fc:0f 2190       /usr/lib/libInfraUsbCmn.so
+04847000-0484f000 ---p 00014000 fc:0f 2190       /usr/lib/libInfraUsbCmn.so
+0484f000-04852000 rw-p 00014000 fc:0f 2190       /usr/lib/libInfraUsbCmn.so
+04852000-04853000 rw-p 00000000 00:00 0 
+04853000-04856000 r-xp 00000000 fc:07 490        /lib/libuuid.so.1.3.0
+04856000-0485d000 ---p 00003000 fc:07 490        /lib/libuuid.so.1.3.0
+0485d000-0485e000 rw-p 00002000 fc:07 490        /lib/libuuid.so.1.3.0
+0485e000-0485f000 rw-s 1196b000 fc:07 138        /dev/mem
+0485f000-0489f000 rw-p 00000000 00:00 0 
+0489f000-048da000 r-xp 00000000 fc:0f 18296      /usr/lib/libmprctrl.so
+048da000-048e2000 ---p 0003b000 fc:0f 18296      /usr/lib/libmprctrl.so
+048e2000-048e8000 rw-p 0003b000 fc:0f 18296      /usr/lib/libmprctrl.so
+048e8000-048f0000 r-xp 00000000 fc:0f 18242      /usr/lib/libInfraMediaMount.so
+048f0000-048f1000 rw-p 00008000 fc:0f 18242      /usr/lib/libInfraMediaMount.so
+048f1000-048f2000 r-xp 00000000 fc:0f 18355      /usr/lib/libpro00.so
+048f2000-048f9000 ---p 00001000 fc:0f 18355      /usr/lib/libpro00.so
+048f9000-048fa000 rw-p 00000000 fc:0f 18355      /usr/lib/libpro00.so
+048fa000-048fb000 r--p 00000000 fc:0f 4155       /usr/share/app/style_cmn.uxc
+048fb000-048fc000 r--s ffff5000 fc:07 138        /dev/mem
+048fc000-048fd000 ---p 00000000 00:00 0 
+048fd000-04afc000 rw-p 00000000 00:00 0 
+04afc000-04afe000 r-xp 00000000 fc:0f 18229      /usr/lib/libResourceBluetooth.so
+04afe000-04b05000 ---p 00002000 fc:0f 18229      /usr/lib/libResourceBluetooth.so
+04b05000-04b06000 rw-p 00001000 fc:0f 18229      /usr/lib/libResourceBluetooth.so
+04b06000-04b07000 ---p 00000000 00:00 0 
+04b07000-04d06000 rw-p 00000000 00:00 0 
+04d06000-04d6d000 r-xp 00000000 fc:0f 18289      /usr/lib/libInfraFsys.so
+04d6d000-04d74000 ---p 00067000 fc:0f 18289      /usr/lib/libInfraFsys.so
+04d74000-04d77000 rw-p 00066000 fc:0f 18289      /usr/lib/libInfraFsys.so
+04d77000-04dd7000 rw-p 00000000 00:00 0 
+04dd7000-04de2000 r-xp 00000000 fc:0f 18369      /usr/lib/libAK8975.so
+04de2000-04de9000 ---p 0000b000 fc:0f 18369      /usr/lib/libAK8975.so
+04de9000-04dea000 rw-p 0000a000 fc:0f 18369      /usr/lib/libAK8975.so
+04dea000-04deb000 r--s f340f000 fc:07 138        /dev/mem
+04dec000-04ded000 ---p 00000000 00:00 0 
+04ded000-04fec000 rw-p 00000000 00:00 0 
+04fec000-05046000 r-xp 00000000 fc:0f 18322      /usr/lib/libsencore.so
+05046000-0504d000 ---p 0005a000 fc:0f 18322      /usr/lib/libsencore.so
+0504d000-0504f000 rw-p 00059000 fc:0f 18322      /usr/lib/libsencore.so
+0504f000-0508a000 r-xp 00000000 fc:0f 18348      /usr/lib/libBizFw2.so
+0508a000-05092000 ---p 0003b000 fc:0f 18348      /usr/lib/libBizFw2.so
+05092000-05094000 rw-p 0003b000 fc:0f 18348      /usr/lib/libBizFw2.so
+05094000-05096000 r-xp 00000000 fc:0f 18237      /usr/lib/libInfraSKD.so
+05096000-0509e000 ---p 00002000 fc:0f 18237      /usr/lib/libInfraSKD.so
+0509e000-0509f000 rw-p 00002000 fc:0f 18237      /usr/lib/libInfraSKD.so
+050a0000-050a7000 r-xp 00000000 fc:0f 18364      /usr/lib/libosal_ulogio.so
+050a7000-050af000 ---p 00007000 fc:0f 18364      /usr/lib/libosal_ulogio.so
+050af000-050b0000 rw-p 00007000 fc:0f 18364      /usr/lib/libosal_ulogio.so
+050b0000-050b1000 ---p 00000000 00:00 0 
+050b1000-052b0000 rw-p 00000000 00:00 0 
+052b0000-052b1000 ---p 00000000 00:00 0 
+052b1000-054b0000 rw-p 00000000 00:00 0 
+054b0000-054b1000 ---p 00000000 00:00 0 
+054b1000-056b0000 rw-p 00000000 00:00 0 
+056b0000-056b1000 ---p 00000000 00:00 0 
+056b1000-058b0000 rw-p 00000000 00:00 0 
+058b0000-058c2000 r-xp 00000000 fc:0f 18299      /usr/lib/libNetContUtil.so
+058c2000-058c9000 ---p 00012000 fc:0f 18299      /usr/lib/libNetContUtil.so
+058c9000-058ca000 rw-p 00011000 fc:0f 18299      /usr/lib/libNetContUtil.so
+058ca000-058e1000 r-xp 00000000 fc:0f 18221      /usr/lib/libUsbControl.so
+058e1000-058e8000 ---p 00017000 fc:0f 18221      /usr/lib/libUsbControl.so
+058e8000-058e9000 rw-p 00016000 fc:0f 18221      /usr/lib/libUsbControl.so
+058e9000-058ec000 r--p 00000000 fc:0f 4054       /usr/share/app/viewCaution.uxc
+058ec000-05906000 r-xp 00000000 fc:0f 18280      /usr/lib/libSysDef.so
+05906000-0590e000 ---p 0001a000 fc:0f 18280      /usr/lib/libSysDef.so
+0590e000-05c12000 rw-p 0001a000 fc:0f 18280      /usr/lib/libSysDef.so
+05c12000-05c13000 ---p 00000000 00:00 0 
+05c13000-05e12000 rw-p 00000000 00:00 0 
+05e12000-05e13000 ---p 00000000 00:00 0 
+05e13000-06012000 rw-p 00000000 00:00 0 
+06012000-0605e000 r-xp 00000000 fc:0f 18349      /usr/lib/libBizFw.so
+0605e000-06065000 ---p 0004c000 fc:0f 18349      /usr/lib/libBizFw.so
+06065000-06068000 rw-p 0004b000 fc:0f 18349      /usr/lib/libBizFw.so
+06068000-06083000 r-xp 00000000 fc:0f 18268      /usr/lib/libNetCommon.so
+06083000-0608b000 ---p 0001b000 fc:0f 18268      /usr/lib/libNetCommon.so
+0608b000-0608e000 rw-p 0001b000 fc:0f 18268      /usr/lib/libNetCommon.so
+0608e000-06093000 rw-s 20028000 fc:07 138        /dev/mem
+06093000-06397000 rw-p 00000000 00:00 0 
+06397000-063a7000 r-xp 00000000 fc:0f 18303      /usr/lib/libGOConnectionManager.so
+063a7000-063ae000 ---p 00010000 fc:0f 18303      /usr/lib/libGOConnectionManager.so
+063ae000-063b0000 rw-p 0000f000 fc:0f 18303      /usr/lib/libGOConnectionManager.so
+063b0000-063e0000 r-xp 00000000 fc:0f 18238      /usr/lib/libjsoncpp.so.23
+063e0000-063e1000 rw-p 00030000 fc:0f 18238      /usr/lib/libjsoncpp.so.23
+063e1000-0642e000 r-xp 00000000 fc:0f 18298      /usr/lib/libInfraMediaCommon.so
+0642e000-06436000 ---p 0004d000 fc:0f 18298      /usr/lib/libInfraMediaCommon.so
+06436000-0643a000 rw-p 0004d000 fc:0f 18298      /usr/lib/libInfraMediaCommon.so
+0643a000-0643b000 rw-p 00000000 00:00 0 
+0643b000-06454000 r-xp 00000000 fc:0f 18385      /usr/lib/libexpat.so.1.6.11
+06454000-0645b000 ---p 00019000 fc:0f 18385      /usr/lib/libexpat.so.1.6.11
+0645b000-0645d000 rw-p 00018000 fc:0f 18385      /usr/lib/libexpat.so.1.6.11
+0645d000-0646f000 r-xp 00000000 fc:0f 18326      /usr/lib/libInfraMediaDetect.so
+0646f000-06477000 ---p 00012000 fc:0f 18326      /usr/lib/libInfraMediaDetect.so
+06477000-06478000 rw-p 00012000 fc:0f 18326      /usr/lib/libInfraMediaDetect.so
+06478000-0647c000 r-xp 00000000 fc:0f 18332      /usr/lib/libBTUtils.so
+0647c000-06483000 ---p 00004000 fc:0f 18332      /usr/lib/libBTUtils.so
+06483000-06484000 rw-p 00003000 fc:0f 18332      /usr/lib/libBTUtils.so
+06484000-06489000 rw-s 20028000 fc:07 138        /dev/mem
+0648b000-077e9000 r-xp 00000000 fc:0f 18276      /usr/lib/libObj.so
+077e9000-077f0000 ---p 0135e000 fc:0f 18276      /usr/lib/libObj.so
+077f0000-078e5000 rw-p 0135d000 fc:0f 18276      /usr/lib/libObj.so
+078e5000-07924000 rw-p 00000000 00:00 0 
+07924000-08565000 r-xp 00000000 fc:0f 18319      /usr/lib/libmpr.so
+08565000-0856c000 ---p 00c41000 fc:0f 18319      /usr/lib/libmpr.so
+0856c000-08597000 rw-p 00c40000 fc:0f 18319      /usr/lib/libmpr.so
+08597000-08e65000 rw-p 00000000 00:00 0 
+08e65000-08e78000 r-xp 00000000 fc:0f 18357      /usr/lib/libclema.so
+08e78000-08e7f000 ---p 00013000 fc:0f 18357      /usr/lib/libclema.so
+08e7f000-08e80000 rw-p 00012000 fc:0f 18357      /usr/lib/libclema.so
+08e80000-08eaa000 r-xp 00000000 fc:0f 18398      /usr/lib/dataflowInfraFramework.so
+08eaa000-08eb1000 ---p 0002a000 fc:0f 18398      /usr/lib/dataflowInfraFramework.so
+08eb1000-08eb2000 rw-p 00029000 fc:0f 18398      /usr/lib/dataflowInfraFramework.so
+08eb2000-09019000 r-xp 00000000 fc:0f 18253      /usr/lib/libmintx.so
+09019000-09020000 ---p 00167000 fc:0f 18253      /usr/lib/libmintx.so
+09020000-09030000 rw-p 00166000 fc:0f 18253      /usr/lib/libmintx.so
+09030000-0905b000 r-xp 00000000 fc:0f 18346      /usr/lib/libJiritsu.so
+0905b000-09062000 ---p 0002b000 fc:0f 18346      /usr/lib/libJiritsu.so
+09062000-09063000 rw-p 0002a000 fc:0f 18346      /usr/lib/libJiritsu.so
+09063000-09064000 ---p 00000000 00:00 0 
+09064000-09263000 rw-p 00000000 00:00 0 
+09263000-09264000 ---p 00000000 00:00 0 
+09264000-09463000 rw-p 00000000 00:00 0 
+09463000-09464000 ---p 00000000 00:00 0 
+09464000-094a3000 rw-p 00000000 00:00 0 
+094a3000-094a6000 r-xp 00000000 fc:0f 18389      /usr/lib/CameraOnDemandSaver.so
+094a6000-094ad000 ---p 00003000 fc:0f 18389      /usr/lib/CameraOnDemandSaver.so
+094ad000-094ae000 rw-p 00002000 fc:0f 18389      /usr/lib/CameraOnDemandSaver.so
+094ae000-094b3000 r-xp 00000000 fc:0f 18416      /usr/lib/libUsbBusPower.so
+094b3000-094ba000 ---p 00005000 fc:0f 18416      /usr/lib/libUsbBusPower.so
+094ba000-094bb000 rw-p 00004000 fc:0f 18416      /usr/lib/libUsbBusPower.so
+094bb000-094c3000 r-xp 00000000 fc:0f 18290      /usr/lib/libBusPower.so
+094c3000-094ca000 ---p 00008000 fc:0f 18290      /usr/lib/libBusPower.so
+094ca000-094cb000 rw-p 00007000 fc:0f 18290      /usr/lib/libBusPower.so
+094cb000-0952b000 r-xp 00000000 fc:0f 18363      /usr/lib/libInfraHdmi.so
+0952b000-09532000 ---p 00060000 fc:0f 18363      /usr/lib/libInfraHdmi.so
+09532000-09535000 rw-p 0005f000 fc:0f 18363      /usr/lib/libInfraHdmi.so
+09535000-0953d000 rw-s 20145000 fc:07 138        /dev/mem
+0953d000-0953e000 ---p 00000000 00:00 0 
+0953e000-0973d000 rw-p 00000000 00:00 0 
+0973d000-0973f000 r--p 00000000 fc:0f 4340       /usr/share/app/viewUsbMassStorage.uxc
+09740000-09741000 ---p 00000000 00:00 0 
+09741000-09940000 rw-p 00000000 00:00 0 
+09940000-09942000 r-xp 00000000 fc:0f 18414      /usr/lib/libInfraAirplaneMode.so
+09942000-09949000 ---p 00002000 fc:0f 18414      /usr/lib/libInfraAirplaneMode.so
+09949000-0994a000 rw-p 00001000 fc:0f 18414      /usr/lib/libInfraAirplaneMode.so
+0994a000-0995e000 r-xp 00000000 fc:0f 18308      /usr/lib/libInfraBluetooth.so
+0995e000-09966000 ---p 00014000 fc:0f 18308      /usr/lib/libInfraBluetooth.so
+09966000-09968000 rw-p 00014000 fc:0f 18308      /usr/lib/libInfraBluetooth.so
+09968000-0996b000 r-xp 00000000 fc:0f 18223      /usr/lib/libBTAdjust.so
+0996b000-09972000 ---p 00003000 fc:0f 18223      /usr/lib/libBTAdjust.so
+09972000-09973000 rw-p 00002000 fc:0f 18223      /usr/lib/libBTAdjust.so
+09973000-09978000 rw-s 20028000 fc:07 138        /dev/mem
+09978000-09979000 r-xp 00000000 fc:0f 18371      /usr/lib/libmprdummy.so
+09979000-09981000 ---p 00001000 fc:0f 18371      /usr/lib/libmprdummy.so
+09981000-09982000 rw-p 00001000 fc:0f 18371      /usr/lib/libmprdummy.so
+09982000-099a5000 r-xp 00000000 fc:0f 18246      /usr/lib/libInfraBluetoothCore.so
+099a5000-099ac000 ---p 00023000 fc:0f 18246      /usr/lib/libInfraBluetoothCore.so
+099ac000-099ae000 rw-p 00022000 fc:0f 18246      /usr/lib/libInfraBluetoothCore.so
+099ae000-09a03000 rw-p 00000000 00:00 0 
+09a03000-09a08000 r-xp 00000000 fc:0f 18320      /usr/lib/libInfraNetInitializer.so
+09a08000-09a0f000 ---p 00005000 fc:0f 18320      /usr/lib/libInfraNetInitializer.so
+09a0f000-09a10000 rw-p 00004000 fc:0f 18320      /usr/lib/libInfraNetInitializer.so
+09a10000-09a18000 r-xp 00000000 fc:0f 18265      /usr/lib/libWlanResource.so
+09a18000-09a19000 rw-p 00008000 fc:0f 18265      /usr/lib/libWlanResource.so
+09a19000-09a27000 r-xp 00000000 fc:0f 18240      /usr/lib/libWlanAdjust.so
+09a27000-09a2e000 ---p 0000e000 fc:0f 18240      /usr/lib/libWlanAdjust.so
+09a2e000-09a2f000 rw-p 0000d000 fc:0f 18240      /usr/lib/libWlanAdjust.so
+09a2f000-09a33000 r-xp 00000000 fc:0f 18375      /usr/lib/libWlanControlCommon.so
+09a33000-09a3a000 ---p 00004000 fc:0f 18375      /usr/lib/libWlanControlCommon.so
+09a3a000-09a3b000 rw-p 00003000 fc:0f 18375      /usr/lib/libWlanControlCommon.so
+09a3b000-09a3c000 r-xp 00000000 fc:0f 18331      /usr/lib/libExternalCommand.so
+09a3c000-09a43000 ---p 00001000 fc:0f 18331      /usr/lib/libExternalCommand.so
+09a43000-09a44000 rw-p 00000000 fc:0f 18331      /usr/lib/libExternalCommand.so
+09a44000-09a4b000 r-xp 00000000 fc:0f 18226      /usr/lib/libInfraNetConnectionManagerEther.so
+09a4b000-09a52000 ---p 00007000 fc:0f 18226      /usr/lib/libInfraNetConnectionManagerEther.so
+09a52000-09a53000 rw-p 00006000 fc:0f 18226      /usr/lib/libInfraNetConnectionManagerEther.so
+09a53000-09a55000 r-xp 00000000 fc:0f 18292      /usr/lib/libSKDWrapperManager.so
+09a55000-09a5c000 ---p 00002000 fc:0f 18292      /usr/lib/libSKDWrapperManager.so
+09a5c000-09a5d000 rw-p 00001000 fc:0f 18292      /usr/lib/libSKDWrapperManager.so
+09a5d000-09a5e000 r-xp 00000000 fc:0f 18352      /usr/lib/libInfraAccessLogWrapper.so
+09a5e000-09a65000 ---p 00001000 fc:0f 18352      /usr/lib/libInfraAccessLogWrapper.so
+09a65000-09a66000 rw-p 00000000 fc:0f 18352      /usr/lib/libInfraAccessLogWrapper.so
+09a66000-09a6d000 r-xp 00000000 fc:0f 18359      /usr/lib/libInfraIPsec.so
+09a6d000-09a74000 ---p 00007000 fc:0f 18359      /usr/lib/libInfraIPsec.so
+09a74000-09a75000 rw-p 00006000 fc:0f 18359      /usr/lib/libInfraIPsec.so
+09a75000-09a77000 r-xp 00000000 fc:0f 18365      /usr/lib/libInfraNetDeviceInfo.so
+09a77000-09a7e000 ---p 00002000 fc:0f 18365      /usr/lib/libInfraNetDeviceInfo.so
+09a7e000-09a7f000 rw-p 00001000 fc:0f 18365      /usr/lib/libInfraNetDeviceInfo.so
+09a7f000-09a84000 rw-s 20028000 fc:07 138        /dev/mem
+09a85000-09a86000 ---p 00000000 00:00 0 
+09a86000-09ac5000 rw-p 00000000 00:00 0 
+09ac5000-09ac6000 ---p 00000000 00:00 0 
+09ac6000-09ce6000 rw-p 00000000 00:00 0 
+09ce6000-09ce7000 ---p 00000000 00:00 0 
+09ce7000-09ee6000 rw-p 00000000 00:00 0 
+09ee6000-09eea000 r-xp 00000000 fc:0f 18366      /usr/lib/libgps_rsrc.so
+09eea000-09ef1000 ---p 00004000 fc:0f 18366      /usr/lib/libgps_rsrc.so
+09ef1000-09ef2000 rw-p 00003000 fc:0f 18366      /usr/lib/libgps_rsrc.so
+09ef2000-09ef3000 ---p 00000000 00:00 0 
+09ef3000-0a0f2000 rw-p 00000000 00:00 0 
+0a0f2000-0a0f3000 ---p 00000000 00:00 0 
+0a0f3000-0a2f2000 rw-p 00000000 00:00 0 
+0a2f2000-0a2fa000 r-xp 00000000 fc:0f 18373      /usr/lib/libInfraHttpClient.so
+0a2fa000-0a2fb000 rw-p 00008000 fc:0f 18373      /usr/lib/libInfraHttpClient.so
+0a2fb000-0a2ff000 r--p 00000000 fc:0f 4283       /usr/share/app/master_other.uxc
+0a2ff000-0a300000 ---p 00000000 00:00 0 
+0a300000-0a4ff000 rw-p 00000000 00:00 0 
+0a4ff000-0a51f000 rw-s 00000000 fc:07 179        /dev/dmpgles2
+0a51f000-0a580000 r-xp 00000000 fc:0f 18254      /usr/lib/libcurl.so.4.8.0
+0a580000-0a587000 ---p 00061000 fc:0f 18254      /usr/lib/libcurl.so.4.8.0
+0a587000-0a58b000 rw-p 00060000 fc:0f 18254      /usr/lib/libcurl.so.4.8.0
+0a58b000-0a58f000 r-xp 00000000 fc:0f 18220      /usr/lib/libInfraHttpClientUtil.so
+0a58f000-0a596000 ---p 00004000 fc:0f 18220      /usr/lib/libInfraHttpClientUtil.so
+0a596000-0a597000 rw-p 00003000 fc:0f 18220      /usr/lib/libInfraHttpClientUtil.so
+0a597000-0a5be000 r-xp 00000000 fc:0f 18339      /usr/lib/libssh2.so.1.0.1
+0a5be000-0a5c5000 ---p 00027000 fc:0f 18339      /usr/lib/libssh2.so.1.0.1
+0a5c5000-0a5c6000 rw-p 00026000 fc:0f 18339      /usr/lib/libssh2.so.1.0.1
+0a5c6000-0a5c9000 r-xp 00000000 fc:07 595        /lib/libanl-2.11.2.so
+0a5c9000-0a5d0000 ---p 00003000 fc:07 595        /lib/libanl-2.11.2.so
+0a5d0000-0a5d1000 r--p 00002000 fc:07 595        /lib/libanl-2.11.2.so
+0a5d1000-0a5d2000 rw-p 00003000 fc:07 595        /lib/libanl-2.11.2.so
+0a5d2000-0a5e2000 rw-p 00000000 00:00 0 
+0a5e2000-0a5e7000 r-xp 00000000 fc:0f 18343      /usr/lib/libRsrcHotshoe.so
+0a5e7000-0a5ef000 ---p 00005000 fc:0f 18343      /usr/lib/libRsrcHotshoe.so
+0a5ef000-0a5f0000 rw-p 00005000 fc:0f 18343      /usr/lib/libRsrcHotshoe.so
+0a5f0000-0a5f1000 ---p 00000000 00:00 0 
+0a5f1000-0a7f0000 rw-p 00000000 00:00 0 
+0a7f0000-0a7f1000 ---p 00000000 00:00 0 
+0a7f1000-0a9f0000 rw-p 00000000 00:00 0 
+0a9f0000-0a9f1000 ---p 00000000 00:00 0 
+0a9f1000-0abf0000 rw-p 00000000 00:00 0 
+0abf0000-0abf1000 ---p 00000000 00:00 0 
+0abf1000-0adf0000 rw-p 00000000 00:00 0 
+0adf0000-0adf1000 r-xp 00000000 fc:0f 18257      /usr/lib/libupdatertalk.so
+0adf1000-0adf8000 ---p 00001000 fc:0f 18257      /usr/lib/libupdatertalk.so
+0adf8000-0adf9000 rw-p 00000000 fc:0f 18257      /usr/lib/libupdatertalk.so
+0adf9000-0adfa000 ---p 00000000 00:00 0 
+0adfa000-0b04c000 rw-p 00000000 00:00 0 
+0b04c000-0b04d000 r-xp 00000000 fc:0f 18330      /usr/lib/libupdatermedia.so
+0b04d000-0b054000 ---p 00001000 fc:0f 18330      /usr/lib/libupdatermedia.so
+0b054000-0b055000 rw-p 00000000 fc:0f 18330      /usr/lib/libupdatermedia.so
+0b055000-0b056000 r-xp 00000000 fc:0f 18350      /usr/lib/libEMG.so
+0b056000-0b05e000 ---p 00001000 fc:0f 18350      /usr/lib/libEMG.so
+0b05e000-0b05f000 rw-p 00001000 fc:0f 18350      /usr/lib/libEMG.so
+0b05f000-0b064000 rw-s 20028000 fc:07 138        /dev/mem
+0b066000-0b0cc000 rw-p 00000000 00:00 0 
+0b0cc000-0b0cf000 r-xp 00000000 fc:0f 18317      /usr/lib/libupdaterufp.so
+0b0cf000-0b0d6000 ---p 00003000 fc:0f 18317      /usr/lib/libupdaterufp.so
+0b0d6000-0b0d7000 rw-p 00002000 fc:0f 18317      /usr/lib/libupdaterufp.so
+0b0d7000-0b0f1000 rw-p 00000000 00:00 0 
+0b0f7000-0b10a000 rw-p 00000000 00:00 0 
+0b10a000-0b123000 r-xp 00000000 fc:0f 18327      /usr/lib/libInfraIPTC.so
+0b123000-0b12b000 ---p 00019000 fc:0f 18327      /usr/lib/libInfraIPTC.so
+0b12b000-0b12d000 rw-p 00019000 fc:0f 18327      /usr/lib/libInfraIPTC.so
+0b12d000-0b14e000 rw-p 00000000 00:00 0 
+0b14e000-0b177000 r-xp 00000000 fc:0f 18283      /usr/lib/libInfraCacheMgr.so
+0b177000-0b17e000 ---p 00029000 fc:0f 18283      /usr/lib/libInfraCacheMgr.so
+0b17e000-0b180000 rw-p 00028000 fc:0f 18283      /usr/lib/libInfraCacheMgr.so
+0b186000-0b187000 ---p 00000000 00:00 0 
+0b187000-0b386000 rw-p 00000000 00:00 0 
+0b386000-0b390000 r-xp 00000000 fc:0f 18381      /usr/lib/libInfraMscServer.so
+0b390000-0b398000 ---p 0000a000 fc:0f 18381      /usr/lib/libInfraMscServer.so
+0b398000-0b399000 rw-p 0000a000 fc:0f 18381      /usr/lib/libInfraMscServer.so
+0b39f000-0b3a5000 r-xp 00000000 fc:0f 18228      /usr/lib/libInfraNetConnectionManager.so
+0b3a5000-0b3ac000 ---p 00006000 fc:0f 18228      /usr/lib/libInfraNetConnectionManager.so
+0b3ac000-0b3ad000 rw-p 00005000 fc:0f 18228      /usr/lib/libInfraNetConnectionManager.so
+0b3ad000-0b3ae000 ---p 00000000 00:00 0 
+0b3ae000-0b5e2000 rw-p 00000000 00:00 0 
+0b5e2000-0b60d000 r--p 00000000 fc:0f 4080       /usr/share/app/string_english.uxc
+0b60d000-0b61e000 rw-s 11b1c000 fc:07 138        /dev/mem
+0b623000-0b629000 r-xp 00000000 fc:0f 18394      /usr/lib/libdig_level.so
+0b629000-0b631000 ---p 00006000 fc:0f 18394      /usr/lib/libdig_level.so
+0b631000-0b632000 rw-p 00006000 fc:0f 18394      /usr/lib/libdig_level.so
+0b632000-0b64a000 r-xp 00000000 fc:0f 18358      /usr/lib/CautionRsrcConfig.so
+0b64a000-0b651000 ---p 00018000 fc:0f 18358      /usr/lib/CautionRsrcConfig.so
+0b651000-0b65c000 rw-p 00017000 fc:0f 18358      /usr/lib/CautionRsrcConfig.so
+0b65c000-0b66d000 rw-p 00000000 00:00 0 
+0b66d000-0b66e000 ---p 00000000 00:00 0 
+0b66e000-0b675000 rw-p 00000000 00:00 0 
+0b67d000-0b67e000 ---p 00000000 00:00 0 
+0b67e000-0b8b2000 rw-p 00000000 00:00 0 
+0b8b2000-0b8cb000 r--s 3e753000 fc:07 138        /dev/mem
+0b8cb000-0b8d3000 r-xp 00000000 fc:07 489        /lib/libnss_files-2.11.2.so
+0b8d3000-0b8da000 ---p 00008000 fc:07 489        /lib/libnss_files-2.11.2.so
+0b8da000-0b8db000 r--p 00007000 fc:07 489        /lib/libnss_files-2.11.2.so
+0b8db000-0b8dc000 rw-p 00008000 fc:07 489        /lib/libnss_files-2.11.2.so
+0b8dc000-0b8ec000 rw-p 00000000 00:00 0 
+0b8f9000-0b8fc000 r-xp 00000000 fc:0f 18312      /usr/lib/libInfraMetaSupplier.so
+0b8fc000-0b903000 ---p 00003000 fc:0f 18312      /usr/lib/libInfraMetaSupplier.so
+0b903000-0b904000 rw-p 00002000 fc:0f 18312      /usr/lib/libInfraMetaSupplier.so
+0b908000-0b919000 rw-s 11b2c000 fc:07 138        /dev/mem
+0b919000-0b91d000 r-xp 00000000 fc:0f 18302      /usr/lib/libInfraExtCmdSvc.so
+0b91d000-0b924000 ---p 00004000 fc:0f 18302      /usr/lib/libInfraExtCmdSvc.so
+0b924000-0b925000 rw-p 00003000 fc:0f 18302      /usr/lib/libInfraExtCmdSvc.so
+0b925000-0b926000 ---p 00000000 00:00 0 
+0b926000-0bbc8000 rw-p 00000000 00:00 0 
+0bbc8000-0bbdb000 r-xp 00000000 fc:0f 18354      /usr/lib/libInfraPtpControl.so
+0bbdb000-0bbe3000 ---p 00013000 fc:0f 18354      /usr/lib/libInfraPtpControl.so
+0bbe3000-0bbe4000 rw-p 00013000 fc:0f 18354      /usr/lib/libInfraPtpControl.so
+0bbe4000-0bbf0000 rw-p 00000000 00:00 0 
+0bbfd000-0bc25000 r-xp 00000000 fc:0f 18360      /usr/lib/libInfraMtpServer.so
+0bc25000-0bc27000 rw-p 00028000 fc:0f 18360      /usr/lib/libInfraMtpServer.so
+0bc27000-0bc29000 rw-p 00000000 00:00 0 
+0bc29000-0bc2d000 r-xp 00000000 fc:0f 18376      /usr/lib/libusbcmd.so
+0bc2d000-0bc34000 ---p 00004000 fc:0f 18376      /usr/lib/libusbcmd.so
+0bc34000-0bc35000 rw-p 00003000 fc:0f 18376      /usr/lib/libusbcmd.so
+0bc35000-0bc3d000 r-xp 00000000 fc:0f 18297      /usr/lib/libInfraPtpExtCmd.so
+0bc3d000-0bc44000 ---p 00008000 fc:0f 18297      /usr/lib/libInfraPtpExtCmd.so
+0bc44000-0bc45000 rw-p 00007000 fc:0f 18297      /usr/lib/libInfraPtpExtCmd.so
+0bc45000-0bc48000 r-xp 00000000 fc:0f 18399      /usr/lib/libInfraDevInfoSender.so
+0bc48000-0bc4f000 ---p 00003000 fc:0f 18399      /usr/lib/libInfraDevInfoSender.so
+0bc4f000-0bc50000 rw-p 00002000 fc:0f 18399      /usr/lib/libInfraDevInfoSender.so
+0bc50000-0bc52000 r-xp 00000000 fc:0f 18272      /usr/lib/libInfraKikiLogSender.so
+0bc52000-0bc59000 ---p 00002000 fc:0f 18272      /usr/lib/libInfraKikiLogSender.so
+0bc59000-0bc5a000 rw-p 00001000 fc:0f 18272      /usr/lib/libInfraKikiLogSender.so
+0bc5a000-0bc5d000 r-xp 00000000 fc:0f 18408      /usr/lib/libInfraExtBackupCommunicator.so
+0bc5d000-0bc65000 ---p 00003000 fc:0f 18408      /usr/lib/libInfraExtBackupCommunicator.so
+0bc65000-0bc66000 rw-p 00003000 fc:0f 18408      /usr/lib/libInfraExtBackupCommunicator.so
+0bc6a000-0bc75000 r-xp 00000000 fc:0f 18378      /usr/lib/libptp.so
+0bc75000-0bc7d000 ---p 0000b000 fc:0f 18378      /usr/lib/libptp.so
+0bc7d000-0bc7f000 rw-p 0000b000 fc:0f 18378      /usr/lib/libptp.so
+0bc7f000-0bcc1000 rw-p 00000000 00:00 0 
+0bcc5000-0bcc6000 ---p 00000000 00:00 0 
+0bcc6000-0bec5000 rw-p 00000000 00:00 0 
+0bec5000-0bec6000 ---p 00000000 00:00 0 
+0bec6000-0c0c5000 rw-p 00000000 00:00 0 
+0c0c5000-0c0c6000 ---p 00000000 00:00 0 
+0c0c6000-0c2c5000 rw-p 00000000 00:00 0 
+0c2c5000-0c32d000 rw-s 20030000 fc:07 291        /dev/stream
+0c32d000-0c347000 rw-p 00000000 00:00 0 
+0c347000-0c360000 rw-s 3e753000 fc:07 138        /dev/mem
+0c360000-0c36c000 rw-p 00000000 00:00 0 
+0c36f000-0c370000 ---p 00000000 00:00 0 
+0c370000-0c56f000 rw-p 00000000 00:00 0 
+0c56f000-0c5eb000 rw-s 20098000 fc:07 138        /dev/mem
+0c5eb000-0c5f8000 r-xp 00000000 fc:0f 18306      /usr/lib/libInfraCameraProfile.so
+0c5f8000-0c5ff000 ---p 0000d000 fc:0f 18306      /usr/lib/libInfraCameraProfile.so
+0c5ff000-0c600000 rw-p 0000c000 fc:0f 18306      /usr/lib/libInfraCameraProfile.so
+0c600000-0c700000 rw-p 00000000 00:00 0 
+0c700000-0c701000 ---p 00000000 00:00 0 
+0c701000-0c900000 rw-p 00000000 00:00 0 
+0c900000-0c901000 ---p 00000000 00:00 0 
+0c901000-0cb61000 rw-p 00000000 00:00 0 
+0cb66000-0cb67000 ---p 00000000 00:00 0 
+0cb67000-0cd66000 rw-p 00000000 00:00 0 
+0cd66000-0cd67000 ---p 00000000 00:00 0 
+0cd67000-0cf66000 rw-p 00000000 00:00 0 
+0cf66000-0cf67000 ---p 00000000 00:00 0 
+0cf67000-0d166000 rw-p 00000000 00:00 0 
+0d166000-0d167000 ---p 00000000 00:00 0 
+0d167000-0d366000 rw-p 00000000 00:00 0 
+0d366000-0d3fc000 rw-s 22c48000 fc:07 291        /dev/stream
+0d409000-0d40b000 r-xp 00000000 fc:0f 18362      /usr/lib/libInfraLensCommunicator.so
+0d40b000-0d412000 ---p 00002000 fc:0f 18362      /usr/lib/libInfraLensCommunicator.so
+0d412000-0d413000 rw-p 00001000 fc:0f 18362      /usr/lib/libInfraLensCommunicator.so
+0d414000-0d415000 ---p 00000000 00:00 0 
+0d415000-0d614000 rw-p 00000000 00:00 0 
+0d614000-0d615000 ---p 00000000 00:00 0 
+0d615000-0d814000 rw-p 00000000 00:00 0 
+0d814000-0d8b2000 r-xp 00000000 fc:0f 18417      /usr/lib/libNetService.so
+0d8b2000-0d8b9000 ---p 0009e000 fc:0f 18417      /usr/lib/libNetService.so
+0d8b9000-0d8c1000 rw-p 0009d000 fc:0f 18417      /usr/lib/libNetService.so
+0d8c1000-0d907000 rw-p 00000000 00:00 0 
+0d907000-0d908000 ---p 00000000 00:00 0 
+0d908000-0d90f000 rw-p 00000000 00:00 0 
+0d913000-0d914000 ---p 00000000 00:00 0 
+0d914000-0db13000 rw-p 00000000 00:00 0 
+0db13000-0db14000 ---p 00000000 00:00 0 
+0db14000-0dd13000 rw-p 00000000 00:00 0 
+0dd13000-0dd93000 rw-s 19e72000 fc:07 291        /dev/stream
+0dd93000-0ddd0000 rw-p 00000000 00:00 0 
+0ddd3000-0ddd4000 ---p 00000000 00:00 0 
+0ddd4000-0e014000 rw-p 00000000 00:00 0 
+0e014000-0e015000 ---p 00000000 00:00 0 
+0e015000-0e02b000 rw-p 00000000 00:00 0 
+0e047000-0e048000 ---p 00000000 00:00 0 
+0e048000-0e247000 rw-p 00000000 00:00 0 
+0e249000-0e24a000 ---p 00000000 00:00 0 
+0e24a000-0e449000 rw-p 00000000 00:00 0 
+0e449000-0e44a000 ---p 00000000 00:00 0 
+0e44a000-0e68a000 rw-p 00000000 00:00 0 
+0e694000-0e695000 ---p 00000000 00:00 0 
+0e695000-0e894000 rw-p 00000000 00:00 0 
+0e894000-0e914000 rw-s 19df2000 fc:07 291        /dev/stream
+0e914000-0e96a000 r--p 00000000 fc:0f 4093       /usr/share/app/string_english_f.uxc
+0e971000-0e972000 ---p 00000000 00:00 0 
+0e972000-0eb80000 rw-p 00000000 00:00 0 
+0eb87000-0eb88000 ---p 00000000 00:00 0 
+0eb88000-0edc8000 rw-p 00000000 00:00 0 
+0edd4000-0edd5000 ---p 00000000 00:00 0 
+0edd5000-0efd4000 rw-p 00000000 00:00 0 
+0efd4000-0f00e000 r-xp 00000000 fc:0f 18250      /usr/lib/libInfraBluetoothLowEnergy.so
+0f00e000-0f016000 ---p 0003a000 fc:0f 18250      /usr/lib/libInfraBluetoothLowEnergy.so
+0f016000-0f01d000 rw-p 0003a000 fc:0f 18250      /usr/lib/libInfraBluetoothLowEnergy.so
+0f01d000-0f04f000 rw-p 00000000 00:00 0 
+0f052000-0f053000 ---p 00000000 00:00 0 
+0f053000-0f293000 rw-p 00000000 00:00 0 
+0f2ad000-0f2ae000 ---p 00000000 00:00 0 
+0f2ae000-0f527000 rw-p 00000000 00:00 0 
+0f588000-0f589000 ---p 00000000 00:00 0 
+0f589000-0f788000 rw-p 00000000 00:00 0 
+0f7f6000-0f7f7000 ---p 00000000 00:00 0 
+0f7f7000-0f9f6000 rw-p 00000000 00:00 0 
+0f9f6000-0f9f7000 ---p 00000000 00:00 0 
+0f9f7000-0fbf6000 rw-p 00000000 00:00 0 
+0fc41000-0fc42000 ---p 00000000 00:00 0 
+0fc42000-0fe41000 rw-p 00000000 00:00 0 
+0fe41000-0fe42000 ---p 00000000 00:00 0 
+0fe42000-10041000 rw-p 00000000 00:00 0 
+10041000-10042000 ---p 00000000 00:00 0 
+10042000-10241000 rw-p 00000000 00:00 0 
+102b5000-102b6000 ---p 00000000 00:00 0 
+102b6000-104b5000 rw-p 00000000 00:00 0 
+104b5000-104b6000 ---p 00000000 00:00 0 
+104b6000-10be7000 rw-p 00000000 00:00 0 
+10bec000-10bed000 ---p 00000000 00:00 0 
+10bed000-10dec000 rw-p 00000000 00:00 0 
+10dec000-12dec000 rw-s 20312000 fc:07 291        /dev/stream
+12dec000-12ded000 ---p 00000000 00:00 0 
+12ded000-12fec000 rw-p 00000000 00:00 0 
+12fec000-13070000 r--p 00000000 fc:0f 4287       /usr/share/app/image_DSC_Entry_Only_43.uxc
+13091000-13092000 ---p 00000000 00:00 0 
+13092000-13291000 rw-p 00000000 00:00 0 
+1329d000-1329e000 ---p 00000000 00:00 0 
+1329e000-1349d000 rw-p 00000000 00:00 0 
+1349d000-1349e000 ---p 00000000 00:00 0 
+1349e000-1369d000 rw-p 00000000 00:00 0 
+1369d000-1369e000 ---p 00000000 00:00 0 
+1369e000-1389d000 rw-p 00000000 00:00 0 
+138b6000-138b7000 ---p 00000000 00:00 0 
+138b7000-13ab6000 rw-p 00000000 00:00 0 
+13b12000-13b13000 ---p 00000000 00:00 0 
+13b13000-13d12000 rw-p 00000000 00:00 0 
+13e10000-14264000 rw-p 00000000 00:00 0 
+14264000-14265000 ---p 00000000 00:00 0 
+14265000-14464000 rw-p 00000000 00:00 0 
+14464000-144e5000 r-xp 00000000 fc:0f 18287      /usr/lib/viewUnified6.so
+144e5000-144ec000 ---p 00081000 fc:0f 18287      /usr/lib/viewUnified6.so
+144ec000-144fc000 rw-p 00080000 fc:0f 18287      /usr/lib/viewUnified6.so
+1452e000-1452f000 ---p 00000000 00:00 0 
+1452f000-1472e000 rw-p 00000000 00:00 0 
+147b0000-147b1000 ---p 00000000 00:00 0 
+147b1000-149b0000 rw-p 00000000 00:00 0 
+14a08000-14a09000 ---p 00000000 00:00 0 
+14a09000-14c08000 rw-p 00000000 00:00 0 
+14c08000-14c9e000 rw-s 22bb2000 fc:07 291        /dev/stream
+14cf0000-14cf1000 ---p 00000000 00:00 0 
+14cf1000-14ef0000 rw-p 00000000 00:00 0 
+14fc0000-14fc1000 ---p 00000000 00:00 0 
+14fc1000-151c0000 rw-p 00000000 00:00 0 
+151c0000-151c1000 ---p 00000000 00:00 0 
+151c1000-153c0000 rw-p 00000000 00:00 0 
+153c0000-153c1000 ---p 00000000 00:00 0 
+153c1000-155c0000 rw-p 00000000 00:00 0 
+1567c000-1567d000 ---p 00000000 00:00 0 
+1567d000-1587c000 rw-p 00000000 00:00 0 
+1587c000-1587d000 ---p 00000000 00:00 0 
+1587d000-15a7c000 rw-p 00000000 00:00 0 
+15b76000-15b77000 ---p 00000000 00:00 0 
+15b77000-15d76000 rw-p 00000000 00:00 0 
+15d96000-15d97000 ---p 00000000 00:00 0 
+15d97000-15f96000 rw-p 00000000 00:00 0 
+15fcb000-15fcc000 ---p 00000000 00:00 0 
+15fcc000-161cb000 rw-p 00000000 00:00 0 
+161cb000-161cc000 ---p 00000000 00:00 0 
+161cc000-163cb000 rw-p 00000000 00:00 0 
+163cb000-163cc000 ---p 00000000 00:00 0 
+163cc000-165cb000 rw-p 00000000 00:00 0 
+165cb000-165cc000 ---p 00000000 00:00 0 
+165cc000-167cb000 rw-p 00000000 00:00 0 
+167cb000-167cc000 ---p 00000000 00:00 0 
+167cc000-169cb000 rw-p 00000000 00:00 0 
+169cb000-17544000 r-xp 00000000 fc:0f 18413      /usr/lib/viewUnified2.so
+17544000-1754b000 ---p 00b79000 fc:0f 18413      /usr/lib/viewUnified2.so
+1754b000-17773000 rw-p 00b78000 fc:0f 18413      /usr/lib/viewUnified2.so
+17773000-1781b000 rw-p 00000000 00:00 0 
+1781b000-187ab000 r-xp 00000000 fc:0f 18311      /usr/lib/CautionConfig.so
+187ab000-187b2000 ---p 00f90000 fc:0f 18311      /usr/lib/CautionConfig.so
+187b2000-18903000 rw-p 00f8f000 fc:0f 18311      /usr/lib/CautionConfig.so
+18903000-18a25000 rw-p 00000000 00:00 0 
+18a25000-18a26000 ---p 00000000 00:00 0 
+18a26000-18c25000 rw-p 00000000 00:00 0 
+18c9c000-18c9d000 ---p 00000000 00:00 0 
+18c9d000-18e9c000 rw-p 00000000 00:00 0 
+18e9c000-1929c000 rw-s 22312000 fc:07 291        /dev/stream
+1938e000-1958e000 rw-s 228b2000 fc:07 291        /dev/stream
+195ae000-1974e000 rw-s 22712000 fc:07 291        /dev/stream
+1974e000-1b164000 r--p 00000000 fc:0f 4146       /usr/share/app/image_cmn_43.uxc
+1b19b000-1b5ab000 r--p 00000000 fc:0f 4055       /usr/share/app/image_DSLR_Only_43.uxc
+1b67c000-1b964000 r--p 00000000 fc:0f 4310       /usr/share/app/image_EVF.uxc
+1b964000-1b965000 ---p 00000000 00:00 0 
+1b965000-1bb64000 rw-p 00000000 00:00 0 
+1bc2d000-1bc2e000 ---p 00000000 00:00 0 
+1bc2e000-1be2d000 rw-p 00000000 00:00 0 
+1bec4000-1bec5000 ---p 00000000 00:00 0 
+1bec5000-1c0c4000 rw-p 00000000 00:00 0 
+1c0e9000-1c0ea000 ---p 00000000 00:00 0 
+1c0ea000-1c2e9000 rw-p 00000000 00:00 0 
+1c346000-1c347000 ---p 00000000 00:00 0 
+1c347000-1c546000 rw-p 00000000 00:00 0 
+1c568000-1c569000 ---p 00000000 00:00 0 
+1c569000-1c768000 rw-p 00000000 00:00 0 
+1c76c000-1c76d000 ---p 00000000 00:00 0 
+1c76d000-1c96c000 rw-p 00000000 00:00 0 
+1c970000-1c971000 ---p 00000000 00:00 0 
+1c971000-1cb70000 rw-p 00000000 00:00 0 
+1cbf7000-1cbf8000 ---p 00000000 00:00 0 
+1cbf8000-1cdf7000 rw-p 00000000 00:00 0 
+1cece000-1cecf000 ---p 00000000 00:00 0 
+1cecf000-1d0ce000 rw-p 00000000 00:00 0 
+1d0cf000-1d0d0000 ---p 00000000 00:00 0 
+1d0d0000-1d2cf000 rw-p 00000000 00:00 0 
+1d2f7000-1d2f8000 ---p 00000000 00:00 0 
+1d2f8000-1d4f7000 rw-p 00000000 00:00 0 
+1d5a6000-1d5a7000 ---p 00000000 00:00 0 
+1d5a7000-1d7a6000 rw-p 00000000 00:00 0 
+1d822000-1d823000 ---p 00000000 00:00 0 
+1d823000-1da22000 rw-p 00000000 00:00 0 
+1dae7000-1dae8000 ---p 00000000 00:00 0 
+1dae8000-1dce7000 rw-p 00000000 00:00 0 
+1dcf8000-1dcf9000 ---p 00000000 00:00 0 
+1dcf9000-1def8000 rw-p 00000000 00:00 0 
+1dfed000-1dfee000 ---p 00000000 00:00 0 
+1dfee000-1e1ed000 rw-p 00000000 00:00 0 
+1e296000-1e297000 ---p 00000000 00:00 0 
+1e297000-1e496000 rw-p 00000000 00:00 0 
+1e4f5000-1e4f6000 ---p 00000000 00:00 0 
+1e4f6000-1e6f5000 rw-p 00000000 00:00 0 
+1e795000-1e796000 ---p 00000000 00:00 0 
+1e796000-1e995000 rw-p 00000000 00:00 0 
+1ea8e000-1ea8f000 ---p 00000000 00:00 0 
+1ea8f000-1ec8e000 rw-p 00000000 00:00 0 
+1ed20000-1ed21000 ---p 00000000 00:00 0 
+1ed21000-1ef20000 rw-p 00000000 00:00 0 
+1ef9b000-1ef9c000 ---p 00000000 00:00 0 
+1ef9c000-1f19b000 rw-p 00000000 00:00 0 
+1f1dd000-1f1de000 ---p 00000000 00:00 0 
+1f1de000-1f3dd000 rw-p 00000000 00:00 0 
+1f45f000-1f460000 ---p 00000000 00:00 0 
+1f460000-1f65f000 rw-p 00000000 00:00 0 
+1f72e000-1f72f000 ---p 00000000 00:00 0 
+1f72f000-1f92e000 rw-p 00000000 00:00 0 
+1fa16000-1fa17000 ---p 00000000 00:00 0 
+1fa17000-1fc16000 rw-p 00000000 00:00 0 
+1fcae000-1fcaf000 ---p 00000000 00:00 0 
+1fcaf000-1feae000 rw-p 00000000 00:00 0 
+1ff5f000-1ff60000 ---p 00000000 00:00 0 
+1ff60000-2015f000 rw-p 00000000 00:00 0 
+20190000-20191000 ---p 00000000 00:00 0 
+20191000-20390000 rw-p 00000000 00:00 0 
+20402000-20403000 ---p 00000000 00:00 0 
+20403000-20602000 rw-p 00000000 00:00 0 
+206ed000-206ee000 ---p 00000000 00:00 0 
+206ee000-208ed000 rw-p 00000000 00:00 0 
+208ed000-21706000 r--p 00000000 fc:0f 4243       /usr/share/app/image_DSC_Only_43.uxc
+21706000-21707000 ---p 00000000 00:00 0 
+21707000-21906000 rw-p 00000000 00:00 0 
+2190c000-2190d000 ---p 00000000 00:00 0 
+2190d000-21b0c000 rw-p 00000000 00:00 0 
+21b4c000-21b4d000 ---p 00000000 00:00 0 
+21b4d000-21d4c000 rw-p 00000000 00:00 0 
+21d6a000-21d6b000 ---p 00000000 00:00 0 
+21d6b000-21f6a000 rw-p 00000000 00:00 0 
+2203f000-22040000 ---p 00000000 00:00 0 
+22040000-2223f000 rw-p 00000000 00:00 0 
+22321000-22322000 ---p 00000000 00:00 0 
+22322000-22521000 rw-p 00000000 00:00 0 
+22535000-22536000 ---p 00000000 00:00 0 
+22536000-22735000 rw-p 00000000 00:00 0 
+2277d000-2277e000 ---p 00000000 00:00 0 
+2277e000-2297d000 rw-p 00000000 00:00 0 
+22a55000-22a56000 ---p 00000000 00:00 0 
+22a56000-22c55000 rw-p 00000000 00:00 0 
+22d00000-22db6000 rw-p 00000000 00:00 0 
+22db6000-22e00000 ---p 00000000 00:00 0 
+22e00000-22e01000 ---p 00000000 00:00 0 
+22e01000-23000000 rw-p 00000000 00:00 0 
+230be000-230bf000 ---p 00000000 00:00 0 
+230bf000-232be000 rw-p 00000000 00:00 0 
+232be000-232bf000 ---p 00000000 00:00 0 
+232bf000-234be000 rw-p 00000000 00:00 0 
+23525000-23526000 ---p 00000000 00:00 0 
+23526000-23725000 rw-p 00000000 00:00 0 
+23725000-23726000 ---p 00000000 00:00 0 
+23726000-23925000 rw-p 00000000 00:00 0 
+23943000-23944000 ---p 00000000 00:00 0 
+23944000-23b43000 rw-p 00000000 00:00 0 
+23b43000-23b44000 ---p 00000000 00:00 0 
+23b44000-23d43000 rw-p 00000000 00:00 0 
+23d89000-23d8a000 ---p 00000000 00:00 0 
+23d8a000-23f89000 rw-p 00000000 00:00 0 
+23f89000-23f8a000 ---p 00000000 00:00 0 
+23f8a000-24189000 rw-p 00000000 00:00 0 
+24189000-2418a000 ---p 00000000 00:00 0 
+2418a000-24389000 rw-p 00000000 00:00 0 
+24389000-2438a000 ---p 00000000 00:00 0 
+2438a000-24589000 rw-p 00000000 00:00 0 
+24589000-2458a000 ---p 00000000 00:00 0 
+2458a000-24789000 rw-p 00000000 00:00 0 
+24789000-2478a000 ---p 00000000 00:00 0 
+2478a000-24989000 rw-p 00000000 00:00 0 
+24a2e000-24a2f000 ---p 00000000 00:00 0 
+24a2f000-24c2e000 rw-p 00000000 00:00 0 
+24c2e000-24c2f000 ---p 00000000 00:00 0 
+24c2f000-24e2e000 rw-p 00000000 00:00 0 
+24ec6000-24ec7000 ---p 00000000 00:00 0 
+24ec7000-250c6000 rw-p 00000000 00:00 0 
+250c6000-250c7000 ---p 00000000 00:00 0 
+250c7000-252c6000 rw-p 00000000 00:00 0 
+25364000-25365000 ---p 00000000 00:00 0 
+25365000-25564000 rw-p 00000000 00:00 0 
+25585000-25586000 ---p 00000000 00:00 0 
+25586000-25785000 rw-p 00000000 00:00 0 
+25785000-25786000 ---p 00000000 00:00 0 
+25786000-25985000 rw-p 00000000 00:00 0 
+25985000-25986000 ---p 00000000 00:00 0 
+25986000-25b85000 rw-p 00000000 00:00 0 
+25c57000-25c58000 ---p 00000000 00:00 0 
+25c58000-25e57000 rw-p 00000000 00:00 0 
+25eb3000-25eb4000 ---p 00000000 00:00 0 
+25eb4000-260b3000 rw-p 00000000 00:00 0 
+26115000-26116000 ---p 00000000 00:00 0 
+26116000-26315000 rw-p 00000000 00:00 0 
+26315000-26316000 ---p 00000000 00:00 0 
+26316000-26515000 rw-p 00000000 00:00 0 
+26515000-26d34000 r-xp 00000000 fc:0f 18241      /usr/lib/libInfraRemote.so
+26d34000-26d3c000 ---p 0081f000 fc:0f 18241      /usr/lib/libInfraRemote.so
+26d3c000-26d6b000 rw-p 0081f000 fc:0f 18241      /usr/lib/libInfraRemote.so
+26d6b000-26d8f000 rw-p 00000000 00:00 0 
+26d8f000-26d90000 ---p 00000000 00:00 0 
+26d90000-26f8f000 rw-p 00000000 00:00 0 
+26f8f000-26f90000 ---p 00000000 00:00 0 
+26f90000-2718f000 rw-p 00000000 00:00 0 
+271b7000-271b8000 ---p 00000000 00:00 0 
+271b8000-273b7000 rw-p 00000000 00:00 0 
+273b7000-27bb7000 rw-s 3f7ed000 fc:07 291        /dev/stream
+27c44000-27c45000 ---p 00000000 00:00 0 
+27c45000-27e44000 rw-p 00000000 00:00 0 
+27efb000-27efc000 ---p 00000000 00:00 0 
+27efc000-280fb000 rw-p 00000000 00:00 0 
+28119000-2851a000 rw-s 3f3ec000 fc:07 138        /dev/mem
+2851a000-2851b000 ---p 00000000 00:00 0 
+2851b000-2871a000 rw-p 00000000 00:00 0 
+2871a000-2871b000 ---p 00000000 00:00 0 
+2871b000-2891a000 rw-p 00000000 00:00 0 
+2899a000-2899b000 ---p 00000000 00:00 0 
+2899b000-28b9a000 rw-p 00000000 00:00 0 
+28b9a000-28b9b000 ---p 00000000 00:00 0 
+28b9b000-28d9a000 rw-p 00000000 00:00 0 
+28e7f000-28e80000 ---p 00000000 00:00 0 
+28e80000-2907f000 rw-p 00000000 00:00 0 
+290fa000-290fb000 ---p 00000000 00:00 0 
+290fb000-292fa000 rw-p 00000000 00:00 0 
+292fa000-292fb000 ---p 00000000 00:00 0 
+292fb000-294fa000 rw-p 00000000 00:00 0 
+295db000-295dc000 ---p 00000000 00:00 0 
+295dc000-297db000 rw-p 00000000 00:00 0 
+298c8000-298c9000 ---p 00000000 00:00 0 
+298c9000-29ac8000 rw-p 00000000 00:00 0 
+29ac8000-29ac9000 ---p 00000000 00:00 0 
+29ac9000-29cc8000 rw-p 00000000 00:00 0 
+29cdc000-29cdd000 ---p 00000000 00:00 0 
+29cdd000-29edc000 rw-p 00000000 00:00 0 
+29f0e000-29f0f000 ---p 00000000 00:00 0 
+29f0f000-2a10e000 rw-p 00000000 00:00 0 
+2a10e000-2a10f000 ---p 00000000 00:00 0 
+2a10f000-2a30e000 rw-p 00000000 00:00 0 
+2a400000-2a4a3000 rw-p 00000000 00:00 0 
+2a4a3000-2a500000 ---p 00000000 00:00 0 
+2a500000-2a501000 ---p 00000000 00:00 0 
+2a501000-2a700000 rw-p 00000000 00:00 0 
+2a721000-2a722000 ---p 00000000 00:00 0 
+2a722000-2a921000 rw-p 00000000 00:00 0 
+2a921000-2a922000 ---p 00000000 00:00 0 
+2a922000-2ab21000 rw-p 00000000 00:00 0 
+2abb2000-2abb3000 ---p 00000000 00:00 0 
+2abb3000-2adb2000 rw-p 00000000 00:00 0 
+2ae08000-2ae09000 ---p 00000000 00:00 0 
+2ae09000-2b008000 rw-p 00000000 00:00 0 
+2b008000-2b009000 ---p 00000000 00:00 0 
+2b009000-2b208000 rw-p 00000000 00:00 0 
+2b303000-2b304000 ---p 00000000 00:00 0 
+2b304000-2b503000 rw-p 00000000 00:00 0 
+2b503000-2b504000 ---p 00000000 00:00 0 
+2b504000-2b703000 rw-p 00000000 00:00 0 
+2b781000-2b782000 ---p 00000000 00:00 0 
+2b782000-2b981000 rw-p 00000000 00:00 0 
+2b9c6000-2b9c7000 ---p 00000000 00:00 0 
+2b9c7000-2bbc6000 rw-p 00000000 00:00 0 
+2bc08000-2bc09000 ---p 00000000 00:00 0 
+2bc09000-2be08000 rw-p 00000000 00:00 0 
+2be78000-2be79000 ---p 00000000 00:00 0 
+2be79000-2c078000 rw-p 00000000 00:00 0 
+2c078000-2c079000 ---p 00000000 00:00 0 
+2c079000-2c379000 rw-p 00000000 00:00 0 
+2c379000-2c37a000 ---p 00000000 00:00 0 
+2c37a000-2c579000 rw-p 00000000 00:00 0 
+2c579000-2c57a000 ---p 00000000 00:00 0 
+2c57a000-2c779000 rw-p 00000000 00:00 0 
+2c797000-2c798000 ---p 00000000 00:00 0 
+2c798000-2c997000 rw-p 00000000 00:00 0 
+2c997000-2c998000 ---p 00000000 00:00 0 
+2c998000-2cb97000 rw-p 00000000 00:00 0 
+2cbf7000-2cbf8000 ---p 00000000 00:00 0 
+2cbf8000-2cdf7000 rw-p 00000000 00:00 0 
+2cdf7000-2cdf8000 ---p 00000000 00:00 0 
+2cdf8000-2cff7000 rw-p 00000000 00:00 0 
+2cff7000-2cff8000 ---p 00000000 00:00 0 
+2cff8000-2d1f7000 rw-p 00000000 00:00 0 
+30c6e000-30c6f000 ---p 00000000 00:00 0 
+30c6f000-30e6e000 rw-p 00000000 00:00 0 
+31031000-31032000 ---p 00000000 00:00 0 
+31032000-31231000 rw-p 00000000 00:00 0 
+5e9ac000-5e9cd000 rw-p 00000000 00:00 0          [stack]
+ffff0000-ffff1000 r-xp 00000000 00:00 0          [vectors]

@@ -1,0 +1,5 @@
+{
+  "id": "005-cold-reboot",
+  "ok": false,
+  "error": "RuntimeError('Direct terminal marker missing')"
+}

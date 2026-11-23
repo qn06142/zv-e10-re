@@ -1,0 +1,81 @@
+{
+  "verified": true,
+  "files": [
+    {
+      "name": "AccessLog.bak",
+      "bytes": 2097220,
+      "md5": "bbf59efa80c8e554012b5c02f4468d9f"
+    },
+    {
+      "name": "AccessLog.dat",
+      "bytes": 2097220,
+      "md5": "bbf59efa80c8e554012b5c02f4468d9f"
+    },
+    {
+      "name": "ThreadMonitor.bin",
+      "bytes": 0,
+      "md5": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "name": "boot-id.txt",
+      "bytes": 37,
+      "md5": "62a66c11dfec97b4285c2826de58d85b"
+    },
+    {
+      "name": "dmesg-after-restart.txt",
+      "bytes": 7913,
+      "md5": "8397185efebd5945422afa9edbf0b5a5"
+    },
+    {
+      "name": "installed.md5",
+      "bytes": 303,
+      "md5": "40701b796d7ade91078047503a3942ee"
+    },
+    {
+      "name": "kikilog.dat",
+      "bytes": 1957888,
+      "md5": "099e7249ba17f03f4f54a8806f154c50"
+    },
+    {
+      "name": "maps.txt",
+      "bytes": 46969,
+      "md5": "78f4dd38c3b0590ddd94dab8df002228"
+    },
+    {
+      "name": "memory.txt",
+      "bytes": 924,
+      "md5": "8f1100f7f24b816a7d2b8efdc1397f18"
+    },
+    {
+      "name": "mounts.txt",
+      "bytes": 1584,
+      "md5": "7b1129bd5496ee752970d1103b593f16"
+    },
+    {
+      "name": "runtime.log",
+      "bytes": 1381,
+      "md5": "2a2ffc1838ea99aba748f3ff353a5195"
+    },
+    {
+      "name": "status.txt",
+      "bytes": 699,
+      "md5": "8937bcca623c13cab00a66afefd00cf0"
+    },
+    {
+      "name": "storage.txt",
+      "bytes": 146,
+      "md5": "0d25c9cefcb736e773c78c8dba9ce6a9"
+    },
+    {
+      "name": "uptime.txt",
+      "bytes": 14,
+      "md5": "b3213d7fa35c7e22fd4dfd9795dac3d0"
+    },
+    {
+      "name": "vga.log",
+      "bytes": 79,
+      "md5": "0d4277a250eeffe7b1e2ce88e0c66200"
+    }
+  ],
+  "bytes": 6212377
+}

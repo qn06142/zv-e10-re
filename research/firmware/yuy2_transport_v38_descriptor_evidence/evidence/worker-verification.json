@@ -1,0 +1,118 @@
+{
+  "camera_access": false,
+  "hardware_boundaries_mocked": true,
+  "cases": [
+    {
+      "case": 0,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 1,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 2,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 3,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 4,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 5,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 6,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 7,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 8,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 9,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 10,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 11,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 12,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 13,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 14,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 15,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 16,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 17,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 18,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 19,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 20,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 21,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 22,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 23,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 24,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 25,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 26,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 27,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    }
+  ]
+}

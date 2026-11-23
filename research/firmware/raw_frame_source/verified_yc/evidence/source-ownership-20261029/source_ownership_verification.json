@@ -1,0 +1,53 @@
+{
+  "mocked": false,
+  "limitations": "Static firmware disassembly and parameter tracing; no execution of RTOS.",
+  "av_cam_md5": "cdcae9d4fdbf66a33704a4c7564e346d",
+  "details": {
+    "DataflowInfraPin_Connect": {
+      "address": "0x63de01b2",
+      "state_check": [
+        "0x63de01c6",
+        "ldr r3, [r4, #0x28]"
+      ],
+      "peer_prop_copy": []
+    },
+    "CdSeqCtrlEnc_SendYCPinConnect": {
+      "address": "0x6364647c",
+      "instructions": [
+        [
+          "0x63646484",
+          "str r0, [sp]"
+        ],
+        [
+          "0x636464e0",
+          "str r3, [sp]"
+        ]
+      ]
+    },
+    "VDF_Producer_Block": {
+      "address": "0x6374c500",
+      "calls": [
+        [
+          "0x6374c506",
+          "#0x63712f58"
+        ],
+        [
+          "0x6374c510",
+          "#0x63ce259a"
+        ],
+        [
+          "0x6374c520",
+          "#0x63ce259a"
+        ],
+        [
+          "0x6374c52e",
+          "r3"
+        ],
+        [
+          "0x6374c53c",
+          "#0x63ce259a"
+        ]
+      ]
+    }
+  }
+}

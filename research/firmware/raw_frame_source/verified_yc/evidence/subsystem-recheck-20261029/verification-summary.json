@@ -1,0 +1,23 @@
+{
+  "camera_access": false,
+  "checks": [
+    {
+      "script": "verify_category2_and_pin.py",
+      "exit_code": 0
+    },
+    {
+      "script": "verify_pin_wire.py",
+      "exit_code": 0
+    },
+    {
+      "script": "inspect_native_receive.py",
+      "exit_code": 0
+    },
+    {
+      "script": "verify_native_type1.py",
+      "exit_code": 0
+    }
+  ],
+  "native_cmdqueue_literal": "0x80003b",
+  "passed": true
+}

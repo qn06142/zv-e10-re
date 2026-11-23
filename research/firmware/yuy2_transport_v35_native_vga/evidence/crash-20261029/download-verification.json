@@ -1,0 +1,89 @@
+{
+  "all_match": true,
+  "files": [
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-AccessLog.dat",
+      "bytes": 2097220,
+      "md5": "05b6579f523b8f7e3ac55e311c93cc2c",
+      "sha256": "214c1b0d89c096e033bc215b88fe5dad8ba715994feba056c3aad9655b4aaa6e"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-AccessLog.bak",
+      "bytes": 2097220,
+      "md5": "05b6579f523b8f7e3ac55e311c93cc2c",
+      "sha256": "214c1b0d89c096e033bc215b88fe5dad8ba715994feba056c3aad9655b4aaa6e"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-ThreadMonitor.bin",
+      "bytes": 0,
+      "md5": "d41d8cd98f00b204e9800998ecf8427e",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-kikilog.dat",
+      "bytes": 1957888,
+      "md5": "b7a283e7bfbeacf5465dcf6146fb22b6",
+      "sha256": "a35c96be1241e9e5aa14a07f05e5b0c4c17af297eaccdfe86470e800fab580e2"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-runtime.log",
+      "bytes": 83,
+      "md5": "eb7ed5d83ca697d1b519da6d4557f188",
+      "sha256": "1019e82af766dcf3e7043ee1cec11537a5773753f8350a320969d989e18b6f5c"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-uptime.txt",
+      "bytes": 14,
+      "md5": "ebc83a64019c3a0a4e06ae18564bd142",
+      "sha256": "9a425126e9aeb9dd656a40ced4d0e6850119af347e0c9d2cc0453ee2e5fccae6"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-mounts.txt",
+      "bytes": 1584,
+      "md5": "5a765d627d1436f46762eb4a1e20cb8f",
+      "sha256": "d5cd11103b51417c452ae769e0da46cfc89e2acc2c2b32d2446bcc2f9c36f167"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-meminfo.txt",
+      "bytes": 924,
+      "md5": "a9215b1fdfed6fe4d69b6b4be8ee3c6b",
+      "sha256": "033b6180432f8bba08e1e9d8e44fe7b1f923e9eab8155022e31c6fdc65199d1a"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-boot-id.txt",
+      "bytes": 37,
+      "md5": "5b49954c62c8b2ad6b94e71ac87e48f8",
+      "sha256": "e83c93b2294501824d44fe496c5102b0549bc5cec4274223dd6db2948323cdd4"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-maps.txt",
+      "bytes": 46935,
+      "md5": "a18128e82df8a05a5e78a7c811eea2bd",
+      "sha256": "fe9f531f71924a7739e2dc04388fe91d8c05d878caef56d86dd69d36ef1e4d4a"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-status.txt",
+      "bytes": 702,
+      "md5": "ab33eb4bf97f66f7f108225b5d6dbf6c",
+      "sha256": "4b7fbc5157b492629b4f4157b5daf19111a5fcc3acb9aaa88f5b3a84e779fed2"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-dmesg.txt",
+      "bytes": 7913,
+      "md5": "769b14bd5695988ab33c1ed7361ef6a9",
+      "sha256": "4c3784f991a850c7a1ec065943b9f935d1a967b1ea578f9c153e9e1e1b78d174"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-storage.txt",
+      "bytes": 146,
+      "md5": "68a3a704d8338880513d4532e163f633",
+      "sha256": "9128cee410ca614090ac6fd7eb3efce1d13e331efa78867c00dad5ec67ca1114"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-installed.md5",
+      "bytes": 129,
+      "md5": "e98998d288589ef1990dfb8943b0e160",
+      "sha256": "fb0a5648c3c7bed05fe046d5159b240179e7b3bcdd0fb2d61ec0dc2242acd072"
+    }
+  ]
+}

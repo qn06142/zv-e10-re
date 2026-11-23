@@ -1,0 +1,20 @@
+[
+  {
+    "remote": "/log/yuy2_640_v31vga/install.log",
+    "bytes": 3579,
+    "md5": "f9109b7f153b42c1af3da69a9c41c4c5",
+    "sha256": "7ddba9fc5efb2661ea63b9db53699ad0bb16ffe01e425e928a804b7c49efd277"
+  },
+  {
+    "remote": "/log/yuy2_640_v31vga/logger-stop-after-reboot.txt",
+    "bytes": 51,
+    "md5": "cf9bedd0c274032ba6c1747224370344",
+    "sha256": "c4ad7935781f7b2a714f4fef22a3eb2d4224d59fa27ef2443c52c135176fafcf"
+  },
+  {
+    "remote": "/log/yuy2_640_v31vga/preflight.log",
+    "bytes": 3604,
+    "md5": "7de41dbf19c753524188d4bb168a638b",
+    "sha256": "054a2514260af052540f36c4a63c3c662b1cff1face76406db392abc5e3c27a6"
+  }
+]

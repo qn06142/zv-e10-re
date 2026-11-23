@@ -1,0 +1,42 @@
+[
+  {
+    "address": "0x63f1fc9f",
+    "text": "[%s]bit_depth                   = 0x%02X(%s)"
+  },
+  {
+    "address": "0x63f24f6a",
+    "text": "[CODEC V   ]input_image_bit_depth           = 0x%02X"
+  },
+  {
+    "address": "0x63f2a78a",
+    "text": "220_422_10BIT"
+  },
+  {
+    "address": "0x63fbad75",
+    "text": "[IMLDECSTAT]bit_depth                  :0x%08X"
+  },
+  {
+    "address": "0x63fbaf3d",
+    "text": "[IMLDECSTAT][OPEN_PARAM] NG bit_depth:0x%08x"
+  },
+  {
+    "address": "0x63fbf92a",
+    "text": "DEPTH_10"
+  },
+  {
+    "address": "0x63fbf933",
+    "text": "DEPTH_12"
+  },
+  {
+    "address": "0x63fc2ee2",
+    "text": " .bit_depth                   = 0x%02X(%s)"
+  },
+  {
+    "address": "0x63fc3822",
+    "text": "[TSKVIDENC ]   input_image_bit_depth            = 0x%02X"
+  },
+  {
+    "address": "0x63fc6083",
+    "text": "[ZIMA DVDEC]bit_depth                  :0x%08X"
+  }
+]

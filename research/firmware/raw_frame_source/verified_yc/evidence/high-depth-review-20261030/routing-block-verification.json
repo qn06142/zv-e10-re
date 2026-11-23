@@ -1,0 +1,35 @@
+{
+  "camera_access": false,
+  "original_branch_instructions_executed": true,
+  "cases": [
+    {
+      "field_obj_4bb0": 0,
+      "calls": [],
+      "output_pointer": "0x0"
+    },
+    {
+      "field_obj_4bb0": 1,
+      "calls": [
+        {
+          "operation": "copy",
+          "bytes": 64
+        },
+        {
+          "operation": "map_pointer",
+          "site_argument": 17
+        }
+      ],
+      "output_pointer": "0x40050020"
+    },
+    {
+      "field_obj_4bb0": 2,
+      "calls": [],
+      "output_pointer": "0x0"
+    }
+  ],
+  "mocked": [
+    "64-byte copy implementation",
+    "physical pointer mapping returns identity"
+  ],
+  "conclusion": "Flag1 enables a 64-byte record copy and pointer mapping/offset adjustment; this block alone does not prove pixel-plane copy bypass, precision, or that this field is bit_depth."
+}

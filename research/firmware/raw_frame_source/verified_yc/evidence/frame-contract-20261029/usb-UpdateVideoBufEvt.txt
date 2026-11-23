@@ -1,0 +1,30 @@
+
+_Z17UpdateVideoBufEvt22StreamingVideoDataInfo @0x12038
+00012038: ldr       r3, [pc, #0x24] 
+0001203a: push      {r7, lr} 
+0001203c: sub       sp, #0x10 
+0001203e: add       r3, pc 
+00012040: add       r7, sp, #0 
+00012042: stm.w     r7, {r0, r1} 
+00012046: str       r0, [r7, #8] 
+00012048: str       r1, [r7, #0xc] 
+0001204a: add.w     r1, r7, #8 
+0001204e: ldr       r0, [r3, #4] 
+00012050: blx       #0x88f8 _ZN19CUsbGadgetStreaming17UpdateVideoBufEvtEP20usbg_video_data_info
+00012054: lsrs      r0, r0, #0x1f 
+00012056: add.w     r7, r7, #0x10 
+0001205a: mov       sp, r7 
+0001205c: pop       {r7, pc} 
+0001205e: nop        
+00012060: beq       #0x11fe8 
+00012062: movs      r0, r0 
+
+_ZN19CUsbGadgetStreaming17UpdateVideoBufEvtEP20usbg_video_data_info @0x11e90
+00011e90: push      {r7, lr} 
+00011e92: mov       r2, r1 
+00011e94: add       r7, sp, #0 
+00011e96: ldr.w     r0, [r0, #0x8c] 
+00011e9a: ldr       r1, [pc, #8] 
+00011e9c: pop.w     {r7, lr} 
+00011ea0: b.w       #0x8bac 
+00011ea4: and       r0, r3, #0x88000000 

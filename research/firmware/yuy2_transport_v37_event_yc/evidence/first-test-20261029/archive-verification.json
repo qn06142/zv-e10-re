@@ -1,0 +1,84 @@
+{
+  "camera_files_verified": 15,
+  "downloaded_manifest": true,
+  "total_verified_bytes": 6212976,
+  "files": [
+    {
+      "file": "runtime.log",
+      "bytes": 1014,
+      "md5": "4dad320283da73c8da8c82acce59fd5b"
+    },
+    {
+      "file": "vga.log",
+      "bytes": 751,
+      "md5": "b88767174a71abdd7555d10d3798e923"
+    },
+    {
+      "file": "AccessLog.dat",
+      "bytes": 2097220,
+      "md5": "b0c476f329cc340358c7648c6173da02"
+    },
+    {
+      "file": "AccessLog.bak",
+      "bytes": 2097220,
+      "md5": "b0c476f329cc340358c7648c6173da02"
+    },
+    {
+      "file": "ThreadMonitor.bin",
+      "bytes": 0,
+      "md5": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "file": "kikilog.dat",
+      "bytes": 1957888,
+      "md5": "73b4dc0ac4b8e0b5796baf26694d88c7"
+    },
+    {
+      "file": "uptime.txt",
+      "bytes": 14,
+      "md5": "3955c16f6fd9dd58b99583321dc2190f"
+    },
+    {
+      "file": "boot-id.txt",
+      "bytes": 37,
+      "md5": "55a19349dd9f7e50eb3e5364ca5760d3"
+    },
+    {
+      "file": "mounts.txt",
+      "bytes": 1584,
+      "md5": "7b1129bd5496ee752970d1103b593f16"
+    },
+    {
+      "file": "memory.txt",
+      "bytes": 924,
+      "md5": "2faee7b487c7f289bb947cfb9595abd3"
+    },
+    {
+      "file": "maps.txt",
+      "bytes": 47263,
+      "md5": "709c7cee845b3a4b10739531c8f3c6ce"
+    },
+    {
+      "file": "status.txt",
+      "bytes": 699,
+      "md5": "c15e7c8d1933ff39e5222a7d66576902"
+    },
+    {
+      "file": "dmesg-after-restart.txt",
+      "bytes": 7913,
+      "md5": "ec6d746a726e1726770178c3a730354c"
+    },
+    {
+      "file": "storage.txt",
+      "bytes": 146,
+      "md5": "2ce73ac8f331185394392eda300a8920"
+    },
+    {
+      "file": "installed.md5",
+      "bytes": 303,
+      "md5": "f65519f27543b73d716ffbd73a188084"
+    }
+  ],
+  "collection_after_user_manual_restart": true,
+  "original_runtime_and_vga_preserved_on_camera": true
+}

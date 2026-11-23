@@ -1,0 +1,90 @@
+63de00ce: push      {r4, r5, r6, r7, lr}
+63de00d0: sub       sp, #0x13c
+63de00d2: add       r7, sp, #8
+63de00d4: mov       r5, r1
+63de00d6: mov       r4, r0
+63de00d8: adds      r0, r7, #4
+63de00da: bl        #0x63ac1504
+63de00de: add.w     r0, r7, #0x114
+63de00e2: bl        #0x63c55fd8
+63de00e6: ldr       r3, [r5, #0x28]
+63de00e8: cbz       r3, #0x63de00f2
+63de00ea: movs      r3, #0
+63de00ec: str       r3, [r4, #0x28]
+63de00ee: str       r3, [r4, #0x34]
+63de00f0: b         #0x63de0102
+63de00f2: movs      r2, #1
+63de00f4: str       r3, [r4, #0x34]
+63de00f6: str       r2, [r4, #0x28]
+63de00f8: adds      r2, #0xfe
+63de00fa: str       r3, [r4, #0x10]
+63de00fc: str       r2, [r4, #8]
+63de00fe: str       r2, [r4, #0xc]
+63de0100: str       r3, [r4, #0x14]
+63de0102: add.w     r3, r4, #0x18
+63de0106: add.w     r6, r7, #0x11c
+63de010a: ldm       r3, {r0, r1, r2, r3}
+63de010c: stm.w     r6, {r0, r1, r2, r3}
+63de0110: adds      r0, r7, #4
+63de0112: ldr       r3, [r5, #0x28]
+63de0114: add.w     r1, r7, #0x114
+63de0118: movs      r2, #0x1c
+63de011a: str.w     r3, [r7, #0x12c]
+63de011e: bl        #0x63ac1694
+63de0122: adds      r0, r7, #4
+63de0124: ldr       r1, [r4, #0x24]
+63de0126: bl        #0x63ddfd9e
+63de012a: ldr       r1, [r4, #0x30]
+63de012c: cbz       r1, #0x63de013a
+63de012e: ldr       r0, [r4, #4]
+63de0130: adds      r2, r7, #4
+63de0132: bl        #0x63ac26a0
+63de0136: ldr       r5, [r5, #0x28]
+63de0138: b         #0x63de013e
+63de013a: movw      r5, #0xffff
+63de013e: ldr       r3, [r4, #0x28]
+63de0140: movs      r0, #7
+63de0142: ldr       r1, [r4, #0x30]
+63de0144: add.w     r2, r4, #0x18
+63de0148: str       r5, [sp]
+63de014a: str       r3, [sp, #4]
+63de014c: add.w     r3, r4, #8
+63de0150: bl        #0x63ddfd14
+63de0154: movs      r3, #0
+63de0156: adds      r0, r7, #4
+63de0158: str       r3, [r4, #0x30]
+63de015a: bl        #0x63ac14f4
+63de015e: mov       r0, r5
+63de0160: add.w     r7, r7, #0x134
+63de0164: mov       sp, r7
+63de0166: pop       {r4, r5, r6, r7, pc}
+63de0168: adds      r0, r7, #4
+63de016a: bl        #0x63ac14f4
+63de016e: bl        #0x63de2ba4
+63de0172: ldr       r3, [r0, #0x28]
+63de0174: push      {r7, lr}
+63de0176: add       r7, sp, #0
+63de0178: str       r3, [r1]
+63de017a: pop       {r7, pc}
+63de017c: push      {r4, r7, lr}
+63de017e: sub       sp, #0xc
+63de0180: mov       r3, r0
+63de0182: add       r7, sp, #8
+63de0184: mov       r4, r1
+63de0186: add.w     r2, r0, #0x18
+63de018a: cbnz      r1, #0x63de01a2
+63de018c: mvn       r4, #0x14
+63de0190: str       r4, [sp]
+63de0192: ldr       r0, [r0, #0x28]
+63de0194: adds      r3, #8
+63de0196: str       r0, [sp, #4]
+63de0198: movs      r0, #4
+63de019a: bl        #0x63ddfd14
+63de019e: mov       r0, r4
+63de01a0: b         #0x63de01aa
+63de01a2: ldm       r2, {r0, r1, r2, r3}
+63de01a4: stm.w     r4, {r0, r1, r2, r3}
+63de01a8: movs      r0, #0
+63de01aa: add.w     r7, r7, #4
+63de01ae: mov       sp, r7
+63de01b0: pop       {r4, r7, pc}

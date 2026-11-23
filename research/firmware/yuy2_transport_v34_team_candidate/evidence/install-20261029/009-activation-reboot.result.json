@@ -1,0 +1,5 @@
+{
+  "id": "009-activation-reboot",
+  "ok": false,
+  "error": "RuntimeError('Direct terminal marker missing')"
+}

@@ -1,0 +1,14 @@
+003f6282: mov       r0, r1 
+003f6284: mov       r1, r2 
+003f6286: mov       r2, r3 
+003f6288: push      {r4, r7, lr} 
+003f628a: cmp.w     r2, #0x100 
+003f628e: add       r7, sp, #0 
+003f6290: ldr       r3, [r7, #0xc] 
+003f6292: ldr       r4, [r7, #0x10] 
+003f6294: bne       #0x3f62a0 
+003f6296: str       r4, [r7, #0xc] 
+003f6298: pop.w     {r4, r7, lr} 
+003f629c: b.w       #0x737fbc _ZN7PubUtil28ConvertPictureQualityMpr2PubEN3MPR8VQualityEbNS0_11ContentTypeENS0_11ColorFormatENS0_13VideoBitDepthE
+003f62a0: pop.w     {r4, r7, lr} 
+003f62a4: b.w       #0x737f90 _ZN7PubUtil28ConvertPictureQualityMpr2PubEN3MPR8VQualityEb

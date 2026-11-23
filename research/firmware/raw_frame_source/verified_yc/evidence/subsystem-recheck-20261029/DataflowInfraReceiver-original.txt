@@ -1,0 +1,528 @@
+
+_ZN21DataflowInfraReceiver8TransErrE8OSAL_ERR @0x2267c
+0002267c: ldr       r3, [pc, #0x30] 
+0002267e: push      {r7, lr} 
+00022680: cmp       r0, r3 
+00022682: add       r7, sp, #0 
+00022684: beq       #0x226a2 
+00022686: blt       #0x226a8 
+00022688: adds      r3, #1 
+0002268a: cmp       r0, r3 
+0002268c: beq       #0x2269c 
+0002268e: movw      r3, #0xffff 
+00022692: cmp       r0, #0 
+00022694: ite       ne 
+00022696: movne     r0, r3 
+00022698: moveq     r0, #0 
+0002269a: pop       {r7, pc} 
+0002269c: mvn       r0, #0x1e 
+000226a0: pop       {r7, pc} 
+000226a2: mvn       r0, #0x13 
+000226a6: pop       {r7, pc} 
+000226a8: mvn       r0, #0x1f 
+000226ac: pop       {r7, pc} 
+000226ae: nop        
+
+_ZN21DataflowInfraReceiver11SetSyncCompEPvP18DataflowInfraMsgEx @0x225a0
+000225a0: push      {r4, r5, r7, lr} 
+000225a2: mov       r4, r1 
+000225a4: ldr       r5, [r2, #0x10] 
+000225a6: add       r7, sp, #0 
+000225a8: cbnz      r5, #0x225be 
+000225aa: ldr       r0, [pc, #0x28] 
+000225ac: mov.w     r1, #0x166 
+000225b0: mvn       r2, #0x13 
+000225b4: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+000225b8: mvn       r0, #0x13 
+000225bc: pop       {r4, r5, r7, pc} 
+000225be: mov       r0, r2 
+000225c0: blx       #0x20658 _ZN18DataflowInfraMsgEx10GetMaxSizeEv
+000225c4: mov       r1, r5 
+000225c6: mov       r2, r0 
+000225c8: mov       r0, r4 
+000225ca: blx       #0x203a8 memcpy
+000225ce: movs      r0, #0 
+000225d0: pop       {r4, r5, r7, pc} 
+000225d2: nop        
+000225d4: cmp       r2, sl 
+000225d6: ldrsb     r3, [r0, r1] 
+
+_ZN21DataflowInfraReceiver12ReceiveASyncEjP19DataflowInfraMsgEx2m @0x22704
+00022704: push.w    {r4, r5, r6, r7, r8, lr} 
+00022708: sub       sp, #8 
+0002270a: mov       r4, r2 
+0002270c: mov       r2, r3 
+0002270e: add       r7, sp, #0 
+00022710: ldr       r3, [r4, #0x10] 
+00022712: mov       r5, r1 
+00022714: cbnz      r3, #0x2272a 
+00022716: ldr       r0, [pc, #0xc0] 
+00022718: mov.w     r1, #0x106 
+0002271c: mvn       r2, #0x13 
+00022720: mvn       r6, #0x13 
+00022724: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00022728: b         #0x227cc 
+0002272a: cbz       r2, #0x22738 
+0002272c: cmp.w     r2, #-1 
+00022730: beq       #0x22738 
+00022732: ldr       r3, [pc, #0xa8] 
+00022734: cmp       r2, r3 
+00022736: bhi       #0x227bc 
+00022738: adds      r1, r7, #4 
+0002273a: mov       r0, r5 
+0002273c: blx       #0x2031c osal_rcv_msg_tmo
+00022740: blx       #0x204dc _ZN21DataflowInfraReceiver8TransErrE8OSAL_ERR
+00022744: mov       r6, r0 
+00022746: cmp       r0, #0 
+00022748: bne       #0x227c0 
+0002274a: ldr.w     r8, [r7, #4] 
+0002274e: mov       r0, r8 
+00022750: bl        #0x22548 
+00022754: str       r0, [r4, #0xc] 
+00022756: mov       r0, r8 
+00022758: blx       #0x204cc osal_msg_size
+0002275c: mov       r8, r0 
+0002275e: mov       r0, r4 
+00022760: blx       #0x20168 _ZN19DataflowInfraMsgEx210GetMaxSizeEv
+00022764: cmp       r8, r0 
+00022766: bls       #0x22770 
+00022768: mov       r0, r4 
+0002276a: blx       #0x20168 _ZN19DataflowInfraMsgEx210GetMaxSizeEv
+0002276e: mov       r8, r0 
+00022770: ldr       r1, [r7, #4] 
+00022772: mov       r2, r8 
+00022774: ldr       r0, [r4, #0x10] 
+00022776: blx       #0x203a8 memcpy
+0002277a: ldr       r3, [r4, #0xc] 
+0002277c: ldr       r1, [pc, #0x60] 
+0002277e: ldr       r2, [r4, #0x10] 
+00022780: cmp       r3, r1 
+00022782: beq       #0x227aa 
+00022784: adds      r1, #0x7a 
+00022786: cmp       r3, r1 
+00022788: beq       #0x227aa 
+0002278a: ldr       r1, [pc, #0x58] 
+0002278c: cmp       r3, r1 
+0002278e: beq       #0x227aa 
+00022790: ldr       r1, [pc, #0x54] 
+00022792: cmp       r3, r1 
+00022794: beq       #0x227aa 
+00022796: ldr       r1, [pc, #0x54] 
+00022798: cmp       r3, r1 
+0002279a: beq       #0x227aa 
+0002279c: ldr       r3, [r2, #4] 
+0002279e: cmp.w     r3, #-0x5f5f5f60 
+000227a2: bne       #0x227aa 
+000227a4: movs      r3, #1 
+000227a6: str       r3, [r4, #4] 
+000227a8: b         #0x227b2 
+000227aa: movs      r3, #2 
+000227ac: strh.w    r8, [r4, #8] 
+000227b0: str       r3, [r4, #4] 
+000227b2: mov       r0, r5 
+000227b4: ldr       r1, [r7, #4] 
+000227b6: blx       #0x207b4 osal_free_msg
+000227ba: b         #0x227cc 
+000227bc: mvn       r6, #0x1f 
+000227c0: ldr       r0, [pc, #0x14] 
+000227c2: movw      r1, #0x153 
+000227c6: mov       r2, r6 
+000227c8: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+000227cc: mov       r0, r6 
+000227ce: add.w     r7, r7, #8 
+000227d2: mov       sp, r7 
+000227d4: pop.w     {r4, r5, r6, r7, r8, pc} 
+000227d8: cmp       r2, sl 
+000227da: ldrsb     r3, [r0, r1] 
+000227dc: strb      r7, [r7, #0x1c] 
+000227de: movs      r3, r3 
+000227e0: lsls      r7, r3, #6 
+000227e2: lsls      r2, r0, #3 
+000227e4: movs      r4, r7 
+000227e6: lsls      r1, r4, #1 
+000227e8: lsls      r5, r2, #0x1a 
+000227ea: lsls      r0, r0, #3 
+000227ec: lsls      r0, r7, #0x10 
+000227ee: lsls      r1, r3, #5 
+
+_ZN21DataflowInfraReceiver11ReceiveSyncEPvP18DataflowInfraMsgEx @0x225d8
+000225d8: push      {r3, r4, r5, r6, r7, lr} 
+000225da: mov       r6, r1 
+000225dc: ldr       r3, [r2, #0x10] 
+000225de: add       r7, sp, #0 
+000225e0: mov       r4, r2 
+000225e2: cbnz      r3, #0x225f8 
+000225e4: ldr       r0, [pc, #0x80] 
+000225e6: movw      r1, #0x177 
+000225ea: mvn       r2, #0x13 
+000225ee: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+000225f2: mvn       r0, #0x13 
+000225f6: pop       {r3, r4, r5, r6, r7, pc} 
+000225f8: mov       r0, r1 
+000225fa: bl        #0x22548 
+000225fe: str       r0, [r4, #0xc] 
+00022600: mov       r0, r6 
+00022602: blx       #0x204cc osal_msg_size
+00022606: mov       r5, r0 
+00022608: mov       r0, r4 
+0002260a: blx       #0x20658 _ZN18DataflowInfraMsgEx10GetMaxSizeEv
+0002260e: cmp       r5, r0 
+00022610: bls       #0x2261a 
+00022612: mov       r0, r4 
+00022614: blx       #0x20658 _ZN18DataflowInfraMsgEx10GetMaxSizeEv
+00022618: mov       r5, r0 
+0002261a: mov       r1, r6 
+0002261c: mov       r2, r5 
+0002261e: ldr       r0, [r4, #0x10] 
+00022620: blx       #0x203a8 memcpy
+00022624: ldr       r3, [r4, #0xc] 
+00022626: ldr       r1, [pc, #0x44] 
+00022628: ldr       r2, [r4, #0x10] 
+0002262a: cmp       r3, r1 
+0002262c: beq       #0x22646 
+0002262e: adds      r1, #0x7a 
+00022630: cmp       r3, r1 
+00022632: beq       #0x22646 
+00022634: ldr       r1, [pc, #0x38] 
+00022636: cmp       r3, r1 
+00022638: beq       #0x22646 
+0002263a: ldr       r1, [pc, #0x38] 
+0002263c: cmp       r3, r1 
+0002263e: beq       #0x22646 
+00022640: ldr       r1, [pc, #0x34] 
+00022642: cmp       r3, r1 
+00022644: bne       #0x2264e 
+00022646: movs      r3, #2 
+00022648: strh      r5, [r4, #8] 
+0002264a: str       r3, [r4, #4] 
+0002264c: b         #0x2265a 
+0002264e: ldr       r3, [r2, #4] 
+00022650: cmp.w     r3, #-0x5f5f5f60 
+00022654: bne       #0x2265e 
+00022656: movs      r3, #1 
+00022658: str       r3, [r4, #4] 
+0002265a: movs      r0, #0 
+0002265c: pop       {r3, r4, r5, r6, r7, pc} 
+0002265e: movs      r3, #2 
+00022660: strh      r5, [r4, #8] 
+00022662: str       r3, [r4, #4] 
+00022664: movs      r0, #0 
+00022666: pop       {r3, r4, r5, r6, r7, pc} 
+00022668: cmp       r2, sl 
+0002266a: ldrsb     r3, [r0, r1] 
+0002266c: lsls      r7, r3, #6 
+0002266e: lsls      r2, r0, #3 
+00022670: movs      r4, r7 
+00022672: lsls      r1, r4, #1 
+00022674: lsls      r5, r2, #0x1a 
+00022676: lsls      r0, r0, #3 
+00022678: lsls      r0, r7, #0x10 
+0002267a: lsls      r1, r3, #5 
+
+_ZN21DataflowInfraReceiver9RegSyncCbEjPPvPFvS0_S0_ES0_ @0x226dc
+000226dc: push      {r4, r5, r7, lr} 
+000226de: add       r7, sp, #0 
+000226e0: blx       #0x20180 osal_reg_sync_msg_queue_cb
+000226e4: mov       r4, r0 
+000226e6: blx       #0x204dc _ZN21DataflowInfraReceiver8TransErrE8OSAL_ERR
+000226ea: movw      r1, #0x1bd 
+000226ee: mov       r2, r0 
+000226f0: ldr       r0, [pc, #0xc] 
+000226f2: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+000226f6: mov       r0, r4 
+000226f8: pop.w     {r4, r5, r7, lr} 
+000226fc: b.w       #0x204d8 
+00022700: cmp       r2, sl 
+00022702: ldrsb     r3, [r0, r1] 
+
+_ZN21DataflowInfraReceiver12ReceiveASyncEjP18DataflowInfraMsgExm @0x227f0
+000227f0: push.w    {r4, r5, r6, r7, r8, lr} 
+000227f4: sub       sp, #8 
+000227f6: mov       r4, r2 
+000227f8: mov       r2, r3 
+000227fa: add       r7, sp, #0 
+000227fc: ldr       r3, [r4, #0x10] 
+000227fe: mov       r5, r1 
+00022800: cbnz      r3, #0x22814 
+00022802: ldr       r0, [pc, #0xbc] 
+00022804: movs      r1, #0xa6 
+00022806: mvn       r2, #0x13 
+0002280a: mvn       r6, #0x13 
+0002280e: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00022812: b         #0x228b4 
+00022814: cbz       r2, #0x22822 
+00022816: cmp.w     r2, #-1 
+0002281a: beq       #0x22822 
+0002281c: ldr       r3, [pc, #0xa4] 
+0002281e: cmp       r2, r3 
+00022820: bhi       #0x228a6 
+00022822: adds      r1, r7, #4 
+00022824: mov       r0, r5 
+00022826: blx       #0x2031c osal_rcv_msg_tmo
+0002282a: blx       #0x204dc _ZN21DataflowInfraReceiver8TransErrE8OSAL_ERR
+0002282e: mov       r6, r0 
+00022830: cmp       r0, #0 
+00022832: bne       #0x228aa 
+00022834: ldr.w     r8, [r7, #4] 
+00022838: mov       r0, r8 
+0002283a: bl        #0x22548 
+0002283e: str       r0, [r4, #0xc] 
+00022840: mov       r0, r8 
+00022842: blx       #0x204cc osal_msg_size
+00022846: mov       r8, r0 
+00022848: mov       r0, r4 
+0002284a: blx       #0x20658 _ZN18DataflowInfraMsgEx10GetMaxSizeEv
+0002284e: cmp       r8, r0 
+00022850: bls       #0x2285a 
+00022852: mov       r0, r4 
+00022854: blx       #0x20658 _ZN18DataflowInfraMsgEx10GetMaxSizeEv
+00022858: mov       r8, r0 
+0002285a: ldr       r1, [r7, #4] 
+0002285c: mov       r2, r8 
+0002285e: ldr       r0, [r4, #0x10] 
+00022860: blx       #0x203a8 memcpy
+00022864: ldr       r3, [r4, #0xc] 
+00022866: ldr       r1, [pc, #0x60] 
+00022868: ldr       r2, [r4, #0x10] 
+0002286a: cmp       r3, r1 
+0002286c: beq       #0x22894 
+0002286e: adds      r1, #0x7a 
+00022870: cmp       r3, r1 
+00022872: beq       #0x22894 
+00022874: ldr       r1, [pc, #0x54] 
+00022876: cmp       r3, r1 
+00022878: beq       #0x22894 
+0002287a: ldr       r1, [pc, #0x54] 
+0002287c: cmp       r3, r1 
+0002287e: beq       #0x22894 
+00022880: ldr       r1, [pc, #0x50] 
+00022882: cmp       r3, r1 
+00022884: beq       #0x22894 
+00022886: ldr       r3, [r2, #4] 
+00022888: cmp.w     r3, #-0x5f5f5f60 
+0002288c: bne       #0x22894 
+0002288e: movs      r3, #1 
+00022890: str       r3, [r4, #4] 
+00022892: b         #0x2289c 
+00022894: movs      r3, #2 
+00022896: strh.w    r8, [r4, #8] 
+0002289a: str       r3, [r4, #4] 
+0002289c: mov       r0, r5 
+0002289e: ldr       r1, [r7, #4] 
+000228a0: blx       #0x207b4 osal_free_msg
+000228a4: b         #0x228b4 
+000228a6: mvn       r6, #0x1f 
+000228aa: ldr       r0, [pc, #0x14] 
+000228ac: movs      r1, #0xf4 
+000228ae: mov       r2, r6 
+000228b0: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+000228b4: mov       r0, r6 
+000228b6: add.w     r7, r7, #8 
+000228ba: mov       sp, r7 
+000228bc: pop.w     {r4, r5, r6, r7, r8, pc} 
+000228c0: cmp       r2, sl 
+000228c2: ldrsb     r3, [r0, r1] 
+000228c4: strb      r7, [r7, #0x1c] 
+000228c6: movs      r3, r3 
+000228c8: lsls      r7, r3, #6 
+000228ca: lsls      r2, r0, #3 
+000228cc: movs      r4, r7 
+000228ce: lsls      r1, r4, #1 
+000228d0: lsls      r5, r2, #0x1a 
+000228d2: lsls      r0, r0, #3 
+000228d4: lsls      r0, r7, #0x10 
+000228d6: lsls      r1, r3, #5 
+
+_ZN21DataflowInfraReceiverD0Ev @0x22570
+00022570: push      {r3, r4, r7, lr} 
+00022572: mov       r4, r0 
+00022574: add       r7, sp, #0 
+00022576: blx       #0x20078 _ZN21DataflowInfraReceiverD1Ev
+0002257a: mov       r0, r4 
+0002257c: blx       #0x20174 _ZdlPv
+00022580: mov       r0, r4 
+00022582: pop       {r3, r4, r7, pc} 
+
+_ZN21DataflowInfraReceiverD1Ev @0x22554
+00022554: ldr       r3, [pc, #0x10] 
+00022556: ldr       r2, [pc, #0x14] 
+00022558: add       r3, pc 
+0002255a: push      {r7, lr} 
+0002255c: add       r7, sp, #0 
+0002255e: ldr       r3, [r3, r2] 
+00022560: adds      r3, #8 
+00022562: str       r3, [r0] 
+00022564: pop       {r7, pc} 
+00022566: nop        
+00022568: and       r0, ip, #0x800000 
+0002256c: lsls      r4, r3, #0xd 
+0002256e: movs      r0, r0 
+
+_ZN21DataflowInfraReceiver11UnregSyncCbEjPv @0x226b4
+000226b4: push      {r4, r5, r7, lr} 
+000226b6: add       r7, sp, #0 
+000226b8: blx       #0x203cc osal_unreg_msg_queue_cb
+000226bc: mov       r4, r0 
+000226be: blx       #0x204dc _ZN21DataflowInfraReceiver8TransErrE8OSAL_ERR
+000226c2: movw      r1, #0x1cf 
+000226c6: mov       r2, r0 
+000226c8: ldr       r0, [pc, #0xc] 
+000226ca: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+000226ce: mov       r0, r4 
+000226d0: pop.w     {r4, r5, r7, lr} 
+000226d4: b.w       #0x204d8 
+000226d8: cmp       r2, sl 
+000226da: ldrsb     r3, [r0, r1] 
+
+_ZN21DataflowInfraReceiverC1Ev @0x22584
+00022584: ldr       r3, [pc, #0x10] 
+00022586: ldr       r2, [pc, #0x14] 
+00022588: add       r3, pc 
+0002258a: push      {r7, lr} 
+0002258c: add       r7, sp, #0 
+0002258e: ldr       r3, [r3, r2] 
+00022590: adds      r3, #8 
+00022592: str       r3, [r0] 
+00022594: pop       {r7, pc} 
+00022596: nop        
+
+_ZN21DataflowInfraReceiver12ReceiveASyncEjP16DataflowInfraMsgm @0x228d8
+000228d8: push.w    {r4, r5, r6, r7, r8, sb, sl, lr} 
+000228dc: sub       sp, #0x10 
+000228de: mov       r5, r2 
+000228e0: add       r7, sp, #0 
+000228e2: mov       r6, r1 
+000228e4: mov       r2, r3 
+000228e6: cbz       r3, #0x228f6 
+000228e8: cmp.w     r3, #-1 
+000228ec: beq       #0x228f6 
+000228ee: ldr       r3, [pc, #0x134] 
+000228f0: cmp       r2, r3 
+000228f2: bhi.w     #0x22a0a 
+000228f6: add.w     r1, r7, #8 
+000228fa: mov       r0, r6 
+000228fc: blx       #0x2031c osal_rcv_msg_tmo
+00022900: blx       #0x204dc _ZN21DataflowInfraReceiver8TransErrE8OSAL_ERR
+00022904: mov       r4, r0 
+00022906: cmp       r0, #0 
+00022908: bne.w     #0x22a0e 
+0002290c: ldr.w     r8, [r7, #8] 
+00022910: add.w     sb, r5, #0x10 
+00022914: mov       r0, r8 
+00022916: bl        #0x22548 
+0002291a: str       r0, [r5, #0xc] 
+0002291c: mov       r0, r8 
+0002291e: blx       #0x204cc osal_msg_size
+00022922: ldr       r1, [r7, #8] 
+00022924: cmp.w     r0, #0x100 
+00022928: ite       lo 
+0002292a: movlo     r8, r0 
+0002292c: movhs.w   r8, #0x100 
+00022930: mov       r0, sb 
+00022932: mov       r2, r8 
+00022934: blx       #0x203a8 memcpy
+00022938: ldr       r0, [r5, #0xc] 
+0002293a: ldr       r3, [pc, #0xec] 
+0002293c: cmp       r0, r3 
+0002293e: beq       #0x229f8 
+00022940: adds      r3, #0x7a 
+00022942: cmp       r0, r3 
+00022944: beq       #0x229f8 
+00022946: ldr       r3, [pc, #0xe4] 
+00022948: cmp       r0, r3 
+0002294a: beq       #0x229f8 
+0002294c: ldr       r3, [pc, #0xe0] 
+0002294e: cmp       r0, r3 
+00022950: beq       #0x229f8 
+00022952: ldr       r3, [pc, #0xe0] 
+00022954: cmp       r0, r3 
+00022956: beq       #0x229f8 
+00022958: ldr.w     r3, [sb, #4] 
+0002295c: cmp.w     r3, #-0x5f5f5f60 
+00022960: bne       #0x229f8 
+00022962: movs      r3, #1 
+00022964: str       r3, [r5, #4] 
+00022966: blx       #0x205b4 _ZN20DataflowInfraUtility19isPublicCpuTransferEj
+0002296a: cmp       r0, #0 
+0002296c: beq       #0x22a00 
+0002296e: ldr.w     sl, [sb, #0xc] 
+00022972: add.w     r3, sb, sl 
+00022976: ldrh      r2, [r3, #2] 
+00022978: movw      r3, #0x103 
+0002297c: cmp       r2, r3 
+0002297e: bne       #0x22a00 
+00022980: mov       r0, r5 
+00022982: ldr.w     r8, [r7, #8] 
+00022986: strh      r4, [r7, #0xe] 
+00022988: str       r4, [r7, #4] 
+0002298a: str       r4, [r7] 
+0002298c: blx       #0x201e0 _ZN16DataflowInfraMsg10GetMsgTypeEv
+00022990: cmp       r0, #1 
+00022992: bne       #0x229f2 
+00022994: mov       r0, r5 
+00022996: blx       #0x20298 _ZN16DataflowInfraMsg9GetMsgNumEv
+0002299a: cmp       r0, #1 
+0002299c: bne       #0x229f2 
+0002299e: add.w     r5, sb, sl 
+000229a2: add.w     r1, r7, #0xe 
+000229a6: adds      r2, r7, #4 
+000229a8: mov       r3, r7 
+000229aa: ldr       r0, [r5, #0x28] 
+000229ac: blx       #0x200f8 _ZN20DataflowInfraUtility23AllocOpenMemFromDmmSyncEjPtPiPj
+000229b0: cbnz      r0, #0x229f2 
+000229b2: ldr       r3, [r5, #0x38] 
+000229b4: ldr       r2, [r7] 
+000229b6: cmp       r2, r3 
+000229b8: blo       #0x229d6 
+000229ba: ldr       r0, [r7, #4] 
+000229bc: blx       #0x200d0 arch_phys_to_cache
+000229c0: ldr       r1, [r5, #0x34] 
+000229c2: ldr       r2, [r5, #0x38] 
+000229c4: adds      r1, #0x14 
+000229c6: add       r1, r8 
+000229c8: blx       #0x203a8 memcpy
+000229cc: ldrh      r0, [r7, #0xe] 
+000229ce: blx       #0x203e4 _ZN20DataflowInfraUtility19CloseMemFromDmmSyncEt
+000229d2: cbz       r0, #0x229e2 
+000229d4: b         #0x229f2 
+000229d6: ldrh      r0, [r7, #0xe] 
+000229d8: mvn       r4, #0x1f 
+000229dc: blx       #0x20524 _ZN20DataflowInfraUtility18FreeMemFromDmmSyncEt
+000229e0: b         #0x22a00 
+000229e2: ldrh      r3, [r7, #0xe] 
+000229e4: strh      r3, [r5, #0x2c] 
+000229e6: mov.w     r3, #0x102 
+000229ea: strh      r3, [r5, #2] 
+000229ec: movs      r3, #0x34 
+000229ee: strh      r3, [r5, #4] 
+000229f0: b         #0x22a00 
+000229f2: movw      r4, #0xffff 
+000229f6: b         #0x22a00 
+000229f8: movs      r3, #2 
+000229fa: strh.w    r8, [r5, #8] 
+000229fe: str       r3, [r5, #4] 
+00022a00: mov       r0, r6 
+00022a02: ldr       r1, [r7, #8] 
+00022a04: blx       #0x207b4 osal_free_msg
+00022a08: b         #0x22a18 
+00022a0a: mvn       r4, #0x1f 
+00022a0e: ldr       r0, [pc, #0x28] 
+00022a10: movs      r1, #0x93 
+00022a12: mov       r2, r4 
+00022a14: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00022a18: mov       r0, r4 
+00022a1a: add.w     r7, r7, #0x10 
+00022a1e: mov       sp, r7 
+00022a20: pop.w     {r4, r5, r6, r7, r8, sb, sl, pc} 
+00022a24: strb      r7, [r7, #0x1c] 
+00022a26: movs      r3, r3 
+00022a28: lsls      r7, r3, #6 
+00022a2a: lsls      r2, r0, #3 
+00022a2c: movs      r4, r7 
+00022a2e: lsls      r1, r4, #1 
+00022a30: lsls      r5, r2, #0x1a 
+00022a32: lsls      r0, r0, #3 
+00022a34: lsls      r0, r7, #0x10 
+00022a36: lsls      r1, r3, #5 
+00022a38: cmp       r2, sl 
+00022a3a: ldrsb     r3, [r0, r1] 

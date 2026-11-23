@@ -1,0 +1,25 @@
+{
+  "offline_only": true,
+  "installed": false,
+  "baseline_md5": "9f197ff9b300e49ab531b6f9e794253e",
+  "output_md5": "67da43e2cfbffc5f253381e4f977fc0a",
+  "frame_bytes": 4147200,
+  "two_usb_slots_including_headers": 8294424,
+  "physical_pool_sizes_changed": false,
+  "image_allocation_unit": "0x127",
+  "image_pool": "0x165",
+  "alias_edits": [
+    {
+      "unit": "0x50e",
+      "word_offset": "0x1309c",
+      "old_pool": "0x589",
+      "new_pool": "0x1ba",
+      "configured_min_bytes": 8388608
+    }
+  ],
+  "limits": [
+    "Configured capacity does not prove live availability or simultaneous allocation.",
+    "Both source and destination request exclusive native allocations from the same existing HD pool; failure must refuse streaming.",
+    "Only USB unit0x50e alias is changed; cold-boot and live allocation verification are required before hardware use."
+  ]
+}

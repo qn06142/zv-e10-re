@@ -1,0 +1,183 @@
+{
+  "camera_access": false,
+  "compiled_ARM_worker_initialization_executed": true,
+  "real_Sony_ELF_prologues": true,
+  "captured_maps_bytes": 47338,
+  "cases": [
+    {
+      "case": "old_single_read_fails_captured_maps_2KiB_chunks",
+      "success": false,
+      "read_calls": 1,
+      "bytes_read": 2048,
+      "markers": [
+        "GUARD_FAILED"
+      ]
+    },
+    {
+      "case": "old_single_read_passes_same_maps_when_read_whole",
+      "success": true,
+      "read_calls": 1,
+      "bytes_read": 47338,
+      "markers": [
+        "QUEUES"
+      ]
+    },
+    {
+      "case": "new_full_maps_chunk_1",
+      "success": true,
+      "read_calls": 47339,
+      "bytes_read": 47338,
+      "markers": [
+        "MAPS_READ",
+        "QUEUES"
+      ]
+    },
+    {
+      "case": "new_full_maps_chunk_127",
+      "success": true,
+      "read_calls": 374,
+      "bytes_read": 47338,
+      "markers": [
+        "MAPS_READ",
+        "QUEUES"
+      ]
+    },
+    {
+      "case": "new_full_maps_chunk_2048",
+      "success": true,
+      "read_calls": 25,
+      "bytes_read": 47338,
+      "markers": [
+        "MAPS_READ",
+        "QUEUES"
+      ]
+    },
+    {
+      "case": "new_full_maps_chunk_4096",
+      "success": true,
+      "read_calls": 13,
+      "bytes_read": 47338,
+      "markers": [
+        "MAPS_READ",
+        "QUEUES"
+      ]
+    },
+    {
+      "case": "new_full_maps_chunk_8192",
+      "success": true,
+      "read_calls": 7,
+      "bytes_read": 47338,
+      "markers": [
+        "MAPS_READ",
+        "QUEUES"
+      ]
+    },
+    {
+      "case": "new_full_maps_chunk_131071",
+      "success": true,
+      "read_calls": 2,
+      "bytes_read": 47338,
+      "markers": [
+        "MAPS_READ",
+        "QUEUES"
+      ]
+    },
+    {
+      "case": "read_error_rejected",
+      "success": false,
+      "read_calls": 2,
+      "bytes_read": 2048,
+      "markers": [
+        "MAPS_READ_FAILED",
+        "GUARD_FAILED"
+      ]
+    },
+    {
+      "case": "missing_obj_rejected",
+      "success": false,
+      "read_calls": 2,
+      "bytes_read": 49,
+      "markers": [
+        "MAPS_READ",
+        "OBJ_MAPPING_MISSING",
+        "GUARD_FAILED"
+      ]
+    },
+    {
+      "case": "empty_maps_rejected",
+      "success": false,
+      "read_calls": 1,
+      "bytes_read": 0,
+      "markers": [
+        "MAPS_EMPTY",
+        "GUARD_FAILED"
+      ]
+    },
+    {
+      "case": "oversized_maps_rejected",
+      "success": false,
+      "read_calls": 65,
+      "bytes_read": 131072,
+      "markers": [
+        "MAPS_TOO_LARGE",
+        "GUARD_FAILED"
+      ]
+    },
+    {
+      "case": "exact_capacity_eof_accepted",
+      "success": true,
+      "read_calls": 65,
+      "bytes_read": 131071,
+      "markers": [
+        "MAPS_READ",
+        "QUEUES"
+      ]
+    },
+    {
+      "case": "sdk_guard_preserved",
+      "success": false,
+      "read_calls": 0,
+      "bytes_read": 0,
+      "markers": [
+        "SDK_GUARD_MISMATCH",
+        "GUARD_FAILED"
+      ]
+    },
+    {
+      "case": "obj_guard_preserved",
+      "success": false,
+      "read_calls": 25,
+      "bytes_read": 47338,
+      "markers": [
+        "MAPS_READ",
+        "OBJ_GUARD_MISMATCH",
+        "GUARD_FAILED"
+      ]
+    },
+    {
+      "case": "missing_symbol_rejected",
+      "success": false,
+      "read_calls": 0,
+      "bytes_read": 0,
+      "markers": [
+        "SDK_SYMBOL_MISSING",
+        "GUARD_FAILED"
+      ]
+    },
+    {
+      "case": "zero_queues_rejected",
+      "success": false,
+      "read_calls": 25,
+      "bytes_read": 47338,
+      "markers": [
+        "MAPS_READ",
+        "QUEUE_INIT_FAILED",
+        "GUARD_FAILED"
+      ]
+    }
+  ],
+  "limitations": [
+    "Procfs chunking and loader calls mocked; exact failed target branch was not logged in 3.0.",
+    "No live VGA image or SDF acceptance proof."
+  ]
+}

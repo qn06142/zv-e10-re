@@ -1,0 +1,11 @@
+63ce9daa: movw      r3, #0x2001
+63ce9dae: movs      r0, #0
+63ce9db0: strh      r3, [r1]
+63ce9db2: movw      r3, #0x50a
+63ce9db6: strh      r3, [r2]
+63ce9db8: bx        lr
+63ce9dba: push      {r4, lr}
+63ce9dbc: mov       r4, r0
+63ce9dbe: bl        #0x63727d50
+63ce9dc2: mov       r0, r4
+63ce9dc4: bl        #0x63ae1b90

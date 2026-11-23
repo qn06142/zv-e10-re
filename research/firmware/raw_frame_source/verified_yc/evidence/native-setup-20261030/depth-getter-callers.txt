@@ -1,0 +1,30 @@
+637cf8f6: bl        #0x63851550
+637cf8fa: bl        #0x637cd4f8
+637cf8fe: bl        #0x63851570
+637cf902: bl        #0x637cd55c
+637cf906: bl        #0x63851580
+637cf90a: ldr       r3, [r7]
+637cf90c: ldr.w     r0, [r3, #0x10c]
+637cf910: bl        #0x638516d8
+637cf914: ldr       r3, [r7]
+637cf916: ldr.w     r0, [r3, #0x110]
+637cf91a: bl        #0x638516e4
+637cf91e: bl        #0x637cd78c
+637cf922: bl        #0x63851668
+637cf926: bl        #0x637cd6b0
+637cf92a: bl        #0x638514c0
+637cf92e: bl        #0x637cd6c0
+637cf932: bl        #0x638514e0
+637cf936: bl        #0x637cd6d0
+637cf93a: bl        #0x63851500
+637cf93e: bl        #0x637cd6ec
+637cf942: bl        #0x63851510
+637cf946: bl        #0x637cd74c
+637cf94a: bl        #0x638516f0
+637cf94e: bl        #0x637cd75c
+637cf952: bl        #0x63851700
+637cf956: bl        #0x637cc98c
+637cf95a: bl        #0x6385168c
+637cf95e: movs      r0, #0
+637cf960: bl        #0x637cc978
+637cf964: .byte     0x81, 0xf0

@@ -1,0 +1,94 @@
+00 mBi, 2000 mBm)
+[  223.622505] cfg80211: Updating information on frequency 2422 MHz for a 20 MHz width channel with regulatory rule:
+[  223.622536] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  223.622562] cfg80211: Updating information on frequency 2427 MHz for a 20 MHz width channel with regulatory rule:
+[  223.622594] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  223.622647] cfg80211: Updating information on frequency 2432 MHz for a 20 MHz width channel with regulatory rule:
+[  223.622679] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  223.622705] cfg80211: Updating information on frequency 2437 MHz for a 20 MHz width channel with regulatory rule:
+[  223.637083] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  223.637120] cfg80211: Updating information on frequency 2442 MHz for a 20 MHz width channel with regulatory rule:
+[  223.637152] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  223.637178] cfg80211: Updating information on frequency 2447 MHz for a 20 MHz width channel with regulatory rule:
+[  223.637210] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  223.637236] cfg80211: Updating information on frequency 2452 MHz for a 20 MHz width channel with regulatory rule:
+[  223.637267] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  223.637293] cfg80211: Updating information on frequency 2457 MHz for a 20 MHz width channel with regulatory rule:
+[  223.637478] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  223.637506] cfg80211: Updating information on frequency 2462 MHz for a 20 MHz width channel with regulatory rule:
+[  223.637538] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  223.637638] cfg80211: Updating information on frequency 2467 MHz for a 20 MHz width channel with regulatory rule:
+[  223.637670] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  223.637734] cfg80211: Updating information on frequency 2472 MHz for a 20 MHz width channel with regulatory rule:
+[  223.637766] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  223.637792] cfg80211: Updating information on frequency 2484 MHz for a 20 MHz width channel with regulatory rule:
+[  223.637824] cfg80211: 2474000 KHz - 2494000 KHz @ 20000 KHz), (600 mBi, 2000 mBm)
+[  223.650301] cfg80211: Ignoring regulatory request Set by core since the driver uses its own custom regulatory domain
+[  223.652889] net_ratelimit: 4 callbacks suppressed
+[  223.652909] CFG80211-ERROR) wl_event_handler : tsk Enter, tsk = 0x69fa1c34
+[  223.654867] p2p0: P2P Interface Registered
+[  223.667931] dhd_deferred_work_init: work queue initialized 
+[  223.668065] wlanMemoryAllocator: [DEBUG] size:10300
+[  223.668230] wlanMemoryAllocator: Provide Allocated Memory. g_pMemGfpAtomic[1] = 69fc0000
+[  223.668410] wlanMemoryAllocator: [DEBUG] pt:69fc0000
+[  223.668500] wlanMemoryAllocator: [DEBUG] size:65536
+[  223.668669] wlanMemoryAllocator: Provide Allocated Memory. g_pMemGfpAtomic[2] = 69fe0000
+[  223.668816] wlanMemoryAllocator: [DEBUG] pt:69fe0000
+[  224.055870] [usbter usbg_sen_ldisc_open][161]entry
+[  224.056119] console [usbgcon-1] enabled
+[  224.061289] [usbter usbg_sen_ldisc_open][161]exit
+[  224.193061] dhd_bus_init: enable 0x06, ready 0x06 (waited 0us)
+[  224.219001] Firmware up: op_mode=0x0005, MAC=d8:10:68:34:b6:45
+[  224.254731] Firmware version = wl0: Mar 15 2020 23:58:13 version 6.37.39.113 (r722271 CY)
+[  224.262581] dhd_wlfc_init(): successfully enabled bdcv2 tlv signaling, 79
+[  224.264358] dhd_wlfc_init(): wlfc_mode=0x0, ret=-23
+[  224.265572] 
+[  224.265581] Dongle Host Driver, version 1.141.67 (r489825)
+[  224.265593] Compiled from 
+[  224.281939] Register interface [wlan0]  MAC: d8:10:68:34:b6:45
+[  224.281955] 
+[  224.370371] CFG80211-ERROR) wl_cfg80211_attach_post : p2p0: p2p_dev_addr=da:10:68:34:b6:45
+[  224.460255] wlanMemoryAllocator: [DEBUG] size:22712
+[  224.460601] wlanMemoryAllocator: Provide Allocated Memory. g_pMemGfpAtomic_S[0] = 69f90000
+[  224.461001] wlanMemoryAllocator: [DEBUG] pt:69f90000
+[  224.461260] wlanMemoryAllocator: [DEBUG] size:49180
+[  224.461567] wlanMemoryAllocator: Provide Allocated Memory. g_pMemGfpAtomic_S[1] = 66c00000
+[  224.461990] wlanMemoryAllocator: [DEBUG] pt:66c00000
+[  224.489512] cfg80211: Updating information on frequency 2412 MHz for a 20 MHz width channel with regulatory rule:
+[  224.489556] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.489583] cfg80211: Updating information on frequency 2417 MHz for a 20 MHz width channel with regulatory rule:
+[  224.489614] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.489640] cfg80211: Updating information on frequency 2422 MHz for a 20 MHz width channel with regulatory rule:
+[  224.489672] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.489698] cfg80211: Updating information on frequency 2427 MHz for a 20 MHz width channel with regulatory rule:
+[  224.489729] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.489800] cfg80211: Updating information on frequency 2432 MHz for a 20 MHz width channel with regulatory rule:
+[  224.489833] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.489859] cfg80211: Updating information on frequency 2437 MHz for a 20 MHz width channel with regulatory rule:
+[  224.489891] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.489917] cfg80211: Updating information on frequency 2442 MHz for a 20 MHz width channel with regulatory rule:
+[  224.489948] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.489974] cfg80211: Updating information on frequency 2447 MHz for a 20 MHz width channel with regulatory rule:
+[  224.490006] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.490032] cfg80211: Updating information on frequency 2452 MHz for a 20 MHz width channel with regulatory rule:
+[  224.490214] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.490242] cfg80211: Updating information on frequency 2457 MHz for a 20 MHz width channel with regulatory rule:
+[  224.490274] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.490330] cfg80211: Updating information on frequency 2462 MHz for a 20 MHz width channel with regulatory rule:
+[  224.490362] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.490388] cfg80211: Updating information on frequency 2467 MHz for a 20 MHz width channel with regulatory rule:
+[  224.490420] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  224.490445] cfg80211: Updating information on frequency 2472 MHz for a 20 MHz width channel with regulatory rule:
+[  224.490550] cfg80211: 2402000 KHz - 2482000 KHz @ 40000 KHz), (600 mBi, 2000 mBm)
+[  225.021775] WLC_E_IF: NO_IF set, event Ignored
+[  225.031379] Register interface [p2p-p2p0-0]  MAC: da:10:68:34:36:45
+[  225.031394] 
+[  225.042428] CFG80211-ERROR) wl_cfg80211_add_virtual_iface :  virtual interface(p2p-p2p0-0) is created net attach done
+[  225.062805] CFG80211-ERROR) dhd_cfg80211_set_p2p_info : Set : op_mode=0x0045
+[  225.141857] CFG80211-ERROR) wl_cfg80211_set_channel : netdev_ifidx(20), chan_type(0) target channel(6) 
+[  225.150697] CFG80211-ERROR) wl_cfg80211_set_channel : netdev_ifidx(20), chan_type(1) target channel(6) 
+[  225.154273] CFG80211-ERROR) wl_cfg80211_del_station : Send DEAUTH request
+[  225.155349] CFG80211-ERROR) wl_cfg80211_del_station : Disconnect STA : ff:ff:ff:ff:ff:ff scb_val.val 3
+[  234.651119] wlan0: no IPv6 routers present
+[  235.384964] p2p0: no IPv6 routers present
+[  235.668883] p2p-p2p0-0: no IPv6 routers present

@@ -1,0 +1,107 @@
+{
+  "passed": 9,
+  "compiled_ARM_executed": true,
+  "hardware_boundaries_mocked": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "case": "exact_rejection",
+      "result": 1,
+      "fault": 0,
+      "markers": [
+        "SHARE",
+        "SOURCE_SHARE_DECLINED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "required_destination_rejection",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "transport_failure",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "wrong_command",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "wrong_handle",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "wrong_queue",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "wrong_native_error",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "wrong_type",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "unexpected_address",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    }
+  ]
+}

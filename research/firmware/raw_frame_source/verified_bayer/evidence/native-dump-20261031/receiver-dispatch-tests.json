@@ -1,0 +1,129 @@
+{
+  "original_instructions": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "mode": 0,
+      "writer_result": 1,
+      "events": [
+        {
+          "write": "_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver10fsys_writeEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE",
+          "result": 1
+        },
+        {
+          "reply_arguments": [
+            1073741824,
+            19399409,
+            4660,
+            1
+          ]
+        },
+        {
+          "free": true
+        }
+      ]
+    },
+    {
+      "mode": 0,
+      "writer_result": 0,
+      "events": [
+        {
+          "write": "_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver10fsys_writeEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE",
+          "result": 0
+        },
+        {
+          "reply_arguments": [
+            1073741824,
+            19399409,
+            4660,
+            0
+          ]
+        },
+        {
+          "free": true
+        }
+      ]
+    },
+    {
+      "mode": 8,
+      "writer_result": 1,
+      "events": [
+        {
+          "write": "_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver11linux_writeEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE",
+          "result": 1
+        },
+        {
+          "reply_arguments": [
+            1073741824,
+            19399409,
+            4660,
+            1
+          ]
+        },
+        {
+          "free": true
+        }
+      ]
+    },
+    {
+      "mode": 6,
+      "writer_result": 1,
+      "events": [
+        {
+          "write": "_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver22fsys_write_phys_directEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE",
+          "result": 1
+        },
+        {
+          "reply_arguments": [
+            1073741824,
+            19399409,
+            4660,
+            1
+          ]
+        },
+        {
+          "free": true
+        }
+      ]
+    },
+    {
+      "mode": 32,
+      "writer_result": 1,
+      "events": [
+        {
+          "write": "_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver22fsys_write_phys_directEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE",
+          "result": 1
+        },
+        {
+          "reply_arguments": [
+            1073741824,
+            19399409,
+            4660,
+            1
+          ]
+        },
+        {
+          "free": true
+        }
+      ]
+    },
+    {
+      "mode": 7,
+      "writer_result": 0,
+      "events": [
+        {
+          "reply_arguments": [
+            1073741824,
+            19399409,
+            4660,
+            0
+          ]
+        },
+        {
+          "free": true
+        }
+      ]
+    }
+  ],
+  "limitations": "Writer methods and OS message calls mocked; verifies dispatch and ordering, not actual storage."
+}

@@ -1,0 +1,51 @@
+{
+  "camera_access": false,
+  "original_producer_block_and_pin_serialization_executed": true,
+  "entry": "0x6374c500",
+  "stop": "0x6374c5e8",
+  "pin_array_base": "0x64250a54",
+  "selected_pin_array_index": 2,
+  "shares": [
+    {
+      "type": "0x295",
+      "handle": "0x7f24",
+      "mode": 0
+    }
+  ],
+  "sends": [
+    {
+      "destination": "0x570050",
+      "packet_hex": "00100201340001000000000002000000000000000e00590000000000010000000000000050005700000b0e00c98c000000000000",
+      "source_properties": [
+        0,
+        2,
+        0,
+        5832718
+      ],
+      "destination_properties": [
+        0,
+        1,
+        0,
+        5701712
+      ],
+      "type": "0xe0b00",
+      "sds": "0x8cc9",
+      "offset": 0
+    }
+  ],
+  "mocked": [
+    "identity physical mapping",
+    "producer mode getter returns mode0 (multi-segment branch skipped)",
+    "ownership manager factory",
+    "pixel DMM Share transport/helper",
+    "log availability",
+    "OSAL SendASync"
+  ],
+  "limitations": [
+    "Connected state and peer are controlled fixtures; no connection requested on camera.",
+    "Proves this producer places SDS at+0x2c and pixel Share precedes Send, not that arbitrary pool metadata is fresh.",
+    "Does not establish metadata allocation transfer or producer completion timing; those are separate stages."
+  ],
+  "category2_transfer_word_at_send": "0xffffffff",
+  "category2_original_transfer_word": "0x197c"
+}

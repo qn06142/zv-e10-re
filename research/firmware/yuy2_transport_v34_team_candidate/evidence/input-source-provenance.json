@@ -1,0 +1,94 @@
+{
+  "source": "D:\\02_Development_And_Projects\\pmca-re\\research\\firmware\\yuy2_transport_v33_source_retry\\source",
+  "changes": "Revision names, dependency/soname, log and output paths only; team C logic preserved",
+  "files": [
+    {
+      "path": "build.py",
+      "sha256": "63eb974e196501f32a5cb2c86e5bd66602c01aebc65bb932faa532a6e4b599d0"
+    },
+    {
+      "path": "capture_vga.py",
+      "sha256": "fd34d5919fb1e883bdfd9e0b053480c59483009e61624c8121565b4ecc190e65"
+    },
+    {
+      "path": "generate_guards.py",
+      "sha256": "7a90e7bbea5ec02bf11425c8fd4ee00b98548d123f507d61e4d19d12786c9c64"
+    },
+    {
+      "path": "persistent_stream.py",
+      "sha256": "7444f5cc4a127957b2978cc52871f2555cbe1b4f63335d5a3020374f1dd93927"
+    },
+    {
+      "path": "raw_frame_source.h",
+      "sha256": "404460e394051efc5800daae0854a2c6d7d3a4dd948908d315ed54c071726b1f"
+    },
+    {
+      "path": "raw_live_source.h",
+      "sha256": "5ce95053d5f4ee70e919e09366e67a8d26ef1df0f5569bccfa2d5b0f3cb9ed18"
+    },
+    {
+      "path": "sony_yc_metadata.c",
+      "sha256": "a0a6dfcdcdaedefb9abd0d52c7bdcfc5bd639b8febb08c84192d1798b22c583a"
+    },
+    {
+      "path": "sony_yc_metadata.h",
+      "sha256": "27855e1f7a7415205e37878d53a65f117df3c9b2e58da14b807816e60366f3cd"
+    },
+    {
+      "path": "sony_yc_sds.c",
+      "sha256": "1e37b595cb8ef87f33167b5b8981d487d6ae05f44f07c53de777d0e7e18bd7ee"
+    },
+    {
+      "path": "sony_yc_sds.h",
+      "sha256": "a0866c4150961d8454451e133fe06d064bf4ee11a1af00c1dd257790125d1d02"
+    },
+    {
+      "path": "test_vga_contract.c",
+      "sha256": "4c1310ea49d3b57fc2e7f3a19a153c01d031745b21493974e20fdceac858d678"
+    },
+    {
+      "path": "test_vga_worker.c",
+      "sha256": "369d5bc729c2196204b7925feefddb6b19a00b756e51a86c08557b223eb3b0f1"
+    },
+    {
+      "path": "verify_isa.py",
+      "sha256": "e85e6112e80a53f1aee17dbf514d8e31d0b4f86fcaf43b0015ccafbd5199b87b"
+    },
+    {
+      "path": "verify_persistent.py",
+      "sha256": "5d044bc4dafa65522b8c77817d41b152dd17e579ec0e77c24d775da09e940f83"
+    },
+    {
+      "path": "verify_support.py",
+      "sha256": "bcd711917c358e677b2fe9128f6a62f5d7abaaae86f50e32a8d0540c20c8a02c"
+    },
+    {
+      "path": "vga_contract.c",
+      "sha256": "3ed8abd6fa2ff67d27705936fc712f54c9e4db0857362f15e8a4da93958ec88d"
+    },
+    {
+      "path": "vga_contract.h",
+      "sha256": "d2afd1268f90366321e1db2b2fa71ddae5256c217443ac852ca9f6046ca42b5e"
+    },
+    {
+      "path": "vga_guards.h",
+      "sha256": "2846fc44713515e6a5ad359191b448e38cb6cdb4cba024b69252202328ea8186"
+    },
+    {
+      "path": "vga_guards.json",
+      "sha256": "83a3716920dde410364fc5b14123f96268c18717dceb4842dc9ae743443d5c41"
+    },
+    {
+      "path": "vga_resize.c",
+      "sha256": "b788b8963f4bff6bf9388b85491ef062bc1262d11e30d30e7ab889a5ebb683b7"
+    },
+    {
+      "path": "vga_resize.h",
+      "sha256": "0f19543a7f0b7b8c282d2a22b6884dae8a9ae9ea5790378775239fab0811bfc4"
+    },
+    {
+      "path": "yuy2_640_v33vga.c",
+      "sha256": "b92905eb04aec15b45b36092192d77c4ae2edfe156919f47b270e63987d5da0a"
+    }
+  ]
+}

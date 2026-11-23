@@ -1,0 +1,25 @@
+{
+  "camera_access": false,
+  "original_constructor_prefixes_executed": true,
+  "full_constructors_not_executed": true,
+  "objects": [
+    {
+      "constructor": "0x7009a0",
+      "stopped_before": "0x7009ba",
+      "rtti": "N9dmpNative8CmdQueueE",
+      "vtable_relative": "0x13bc508"
+    },
+    {
+      "constructor": "0x700734",
+      "stopped_before": "0x700746",
+      "rtti": "N9dmpNative13CmdDispatcherE",
+      "vtable_relative": "0x13bc4f0"
+    }
+  ],
+  "receive_loop": "libObj.so+0x700a2c",
+  "dispatch": "libObj.so+0x7007d8",
+  "limitations": [
+    "RTTI identifies objects; it does not prove an authorized live video endpoint.",
+    "No OSAL transport, sysconf, DMM, or camera hardware executed."
+  ]
+}

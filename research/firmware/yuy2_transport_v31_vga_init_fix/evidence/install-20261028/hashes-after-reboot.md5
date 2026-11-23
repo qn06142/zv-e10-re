@@ -1,0 +1,6 @@
+24bc5972c11f953ad1408f477376a877  /usr/lib/libInfraStreamingUsb.so
+72f800fd8f5e6d943b1d33d173bedeb1  /usr/lib/yuy2_640_v31vga.so
+b4c6012cd876210fcfd0cf4b0d6f67e0  /usr/lib/yuy2_640_v29full.so
+2a4c08511526f2b525c57a1d9bac9bad  /usr/share/yuy2-recovery-v31vga/libInfraStreamingUsb.previous.so
+5fde77e394572ebcf420f8941575f6c4  /usr/share/yuy2-recovery-v31vga/libInfraStreamingUsb.v24p.so
+ee5666a99e604fb9704f454995d404ed  /usr/share/yuy2-recovery-v31vga/rollback.sh

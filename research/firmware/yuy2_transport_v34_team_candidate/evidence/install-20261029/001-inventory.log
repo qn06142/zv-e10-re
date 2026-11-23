@@ -1,0 +1,50 @@
+AUTH request
+[   79.090495] CFG80211-ERROR) wl_cfg80211_del_station : Disconnect STA : ff:ff:ff:ff:ff:ff scb_val.val 3
+/bin/busybox mkdir -p /log/yuy2_640_v34vga
+/usr/share/app # /bin/busybox cat /proc/uptime
+802.97 2678.54
+/usr/share/app # /bin/busybox md5sum /usr/lib/libInfraStreamingUsb.so /usr/lib/y
+uy2_640_v33vga.so
+909c4ffadc9e5972b25101529d5f8773  /usr/lib/libInfraStreamingUsb.so
+87ddc16bd8e0774926e5eb6d16165d20  /usr/lib/yuy2_640_v33vga.so
+/usr/share/app # /bin/busybox md5sum /usr/kmod/dmm.ko
+15c8f7807b291c0af3c77fe55848577f  /usr/kmod/dmm.ko
+/usr/share/app # P=$(/bin/busybox pidof im.elf); /bin/busybox grep -E "libInfraS
+treamingUsb|yuy2_640|yc_observer|yc_probe" /proc/$P/maps
+0e045000-0e052000 r-xp 00000000 fc:0f 2183       /usr/lib/libInfraStreamingUsb.so
+0e052000-0e059000 ---p 0000d000 fc:0f 2183       /usr/lib/libInfraStreamingUsb.so
+0e059000-0e05f000 rw-p 0000c000 fc:0f 2183       /usr/lib/libInfraStreamingUsb.so
+18f20000-18f27000 r-xp 00000000 fc:0f 2182       /usr/lib/yuy2_640_v33vga.so
+18f27000-18f28000 rw-p 00006000 fc:0f 2182       /usr/lib/yuy2_640_v33vga.so
+/usr/share/app # /bin/busybox ls -l /log/yuy2_640_v33vga /log/yuy2_640_v34vga
+/log/yuy2_640_v33vga:
+-rw-r--r--    1 0        0              220 Jan  1  1980 cleanup-inventory.md5
+-rw-r--r--    1 0        0              464 Jan  1 00:00 hashes-after-reboot.md5
+-rw-r--r--    1 0        0             3579 Jan  1  1980 install.log
+---x------    1 0        0             3438 Jan  1  1980 install.sh
+-rw-r--r--    1 0        0              247 Jan  1  1980 installed.md5
+---x------    1 0        0            72796 Jan  1  1980 libInfraStreamingUsb.persistent.so
+-rw-r--r--    1 0        0               51 Jan  1 00:00 logger-stop-after-reboot.txt
+-rw-r--r--    1 0        0            46935 Jan  1 00:00 maps-after-reboot.txt
+-rw-r--r--    1 0        0              924 Jan  1 00:00 memory-after-reboot.txt
+-rw-r--r--    1 0        0             1584 Jan  1  1980 mounts-after-install.txt
+-rw-r--r--    1 0        0             1584 Jan  1 00:00 mounts-after-reboot.txt
+-rw-r--r--    1 0        0             3604 Jan  1  1980 preflight.log
+---x------    1 0        0             2055 Jan  1  1980 preflight.sh
+---x------    1 0        0             1195 Jan  1  1980 rollback.sh
+-rwxr-xr-x    1 0        0             7864 Jan  1  1980 space-check.elf
+-rw-r--r--    1 0        0              146 Jan  1 00:00 storage-after-reboot.txt
+-rw-r--r--    1 0        0              479 Jan  1 00:05 test-archive.md5
+-rw-r--r--    1 0        0             7913 Jan  1 00:05 test-dmesg.txt
+-rw-r--r--    1 0        0             2968 Jan  1 00:05 test-dmm.txt
+-rw-r--r--    1 0        0            48791 Jan  1 00:05 test-maps.txt
+-rw-r--r--    1 0        0              924 Jan  1 00:05 test-memory.txt
+-rw-r--r--    1 0        0               14 Jan  1 00:05 test-uptime.txt
+-rw-r--r--    1 0        0               13 Jan  1 00:00 uptime-after-reboot.txt
+---x------    1 0        0              735 Jan  1 00:08 workbench-job.sh
+---x------    1 0        0            32972 Jan  1  1980 yuy2_640_v33vga.so
+
+/log/yuy2_640_v34vga:
+/usr/share/app # echo V30_DIRECT_001-inventory
+V30_DIRECT_001-inventory
+/usr/share/app # 

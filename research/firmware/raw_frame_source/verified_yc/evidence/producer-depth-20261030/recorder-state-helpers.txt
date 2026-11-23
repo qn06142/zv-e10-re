@@ -1,0 +1,70 @@
+00549ac0: bl        #0x7ed384
+00549ac4: ldr       r0, [r4, #4]
+00549ac6: ldr       r1, [pc, #0x38]
+00549ac8: bl        #0x7ed408
+00549acc: mov.w     r3, #0x108
+00549ad0: ldr       r1, [r4, #4]
+00549ad2: mla       r6, r3, r6, r4
+00549ad6: add.w     r6, r6, #0x1780
+00549ada: adds      r6, #0x18
+00549adc: ldr       r0, [r6, #4]
+00549ade: bl        #0x8b3824
+00549ae2: ldr       r0, [r4, #4]
+00549ae4: ldr       r1, [pc, #0x1c]
+00549ae6: bl        #0x7ed408
+00549aea: mov       r0, r5
+00549aec: ldr       r1, [r4, #4]
+00549aee: bl        #0x8b3824
+00549af2: ldr       r0, [r4, #4]
+00549af4: bl        #0x7ed2e4
+00549af8: str       r5, [r6, #4]
+00549afa: pop       {r3, r4, r5, r6, r7, pc}
+00549afc: bpl       #0x549bd2
+00549afe: lsls      r6, r4, #2
+00549b00: subs      r3, #0xac
+00549b02: lsls      r7, r3, #2
+00549b04: add       r3, sp, #0x38
+00549b06: lsls      r2, r5, #2
+00549b08: mov.w     r3, #0x108
+00549b0c: push      {r7, lr}
+00549b0e: add       r7, sp, #0
+00549b10: mla       r3, r3, r1, r0
+00549b14: add.w     r3, r3, #0x1780
+00549b18: adds      r3, #0x18
+00549b1a: ldr       r0, [r3, #4]
+00549b1c: pop       {r7, pc}
+00549b1e: push      {r7, lr}
+00549b20: add       r7, sp, #0
+00549b22: bl        #0x549b08
+00549b26: sub.w     r3, r0, #0xc
+00549b2a: rsbs      r0, r3, #0
+00549b2c: adc.w     r0, r0, r3
+00549b30: pop       {r7, pc}
+00549b32: mov.w     r3, #0x108
+00549b36: push      {r4, r5, r6, r7, lr}
+00549b38: sub       sp, #0x14
+00549b3a: mla       r3, r3, r1, r0
+00549b3e: add       r7, sp, #0
+00549b40: mov       r1, r2
+00549b42: mov       r5, r0
+00549b44: mov       r6, r2
+00549b46: add.w     r3, r3, #0x16c0
+00549b4a: ldr.w     r0, [r0, #0x2c8]
+00549b4e: adds      r3, #0x10
+00549b50: add.w     r2, r7, #0xc
+00549b54: ldr       r4, [r3, #8]
+00549b56: bl        #0x5532ac
+00549b5a: ldr       r3, [r7, #0xc]
+00549b5c: cmp       r3, #1
+00549b5e: bne       #0x549b8e
+00549b60: ldr.w     r0, [r5, #0x2c8]
+00549b64: mov       r1, r6
+00549b66: add.w     r2, r7, #8
+00549b6a: bl        #0x5532d2
+00549b6e: ldr       r3, [r7, #8]
+00549b70: cmp       r3, #2
+00549b72: bne       #0x549b8e
+00549b74: ldr.w     r0, [r5, #0x2c8]
+00549b78: mov       r1, r6
+00549b7a: adds      r2, r7, #4
+00549b7c: bl        #0x55390e

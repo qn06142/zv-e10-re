@@ -1,0 +1,23 @@
+{
+  "md5": "5c78504c2b9a4d5b5c7bfa8fff2864cb",
+  "bytes": 16224,
+  "command": [
+    "C:/msys64/ucrt64/bin/arm-none-eabi-gcc.exe",
+    "-mcpu=cortex-a5",
+    "-marm",
+    "-mfloat-abi=soft",
+    "-O2",
+    "-fno-builtin",
+    "-fno-stack-protector",
+    "-nostdlib",
+    "-LD:/02_Development_And_Projects/pmca-re/build_sysroot/lib",
+    "-Wl,-rpath-link,D:/02_Development_And_Projects/pmca-re/build_sysroot/lib",
+    "-Wl,--dynamic-linker=/lib/ld-linux.so.3,-e,_start,--hash-style=sysv",
+    "-o",
+    "outputs\\vga-v37\\deployment\\repair-tmp.elf",
+    "work\\vga-v37\\repair_tmp.c",
+    "work\\vga-v37\\arm_linux_start.S",
+    "-l:libc.so.6",
+    "-lgcc"
+  ]
+}

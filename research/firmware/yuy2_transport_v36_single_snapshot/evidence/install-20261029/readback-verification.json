@@ -1,0 +1,36 @@
+{
+  "all_match": true,
+  "exact_new_binaries": true,
+  "files": [
+    {
+      "file": "module-readback.so",
+      "bytes": 35816,
+      "md5": "c2e06b5a7a9f1361c4fb2a087d5e8fe2",
+      "sha256": "4bc68564fed3f5e673aecf612068b49dda3a4a704175355bc802a8292c2adf98"
+    },
+    {
+      "file": "stream-readback.so",
+      "bytes": 72796,
+      "md5": "886445056d2eba99ef62df3a9def5e0f",
+      "sha256": "7ac616463fd86800f67f0c26c4f2d0aeda71c969f846c8eee2c39337e6cd849c"
+    },
+    {
+      "file": "recovery-previous.so",
+      "bytes": 72796,
+      "md5": "c16af3a036529b89d23fa4ccfd059ec3",
+      "sha256": "116b55070ce77037ba4c16df4f8cde7ef550b1a864be6dc73c3b3d6de6518d88"
+    },
+    {
+      "file": "recovery-v24p.so",
+      "bytes": 72792,
+      "md5": "5fde77e394572ebcf420f8941575f6c4",
+      "sha256": "aadb658ca475e16f5e164412a6ed938260a68e3328faf9bd35be2cc40045146e"
+    },
+    {
+      "file": "rollback-readback.sh",
+      "bytes": 1195,
+      "md5": "1e03861d438ff6cc2fd58c1c38aa6e71",
+      "sha256": "e0d27b855002aed0336e96604aad15c96ccac77a541a85b7b2e7987877a40fd8"
+    }
+  ]
+}

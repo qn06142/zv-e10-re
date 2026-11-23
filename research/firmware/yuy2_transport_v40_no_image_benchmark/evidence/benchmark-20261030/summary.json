@@ -1,0 +1,40 @@
+{
+  "command": [
+    "C:/WINDOWS/ffmpeg.exe",
+    "-hide_banner",
+    "-nostdin",
+    "-f",
+    "dshow",
+    "-video_size",
+    "640x480",
+    "-framerate",
+    "60",
+    "-pixel_format",
+    "yuyv422",
+    "-i",
+    "video=ZV-E10",
+    "-an",
+    "-c:v",
+    "copy",
+    "-t",
+    "8.0",
+    "-f",
+    "rawvideo",
+    "pipe:1"
+  ],
+  "returncode": 0,
+  "watchdog_killed": false,
+  "wall_seconds": 9.768545300000142,
+  "frames": 15,
+  "trailing_bytes": 0,
+  "receipt_fps_excluding_initial_open": 2.3552036761633643,
+  "unique_payload_hashes": 15,
+  "limitations": [
+    "Host receipt cadence, not sensor exposure fps.",
+    "Hashes do not alone prove scene freshness.",
+    "60fps is a request ceiling, not a promised rate."
+  ],
+  "demux_IO_error": true,
+  "capture_ended_cleanly": false,
+  "user_reported_crash_on_stream_end": true
+}

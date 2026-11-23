@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "path": "/log/yuy2_640_v35vga/install.log",
+      "md5": "35dbda8662467bd27fab7d2198c7aa33",
+      "bytes": 40
+    },
+    {
+      "path": "/log/yuy2_640_v35vga/preflight.log",
+      "md5": "35dbda8662467bd27fab7d2198c7aa33",
+      "bytes": 40
+    },
+    {
+      "path": "/log/yuy2_640_v36vga/install.log",
+      "md5": "100a553f6cba811fee8368e045adf036",
+      "bytes": 3644
+    },
+    {
+      "path": "/log/yuy2_640_v36vga/runtime.log",
+      "md5": "f4a34fe251d3e2b24843a13a93fb68c7",
+      "bytes": 269
+    },
+    {
+      "path": "/log/yuy2_640_v36vga/vga.log",
+      "md5": "1faaf1f2cc2190fd216b6eb96ca5316c",
+      "bytes": 5635
+    },
+    {
+      "path": "/tmp/kikilog.dat",
+      "md5": "73b4dc0ac4b8e0b5796baf26694d88c7",
+      "bytes": 1957888
+    },
+    {
+      "path": "/tmp/uipc_stat_kernel.txt",
+      "md5": "e1c2b5612be09acd65c9948e5fc5399c",
+      "bytes": 16250
+    }
+  ],
+  "total_bytes": 1983766,
+  "verified": true
+}

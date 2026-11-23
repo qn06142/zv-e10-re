@@ -1,0 +1,6 @@
+277c023942dd4d3d347d9829eaf8be85  /usr/lib/libInfraStreamingUsb.so
+7c339b924987e6baa8e7046e041798c5  /usr/lib/yuy2_640_v37vga.so
+388799d95bbb524ca581c66b077b6dc2  /usr/kmod/usbg_video.ko
+886445056d2eba99ef62df3a9def5e0f  /usr/share/yuy2-recovery-v37vga/libInfraStreamingUsb.previous.so
+c1cad400372e26eca729e4b9bc47a237  /usr/share/yuy2-recovery-v37vga/usbg_video.previous.ko
+8cd97d4a1bcf2cf48e4712ad746a547d  /usr/share/yuy2-recovery-v37vga/rollback.sh

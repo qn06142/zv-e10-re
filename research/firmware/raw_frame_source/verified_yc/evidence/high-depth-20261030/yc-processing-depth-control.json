@@ -1,0 +1,282 @@
+{
+  "original_block": [
+    "0x6368c924",
+    "0x6368c976"
+  ],
+  "camera_access": false,
+  "original_instructions_executed": true,
+  "cases": [
+    {
+      "input_YC_byte36": 0,
+      "input_YC_compression": 0,
+      "processing_word14": 0,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 0,
+      "input_YC_compression": 1,
+      "processing_word14": 0,
+      "processing_word18": 1
+    },
+    {
+      "input_YC_byte36": 0,
+      "input_YC_compression": 2,
+      "processing_word14": 0,
+      "processing_word18": 2
+    },
+    {
+      "input_YC_byte36": 0,
+      "input_YC_compression": 3,
+      "processing_word14": 0,
+      "processing_word18": 3
+    },
+    {
+      "input_YC_byte36": 0,
+      "input_YC_compression": 255,
+      "processing_word14": 0,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 1,
+      "input_YC_compression": 0,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 1,
+      "input_YC_compression": 1,
+      "processing_word14": 1,
+      "processing_word18": 1
+    },
+    {
+      "input_YC_byte36": 1,
+      "input_YC_compression": 2,
+      "processing_word14": 1,
+      "processing_word18": 2
+    },
+    {
+      "input_YC_byte36": 1,
+      "input_YC_compression": 3,
+      "processing_word14": 1,
+      "processing_word18": 3
+    },
+    {
+      "input_YC_byte36": 1,
+      "input_YC_compression": 255,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 2,
+      "input_YC_compression": 0,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 2,
+      "input_YC_compression": 1,
+      "processing_word14": 1,
+      "processing_word18": 1
+    },
+    {
+      "input_YC_byte36": 2,
+      "input_YC_compression": 2,
+      "processing_word14": 1,
+      "processing_word18": 2
+    },
+    {
+      "input_YC_byte36": 2,
+      "input_YC_compression": 3,
+      "processing_word14": 1,
+      "processing_word18": 3
+    },
+    {
+      "input_YC_byte36": 2,
+      "input_YC_compression": 255,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 3,
+      "input_YC_compression": 0,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 3,
+      "input_YC_compression": 1,
+      "processing_word14": 1,
+      "processing_word18": 1
+    },
+    {
+      "input_YC_byte36": 3,
+      "input_YC_compression": 2,
+      "processing_word14": 1,
+      "processing_word18": 2
+    },
+    {
+      "input_YC_byte36": 3,
+      "input_YC_compression": 3,
+      "processing_word14": 1,
+      "processing_word18": 3
+    },
+    {
+      "input_YC_byte36": 3,
+      "input_YC_compression": 255,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 4,
+      "input_YC_compression": 0,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 4,
+      "input_YC_compression": 1,
+      "processing_word14": 1,
+      "processing_word18": 1
+    },
+    {
+      "input_YC_byte36": 4,
+      "input_YC_compression": 2,
+      "processing_word14": 1,
+      "processing_word18": 2
+    },
+    {
+      "input_YC_byte36": 4,
+      "input_YC_compression": 3,
+      "processing_word14": 1,
+      "processing_word18": 3
+    },
+    {
+      "input_YC_byte36": 4,
+      "input_YC_compression": 255,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 8,
+      "input_YC_compression": 0,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 8,
+      "input_YC_compression": 1,
+      "processing_word14": 1,
+      "processing_word18": 1
+    },
+    {
+      "input_YC_byte36": 8,
+      "input_YC_compression": 2,
+      "processing_word14": 1,
+      "processing_word18": 2
+    },
+    {
+      "input_YC_byte36": 8,
+      "input_YC_compression": 3,
+      "processing_word14": 1,
+      "processing_word18": 3
+    },
+    {
+      "input_YC_byte36": 8,
+      "input_YC_compression": 255,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 10,
+      "input_YC_compression": 0,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 10,
+      "input_YC_compression": 1,
+      "processing_word14": 1,
+      "processing_word18": 1
+    },
+    {
+      "input_YC_byte36": 10,
+      "input_YC_compression": 2,
+      "processing_word14": 1,
+      "processing_word18": 2
+    },
+    {
+      "input_YC_byte36": 10,
+      "input_YC_compression": 3,
+      "processing_word14": 1,
+      "processing_word18": 3
+    },
+    {
+      "input_YC_byte36": 10,
+      "input_YC_compression": 255,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 12,
+      "input_YC_compression": 0,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 12,
+      "input_YC_compression": 1,
+      "processing_word14": 1,
+      "processing_word18": 1
+    },
+    {
+      "input_YC_byte36": 12,
+      "input_YC_compression": 2,
+      "processing_word14": 1,
+      "processing_word18": 2
+    },
+    {
+      "input_YC_byte36": 12,
+      "input_YC_compression": 3,
+      "processing_word14": 1,
+      "processing_word18": 3
+    },
+    {
+      "input_YC_byte36": 12,
+      "input_YC_compression": 255,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 255,
+      "input_YC_compression": 0,
+      "processing_word14": 1,
+      "processing_word18": 0
+    },
+    {
+      "input_YC_byte36": 255,
+      "input_YC_compression": 1,
+      "processing_word14": 1,
+      "processing_word18": 1
+    },
+    {
+      "input_YC_byte36": 255,
+      "input_YC_compression": 2,
+      "processing_word14": 1,
+      "processing_word18": 2
+    },
+    {
+      "input_YC_byte36": 255,
+      "input_YC_compression": 3,
+      "processing_word14": 1,
+      "processing_word18": 3
+    },
+    {
+      "input_YC_byte36": 255,
+      "input_YC_compression": 255,
+      "processing_word14": 1,
+      "processing_word18": 0
+    }
+  ],
+  "conclusion": "Native YC metadata byte0x36 is consumed as zero versus nonzero for this processing word. This is not the codec 0/1/2/3 bit-depth enum proof and does not configure or generate actual high-precision pixels.",
+  "hardware_services": "Not invoked; stopped before processing dispatch."
+}

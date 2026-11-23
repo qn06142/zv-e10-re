@@ -1,0 +1,11 @@
+{
+  "revision": "4.0",
+  "installed": true,
+  "installed_readbacks_identical": true,
+  "fresh_boot_verified": true,
+  "benchmark": "pending",
+  "postboot_readbacks_identical": true,
+  "storage": "V28_SPACE /usr available_bytes=10015744\nV28_SPACE /log available_bytes=351911936\nV28_SPACE /tmp available_bytes=5242880\nV28_TMP_WRITE_READBACK_OK\n",
+  "uptime": "29.61 61.02",
+  "service_closed": true
+}

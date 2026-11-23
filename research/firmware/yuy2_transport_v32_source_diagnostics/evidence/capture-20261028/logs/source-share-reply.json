@@ -1,0 +1,11 @@
+{
+  "raw_reply_hex": "0280ffff55171a610000ffff000b0e000000000000000000",
+  "sdk_return": 0,
+  "command": "0x8002",
+  "status_signed16": -1,
+  "handle_session_only": "0x1755",
+  "queue_low": "0x611a",
+  "candidate_type": "0xe0b00",
+  "classification": "explicit DMM Share negative completion; no source Open attempted",
+  "reason": "NOT_YET_ESTABLISHED"
+}

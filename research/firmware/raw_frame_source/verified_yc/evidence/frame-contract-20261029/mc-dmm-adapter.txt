@@ -1,0 +1,137 @@
+6364d9f4: add.w     r2, r0, #0x160
+6364d9f8: movs      r1, #0
+6364d9fa: push      {r4, lr}
+6364d9fc: bl        #0x6364d6fc
+6364da00: movs      r3, #0
+6364da02: ldr       r1, [pc, #0x28] ; [6364da2c]=00bcacd2
+6364da04: ldr       r2, [pc, #0x28] ; [6364da30]=ffffffcf
+6364da06: add       r1, pc
+6364da08: ldr       r0, [pc, #0x1c] ; [6364da28]=00570254
+6364da0a: add       r2, pc
+6364da0c: bl        #0x63ac2160
+6364da10: mov       r1, r0
+6364da12: cbnz      r0, #0x6364da1a
+6364da14: ldr       r0, [pc, #0x1c] ; [6364da34]=008cace7
+6364da16: add       r0, pc
+6364da18: b         #0x6364da1e
+6364da1a: ldr       r0, [pc, #0x1c] ; [6364da38]=008cad03
+6364da1c: add       r0, pc
+6364da1e: pop.w     {r4, lr}
+6364da22: b.w       #0x63c5fe48
+6364da26: nop       
+6364da28: lsls      r4, r2, #9
+6364da2a: lsls      r7, r2, #1
+6364da2c: add       r4, sp, #0x348
+6364da2e: lsls      r4, r7, #2
+6364da30: .byte     0xcf, 0xff
+6364da32: .byte     0xff, 0xff
+6364da34: add       r4, sp, #0x39c
+6364da36: lsls      r4, r1, #2
+6364da38: add       r5, sp, #0xc
+6364da3a: lsls      r4, r1, #2
+6364da3c: add.w     r2, r0, #0x160
+6364da40: movs      r1, #0
+6364da42: push      {r4, lr}
+6364da44: bl        #0x6364d6fc
+6364da48: ldr       r1, [pc, #0x24] ; [6364da70]=00bcac8c
+6364da4a: ldr       r0, [pc, #0x20] ; [6364da6c]=00570254
+6364da4c: add       r1, pc
+6364da4e: ldr       r1, [r1]
+6364da50: bl        #0x63ac213c
+6364da54: mov       r1, r0
+6364da56: cbnz      r0, #0x6364da5e
+6364da58: ldr       r0, [pc, #0x18] ; [6364da74]=008cacea
+6364da5a: add       r0, pc
+6364da5c: b         #0x6364da62
+6364da5e: ldr       r0, [pc, #0x18] ; [6364da78]=008cad08
+6364da60: add       r0, pc
+6364da62: pop.w     {r4, lr}
+6364da66: b.w       #0x63c5fe48
+6364da6a: nop       
+6364da6c: lsls      r4, r2, #9
+6364da6e: lsls      r7, r2, #1
+6364da70: add       r4, sp, #0x230
+6364da72: lsls      r4, r7, #2
+6364da74: add       r4, sp, #0x3a8
+6364da76: lsls      r4, r1, #2
+6364da78: add       r5, sp, #0x20
+6364da7a: lsls      r4, r1, #2
+6364da7c: sub       sp, #8
+6364da7e: movw      r0, #0xffff
+6364da82: add       r3, sp, #8
+6364da84: stmdb     r3, {r1, r2}
+6364da88: ldrh.w    r1, [sp, #2]
+6364da8c: cmp       r1, #0x63
+6364da8e: bls       #0x6364dab8
+6364da90: cmp       r1, r0
+6364da92: beq       #0x6364dab4
+6364da94: movs      r3, #0
+6364da96: ldr       r2, [pc, #0x24] ; [6364dabc]=007f4670
+6364da98: add       r2, pc
+6364da9a: add.w     r0, r2, r3, lsl #3
+6364da9e: ldr       r0, [r0, #4]
+6364daa0: cmp       r0, r1
+6364daa2: blt       #0x6364daaa
+6364daa4: ldrh.w    r0, [r2, r3, lsl #3]
+6364daa8: b         #0x6364dab8
+6364daaa: adds      r3, #1
+6364daac: cmp       r3, #0x45
+6364daae: bne       #0x6364da96
+6364dab0: movs      r0, #0
+6364dab2: b         #0x6364dab8
+6364dab4: mov.w     r0, #0x6000
+6364dab8: add       sp, #8
+6364daba: bx        lr
+6364dabc: mov       r0, lr
+6364dabe: lsls      r7, r7, #1
+6364dac0: push      {r4, r5, r6, lr}
+6364dac2: sub       sp, #0x118
+6364dac4: mov       r5, r0
+6364dac6: add       r0, sp, #4
+6364dac8: mov       r4, r1
+6364daca: mov       r6, r2
+6364dacc: bl        #0x63ac1504
+6364dad0: add       r0, sp, #0x114
+6364dad2: bl        #0x63ac23e0
+6364dad6: add       r0, sp, #4
+6364dad8: mov       r1, r5
+6364dada: movs      r2, #0x70
+6364dadc: bl        #0x63ac1520
+6364dae0: add       r0, sp, #4
+6364dae2: mov       r1, r6
+6364dae4: bl        #0x63ddfd9e
+6364dae8: add       r0, sp, #0x114
+6364daea: ldr       r1, [pc, #0x4c] ; [6364db38]=0061003c
+6364daec: add       r2, sp, #4
+6364daee: bl        #0x63ac2418
+6364daf2: cbnz      r0, #0x6364db12
+6364daf4: add       r0, sp, #4
+6364daf6: mov       r1, r4
+6364daf8: movs      r2, #0x70
+6364dafa: bl        #0x63ac1564
+6364dafe: cbnz      r0, #0x6364db12
+6364db00: ldrh      r2, [r4, #6]
+6364db02: movw      r3, #0x1111
+6364db06: cmp       r2, r3
+6364db08: bne       #0x6364db12
+6364db0a: ldrsh.w   r4, [r4, #2]
+6364db0e: lsrs      r4, r4, #0x1f
+6364db10: b         #0x6364db14
+6364db12: movs      r4, #1
+6364db14: add       r0, sp, #0x114
+6364db16: bl        #0x63ac23d0
+6364db1a: add       r0, sp, #4
+6364db1c: bl        #0x63ac14f4
+6364db20: mov       r0, r4
+6364db22: add       sp, #0x118
+6364db24: pop       {r4, r5, r6, pc}
+6364db26: add       r0, sp, #0x114
+6364db28: bl        #0x63ac23d0
+6364db2c: b         #0x6364db2e
+6364db2e: add       r0, sp, #4
+6364db30: bl        #0x63ac14f4
+6364db34: bl        #0x63de2ba4
+6364db38: movs      r4, r7
+6364db3a: lsls      r1, r4, #1
+6364db3c: push      {r3, r4, r5, lr}
+6364db3e: ldr       r3, [pc, #0x20] ; [6364db60]=00fea5da

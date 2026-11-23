@@ -1,0 +1,23 @@
+{
+  "baseline_md5": "388799d95bbb524ca581c66b077b6dc2",
+  "md5": "702b82f347b6fc25e8d46ddba1836743",
+  "edits": [
+    {
+      "offset": "0xe74",
+      "stub": "__yc42_extract_size"
+    },
+    {
+      "offset": "0xed0",
+      "stub": "__yc42_fid"
+    },
+    {
+      "offset": "0xf44",
+      "stub": "__yc42_eof"
+    }
+  ],
+  "preserves_yc37_fence": true,
+  "new_imports": false,
+  "chunk_tag": "0x20000000",
+  "fid_flag": "0x40000000",
+  "more_flag": "0x80000000"
+}

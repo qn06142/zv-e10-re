@@ -1,0 +1,10 @@
+/bin/busybox sync
+/usr/share/app # /bin/busybox reboot -f
+[  136.206992] Disabling non-boot CPUs ...
+[  136.209247] CPU1: shutdown
+[  136.209264] CPU1: shutdown
+[  136.213660] CPU2: shutdown
+[  136.213677] CPU2: shutdown
+[  136.217518] CPU3: shutdown
+[  136.217535] CPU3: shutdown
+[  136.225557] Restarting syst

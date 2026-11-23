@@ -1,0 +1,20 @@
+{
+  "purpose": "TEMPORARY_RECOVERY_ONLY_SKIP_LOG_FILE_OPEN_UNTIL_TMP_REPAIR",
+  "original_md5": "51337167a2ab42d53557c2cce210c987",
+  "temporary_md5": "8af7cfd952dbdd47b4f468de6c7d385e",
+  "bytes": 35152,
+  "instruction_offset": "text+0xc64",
+  "removed_relocation": "R_ARM_CALL kikilog_dat_open at text+0xc64",
+  "other_relocations_unchanged": true,
+  "loaded_version": "tmpnofile",
+  "arm_cases": [
+    "0x268 null file returns without dereference",
+    "0x35c null file returns without dereference",
+    "file-open call skipped with mov r0,0"
+  ],
+  "limitations": [
+    "Not a webcam patch or permanent logger change.",
+    "Must restore original module and original full logfile before final reboot.",
+    "No claim that this identifies historical camera-crash causes."
+  ]
+}

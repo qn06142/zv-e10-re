@@ -1,0 +1,9 @@
+/usr/share/app # /bin/busybox sh /log/yuy2_640_v31vga/workbench-job.sh; echo YUY
+2_JOB_DONE_002-archive
+[ulogio] failed to stop sequential capture(-1024) 
+c8cb4f5e180711c1e847d5afd067bcfa  /log/yuy2_640_v30vga/install.log
+cf9bedd0c274032ba6c1747224370344  /log/yuy2_640_v30vga/logger-stop-after-reboot.txt
+955c8a49636328a546fa40ffe2e291de  /log/yuy2_640_v30vga/preflight.log
+V31_CAPTURE_INVENTORY_OK
+YUY2_JOB_DONE_002-archive
+/usr/share/app # 

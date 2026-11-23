@@ -1,0 +1,62 @@
+{
+  "original_instructions": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "wait_status": 0,
+      "flags": "0x2000",
+      "rc": 0,
+      "calls": [
+        "wait",
+        "clear",
+        "helper_6e46",
+        "helper_6eb6",
+        "helper_3df0"
+      ]
+    },
+    {
+      "wait_status": 0,
+      "flags": "0x8000",
+      "rc": 0,
+      "calls": [
+        "wait",
+        "clear",
+        "set_stage20",
+        "helper_6eb6"
+      ]
+    },
+    {
+      "wait_status": 0,
+      "flags": "0x4000",
+      "rc": 0,
+      "calls": [
+        "wait",
+        "clear",
+        "helper_6eb6"
+      ]
+    },
+    {
+      "wait_status": 0,
+      "flags": "0x100000",
+      "rc": 0,
+      "calls": [
+        "wait",
+        "clear",
+        "helper_6eb6"
+      ]
+    },
+    {
+      "wait_status": 1,
+      "flags": "0x0",
+      "rc": 0,
+      "calls": [
+        "wait",
+        "clear",
+        "helper_6e46",
+        "helper_6eb6",
+        "helper_3df0"
+      ]
+    }
+  ],
+  "limitations": "Wait and downstream callbacks mocked. Does not establish event meanings or pixel DMA completion."
+}

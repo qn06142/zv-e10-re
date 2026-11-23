@@ -1,0 +1,26 @@
+{
+  "original_kernel_instructions_executed": true,
+  "kernel_md5": "388799d95bbb524ca581c66b077b6dc2",
+  "slice": [
+    ".text+0x1b44",
+    ".text+0x1b6c"
+  ],
+  "hardware_calls_executed": false,
+  "cases": [
+    {
+      "returned_allocation_bytes": 1843200,
+      "slot_bytes": 921600,
+      "full_HD_frame_plus_header_fits": false
+    },
+    {
+      "returned_allocation_bytes": 8388608,
+      "slot_bytes": 4194304,
+      "full_HD_frame_plus_header_fits": true
+    },
+    {
+      "returned_allocation_bytes": 12582912,
+      "slot_bytes": 6291456,
+      "full_HD_frame_plus_header_fits": true
+    }
+  ]
+}

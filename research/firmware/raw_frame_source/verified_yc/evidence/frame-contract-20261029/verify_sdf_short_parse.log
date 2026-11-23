@@ -1,0 +1,23 @@
+{
+  "camera_access": false,
+  "original_api_constructor_and_command_parser_executed": true,
+  "functions": [
+    "ApiResizeRotate constructor0x636c6420",
+    "command parser0x63cade3a"
+  ],
+  "mocked": [
+    "source/destination metadata resolution and capacity response",
+    "YC state and auxiliary metadata reads",
+    "physical mapping",
+    "diagnostic logging"
+  ],
+  "tail_bytes_compared": [
+    0,
+    165
+  ],
+  "object_different_offsets": [],
+  "limitations": [
+    "Metadata/capacity are fixture results, not live DMM or hardware acceptance.",
+    "This tests default command version0 only; version1/2 require their extended fields."
+  ]
+}

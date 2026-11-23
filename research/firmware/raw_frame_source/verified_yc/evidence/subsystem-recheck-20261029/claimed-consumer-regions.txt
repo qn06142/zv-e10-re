@@ -1,0 +1,290 @@
+
+REGION 0x6f5958
+006f5958: push      {r3, r4, r7, lr} 
+006f595a: mov       r4, r0 
+006f595c: ldr       r3, [pc, #0x2c] 
+006f595e: add       r7, sp, #0 
+006f5960: ldr       r2, [pc, #0x2c] 
+006f5962: add       r3, pc 
+006f5964: ldr       r3, [r3, r2] 
+006f5966: adds      r3, #8 
+006f5968: str       r3, [r0], #4 
+006f596c: blx       #0x10dc70 _ZN19DataflowInfraSenderC1Ev
+006f5970: movs      r3, #0 
+006f5972: str       r3, [r4, #0x18] 
+006f5974: movs      r2, #3 
+006f5976: strb      r3, [r4, #0x1c] 
+006f5978: adds      r3, #1 
+006f597a: str       r3, [r4, #8] 
+006f597c: mov       r0, r4 
+006f597e: str       r3, [r4, #0x10] 
+006f5980: ldr       r3, [pc, #4] 
+006f5982: str       r2, [r4, #0xc] 
+006f5984: str       r3, [r4, #0x14] 
+006f5986: pop       {r3, r4, r7, pc} 
+006f5988: movs      r3, r7 
+006f598a: lsls      r0, r0, #2 
+006f598c: movs      r2, #0x7a 
+006f598e: lsls      r6, r1, #3 
+006f5990: strb      r0, [r3, r6] 
+006f5992: movs      r0, r0 
+006f5994: ldr       r3, [r0, #0x18] 
+006f5996: push      {r4, r5, r7, lr} 
+006f5998: mov       r5, r0 
+006f599a: add       r7, sp, #0 
+006f599c: cbnz      r3, #0x6f59d0 
+006f599e: movs      r0, #0x38 
+006f59a0: blx       #0x108e0c _Znwj
+006f59a4: add.w     r1, r5, #8 
+006f59a8: adds      r2, r5, #4 
+006f59aa: mov       r4, r0 
+006f59ac: blx       #0x10abe0 _ZN16DataflowInfraPinC1EPN19DefDataflowInfraPin12PIN_PROPERTYEP19DataflowInfraSender
+006f59b0: str       r4, [r5, #0x18] 
+006f59b2: cbnz      r4, #0x6f59d0 
+006f59b4: ldr       r0, [pc, #0x1c] 
+006f59b6: movs      r2, #0x24 
+006f59b8: ldr       r1, [pc, #0x1c] 
+006f59ba: ldr       r3, [pc, #0x20] 
+006f59bc: add       r0, pc 
+006f59be: add       r1, pc 
+006f59c0: add       r3, pc 
+006f59c2: blx       #0x108f68 __assert_fail
+006f59c6: mov       r0, r4 
+006f59c8: blx       #0x10a440 _ZdlPv
+006f59cc: blx       #0x10a31c __cxa_end_cleanup
+006f59d0: pop       {r4, r5, r7, pc} 
+006f59d2: nop        
+006f59d4: ldrb      r3, [r4, r0] 
+006f59d6: lsls      r7, r1, #2 
+006f59d8: ldrb      r0, [r7, r0] 
+006f59da: lsls      r7, r1, #2 
+006f59dc: ldrsh     r6, [r5, r3] 
+006f59de: lsls      r7, r1, #2 
+006f59e0: push      {r3, r4, r7, lr} 
+006f59e2: mov       r4, r0 
+006f59e4: ldr       r0, [r0, #0x18] 
+006f59e6: add       r7, sp, #0 
+006f59e8: cbz       r0, #0x6f59f0 
+006f59ea: ldr       r3, [r0] 
+006f59ec: ldr       r3, [r3, #4] 
+006f59ee: blx       r3 
+006f59f0: movs      r3, #0 
+006f59f2: str       r3, [r4, #0x18] 
+006f59f4: pop       {r3, r4, r7, pc} 
+006f59f6: movs      r0, r0 
+006f59f8: push      {r7, lr} 
+006f59fa: sub       sp, #8 
+006f59fc: add       r7, sp, #0 
+006f59fe: ldr       r0, [r0, #0x18] 
+006f5a00: cbnz      r0, #0x6f5a14 
+006f5a02: ldr       r0, [pc, #0x28] 
+006f5a04: movs      r2, #0x33 
+006f5a06: ldr       r1, [pc, #0x28] 
+006f5a08: ldr       r3, [pc, #0x28] 
+006f5a0a: add       r0, pc 
+006f5a0c: add       r1, pc 
+006f5a0e: add       r3, pc 
+006f5a10: blx       #0x108f68 __assert_fail
+006f5a14: adds      r1, r7, #4 
+006f5a16: blx       #0x108a70 _ZN16DataflowInfraPin11GetPinStateEPN19DefDataflowInfraPin8PinStateE
+006f5a1a: ldr       r0, [r7, #4] 
+006f5a1c: rsbs.w    r0, r0, #1 
+006f5a20: it        lo 
+006f5a22: movlo     r0, #0 
+006f5a24: add.w     r7, r7, #8 
+006f5a28: mov       sp, r7 
+006f5a2a: pop       {r7, pc} 
+006f5a2c: ldrh      r5, [r2, r7] 
+006f5a2e: lsls      r7, r1, #2 
+006f5a30: ldrh      r2, [r5, r7] 
+006f5a32: lsls      r7, r1, #2 
+006f5a34: ldrh      r2, [r5, r2] 
+006f5a36: lsls      r7, r1, #2 
+006f5a38: push      {r3, r4, r5, r6, r7, lr} 
+006f5a3a: mov       r5, r0 
+006f5a3c: ldrb      r4, [r0, #0x1c] 
+006f5a3e: add       r7, sp, #0 
+006f5a40: mov       r6, r1 
+006f5a42: cbnz      r4, #0x6f5a8e 
+006f5a44: bl        #0x6f59f8 
+006f5a48: cbz       r0, #0x6f5a94 
+006f5a4a: ldr       r3, [r5, #0x18] 
+006f5a4c: cbnz      r3, #0x6f5a60 
+006f5a4e: ldr       r0, [pc, #0x48] 
+006f5a50: movs      r2, #0x3f 
+006f5a52: ldr       r1, [pc, #0x48] 
+006f5a54: ldr       r3, [pc, #0x48] 
+006f5a56: add       r0, pc 
+006f5a58: add       r1, pc 
+006f5a5a: add       r3, pc 
+006f5a5c: blx       #0x108f68 __assert_fail
+006f5a60: movs      r0, #0xd 
+006f5a62: movs      r1, #5 
+006f5a64: bl        #0x6fbdf8 
+006f5a68: ldr       r0, [r5, #0x18] 
+006f5a6a: mov       r1, r6 
+006f5a6c: mov       r2, r4 
+006f5a6e: mov       r3, r4 
+006f5a70: blx       #0x109344 _ZN16DataflowInfraPin4SendEmtm
+006f5a74: movs      r1, #6 
+006f5a76: mov       r5, r0 
+006f5a78: movs      r0, #0xd 
+006f5a7a: bl        #0x6fbdf8 
+006f5a7e: cbz       r5, #0x6f5a92 
+006f5a80: ldr       r0, [pc, #0x20] 
+006f5a82: mov       r1, r5 
+006f5a84: add       r0, pc 
+006f5a86: bl        #0x6fbe58 
+006f5a8a: mov       r0, r4 
+006f5a8c: pop       {r3, r4, r5, r6, r7, pc} 
+006f5a8e: movs      r0, #0 
+006f5a90: pop       {r3, r4, r5, r6, r7, pc} 
+006f5a92: movs      r0, #1 
+006f5a94: pop       {r3, r4, r5, r6, r7, pc} 
+006f5a96: nop        
+006f5a98: ldrh      r1, [r1, r6] 
+006f5a9a: lsls      r7, r1, #2 
+006f5a9c: ldrh      r6, [r3, r6] 
+006f5a9e: lsls      r7, r1, #2 
+006f5aa0: ldrsh     r5, [r5, r0] 
+006f5aa2: lsls      r7, r1, #2 
+006f5aa4: ldrh      r5, [r7, r5] 
+006f5aa6: lsls      r7, r1, #2 
+006f5aa8: push.w    {r3, r4, r5, r6, r7, r8, sb, lr} 
+006f5aac: mov       r8, r0 
+006f5aae: ldr       r3, [r1, #8] 
+006f5ab0: add       r7, sp, #0 
+006f5ab2: mov       r4, r1 
+006f5ab4: mov       sb, r2 
+006f5ab6: cmp       r3, #1 
+006f5ab8: beq       #0x6f5aca 
+006f5aba: ldr       r0, [pc, #0xb4] 
+006f5abc: movs      r2, #0x4e 
+006f5abe: ldr       r1, [pc, #0xb4] 
+006f5ac0: ldr       r3, [pc, #0xb4] 
+006f5ac2: add       r0, pc 
+006f5ac4: add       r1, pc 
+006f5ac6: add       r3, pc 
+006f5ac8: b         #0x6f5ade 
+006f5aca: ldr       r3, [r1, #0xc] 
+006f5acc: cmp       r3, #3 
+006f5ace: beq       #0x6f5ae2 
+006f5ad0: ldr       r0, [pc, #0xa8] 
+006f5ad2: movs      r2, #0x4f 
+006f5ad4: ldr       r1, [pc, #0xa8] 
+006f5ad6: ldr       r3, [pc, #0xac] 
+006f5ad8: add       r0, pc 
+006f5ada: add       r1, pc 
+006f5adc: add       r3, pc 
+006f5ade: blx       #0x108f68 __assert_fail
+006f5ae2: ldr       r5, [r1, #0x18] 
+006f5ae4: cmp       r5, #1 
+006f5ae6: beq       #0x6f5af8 
+006f5ae8: ldr       r0, [pc, #0x9c] 
+006f5aea: movs      r2, #0x50 
+006f5aec: ldr       r1, [pc, #0x9c] 
+006f5aee: ldr       r3, [pc, #0xa0] 
+006f5af0: add       r0, pc 
+006f5af2: add       r1, pc 
+006f5af4: add       r3, pc 
+006f5af6: b         #0x6f5ade 
+006f5af8: ldr       r6, [r1, #0x1c] 
+006f5afa: cmp       r6, #3 
+006f5afc: beq       #0x6f5b0e 
+006f5afe: ldr       r0, [pc, #0x94] 
+
+REGION 0xe48d30
+00e48d30: add       r3, pc 
+00e48d32: str       r3, [sp] 
+00e48d34: movs      r3, #0x57 
+00e48d36: b         #0xe48e0e 
+00e48d38: cbz       r5, #0xe48d40 
+00e48d3a: mov       r0, r4 
+00e48d3c: bl        #0xe48798 
+00e48d40: ldr.w     sb, [r4, #0x34] 
+00e48d44: cmp.w     sb, #0 
+00e48d48: bne       #0xe48d7a 
+00e48d4a: movs      r0, #0x24 
+00e48d4c: blx       #0x108e0c _Znwj
+00e48d50: ldr       r1, [r7, #0xc] 
+00e48d52: ldr       r2, [r4, #0x10] 
+00e48d54: mov       r3, sb 
+00e48d56: mov       r6, r0 
+00e48d58: blx       #0x108ca4 _ZN26C_DataflowInfra_StdData_YCC1Ejjj
+00e48d5c: str       r6, [r4, #0x34] 
+00e48d5e: cbnz      r6, #0xe48d7a 
+00e48d60: bl        #0x172a4c 
+00e48d64: cmp       r0, #0 
+00e48d66: ble.w     #0xe48ea6 
+00e48d6a: ldr       r3, [pc, #0x148] 
+00e48d6c: movs      r0, #0x35 
+00e48d6e: mov       r1, r6 
+00e48d70: movs      r2, #1 
+00e48d72: add       r3, pc 
+00e48d74: str       r3, [sp] 
+00e48d76: movs      r3, #0x62 
+00e48d78: b         #0xe48e0e 
+00e48d7a: cmp       r5, #0 
+00e48d7c: bne.w     #0xe48e8c 
+00e48d80: add.w     r6, r4, #0x38 
+00e48d84: ldr       r0, [r4, #0x34] 
+00e48d86: mov       r1, r6 
+00e48d88: blx       #0x10e538 _ZN26C_DataflowInfra_StdData_YC22GetEntry_ImageSizeInfoEP35C_DataflowInfra_Entry_ImageSizeInfo
+00e48d8c: mov       sb, r0 
+00e48d8e: cbz       r0, #0xe48dac 
+00e48d90: bl        #0x172a4c 
+00e48d94: cmp       r0, #0 
+00e48d96: ble.w     #0xe48ea6 
+00e48d9a: ldr       r3, [pc, #0x11c] 
+00e48d9c: movs      r0, #0x35 
+00e48d9e: mov       r1, r5 
+00e48da0: movs      r2, #1 
+00e48da2: add       r3, pc 
+00e48da4: stm.w     sp, {r3, sb} 
+00e48da8: movs      r3, #0x6b 
+00e48daa: b         #0xe48e0e 
+00e48dac: mov       r0, r6 
+00e48dae: mov       r1, r8 
+00e48db0: add.w     r6, r4, #0x88 
+00e48db4: blx       #0x10d7e0 _ZN35C_DataflowInfra_Entry_ImageSizeInfo11GetData_AllEPN19DataflowInfra_StdYc22PIN_YC_IMAGE_SIZE_INFOE
+00e48db8: ldr       r0, [r4, #0x34] 
+00e48dba: mov       r1, r6 
+00e48dbc: blx       #0x10f948 _ZN26C_DataflowInfra_StdData_YC20GetEntry_YcStateInfoEP33C_DataflowInfra_Entry_YcStateInfo
+00e48dc0: mov       r8, r0 
+00e48dc2: cbz       r0, #0xe48dde 
+00e48dc4: bl        #0x172a4c 
+00e48dc8: cmp       r0, #0 
+00e48dca: ble       #0xe48ea6 
+00e48dcc: ldr       r3, [pc, #0xec] 
+00e48dce: movs      r0, #0x35 
+00e48dd0: mov       r1, r5 
+00e48dd2: movs      r2, #1 
+00e48dd4: add       r3, pc 
+00e48dd6: stm.w     sp, {r3, r8} 
+00e48dda: movs      r3, #0x73 
+00e48ddc: b         #0xe48e0e 
+00e48dde: mov       r0, r6 
+00e48de0: mov       r1, sl 
+00e48de2: add.w     r6, r4, #0xa4 
+00e48de6: blx       #0x10cc14 _ZN33C_DataflowInfra_Entry_YcStateInfo11GetData_AllEPN19DataflowInfra_StdYc20PIN_YC_YC_STATE_INFOE
+00e48dea: ldr       r0, [r4, #0x34] 
+00e48dec: mov       r1, r6 
+00e48dee: blx       #0x10fd30 _ZN26C_DataflowInfra_StdData_YC24GetEntry_ImageOutTimInfoEP37C_DataflowInfra_Entry_ImageOutTimInfo
+00e48df2: mov       r8, r0 
+00e48df4: cbz       r0, #0xe48e14 
+00e48df6: bl        #0x172a4c 
+00e48dfa: cmp       r0, #0 
+00e48dfc: ble       #0xe48ea6 
+00e48dfe: ldr       r3, [pc, #0xc0] 
+00e48e00: movs      r0, #0x35 
+00e48e02: mov       r1, r5 
+00e48e04: movs      r2, #1 
+00e48e06: add       r3, pc 
+00e48e08: stm.w     sp, {r3, r8} 
+00e48e0c: movs      r3, #0x7b 
+00e48e0e: blx       #0x10fc58 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+00e48e12: b         #0xe48ea6 
+00e48e14: mov       r0, r6 
+00e48e16: mov       r1, fp 
+00e48e18: add.w     r6, r4, #0xd4 
+00e48e1c: blx       #0x10b108 _ZN37C_DataflowInfra_Entry_ImageOutTimInfo11GetData_AllEPN19DataflowInfra_StdYc25PIN_YC_IMAGE_OUT_TIM_INFOE

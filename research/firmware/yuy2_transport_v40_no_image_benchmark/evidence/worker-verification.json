@@ -1,0 +1,197 @@
+[
+  {
+    "case": 0,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 1,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 2,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 3,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 4,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 5,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 6,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 7,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 8,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 9,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 10,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 11,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 12,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 13,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 14,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 15,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 16,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 17,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 18,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 19,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 20,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 21,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 22,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 23,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 24,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 25,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 26,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 27,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 28,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 29,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 30,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 31,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 32,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 33,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 34,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 35,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 36,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 37,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  },
+  {
+    "case": 38,
+    "returncode": 0,
+    "output": "PASS event-driven worker: continuous publication and transferred-reference ledger\n"
+  }
+]

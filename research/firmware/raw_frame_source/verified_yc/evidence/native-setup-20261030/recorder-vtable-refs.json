@@ -1,0 +1,26 @@
+[
+  {
+    "target": "0x3f6371",
+    "address": "0xbba0",
+    "section": ".dynsym",
+    "owners": []
+  },
+  {
+    "target": "0x3f6371",
+    "address": "0xa0c798",
+    "section": ".rodata",
+    "owners": []
+  },
+  {
+    "target": "0x3f6283",
+    "address": "0x15080",
+    "section": ".dynsym",
+    "owners": []
+  },
+  {
+    "target": "0x3f6283",
+    "address": "0xa0c79c",
+    "section": ".rodata",
+    "owners": []
+  }
+]

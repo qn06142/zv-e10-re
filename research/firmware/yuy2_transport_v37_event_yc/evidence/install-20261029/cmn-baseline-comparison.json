@@ -1,0 +1,47 @@
+{
+  "camera_md5": "bd32c223e60e363d900c7ac8be06641c",
+  "stock_md5": "31308976206a837f6f5c571992d2b499",
+  "bytes": 94612,
+  "differences": [
+    {
+      "offset": "0x12555",
+      "camera": "0x80",
+      "stock": "0x0"
+    },
+    {
+      "offset": "0x12556",
+      "camera": "0x7",
+      "stock": "0x5"
+    },
+    {
+      "offset": "0x12557",
+      "camera": "0x38",
+      "stock": "0xd0"
+    },
+    {
+      "offset": "0x12558",
+      "camera": "0x4",
+      "stock": "0x2"
+    },
+    {
+      "offset": "0x12643",
+      "camera": "0x80",
+      "stock": "0x0"
+    },
+    {
+      "offset": "0x12644",
+      "camera": "0x7",
+      "stock": "0x5"
+    },
+    {
+      "offset": "0x12645",
+      "camera": "0x38",
+      "stock": "0xd0"
+    },
+    {
+      "offset": "0x12646",
+      "camera": "0x4",
+      "stock": "0x2"
+    }
+  ]
+}

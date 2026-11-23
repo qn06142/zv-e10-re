@@ -1,0 +1,12 @@
+[
+  {
+    "library": "dataflowInfraFramework.so",
+    "name": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo18GetData_YcBitDepthEPh",
+    "address": "0x24941"
+  },
+  {
+    "library": "dataflowInfraFramework.so",
+    "name": "_ZN35C_DataflowInfra_Entry_ImageSizeInfo18SetData_YcBitDepthEh",
+    "address": "0x24937"
+  }
+]

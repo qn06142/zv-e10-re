@@ -1,0 +1,38 @@
+{
+  "original_instructions": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "responses_requested": 1,
+      "receive_error": false,
+      "rc": 0,
+      "receive_commands": [
+        65
+      ]
+    },
+    {
+      "responses_requested": 2,
+      "receive_error": false,
+      "rc": 0,
+      "receive_commands": [
+        65,
+        65
+      ]
+    },
+    {
+      "responses_requested": 1,
+      "receive_error": true,
+      "rc": 1,
+      "receive_commands": [
+        65
+      ]
+    },
+    {
+      "responses_requested": 4,
+      "receive_error": false,
+      "rc": 6,
+      "receive_commands": []
+    }
+  ],
+  "limitations": "Receive service mocked; response0x41 semantics are not yet proven to mean pixel DMA completion."
+}

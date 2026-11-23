@@ -1,0 +1,1959 @@
+
+osal_record_pro.clone.0 0x0 size 0x180
+00000000: mov       ip, sp 
+00000004: push      {r4, r5, r6, r7, fp, ip, lr, pc} 
+00000008: sub       fp, ip, #4 
+0000000c: sub       sp, sp, #0x28 
+00000010: subs      r5, r0, #0 
+00000014: ldreq     r4, [pc, #0x154] 
+00000018: beq       #0x164 
+0000001c: ldr       r0, [pc, #0x150] 
+00000020: sub       r1, fp, #0x20 
+00000024: mov       r2, #0x28 
+00000028: mov       r3, #0 
+0000002c: bl        #0x2c osal_valloc_msg_wait + 0x0
+00000030: subs      r4, r0, #0 
+00000034: bne       #0xc8 
+00000038: ldr       r6, [fp, #-0x20] 
+0000003c: mov       r3, #2 
+00000040: cmn       r6, #0x10 
+00000044: strh      r3, [r6] 
+00000048: mov       r3, #0xca 
+0000004c: strh      r3, [r6, #2] 
+00000050: mov       r3, #1 
+00000054: str       r3, [r6, #4] 
+00000058: add       r3, r3, #7 
+0000005c: str       r3, [r6, #8] 
+00000060: beq       #0x9c 
+00000064: mov       r7, #0x20 
+00000068: mov       r3, #0 
+0000006c: mov       r2, #0 
+00000070: mov       r1, r4 
+00000074: strd      r2, r3, [r6, #0x10] 
+00000078: sub       r0, fp, #0x44 
+0000007c: mov       r2, r7 
+00000080: bl        #0x80 memset + 0x0
+00000084: ldr       r0, [pc, #0xec] 
+00000088: sub       r1, fp, #0x44 
+0000008c: str       r7, [fp, #-0x44] 
+00000090: bl        #0x90 osal_snd_sync_direct + 0x0
+00000094: ldrd      r2, r3, [fp, #-0x2c] 
+00000098: strd      r2, r3, [r6, #0x10] 
+0000009c: mov       r1, r5 
+000000a0: mov       r2, #8 
+000000a4: add       r0, r6, #0x18 
+000000a8: bl        #0xa8 memcpy + 0x0
+000000ac: ldr       r0, [pc, #0xc0] 
+000000b0: ldr       r3, [fp, #-0x20] 
+000000b4: str       r0, [r3, #-4] 
+000000b8: ldr       r1, [fp, #-0x20] 
+000000bc: bl        #0xbc osal_snd_msg + 0x0
+000000c0: subs      r4, r0, #0 
+000000c4: beq       #0x164 
+000000c8: sub       r1, fp, #0x20 
+000000cc: ldr       r0, [pc, #0xa8] 
+000000d0: mov       r2, #0x20 
+000000d4: mov       r3, #0 
+000000d8: bl        #0xd8 osal_valloc_msg_wait + 0x0
+000000dc: subs      r1, r0, #0 
+000000e0: bne       #0x164 
+000000e4: ldr       r5, [fp, #-0x20] 
+000000e8: mov       r3, #0xf 
+000000ec: cmn       r5, #0x10 
+000000f0: strh      r3, [r5] 
+000000f4: mov       r3, #0xca 
+000000f8: str       r1, [r5, #8] 
+000000fc: strh      r3, [r5, #2] 
+00000100: mov       r3, #1 
+00000104: str       r3, [r5, #4] 
+00000108: beq       #0x140 
+0000010c: mov       r6, #0x20 
+00000110: mov       r3, #0 
+00000114: mov       r2, #0 
+00000118: sub       r0, fp, #0x44 
+0000011c: strd      r2, r3, [r5, #0x10] 
+00000120: mov       r2, r6 
+00000124: bl        #0x124 memset + 0x0
+00000128: ldr       r0, [pc, #0x48] 
+0000012c: sub       r1, fp, #0x44 
+00000130: str       r6, [fp, #-0x44] 
+00000134: bl        #0x134 osal_snd_sync_direct + 0x0
+00000138: ldrd      r2, r3, [fp, #-0x2c] 
+0000013c: strd      r2, r3, [r5, #0x10] 
+00000140: ldr       r2, [pc, #0x2c] 
+00000144: ldr       r3, [fp, #-0x20] 
+00000148: ldr       r0, [pc, #0x2c] 
+0000014c: str       r2, [r3, #-4] 
+00000150: ldr       r1, [fp, #-0x20] 
+00000154: bl        #0x154 osal_snd_sync_msg + 0x0
+00000158: ldr       r0, [pc, #0x1c] 
+0000015c: ldr       r1, [fp, #-0x20] 
+00000160: bl        #0x160 osal_free_msg + 0x0
+00000164: mov       r0, r4 
+00000168: sub       sp, fp, #0x1c 
+0000016c: ldm       sp, {r4, r5, r6, r7, fp, sp, pc} 
+
+core_cb_nop 0x67c size 0x10
+0000067c: mov       ip, sp 
+00000680: push      {fp, ip, lr, pc} 
+00000684: sub       fp, ip, #4 
+00000688: ldm       sp, {fp, sp, pc} 
+
+core_cb_set_halt 0x68c size 0x14
+0000068c: mov       ip, sp 
+00000690: push      {fp, ip, lr, pc} 
+00000694: sub       fp, ip, #4 
+00000698: mov       r0, #0 
+0000069c: ldm       sp, {fp, sp, pc} 
+
+core_cb_clear_halt 0x6ec size 0x38
+000006ec: mov       ip, sp 
+000006f0: push      {fp, ip, lr, pc} 
+000006f4: sub       fp, ip, #4 
+000006f8: mov       r0, #0 
+000006fc: bl        #0x6fc usbg_video_get_ep + 0x5a4
+00000700: subs      r3, r0, #0 
+00000704: beq       #0x71c 
+00000708: ldr       r3, [r3, #8] 
+0000070c: mov       r1, #0 
+00000710: ldr       r3, [r3, #0x18] 
+00000714: blx       r3 
+00000718: ldm       sp, {fp, sp, pc} 
+0000071c: mvn       r0, #0xf 
+00000720: ldm       sp, {fp, sp, pc} 
+
+core_cb_stop 0x744 size 0x184
+00000744: mov       ip, sp 
+00000748: push      {r3, r4, r5, r6, r7, r8, fp, ip, lr, pc} 
+0000074c: sub       fp, ip, #4 
+00000750: bl        #0x750 usbg_video_get_this + 0x408
+00000754: mov       r7, r0 
+00000758: bl        #0x758 usbg_video_get_this_ex + 0x424
+0000075c: mov       r8, r0 
+00000760: mov       r0, #0 
+00000764: bl        #0x764 usbg_video_get_ep + 0x5a4
+00000768: mov       r5, r0 
+0000076c: bl        #0x76c usbg_video_get_this_ex + 0x424
+00000770: add       r0, r0, #0x3c 
+00000774: bl        #0x774 _mutex_lock + 0x0
+00000778: ldr       r3, [pc, #0x138] 
+0000077c: mov       r2, #1 
+00000780: str       r2, [r3] 
+00000784: bl        #0x784 usbg_video_get_this_ex + 0x424
+00000788: add       r0, r0, #0x54 
+0000078c: bl        #0x78c _mutex_lock + 0x0
+00000790: ldr       r3, [pc, #0x124] 
+00000794: ldr       r4, [r3, #8] 
+00000798: sub       r4, r4, #4 
+0000079c: ldr       r6, [r4, #8] 
+000007a0: sub       r6, r6, #4 
+000007a4: b         #0x81c 
+000007a8: ldr       r3, [r5, #8] 
+000007ac: mov       r0, r5 
+000007b0: ldr       r1, [r4] 
+000007b4: ldr       r3, [r3, #0x14] 
+000007b8: blx       r3 
+000007bc: ldr       r3, [r5, #8] 
+000007c0: mov       r0, r5 
+000007c4: ldr       r1, [r4] 
+000007c8: ldr       r3, [r3, #0xc] 
+000007cc: blx       r3 
+000007d0: ldmib     r4, {r2, r3} 
+000007d4: str       r3, [r2, #4] 
+000007d8: str       r2, [r3] 
+000007dc: mov       r3, #0x100 
+000007e0: str       r3, [r4, #4] 
+000007e4: add       r3, r3, r3 
+000007e8: str       r3, [r4, #8] 
+000007ec: ldr       r3, [pc, #0xcc] 
+000007f0: ldr       r3, [r3] 
+000007f4: cmp       r3, #0 
+000007f8: beq       #0x808 
+000007fc: mov       r0, r4 
+00000800: bl        #0x800 __udif_kfree + 0x0
+00000804: b         #0x810 
+00000808: mov       r0, r4 
+0000080c: bl        #0x80c kfree + 0x0
+00000810: ldr       r3, [r6, #8] 
+00000814: mov       r4, r6 
+00000818: sub       r6, r3, #4 
+0000081c: ldr       r2, [pc, #0x98] 
+00000820: add       r3, r4, #4 
+00000824: add       r1, r2, #4 
+00000828: cmp       r3, r1 
+0000082c: bne       #0x7a8 
+00000830: ldr       r2, [r2, #4] 
+00000834: cmp       r2, r3 
+00000838: beq       #0x840 
+0000083c: bl        #0x724 
+00000840: bl        #0x840 usbg_video_get_this_ex + 0x424
+00000844: ldr       r4, [pc, #0x6c] 
+00000848: add       r0, r0, #0x54 
+0000084c: bl        #0x84c _mutex_unlock + 0x0
+00000850: mov       r1, #4 
+00000854: add       r0, r8, #0x18 
+00000858: bl        #0x858 __memzero + 0x0
+0000085c: mov       r0, r7 
+00000860: bl        #0x860 usbg_cmn_clear_ep_list + 0x295c
+00000864: bl        #0x864 usbg_video_get_this_ex + 0x424
+00000868: add       r0, r0, #0x3c 
+0000086c: bl        #0x86c _mutex_unlock + 0x0
+00000870: ldr       r3, [pc, #0x44] 
+00000874: mov       r2, #1 
+00000878: add       r0, r4, #4 
+0000087c: str       r2, [r3, #0xc] 
+00000880: bl        #0x880 _raw_spin_lock_irqsave + 0x0
+00000884: mov       r5, r0 
+00000888: ldr       r0, [r4, #0xc] 
+0000088c: cmp       r0, #0 
+00000890: beq       #0x898 
+00000894: bl        #0x894 wake_up_process + 0x0
+00000898: ldr       r0, [pc, #0x24] 
+0000089c: mov       r1, r5 
+000008a0: bl        #0x8a0 _raw_spin_unlock_irqrestore + 0x0
+000008a4: mov       r3, #0 
+000008a8: str       r3, [r4] 
+000008ac: strb      r3, [r4, #0x10] 
+000008b0: strb      r3, [r4, #0x11] 
+000008b4: ldm       sp, {r3, r4, r5, r6, r7, r8, fp, sp, pc} 
+000008b8: andeq     r0, r0, r8  + 0x0
+000008bc: andeq     r0, r0, ip, lsr #1  + 0x0
+000008c0: andeq     r0, r0, r0 udif_km_debug + 0x0
+000008c4: andeq     r0, r0, ip  + 0x0
+
+usbg_video_st_write_comp 0x248c size 0x194
+0000248c: mov       ip, sp 
+00002490: push      {r4, r5, r6, fp, ip, lr, pc} 
+00002494: sub       fp, ip, #4 
+00002498: sub       sp, sp, #0x1c 
+0000249c: mov       r5, r0 
+000024a0: mov       r4, r1 
+000024a4: bl        #0x24a4 usbg_video_get_this_ex + 0x424
+000024a8: cmp       r0, #0 
+000024ac: beq       #0x24d8 
+000024b0: bl        #0x24b0 usbg_video_get_this_ex + 0x424
+000024b4: ldrb      r3, [r0, #0xcc] 
+000024b8: cmp       r3, #0 
+000024bc: beq       #0x24d8 
+000024c0: sub       r0, fp, #0x30 
+000024c4: mov       r1, #0x14 
+000024c8: ldr       r2, [pc, #0x140] 
+000024cc: bl        #0x24cc snprintf + 0x0
+000024d0: sub       r0, fp, #0x30 
+000024d4: bl        #0x8c8 
+000024d8: cmp       r4, #0 
+000024dc: bne       #0x2508 
+000024e0: mvn       r3, #0x74 
+000024e4: sub       r0, fp, #0x30 
+000024e8: strb      r3, [fp, #-0x30] 
+000024ec: add       r3, r3, #0x77 
+000024f0: strb      r3, [fp, #-0x2f] 
+000024f4: strh      r3, [fp, #-0x2e] 
+000024f8: movw      r3, #0x6af 
+000024fc: str       r3, [fp, #-0x2c] 
+00002500: bl        #0x958 
+00002504: b         #0x2608 
+00002508: ldr       r3, [r4, #0x2c] 
+0000250c: cmp       r3, #0 
+00002510: bge       #0x2530 
+00002514: cmn       r3, #0x54 
+00002518: ldreq     r3, [pc, #0xf4] 
+0000251c: moveq     r2, #1 
+00002520: streq     r2, [r3, #0x38] 
+00002524: beq       #0x2530 
+00002528: cmn       r3, #0x68 
+0000252c: beq       #0x2608 
+00002530: ldr       r3, [pc, #0xdc] 
+00002534: ldr       r3, [r3] 
+00002538: cmp       r3, #0 
+0000253c: bne       #0x2544 
+00002540: bl        #0x2540 disable_flag + 0x243c
+00002544: bl        #0x2544 usbg_video_get_this_ex + 0x424
+00002548: add       r0, r0, #0x54 
+0000254c: bl        #0x254c _mutex_lock + 0x0
+00002550: ldr       r3, [pc, #0xc0] 
+00002554: ldr       r6, [r3, #8] 
+00002558: sub       r6, r6, #4 
+0000255c: ldr       r3, [r6, #8] 
+00002560: sub       r3, r3, #4 
+00002564: b         #0x25d8 
+00002568: ldr       r2, [r6] 
+0000256c: cmp       r2, r4 
+00002570: bne       #0x25cc 
+00002574: ldr       r3, [r5, #8] 
+00002578: mov       r0, r5 
+0000257c: mov       r1, r4 
+00002580: ldr       r3, [r3, #0xc] 
+00002584: blx       r3 
+00002588: ldmib     r6, {r2, r3} 
+0000258c: str       r3, [r2, #4] 
+00002590: str       r2, [r3] 
+00002594: mov       r3, #0x100 
+00002598: str       r3, [r6, #4] 
+0000259c: add       r3, r3, r3 
+000025a0: str       r3, [r6, #8] 
+000025a4: ldr       r3, [pc, #0x70] 
+000025a8: ldr       r3, [r3] 
+000025ac: cmp       r3, #0 
+000025b0: beq       #0x25c0 
+000025b4: mov       r0, r6 
+000025b8: bl        #0x25b8 __udif_kfree + 0x0
+000025bc: b         #0x25fc 
+000025c0: mov       r0, r6 
+000025c4: bl        #0x25c4 kfree + 0x0
+000025c8: b         #0x25fc 
+000025cc: ldr       r2, [r3, #8] 
+000025d0: mov       r6, r3 
+000025d4: sub       r3, r2, #4 
+000025d8: ldr       r1, [pc, #0x38] 
+000025dc: add       r2, r6, #4 
+000025e0: add       r0, r1, #4 
+000025e4: cmp       r2, r0 
+000025e8: bne       #0x2568 
+000025ec: ldr       r3, [r1, #4] 
+000025f0: cmp       r3, r2 
+000025f4: beq       #0x25fc 
+000025f8: bl        #0x724 
+000025fc: bl        #0x25fc usbg_video_get_this_ex + 0x424
+00002600: add       r0, r0, #0x54 
+00002604: bl        #0x2604 _mutex_unlock + 0x0
+00002608: sub       sp, fp, #0x18 
+0000260c: ldm       sp, {r4, r5, r6, fp, sp, pc} 
+00002610: strheq    r0, [r0], -fp  + 0x0
+00002614: andeq     r0, r0, r8  + 0x0
+00002618: andeq     r0, r0, ip, lsr #1  + 0x0
+0000261c: andeq     r0, r0, r0 udif_km_debug + 0x0
+
+core_cb_start 0x10f0 size 0xcc
+000010f0: mov       ip, sp 
+000010f4: push      {r4, r5, r6, r7, fp, ip, lr, pc} 
+000010f8: sub       fp, ip, #4 
+000010fc: sub       sp, sp, #0x10 
+00001100: sub       r4, fp, #0x2c 
+00001104: mov       r7, r1 
+00001108: stm       r4, {r2, r3} 
+0000110c: bl        #0x110c usbg_video_get_this + 0x408
+00001110: mov       r6, r0 
+00001114: bl        #0x1114 usbg_video_get_this_ex + 0x424
+00001118: strb      r7, [r0, #0x9c] 
+0000111c: mov       r5, r0 
+00001120: bl        #0x1120 usbg_video_get_this_ex + 0x424
+00001124: add       r0, r0, #0x3c 
+00001128: bl        #0x1128 _mutex_lock + 0x0
+0000112c: mov       r0, r6 
+00001130: mov       r1, r7 
+00001134: ldm       r4, {r2, r3} 
+00001138: bl        #0x1138 usbg_cmn_make_ep_list + 0x28dc
+0000113c: cmp       r0, #0 
+00001140: beq       #0x1168 
+00001144: mvn       r3, #0x74 
+00001148: sub       r0, fp, #0x24 
+0000114c: strb      r3, [fp, #-0x24] 
+00001150: add       r3, r3, #0x77 
+00001154: strb      r3, [fp, #-0x23] 
+00001158: strh      r3, [fp, #-0x22] 
+0000115c: add       r3, r3, #0xd2 
+00001160: str       r3, [fp, #-0x20] 
+00001164: bl        #0x958 
+00001168: ldr       r3, [r6, #0xb4] 
+0000116c: mvn       r2, #0x7e 
+00001170: ldr       r3, [r3] 
+00001174: strb      r2, [r5, #0x18]! 
+00001178: ldr       r2, [pc, #0x30] 
+0000117c: str       r5, [r3] 
+00001180: str       r2, [r3, #4] 
+00001184: bl        #0x1184 usbg_video_get_this_ex + 0x424
+00001188: add       r0, r0, #0x3c 
+0000118c: bl        #0x118c _mutex_unlock + 0x0
+00001190: ldr       r2, [pc, #0x1c] 
+00001194: mov       r3, #0 
+00001198: strb      r3, [r2, #0x10] 
+0000119c: strb      r3, [r2, #0x11] 
+000011a0: ldr       r2, [pc, #0x10] 
+000011a4: str       r3, [r2, #0xc] 
+000011a8: sub       sp, fp, #0x1c 
+000011ac: ldm       sp, {r4, r5, r6, r7, fp, sp, pc} 
+000011b0: andeq     r0, r0, sl, asr #4  + 0x0
+000011b4: andeq     r0, r0, r8  + 0x0
+000011b8: andeq     r0, r0, ip, lsr #1  + 0x0
+
+uvc_ep0_comp 0x1a74 size 0x54
+00001a74: mov       ip, sp 
+00001a78: push      {fp, ip, lr, pc} 
+00001a7c: sub       fp, ip, #4 
+00001a80: sub       sp, sp, #8 
+00001a84: cmp       r1, #0 
+00001a88: bne       #0x1ab4 
+00001a8c: mvn       r3, #0x74 
+00001a90: sub       r0, fp, #0x14 
+00001a94: strb      r3, [fp, #-0x14] 
+00001a98: add       r3, r3, #0x77 
+00001a9c: strb      r3, [fp, #-0x13] 
+00001aa0: strh      r3, [fp, #-0x12] 
+00001aa4: add       r3, r3, #0x168 
+00001aa8: str       r3, [fp, #-0x10] 
+00001aac: bl        #0x958 
+00001ab0: b         #0x1ac0 
+00001ab4: ldr       r3, [r0, #8] 
+00001ab8: ldr       r3, [r3, #0xc] 
+00001abc: blx       r3 
+00001ac0: sub       sp, fp, #0xc 
+00001ac4: ldm       sp, {fp, sp, pc} 
+
+core_cb_class 0x17b0 size 0x2c4
+000017b0: mov       ip, sp 
+000017b4: push      {r4, r5, r6, r7, r8, fp, ip, lr, pc} 
+000017b8: sub       fp, ip, #4 
+000017bc: sub       sp, sp, #0x14 
+000017c0: mvn       r3, #0 
+000017c4: str       r3, [fp, #-0x28] 
+000017c8: ldrb      r3, [r1] 
+000017cc: mov       r7, r1 
+000017d0: mov       r5, r2 
+000017d4: tst       r3, #0x20 
+000017d8: beq       #0x1a58 
+000017dc: and       r3, r3, #0x1f 
+000017e0: sub       r3, r3, #1 
+000017e4: cmp       r3, #1 
+000017e8: bhi       #0x1a58 
+000017ec: ldrb      r4, [r1, #1] 
+000017f0: cmp       r4, #0x83 
+000017f4: beq       #0x19f0 
+000017f8: bhi       #0x1814 
+000017fc: cmp       r4, #0x81 
+00001800: beq       #0x19b0 
+00001804: bhi       #0x19c4 
+00001808: cmp       r4, #1 
+0000180c: bne       #0x1a60 
+00001810: b         #0x183c 
+00001814: cmp       r4, #0x85 
+00001818: beq       #0x1a1c 
+0000181c: sublo     r2, fp, #0x24 
+00001820: movlo     r3, #6 
+00001824: blo       #0x1a40 
+00001828: cmp       r4, #0x86 
+0000182c: beq       #0x1a2c 
+00001830: cmp       r4, #0x87 
+00001834: bne       #0x1a60 
+00001838: b         #0x1a38 
+0000183c: ldrb      r8, [r1, #7] 
+00001840: mov       r0, r2 
+00001844: ldrb      r3, [r1, #6] 
+00001848: mov       r1, #0x20 
+0000184c: orr       r8, r3, r8, lsl #8 
+00001850: ldr       r3, [r2, #8] 
+00001854: ldr       r3, [r3, #8] 
+00001858: blx       r3 
+0000185c: subs      r6, r0, #0 
+00001860: bne       #0x188c 
+00001864: mvn       r3, #0x74 
+00001868: sub       r0, fp, #0x30 
+0000186c: strb      r3, [fp, #-0x30] 
+00001870: add       r3, r3, #0x77 
+00001874: strb      r3, [fp, #-0x2f] 
+00001878: strh      r3, [fp, #-0x2e] 
+0000187c: add       r3, r3, #0x350 
+00001880: str       r3, [fp, #-0x2c] 
+00001884: bl        #0x958 
+00001888: b         #0x1980 
+0000188c: bl        #0x188c usbg_video_get_ep0_buffer + 0x588
+00001890: cmp       r0, #0 
+00001894: bne       #0x18d8 
+00001898: mvn       r3, #0x74 
+0000189c: sub       r0, fp, #0x30 
+000018a0: strb      r3, [fp, #-0x30] 
+000018a4: add       r3, r3, #0x77 
+000018a8: strb      r3, [fp, #-0x2f] 
+000018ac: mvn       r4, #0xb 
+000018b0: strh      r3, [fp, #-0x2e] 
+000018b4: add       r3, r3, #0x35c 
+000018b8: str       r3, [fp, #-0x2c] 
+000018bc: bl        #0x958 
+000018c0: ldr       r3, [r5, #8] 
+000018c4: mov       r0, r5 
+000018c8: mov       r1, r6 
+000018cc: ldr       r3, [r3, #0xc] 
+000018d0: blx       r3 
+000018d4: b         #0x1980 
+000018d8: ldrb      r2, [r6, #0x1a] 
+000018dc: mov       r3, #0 
+000018e0: ldr       r1, [pc, #0x188] 
+000018e4: and       r2, r2, #0xfc 
+000018e8: stm       r6, {r0, r8} 
+000018ec: str       r3, [r6, #8] 
+000018f0: bfi       r2, r3, #2, #1 
+000018f4: str       r1, [r6, #0x1c] 
+000018f8: mov       r0, r5 
+000018fc: strb      r2, [r6, #0x1a] 
+00001900: mov       r1, r6 
+00001904: str       r3, [r6, #0x20] 
+00001908: mov       r2, #0x20 
+0000190c: ldr       r3, [r5, #8] 
+00001910: ldr       r3, [r3, #0x10] 
+00001914: blx       r3 
+00001918: subs      r8, r0, #0 
+0000191c: moveq     r4, #0 
+00001920: beq       #0x1980 
+00001924: sub       r0, fp, #0x30 
+00001928: mvn       r4, #0x74 
+0000192c: mov       r3, #2 
+00001930: strb      r4, [fp, #-0x30] 
+00001934: strb      r3, [fp, #-0x2f] 
+00001938: strh      r3, [fp, #-0x2e] 
+0000193c: movw      r3, #0x377 
+00001940: str       r3, [fp, #-0x2c] 
+00001944: bl        #0x958 
+00001948: sub       r0, fp, #0x30 
+0000194c: strb      r4, [fp, #-0x30] 
+00001950: mov       r3, #3 
+00001954: str       r8, [fp, #-0x2c] 
+00001958: strb      r3, [fp, #-0x2f] 
+0000195c: mov       r3, #0 
+00001960: strh      r3, [fp, #-0x2e] 
+00001964: bl        #0x958 
+00001968: ldr       r3, [r5, #8] 
+0000196c: mov       r0, r5 
+00001970: mov       r1, r6 
+00001974: add       r4, r4, #0x76 
+00001978: ldr       r3, [r3, #0xc] 
+0000197c: blx       r3 
+00001980: ldrb      r2, [r7, #3] 
+00001984: ldrb      r3, [r7, #2] 
+00001988: orr       r3, r3, r2, lsl #8 
+0000198c: cmp       r3, #0x200 
+00001990: bne       #0x1a64 
+00001994: sub       r2, fp, #0x24 
+00001998: mov       r3, #2 
+0000199c: mov       r0, #7 
+000019a0: str       r3, [r2, #-4]! 
+000019a4: mov       r1, r0 
+000019a8: add       r3, r3, r3 
+000019ac: b         #0x19e8 
+000019b0: mov       r0, r1 
+000019b4: mov       r1, r2 
+000019b8: bl        #0x1390 
+000019bc: mov       r4, r0 
+000019c0: b         #0x1a64 
+000019c4: mov       r0, r1 
+000019c8: mov       r1, r2 
+000019cc: bl        #0x1390 
+000019d0: sub       r2, fp, #0x24 
+000019d4: mov       r3, #4 
+000019d8: str       r3, [r2, #-4]! 
+000019dc: mov       r4, r0 
+000019e0: mov       r0, #7 
+000019e4: mov       r1, r0 
+000019e8: bl        #0x19e8 usbg_video_call_user_cb + 0x4b4
+000019ec: b         #0x1a64 
+000019f0: mov       r0, r1 
+000019f4: mov       r1, r2 
+000019f8: bl        #0x1390 
+000019fc: sub       r2, fp, #0x24 
+00001a00: mov       r3, #5 
+00001a04: str       r3, [r2, #-4]! 
+00001a08: mov       r3, #4 
+00001a0c: mov       r4, r0 
+00001a10: mov       r0, #7 
+00001a14: mov       r1, r0 
+00001a18: b         #0x19e8 
+00001a1c: sub       r2, fp, #0x24 
+00001a20: mov       r0, #7 
+00001a24: str       r0, [r2, #-4]! 
+00001a28: b         #0x1a48 
+00001a2c: sub       r2, fp, #0x24 
+00001a30: mov       r3, #8 
+00001a34: b         #0x1a40 
+00001a38: sub       r2, fp, #0x24 
+00001a3c: mov       r3, #9 
+00001a40: mov       r0, #7 
+00001a44: str       r3, [r2, #-4]! 
+00001a48: mov       r1, r0 
+00001a4c: mov       r3, #4 
+00001a50: bl        #0x1a50 usbg_video_call_user_cb + 0x4b4
+00001a54: b         #0x1a60 
+00001a58: mov       r4, #2 
+00001a5c: b         #0x1a64 
+00001a60: mov       r4, #1 
+00001a64: mov       r0, r4 
+00001a68: sub       sp, fp, #0x20 
+00001a6c: ldm       sp, {r4, r5, r6, r7, r8, fp, sp, pc} 
+00001a70: andeq     r0, r0, r0 uvc_ep0_comp + 0x1a74
+
+usbg_cmn_copy_probe_info 0x277c size 0x160
+0000277c: mov       ip, sp 
+00002780: push      {r3, r4, r5, r6, fp, ip, lr, pc} 
+00002784: sub       fp, ip, #4 
+00002788: mov       r3, sp 
+0000278c: mov       r4, r0 
+00002790: bic       r6, r3, #0x1fc0 
+00002794: mov       r5, r1 
+00002798: bic       r6, r6, #0x3f 
+0000279c: ldr       r3, [r6, #8] 
+000027a0: adds      r2, r1, #0x38 
+000027a4: sbcslo    r2, r2, r3 
+000027a8: movlo     r3, #0 
+000027ac: cmp       r3, #0 
+000027b0: bne       #0x27c8 
+000027b4: mov       r2, #0x38 
+000027b8: bl        #0x27b8 __copy_from_user + 0x0
+000027bc: cmp       r0, #0 
+000027c0: bne       #0x28cc 
+000027c4: b         #0x27d4 
+000027c8: mov       r1, #0x38 
+000027cc: bl        #0x27cc __memzero + 0x0
+000027d0: b         #0x28cc 
+000027d4: ldrb      r0, [r4, #0x2d] 
+000027d8: mov       r1, #0x20 
+000027dc: lsl       r0, r0, #1 
+000027e0: bl        #0x27e0 __kmalloc + 0x0
+000027e4: cmp       r0, #0 
+000027e8: str       r0, [r4, #0x24] 
+000027ec: beq       #0x28cc 
+000027f0: ldrb      r2, [r4, #0x2d] 
+000027f4: ldr       r1, [r5, #0x24] 
+000027f8: ldr       r3, [r6, #8] 
+000027fc: lsl       r2, r2, #1 
+00002800: adds      ip, r1, r2 
+00002804: sbcslo    ip, ip, r3 
+00002808: movlo     r3, #0 
+0000280c: cmp       r3, #0 
+00002810: bne       #0x2824 
+00002814: bl        #0x2814 __copy_from_user + 0x0
+00002818: cmp       r0, #0 
+0000281c: beq       #0x2838 
+00002820: b         #0x2864 
+00002824: cmp       r2, #0 
+00002828: beq       #0x2838 
+0000282c: mov       r1, r2 
+00002830: bl        #0x2830 __memzero + 0x0
+00002834: b         #0x2864 
+00002838: ldr       r0, [r5, #0x30] 
+0000283c: cmp       r0, #0 
+00002840: streq     r0, [r4, #0x30] 
+00002844: streq     r0, [r4, #0x34] 
+00002848: ldmeq     sp, {r3, r4, r5, r6, fp, sp, pc} 
+0000284c: ldr       r0, [r4, #0x34] 
+00002850: mov       r1, #0x20 
+00002854: bl        #0x2854 __kmalloc + 0x0
+00002858: cmp       r0, #0 
+0000285c: str       r0, [r4, #0x30] 
+00002860: bne       #0x2870 
+00002864: mov       r0, r4 
+00002868: bl        #0x2868 usbg_cmn_clear_probe_info + 0x2738
+0000286c: b         #0x28cc 
+00002870: mov       ip, sp 
+00002874: ldr       r1, [r5, #0x30] 
+00002878: bic       r3, ip, #0x1fc0 
+0000287c: ldr       r2, [r5, #0x34] 
+00002880: bic       r3, r3, #0x3f 
+00002884: ldr       r3, [r3, #8] 
+00002888: adds      ip, r1, r2 
+0000288c: sbcslo    ip, ip, r3 
+00002890: movlo     r3, #0 
+00002894: cmp       r3, #0 
+00002898: bne       #0x28ac 
+0000289c: bl        #0x289c __copy_from_user + 0x0
+000028a0: cmp       r0, #0 
+000028a4: ldmeq     sp, {r3, r4, r5, r6, fp, sp, pc} 
+000028a8: b         #0x28bc 
+000028ac: cmp       r2, #0 
+000028b0: beq       #0x28d4 
+000028b4: mov       r1, r2 
+000028b8: bl        #0x28b8 __memzero + 0x0
+000028bc: ldr       r0, [r4, #0x24] 
+000028c0: bl        #0x28c0 kfree + 0x0
+000028c4: mov       r3, #0 
+000028c8: str       r3, [r4, #0x24] 
+000028cc: mvn       r0, #0x68 
+000028d0: ldm       sp, {r3, r4, r5, r6, fp, sp, pc} 
+000028d4: mov       r0, r2 
+000028d8: ldm       sp, {r3, r4, r5, r6, fp, sp, pc} 
+
+disable_flag 0x243c size 0x50
+0000243c: mov       ip, sp 
+00002440: push      {fp, ip, lr, pc} 
+00002444: sub       fp, ip, #4 
+00002448: bl        #0x2448 usbg_video_get_this_ex + 0x424
+0000244c: add       r0, r0, #0x6c 
+00002450: bl        #0x2450 _mutex_lock + 0x0
+00002454: ldr       r3, [pc, #0x2c] 
+00002458: ldr       r2, [r3, #0x14] 
+0000245c: cmp       r2, #1 
+00002460: moveq     r2, #0 
+00002464: strbeq    r2, [r3, #0x10] 
+00002468: beq       #0x2478 
+0000246c: cmp       r2, #2 
+00002470: moveq     r2, #0 
+00002474: strbeq    r2, [r3, #0x11] 
+00002478: bl        #0x2478 usbg_video_get_this_ex + 0x424
+0000247c: add       r0, r0, #0x6c 
+00002480: bl        #0x2480 _mutex_unlock + 0x0
+00002484: ldm       sp, {fp, sp, pc} 
+00002488: andeq     r0, r0, r8  + 0x0
+
+cleanup_module 0x0 size 0x50
+00000000: mov       ip, sp 
+00000004: push      {r4, r5, r6, r7, fp, ip, lr, pc} 
+00000008: sub       fp, ip, #4 
+0000000c: sub       sp, sp, #0x28 
+00000010: subs      r5, r0, #0 
+00000014: ldreq     r4, [pc, #0x154] 
+00000018: beq       #0x164 
+0000001c: ldr       r0, [pc, #0x150] 
+00000020: sub       r1, fp, #0x20 
+00000024: mov       r2, #0x28 
+00000028: mov       r3, #0 
+0000002c: bl        #0x2c osal_valloc_msg_wait + 0x0
+00000030: subs      r4, r0, #0 
+00000034: bne       #0xc8 
+00000038: ldr       r6, [fp, #-0x20] 
+0000003c: mov       r3, #2 
+00000040: cmn       r6, #0x10 
+00000044: strh      r3, [r6] 
+00000048: mov       r3, #0xca 
+0000004c: strh      r3, [r6, #2] 
+
+usbg_cmn_clear_ep_list 0x295c size 0x2c
+0000295c: mov       ip, sp 
+00002960: push      {r3, r4, fp, ip, lr, pc} 
+00002964: sub       fp, ip, #4 
+00002968: mov       r4, r0 
+0000296c: ldr       r0, [r0, #0xb4] 
+00002970: cmp       r0, #0 
+00002974: ldmeq     sp, {r3, r4, fp, sp, pc} 
+00002978: bl        #0x2978 kfree + 0x0
+0000297c: mov       r3, #0 
+00002980: str       r3, [r4, #0xb4] 
+00002984: ldm       sp, {r3, r4, fp, sp, pc} 
+
+usbg_video_core_release 0x1cac size 0x164
+00001cac: mov       ip, sp 
+00001cb0: push      {r4, r5, r6, fp, ip, lr, pc} 
+00001cb4: sub       fp, ip, #4 
+00001cb8: sub       sp, sp, #0xc 
+00001cbc: bl        #0x1cbc usbg_video_get_this_ex + 0x424
+00001cc0: mvn       r3, #0x74 
+00001cc4: mov       r2, #2 
+00001cc8: strb      r3, [fp, #-0x24] 
+00001ccc: strh      r2, [fp, #-0x22] 
+00001cd0: add       r3, r3, #0x75 
+00001cd4: strb      r3, [fp, #-0x23] 
+00001cd8: str       r3, [fp, #-0x20] 
+00001cdc: mov       r4, r0 
+00001ce0: sub       r0, fp, #0x24 
+00001ce4: bl        #0x958 
+00001ce8: ldr       r5, [pc, #0x110] 
+00001cec: add       r0, r5, #4 
+00001cf0: mov       r6, r5 
+00001cf4: bl        #0x1cf4 _raw_spin_lock_irqsave + 0x0
+00001cf8: mov       r2, sp 
+00001cfc: bic       r3, r2, #0x1fc0 
+00001d00: bic       r3, r3, #0x3f 
+00001d04: ldr       r2, [r3, #0xc] 
+00001d08: mov       r1, r0 
+00001d0c: mov       r0, #2 
+00001d10: str       r0, [r2] 
+00001d14: add       r0, r5, #4 
+00001d18: ldr       r3, [r3, #0xc] 
+00001d1c: str       r3, [r5, #0xc] 
+00001d20: bl        #0x1d20 _raw_spin_unlock_irqrestore + 0x0
+00001d24: ldr       r3, [pc, #0xd8] 
+00001d28: ldr       r3, [r3, #0xc] 
+00001d2c: cmp       r3, #0 
+00001d30: bne       #0x1d44 
+00001d34: movw      r0, #0x1770 
+00001d38: bl        #0x1d38 schedule_timeout + 0x0
+00001d3c: cmp       r0, #0 
+00001d40: bne       #0x1ce8 
+00001d44: ldr       r0, [pc, #0xbc] 
+00001d48: mov       r5, #0 
+00001d4c: bl        #0x1d4c _raw_spin_lock_irqsave + 0x0
+00001d50: mov       r2, sp 
+00001d54: bic       r3, r2, #0x1fc0 
+00001d58: bic       r3, r3, #0x3f 
+00001d5c: ldr       r3, [r3, #0xc] 
+00001d60: str       r5, [r3] 
+00001d64: str       r5, [r6, #0xc] 
+00001d68: mov       r1, r0 
+00001d6c: ldr       r0, [pc, #0x94] 
+00001d70: bl        #0x1d70 _raw_spin_unlock_irqrestore + 0x0
+00001d74: movw      r0, #0x2da 
+00001d78: ldr       r1, [r4, #0xa0] 
+00001d7c: bl        #0x1d7c usb_sync_free_phys_buffer + 0x2aac
+00001d80: ldr       r0, [r4, #0xac] 
+00001d84: str       r5, [r4, #0xa0] 
+00001d88: cmp       r0, r5 
+00001d8c: str       r5, [r4] 
+00001d90: str       r5, [r4, #4] 
+00001d94: str       r5, [r4, #8] 
+00001d98: str       r5, [r4, #0xc] 
+00001d9c: beq       #0x1dc4 
+00001da0: ldr       r3, [pc, #0x64] 
+00001da4: ldr       r3, [r3] 
+00001da8: cmp       r3, r5 
+00001dac: beq       #0x1db8 
+00001db0: bl        #0x1db0 __udif_kfree + 0x0
+00001db4: b         #0x1dbc 
+00001db8: bl        #0x1db8 kfree + 0x0
+00001dbc: mov       r3, #0 
+00001dc0: str       r3, [r4, #0xac] 
+00001dc4: ldr       r0, [r4, #0xb0] 
+00001dc8: cmp       r0, #0 
+00001dcc: beq       #0x1df4 
+00001dd0: ldr       r3, [pc, #0x34] 
+00001dd4: ldr       r3, [r3] 
+00001dd8: cmp       r3, #0 
+00001ddc: beq       #0x1de8 
+00001de0: bl        #0x1de0 __udif_kfree + 0x0
+00001de4: b         #0x1dec 
+00001de8: bl        #0x1de8 kfree + 0x0
+00001dec: mov       r3, #0 
+00001df0: str       r3, [r4, #0xb0] 
+00001df4: mov       r0, #0 
+00001df8: sub       sp, fp, #0x18 
+00001dfc: ldm       sp, {r4, r5, r6, fp, sp, pc} 
+00001e00: andeq     r0, r0, r8  + 0x0
+00001e04: andeq     r0, r0, ip, lsr #1  + 0x0
+00001e08: andeq     r0, r0, ip  + 0x0
+00001e0c: andeq     r0, r0, r0 udif_km_debug + 0x0
+
+init_module 0x0 size 0x1d8
+00000000: mov       ip, sp 
+00000004: push      {r4, r5, r6, r7, fp, ip, lr, pc} 
+00000008: sub       fp, ip, #4 
+0000000c: sub       sp, sp, #0x28 
+00000010: subs      r5, r0, #0 
+00000014: ldreq     r4, [pc, #0x154] 
+00000018: beq       #0x164 
+0000001c: ldr       r0, [pc, #0x150] 
+00000020: sub       r1, fp, #0x20 
+00000024: mov       r2, #0x28 
+00000028: mov       r3, #0 
+0000002c: bl        #0x2c osal_valloc_msg_wait + 0x0
+00000030: subs      r4, r0, #0 
+00000034: bne       #0xc8 
+00000038: ldr       r6, [fp, #-0x20] 
+0000003c: mov       r3, #2 
+00000040: cmn       r6, #0x10 
+00000044: strh      r3, [r6] 
+00000048: mov       r3, #0xca 
+0000004c: strh      r3, [r6, #2] 
+00000050: mov       r3, #1 
+00000054: str       r3, [r6, #4] 
+00000058: add       r3, r3, #7 
+0000005c: str       r3, [r6, #8] 
+00000060: beq       #0x9c 
+00000064: mov       r7, #0x20 
+00000068: mov       r3, #0 
+0000006c: mov       r2, #0 
+00000070: mov       r1, r4 
+00000074: strd      r2, r3, [r6, #0x10] 
+00000078: sub       r0, fp, #0x44 
+0000007c: mov       r2, r7 
+00000080: bl        #0x80 memset + 0x0
+00000084: ldr       r0, [pc, #0xec] 
+00000088: sub       r1, fp, #0x44 
+0000008c: str       r7, [fp, #-0x44] 
+00000090: bl        #0x90 osal_snd_sync_direct + 0x0
+00000094: ldrd      r2, r3, [fp, #-0x2c] 
+00000098: strd      r2, r3, [r6, #0x10] 
+0000009c: mov       r1, r5 
+000000a0: mov       r2, #8 
+000000a4: add       r0, r6, #0x18 
+000000a8: bl        #0xa8 memcpy + 0x0
+000000ac: ldr       r0, [pc, #0xc0] 
+000000b0: ldr       r3, [fp, #-0x20] 
+000000b4: str       r0, [r3, #-4] 
+000000b8: ldr       r1, [fp, #-0x20] 
+000000bc: bl        #0xbc osal_snd_msg + 0x0
+000000c0: subs      r4, r0, #0 
+000000c4: beq       #0x164 
+000000c8: sub       r1, fp, #0x20 
+000000cc: ldr       r0, [pc, #0xa8] 
+000000d0: mov       r2, #0x20 
+000000d4: mov       r3, #0 
+000000d8: bl        #0xd8 osal_valloc_msg_wait + 0x0
+000000dc: subs      r1, r0, #0 
+000000e0: bne       #0x164 
+000000e4: ldr       r5, [fp, #-0x20] 
+000000e8: mov       r3, #0xf 
+000000ec: cmn       r5, #0x10 
+000000f0: strh      r3, [r5] 
+000000f4: mov       r3, #0xca 
+000000f8: str       r1, [r5, #8] 
+000000fc: strh      r3, [r5, #2] 
+00000100: mov       r3, #1 
+00000104: str       r3, [r5, #4] 
+00000108: beq       #0x140 
+0000010c: mov       r6, #0x20 
+00000110: mov       r3, #0 
+00000114: mov       r2, #0 
+00000118: sub       r0, fp, #0x44 
+0000011c: strd      r2, r3, [r5, #0x10] 
+00000120: mov       r2, r6 
+00000124: bl        #0x124 memset + 0x0
+00000128: ldr       r0, [pc, #0x48] 
+0000012c: sub       r1, fp, #0x44 
+00000130: str       r6, [fp, #-0x44] 
+00000134: bl        #0x134 osal_snd_sync_direct + 0x0
+00000138: ldrd      r2, r3, [fp, #-0x2c] 
+0000013c: strd      r2, r3, [r5, #0x10] 
+00000140: ldr       r2, [pc, #0x2c] 
+00000144: ldr       r3, [fp, #-0x20] 
+00000148: ldr       r0, [pc, #0x2c] 
+0000014c: str       r2, [r3, #-4] 
+00000150: ldr       r1, [fp, #-0x20] 
+00000154: bl        #0x154 osal_snd_sync_msg + 0x0
+00000158: ldr       r0, [pc, #0x1c] 
+0000015c: ldr       r1, [fp, #-0x20] 
+00000160: bl        #0x160 osal_free_msg + 0x0
+00000164: mov       r0, r4 
+00000168: sub       sp, fp, #0x1c 
+0000016c: ldm       sp, {r4, r5, r6, r7, fp, sp, pc} 
+
+usbg_video_core_open 0x1ac8 size 0x1e4
+00001ac8: mov       ip, sp 
+00001acc: push      {r4, r5, r6, r7, fp, ip, lr, pc} 
+00001ad0: sub       fp, ip, #4 
+00001ad4: sub       sp, sp, #0x18 
+00001ad8: mov       r6, #0 
+00001adc: str       r6, [fp, #-0x20] 
+00001ae0: str       r6, [fp, #-0x24] 
+00001ae4: bl        #0x1ae4 usbg_video_get_this_ex + 0x424
+00001ae8: mov       r5, #1 
+00001aec: mvn       r3, #0x74 
+00001af0: strb      r6, [fp, #-0x2b] 
+00001af4: strb      r3, [fp, #-0x2c] 
+00001af8: str       r6, [fp, #-0x28] 
+00001afc: strh      r5, [fp, #-0x2a] 
+00001b00: mov       r4, r0 
+00001b04: sub       r0, fp, #0x2c 
+00001b08: bl        #0x958 
+00001b0c: sub       r3, fp, #0x24 
+00001b10: movw      r0, #0x2da 
+00001b14: str       r3, [sp] 
+00001b18: movw      r1, #0x50e 
+00001b1c: add       r2, r4, #0xa0 
+00001b20: sub       r3, fp, #0x20 
+00001b24: bl        #0x1b24 usb_sync_alloc_phys_buffer + 0x2988
+00001b28: subs      r6, r0, #0 
+00001b2c: bne       #0x1c80 
+00001b30: ldr       r7, [fp, #-0x20] 
+00001b34: mov       r0, r7 
+00001b38: bl        #0x1b38 arch_phys_to_noncache + 0x0
+00001b3c: cmp       r0, #0 
+00001b40: beq       #0x1c80 
+00001b44: stm       r4, {r0, r7} 
+00001b48: ldr       r3, [fp, #-0x24] 
+00001b4c: str       r6, [r4, #0xac] 
+00001b50: lsr       r2, r3, r5 
+00001b54: str       r3, [r4, #0xa4] 
+00001b58: ldr       r3, [pc, #0x12c] 
+00001b5c: add       r0, r0, r2 
+00001b60: str       r0, [r4, #8] 
+00001b64: add       r7, r2, r7 
+00001b68: str       r7, [r4, #0xc] 
+00001b6c: str       r6, [r3, #0x28] 
+00001b70: str       r6, [r3, #0x2c] 
+00001b74: str       r6, [r3, #0x30] 
+00001b78: ldr       r3, [pc, #0x110] 
+00001b7c: str       r5, [r3] 
+00001b80: ldr       r3, [pc, #0x10c] 
+00001b84: ldr       r3, [r3] 
+00001b88: cmp       r3, #0 
+00001b8c: beq       #0x1ba4 
+00001b90: mov       r1, #0xc 
+00001b94: mov       r2, #0xd0 
+00001b98: ldr       r0, [pc, #0xf8] 
+00001b9c: bl        #0x1b9c __udif_kmalloc + 0x0
+00001ba0: b         #0x1bc8 
+00001ba4: ldr       r3, [pc, #0xf0] 
+00001ba8: mov       r1, #0xd0 
+00001bac: ldr       r0, [r3, #4] 
+00001bb0: bl        #0x1bb0 kmem_cache_alloc + 0x0
+00001bb4: mov       r1, #0xc 
+00001bb8: mov       r2, #0xd0 
+00001bbc: mov       r5, r0 
+00001bc0: bl        #0x1bc0 kmalloc_add_trace + 0x0
+00001bc4: mov       r0, r5 
+00001bc8: mov       r3, #0 
+00001bcc: str       r3, [r4, #0xb0] 
+00001bd0: ldr       r3, [pc, #0xbc] 
+00001bd4: str       r0, [r4, #0xac] 
+00001bd8: ldr       r3, [r3] 
+00001bdc: cmp       r3, #0 
+00001be0: beq       #0x1bf8 
+00001be4: mov       r1, #0x24 
+00001be8: mov       r2, #0xd0 
+00001bec: ldr       r0, [pc, #0xac] 
+00001bf0: bl        #0x1bf0 __udif_kmalloc + 0x0
+00001bf4: b         #0x1c1c 
+00001bf8: ldr       r3, [pc, #0x9c] 
+00001bfc: mov       r1, #0xd0 
+00001c00: ldr       r0, [r3, #0xc] 
+00001c04: bl        #0x1c04 kmem_cache_alloc + 0x0
+00001c08: mov       r1, #0x24 
+00001c0c: mov       r2, #0xd0 
+00001c10: mov       r5, r0 
+00001c14: bl        #0x1c14 kmalloc_add_trace + 0x0
+00001c18: mov       r0, r5 
+00001c1c: cmp       r0, #0 
+00001c20: str       r0, [r4, #0xb0] 
+00001c24: beq       #0x1c68 
+00001c28: mov       r3, #1 
+00001c2c: str       r3, [r0] 
+00001c30: ldr       r2, [r4, #0xb0] 
+00001c34: str       r3, [r2, #4] 
+00001c38: ldr       r2, [pc, #0x64] 
+00001c3c: ldr       r3, [r4, #0xb0] 
+00001c40: str       r2, [r3, #0xc] 
+00001c44: ldr       r2, [pc, #0x5c] 
+00001c48: ldr       r3, [r4, #0xb0] 
+00001c4c: str       r2, [r3, #0x10] 
+00001c50: ldr       r3, [r4, #0xac] 
+00001c54: ldr       r2, [r4, #0xb0] 
+00001c58: cmn       r3, #0x60000001 
+00001c5c: addls     r3, r3, #0xa0000000 
+00001c60: addhi     r3, r3, #0xe0000000 
+00001c64: str       r3, [r2, #8] 
+00001c68: ldr       r3, [pc, #0x1c] 
+00001c6c: mov       r0, #0 
+00001c70: str       r0, [r3, #4] 
+00001c74: str       r0, [r3, #8] 
+00001c78: str       r0, [r3, #0xc] 
+00001c7c: b         #0x1c84 
+00001c80: mvn       r0, #0xb 
+00001c84: sub       sp, fp, #0x1c 
+00001c88: ldm       sp, {r4, r5, r6, r7, fp, sp, pc} 
+00001c8c: andeq     r0, r0, r8  + 0x0
+00001c90: andeq     r0, r0, ip, lsr #1  + 0x0
+00001c94: andeq     r0, r0, r0 udif_km_debug + 0x0
+00001c98: andeq     r0, r0, pc, ror #4  + 0x0
+00001c9c: andeq     r0, r0, r0 malloc_sizes + 0x0
+00001ca0: andeq     r0, r0, r3, lsl #5  + 0x0
+00001ca4: andeq     r0, r0, r0 uvc_transfer_dmac_cb + 0x6a0
+00001ca8: andeq     r0, r0, r0, lsr r0  + 0x0
+
+usbg_cmn_delete 0x271c size 0x1c
+0000271c: mov       ip, sp 
+00002720: push      {fp, ip, lr, pc} 
+00002724: sub       fp, ip, #4 
+00002728: cmp       r0, #0 
+0000272c: ldmeq     sp, {fp, sp, pc} 
+00002730: bl        #0x2730 kfree + 0x0
+00002734: ldm       sp, {fp, sp, pc} 
+
+usbg_cmn_clear_probe_info 0x2738 size 0x44
+00002738: mov       ip, sp 
+0000273c: push      {r3, r4, fp, ip, lr, pc} 
+00002740: sub       fp, ip, #4 
+00002744: mov       r4, r0 
+00002748: ldr       r0, [r0, #0x30] 
+0000274c: cmp       r0, #0 
+00002750: beq       #0x2760 
+00002754: bl        #0x2754 kfree + 0x0
+00002758: mov       r3, #0 
+0000275c: str       r3, [r4, #0x30] 
+00002760: ldr       r0, [r4, #0x24] 
+00002764: cmp       r0, #0 
+00002768: ldmeq     sp, {r3, r4, fp, sp, pc} 
+0000276c: bl        #0x276c kfree + 0x0
+00002770: mov       r3, #0 
+00002774: str       r3, [r4, #0x24] 
+00002778: ldm       sp, {r3, r4, fp, sp, pc} 
+
+usbg_video_get_this_ex 0x424 size 0x24
+00000424: mov       ip, sp 
+00000428: push      {fp, ip, lr, pc} 
+0000042c: sub       fp, ip, #4 
+00000430: ldr       r3, [pc, #0xc] 
+00000434: ldr       r0, [r3] 
+00000438: cmp       r0, #0 
+0000043c: ldrne     r0, [r0, #0xbc] 
+00000440: ldm       sp, {fp, sp, pc} 
+00000444: andeq     r0, r0, r4  + 0x0
+
+usbg_video_get_ep0_buffer 0x588 size 0x1c
+00000588: mov       ip, sp 
+0000058c: push      {fp, ip, lr, pc} 
+00000590: sub       fp, ip, #4 
+00000594: bl        #0x594 usbg_video_get_this_ex + 0x424
+00000598: cmp       r0, #0 
+0000059c: addne     r0, r0, #0x1c 
+000005a0: ldm       sp, {fp, sp, pc} 
+
+usbg_video_delete_this 0x448 size 0x48
+00000448: mov       ip, sp 
+0000044c: push      {r3, r4, fp, ip, lr, pc} 
+00000450: sub       fp, ip, #4 
+00000454: bl        #0x454 usbg_video_get_this + 0x408
+00000458: mov       r4, r0 
+0000045c: bl        #0x45c usbg_video_get_this_ex + 0x424
+00000460: cmp       r0, #0 
+00000464: beq       #0x46c 
+00000468: bl        #0x468 kfree + 0x0
+0000046c: cmp       r4, #0 
+00000470: beq       #0x47c 
+00000474: mov       r0, r4 
+00000478: bl        #0x478 kfree + 0x0
+0000047c: ldr       r3, [pc, #8] 
+00000480: mov       r2, #0 
+00000484: str       r2, [r3] 
+00000488: ldm       sp, {r3, r4, fp, sp, pc} 
+0000048c: andeq     r0, r0, r4  + 0x0
+
+uvc_transfer_dmac_cb 0x6a0 size 0x4c
+000006a0: mov       ip, sp 
+000006a4: push      {r4, r5, fp, ip, lr, pc} 
+000006a8: sub       fp, ip, #4 
+000006ac: ldr       r3, [pc, #0x34] 
+000006b0: mov       r2, #1 
+000006b4: mov       r0, r1 
+000006b8: mov       r4, r1 
+000006bc: str       r2, [r3] 
+000006c0: bl        #0x6c0 _raw_spin_lock_irqsave + 0x0
+000006c4: mov       r5, r0 
+000006c8: ldr       r0, [r4, #8] 
+000006cc: cmp       r0, #0 
+000006d0: beq       #0x6d8 
+000006d4: bl        #0x6d4 wake_up_process + 0x0
+000006d8: mov       r0, r4 
+000006dc: mov       r1, r5 
+000006e0: bl        #0x6e0 _raw_spin_unlock_irqrestore + 0x0
+000006e4: ldm       sp, {r4, r5, fp, sp, pc} 
+000006e8: andeq     r0, r0, ip, lsr #1  + 0x0
+
+usb_sync_alloc_phys_buffer 0x2988 size 0x124
+00002988: mov       ip, sp 
+0000298c: push      {r4, r5, r6, r7, r8, fp, ip, lr, pc} 
+00002990: sub       fp, ip, #4 
+00002994: sub       sp, sp, #0xc 
+00002998: ldr       r7, [fp, #4] 
+0000299c: mov       r4, r3 
+000029a0: mov       ip, r0 
+000029a4: mov       r3, #0 
+000029a8: mov       r6, r1 
+000029ac: str       r3, [r2] 
+000029b0: mov       r5, r2 
+000029b4: str       r3, [r4] 
+000029b8: mov       r0, #0x2a 
+000029bc: str       r3, [r7] 
+000029c0: mov       r1, ip 
+000029c4: sub       r2, fp, #0x28 
+000029c8: bl        #0x29c8 osal_dynamic_id + 0x0
+000029cc: subs      r8, r0, #0 
+000029d0: bne       #0x2a88 
+000029d4: ldr       r0, [pc, #0xc8] 
+000029d8: sub       r1, fp, #0x2c 
+000029dc: mov       r2, #0x18 
+000029e0: mov       r3, #1 
+000029e4: bl        #0x29e4 osal_valloc_msg_wait + 0x0
+000029e8: subs      r8, r0, #0 
+000029ec: bne       #0x2a88 
+000029f0: ldr       r3, [fp, #-0x2c] 
+000029f4: mov       r2, #1 
+000029f8: ldr       r0, [pc, #0xa4] 
+000029fc: strh      r2, [r3] 
+00002a00: stmib     r3, {r6, r8} 
+00002a04: mvn       r6, #0 
+00002a08: strh      r8, [r3, #0x14] 
+00002a0c: strh      r2, [r3, #0x16] 
+00002a10: str       r6, [r3, #0xc] 
+00002a14: ldr       r2, [fp, #-0x28] 
+00002a18: ldr       r3, [fp, #-0x2c] 
+00002a1c: str       r2, [r3, #-4] 
+00002a20: ldr       r1, [fp, #-0x2c] 
+00002a24: bl        #0x2a24 osal_snd_msg + 0x0
+00002a28: subs      r8, r0, #0 
+00002a2c: bne       #0x2a88 
+00002a30: ldr       r0, [fp, #-0x28] 
+00002a34: sub       r1, fp, #0x2c 
+00002a38: mov       r2, r6 
+00002a3c: bl        #0x2a3c osal_rcv_msg_tmo + 0x0
+00002a40: subs      r8, r0, #0 
+00002a44: bne       #0x2a88 
+00002a48: ldr       r1, [fp, #-0x2c] 
+00002a4c: ldrsh     r3, [r1, #2] 
+00002a50: cmp       r3, #0 
+00002a54: beq       #0x2a68 
+00002a58: ldr       r0, [fp, #-0x28] 
+00002a5c: bl        #0x2a5c osal_free_msg + 0x0
+00002a60: ldr       r8, [pc, #0x40] 
+00002a64: b         #0x2a88 
+00002a68: ldrh      r3, [r1, #4] 
+00002a6c: str       r3, [r5] 
+00002a70: ldr       r3, [r1, #0x10] 
+00002a74: str       r3, [r4] 
+00002a78: ldr       r3, [r1, #0x14] 
+00002a7c: str       r3, [r7] 
+00002a80: ldr       r0, [fp, #-0x28] 
+00002a84: bl        #0x2a84 osal_free_msg + 0x0
+00002a88: mov       r1, #0 
+00002a8c: ldr       r2, [fp, #-0x28] 
+00002a90: mov       r0, #0x4a 
+00002a94: bl        #0x2a94 osal_dynamic_id + 0x0
+00002a98: mov       r0, r8 
+00002a9c: sub       sp, fp, #0x20 
+00002aa0: ldm       sp, {r4, r5, r6, r7, r8, fp, sp, pc} 
+00002aa4: rsbeq     r0, r1, ip, lsr r0 
+
+usbg_cmn_new 0x26c0 size 0x5c
+000026c0: mov       ip, sp 
+000026c4: push      {r4, r5, fp, ip, lr, pc} 
+000026c8: sub       fp, ip, #4 
+000026cc: ldr       r3, [pc, #0x44] 
+000026d0: mov       r5, r1 
+000026d4: mov       r1, #0x20 
+000026d8: ldr       r0, [r3, #0x24] 
+000026dc: bl        #0x26dc kmem_cache_alloc + 0x0
+000026e0: mov       r1, #0xc0 
+000026e4: mov       r2, #0x20 
+000026e8: mov       r4, r0 
+000026ec: bl        #0x26ec kmalloc_add_trace + 0x0
+000026f0: cmp       r4, #0 
+000026f4: beq       #0x2710 
+000026f8: mov       r0, r4 
+000026fc: mov       r1, #0xc0 
+00002700: bl        #0x2700 __memzero + 0x0
+00002704: str       r4, [r5, #0xa8] 
+00002708: mov       r0, #0 
+0000270c: ldm       sp, {r4, r5, fp, sp, pc} 
+00002710: mvn       r0, #0x68 
+00002714: ldm       sp, {r4, r5, fp, sp, pc} 
+00002718: andeq     r0, r0, r0 malloc_sizes + 0x0
+
+usbg_video_call_user_cb 0x4b4 size 0xd4
+000004b4: mov       ip, sp 
+000004b8: push      {r4, r5, r6, r7, fp, ip, lr, pc} 
+000004bc: sub       fp, ip, #4 
+000004c0: sub       sp, sp, #0x10 
+000004c4: str       r0, [fp, #-0x20] 
+000004c8: mov       r4, r0 
+000004cc: mov       r7, r3 
+000004d0: sub       r0, fp, #0x24 
+000004d4: mvn       r3, #0x74 
+000004d8: mov       r6, r2 
+000004dc: mov       r5, r1 
+000004e0: strb      r3, [fp, #-0x24] 
+000004e4: add       r3, r3, #0x7b 
+000004e8: strb      r3, [fp, #-0x23] 
+000004ec: mov       r3, #2 
+000004f0: strh      r3, [fp, #-0x22] 
+000004f4: bl        #0x180 
+000004f8: bl        #0x4f8 usbg_video_get_this + 0x408
+000004fc: ldr       r2, [r0] 
+00000500: cmp       r4, #7 
+00000504: ldrls     pc, [pc, r4, lsl #2] 
+00000508: b         #0x580 
+0000050c: andeq     r0, r0, ip, lsr #10  + 0x0
+00000510: andeq     r0, r0, r4, lsr r5  + 0x0
+00000514: andeq     r0, r0, ip, lsr r5  + 0x0
+00000518: andeq     r0, r0, r4, asr #10  + 0x0
+0000051c: andeq     r0, r0, ip, asr #10  + 0x0
+00000520: andeq     r0, r0, r4, asr r5  + 0x0
+00000524: andeq     r0, r0, ip, asr r5  + 0x0
+00000528: andeq     r0, r0, r4, ror #10  + 0x0
+0000052c: ldr       r1, [r0, #4] 
+00000530: b         #0x568 
+00000534: ldr       r1, [r0, #8] 
+00000538: b         #0x568 
+0000053c: ldr       r1, [r0, #0xc] 
+00000540: b         #0x568 
+00000544: ldr       r1, [r0, #0x10] 
+00000548: b         #0x568 
+0000054c: ldr       r1, [r0, #0x14] 
+00000550: b         #0x568 
+00000554: ldr       r1, [r0, #0x18] 
+00000558: b         #0x568 
+0000055c: ldr       r1, [r0, #0x1c] 
+00000560: b         #0x568 
+00000564: ldr       r1, [r0, #0x20] 
+00000568: mov       r0, #0 
+0000056c: uxtb      r3, r5 
+00000570: uxtb      r7, r7 
+00000574: str       r6, [sp, #4] 
+00000578: str       r7, [sp] 
+0000057c: bl        #0x57c usb_event_add_queue + 0x0
+00000580: sub       sp, fp, #0x1c 
+00000584: ldm       sp, {r4, r5, r6, r7, fp, sp, pc} 
+
+usb_sync_free_phys_buffer 0x2aac size 0xe4
+00002aac: mov       ip, sp 
+00002ab0: push      {r4, r5, fp, ip, lr, pc} 
+00002ab4: sub       fp, ip, #4 
+00002ab8: sub       sp, sp, #8 
+00002abc: mov       r3, r0 
+00002ac0: mov       r4, r1 
+00002ac4: mov       r0, #0x2a 
+00002ac8: mov       r1, r3 
+00002acc: sub       r2, fp, #0x18 
+00002ad0: bl        #0x2ad0 osal_dynamic_id + 0x0
+00002ad4: subs      r5, r0, #0 
+00002ad8: bne       #0x2b6c 
+00002adc: ldr       r0, [pc, #0xa4] 
+00002ae0: sub       r1, fp, #0x1c 
+00002ae4: mov       r2, #0x18 
+00002ae8: mov       r3, #1 
+00002aec: bl        #0x2aec osal_valloc_msg_wait + 0x0
+00002af0: subs      r5, r0, #0 
+00002af4: bne       #0x2b6c 
+00002af8: ldr       r3, [fp, #-0x1c] 
+00002afc: mov       r2, #4 
+00002b00: ldr       r0, [pc, #0x80] 
+00002b04: strh      r2, [r3] 
+00002b08: mov       r2, #2 
+00002b0c: strh      r4, [r3, #2] 
+00002b10: strh      r5, [r3, #0x14] 
+00002b14: strh      r2, [r3, #0x16] 
+00002b18: ldr       r2, [fp, #-0x18] 
+00002b1c: ldr       r3, [fp, #-0x1c] 
+00002b20: str       r2, [r3, #-4] 
+00002b24: ldr       r1, [fp, #-0x1c] 
+00002b28: bl        #0x2b28 osal_snd_msg + 0x0
+00002b2c: subs      r5, r0, #0 
+00002b30: bne       #0x2b6c 
+00002b34: ldr       r0, [fp, #-0x18] 
+00002b38: sub       r1, fp, #0x1c 
+00002b3c: mvn       r2, #0 
+00002b40: bl        #0x2b40 osal_rcv_msg_tmo + 0x0
+00002b44: subs      r5, r0, #0 
+00002b48: bne       #0x2b6c 
+00002b4c: ldr       r1, [fp, #-0x1c] 
+00002b50: ldr       r3, [pc, #0x34] 
+00002b54: ldr       r0, [fp, #-0x18] 
+00002b58: ldrsh     r5, [r1, #2] 
+00002b5c: cmp       r5, #0 
+00002b60: movne     r5, r3 
+00002b64: moveq     r5, #0 
+00002b68: bl        #0x2b68 osal_free_msg + 0x0
+00002b6c: mov       r1, #0 
+00002b70: ldr       r2, [fp, #-0x18] 
+00002b74: mov       r0, #0x4a 
+00002b78: bl        #0x2b78 osal_dynamic_id + 0x0
+00002b7c: mov       r0, r5 
+00002b80: sub       sp, fp, #0x14 
+00002b84: ldm       sp, {r4, r5, fp, sp, pc} 
+00002b88: rsbeq     r0, r1, ip, lsr r0 
+
+usbg_video_link_this_to_file 0x490 size 0x24
+00000490: mov       ip, sp 
+00000494: push      {fp, ip, lr, pc} 
+00000498: sub       fp, ip, #4 
+0000049c: cmp       r0, #0 
+000004a0: ldrne     r3, [pc, #8] 
+000004a4: ldrne     r3, [r3] 
+000004a8: strne     r3, [r0, #0xa8] 
+000004ac: ldm       sp, {fp, sp, pc} 
+000004b0: andeq     r0, r0, r4  + 0x0
+
+usbg_cmn_make_ep_list 0x28dc size 0x80
+000028dc: mov       ip, sp 
+000028e0: push      {r4, r5, fp, ip, lr, pc} 
+000028e4: sub       fp, ip, #4 
+000028e8: sub       sp, sp, #8 
+000028ec: mov       r4, r0 
+000028f0: sub       r0, fp, #0x14 
+000028f4: stmdb     r0, {r2, r3} 
+000028f8: ldrb      r5, [fp, #-0x1c] 
+000028fc: strb      r1, [r4, #0xb2] 
+00002900: mov       r1, #0x20 
+00002904: strb      r5, [r4, #0xb8] 
+00002908: lsl       r0, r5, #2 
+0000290c: bl        #0x290c __kmalloc + 0x0
+00002910: cmp       r0, #0 
+00002914: str       r0, [r4, #0xb4] 
+00002918: movne     r3, #0 
+0000291c: ldrne     r1, [fp, #-0x18] 
+00002920: movne     r2, r3 
+00002924: bne       #0x2940 
+00002928: b         #0x2950 
+0000292c: ldr       ip, [r1, r3] 
+00002930: add       r2, r2, #1 
+00002934: ldr       r0, [r4, #0xb4] 
+00002938: str       ip, [r0, r3] 
+0000293c: add       r3, r3, #4 
+00002940: cmp       r2, r5 
+00002944: blt       #0x292c 
+00002948: mov       r0, #0 
+0000294c: b         #0x2954 
+00002950: mvn       r0, #0x68 
+00002954: sub       sp, fp, #0x14 
+00002958: ldm       sp, {r4, r5, fp, sp, pc} 
+
+usbg_video_create_this 0x300 size 0x108
+00000300: mov       ip, sp 
+00000304: push      {r4, r5, r6, r7, fp, ip, lr, pc} 
+00000308: sub       fp, ip, #4 
+0000030c: sub       sp, sp, #8 
+00000310: ldr       r7, [pc, #0xe8] 
+00000314: ldr       r6, [r7] 
+00000318: cmp       r6, #0 
+0000031c: movne     r0, #0 
+00000320: bne       #0x3f8 
+00000324: ldr       r5, [pc, #0xd8] 
+00000328: mov       r1, #0x20 
+0000032c: ldr       r0, [r5, #0x24] 
+00000330: bl        #0x330 kmem_cache_alloc + 0x0
+00000334: mov       r1, #0xc0 
+00000338: mov       r2, #0x20 
+0000033c: mov       r4, r0 
+00000340: bl        #0x340 kmalloc_add_trace + 0x0
+00000344: cmp       r4, #0 
+00000348: bne       #0x378 
+0000034c: mvn       r3, #0x74 
+00000350: sub       r0, fp, #0x24 
+00000354: strb      r3, [fp, #-0x24] 
+00000358: add       r3, r3, #0x77 
+0000035c: strb      r3, [fp, #-0x23] 
+00000360: mov       r3, #1 
+00000364: strh      r3, [fp, #-0x22] 
+00000368: mov       r3, #0x5e 
+0000036c: str       r3, [fp, #-0x20] 
+00000370: bl        #0x180 
+00000374: b         #0x3cc 
+00000378: ldr       r0, [r5, #0x2c] 
+0000037c: mov       r1, #0x20 
+00000380: bl        #0x380 kmem_cache_alloc + 0x0
+00000384: mov       r1, #0xd0 
+00000388: mov       r2, #0x20 
+0000038c: mov       r5, r0 
+00000390: bl        #0x390 kmalloc_add_trace + 0x0
+00000394: cmp       r5, #0 
+00000398: bne       #0x3d4 
+0000039c: mvn       r3, #0x74 
+000003a0: sub       r0, fp, #0x24 
+000003a4: strb      r3, [fp, #-0x24] 
+000003a8: add       r3, r3, #0x77 
+000003ac: strb      r3, [fp, #-0x23] 
+000003b0: mov       r3, #1 
+000003b4: strh      r3, [fp, #-0x22] 
+000003b8: mov       r3, #0x6a 
+000003bc: str       r3, [fp, #-0x20] 
+000003c0: bl        #0x180 
+000003c4: mov       r0, r4 
+000003c8: bl        #0x3c8 kfree + 0x0
+000003cc: mvn       r0, #0xb 
+000003d0: b         #0x3f8 
+000003d4: mov       r0, r4 
+000003d8: mov       r1, #0xc0 
+000003dc: bl        #0x3dc __memzero + 0x0
+000003e0: mov       r0, r5 
+000003e4: mov       r1, #0xd0 
+000003e8: bl        #0x3e8 __memzero + 0x0
+000003ec: mov       r0, r6 
+000003f0: str       r5, [r4, #0xbc] 
+000003f4: str       r4, [r7] 
+000003f8: sub       sp, fp, #0x1c 
+000003fc: ldm       sp, {r4, r5, r6, r7, fp, sp, pc} 
+00000400: andeq     r0, r0, r4  + 0x0
+00000404: andeq     r0, r0, r0 malloc_sizes + 0x0
+
+usbg_cmn_reg 0x2620 size 0x70
+00002620: mov       ip, sp 
+00002624: push      {r4, r5, r6, r7, fp, ip, lr, pc} 
+00002628: sub       fp, ip, #4 
+0000262c: ldr       r4, [r0, #0x3c] 
+00002630: mov       r5, r0 
+00002634: ldrh      r6, [r4, #6] 
+00002638: ldrh      r3, [r4, #8] 
+0000263c: ldrh      r1, [r4, #0xa] 
+00002640: orr       r6, r3, r6, lsl #20 
+00002644: ldr       r2, [r4] 
+00002648: mov       r0, r6 
+0000264c: bl        #0x264c register_chrdev_region + 0x0
+00002650: subs      r7, r0, #0 
+00002654: bne       #0x2688 
+00002658: mov       r0, r5 
+0000265c: ldr       r1, [r5, #0x40] 
+00002660: bl        #0x2660 cdev_init + 0x0
+00002664: mov       r0, r5 
+00002668: mov       r1, r6 
+0000266c: ldrh      r2, [r4, #0xa] 
+00002670: bl        #0x2670 cdev_add + 0x0
+00002674: subs      r7, r0, #0 
+00002678: beq       #0x2688 
+0000267c: mov       r0, r6 
+00002680: ldrh      r1, [r4, #0xa] 
+00002684: bl        #0x2684 unregister_chrdev_region + 0x0
+00002688: mov       r0, r7 
+0000268c: ldm       sp, {r4, r5, r6, r7, fp, sp, pc} 
+
+usbg_video_core_ioctl 0x1e10 size 0x5e0
+00001e10: mov       ip, sp 
+00001e14: push      {r4, r5, r6, r7, r8, sl, fp, ip, lr, pc} 
+00001e18: sub       fp, ip, #4 
+00001e1c: sub       sp, sp, #0x20 
+00001e20: ubfx      r3, r1, #8, #8 
+00001e24: mov       r4, r1 
+00001e28: cmp       r3, #0xe0 
+00001e2c: mov       r5, r2 
+00001e30: bne       #0x20b4 
+00001e34: and       r3, r1, #0xff 
+00001e38: cmp       r3, #2 
+00001e3c: bhi       #0x23b0 
+00001e40: cmp       r1, #0 
+00001e44: bge       #0x1e6c 
+00001e48: ubfx      r2, r1, #0x10, #0xe 
+00001e4c: mov       r1, sp 
+00001e50: bic       r3, r1, #0x1fc0 
+00001e54: bic       r3, r3, #0x3f 
+00001e58: ldr       r3, [r3, #8] 
+00001e5c: adds      r1, r5, r2 
+00001e60: sbcslo    r1, r1, r3 
+00001e64: movlo     r3, #0 
+00001e68: b         #0x1e94 
+00001e6c: tst       r1, #0x40000000 
+00001e70: beq       #0x1ec0 
+00001e74: ubfx      r2, r1, #0x10, #0xe 
+00001e78: mov       r1, sp 
+00001e7c: bic       r3, r1, #0x1fc0 
+00001e80: bic       r3, r3, #0x3f 
+00001e84: ldr       r3, [r3, #8] 
+00001e88: adds      r1, r5, r2 
+00001e8c: sbcslo    r1, r1, r3 
+00001e90: movlo     r3, #0 
+00001e94: subs      r3, r3, #0 
+00001e98: movne     r3, #1 
+00001e9c: cmp       r3, #0 
+00001ea0: beq       #0x1ec0 
+00001ea4: mov       r3, #2 
+00001ea8: mvn       r4, #0x74 
+00001eac: strb      r3, [fp, #-0x2b] 
+00001eb0: strh      r3, [fp, #-0x2a] 
+00001eb4: movw      r3, #0x54b 
+00001eb8: strb      r4, [fp, #-0x2c] 
+00001ebc: b         #0x2144 
+00001ec0: movw      r3, #0xe001 
+00001ec4: mvn       r6, #0x74 
+00001ec8: cmp       r4, r3 
+00001ecc: beq       #0x2038 
+00001ed0: ldr       r3, [pc, #0x4e8] 
+00001ed4: cmp       r4, r3 
+00001ed8: bne       #0x208c 
+00001edc: bl        #0x1edc usbg_video_get_this + 0x408
+00001ee0: mov       r8, #0 
+00001ee4: strb      r6, [fp, #-0x2c] 
+00001ee8: mov       r7, #3 
+00001eec: strb      r8, [fp, #-0x2b] 
+00001ef0: strh      r7, [fp, #-0x2a] 
+00001ef4: str       r8, [fp, #-0x28] 
+00001ef8: mov       r4, r0 
+00001efc: sub       r0, fp, #0x2c 
+00001f00: bl        #0x958 
+00001f04: mov       r0, r4 
+00001f08: mov       r1, r5 
+00001f0c: bl        #0x1f0c usbg_cmn_copy_probe_info + 0x277c
+00001f10: subs      sl, r0, #0 
+00001f14: beq       #0x1f60 
+00001f18: mov       r3, #2 
+00001f1c: sub       r0, fp, #0x2c 
+00001f20: strb      r3, [fp, #-0x2b] 
+00001f24: strh      r3, [fp, #-0x2a] 
+00001f28: add       r3, r3, #0x410 
+00001f2c: strb      r6, [fp, #-0x2c] 
+00001f30: str       r3, [fp, #-0x28] 
+00001f34: bl        #0x958 
+00001f38: mov       r0, r4 
+00001f3c: mov       r1, r5 
+00001f40: bl        #0x1f40 usbg_cmn_copy_probe_info + 0x277c
+00001f44: strb      r6, [fp, #-0x2c] 
+00001f48: strb      r7, [fp, #-0x2b] 
+00001f4c: str       r8, [fp, #-0x28] 
+00001f50: strh      r0, [fp, #-0x2a] 
+00001f54: sub       r0, fp, #0x2c 
+00001f58: bl        #0x958 
+00001f5c: b         #0x223c 
+00001f60: ldr       r2, [r4, #0x24] 
+00001f64: add       r0, r4, #0x38 
+00001f68: ldr       r3, [pc, #0x454] 
+00001f6c: mov       r5, #2 
+00001f70: add       r1, r2, #2 
+00001f74: str       r3, [r4, #0x38] 
+00001f78: ldrb      r3, [r2, #2] 
+00001f7c: strb      r3, [r4, #0x3c] 
+00001f80: ldrb      r3, [r1, #1] 
+00001f84: strb      r3, [r4, #0x3d] 
+00001f88: ldr       r3, [pc, #0x438] 
+00001f8c: ldrb      r2, [r2, #1] 
+00001f90: strb      r2, [r3, #0x35] 
+00001f94: ldrb      r2, [r1, #1] 
+00001f98: strb      r5, [r4, #0x44] 
+00001f9c: str       r4, [r4, #0x48] 
+00001fa0: strb      r2, [r3, #0x36] 
+00001fa4: add       r3, r3, #0x35 
+00001fa8: str       r3, [r4, #0x40] 
+00001fac: ldr       r3, [pc, #0x418] 
+00001fb0: str       r3, [r4, #0x50] 
+00001fb4: ldr       r3, [pc, #0x414] 
+00001fb8: str       r3, [r4, #0x54] 
+00001fbc: ldr       r3, [pc, #0x410] 
+00001fc0: str       r3, [r4, #0x58] 
+00001fc4: ldr       r3, [pc, #0x40c] 
+00001fc8: str       r3, [r4, #0x5c] 
+00001fcc: ldr       r3, [pc, #0x408] 
+00001fd0: str       r3, [r4, #0x60] 
+00001fd4: str       r3, [r4, #0x64] 
+00001fd8: str       r3, [r4, #0x68] 
+00001fdc: ldr       r3, [pc, #0x3fc] 
+00001fe0: str       r3, [r4, #0x6c] 
+00001fe4: bl        #0x1fe4 usb_gadgetcore_register_driver + 0x0
+00001fe8: subs      r4, r0, #0 
+00001fec: beq       #0x2024 
+00001ff0: sub       r0, fp, #0x2c 
+00001ff4: movw      r3, #0x43a 
+00001ff8: strb      r6, [fp, #-0x2c] 
+00001ffc: strb      r5, [fp, #-0x2b] 
+00002000: strh      r5, [fp, #-0x2a] 
+00002004: str       r3, [fp, #-0x28] 
+00002008: bl        #0x958 
+0000200c: sub       r0, fp, #0x2c 
+00002010: strb      r6, [fp, #-0x2c] 
+00002014: strb      r7, [fp, #-0x2b] 
+00002018: strh      r4, [fp, #-0x2a] 
+0000201c: str       sl, [fp, #-0x28] 
+00002020: bl        #0x958 
+00002024: mov       r0, #0 
+00002028: mov       r1, r0 
+0000202c: mov       r2, r0 
+00002030: mov       r3, r0 
+00002034: b         #0x2084 
+00002038: bl        #0x2038 usbg_video_get_this + 0x408
+0000203c: mov       r5, #0 
+00002040: mov       r3, #4 
+00002044: strb      r6, [fp, #-0x2c] 
+00002048: strh      r3, [fp, #-0x2a] 
+0000204c: strb      r5, [fp, #-0x2b] 
+00002050: str       r5, [fp, #-0x28] 
+00002054: mov       r7, r0 
+00002058: sub       r0, fp, #0x2c 
+0000205c: bl        #0x958 
+00002060: add       r0, r7, #0x38 
+00002064: bl        #0x2064 usb_gadgetcore_unregister_driver + 0x0
+00002068: mov       r4, r0 
+0000206c: mov       r0, r7 
+00002070: bl        #0x2070 usbg_cmn_clear_probe_info + 0x2738
+00002074: mov       r0, #1 
+00002078: mov       r1, r0 
+0000207c: mov       r2, r5 
+00002080: mov       r3, r5 
+00002084: bl        #0x2084 usbg_video_call_user_cb + 0x4b4
+00002088: b         #0x23b4 
+0000208c: sub       r0, fp, #0x2c 
+00002090: mov       r3, #2 
+00002094: strb      r6, [fp, #-0x2c] 
+00002098: strb      r3, [fp, #-0x2b] 
+0000209c: strh      r3, [fp, #-0x2a] 
+000020a0: movw      r3, #0x55c 
+000020a4: str       r3, [fp, #-0x28] 
+000020a8: bl        #0x958 
+000020ac: strb      r6, [fp, #-0x2c] 
+000020b0: b         #0x2394 
+000020b4: cmp       r3, #0xf0 
+000020b8: bne       #0x236c 
+000020bc: and       r3, r1, #0xff 
+000020c0: cmp       r3, #9 
+000020c4: bhi       #0x23b0 
+000020c8: cmp       r1, #0 
+000020cc: bge       #0x20f4 
+000020d0: ubfx      r2, r1, #0x10, #0xe 
+000020d4: mov       r1, sp 
+000020d8: bic       r3, r1, #0x1fc0 
+000020dc: bic       r3, r3, #0x3f 
+000020e0: ldr       r3, [r3, #8] 
+000020e4: adds      r1, r5, r2 
+000020e8: sbcslo    r1, r1, r3 
+000020ec: movlo     r3, #0 
+000020f0: b         #0x211c 
+000020f4: tst       r1, #0x40000000 
+000020f8: beq       #0x217c 
+000020fc: ubfx      r2, r1, #0x10, #0xe 
+00002100: mov       r1, sp 
+00002104: bic       r3, r1, #0x1fc0 
+00002108: bic       r3, r3, #0x3f 
+0000210c: ldr       r3, [r3, #8] 
+00002110: adds      r1, r5, r2 
+00002114: sbcslo    r1, r1, r3 
+00002118: movlo     r3, #0 
+0000211c: subs      r3, r3, #0 
+00002120: movne     r3, #1 
+00002124: cmp       r3, #0 
+00002128: beq       #0x217c 
+0000212c: mov       r3, #2 
+00002130: strb      r3, [fp, #-0x2b] 
+00002134: strh      r3, [fp, #-0x2a] 
+00002138: mov       r3, #0x590 
+0000213c: mvn       r4, #0x74 
+00002140: strb      r4, [fp, #-0x2c] 
+00002144: sub       r0, fp, #0x2c 
+00002148: str       r3, [fp, #-0x28] 
+0000214c: bl        #0x958 
+00002150: sub       r0, fp, #0x2c 
+00002154: strb      r4, [fp, #-0x2c] 
+00002158: mov       r3, #3 
+0000215c: mov       r2, #1 
+00002160: strb      r3, [fp, #-0x2b] 
+00002164: strh      r2, [fp, #-0x2a] 
+00002168: mov       r3, #0 
+0000216c: add       r4, r4, #0x67 
+00002170: str       r3, [fp, #-0x28] 
+00002174: bl        #0x958 
+00002178: b         #0x23b4 
+0000217c: movw      r3, #0xf006 
+00002180: cmp       r4, r3 
+00002184: beq       #0x233c 
+00002188: bhi       #0x21a8 
+0000218c: sub       r3, r3, #5 
+00002190: cmp       r4, r3 
+00002194: beq       #0x2260 
+00002198: add       r3, r3, #1 
+0000219c: cmp       r4, r3 
+000021a0: bne       #0x2350 
+000021a4: b         #0x2298 
+000021a8: ldr       r3, [pc, #0x234] 
+000021ac: cmp       r4, r3 
+000021b0: beq       #0x21c4 
+000021b4: add       r3, r3, #3 
+000021b8: cmp       r4, r3 
+000021bc: bne       #0x2350 
+000021c0: b         #0x232c 
+000021c4: bl        #0x21c4 usbg_video_get_this_ex + 0x424
+000021c8: mvn       r3, #0x74 
+000021cc: mov       r1, #5 
+000021d0: strb      r3, [fp, #-0x40] 
+000021d4: strh      r1, [fp, #-0x3e] 
+000021d8: add       r3, r3, #0x75 
+000021dc: strb      r3, [fp, #-0x3f] 
+000021e0: str       r3, [fp, #-0x3c] 
+000021e4: mov       r4, r0 
+000021e8: sub       r0, fp, #0x40 
+000021ec: bl        #0x958 
+000021f0: mov       r2, sp 
+000021f4: bic       r3, r2, #0x1fc0 
+000021f8: bic       r3, r3, #0x3f 
+000021fc: ldr       r3, [r3, #8] 
+00002200: adds      r2, r5, #8 
+00002204: sbcslo    r2, r2, r3 
+00002208: movlo     r3, #0 
+0000220c: cmp       r3, #0 
+00002210: bne       #0x2230 
+00002214: sub       r0, fp, #0x2c 
+00002218: mov       r1, r5 
+0000221c: mov       r2, #8 
+00002220: bl        #0x2220 __copy_from_user + 0x0
+00002224: cmp       r0, #0 
+00002228: beq       #0x2244 
+0000222c: b         #0x223c 
+00002230: sub       r0, fp, #0x2c 
+00002234: mov       r1, #8 
+00002238: bl        #0x2238 __memzero + 0x0
+0000223c: mvn       r4, #0x68 
+00002240: b         #0x23b4 
+00002244: ldr       r3, [fp, #-0x28] 
+00002248: cmp       r3, #0 
+0000224c: addge     r2, r3, #0x60000000 
+00002250: addlt     r2, r3, #0x20000000 
+00002254: str       r3, [r4, #0x14] 
+00002258: str       r2, [r4, #0x10] 
+0000225c: b         #0x2348 
+00002260: bl        #0x2260 usbg_video_get_this_ex + 0x424
+00002264: mov       r4, #0 
+00002268: mvn       r3, #0x74 
+0000226c: strb      r4, [fp, #-0x3f] 
+00002270: strb      r3, [fp, #-0x40] 
+00002274: mov       r3, #6 
+00002278: str       r4, [fp, #-0x3c] 
+0000227c: strh      r3, [fp, #-0x3e] 
+00002280: mov       r5, r0 
+00002284: sub       r0, fp, #0x40 
+00002288: bl        #0x958 
+0000228c: str       r4, [r5, #0x10] 
+00002290: str       r4, [r5, #0x14] 
+00002294: b         #0x23b4 
+00002298: ldr       r3, [pc, #0x128] 
+0000229c: ldrb      r2, [r3, #0x10] 
+000022a0: cmp       r2, #0 
+000022a4: beq       #0x22ec 
+000022a8: ldrb      r3, [r3, #0x11] 
+000022ac: cmp       r3, #0 
+000022b0: beq       #0x22ec 
+000022b4: bl        #0x22b4 usbg_video_get_this_ex + 0x424
+000022b8: cmp       r0, #0 
+000022bc: beq       #0x2324 
+000022c0: bl        #0x22c0 usbg_video_get_this_ex + 0x424
+000022c4: ldrb      r3, [r0, #0xcc] 
+000022c8: cmp       r3, #0 
+000022cc: beq       #0x2324 
+000022d0: sub       r0, fp, #0x40 
+000022d4: mov       r1, #0x14 
+000022d8: ldr       r2, [pc, #0x108] 
+000022dc: bl        #0x22dc snprintf + 0x0
+000022e0: sub       r0, fp, #0x40 
+000022e4: bl        #0x8c8 
+000022e8: b         #0x2324 
+000022ec: bl        #0x22ec usbg_video_get_this_ex + 0x424
+000022f0: subs      r4, r0, #0 
+000022f4: beq       #0x23b4 
+000022f8: bl        #0x22f8 usbg_video_get_this_ex + 0x424
+000022fc: ldrb      r4, [r0, #0xcc] 
+00002300: cmp       r4, #0 
+00002304: beq       #0x23b4 
+00002308: sub       r0, fp, #0x40 
+0000230c: mov       r1, #0x14 
+00002310: ldr       r2, [pc, #0xd4] 
+00002314: bl        #0x2314 snprintf + 0x0
+00002318: sub       r0, fp, #0x40 
+0000231c: bl        #0x8c8 
+00002320: b         #0x2348 
+00002324: mvn       r4, #0xf 
+00002328: b         #0x23b4 
+0000232c: mov       r0, r5 
+00002330: bl        #0xd00 
+00002334: mov       r4, r0 
+00002338: b         #0x23b4 
+0000233c: bl        #0x233c usbg_video_get_this_ex + 0x424
+00002340: mov       r3, #1 
+00002344: strb      r3, [r0, #0xcc] 
+00002348: mov       r4, #0 
+0000234c: b         #0x23b4 
+00002350: mov       r3, #2 
+00002354: mvn       r5, #0x74 
+00002358: strb      r3, [fp, #-0x2b] 
+0000235c: strh      r3, [fp, #-0x2a] 
+00002360: movw      r3, #0x5aa 
+00002364: strb      r5, [fp, #-0x2c] 
+00002368: b         #0x2384 
+0000236c: mov       r3, #2 
+00002370: strb      r3, [fp, #-0x2b] 
+00002374: strh      r3, [fp, #-0x2a] 
+00002378: movw      r3, #0x658 
+0000237c: mvn       r5, #0x74 
+00002380: strb      r5, [fp, #-0x2c] 
+00002384: sub       r0, fp, #0x2c 
+00002388: str       r3, [fp, #-0x28] 
+0000238c: bl        #0x958 
+00002390: strb      r5, [fp, #-0x2c] 
+00002394: sub       r0, fp, #0x2c 
+00002398: mov       r3, #3 
+0000239c: strh      r4, [fp, #-0x2a] 
+000023a0: strb      r3, [fp, #-0x2b] 
+000023a4: mov       r3, #0 
+000023a8: str       r3, [fp, #-0x28] 
+000023ac: bl        #0x958 
+000023b0: mvn       r4, #0x18 
+000023b4: mov       r0, r4 
+000023b8: sub       sp, fp, #0x24 
+000023bc: ldm       sp, {r4, r5, r6, r7, r8, sl, fp, sp, pc} 
+000023c0: eorsmi    lr, r8, r0 
+000023c4: muleq     r0, r6, r2  + 0x0
+000023c8: andeq     r0, r0, r8  + 0x0
+000023cc: andeq     r0, r0, r0 core_cb_start + 0x10f0
+000023d0: andeq     r0, r0, r0 core_cb_stop + 0x744
+000023d4: andeq     r0, r0, r0 core_cb_set_halt + 0x68c
+000023d8: andeq     r0, r0, r0 core_cb_clear_halt + 0x6ec
+000023dc: andeq     r0, r0, r0 core_cb_nop + 0x67c
+000023e0: andeq     r0, r0, r0 core_cb_class + 0x17b0
+000023e4: andmi     pc, r8, r0 
+000023e8: andeq     r0, r0, lr, lsr #5  + 0x0
+000023ec: strheq    r0, [r0], -r6  + 0x0
+
+usbg_video_get_ep_info 0x664 size 0x18
+00000664: mov       ip, sp 
+00000668: push      {fp, ip, lr, pc} 
+0000066c: sub       fp, ip, #4 
+00000670: cmp       r0, #0 
+00000674: ldrne     r0, [r0] 
+00000678: ldm       sp, {fp, sp, pc} 
+
+usbg_video_get_this 0x408 size 0x1c
+00000408: mov       ip, sp 
+0000040c: push      {fp, ip, lr, pc} 
+00000410: sub       fp, ip, #4 
+00000414: ldr       r3, [pc, #4] 
+00000418: ldr       r0, [r3] 
+0000041c: ldm       sp, {fp, sp, pc} 
+00000420: andeq     r0, r0, r4  + 0x0
+
+usbg_cmn_dereg 0x2690 size 0x30
+00002690: mov       ip, sp 
+00002694: push      {r4, r5, fp, ip, lr, pc} 
+00002698: sub       fp, ip, #4 
+0000269c: ldr       r4, [r0, #0x3c] 
+000026a0: ldrh      r5, [r4, #6] 
+000026a4: ldrh      r3, [r4, #8] 
+000026a8: orr       r5, r3, r5, lsl #20 
+000026ac: bl        #0x26ac cdev_del + 0x0
+000026b0: mov       r0, r5 
+000026b4: ldrh      r1, [r4, #0xa] 
+000026b8: bl        #0x26b8 unregister_chrdev_region + 0x0
+000026bc: ldm       sp, {r4, r5, fp, sp, pc} 
+
+usbg_video_core_write 0x23f0 size 0x4c
+000023f0: mov       ip, sp 
+000023f4: push      {fp, ip, lr, pc} 
+000023f8: sub       fp, ip, #4 
+000023fc: sub       sp, sp, #8 
+00002400: cmp       r1, #0 
+00002404: movne     r0, #0 
+00002408: bne       #0x2434 
+0000240c: mvn       r3, #0x74 
+00002410: sub       r0, fp, #0x14 
+00002414: strb      r3, [fp, #-0x14] 
+00002418: add       r3, r3, #0x77 
+0000241c: strb      r3, [fp, #-0x13] 
+00002420: strh      r3, [fp, #-0x12] 
+00002424: movw      r3, #0x699 
+00002428: str       r3, [fp, #-0x10] 
+0000242c: bl        #0x958 
+00002430: mvn       r0, #0x15 
+00002434: sub       sp, fp, #0xc 
+00002438: ldm       sp, {fp, sp, pc} 
+
+usbg_video_get_ep 0x5a4 size 0xc0
+000005a4: mov       ip, sp 
+000005a8: push      {r4, r5, fp, ip, lr, pc} 
+000005ac: sub       fp, ip, #4 
+000005b0: sub       sp, sp, #8 
+000005b4: subs      r4, r0, #0 
+000005b8: ble       #0x60c 
+000005bc: sub       r0, fp, #0x1c 
+000005c0: mvn       r5, #0x74 
+000005c4: mov       r3, #2 
+000005c8: strb      r5, [fp, #-0x1c] 
+000005cc: strb      r3, [fp, #-0x1b] 
+000005d0: mov       r3, #1 
+000005d4: strh      r3, [fp, #-0x1a] 
+000005d8: movw      r3, #0x145 
+000005dc: str       r3, [fp, #-0x18] 
+000005e0: bl        #0x180 
+000005e4: strh      r4, [fp, #-0x1a] 
+000005e8: sub       r0, fp, #0x1c 
+000005ec: mov       r4, #0 
+000005f0: mov       r3, #3 
+000005f4: strb      r5, [fp, #-0x1c] 
+000005f8: strb      r3, [fp, #-0x1b] 
+000005fc: str       r4, [fp, #-0x18] 
+00000600: bl        #0x180 
+00000604: mov       r0, r4 
+00000608: b         #0x658 
+0000060c: ldr       r3, [pc, #0x4c] 
+00000610: ldr       r3, [r3] 
+00000614: cmp       r3, #0 
+00000618: beq       #0x62c 
+0000061c: ldr       r3, [r3, #0xb4] 
+00000620: cmp       r3, #0 
+00000624: ldrne     r0, [r3, r4, lsl #2] 
+00000628: bne       #0x658 
+0000062c: mvn       r3, #0x74 
+00000630: sub       r0, fp, #0x1c 
+00000634: strb      r3, [fp, #-0x1c] 
+00000638: add       r3, r3, #0x77 
+0000063c: strb      r3, [fp, #-0x1b] 
+00000640: mov       r3, #1 
+00000644: strh      r3, [fp, #-0x1a] 
+00000648: movw      r3, #0x14e 
+0000064c: str       r3, [fp, #-0x18] 
+00000650: bl        #0x180 
+00000654: mov       r0, #0 
+00000658: sub       sp, fp, #0x14 
+0000065c: ldm       sp, {r4, r5, fp, sp, pc} 
+00000660: andeq     r0, r0, r4  + 0x0

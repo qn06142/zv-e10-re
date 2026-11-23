@@ -1,0 +1,26 @@
+{
+  "revision": "3.4-experimental-native-vga",
+  "deployment": "INSTALLED_REBOOT_VERIFIED",
+  "date": "2026-10-29",
+  "frame_test": "NOT_YET_TESTED",
+  "module_md5": "ac565b4060a7062745d3bd22037d5410",
+  "stream_md5": "ca3cbbc5947caf3373ebe451343fb926",
+  "rollback_md5": "e7463d98ace84c1b5db7ee95eae3defe",
+  "preinstall_reboot_observed": true,
+  "new_file_readbacks_exact": true,
+  "postboot_hashes_match": true,
+  "usr_read_only": true,
+  "modules_inactive_before_setup": true,
+  "recovery": "/usr/share/yuy2-recovery-v34vga/rollback.sh restores original deployed 3.3; original producer and earlier recovery chain retained",
+  "cleanup": {
+    "archived_hash_verified_individually_cleared_files": 3,
+    "bytes": 7234
+  },
+  "source": "Team code changes rebuilt with distinct 3.4 identifiers",
+  "discovery": "DMM_POOL_SCAN",
+  "event_driven_subscription": false,
+  "completion_token_validation": false,
+  "stream_sessions_per_boot": 1,
+  "logging": "Normal error filters; no sequential application capture; bounded module logs",
+  "service_session": "Closed; job012 confirmed WORKBENCH_CLOSED/Done"
+}

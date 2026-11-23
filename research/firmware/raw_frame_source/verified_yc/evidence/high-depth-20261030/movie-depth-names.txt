@@ -1,0 +1,52 @@
+0095d5b0: ldr       r0, [pc, #0x10]
+0095d5b2: add       r0, pc
+0095d5b4: pop       {r7, pc}
+0095d5b6: ldr       r0, [pc, #0x10]
+0095d5b8: add       r0, pc
+0095d5ba: pop       {r7, pc}
+0095d5bc: strh      r7, [r5, #0x32]
+0095d5be: lsls      r1, r6, #1
+0095d5c0: strh      r1, [r4, #0x34]
+0095d5c2: lsls      r1, r6, #1
+0095d5c4: add       r3, sp, #0x158
+0095d5c6: lsls      r0, r5, #1
+0095d5c8: strh      r1, [r7, #0x32]
+0095d5ca: lsls      r1, r6, #1
+0095d5cc: cmp       r1, #1
+0095d5ce: push      {r7, lr}
+0095d5d0: add       r7, sp, #0
+0095d5d2: beq       #0x95d5ee
+0095d5d4: blo       #0x95d5dc
+0095d5d6: cmp       r1, #0xff
+0095d5d8: bne       #0x95d5e8
+0095d5da: b         #0x95d5e2
+0095d5dc: ldr       r0, [pc, #0x14]
+0095d5de: add       r0, pc
+0095d5e0: pop       {r7, pc}
+0095d5e2: ldr       r0, [pc, #0x14]
+0095d5e4: add       r0, pc
+0095d5e6: pop       {r7, pc}
+0095d5e8: ldr       r0, [pc, #0x10]
+0095d5ea: add       r0, pc
+0095d5ec: pop       {r7, pc}
+0095d5ee: ldr       r0, [pc, #0x10]
+0095d5f0: add       r0, pc
+0095d5f2: pop       {r7, pc}
+0095d5f4: strh      r2, [r1, #0x34]
+0095d5f6: lsls      r1, r6, #1
+0095d5f8: strh      r7, [r5, #0x34]
+0095d5fa: lsls      r1, r6, #1
+0095d5fc: add       r3, sp, #0x78
+0095d5fe: lsls      r0, r5, #1
+0095d600: strh      r5, [r1, #0x34]
+0095d602: lsls      r1, r6, #1
+0095d604: push      {r3, r4, r7, lr}
+0095d606: mov       r4, r0
+0095d608: ldr       r3, [pc, #0x1c]
+0095d60a: add       r7, sp, #0
+0095d60c: ldr       r2, [pc, #0x1c]
+0095d60e: add       r3, pc
+0095d610: ldr       r3, [r3, r2]
+0095d612: adds      r3, #8
+0095d614: str       r3, [r0]
+0095d616: ldr       r0, [r0, #4]

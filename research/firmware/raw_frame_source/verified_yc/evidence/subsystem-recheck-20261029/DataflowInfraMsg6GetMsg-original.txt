@@ -1,0 +1,71 @@
+
+_ZN16DataflowInfraMsg6GetMsgEPvt @0x21660
+00021660: push.w    {r4, r5, r6, r7, r8, lr} 
+00021664: mov       r5, r0 
+00021666: add       r7, sp, #0 
+00021668: mov       r0, r1 
+0002166a: ldr       r3, [r5, #4] 
+0002166c: mov       r1, r2 
+0002166e: add.w     r4, r5, #0x10 
+00021672: cmp       r3, #1 
+00021674: beq       #0x21688 
+00021676: cmp       r3, #2 
+00021678: beq       #0x216e8 
+0002167a: cmp       r3, #0 
+0002167c: movw      r4, #0xffff 
+00021680: it        eq 
+00021682: mvneq     r4, #0x1a 
+00021686: b         #0x216fe 
+00021688: ldrh      r3, [r4, #8] 
+0002168a: cbnz      r3, #0x2169e 
+0002168c: ldr       r0, [pc, #0x80] 
+0002168e: movs      r1, #0x92 
+00021690: mvn       r2, #0x1a 
+00021694: mvn       r4, #0x1a 
+00021698: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+0002169c: b         #0x21708 
+0002169e: ldr       r6, [r4, #0xc] 
+000216a0: adds      r6, r4, r6 
+000216a2: ldrh      r2, [r6, #4] 
+000216a4: cmp       r2, r1 
+000216a6: bls       #0x216ba 
+000216a8: ldr       r0, [pc, #0x64] 
+000216aa: movs      r1, #0x9b 
+000216ac: mvn       r2, #0x1b 
+000216b0: mvn       r4, #0x1b 
+000216b4: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+000216b8: b         #0x21708 
+000216ba: mov       r1, r6 
+000216bc: blx       #0x203a8 memcpy
+000216c0: ldrh.w    r8, [r4, #8] 
+000216c4: ldrh      r3, [r6, #4] 
+000216c6: add.w     r8, r8, #-1 
+000216ca: ldr       r2, [r4, #0xc] 
+000216cc: uxth.w    r8, r8 
+000216d0: adds      r3, r2, r3 
+000216d2: strh.w    r8, [r4, #8] 
+000216d6: str       r3, [r4, #0xc] 
+000216d8: cmp.w     r8, #0 
+000216dc: bne       #0x216fc 
+000216de: mov       r0, r5 
+000216e0: mov       r4, r8 
+000216e2: blx       #0x202ec _ZN16DataflowInfraMsg5ClearEv
+000216e6: b         #0x216fe 
+000216e8: ldrh      r3, [r5, #8] 
+000216ea: mov       r1, r4 
+000216ec: cmp       r3, r2 
+000216ee: it        ls 
+000216f0: movls     r2, r3 
+000216f2: blx       #0x203a8 memcpy
+000216f6: mov       r0, r5 
+000216f8: blx       #0x202ec _ZN16DataflowInfraMsg5ClearEv
+000216fc: movs      r4, #0 
+000216fe: ldr       r0, [pc, #0x10] 
+00021700: movs      r1, #0xbc 
+00021702: mov       r2, r4 
+00021704: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00021708: mov       r0, r4 
+0002170a: pop.w     {r4, r5, r6, r7, r8, pc} 
+0002170e: nop        
+00021710: strh      r5, [r1, r5] 
+00021712: movs      r0, #0x47 

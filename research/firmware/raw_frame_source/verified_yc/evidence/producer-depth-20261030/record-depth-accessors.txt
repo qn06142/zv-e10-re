@@ -1,0 +1,34 @@
+0095da70: mla       r3, r3, r1, r0
+0095da74: ldr.w     r0, [r3, #0x268]
+0095da78: pop       {r7, pc}
+0095da7a: mov.w     r3, #0x19c
+0095da7e: push      {r7, lr}
+0095da80: add       r7, sp, #0
+0095da82: mla       r3, r3, r1, r0
+0095da86: ldr.w     r0, [r3, #0x26c]
+0095da8a: pop       {r7, pc}
+0095da8c: mov.w     r3, #0x19c
+0095da90: push      {r7, lr}
+0095da92: add       r7, sp, #0
+0095da94: mla       r3, r3, r1, r0
+0095da98: ldr.w     r0, [r3, #0x270]
+0095da9c: pop       {r7, pc}
+009625b2: mov.w     r3, #0x19c
+009625b6: push      {r7, lr}
+009625b8: add       r7, sp, #0
+009625ba: mla       r3, r3, r1, r0
+009625be: str.w     r2, [r3, #0x26c]
+009625c2: pop       {r7, pc}
+009625c4: mov.w     r3, #0x19c
+009625c8: push      {r7, lr}
+009625ca: add       r7, sp, #0
+009625cc: mla       r3, r3, r1, r0
+009625d0: str.w     r2, [r3, #0x270]
+009625d4: pop       {r7, pc}
+009625d6: mov.w     r3, #0x19c
+009625da: push      {r7, lr}
+009625dc: add       r7, sp, #0
+009625de: mla       r3, r3, r1, r0
+009625e2: strb.w    r2, [r3, #0x324]
+009625e6: pop       {r7, pc}
+009625e8: mov.w     r3, #0x19c

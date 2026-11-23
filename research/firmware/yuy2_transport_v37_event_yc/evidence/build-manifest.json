@@ -1,0 +1,45 @@
+{
+  "status": "BUILT_NOT_HARDWARE_VERIFIED",
+  "deployment": "NOT_INSTALLED",
+  "revision": "3.7-event-driven-native-vga",
+  "position_independent": true,
+  "width": 640,
+  "height": 480,
+  "advertised_fps": 10,
+  "observed_fps": null,
+  "pixel_format": "YUY2 advertised; candidate UYVY-to-YUY2 permutation, packing UNVERIFIED",
+  "source_backend": "NATIVE_VDF_PIN_SEND_PRIVATE_QUEUE_TO_SONY_SDF_OWNED_VGA220",
+  "continuous_video": true,
+  "source_pool_scanning": false,
+  "source_transfer_free_mode": 2,
+  "requested_native_output": [
+    0,
+    2,
+    0,
+    5832718
+  ],
+  "private_receiver_index": 2147483447,
+  "output_busy_behavior": "REFUSE_WITHOUT_DISCONNECTING_EXISTING_PEER",
+  "native_output_availability": "NOT_HARDWARE_VERIFIED",
+  "required_kernel_version": "yc37_fence",
+  "required_kernel_md5": "388799d95bbb524ca581c66b077b6dc2",
+  "crash_fix_verified": false,
+  "independent_usb_source_credit_retained_until_boot": true,
+  "synthetic_fallback": false,
+  "frame_bytes": 614400,
+  "packet_header_bytes": 0,
+  "cold_boot_required": true,
+  "stream_sessions_per_boot": 1,
+  "files": {
+    "yuy2_640_v37vga.so": {
+      "bytes": 40444,
+      "md5": "7c339b924987e6baa8e7046e041798c5",
+      "sha256": "3ec86e735d7fe838ea4bcd87101f429d68bec6730702e93a6eec2aea583763c0"
+    },
+    "libInfraStreamingUsb.so": {
+      "bytes": 72796,
+      "md5": "277c023942dd4d3d347d9829eaf8be85",
+      "sha256": "8a74c1f7dfe8dfe938c8dff13762fead494c2462af5708b173914e49f183caed"
+    }
+  }
+}

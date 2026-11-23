@@ -1,0 +1,50 @@
+63cfa9f4: mov.w     r3, #0x1000
+63cfa9f8: movs      r0, #0
+63cfa9fa: strh      r3, [r1]
+63cfa9fc: movw      r3, #0x8102
+63cfaa00: strh      r3, [r2]
+63cfaa02: bx        lr
+63cfaa04: push      {r3, lr}
+63cfaa06: mov       r0, r1
+63cfaa08: ldr       r3, [r1]
+63cfaa0a: movs      r1, #1
+63cfaa0c: ldr.w     r3, [r3, #0x90]
+63cfaa10: blx       r3
+63cfaa12: movs      r0, #0
+63cfaa14: pop       {r3, pc}
+63cfaa16: movs      r0, #0
+63cfaa18: bx        lr
+63cfaa1a: push      {r4, lr}
+63cfaa1c: mov       r4, r0
+63cfaa1e: bl        #0x637478ec
+63cfaa22: mov       r0, r4
+63cfaa24: bl        #0x63ae1b90
+63cfaa28: mov       r0, r4
+63cfaa2a: pop       {r4, pc}
+63cfaa2c: push      {r3, lr}
+63cfaa2e: mov       r0, r1
+63cfaa30: ldr       r3, [r1]
+63cfaa32: movs      r1, #1
+63cfaa34: ldr.w     r3, [r3, #0x90]
+63cfaa38: blx       r3
+63cfaa3a: movs      r0, #0
+63cfaa3c: pop       {r3, pc}
+63cfaa3e: movw      r3, #0x2001
+63cfaa42: movs      r0, #0
+63cfaa44: strh      r3, [r1]
+63cfaa46: movw      r3, #0xf001
+63cfaa4a: strh      r3, [r2]
+63cfaa4c: bx        lr
+63cfaa4e: push      {r4, lr}
+63cfaa50: mov       r4, r0
+63cfaa52: bl        #0x6374790c
+63cfaa56: mov       r0, r4
+63cfaa58: bl        #0x63ae1b90
+63cfaa5c: mov       r0, r4
+63cfaa5e: pop       {r4, pc}
+63cfaa60: push      {r3, r4, r5, lr}
+63cfaa62: mov       r0, r1
+63cfaa64: ldr       r3, [r1]
+63cfaa66: mov       r5, r1
+63cfaa68: ldr.w     r4, [r3, #0xc0]
+63cfaa6c: bl        #0x63cf57fe

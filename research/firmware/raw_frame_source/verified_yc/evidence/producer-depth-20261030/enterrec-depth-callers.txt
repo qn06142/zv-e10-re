@@ -1,0 +1,26 @@
+005493ea: movs      r2, #0x58
+005493ec: add.w     r0, r6, #0x90
+005493f0: str.w     r3, [ip]
+005493f4: ldrb.w    r3, [r5, #0x90]
+005493f8: strb.w    r3, [r6, #0x8c]
+005493fc: blx       #0x19d984
+00549400: ldr.w     r1, [r5, #0xac]
+00549404: ldr.w     r2, [r5, #0xb0]
+00549408: mov       r0, r4
+0054940a: bl        #0x549bbc
+0054940e: ldr.w     r3, [r5, #0xf0]
+00549412: movs      r1, #0xf0
+00549414: str.w     r0, [r6, #0xa8]
+00549418: mov       r0, r4
+0054941a: str       r3, [sp]
+0054941c: add.w     r3, r7, #0x20
+00549420: ldr       r2, [r5, #8]
+00549422: mla       r1, r1, sb, r3
+00549426: ldr.w     r3, [r5, #0xec]
+0054942a: bl        #0x54917e
+0054942e: ldr       r2, [r7, #0x1c]
+00549430: adds      r2, #1
+00549432: str       r2, [r7, #0x1c]
+00549434: add.w     sb, sb, #1
+00549438: adds      r5, #0xf0
+0054943a: adds      r6, #0xf0

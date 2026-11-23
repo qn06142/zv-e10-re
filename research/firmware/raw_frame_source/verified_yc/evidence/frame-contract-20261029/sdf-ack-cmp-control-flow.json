@@ -1,0 +1,87 @@
+{
+  "camera_access": false,
+  "original_sdk_function": "libBizFw.so+0x366f0",
+  "cases": [
+    {
+      "ack_payload_status": 0,
+      "cmp_payload_status": 0,
+      "sdk_return": 0,
+      "events": [
+        {
+          "call": "send",
+          "pointer": "0x40003000",
+          "bytes": 68,
+          "queue": "0x12345678",
+          "fifth": "0x56000f"
+        },
+        {
+          "call": "receive",
+          "pointer": "0x40002000",
+          "bytes": 16,
+          "queue": "0x12345678",
+          "fifth": "0xffffffff"
+        },
+        {
+          "call": "receive",
+          "pointer": "0x40001000",
+          "bytes": 24,
+          "queue": "0x12345678",
+          "fifth": "0xffffffff"
+        }
+      ]
+    },
+    {
+      "ack_payload_status": 5,
+      "cmp_payload_status": 0,
+      "sdk_return": 0,
+      "events": [
+        {
+          "call": "send",
+          "pointer": "0x40003000",
+          "bytes": 68,
+          "queue": "0x12345678",
+          "fifth": "0x56000f"
+        },
+        {
+          "call": "receive",
+          "pointer": "0x40002000",
+          "bytes": 16,
+          "queue": "0x12345678",
+          "fifth": "0xffffffff"
+        }
+      ]
+    },
+    {
+      "ack_payload_status": 0,
+      "cmp_payload_status": 7,
+      "sdk_return": 0,
+      "events": [
+        {
+          "call": "send",
+          "pointer": "0x40003000",
+          "bytes": 68,
+          "queue": "0x12345678",
+          "fifth": "0x56000f"
+        },
+        {
+          "call": "receive",
+          "pointer": "0x40002000",
+          "bytes": 16,
+          "queue": "0x12345678",
+          "fifth": "0xffffffff"
+        },
+        {
+          "call": "receive",
+          "pointer": "0x40001000",
+          "bytes": 24,
+          "queue": "0x12345678",
+          "fifth": "0xffffffff"
+        }
+      ]
+    }
+  ],
+  "mocked": [
+    "Send, receive, logging PLT targets; payloads supplied by fixture"
+  ],
+  "conclusion": "SDK return 0 alone is insufficient: ACK rejection and nonzero CMP payload status can both return 0. Check ACK and CMP payloads. Receives use infinite timeout."
+}

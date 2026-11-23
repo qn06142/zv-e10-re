@@ -1,0 +1,194 @@
+{
+  "camera_access": false,
+  "inputs": [
+    {
+      "path": "D:\\02_Development_And_Projects\\pmca-re\\dumps\\firmware\\av-cam.bin",
+      "bytes": 17289388,
+      "md5": "cdcae9d4fdbf66a33704a4c7564e346d",
+      "sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa"
+    },
+    {
+      "path": "D:\\02_Development_And_Projects\\pmca-re\\dumps\\camera_2025\\usr\\usr\\lib\\libObj.so",
+      "bytes": 21305456,
+      "md5": "0b4be3fb599b539c69c782bd400dd8e9",
+      "sha256": "bc0deb2f0e94218752e42ce6f5a3576d7456971eb63fbde705ffbd9b3a7fdeea"
+    },
+    {
+      "path": "D:\\02_Development_And_Projects\\pmca-re\\dumps\\camera_2025\\usr\\usr\\lib\\libBizFw.so",
+      "bytes": 318780,
+      "md5": "6416a5a6780bbe829eb30d85fc8e8dad",
+      "sha256": "ae3fddb9378ff3852618f3d2055f8be1f1236a299ddac9f66df390640acb3711"
+    },
+    {
+      "path": "D:\\02_Development_And_Projects\\pmca-re\\dumps\\camera_2025\\usr\\usr\\lib\\libInfraUsbCmn.so",
+      "bytes": 94612,
+      "md5": "31308976206a837f6f5c571992d2b499",
+      "sha256": "af830315ce51c38b010995f2147d556286364323734f64b877fcc3bb1a916c02"
+    },
+    {
+      "path": "D:\\02_Development_And_Projects\\pmca-re\\dumps\\camera_2025\\usr\\usr\\kmod\\usbg_video.ko",
+      "bytes": 20668,
+      "md5": "5b59c2e62c80683d754955ab5de0467d",
+      "sha256": "d385a051bf01b0e5ea37412623ae85cfe3cda76ab0d11e61d111994ca9fbf4fb"
+    },
+    {
+      "path": "outputs\\uvc-startup-fix\\candidate-1080p\\av-cam.bin",
+      "bytes": 17289388,
+      "md5": "90096db2c76148f4f9db5d104e5c608c",
+      "sha256": "98f05bebd113cb5b4911d71384e5ae7cec21dd4494b0f0569bb2f1b2b3231c6b"
+    },
+    {
+      "path": "outputs\\yuy2-640-v24p\\candidate\\usbg_video.ko",
+      "bytes": 20668,
+      "md5": "c1cad400372e26eca729e4b9bc47a237",
+      "sha256": "1d5d60758bf9729a235b92ff18531cad04e27482f823aa382db139e4c585c382"
+    }
+  ],
+  "rtos_differing_intervals": [
+    {
+      "start": "0x63dd697c",
+      "end_exclusive": "0x63dd6999"
+    },
+    {
+      "start": "0x63dd699a",
+      "end_exclusive": "0x63dd69a8"
+    },
+    {
+      "start": "0x63dd69a9",
+      "end_exclusive": "0x63dd69be"
+    }
+  ],
+  "rtos_compared_ranges": [
+    {
+      "name": "vdf-initialize",
+      "start": "0x63744f2c",
+      "end_exclusive": "0x63744fa8",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "encoder-pin-constructor",
+      "start": "0x6364e6c8",
+      "end_exclusive": "0x6364e7e8",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "vdf-producer-allocation-share-send-close",
+      "start": "0x6374c450",
+      "end_exclusive": "0x6374c668",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "encoder-yc-access",
+      "start": "0x63691dec",
+      "end_exclusive": "0x636922e0",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "encoder-input-handler",
+      "start": "0x63692368",
+      "end_exclusive": "0x63692920",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "vdf-sendcomp-selector-and-execute",
+      "start": "0x63cfa9f4",
+      "end_exclusive": "0x63cfaa1a",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "vdf-release-selector",
+      "start": "0x63ce9daa",
+      "end_exclusive": "0x63ce9dc8",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "vdf-release-execute",
+      "start": "0x6372808c",
+      "end_exclusive": "0x637288a0",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "sdf-internal-forwarder",
+      "start": "0x636bdf10",
+      "end_exclusive": "0x636be040",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "sdf-command-parser",
+      "start": "0x63cade3a",
+      "end_exclusive": "0x63cae67c",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "sdf-api-builder",
+      "start": "0x636c5e44",
+      "end_exclusive": "0x636c6420",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "sdf-cmp-builder",
+      "start": "0x63cadbe4",
+      "end_exclusive": "0x63cadc84",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "sdf-cmp-send",
+      "start": "0x636bf6e8",
+      "end_exclusive": "0x636bf92c",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "sdf-nomem-module",
+      "start": "0x636e5b20",
+      "end_exclusive": "0x636e5e00",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "srotate-wrapper-start",
+      "start": "0x636ef294",
+      "end_exclusive": "0x636ef350",
+      "same_in_deployed_rtos_candidate": true
+    },
+    {
+      "name": "srotate-converters",
+      "start": "0x63cc8970",
+      "end_exclusive": "0x63cc8b58",
+      "same_in_deployed_rtos_candidate": true
+    }
+  ],
+  "usb_compared_ranges": [
+    {
+      "name": "dma-callback",
+      "start": "0x6a0",
+      "end_exclusive": "0x6ec",
+      "different_byte_offsets": []
+    },
+    {
+      "name": "stop",
+      "start": "0x744",
+      "end_exclusive": "0x8c8",
+      "different_byte_offsets": []
+    },
+    {
+      "name": "submit-except-header-bit",
+      "start": "0xd00",
+      "end_exclusive": "0x10f0",
+      "different_byte_offsets": [
+        "0xf44"
+      ]
+    },
+    {
+      "name": "ioctl",
+      "start": "0x1e10",
+      "end_exclusive": "0x23c0",
+      "different_byte_offsets": []
+    }
+  ],
+  "usb_submit_ioctl": "0x4008f003",
+  "usb_wait_ioctl": "0xf002",
+  "usb_plt_8bac": "ioctl",
+  "limitations": [
+    "Historical local candidates match recorded deployed hashes; no current camera readback performed.",
+    "Disassembly excerpts include literal pools; linear decoding alone is not control-flow proof."
+  ]
+}

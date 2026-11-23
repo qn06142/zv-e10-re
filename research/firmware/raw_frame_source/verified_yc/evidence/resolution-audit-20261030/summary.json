@@ -1,0 +1,22 @@
+{
+  "camera_revision": "3.9",
+  "collection_date": "2026-10-30",
+  "data_files": 16,
+  "data_bytes": 6398590,
+  "all_camera_md5_verified": true,
+  "service_closed": true,
+  "vga_segments": 4,
+  "logged_resize_completions_lower_bound": 49,
+  "observed_SEND_events": 1529,
+  "metadata_settled_events": 10,
+  "runtime_USB_submissions_lower_bound": 66,
+  "no_fps_measured": true,
+  "last_captured_rejection_mask": "0x60",
+  "last_captured_image_attach": 0,
+  "last_captured_pixel_type": 2,
+  "last_captured_pixel_handle": 0,
+  "original_native_getters_accept_no_image_metadata": true,
+  "original_native_pixel_helpers_skip_no_image": true,
+  "firmware_patch_changed": false,
+  "logs_cleared": false
+}

@@ -1,0 +1,464 @@
+[
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN15DvdWriterFilter11GetRecParamEPNS_20DvdWriterGetRecParamE",
+    "address": "0x0",
+    "bytes": 0,
+    "defined": false
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN20DvAviRecBufferFilter11SetRecParamEPNS_17RecBufferRecParamE",
+    "address": "0x0",
+    "bytes": 0,
+    "defined": false
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN17DvAviWriterFilter11GetRecParamEPNS_9_GetParamE",
+    "address": "0x0",
+    "bytes": 0,
+    "defined": false
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN16M2psWriterFilter11GetRecParamEPNS_9_GetParamE",
+    "address": "0x0",
+    "bytes": 0,
+    "defined": false
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7PubUtil34SetVideoBitDepthToEvtReadThumbnailEPN5MprIf17Evt_ReadThumbnailEN3MPR13VideoBitDepthE",
+    "address": "0x739b14",
+    "bytes": 12,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5MprIf19SetSubStreamRecInfoEPNS_17SubStreamRecParamEm",
+    "address": "0x8ad00c",
+    "bytes": 180,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5MprIf14NewDubbingListEmmmmmN3MPR11DubbingTypeEbNS0_14FileSystemTypeEPNS0_15DownConRecParamE",
+    "address": "0x8b8230",
+    "bytes": 46,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN11IndexPlayer39SetEvDbJpegThumbnailReadAdditionalParamEPN13IndexPlayerIf21EvDbJpegThumbnailReadEN3MPR6VCodecENS3_11ColorFormatENS3_13VideoBitDepthE",
+    "address": "0x3b83d4",
+    "bytes": 22,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5FeaIf14NewDubbingListEmmmmmmN3MPR11DubbingTypeEbNS0_14FileSystemTypeEPNS0_15DownConRecParamE",
+    "address": "0x555c98",
+    "bytes": 496,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5FeaIf7ExitRecEPN5MprIf12ExitRecParamEm",
+    "address": "0x55e39c",
+    "bytes": 224,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7FeaCore19SetSubStreamRecInfoEPN5MprIf17SubStreamRecParamEm",
+    "address": "0x5428c4",
+    "bytes": 240,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN16DubPlayRecToXavc35ConvertVpictSizeFromDownConRecParamEN3MPR9VPictSizeEPmS2_",
+    "address": "0x39b470",
+    "bytes": 32,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7FeaCore35SetParamColorFormatAndVideoBitDepthEPN5MprIf17Evt_ChgStreamAttrEN3MPR11ColorFormatENS3_13VideoBitDepthE",
+    "address": "0x52d596",
+    "bytes": 14,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN15MbpSessionMgrIf15SetNextClipNameEP18RecLib_RecLineInfoPN3MPR8ClipNameE",
+    "address": "0x71cf1c",
+    "bytes": 152,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN9MprIfMcmd22mb_isRecParamDisableOnE",
+    "address": "0x1536f28",
+    "bytes": 1,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN11DubbingBase20SetDubbingParametersEmhPN3MPR15DownConRecParamE",
+    "address": "0x3a2516",
+    "bytes": 22,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN11IndexPlayer42SetEvDbJpegThumbnailDecodedAdditionalParamEPN13IndexPlayerIf24EvDbJpegThumbnailDecodedEN3MPR6VCodecENS3_11ColorFormatENS3_13VideoBitDepthE",
+    "address": "0x3b7d00",
+    "bytes": 22,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5FeaIf19SetRecVideoBitDepthEPN5MprIf14VBitdepthParamEm",
+    "address": "0x5549a4",
+    "bytes": 172,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5MprIf8EnterRecEPNS_13EnterRecParamEmm",
+    "address": "0x8ac55c",
+    "bytes": 64,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN15MbpSessionMgrIf7ModeSetEPN5MprIf13EnterRecParamEm",
+    "address": "0x71ccb8",
+    "bytes": 480,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5FeaIf25SetEvtStillRecRemainParamEPN5MprIf16EvtStillRecParamEm",
+    "address": "0x555088",
+    "bytes": 160,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN18RecLib_RecLineInfo13LineInfoQueryC1EN11RecorderDef9CodecTypeEbN3MPR12ProxyRecTypeE",
+    "address": "0x41409c",
+    "bytes": 14,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN18RecLib_RecLineInfo13LineInfoQueryC2EN11RecorderDef9CodecTypeEbN3MPR12ProxyRecTypeE",
+    "address": "0x41409c",
+    "bytes": 14,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN21mxfIfo_CommonSequence20CnvVideoDepthMBtoMPRE18MBP_SCCLIPFORMAT_tPN8PubCodec13VideoBitDepthE",
+    "address": "0x8e0164",
+    "bytes": 72,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN9DubbingIf20SetDubbingParametersEmhPN3MPR15DownConRecParamE",
+    "address": "0x3a40e6",
+    "bytes": 44,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5MprIf7ExitRecEPNS_12ExitRecParamEm",
+    "address": "0x8a58b8",
+    "bytes": 40,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN13MovieRecorder17ConvMovieRecParamEPNS_17MovieRecConvParamEPN11RecorderDef13MovieRecParamEbbN3MPR11ContentTypeE",
+    "address": "0x3f6370",
+    "bytes": 1266,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN17XavcHLWorkChpList25SetChpListDownConRecParamEPN3MPR15DownConRecParamEm",
+    "address": "0x4f88d2",
+    "bytes": 118,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZNK10MprMonCtrl16CnvVideoBitDepthEN3MPR13VideoBitDepthE",
+    "address": "0x899774",
+    "bytes": 28,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN6DubMgr14NewDubbingListEmmmmmmN3MPR11DubbingTypeEbNS0_14FileSystemTypeEPNS0_15DownConRecParamE",
+    "address": "0x53151c",
+    "bytes": 52,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7FeaCore26IsMainContentInMP4ProxyRecEN5MprIf13EnterRecParamE",
+    "address": "0x52d4d8",
+    "bytes": 56,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN15CompositChpList25SetChpListDownConRecParamEPN3MPR15DownConRecParamEm",
+    "address": "0x4e7bea",
+    "bytes": 48,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN14MRecFltMgr_bni29SetThmParamByEvtMuxAutoDivideEmmN3MPR12ProxyRecTypeEP18RecLib_RecLineInfo",
+    "address": "0x3fd408",
+    "bytes": 196,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7PubUtil28ConvertPictureQualityMpr2PubEN3MPR8VQualityEbNS0_11ContentTypeENS0_11ColorFormatENS0_13VideoBitDepthE",
+    "address": "0x737fbc",
+    "bytes": 872,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN14MRecFltMgr_bni18SetThmParamByRelayEmmN3MPR12ProxyRecTypeEP18RecLib_RecLineInfo",
+    "address": "0x3fd4cc",
+    "bytes": 188,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5MprIf14SetFastRecInfoEPNS_12FastRecParamEm",
+    "address": "0x8ad1bc",
+    "bytes": 88,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN13HLWorkChpList25SetChpListDownConRecParamEPN3MPR15DownConRecParamEm",
+    "address": "0x4f35b0",
+    "bytes": 112,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7FeaCore16SetCacheRecParamEPN5MprIf13CacheRecParamEm",
+    "address": "0x5429b4",
+    "bytes": 128,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5FeaIf19SetSubStreamRecInfoEPN5MprIf17SubStreamRecParamEm",
+    "address": "0x5556f8",
+    "bytes": 456,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5MprIf19SetRecVideoBitDepthEPNS_14VBitdepthParamEm",
+    "address": "0x8aee08",
+    "bytes": 76,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7FeaCore19SetRecVideoBitDepthEPN5MprIf14VBitdepthParamEm",
+    "address": "0x5420dc",
+    "bytes": 132,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN9MprIfMcmd20DebugRecParamDisableElPPc",
+    "address": "0x8b574c",
+    "bytes": 144,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7FeaCore25SetEvtStillRecRemainParamEPN5MprIf16EvtStillRecParamEm",
+    "address": "0x542684",
+    "bytes": 168,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7FeaCore32SetParamEvMovieThumDecToEvtParamEN3MPR6VCodecENS0_11ColorFormatENS0_13VideoBitDepthEPN5MprIf17Evt_PlayThumbnailE",
+    "address": "0x53d228",
+    "bytes": 14,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5MprIf14NewDubbingListEmmmmmmN3MPR11DubbingTypeEbNS0_14FileSystemTypeEPNS0_15DownConRecParamE",
+    "address": "0x8aeaa0",
+    "bytes": 172,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN14MRecFltMgr_bni21SetThmParamByRecStartEhmN3MPR12ProxyRecTypeEP18RecLib_RecLineInfob",
+    "address": "0x3fd588",
+    "bytes": 168,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN16DubPlayRecToXavc38ConvertRecCodecTypeFromDownConRecParamEN3MPR6VCodecE",
+    "address": "0x39b1ec",
+    "bytes": 14,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN16DubPlayRecToXavc40ConvertVideoCodecTypeFromDownConRecParamEN3MPR6VCodecE",
+    "address": "0x39b134",
+    "bytes": 14,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN11BaseChpList25SetChpListDownConRecParamEPN3MPR15DownConRecParamEm",
+    "address": "0x4e6c6e",
+    "bytes": 8,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5FeaIf8EnterRecEPN5MprIf13EnterRecParamEmm",
+    "address": "0x55e4e4",
+    "bytes": 436,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7FeaCore45SetColorFormatAndVideoBitDepthToEnterRecParamEPN11RecorderDef13EnterRecParamEN3MPR11ContentTypeENS3_11ColorFormatENS3_13VideoBitDepthE",
+    "address": "0x54917e",
+    "bytes": 36,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN11PlayHSIndex37SetVideoInfoToEvMovieThumbnailDecodedEN3MPR6VCodecENS0_11ColorFormatENS0_13VideoBitDepthEPN13IndexPlayerIf23EvMovieThumbnailDecodedE",
+    "address": "0x3bb098",
+    "bytes": 20,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN14MRecFltMgr_bni22SetBaseRecBufInitParamEP18RecLib_RecLineInfoPN13MovieRecorder17MovieRecConvParamEN3MPR11ContentTypeEPN19BaseRecBufferFilter22BaseRecBufferInitParamE",
+    "address": "0x3fd630",
+    "bytes": 264,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5MprIf25SetEvtStillRecRemainParamEPNS_16EvtStillRecParamEm",
+    "address": "0x8af014",
+    "bytes": 76,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7FeaCore14NewDubbingListEmmmmmmN3MPR11DubbingTypeEbNS0_14FileSystemTypeEPNS0_15DownConRecParamE",
+    "address": "0x531590",
+    "bytes": 200,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN6DubMgr14NewDubbingListEmmmmmmN3MPR11DubbingTypeEbNS0_14FileSystemTypeEPNS0_15DownConRecParamEbbb",
+    "address": "0x4f1500",
+    "bytes": 600,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN10MprLibCore28GetPictureQualityForCodecDrvEN3MPR8VQualityENS0_11ColorFormatENS0_13VideoBitDepthEPh",
+    "address": "0x8a4438",
+    "bytes": 574,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN18RecLib_RecLineInfo25ConvContentTypeToUseCodecERKN3MPR11ContentTypeENS0_6VCodecE",
+    "address": "0x3f0252",
+    "bytes": 240,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7Dubbing20SetDubbingParametersEmhPN3MPR15DownConRecParamE",
+    "address": "0x3a13f4",
+    "bytes": 28,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7FeaCore33SetParamEvDbJpegThumDecToEvtParamEN3MPR11ContentTypeENS0_11ColorFormatENS0_13VideoBitDepthEPN5MprIf20Evt_PlayAviThumbnailE",
+    "address": "0x53d3f0",
+    "bytes": 30,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN9MprIfMcmd16SetCacheRecParamElPPc",
+    "address": "0x8c78d8",
+    "bytes": 292,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5MprIf16SetCacheRecParamEPNS_13CacheRecParamEm",
+    "address": "0x8aef24",
+    "bytes": 76,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN5FeaIf16SetCacheRecParamEPN5MprIf13CacheRecParamEm",
+    "address": "0x5558c0",
+    "bytes": 160,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN7FeaCore19CreateEnterRecParamEPN5MprIf13EnterRecParamEP4MMgrS4_PN11RecorderDef13EnterRecParamE",
+    "address": "0x547984",
+    "bytes": 258,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN15MbpSessionMgrIf21SetClipNameOnRecStartEPN5MprIf13EnterRecParamEmPNS0_14RecTargetParamEm",
+    "address": "0x71ce98",
+    "bytes": 132,
+    "defined": true
+  },
+  {
+    "lib": "libmpr.so",
+    "name": "_ZN13MovieRecorder28ConvertPictureQualityMpr2PubEN3MPR8VQualityEbNS0_11ContentTypeENS0_11ColorFormatENS0_13VideoBitDepthE",
+    "address": "0x3f6282",
+    "bytes": 38,
+    "defined": true
+  }
+]

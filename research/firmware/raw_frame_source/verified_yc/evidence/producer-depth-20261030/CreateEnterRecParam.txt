@@ -1,0 +1,93 @@
+
+_ZN7FeaCore19CreateEnterRecParamEPN5MprIf13EnterRecParamEP4MMgrS4_PN11RecorderDef13EnterRecParamE @0x547984
+00547984: push      {r3, r4, r5, r6, r7, lr} 
+00547986: add       r7, sp, #0 
+00547988: mov       r5, r1 
+0054798a: ldr       r1, [r1] 
+0054798c: ldr       r4, [r7, #0x18] 
+0054798e: mov       r6, r0 
+00547990: str       r1, [r4] 
+00547992: ldr       r1, [r5, #4] 
+00547994: str       r3, [r4, #0xc] 
+00547996: ldrb      r3, [r5, #0x10] 
+00547998: str       r1, [r4, #4] 
+0054799a: str       r2, [r4, #8] 
+0054799c: strb      r3, [r4, #0x10] 
+0054799e: ldrb      r3, [r5, #0x11] 
+005479a0: strb      r3, [r4, #0x11] 
+005479a2: ldr       r3, [r5, #0x14] 
+005479a4: str       r3, [r4, #0x14] 
+005479a6: ldrb      r3, [r5, #0x18] 
+005479a8: strb      r3, [r4, #0x18] 
+005479aa: ldrb      r3, [r5, #0x19] 
+005479ac: strb      r3, [r4, #0x19] 
+005479ae: ldr       r3, [r5, #0x1c] 
+005479b0: str       r3, [r4, #0x1c] 
+005479b2: ldr       r3, [r5, #0x20] 
+005479b4: str       r3, [r4, #0x20] 
+005479b6: ldr       r3, [r5, #0x24] 
+005479b8: str       r3, [r4, #0x24] 
+005479ba: ldrb.w    r3, [r5, #0x28] 
+005479be: strb.w    r3, [r4, #0x28] 
+005479c2: ldr       r3, [r5, #0x2c] 
+005479c4: str       r3, [r4, #0x2c] 
+005479c6: ldrb.w    r3, [r5, #0x30] 
+005479ca: strb.w    r3, [r4, #0x30] 
+005479ce: ldrb.w    r3, [r5, #0x31] 
+005479d2: strb.w    r3, [r4, #0x31] 
+005479d6: ldr       r3, [r5, #0x38] 
+005479d8: str       r3, [r4, #0x38] 
+005479da: ldr       r3, [r5, #0x3c] 
+005479dc: str       r3, [r4, #0x3c] 
+005479de: ldr       r3, [r5, #0x40] 
+005479e0: str       r3, [r4, #0x40] 
+005479e2: ldrb.w    r3, [r5, #0x44] 
+005479e6: strb.w    r3, [r4, #0x44] 
+005479ea: ldrb.w    r3, [r5, #0x45] 
+005479ee: strb.w    r3, [r4, #0x45] 
+005479f2: ldrb.w    r3, [r5, #0x46] 
+005479f6: strb.w    r3, [r4, #0x46] 
+005479fa: ldrh.w    r3, [r5, #0x48] 
+005479fe: ldr       r1, [r5, #0x34] 
+00547a00: ldr       r2, [r5, #0x38] 
+00547a02: strh.w    r3, [r4, #0x48] 
+00547a06: ldr       r3, [r5, #0x4c] 
+00547a08: str       r3, [r4, #0x4c] 
+00547a0a: ldr       r3, [r5, #0x50] 
+00547a0c: str       r3, [r4, #0x50] 
+00547a0e: ldr       r3, [r5, #0x54] 
+00547a10: str       r3, [r4, #0x54] 
+00547a12: ldr       r3, [r5, #0x58] 
+00547a14: str       r3, [r4, #0x58] 
+00547a16: ldr       r3, [r5, #0x5c] 
+00547a18: str       r3, [r4, #0x5c] 
+00547a1a: ldr       r3, [r5, #0x60] 
+00547a1c: str       r3, [r4, #0x60] 
+00547a1e: bl        #0x549bbc _ZN7FeaCore12GetFrameRateEN3MPR9FrameRateENS0_8ScanModeE
+00547a22: ldrb.w    r3, [r5, #0x64] 
+00547a26: add.w     ip, r5, #0x68 
+00547a2a: add.w     lr, r4, #0x68 
+00547a2e: strb.w    r3, [r4, #0x64] 
+00547a32: str       r0, [r4, #0x34] 
+00547a34: ldm.w     ip!, {r0, r1, r2, r3} 
+00547a38: stm.w     lr!, {r0, r1, r2, r3} 
+00547a3c: ldm.w     ip!, {r0, r1, r2, r3} 
+00547a40: stm.w     lr!, {r0, r1, r2, r3} 
+00547a44: add.w     r1, r5, #0x90 
+00547a48: ldr.w     r3, [ip] 
+00547a4c: movs      r2, #0x58 
+00547a4e: add.w     r0, r4, #0x90 
+00547a52: str.w     r3, [lr] 
+00547a56: ldrb.w    r3, [r5, #0x8c] 
+00547a5a: strb.w    r3, [r4, #0x8c] 
+00547a5e: blx       #0x19d984 memcpy
+00547a62: mov       r0, r6 
+00547a64: ldr.w     r1, [r5, #0xa8] 
+00547a68: ldr.w     r2, [r5, #0xac] 
+00547a6c: bl        #0x549bbc _ZN7FeaCore12GetFrameRateEN3MPR9FrameRateENS0_8ScanModeE
+00547a70: ldr.w     r3, [r5, #0xe8] 
+00547a74: str.w     r3, [r4, #0xe8] 
+00547a78: ldr.w     r3, [r5, #0xec] 
+00547a7c: str.w     r3, [r4, #0xec] 
+00547a80: str.w     r0, [r4, #0xa8] 
+00547a84: pop       {r3, r4, r5, r6, r7, pc} 

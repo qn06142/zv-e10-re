@@ -1,0 +1,33 @@
+{
+  "command": [
+    "C:/WINDOWS/ffmpeg.exe",
+    "-hide_banner",
+    "-nostdin",
+    "-f",
+    "dshow",
+    "-video_size",
+    "640x480",
+    "-framerate",
+    "10",
+    "-pixel_format",
+    "yuyv422",
+    "-i",
+    "video=ZV-E10",
+    "-an",
+    "-c:v",
+    "copy",
+    "-frames:v",
+    "5",
+    "-f",
+    "rawvideo",
+    "outputs\\vga-v31\\capture-first-01\\captured.yuy2"
+  ],
+  "returncode": 1,
+  "timed_out": true,
+  "seconds": 28.490626699999666,
+  "bytes": 0,
+  "complete_614400_byte_payloads": 0,
+  "trailing_bytes": 0,
+  "packing": "UNVERIFIED native VGA; YUY2 is the advertised envelope",
+  "framing": "no ZVYC0029 header; do not use revision 2.9 reassembler"
+}

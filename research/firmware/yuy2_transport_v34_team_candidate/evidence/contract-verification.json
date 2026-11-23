@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "uses_actual_retained_SSYC": true,
+  "fixture_sha256": "9c60c7088da03631af4cd06fbd8f9d444d084e9104ead87cb0147ef76ac45f9c",
+  "camera_access": false,
+  "scope": "metadata acceptance and bounds; not live pixel validity"
+}

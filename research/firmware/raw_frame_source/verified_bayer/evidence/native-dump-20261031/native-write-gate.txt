@@ -1,0 +1,64 @@
+6390878c: ldr       r3, [pc, #0x7c] ; [6390880c]=00d2f98c
+6390878e: push      {r4, lr}
+63908790: add       r3, pc
+63908792: cmp       r0, #0
+63908794: beq       #0x6390880a
+63908796: ldr       r2, [pc, #0x78] ; [63908810]=0000a2f4
+63908798: ldr       r3, [r3, r2]
+6390879a: ldrb.w    r1, [r3, #0xf0]
+6390879e: subs      r2, r1, #1
+639087a0: uxtb      r2, r2
+639087a2: cmp       r2, #5
+639087a4: bhi       #0x639087d6
+639087a6: ldr       r2, [pc, #0x6c] ; [63908814]=00cc5c04
+639087a8: add       r2, pc
+639087aa: ldr.w     r4, [r2, r1, lsl #2]
+639087ae: cbnz      r4, #0x639087c2
+639087b0: ldr       r0, [pc, #0x64] ; [63908818]=00664a3f
+639087b2: movs      r2, #0x9d
+639087b4: ldr       r1, [pc, #0x64] ; [6390881c]=0067b6b8
+639087b6: add       r0, pc
+639087b8: add       r1, pc
+639087ba: bl        #0x6396f8c4
+639087be: mov       r0, r4
+639087c0: pop       {r4, pc}
+639087c2: movs      r2, #0
+639087c4: ldr       r1, [r4, r2]
+639087c6: cmp       r1, #0xff
+639087c8: beq       #0x639087d6
+639087ca: cmp       r1, r0
+639087cc: beq       #0x63908804
+639087ce: adds      r2, #4
+639087d0: cmp.w     r2, #0x3fc
+639087d4: bne       #0x639087c4
+639087d6: ldrb.w    r2, [r3, #0xf1]
+639087da: cmp       r2, r0
+639087dc: beq       #0x63908804
+639087de: ldrb.w    r2, [r3, #0xf2]
+639087e2: cmp       r2, r0
+639087e4: beq       #0x63908804
+639087e6: ldrb.w    r2, [r3, #0xf3]
+639087ea: cmp       r2, r0
+639087ec: beq       #0x63908804
+639087ee: ldrb.w    r2, [r3, #0xf4]
+639087f2: cmp       r2, r0
+639087f4: beq       #0x63908808
+639087f6: ldrb.w    r4, [r3, #0xf5]
+639087fa: subs      r3, r4, r0
+639087fc: rsbs      r0, r3, #0
+639087fe: adc.w     r0, r0, r3
+63908802: pop       {r4, pc}
+63908804: movs      r0, #1
+63908806: pop       {r4, pc}
+63908808: movs      r0, #1
+6390880a: pop       {r4, pc}
+6390880c: .byte     0x8c, 0xf9
+6390880e: lsls      r2, r2, #3
+63908810: adr       r2, #0x3d0
+63908812: movs      r0, r0
+63908814: ldrb      r4, [r0, r0]
+63908816: lsls      r4, r1, #3
+63908818: ldr       r2, [pc, #0xfc] ; [63908918]=f0808088
+6390881a: lsls      r6, r4, #1
+6390881c: .byte     0xb8, 0xb6
+6390881e: lsls      r7, r4, #1

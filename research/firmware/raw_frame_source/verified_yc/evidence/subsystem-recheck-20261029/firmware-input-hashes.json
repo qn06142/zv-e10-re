@@ -1,0 +1,22 @@
+{
+  "camera_access": false,
+  "inputs": [
+    {
+      "name": "dataflowInfraFramework.so",
+      "bytes": 172680,
+      "md5": "f70f50f931e9c2cf415cc2728e324f60",
+      "sha256": "3a7235ab96ed87606fc598f45db8e318afacc1e58a07e51b541923a43de76941"
+    },
+    {
+      "name": "libObj.so",
+      "bytes": 21305456,
+      "md5": "0b4be3fb599b539c69c782bd400dd8e9",
+      "sha256": "bc0deb2f0e94218752e42ce6f5a3576d7456971eb63fbde705ffbd9b3a7fdeea"
+    }
+  ],
+  "notes": [
+    "Addresses are original library-relative virtual addresses with Thumb bit cleared in text.",
+    "Call scan emits candidates, not a complete reachable call graph.",
+    "Linear disassembly may decode literal pools as instructions; branch targets and execution fixtures establish the claims."
+  ]
+}

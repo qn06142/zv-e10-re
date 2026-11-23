@@ -1,0 +1,57 @@
+{
+  "SENDER_CTOR": {
+    "symbol": "_ZN19DataflowInfraSenderC1Ev",
+    "address": "0x22a78",
+    "guard": "044b054a7b4480b500af9b5808330360"
+  },
+  "PIN_CTOR": {
+    "symbol": "_ZN16DataflowInfraPinC1EPN19DefDataflowInfraPin12PIN_PROPERTYEP19DataflowInfraSender",
+    "address": "0x21abc",
+    "guard": "b0b500af0d4c0e4d7c44645908340460"
+  },
+  "RECEIVER_CTOR": {
+    "symbol": "_ZN21DataflowInfraReceiverC1Ev",
+    "address": "0x22584",
+    "guard": "044b054a7b4480b500af9b5808330360"
+  },
+  "MSG_CTOR": {
+    "symbol": "_ZN16DataflowInfraMsgC1Ev",
+    "address": "0x215bc",
+    "guard": "074a034607497a4480b500af52580832"
+  },
+  "MSG_DTOR": {
+    "symbol": "_ZN16DataflowInfraMsgD1Ev",
+    "address": "0x2158c",
+    "guard": "044b054a7b4480b500af9b5808330360"
+  },
+  "RECEIVE": {
+    "symbol": "_ZN21DataflowInfraReceiver12ReceiveASyncEjP16DataflowInfraMsgm",
+    "address": "0x228d8",
+    "guard": "2de9f04784b0154600af0e461a4633b1"
+  },
+  "MSG_SIZE": {
+    "symbol": "_ZN16DataflowInfraMsg13GetTopMsgSizeEv",
+    "address": "0x21786",
+    "guard": "436880b5022b00af01d1008980bd012b"
+  },
+  "MSG_COPY": {
+    "symbol": "_ZN16DataflowInfraMsg6GetMsgEPvt",
+    "address": "0x21660",
+    "guard": "2de9f041054600af08466b68114605f1"
+  },
+  "CONNECT": {
+    "symbol": "_ZN16DataflowInfraPin7ConnectEPK16_MSG_PIN_CONNECT",
+    "address": "0x22158",
+    "guard": "f0b5adf5177d044602af0d4607f58a70"
+  },
+  "DISCONNECT": {
+    "symbol": "_ZN16DataflowInfraPin10DisconnectEPK19_MSG_PIN_DISCONNECT",
+    "address": "0x21cb0",
+    "guard": "f0b5d3b0044602af0e46836a012b07d0"
+  },
+  "SEND_COMP": {
+    "symbol": "_ZN16DataflowInfraPin8SendCompEl",
+    "address": "0x21fc4",
+    "guard": "f0b5d1b0044600af0d46836a012b09d1"
+  }
+}

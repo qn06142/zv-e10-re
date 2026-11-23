@@ -1,0 +1,8 @@
+## Revision 3.9 flashed and fresh-boot verified — 29 October 2026
+
+Current camera3.9. Producer42916B MD50fede3f034f6cfca755f9f678d73ffe8; wrapper72796B MD5cc95285c2e789f186ab5b97c9ba11fcb; unchanged kernel388799d95bbb524ca581c66b077b6dc2/yc37_fence. Installed and postboot downloaded bytes match package. ssboot=idle; original logger01.00.000 and stock common/framework/DMM/RTOS/config verified. No streaming/producer mappings before setup; /usr read-only. Free /usr10267648B, /log352436224B, /tmp5242880B;4096B /tmp write/readback passed. Normal error filters, no active sequential capture. Service closed002 WORKBENCH_CLOSED/Done.
+
+Twenty owned3.8logs/snapshots6,234,425B matched a fresh camera-MD5 inventory and verified local archives, then exact individual paths were rechecked and cleared. Original system .local/logs/tmp files preserved. Boot cache header already zero; verified again immediately before image_mode0/reboot while preserving*wbi4; no raw boot/header/FAT write. Default paired recovery /usr/share/yuy2-recovery-v39vga/rollback.sh MD5e27bcc5a5a4f2380aae4cbcbaf4f0a5b restores3.8; --bars restores separate stable2.4p pair.
+
+FIRST3.9FRAME TEST PENDING. Ask user to activate streaming with OBS closed; one short FFmpeg capture640x480/10fps/YUY2, then collect .local/logs/compatible rejected-source.yc38. New code retries up to8pairs, max7one-ms sleeps; all final validation and quarantine unchanged. Working frames/root-cause/teardown fix NOT established. Full private deployment .local/outputs/vga-v39/deployment/deployment-summary.json. Earlier NOT INSTALLED checkpoint is historical.
+

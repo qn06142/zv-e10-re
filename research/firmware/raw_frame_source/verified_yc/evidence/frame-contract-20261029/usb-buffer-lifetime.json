@@ -1,0 +1,81 @@
+{
+  "camera_access": false,
+  "original_arm_instructions": true,
+  "cases": [
+    {
+      "slot_flags": [
+        0,
+        0
+      ],
+      "ioctl": "0xf002",
+      "return_signed": 0
+    },
+    {
+      "slot_flags": [
+        1,
+        0
+      ],
+      "ioctl": "0xf002",
+      "return_signed": 0
+    },
+    {
+      "slot_flags": [
+        0,
+        1
+      ],
+      "ioctl": "0xf002",
+      "return_signed": 0
+    },
+    {
+      "slot_flags": [
+        1,
+        1
+      ],
+      "ioctl": "0xf002",
+      "return_signed": -16
+    },
+    {
+      "fragment": "0xf88..0x10d0",
+      "dma_done": false,
+      "scheduler_expiration_mocked": true,
+      "timeout_log_called": true,
+      "return_value": 0,
+      "queued_slot_bytes": 614412,
+      "slot_flags": [
+        1,
+        0
+      ]
+    },
+    {
+      "fragment": "0xf88..0x10d0",
+      "dma_done": true,
+      "scheduler_expiration_mocked": true,
+      "timeout_log_called": false,
+      "return_value": 0,
+      "queued_slot_bytes": 614412,
+      "slot_flags": [
+        1,
+        0
+      ]
+    },
+    {
+      "fragment": "0xe68..0xf70 before DMA call",
+      "dma_record_words": [
+        "0x96000",
+        "0x12340000",
+        "0x7500000c"
+      ],
+      "meaning": [
+        "pixel byte count",
+        "source physical address",
+        "internal USB staging physical address + 12-byte header"
+      ],
+      "dma_channel_argument": "0x42"
+    }
+  ],
+  "limitations": [
+    "Relocated only literals used by selected paths; not a complete kernel loader.",
+    "Get-this, memory helpers, locks, timeout expiration and logging mocked. No DMA/UDC execution or cancellation proof.",
+    "F002 success means a staging slot is available, not proof of successful source DMA. A simulated missing DMA completion still reaches a zero return from submit."
+  ]
+}

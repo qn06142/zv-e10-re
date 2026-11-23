@@ -1,0 +1,23 @@
+[
+  {
+    "load": "0x63671d46",
+    "add": "0x63671d4a",
+    "literal": "0x63671ee8",
+    "target": "0x63f1fc9f",
+    "string": "bit_depth_with_label"
+  },
+  {
+    "load": "0x6368d60a",
+    "add": "0x6368d610",
+    "literal": "0x6368d89c",
+    "target": "0x63f24f6a",
+    "string": "[CODEC V]input_image_bit_depth"
+  },
+  {
+    "load": "0x6368de0e",
+    "add": "0x6368de14",
+    "literal": "0x6368e054",
+    "target": "0x63f24f6a",
+    "string": "[CODEC V]input_image_bit_depth"
+  }
+]

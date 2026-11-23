@@ -1,0 +1,58 @@
+/bin/busybox mkdir -p /log/yuy2_640_v31vga
+/usr/share/app # /bin/busybox cat /proc/uptime
+1095.39 3515.15
+/usr/share/app # /bin/busybox md5sum /usr/lib/libInfraStreamingUsb.so /usr/lib/y
+uy2_640_v30vga.so
+2a4c08511526f2b525c57a1d9bac9bad  /usr/lib/libInfraStreamingUsb.so
+98acd3ba3d6628e006fe51d88dda25dc  /usr/lib/yuy2_640_v30vga.so
+/usr/share/app # P=$(/bin/busybox pidof im.elf); /bin/busybox grep -E "libInfraS
+treamingUsb|yuy2_640|yc_observer|yc_probe" /proc/$P/maps
+/usr/share/app # /bin/busybox ls -l /log/yuy2_640_v30vga /log/yuy2_640_v31vga
+/log/yuy2_640_v30vga:
+-rw-r--r--    1 0        0              422 Jan  1  1980 cleanup-inventory.md5
+-rw-r--r--    1 0        0              464 Jan  1  1980 hashes-after-reboot.md5
+-rw-r--r--    1 0        0             3580 Jan  1  1980 install.log
+---x------    1 0        0             3438 Jan  1  1980 install.sh
+-rw-r--r--    1 0        0              247 Jan  1  1980 installed.md5
+---x------    1 0        0            72796 Jan  1  1980 libInfraStreamingUsb.persistent.so
+-rw-r--r--    1 0        0               51 Jan  1  1980 logger-stop-after-reboot.txt
+-rw-r--r--    1 0        0            47100 Jan  1  1980 maps-after-reboot.txt
+-rw-r--r--    1 0        0              924 Jan  1  1980 memory-after-reboot.txt
+-rw-r--r--    1 0        0             1584 Jan  1  1980 mounts-after-install.txt
+-rw-r--r--    1 0        0             1584 Jan  1  1980 mounts-after-reboot.txt
+-rw-r--r--    1 0        0              547 Jan  1 00:08 obs-archive.md5
+-rw-r--r--    1 0        0             7913 Jan  1 00:08 obs-dmesg.txt
+-rw-r--r--    1 0        0             2936 Jan  1 00:08 obs-dmm.txt
+-rw-r--r--    1 0        0              297 Jan  1 00:08 obs-installed.md5
+-rw-r--r--    1 0        0            47338 Jan  1 00:08 obs-maps.txt
+-rw-r--r--    1 0        0              924 Jan  1 00:08 obs-memory.txt
+-rw-r--r--    1 0        0               15 Jan  1 00:08 obs-uptime.txt
+-rw-r--r--    1 0        0             3605 Jan  1  1980 preflight.log
+---x------    1 0        0             1932 Jan  1  1980 preflight.sh
+---x------    1 0        0             1196 Jan  1  1980 rollback.sh
+-rwxr-xr-x    1 0        0             7864 Jan  1  1980 space-check.elf
+-rw-r--r--    1 0        0              146 Jan  1  1980 storage-after-reboot.txt
+-rw-r--r--    1 0        0               14 Jan  1  1980 uptime-after-reboot.txt
+---x------    1 0        0              357 Jan  1 00:09 workbench-job.sh
+---x------    1 0        0            30996 Jan  1  1980 yuy2_640_v30vga.so
+
+/log/yuy2_640_v31vga:
+/usr/share/app # /bin/busybox cat /proc/mounts
+rootfs / rootfs rw 0 0
+proc /proc proc rw,relatime 0 0
+/dev/nflasha7 / ext2 ro,relatime,errors=continue 0 0
+/dev/nflasha15 /usr ext2 ro,relatime,errors=continue 0 0
+/dev/nflasha10 /tmp vfat rw,sync,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,posix_attr,avoid_dlink,errors=remount-ro 0 0
+/dev/nflasha10 /etc vfat rw,sync,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,posix_attr,avoid_dlink,errors=remount-ro 0 0
+/dev/nflasha3 /system vfat rw,sync,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,posix_attr,avoid_dlink,errors=remount-ro 0 0
+/dev/nflasha2 /setting vfat rw,sync,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,posix_attr,avoid_dlink,errors=remount-ro 0 0
+/dev/nflasha18 /lens vfat rw,sync,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,posix_attr,avoid_dlink,errors=remount-ro 0 0
+/dev/nflasha12 /cert vfat rw,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,batch_sync,posix_attr,avoid_dlink,errors=remount-ro 0 0
+/dev/nflasha11 /log vfat rw,dirsync,noatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=ascii,shortname=mixed,batch_sync,posix_attr,avoid_dlink,errors=remount-ro 0 0
+none /sys sysfs rw,relatime 0 0
+none /dev/pts devpts rw,relatime,mode=600 0 0
+none /tmp_ipsec tmpfs rw,sync,dirsync,noatime,size=128k 0 0
+none /tmp_bt tmpfs rw,sync,dirsync,noatime,size=1024k 0 0
+none /tmp_network tmpfs rw,sync,dirsync,noatime,size=1024k 0 0
+/usr/share/app # echo V30_DIRECT_001-inventory
+V30_DIRECT_001-inventory

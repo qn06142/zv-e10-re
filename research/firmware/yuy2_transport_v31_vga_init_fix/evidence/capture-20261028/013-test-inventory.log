@@ -1,0 +1,32 @@
+AUTH request
+[  208.633887] CFG80211-ERROR) wl_cfg80211_del_station : Disconnect STA : ff:ff:ff:ff:ff:ff scb_val.val 3
+/bin/busybox sh /log/yuy2_640_v31vga/workbench-job.sh; echo YUY
+2_JOB_DONE_013-test-inventory
+235.54 664.46
+24bc5972c11f953ad1408f477376a877  /usr/lib/libInfraStreamingUsb.so
+72f800fd8f5e6d943b1d33d173bedeb1  /usr/lib/yuy2_640_v31vga.so
+-rw-r--r--    1 0        0              220 Jan  1  1980 cleanup-inventory.md5
+-rw-r--r--    1 0        0              464 Jan  1 00:01 hashes-after-reboot.md5
+-rw-r--r--    1 0        0             3579 Jan  1  1980 install.log
+---x------    1 0        0             3438 Jan  1  1980 install.sh
+-rw-r--r--    1 0        0              247 Jan  1  1980 installed.md5
+---x------    1 0        0            72796 Jan  1  1980 libInfraStreamingUsb.persistent.so
+-rw-r--r--    1 0        0               51 Jan  1 00:01 logger-stop-after-reboot.txt
+-rw-r--r--    1 0        0            46935 Jan  1 00:01 maps-after-reboot.txt
+-rw-r--r--    1 0        0              924 Jan  1 00:01 memory-after-reboot.txt
+-rw-r--r--    1 0        0             1584 Jan  1  1980 mounts-after-install.txt
+-rw-r--r--    1 0        0             1584 Jan  1 00:01 mounts-after-reboot.txt
+-rw-r--r--    1 0        0             3604 Jan  1  1980 preflight.log
+---x------    1 0        0             1999 Jan  1  1980 preflight.sh
+---x------    1 0        0             1195 Jan  1  1980 rollback.sh
+-rw-r--r--    1 0        0              506 Jan  1 00:03 runtime.log
+-rwxr-xr-x    1 0        0             7864 Jan  1  1980 space-check.elf
+-rw-r--r--    1 0        0              146 Jan  1 00:01 storage-after-reboot.txt
+-rw-r--r--    1 0        0               13 Jan  1 00:01 uptime-after-reboot.txt
+-rw-r--r--    1 0        0              328 Jan  1 00:03 vga.log
+---x------    1 0        0              321 Jan  1 00:03 workbench-job.sh
+---x------    1 0        0            31900 Jan  1  1980 yuy2_640_v31vga.so
+4d1423337fc85105d00c72b297aaad97  /log/yuy2_640_v31vga/runtime.log
+b67151b3b1e3d3b33d15aa01532be071  /log/yuy2_640_v31vga/vga.log
+V31_TEST_LOG_INVENTORY_OK
+YUY2_JOB_DONE_013-test-inventory

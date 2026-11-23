@@ -1,0 +1,78 @@
+
+_ZN13_MSG_PIN_SENDC1Ev @0x219ae
+000219ae: movs      r1, #0xff 
+000219b0: mov.w     r2, #0x1000 
+000219b4: push      {r7, lr} 
+000219b6: add       r7, sp, #0 
+000219b8: strh      r2, [r0] 
+000219ba: mov.w     r2, #0x102 
+000219be: str       r1, [r0, #8] 
+000219c0: strh      r2, [r0, #2] 
+000219c2: movs      r2, #0x34 
+000219c4: str       r1, [r0, #0xc] 
+000219c6: strh      r2, [r0, #4] 
+000219c8: movs      r2, #1 
+000219ca: str       r1, [r0, #0x18] 
+000219cc: strh      r2, [r0, #6] 
+000219ce: movs      r2, #0 
+000219d0: str       r1, [r0, #0x1c] 
+000219d2: str       r2, [r0, #0x10] 
+000219d4: str       r2, [r0, #0x14] 
+000219d6: str       r2, [r0, #0x20] 
+000219d8: str       r2, [r0, #0x24] 
+000219da: str       r2, [r0, #0x28] 
+000219dc: strh      r2, [r0, #0x2c] 
+000219de: strh      r2, [r0, #0x2e] 
+000219e0: str       r2, [r0, #0x30] 
+000219e2: pop       {r7, pc} 
+
+_ZN23_MSG_PIN_SEND_WITH_DATAC1Ev @0x21a14
+00021a14: movs      r1, #0xff 
+00021a16: mov.w     r2, #0x1000 
+00021a1a: push      {r7, lr} 
+00021a1c: add       r7, sp, #0 
+00021a1e: strh      r2, [r0] 
+00021a20: movw      r2, #0x103 
+00021a24: str       r1, [r0, #8] 
+00021a26: strh      r2, [r0, #2] 
+00021a28: movs      r2, #0x40 
+00021a2a: str       r1, [r0, #0xc] 
+00021a2c: strh      r2, [r0, #4] 
+00021a2e: movs      r2, #1 
+00021a30: str       r1, [r0, #0x18] 
+00021a32: strh      r2, [r0, #6] 
+00021a34: movs      r2, #0 
+00021a36: str       r1, [r0, #0x1c] 
+00021a38: str       r2, [r0, #0x10] 
+00021a3a: str       r2, [r0, #0x14] 
+00021a3c: str       r2, [r0, #0x20] 
+00021a3e: str       r2, [r0, #0x24] 
+00021a40: str       r2, [r0, #0x28] 
+00021a42: strh      r2, [r0, #0x2c] 
+00021a44: strh      r2, [r0, #0x2e] 
+00021a46: str       r2, [r0, #0x30] 
+00021a48: pop       {r7, pc} 
+
+_ZN18_MSG_PIN_SEND_COMPC1Ev @0x219e4
+000219e4: movs      r1, #0xff 
+000219e6: mov.w     r2, #0x1000 
+000219ea: push      {r7, lr} 
+000219ec: add       r7, sp, #0 
+000219ee: strh      r2, [r0] 
+000219f0: movw      r2, #0x8102 
+000219f4: str       r1, [r0, #8] 
+000219f6: strh      r2, [r0, #2] 
+000219f8: movs      r2, #0x2c 
+000219fa: str       r1, [r0, #0xc] 
+000219fc: strh      r2, [r0, #4] 
+000219fe: movs      r2, #1 
+00021a00: str       r1, [r0, #0x18] 
+00021a02: strh      r2, [r0, #6] 
+00021a04: movs      r2, #0 
+00021a06: str       r1, [r0, #0x1c] 
+00021a08: str       r2, [r0, #0x10] 
+00021a0a: str       r2, [r0, #0x14] 
+00021a0c: str       r2, [r0, #0x20] 
+00021a0e: str       r2, [r0, #0x24] 
+00021a10: str       r2, [r0, #0x28] 
+00021a12: pop       {r7, pc} 

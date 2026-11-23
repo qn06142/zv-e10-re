@@ -1,0 +1,23 @@
+{
+  "revision": "3.2-experimental-native-vga",
+  "deployment": "INSTALLED_REBOOT_VERIFIED",
+  "date": "2026-10-28",
+  "frame_test": "NOT_YET_TESTED",
+  "stream_sessions_per_boot": 1,
+  "preinstall_reboot_observed": true,
+  "new_file_readbacks_exact": true,
+  "postboot_hashes_match": true,
+  "usr_read_only": true,
+  "streaming_modules_inactive_before_setup": true,
+  "cleanup": {
+    "archived_hash_verified_individually_cleared_files": 3,
+    "bytes": 7234
+  },
+  "recovery": "/usr/share/yuy2-recovery-v32vga/rollback.sh restores exact 3.1 wrapper; previous 3.1 producer and earlier recovery chain retained",
+  "module_md5": "de59485d1ad155711d81cd592ed5b821",
+  "stream_md5": "cc3de8f0f0b710e6e2027ac78ea94c50",
+  "rollback_md5": "7f4b4678ca05f92beba74dcd05588556",
+  "installer_fixture_cases": 10,
+  "logging": "Normal error filters; no application sequential capture; module logs bounded.",
+  "service_session": "Closed; job012 confirmed WORKBENCH_CLOSED/Done"
+}

@@ -1,0 +1,15 @@
+
+_ZNK10MprMonCtrl16CnvVideoBitDepthEN3MPR13VideoBitDepthE @0x899774
+00899774: cmp       r1, #2 
+00899776: push      {r7, lr} 
+00899778: add       r7, sp, #0 
+0089977a: itet      ls 
+0089977c: ldrls     r3, [pc, #8] 
+0089977e: ldrhi     r0, [pc, #0xc] 
+00899780: ldrls.w   r0, [r3, r1, lsl #2] 
+00899784: pop       {r7, pc} 
+00899786: nop        
+00899788: ldrsh     r4, [r3, r7] 
+0089978a: lsls      r6, r6, #2 
+0089978c: str       r1, [r4, #0x4c] 
+0089978e: lsls      r0, r6, #2 

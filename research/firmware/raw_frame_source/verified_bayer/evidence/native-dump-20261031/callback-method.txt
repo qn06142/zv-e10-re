@@ -1,0 +1,42 @@
+63d233b4: push      {r4, lr}
+63d233b6: mov       r4, r0
+63d233b8: ldr       r0, [r0, #0x10]
+63d233ba: cbz       r0, #0x63d233c4
+63d233bc: ldr       r3, [r0]
+63d233be: ldr       r3, [r3, #0x14]
+63d233c0: blx       r3
+63d233c2: cbnz      r0, #0x63d233ce
+63d233c4: ldr       r0, [r4, #0xc]
+63d233c6: ldr       r3, [r0]
+63d233c8: ldr       r3, [r3, #0x14]
+63d233ca: blx       r3
+63d233cc: pop       {r4, pc}
+63d233ce: movs      r0, #1
+63d233d0: pop       {r4, pc}
+63d233d2: push      {r4, lr}
+63d233d4: mov       r4, r0
+63d233d6: ldr       r0, [r0, #0x10]
+63d233d8: cbz       r0, #0x63d233e2
+63d233da: ldr       r3, [r0]
+63d233dc: ldr       r3, [r3, #0x18]
+63d233de: blx       r3
+63d233e0: cbnz      r0, #0x63d233ec
+63d233e2: ldr       r0, [r4, #0xc]
+63d233e4: ldr       r3, [r0]
+63d233e6: ldr       r3, [r3, #0x18]
+63d233e8: blx       r3
+63d233ea: pop       {r4, pc}
+63d233ec: movs      r0, #1
+63d233ee: pop       {r4, pc}
+63d233f0: push      {r4, lr}
+63d233f2: mov       r4, r0
+63d233f4: ldr       r0, [r0, #0x10]
+63d233f6: cbz       r0, #0x63d233fe
+63d233f8: ldr       r3, [r0]
+63d233fa: ldr       r3, [r3, #0x1c]
+63d233fc: blx       r3
+63d233fe: ldr       r0, [r4, #0xc]
+63d23400: ldr       r3, [r0]
+63d23402: ldr       r3, [r3, #0x1c]
+63d23404: blx       r3
+63d23406: pop       {r4, pc}

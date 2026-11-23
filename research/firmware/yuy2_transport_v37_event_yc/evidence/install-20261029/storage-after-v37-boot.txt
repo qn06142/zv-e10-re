@@ -1,0 +1,4 @@
+V28_SPACE /usr available_bytes=10765312
+V28_SPACE /log available_bytes=353550336
+V28_SPACE /tmp available_bytes=5242880
+V28_TMP_WRITE_READBACK_OK

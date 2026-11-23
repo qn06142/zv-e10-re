@@ -1,0 +1,75 @@
+{
+  "status": "BUILT_NOT_HARDWARE_VERIFIED",
+  "deployment": "NOT_INSTALLED",
+  "revision": "3.6-single-snapshot-native-vga",
+  "position_independent": true,
+  "width": 640,
+  "height": 480,
+  "advertised_fps": 10,
+  "observed_fps": null,
+  "pixel_format": "YUY2 advertised / native uncompressed VGA bytes; packing UNVERIFIED",
+  "source_backend": "SONY_SDF_PRIVATE_WORKER_OWNED_SSYC_VEF295_TO_OWNED_VGA220",
+  "synthetic_fallback": false,
+  "frame_bytes": 614400,
+  "packet_header_bytes": 0,
+  "cold_boot_required": true,
+  "stream_sessions_per_boot": 1,
+  "native_captures_per_boot": 1,
+  "continuous_video": false,
+  "usb_source_immutable_after_first_copy": true,
+  "files": {
+    "yuy2_640_v36vga.so": {
+      "bytes": 35816,
+      "md5": "c2e06b5a7a9f1361c4fb2a087d5e8fe2",
+      "sha256": "4bc68564fed3f5e673aecf612068b49dda3a4a704175355bc802a8292c2adf98"
+    },
+    "libInfraStreamingUsb.persistent.so": {
+      "bytes": 72796,
+      "md5": "886445056d2eba99ef62df3a9def5e0f",
+      "sha256": "7ac616463fd86800f67f0c26c4f2d0aeda71c969f846c8eee2c39337e6cd849c"
+    },
+    "preflight.sh": {
+      "bytes": 2256,
+      "md5": "0bd0be573b954519bcfb99b6b636521d",
+      "sha256": "6e0600c16746c4e1500b0bb58d7905f6a8d0bf456a144bbc8d9390226afb2fa9"
+    },
+    "install.sh": {
+      "bytes": 3465,
+      "md5": "9a205115251c4b0a6ba8bd495871ead0",
+      "sha256": "b3cbf73e1b502886b4720a51d72e183adf0842332ab36cd850d921223ceed1fb"
+    },
+    "rollback.sh": {
+      "bytes": 1195,
+      "md5": "1e03861d438ff6cc2fd58c1c38aa6e71",
+      "sha256": "e0d27b855002aed0336e96604aad15c96ccac77a541a85b7b2e7987877a40fd8"
+    },
+    "space-check.elf": {
+      "bytes": 7864,
+      "md5": "c2c8b809405bf52e3a7fa8df88aa95eb",
+      "sha256": "649f39924a0dab498dff50f0b9f1b879360e86824d4479db659926c0b28bf747"
+    }
+  },
+  "installed_baseline": {
+    "revision": "3.5",
+    "module_md5": "e6b9fa6947a21e5a6a1603e070a1d00f",
+    "wrapper_md5": "c16af3a036529b89d23fa4ccfd059ec3"
+  },
+  "crash_fixed": false,
+  "packing_corrected": false,
+  "event_driven_subscription": false,
+  "discovery": "DMM_POOL_SCAN_FIRST_SNAPSHOT_ONLY",
+  "rollback": "Restore installed 3.5 wrapper; stable 2.4p rescue copy retained separately",
+  "limitations": [
+    "One frozen native snapshot, not continuous video",
+    "Existing first-acquisition/resize and stop races remain unproven",
+    "No hardware test or firmware installation performed"
+  ],
+  "source_changes": [
+    "one successful native resize per cold boot",
+    "publish only after known-reference cleanup",
+    "no USB source rewrite after first copy",
+    "native snapshot file after cleanup",
+    "ACK/CMP payload status diagnostics",
+    "source search bounded to 30 unsuccessful polls"
+  ]
+}

@@ -1,0 +1,232 @@
+
+0x9618
+00009618: push.w    {r4, r5, r6, r7, r8, lr} 
+0000961c: sub       sp, #0x28 
+0000961e: mov       r4, r0 
+00009620: add       r7, sp, #0 
+00009622: mov       r6, r1 
+00009624: cbnz      r1, #0x9636 
+00009626: movs      r0, #0x92 
+00009628: movs      r1, #0x10 
+0000962a: movw      r2, #0x139 
+0000962e: movs      r5, #1 
+00009630: bl        #0x8a64 
+00009634: b         #0x96f4 
+00009636: adds      r1, r7, #4 
+00009638: blx       #0x63e8 _ZN14VideoEsManager15get_video_imageEPNS_14JPEG_DATA_INFOE
+0000963c: cbz       r0, #0x9652 
+0000963e: cmp       r0, #3 
+00009640: beq       #0x96f2 
+00009642: movs      r0, #0x92 
+00009644: movs      r1, #0x10 
+00009646: movw      r2, #0x143 
+0000964a: movs      r5, #4 
+0000964c: bl        #0x8a64 
+00009650: b         #0x96f4 
+00009652: mov       r0, r4 
+00009654: add.w     r1, r7, #0x20 
+00009658: ldrh      r2, [r7, #8] 
+0000965a: blx       #0x62e0 _ZN14VideoEsManager13open_dmm_unitEP10dmm_extentt
+0000965e: mov       r5, r0 
+00009660: cbz       r0, #0x9672 
+00009662: movs      r0, #0x92 
+00009664: movs      r1, #0x10 
+00009666: mov.w     r2, #0x14c 
+0000966a: movs      r5, #4 
+0000966c: bl        #0x8a64 
+00009670: b         #0x96d4 
+00009672: blx       #0x634c _Z16WaitVideoReadCmpv
+00009676: mov       r8, r0 
+00009678: cbz       r0, #0x9686 
+0000967a: mov       r0, r4 
+0000967c: mov       r1, r6 
+0000967e: mov       r2, r5 
+00009680: blx       #0x617c _ZN14VideoEsManager27judge_notify_start_stop_evtEPNS_14VIDEO_MGR_INFOEb
+00009684: b         #0x96c6 
+00009686: ldr       r3, [r7, #0xc] 
+00009688: str       r3, [r7, #0x18] 
+0000968a: ldr       r3, [r7, #0x20] 
+0000968c: str       r3, [r7, #0x1c] 
+0000968e: add.w     r3, r7, #0x18 
+00009692: ldm.w     r3, {r0, r1} 
+00009696: blx       #0x614c _Z17UpdateVideoBufEvt22StreamingVideoDataInfo
+0000969a: mov       r1, r6 
+0000969c: rsbs.w    r2, r0, #1 
+000096a0: mov       r5, r0 
+000096a2: it        lo 
+000096a4: movlo     r2, #0 
+000096a6: mov       r0, r4 
+000096a8: blx       #0x617c _ZN14VideoEsManager27judge_notify_start_stop_evtEPNS_14VIDEO_MGR_INFOEb
+000096ac: cbz       r5, #0x96c6 
+000096ae: movs      r0, #0x92 
+000096b0: movs      r1, #0x10 
+000096b2: mov.w     r2, #0x16c 
+000096b6: bl        #0x8a64 
+000096ba: uxth      r1, r5 
+000096bc: movs      r0, #0x93 
+000096be: mov       r2, r8 
+000096c0: bl        #0x8a64 
+000096c4: movs      r5, #4 
+000096c6: mov       r0, r4 
+000096c8: ldrh      r1, [r7, #8] 
+000096ca: blx       #0x5c88 _ZN14VideoEsManager14close_dmm_unitEt
+000096ce: cmp       r0, #0 
+000096d0: it        ne 
+000096d2: movne     r5, #4 
+000096d4: ldrh      r1, [r7, #0x10] 
+000096d6: mov       r0, r4 
+000096d8: blx       #0x5cdc _ZN14VideoEsManager13free_dmm_unitEt
+000096dc: ldrh      r1, [r7, #8] 
+000096de: cmp       r0, #0 
+000096e0: it        ne 
+000096e2: movne     r5, #4 
+000096e4: mov       r0, r4 
+000096e6: blx       #0x5cdc _ZN14VideoEsManager13free_dmm_unitEt
+000096ea: cmp       r0, #0 
+000096ec: it        ne 
+000096ee: movne     r5, #4 
+000096f0: b         #0x96f4 
+000096f2: movs      r5, #0 
+000096f4: mov       r0, r5 
+000096f6: add.w     r7, r7, #0x28 
+000096fa: mov       sp, r7 
+000096fc: pop.w     {r4, r5, r6, r7, r8, pc} 
+
+0x9700
+00009700: push      {r4, r5, r7, lr} 
+00009702: mov       r4, r0 
+00009704: add       r7, sp, #0 
+00009706: cbnz      r0, #0x9718 
+00009708: movs      r0, #0x92 
+0000970a: movs      r1, #0x10 
+0000970c: mov.w     r2, #0x196 
+00009710: pop.w     {r4, r5, r7, lr} 
+00009714: b.w       #0x8a64 
+00009718: ldr       r0, [r4, #0x10] 
+0000971a: blx       #0x6328 _ZN3UFW3Sem4LockEv
+0000971e: ldrb      r5, [r4] 
+00009720: ldr       r0, [r4, #0x10] 
+00009722: blx       #0x60dc _ZN3UFW3Sem6UnlockEv
+00009726: cmp       r5, #1 
+00009728: beq       #0x9732 
+0000972a: blo       #0x9752 
+0000972c: cmp       r5, #2 
+0000972e: bne       #0x9718 
+00009730: b         #0x973c 
+00009732: ldr       r0, [r4, #0x14] 
+00009734: blx       #0x6328 _ZN3UFW3Sem4LockEv
+00009738: ldr       r0, [r4, #0x14] 
+0000973a: b         #0x974c 
+0000973c: ldr       r0, [r4, #0x18] 
+0000973e: blx       #0x6328 _ZN3UFW3Sem4LockEv
+00009742: mov       r0, r4 
+00009744: mov       r1, r4 
+00009746: blx       #0x6340 _ZN14VideoEsManager24set_video_data_to_driverEPNS_14VIDEO_MGR_INFOE
+0000974a: ldr       r0, [r4, #0x18] 
+0000974c: blx       #0x60dc _ZN3UFW3Sem6UnlockEv
+00009750: b         #0x9718 
+00009752: pop       {r4, r5, r7, pc} 
+
+0x8f9c
+00008f9c: push      {r4, r5, r6, r7, lr} 
+00008f9e: mov       r4, r0 
+00008fa0: sub       sp, #0xc 
+00008fa2: movs      r0, #4 
+00008fa4: movs      r1, #3 
+00008fa6: movs      r2, #0 
+00008fa8: add       r7, sp, #8 
+00008faa: bl        #0x8a64 
+00008fae: ldr       r0, [r4, #0x10] 
+00008fb0: blx       #0x6328 _ZN3UFW3Sem4LockEv
+00008fb4: ldrb      r3, [r4] 
+00008fb6: cmp       r3, #2 
+00008fb8: beq       #0x8fd0 
+00008fba: ldr       r0, [r4, #0x10] 
+00008fbc: blx       #0x60dc _ZN3UFW3Sem6UnlockEv
+00008fc0: movs      r0, #0x92 
+00008fc2: movs      r1, #0x10 
+00008fc4: mov.w     r2, #0x102 
+00008fc8: bl        #0x8a64 
+00008fcc: movs      r0, #2 
+00008fce: b         #0x9036 
+00008fd0: ldr       r0, [r4, #0x14] 
+00008fd2: movs      r6, #1 
+00008fd4: blx       #0x6328 _ZN3UFW3Sem4LockEv
+00008fd8: ldr       r0, [r4, #0x10] 
+00008fda: strb      r6, [r4] 
+00008fdc: movs      r5, #0 
+00008fde: blx       #0x60dc _ZN3UFW3Sem6UnlockEv
+00008fe2: ldr       r0, [r4, #0x18] 
+00008fe4: blx       #0x6328 _ZN3UFW3Sem4LockEv
+00008fe8: mov       r3, r5 
+00008fea: mov       r1, r6 
+00008fec: mov       r2, r5 
+00008fee: mov       r0, r4 
+00008ff0: str       r5, [sp] 
+00008ff2: str       r5, [sp, #4] 
+00008ff4: blx       #0x60c4 _ZN14VideoEsManager13set_path_syncEtthtj
+00008ff8: ldr       r0, [r4, #0x18] 
+00008ffa: blx       #0x60dc _ZN3UFW3Sem6UnlockEv
+00008ffe: ldr       r3, [r4, #8] 
+00009000: cmp       r3, r6 
+00009002: bne       #0x902e 
+00009004: movs      r0, #0xa 
+00009006: blx       #0x6388 SendEvtStreamingMain
+0000900a: mov       r6, r0 
+0000900c: cbz       r0, #0x9024 
+0000900e: movs      r0, #0x92 
+00009010: movs      r1, #0x10 
+00009012: movw      r2, #0x119 
+00009016: bl        #0x8a64 
+0000901a: movs      r0, #0x93 
+0000901c: uxth      r1, r6 
+0000901e: mov       r2, r5 
+00009020: bl        #0x8a64 
+00009024: movs      r0, #4 
+00009026: movs      r1, #9 
+00009028: movs      r2, #1 
+0000902a: bl        #0x8a64 
+0000902e: movs      r0, #0 
+00009030: str       r0, [r4, #4] 
+00009032: str       r0, [r4, #8] 
+00009034: strb      r0, [r4, #0xc] 
+00009036: add.w     r7, r7, #4 
+0000903a: mov       sp, r7 
+0000903c: pop       {r4, r5, r6, r7, pc} 
+
+0x8dbe
+00008dbe: push      {r4, r5, r7, lr} 
+00008dc0: mov       r4, r0 
+00008dc2: movs      r1, #1 
+00008dc4: movs      r0, #4 
+00008dc6: movs      r2, #0 
+00008dc8: add       r7, sp, #0 
+00008dca: bl        #0x8a64 
+00008dce: ldr       r0, [r4, #0x10] 
+00008dd0: blx       #0x6328 _ZN3UFW3Sem4LockEv
+00008dd4: ldrb      r3, [r4] 
+00008dd6: cmp       r3, #1 
+00008dd8: beq       #0x8dee 
+00008dda: ldr       r0, [r4, #0x10] 
+00008ddc: blx       #0x60dc _ZN3UFW3Sem6UnlockEv
+00008de0: movs      r0, #0x92 
+00008de2: movs      r1, #0x10 
+00008de4: movs      r2, #0xab 
+00008de6: bl        #0x8a64 
+00008dea: movs      r0, #2 
+00008dec: pop       {r4, r5, r7, pc} 
+00008dee: movs      r5, #0 
+00008df0: ldr       r0, [r4, #0x10] 
+00008df2: strb      r5, [r4] 
+00008df4: blx       #0x60dc _ZN3UFW3Sem6UnlockEv
+00008df8: ldr       r0, [r4, #0x14] 
+00008dfa: blx       #0x60dc _ZN3UFW3Sem6UnlockEv
+00008dfe: mov       r0, r4 
+00008e00: blx       #0x6400 _ZN14VideoEsManager17exit_video_threadEv
+00008e04: movs      r0, #0x4a 
+00008e06: mov       r1, r5 
+00008e08: ldr       r2, [r4, #0x3c] 
+00008e0a: blx       #0x62f8 osal_dynamic_id
+00008e0e: mov       r0, r5 
+00008e10: pop       {r4, r5, r7, pc} 
+00008e12: movs      r0, r0 

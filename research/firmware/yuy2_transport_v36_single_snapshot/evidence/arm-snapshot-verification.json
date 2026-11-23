@@ -1,0 +1,18 @@
+{
+  "camera_access": false,
+  "compiled_arm_instructions": true,
+  "successful_replay_calls": 101,
+  "memcpy_calls": 1,
+  "sony_ipc_calls": 0,
+  "worker_restarts": 0,
+  "checks": [
+    "first copy exact 614400 bytes",
+    "100 later polls do not write source",
+    "different pointer rejected",
+    "different physical address rejected",
+    "stop rejects further replay"
+  ],
+  "limitations": [
+    "Captured state is initialized by fixture; this does not emulate capture, DMA or hardware stability."
+  ]
+}

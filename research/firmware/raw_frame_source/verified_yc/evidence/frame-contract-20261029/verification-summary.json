@@ -1,0 +1,61 @@
+{
+  "camera_access": false,
+  "checks": [
+    {
+      "check": "verify_pin_initialization",
+      "exit_code": 0,
+      "log_sha256": "3a3266736c78c0bbe766d68c6e8df9259ea0573fc1e63cad5a9ceda230cc7dcf"
+    },
+    {
+      "check": "verify_producer_send",
+      "exit_code": 0,
+      "log_sha256": "d0efe8c40a5aeb36f6bec536be8d0ff5ebbd171954ddabbda1cff848308b67e6"
+    },
+    {
+      "check": "verify_encoder_io",
+      "exit_code": 0,
+      "log_sha256": "1283366c90519e042dba0487eee251407f266c202230c079bd52d59e8031c623"
+    },
+    {
+      "check": "verify_vdf_completion",
+      "exit_code": 0,
+      "log_sha256": "652f3c936c3fd1f64c2bb0079d6efaba51d4f8c78c26af569fdd9197a5078429"
+    },
+    {
+      "check": "verify_sdf_forwarding",
+      "exit_code": 0,
+      "log_sha256": "0fec3df791ba8ebc53142ddc219f92ee311e1f7933671629269a16e8aa55b0af"
+    },
+    {
+      "check": "verify_sdf_short_parse",
+      "exit_code": 0,
+      "log_sha256": "9eef14f92f625e271384cc87842ea8c4d8933bcca8b970e2f5f0a489a3ba82be"
+    },
+    {
+      "check": "verify_sdf_build_parameters",
+      "exit_code": 0,
+      "log_sha256": "f915d6a177c9cfc4c3e984f730bc3c0fa5524d88ef4349ace5b5fdffd682eb63"
+    },
+    {
+      "check": "verify_sdf_ack_cmp",
+      "exit_code": 0,
+      "log_sha256": "9d35236bad0ee31681c2938d41bc37c8fc490b03fbca99af1c2b6bdcfcdb0738"
+    },
+    {
+      "check": "verify_usb_lifetime",
+      "exit_code": 0,
+      "log_sha256": "c4f31ec164081ccac96d6163b9525f98ae24d05c2c3bb87bf4c0664509132a4c"
+    },
+    {
+      "check": "collect_evidence",
+      "exit_code": 0,
+      "log_sha256": "528e02861a526c7dddda4da155d0aac5f026841702098ce1b47fd78c8f919f8e"
+    },
+    {
+      "check": "inspect_usb",
+      "exit_code": 0,
+      "log_sha256": "027fbe6fa8ad408ea4b7cbdba5ec2d437980296902c38d4248056302f905bb64"
+    }
+  ],
+  "meaning": "Original-code software contract checks only; hardware services are mocked and no live frame is acquired."
+}

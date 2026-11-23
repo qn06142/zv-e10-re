@@ -1,0 +1,162 @@
+00000d00: mov ip, sp
+00000d04: push {r4, r5, r6, r7, r8, fp, ip, lr, pc}
+00000d08: sub fp, ip, #4
+00000d0c: sub sp, sp, #0x34
+00000d10: mov r5, r0
+00000d14: bl #0xd14
+00000d18: mov r4, r0
+00000d1c: bl #0xd1c
+00000d20: cmp r0, #0
+00000d24: beq #0xd50
+00000d28: bl #0xd28
+00000d2c: ldrb r3, [r0, #0xcc]
+00000d30: cmp r3, #0
+00000d34: beq #0xd50
+00000d38: sub r0, fp, #0x40
+00000d3c: mov r1, #0x14
+00000d40: ldr r2, [pc, #0x390]
+00000d44: bl #0xd44
+00000d48: sub r0, fp, #0x40
+00000d4c: bl #0x8c8
+00000d50: mov r2, sp
+00000d54: bic r3, r2, #0x1fc0
+00000d58: bic r3, r3, #0x3f
+00000d5c: ldr r3, [r3, #8]
+00000d60: adds r2, r5, #8
+00000d64: sbcslo r2, r2, r3
+00000d68: movlo r3, #0
+00000d6c: cmp r3, #0
+00000d70: bne #0xd90
+00000d74: mov r1, r5
+00000d78: sub r0, fp, #0x2c
+00000d7c: mov r2, #8
+00000d80: bl #0xd80
+00000d84: subs r5, r0, #0
+00000d88: beq #0xda0
+00000d8c: b #0x10c4
+00000d90: sub r0, fp, #0x2c
+00000d94: mov r1, #8
+00000d98: bl #0xd98
+00000d9c: b #0x10c4
+00000da0: bl #0xda0
+00000da4: add r0, r0, #0x3c
+00000da8: bl #0xda8
+00000dac: mov r0, r5
+00000db0: bl #0xdb0
+00000db4: subs r5, r0, #0
+00000db8: bne #0xdd0
+00000dbc: bl #0xdbc
+00000dc0: add r0, r0, #0x3c
+00000dc4: bl #0xdc4
+00000dc8: mvn r0, #0xf
+00000dcc: b #0x10d0
+00000dd0: bl #0xdd0
+00000dd4: add r0, r0, #0x84
+00000dd8: bl #0xdd8
+00000ddc: ldr r3, [pc, #0x2f8]
+00000de0: ldrb r2, [r3, #0x10]
+00000de4: cmp r2, #0
+00000de8: beq #0xe0c
+00000dec: mov r2, #1
+00000df0: str r2, [r3, #0x14]
+00000df4: ldr r0, [r4]
+00000df8: mov r2, r5
+00000dfc: ldr r1, [r4, #4]
+00000e00: str r0, [r3, #0x18]
+00000e04: ldr r3, [r3, #0x1c]
+00000e08: b #0xe34
+00000e0c: ldrb r2, [r3, #0x11]
+00000e10: cmp r2, #0
+00000e14: beq #0xe38
+00000e18: ldr r0, [r4, #8]
+00000e1c: mov r2, #2
+00000e20: ldr r1, [r4, #0xc]
+00000e24: str r2, [r3, #0x14]
+00000e28: mov r2, r5
+00000e2c: str r0, [r3, #0x18]
+00000e30: ldr r3, [r3, #0x20]
+00000e34: bl #0xad8
+00000e38: bl #0xe38
+00000e3c: add r0, r0, #0x84
+00000e40: bl #0xe40
+00000e44: bl #0xe44
+00000e48: add r0, r0, #0x3c
+00000e4c: bl #0xe4c
+00000e50: ldr r5, [fp, #-0x28]
+00000e54: cmp r5, #0
+00000e58: addge r3, r5, #0x60000000
+00000e5c: addlt r3, r5, #0x20000000
+00000e60: cmp r3, #0
+00000e64: beq #0x10c4
+00000e68: mov r1, #0
+00000e6c: mov r2, #0xc
+00000e70: sub r0, fp, #0x40
+00000e74: ldr r7, [fp, #-0x2c]
+00000e78: bl #0xe78
+00000e7c: bl #0xe7c
+00000e80: ldr r3, [r0, #0xac]
+00000e84: mov r4, r0
+00000e88: str r7, [r3]
+00000e8c: ldr r3, [r0, #0xac]
+00000e90: str r5, [r3, #4]
+00000e94: bl #0xe94
+00000e98: cmp r0, #0
+00000e9c: beq #0xec8
+00000ea0: bl #0xea0
+00000ea4: ldrb r3, [r0, #0xcc]
+00000ea8: cmp r3, #0
+00000eac: beq #0xec8
+00000eb0: sub r0, fp, #0x54
+00000eb4: mov r1, #0x14
+00000eb8: ldr r2, [pc, #0x220]
+00000ebc: bl #0xebc
+00000ec0: sub r0, fp, #0x54
+00000ec4: bl #0x8c8
+00000ec8: ldr r5, [pc, #0x20c]
+00000ecc: ldr r3, [r5, #0x24]
+00000ed0: cmp r3, #1
+00000ed4: moveq r3, #0
+00000ed8: movne r3, #1
+00000edc: str r3, [r5, #0x24]
+00000ee0: bl #0xee0
+00000ee4: add r0, r0, #0x6c
+00000ee8: bl #0xee8
+00000eec: ldrb r3, [r5, #0x10]
+00000ef0: cmp r3, #0
+00000ef4: ldreq r5, [r4]
+00000ef8: ldreq r3, [r4, #0xac]
+00000efc: ldreq r2, [r4, #4]
+00000f00: beq #0xf20
+00000f04: ldr r3, [pc, #0x1d0]
+00000f08: ldrb r3, [r3, #0x11]
+00000f0c: cmp r3, #0
+00000f10: bne #0xf10
+00000f14: ldr r5, [r4, #8]
+00000f18: ldr r3, [r4, #0xac]
+00000f1c: ldr r2, [r4, #0xc]
+00000f20: str r2, [r3, #8]
+00000f24: mov r6, #0xc
+00000f28: ldr r3, [pc, #0x1ac]
+00000f2c: mov r0, r5
+00000f30: sub r1, fp, #0x40
+00000f34: mov r2, r6
+00000f38: ldr r8, [r3, #0x24]
+00000f3c: bl #0xf3c
+00000f40: strb r6, [r5]
+00000f44: sub r8, r8, #0x72
+00000f48: uxtb r8, r8
+00000f4c: strb r8, [r5, #1]
+00000f50: ldr r3, [r4, #0xac]
+00000f54: ldr r5, [pc, #0x188]
+00000f58: ldr r2, [r3, #8]
+00000f5c: add r2, r2, r6
+00000f60: str r2, [r3, #8]
+00000f64: mov r3, #0
+00000f68: ldr r0, [r4, #0xb0]
+00000f6c: str r3, [r5]
+00000f70: bl #0xf70
+00000f74: cmp r0, #0
+00000f78: movlt r3, #1
+00000f7c: movlt r4, r6
+00000f80: strlt r3, [r5]
+00000f84: blt #0xf84

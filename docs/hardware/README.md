@@ -23,6 +23,7 @@ For the paused display and Bayer RAW checkpoint, see the [research handoff](HAND
 | Offline VPH AIF, Output 0/1 and mixer contracts | [VPH/AIF contracts](data/vph-aif-contracts.json) |
 | Offline Sugilite GPU, MA and DataflowInfra OSD contracts | [GRM contracts](data/grm-contracts.json) |
 | External QEMU findings and emulator boundaries | [Pinned source audit](EXTERNAL_ZVE10_QEMU.md) |
+| Local `pmca-re` QEMU 11.1.2 (`-M zve10`) emulator | [QEMU emulator](QEMU_EMULATOR.md) |
 | Reproduction and query tools | [Atlas builder](../../research/device/zve10_hardware_map/README.md) |
 
 ## What is populated

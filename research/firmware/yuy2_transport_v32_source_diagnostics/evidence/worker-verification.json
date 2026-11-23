@@ -1,0 +1,92 @@
+{
+  "passed": 17,
+  "camera_access": false,
+  "hardware_boundaries_mocked": true,
+  "cases": [
+    {
+      "case": 0,
+      "name": "owned metadata publication",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 1,
+      "name": "no SSYC",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 2,
+      "name": "SDF error",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 3,
+      "name": "output compression changed",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 4,
+      "name": "undersized destination",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 5,
+      "name": "ambiguous pixel Open",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 6,
+      "name": "producer descriptor changed",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 7,
+      "name": "MMIO pixel address",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 8,
+      "name": "staging overlap",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 9,
+      "name": "metadata Share transport error",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 10,
+      "name": "metadata Share negative reply and exact reply words",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 11,
+      "name": "metadata Open negative reply",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 12,
+      "name": "metadata Open unsupported address site",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 13,
+      "name": "metadata invalid physical span",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 14,
+      "name": "metadata mmap failure",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 15,
+      "name": "metadata stream-device open failure",
+      "result": "PASS VGA worker fixture"
+    },
+    {
+      "case": 16,
+      "name": "metadata USB overlap",
+      "result": "PASS VGA worker fixture"
+    }
+  ]
+}

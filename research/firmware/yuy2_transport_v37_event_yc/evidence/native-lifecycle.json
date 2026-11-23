@@ -1,0 +1,14 @@
+{
+  "analysis": "STATIC_ORIGINAL_INSTRUCTION_AUDIT",
+  "input_md5": "19461091c07aa6900829defb0060fcd6",
+  "verified": [
+    "video_thread holds manager+0x18 semaphore around producer call",
+    "video_stream_stop acquires same semaphore before set_path_sync",
+    "video_stream_finish exits video thread before returning"
+  ],
+  "decision": "Do not add recursive native semaphore acquisition in producer.",
+  "limitations": [
+    "Does not prove absence of arbitrary external callers or all shutdown races.",
+    "No crash PC or root-cause attribution."
+  ]
+}

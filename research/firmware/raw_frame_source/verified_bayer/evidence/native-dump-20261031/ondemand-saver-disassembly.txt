@@ -1,0 +1,752 @@
+====================================================================================================
+_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver14file_write_exeEjjPc  vaddr=0x184c  size=150
+====================================================================================================
+  0000184c  2de9f047     push.w {r4, r5, r6, r7, r8, sb, sl, lr}
+  00001850  adf51c5d     sub.w sp, sp, #0x2700             
+  00001854  84b0         sub sp, #0x10                     
+  00001856  0026         movs r6, #0                       
+  00001858  8246         mov sl, r0                        
+  0000185a  00af         add r7, sp, #0                    
+  0000185c  0d46         mov r5, r1                        
+  0000185e  1446         mov r4, r2                        
+  00001860  9946         mov sb, r3                        
+  00001862  b046         mov r8, r6                        
+  00001864  11e0         b #0x188a                         
+  00001866  42f21078     movw r8, #0x2710                  
+  0000186a  3846         mov r0, r7                        
+  0000186c  4246         mov r2, r8                        
+  0000186e  08fb0691     mla r1, r8, r6, sb                
+  00001872  fff7eaec     blx #0x1248                         ; -> memcpy
+  00001876  4246         mov r2, r8                        
+  00001878  daf81400     ldr.w r0, [sl, #0x14]             
+  0000187c  3946         mov r1, r7                        
+  0000187e  fff72eed     blx #0x12dc                         ; -> Fsys_Write
+  00001882  b0f10008     subs.w r8, r0, #0                 
+  00001886  02db         blt #0x188e                       
+  00001888  0136         adds r6, #1                       
+  0000188a  ae42         cmp r6, r5                        
+  0000188c  ebd3         blo #0x1866                       
+  0000188e  4046         mov r0, r8                        
+  00001890  fff740fe     bl #0x1514                        
+  00001894  b8f1000f     cmp.w r8, #0                      
+  00001898  1bdb         blt #0x18d2                       
+  0000189a  7cb1         cbz r4, #0x18bc                   
+  0000189c  42f21071     movw r1, #0x2710                  
+  000018a0  2246         mov r2, r4                        
+  000018a2  3846         mov r0, r7                        
+  000018a4  01fb0591     mla r1, r1, r5, sb                
+  000018a8  fff7ceec     blx #0x1248                         ; -> memcpy
+  000018ac  daf81400     ldr.w r0, [sl, #0x14]             
+  000018b0  3946         mov r1, r7                        
+  000018b2  2246         mov r2, r4                        
+  000018b4  fff712ed     blx #0x12dc                         ; -> Fsys_Write
+  000018b8  8046         mov r8, r0                        
+  000018ba  00e0         b #0x18be                         
+  000018bc  a046         mov r8, r4                        
+  000018be  4046         mov r0, r8                        
+  000018c0  fff728fe     bl #0x1514                        
+  000018c4  b8f1000f     cmp.w r8, #0                      
+  000018c8  a4bf         itt ge                            
+  000018ca  42f21078     movwge r8, #0x2710                
+  000018ce  08fb0548     mlage r8, r8, r5, r4              
+  000018d2  4046         mov r0, r8                        
+  000018d4  07f5e267     add.w r7, r7, #0x710              
+  000018d8  07f50057     add.w r7, r7, #0x2000             
+  000018dc  bd46         mov sp, r7                        
+  000018de  bde8f087     pop.w {r4, r5, r6, r7, r8, sb, sl, pc}
+
+--- literal pool tail of function ---
+  0x000018ac  0x0014f8da  
+  0x000018b0  0x46224639  
+  0x000018b4  0xed12f7ff  
+  0x000018b8  0xe0004680  
+  0x000018bc  0x464046a0  
+  0x000018c0  0xfe28f7ff  
+  0x000018c4  0x0f00f1b8  
+  0x000018c8  0xf242bfa4  
+  0x000018cc  0xfb087810  
+  0x000018d0  0x46404805  
+  0x000018d4  0x67e2f507  
+  0x000018d8  0x5700f507  
+  0x000018dc  0xe8bd46bd  
+  0x000018e0  0xe92d87f0  
+====================================================================================================
+_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver10fsys_writeEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE  vaddr=0x1af4  size=408
+====================================================================================================
+  00001af4  2de9f047     push.w {r4, r5, r6, r7, r8, sb, sl, lr}
+  00001af8  a8b0         sub sp, #0xa0                     
+  00001afa  02af         add r7, sp, #8                    
+  00001afc  0546         mov r5, r0                        
+  00001afe  0c46         mov r4, r1                        
+  00001b00  fff704ec     blx #0x130c                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver27cam_ondemand_get_media_infoEv
+  00001b04  0646         mov r6, r0                        
+  00001b06  a861         str r0, [r5, #0x18]               
+  00001b08  0028         cmp r0, #0                        
+  00001b0a  00f0ab80     beq.w #0x1c64                     
+  00001b0e  5849         ldr r1, [pc, #0x160]                ; =0x0000030a
+  00001b10  07f18008     add.w r8, r7, #0x80               
+  00001b14  0522         movs r2, #5                       
+  00001b16  4046         mov r0, r8                        
+  00001b18  7944         add r1, pc                        
+  00001b1a  fff796eb     blx #0x1248                         ; -> memcpy
+  00001b1e  5549         ldr r1, [pc, #0x154]                ; =0x0000033f
+  00001b20  0d22         movs r2, #0xd                     
+  00001b22  07f17000     add.w r0, r7, #0x70               
+  00001b26  7944         add r1, pc                        
+  00001b28  fff78eeb     blx #0x1248                         ; -> memcpy
+  00001b2c  5249         ldr r1, [pc, #0x148]                ; =0x0000033e
+  00001b2e  0d22         movs r2, #0xd                     
+  00001b30  07f16000     add.w r0, r7, #0x60               
+  00001b34  7944         add r1, pc                        
+  00001b36  fff788eb     blx #0x1248                         ; -> memcpy
+  00001b3a  5049         ldr r1, [pc, #0x140]                ; =0x0000033d
+  00001b3c  0d22         movs r2, #0xd                     
+  00001b3e  07f15000     add.w r0, r7, #0x50               
+  00001b42  7944         add r1, pc                        
+  00001b44  fff780eb     blx #0x1248                         ; -> memcpy
+  00001b48  022e         cmp r6, #2                        
+  00001b4a  0dd0         beq #0x1b68                       
+  00001b4c  042e         cmp r6, #4                        
+  00001b4e  15d0         beq #0x1b7c                       
+  00001b50  012e         cmp r6, #1                        
+  00001b52  1ed1         bne #0x1b92                       
+  00001b54  6388         ldrh r3, [r4, #2]                 
+  00001b56  381d         adds r0, r7, #4                   
+  00001b58  494a         ldr r2, [pc, #0x124]                ; =0x000002fc
+  00001b5a  1521         movs r1, #0x15                    
+  00001b5c  8de80801     stm.w sp, {r3, r8}                
+  00001b60  7a44         add r2, pc                        
+  00001b62  07f17003     add.w r3, r7, #0x70               
+  00001b66  12e0         b #0x1b8e                         
+  00001b68  6388         ldrh r3, [r4, #2]                 
+  00001b6a  381d         adds r0, r7, #4                   
+  00001b6c  454a         ldr r2, [pc, #0x114]                ; =0x000002e8
+  00001b6e  1521         movs r1, #0x15                    
+  00001b70  8de80801     stm.w sp, {r3, r8}                
+  00001b74  7a44         add r2, pc                        
+  00001b76  07f16003     add.w r3, r7, #0x60               
+  00001b7a  08e0         b #0x1b8e                         
+  00001b7c  6388         ldrh r3, [r4, #2]                 
+  00001b7e  381d         adds r0, r7, #4                   
+  00001b80  414a         ldr r2, [pc, #0x104]                ; =0x000002d4
+  00001b82  1521         movs r1, #0x15                    
+  00001b84  8de80801     stm.w sp, {r3, r8}                
+  00001b88  7a44         add r2, pc                        
+  00001b8a  07f15003     add.w r3, r7, #0x50               
+  00001b8e  fff7caeb     blx #0x1324                         ; -> snprintf
+  00001b92  637b         ldrb r3, [r4, #0xd]               
+  00001b94  05f11401     add.w r1, r5, #0x14               
+  00001b98  202b         cmp r3, #0x20                     
+  00001b9a  02d1         bne #0x1ba2                       
+  00001b9c  381d         adds r0, r7, #4                   
+  00001b9e  1722         movs r2, #0x17                    
+  00001ba0  01e0         b #0x1ba6                         
+  00001ba2  381d         adds r0, r7, #4                   
+  00001ba4  0f22         movs r2, #0xf                     
+  00001ba6  fff732eb     blx #0x120c                         ; -> Fsys_Open
+  00001baa  0646         mov r6, r0                        
+  00001bac  fff7b2fc     bl #0x1514                        
+  00001bb0  002e         cmp r6, #0                        
+  00001bb2  56d1         bne #0x1c62                       
+  00001bb4  a368         ldr r3, [r4, #8]                  
+  00001bb6  07f19002     add.w r2, r7, #0x90               
+  00001bba  2846         mov r0, r5                        
+  00001bbc  07f19401     add.w r1, r7, #0x94               
+  00001bc0  0093         str r3, [sp]                      
+  00001bc2  6368         ldr r3, [r4, #4]                  
+  00001bc4  fff79ceb     blx #0x1300                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver8set_mmapEPjPPcmm
+  00001bc8  d7f89430     ldr.w r3, [r7, #0x94]             
+  00001bcc  d7f89020     ldr.w r2, [r7, #0x90]             
+  00001bd0  02eb0308     add.w r8, r2, r3                  
+  00001bd4  637b         ldrb r3, [r4, #0xd]               
+  00001bd6  c3b9         cbnz r3, #0x1c0a                  
+  00001bd8  d4f808a0     ldr.w sl, [r4, #8]                
+  00001bdc  5046         mov r0, sl                        
+  00001bde  fff778eb     blx #0x12d0                         ; -> malloc
+  00001be2  8146         mov sb, r0                        
+  00001be4  18b9         cbnz r0, #0x1bee                  
+  00001be6  ff30         adds r0, #0xff                    
+  00001be8  fff794fc     bl #0x1514                        
+  00001bec  3ae0         b #0x1c64                         
+  00001bee  4146         mov r1, r8                        
+  00001bf0  5246         mov r2, sl                        
+  00001bf2  fff72aeb     blx #0x1248                         ; -> memcpy
+  00001bf6  6869         ldr r0, [r5, #0x14]               
+  00001bf8  4946         mov r1, sb                        
+  00001bfa  a268         ldr r2, [r4, #8]                  
+  00001bfc  fff7f4ea     blx #0x11e8                         ; -> Fsys_WriteAndFlush
+  00001c00  8046         mov r8, r0                        
+  00001c02  4846         mov r0, sb                        
+  00001c04  fff7e4ea     blx #0x11d0                         ; -> free
+  00001c08  14e0         b #0x1c34                         
+  00001c0a  2846         mov r0, r5                        
+  00001c0c  a168         ldr r1, [r4, #8]                  
+  00001c0e  07f18c02     add.w r2, r7, #0x8c               
+  00001c12  07f18803     add.w r3, r7, #0x88               
+  00001c16  c7f88c60     str.w r6, [r7, #0x8c]             
+  00001c1a  c7f88860     str.w r6, [r7, #0x88]             
+  00001c1e  fff7a6ea     blx #0x116c                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver18calc_file_div_infoEmPjS1_
+  00001c22  4346         mov r3, r8                        
+  00001c24  2846         mov r0, r5                        
+  00001c26  d7f88c10     ldr.w r1, [r7, #0x8c]             
+  00001c2a  d7f88820     ldr.w r2, [r7, #0x88]             
+  00001c2e  fff7a4ea     blx #0x1178                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver14file_write_exeEjjPc
+  00001c32  8046         mov r8, r0                        
+  00001c34  4046         mov r0, r8                        
+  00001c36  fff76dfc     bl #0x1514                        
+  00001c3a  6869         ldr r0, [r5, #0x14]               
+  00001c3c  fff742eb     blx #0x12c4                         ; -> Fsys_Close
+  00001c40  0646         mov r6, r0                        
+  00001c42  fff767fc     bl #0x1514                        
+  00001c46  2846         mov r0, r5                        
+  00001c48  d7f89010     ldr.w r1, [r7, #0x90]             
+  00001c4c  a268         ldr r2, [r4, #8]                  
+  00001c4e  fff7a0ea     blx #0x1190                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver10set_munmapEPcm
+  00001c52  b8f1000f     cmp.w r8, #0                      
+  00001c56  04db         blt #0x1c62                       
+  00001c58  d6f10106     rsbs.w r6, r6, #1                 
+  00001c5c  38bf         it lo                             
+  00001c5e  0026         movlo r6, #0                      
+  00001c60  00e0         b #0x1c64                         
+  00001c62  0026         movs r6, #0                       
+  00001c64  3046         mov r0, r6                        
+  00001c66  07f19807     add.w r7, r7, #0x98               
+  00001c6a  bd46         mov sp, r7                        
+  00001c6c  bde8f087     pop.w {r4, r5, r6, r7, r8, sb, sl, pc}
+  00001c70  0a03         lsls r2, r1, #0xc                 
+  00001c72  0000         movs r0, r0                       
+  00001c74  3f03         lsls r7, r7, #0xc                 
+  00001c76  0000         movs r0, r0                       
+  00001c78  3e03         lsls r6, r7, #0xc                 
+  00001c7a  0000         movs r0, r0                       
+  00001c7c  3d03         lsls r5, r7, #0xc                 
+  00001c7e  0000         movs r0, r0                       
+  00001c80  fc02         lsls r4, r7, #0xb                 
+  00001c82  0000         movs r0, r0                       
+  00001c84  e802         lsls r0, r5, #0xb                 
+  00001c86  0000         movs r0, r0                       
+  00001c88  d402         lsls r4, r2, #0xb                 
+  00001c8a  0000         movs r0, r0                       
+
+--- literal pool tail of function ---
+  0x00001c54  0xdb040f00  
+  0x00001c58  0x0601f1d6  
+  0x00001c5c  0x2600bf38  
+  0x00001c60  0x2600e000  
+  0x00001c64  0xf1074630  
+  0x00001c68  0x46bd0798  
+  0x00001c6c  0x87f0e8bd  
+  0x00001c70  0x0000030a  
+  0x00001c74  0x0000033f  
+  0x00001c78  0x0000033e  
+  0x00001c7c  0x0000033d  
+  0x00001c80  0x000002fc  
+  0x00001c84  0x000002e8  
+  0x00001c88  0x000002d4  
+====================================================================================================
+_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver22fsys_write_phys_directEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE  vaddr=0x19d0  size=292
+====================================================================================================
+  000019d0  f0b5         push {r4, r5, r6, r7, lr}         
+  000019d2  adb0         sub sp, #0xb4                     
+  000019d4  02af         add r7, sp, #8                    
+  000019d6  0646         mov r6, r0                        
+  000019d8  0c46         mov r4, r1                        
+  000019da  fff798ec     blx #0x130c                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver27cam_ondemand_get_media_infoEv
+  000019de  0546         mov r5, r0                        
+  000019e0  b061         str r0, [r6, #0x18]               
+  000019e2  0028         cmp r0, #0                        
+  000019e4  73d0         beq #0x1ace                       
+  000019e6  3c49         ldr r1, [pc, #0xf0]                 ; =0x00000473
+  000019e8  0d22         movs r2, #0xd                     
+  000019ea  07f18800     add.w r0, r7, #0x88               
+  000019ee  07f1a006     add.w r6, r7, #0xa0               
+  000019f2  7944         add r1, pc                        
+  000019f4  fff728ec     blx #0x1248                         ; -> memcpy
+  000019f8  3849         ldr r1, [pc, #0xe0]                 ; =0x00000472
+  000019fa  0d22         movs r2, #0xd                     
+  000019fc  07f17800     add.w r0, r7, #0x78               
+  00001a00  7944         add r1, pc                        
+  00001a02  fff722ec     blx #0x1248                         ; -> memcpy
+  00001a06  3649         ldr r1, [pc, #0xd8]                 ; =0x00000471
+  00001a08  0d22         movs r2, #0xd                     
+  00001a0a  07f16800     add.w r0, r7, #0x68               
+  00001a0e  7944         add r1, pc                        
+  00001a10  fff71aec     blx #0x1248                         ; -> memcpy
+  00001a14  3349         ldr r1, [pc, #0xcc]                 ; =0x00000408
+  00001a16  0522         movs r2, #5                       
+  00001a18  3046         mov r0, r6                        
+  00001a1a  7944         add r1, pc                        
+  00001a1c  fff714ec     blx #0x1248                         ; -> memcpy
+  00001a20  022d         cmp r5, #2                        
+  00001a22  0dd0         beq #0x1a40                       
+  00001a24  042d         cmp r5, #4                        
+  00001a26  15d0         beq #0x1a54                       
+  00001a28  012d         cmp r5, #1                        
+  00001a2a  1ed1         bne #0x1a6a                       
+  00001a2c  6388         ldrh r3, [r4, #2]                 
+  00001a2e  381d         adds r0, r7, #4                   
+  00001a30  2d4a         ldr r2, [pc, #0xb4]                 ; =0x00000424
+  00001a32  1521         movs r1, #0x15                    
+  00001a34  8de84800     stm.w sp, {r3, r6}                
+  00001a38  7a44         add r2, pc                        
+  00001a3a  07f18803     add.w r3, r7, #0x88               
+  00001a3e  12e0         b #0x1a66                         
+  00001a40  6388         ldrh r3, [r4, #2]                 
+  00001a42  381d         adds r0, r7, #4                   
+  00001a44  294a         ldr r2, [pc, #0xa4]                 ; =0x00000410
+  00001a46  1521         movs r1, #0x15                    
+  00001a48  8de84800     stm.w sp, {r3, r6}                
+  00001a4c  7a44         add r2, pc                        
+  00001a4e  07f17803     add.w r3, r7, #0x78               
+  00001a52  08e0         b #0x1a66                         
+  00001a54  6388         ldrh r3, [r4, #2]                 
+  00001a56  381d         adds r0, r7, #4                   
+  00001a58  254a         ldr r2, [pc, #0x94]                 ; =0x000003fc
+  00001a5a  1521         movs r1, #0x15                    
+  00001a5c  8de84800     stm.w sp, {r3, r6}                
+  00001a60  7a44         add r2, pc                        
+  00001a62  07f16803     add.w r3, r7, #0x68               
+  00001a66  fff75eec     blx #0x1324                         ; -> snprintf
+  00001a6a  a268         ldr r2, [r4, #8]                  
+  00001a6c  ff23         movs r3, #0xff                    
+  00001a6e  a7f85030     strh.w r3, [r7, #0x50]            
+  00001a72  381d         adds r0, r7, #4                   
+  00001a74  a7f85230     strh.w r3, [r7, #0x52]            
+  00001a78  02f5fe72     add.w r2, r2, #0x1fc              
+  00001a7c  a7f85430     strh.w r3, [r7, #0x54]            
+  00001a80  0332         adds r2, #3                       
+  00001a82  a7f85630     strh.w r3, [r7, #0x56]            
+  00001a86  22f4fe72     bic r2, r2, #0x1fc                
+  00001a8a  a7f85830     strh.w r3, [r7, #0x58]            
+  00001a8e  22f00302     bic r2, r2, #3                    
+  00001a92  a7f85a30     strh.w r3, [r7, #0x5a]            
+  00001a96  07f15001     add.w r1, r7, #0x50               
+  00001a9a  a7f85c30     strh.w r3, [r7, #0x5c]            
+  00001a9e  a7f85e30     strh.w r3, [r7, #0x5e]            
+  00001aa2  a7f86030     strh.w r3, [r7, #0x60]            
+  00001aa6  a7f86230     strh.w r3, [r7, #0x62]            
+  00001aaa  a7f86430     strh.w r3, [r7, #0x64]            
+  00001aae  6368         ldr r3, [r4, #4]                  
+  00001ab0  c7f89c20     str.w r2, [r7, #0x9c]             
+  00001ab4  c7f89830     str.w r3, [r7, #0x98]             
+  00001ab8  0123         movs r3, #1                       
+  00001aba  0093         str r3, [sp]                      
+  00001abc  07f19803     add.w r3, r7, #0x98               
+  00001ac0  fff7c8eb     blx #0x1254                         ; -> Fsys_WriteDirectFile
+  00001ac4  d0f10100     rsbs.w r0, r0, #1                 
+  00001ac8  38bf         it lo                             
+  00001aca  0020         movlo r0, #0                      
+  00001acc  ffe7         b #0x1ace                         
+  00001ace  07f1ac07     add.w r7, r7, #0xac               
+  00001ad2  bd46         mov sp, r7                        
+  00001ad4  f0bd         pop {r4, r5, r6, r7, pc}          
+  00001ad6  00bf         nop                               
+  00001ad8  7304         lsls r3, r6, #0x11                
+  00001ada  0000         movs r0, r0                       
+  00001adc  7204         lsls r2, r6, #0x11                
+  00001ade  0000         movs r0, r0                       
+  00001ae0  7104         lsls r1, r6, #0x11                
+  00001ae2  0000         movs r0, r0                       
+  00001ae4  0804         lsls r0, r1, #0x10                
+  00001ae6  0000         movs r0, r0                       
+  00001ae8  2404         lsls r4, r4, #0x10                
+  00001aea  0000         movs r0, r0                       
+  00001aec  1004         lsls r0, r2, #0x10                
+  00001aee  0000         movs r0, r0                       
+  00001af0  fc03         lsls r4, r7, #0xf                 
+  00001af2  0000         movs r0, r0                       
+
+--- literal pool tail of function ---
+  0x00001abc  0x0398f107  
+  0x00001ac0  0xebc8f7ff  
+  0x00001ac4  0x0001f1d0  
+  0x00001ac8  0x2000bf38  
+  0x00001acc  0xf107e7ff  
+  0x00001ad0  0x46bd07ac  
+  0x00001ad4  0xbf00bdf0  
+  0x00001ad8  0x00000473  
+  0x00001adc  0x00000472  
+  0x00001ae0  0x00000471  
+  0x00001ae4  0x00000408  
+  0x00001ae8  0x00000424  
+  0x00001aec  0x00000410  
+  0x00001af0  0x000003fc  
+====================================================================================================
+_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver8set_mmapEPjPPcmm  vaddr=0x16c8  size=100
+====================================================================================================
+  000016c8  2de9f043     push.w {r4, r5, r6, r7, r8, sb, lr}
+  000016cc  0646         mov r6, r0                        
+  000016ce  83b0         sub sp, #0xc                      
+  000016d0  1548         ldr r0, [pc, #0x54]                 ; =0x00000737
+  000016d2  02af         add r7, sp, #8                    
+  000016d4  0d46         mov r5, r1                        
+  000016d6  7844         add r0, pc                        
+  000016d8  0021         movs r1, #0                       
+  000016da  1446         mov r4, r2                        
+  000016dc  9846         mov r8, r3                        
+  000016de  d7f82090     ldr.w sb, [r7, #0x20]             
+  000016e2  fff71ced     blx #0x111c                         ; -> open
+  000016e6  3061         str r0, [r6, #0x10]               
+  000016e8  fff714ff     bl #0x1514                        
+  000016ec  fff746ee     blx #0x137c                         ; -> getpagesize
+  000016f0  0146         mov r1, r0                        
+  000016f2  4046         mov r0, r8                        
+  000016f4  fff7e0ed     blx #0x12b8                         ; -> __aeabi_uidivmod
+  000016f8  0122         movs r2, #1                       
+  000016fa  0020         movs r0, #0                       
+  000016fc  2960         str r1, [r5]                      
+  000016fe  3369         ldr r3, [r6, #0x10]               
+  00001700  0093         str r3, [sp]                      
+  00001702  c1eb0803     rsb r3, r1, r8                    
+  00001706  4944         add r1, sb                        
+  00001708  0193         str r3, [sp, #4]                  
+  0000170a  1346         mov r3, r2                        
+  0000170c  fff70ced     blx #0x1128                         ; -> mmap
+  00001710  2060         str r0, [r4]                      
+  00001712  2868         ldr r0, [r5]                      
+  00001714  fff7fefe     bl #0x1514                        
+  00001718  2068         ldr r0, [r4]                      
+  0000171a  07f10407     add.w r7, r7, #4                  
+  0000171e  bd46         mov sp, r7                        
+  00001720  bde8f043     pop.w {r4, r5, r6, r7, r8, sb, lr}
+  00001724  fff7f6be     b.w #0x1514                       
+  00001728  3707         lsls r7, r6, #0x1c                
+  0000172a  0000         movs r0, r0                       
+
+--- literal pool tail of function ---
+  0x000016f4  0xede0f7ff  
+  0x000016f8  0x20002201  
+  0x000016fc  0x69336029  
+  0x00001700  0xebc19300  
+  0x00001704  0x44490308  
+  0x00001708  0x46139301  
+  0x0000170c  0xed0cf7ff  
+  0x00001710  0x68286020  
+  0x00001714  0xfefef7ff  
+  0x00001718  0xf1076820  
+  0x0000171c  0x46bd0704  
+  0x00001720  0x43f0e8bd  
+  0x00001724  0xbef6f7ff  
+  0x00001728  0x00000737  
+====================================================================================================
+_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver7snd_msgEjjb  vaddr=0x18e2  size=140
+====================================================================================================
+  000018e2  2de9f041     push.w {r4, r5, r6, r7, r8, lr}   
+  000018e6  82b0         sub sp, #8                        
+  000018e8  00af         add r7, sp, #0                    
+  000018ea  1e46         mov r6, r3                        
+  000018ec  0c46         mov r4, r1                        
+  000018ee  0123         movs r3, #1                       
+  000018f0  9046         mov r8, r2                        
+  000018f2  391d         adds r1, r7, #4                   
+  000018f4  1046         mov r0, r2                        
+  000018f6  2822         movs r2, #0x28                    
+  000018f8  0025         movs r5, #0                       
+  000018fa  fff7a0ec     blx #0x123c                         ; -> osal_valloc_msg_wait
+  000018fe  7868         ldr r0, [r7, #4]                  
+  00001900  2146         mov r1, r4                        
+  00001902  fff785fd     bl #0x1410                        
+  00001906  7c68         ldr r4, [r7, #4]                  
+  00001908  ff20         movs r0, #0xff                    
+  0000190a  2423         movs r3, #0x24                    
+  0000190c  0246         mov r2, r0                        
+  0000190e  3146         mov r1, r6                        
+  00001910  2070         strb r0, [r4]                     
+  00001912  6080         strh r0, [r4, #2]                 
+  00001914  2081         strh r0, [r4, #8]                 
+  00001916  6081         strh r0, [r4, #0xa]               
+  00001918  6073         strb r0, [r4, #0xd]               
+  0000191a  e081         strh r0, [r4, #0xe]               
+  0000191c  2061         str r0, [r4, #0x10]               
+  0000191e  2062         str r0, [r4, #0x20]               
+  00001920  2073         strb r0, [r4, #0xc]               
+  00001922  6360         str r3, [r4, #4]                  
+  00001924  1c3b         subs r3, #0x1c                    
+  00001926  6670         strb r6, [r4, #1]                 
+  00001928  6361         str r3, [r4, #0x14]               
+  0000192a  40f20543     movw r3, #0x405                   
+  0000192e  6583         strh r5, [r4, #0x1a]              
+  00001930  2383         strh r3, [r4, #0x18]              
+  00001932  0346         mov r3, r0                        
+  00001934  fff70ffe     bl #0x1556                        
+  00001938  6088         ldrh r0, [r4, #2]                 
+  0000193a  2189         ldrh r1, [r4, #8]                 
+  0000193c  fff7fafd     bl #0x1534                        
+  00001940  e089         ldrh r0, [r4, #0xe]               
+  00001942  218b         ldrh r1, [r4, #0x18]              
+  00001944  fff7f6fd     bl #0x1534                        
+  00001948  2946         mov r1, r5                        
+  0000194a  608b         ldrh r0, [r4, #0x1a]              
+  0000194c  fff7f2fd     bl #0x1534                        
+  00001950  6068         ldr r0, [r4, #4]                  
+  00001952  fff7dffd     bl #0x1514                        
+  00001956  6069         ldr r0, [r4, #0x14]               
+  00001958  fff7dcfd     bl #0x1514                        
+  0000195c  4046         mov r0, r8                        
+  0000195e  7968         ldr r1, [r7, #4]                  
+  00001960  fff77eec     blx #0x1260                         ; -> osal_snd_msg
+  00001964  07f10807     add.w r7, r7, #8                  
+  00001968  bd46         mov sp, r7                        
+  0000196a  bde8f081     pop.w {r4, r5, r6, r7, r8, pc}    
+
+--- literal pool tail of function ---
+  0x00001936  0x8860fe0f  
+  0x0000193a  0xf7ff8921  
+  0x0000193e  0x89e0fdfa  
+  0x00001942  0xf7ff8b21  
+  0x00001946  0x4629fdf6  
+  0x0000194a  0xf7ff8b60  
+  0x0000194e  0x6860fdf2  
+  0x00001952  0xfddff7ff  
+  0x00001956  0xf7ff6960  
+  0x0000195a  0x4640fddc  
+  0x0000195e  0xf7ff6879  
+  0x00001962  0xf107ec7e  
+  0x00001966  0x46bd0708  
+  0x0000196a  0x81f0e8bd  
+====================================================================================================
+_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver6threadEPv  vaddr=0x1c8c  size=322
+====================================================================================================
+  00001c8c  2de9f043     push.w {r4, r5, r6, r7, r8, sb, lr}
+  00001c90  83b0         sub sp, #0xc                      
+  00001c92  0546         mov r5, r0                        
+  00001c94  00af         add r7, sp, #0                    
+  00001c96  8946         mov sb, r1                        
+  00001c98  391d         adds r1, r7, #4                   
+  00001c9a  4ff0ff32     mov.w r2, #-1                     
+  00001c9e  4846         mov r0, sb                        
+  00001ca0  fff7baea     blx #0x1218                         ; -> osal_rcv_msg_tmo
+  00001ca4  7b68         ldr r3, [r7, #4]                  
+  00001ca6  ff22         movs r2, #0xff                    
+  00001ca8  53f8043c     ldr r3, [r3, #-0x4]               
+  00001cac  6b60         str r3, [r5, #4]                  
+  00001cae  1346         mov r3, r2                        
+  00001cb0  8046         mov r8, r0                        
+  00001cb2  0220         movs r0, #2                       
+  00001cb4  0146         mov r1, r0                        
+  00001cb6  fff74efc     bl #0x1556                        
+  00001cba  6868         ldr r0, [r5, #4]                  
+  00001cbc  fff72afc     bl #0x1514                        
+  00001cc0  b8f1000f     cmp.w r8, #0                      
+  00001cc4  07d0         beq #0x1cd6                       
+  00001cc6  ff22         movs r2, #0xff                    
+  00001cc8  0220         movs r0, #2                       
+  00001cca  0321         movs r1, #3                       
+  00001ccc  1346         mov r3, r2                        
+  00001cce  fff742fc     bl #0x1556                        
+  00001cd2  4046         mov r0, r8                        
+  00001cd4  63e0         b #0x1d9e                         
+  00001cd6  7c68         ldr r4, [r7, #4]                  
+  00001cd8  2188         ldrh r1, [r4]                     
+  00001cda  6088         ldrh r0, [r4, #2]                 
+  00001cdc  fff72afc     bl #0x1534                        
+  00001ce0  6068         ldr r0, [r4, #4]                  
+  00001ce2  fff717fc     bl #0x1514                        
+  00001ce6  a068         ldr r0, [r4, #8]                  
+  00001ce8  fff714fc     bl #0x1514                        
+  00001cec  287e         ldrb r0, [r5, #0x18]              
+  00001cee  217b         ldrb r1, [r4, #0xc]               
+  00001cf0  627b         ldrb r2, [r4, #0xd]               
+  00001cf2  a37b         ldrb r3, [r4, #0xe]               
+  00001cf4  fff72ffc     bl #0x1556                        
+  00001cf8  2688         ldrh r6, [r4]                     
+  00001cfa  012e         cmp r6, #1                        
+  00001cfc  05d0         beq #0x1d0a                       
+  00001cfe  a6f10303     sub.w r3, r6, #3                  
+  00001d02  5e42         rsbs r6, r3, #0                   
+  00001d04  46eb0306     adc.w r6, r6, r3                  
+  00001d08  4ce0         b #0x1da4                         
+  00001d0a  617b         ldrb r1, [r4, #0xd]               
+  00001d0c  0629         cmp r1, #6                        
+  00001d0e  21d0         beq #0x1d54                       
+  00001d10  01d8         bhi #0x1d16                       
+  00001d12  91b1         cbz r1, #0x1d3a                   
+  00001d14  30e0         b #0x1d78                         
+  00001d16  0829         cmp r1, #8                        
+  00001d18  02d0         beq #0x1d20                       
+  00001d1a  2029         cmp r1, #0x20                     
+  00001d1c  2cd1         bne #0x1d78                       
+  00001d1e  19e0         b #0x1d54                         
+  00001d20  ff22         movs r2, #0xff                    
+  00001d22  0c20         movs r0, #0xc                     
+  00001d24  4146         mov r1, r8                        
+  00001d26  1346         mov r3, r2                        
+  00001d28  fff715fc     bl #0x1556                        
+  00001d2c  2146         mov r1, r4                        
+  00001d2e  2846         mov r0, r5                        
+  00001d30  fff7daea     blx #0x12e8                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver11linux_writeEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE
+  00001d34  0446         mov r4, r0                        
+  00001d36  0c20         movs r0, #0xc                     
+  00001d38  0ae0         b #0x1d50                         
+  00001d3a  ff22         movs r2, #0xff                    
+  00001d3c  0420         movs r0, #4                       
+  00001d3e  1346         mov r3, r2                        
+  00001d40  fff709fc     bl #0x1556                        
+  00001d44  2146         mov r1, r4                        
+  00001d46  2846         mov r0, r5                        
+  00001d48  fff772ea     blx #0x1230                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver10fsys_writeEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE
+  00001d4c  0446         mov r4, r0                        
+  00001d4e  0420         movs r0, #4                       
+  00001d50  3146         mov r1, r6                        
+  00001d52  0ce0         b #0x1d6e                         
+  00001d54  ff22         movs r2, #0xff                    
+  00001d56  0620         movs r0, #6                       
+  00001d58  0021         movs r1, #0                       
+  00001d5a  1346         mov r3, r2                        
+  00001d5c  fff7fbfb     bl #0x1556                        
+  00001d60  2146         mov r1, r4                        
+  00001d62  2846         mov r0, r5                        
+  00001d64  fff7f8ea     blx #0x1358                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver22fsys_write_phys_directEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE
+  00001d68  0121         movs r1, #1                       
+  00001d6a  0446         mov r4, r0                        
+  00001d6c  0620         movs r0, #6                       
+  00001d6e  ff22         movs r2, #0xff                    
+  00001d70  1346         mov r3, r2                        
+  00001d72  fff7f0fb     bl #0x1556                        
+  00001d76  00e0         b #0x1d7a                         
+  00001d78  0024         movs r4, #0                       
+  00001d7a  2046         mov r0, r4                        
+  00001d7c  fff7cafb     bl #0x1514                        
+  00001d80  2846         mov r0, r5                        
+  00001d82  4946         mov r1, sb                        
+  00001d84  6a68         ldr r2, [r5, #4]                  
+  00001d86  2346         mov r3, r4                        
+  00001d88  fff74cea     blx #0x1224                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver7snd_msgEjjb
+  00001d8c  0646         mov r6, r0                        
+  00001d8e  48b1         cbz r0, #0x1da4                   
+  00001d90  ff22         movs r2, #0xff                    
+  00001d92  0220         movs r0, #2                       
+  00001d94  0421         movs r1, #4                       
+  00001d96  1346         mov r3, r2                        
+  00001d98  fff7ddfb     bl #0x1556                        
+  00001d9c  3046         mov r0, r6                        
+  00001d9e  fff7b9fb     bl #0x1514                        
+  00001da2  79e7         b #0x1c98                         
+  00001da4  7968         ldr r1, [r7, #4]                  
+  00001da6  4846         mov r0, sb                        
+  00001da8  fff7eeea     blx #0x1388                         ; -> osal_free_msg
+  00001dac  ff22         movs r2, #0xff                    
+  00001dae  0220         movs r0, #2                       
+  00001db0  0621         movs r1, #6                       
+  00001db2  1346         mov r3, r2                        
+  00001db4  fff7cffb     bl #0x1556                        
+  00001db8  002e         cmp r6, #0                        
+  00001dba  3ff46daf     beq.w #0x1c98                     
+  00001dbe  fff768ea     blx #0x1290                         ; -> osal_exit_thread
+  00001dc2  0020         movs r0, #0                       
+  00001dc4  07f10c07     add.w r7, r7, #0xc                
+  00001dc8  bd46         mov sp, r7                        
+  00001dca  bde8f083     pop.w {r4, r5, r6, r7, r8, sb, pc}
+
+--- literal pool tail of function ---
+  0x00001d98  0xfbddf7ff  
+  0x00001d9c  0xf7ff4630  
+  0x00001da0  0xe779fbb9  
+  0x00001da4  0x46486879  
+  0x00001da8  0xeaeef7ff  
+  0x00001dac  0x200222ff  
+  0x00001db0  0x46132106  
+  0x00001db4  0xfbcff7ff  
+  0x00001db8  0xf43f2e00  
+  0x00001dbc  0xf7ffaf6d  
+  0x00001dc0  0x2000ea68  
+  0x00001dc4  0x070cf107  
+  0x00001dc8  0xe8bd46bd  
+  0x00001dcc  0x000083f0  
+====================================================================================================
+_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver11linux_writeEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE  vaddr=0x174c  size=200
+====================================================================================================
+  0000174c  2de9f043     push.w {r4, r5, r6, r7, r8, sb, lr}
+  00001750  99b0         sub sp, #0x64                     
+  00001752  0c46         mov r4, r1                        
+  00001754  02af         add r7, sp, #8                    
+  00001756  0546         mov r5, r0                        
+  00001758  4888         ldrh r0, [r1, #2]                 
+  0000175a  fff7dbfe     bl #0x1514                        
+  0000175e  6688         ldrh r6, [r4, #2]                 
+  00001760  a6b9         cbnz r6, #0x178c                  
+  00001762  2a4a         ldr r2, [pc, #0xa8]                 ; =0x000006f8
+  00001764  1621         movs r1, #0x16                    
+  00001766  2a4b         ldr r3, [pc, #0xa8]                 ; =0x000006aa 'osal_snd_sync_direct'
+  00001768  381d         adds r0, r7, #4                   
+  0000176a  7a44         add r2, pc                        
+  0000176c  7b44         add r3, pc                        
+  0000176e  fff7daed     blx #0x1324                         ; -> snprintf
+  00001772  381d         adds r0, r7, #4                   
+  00001774  2449         ldr r1, [pc, #0x90]                 ; =0x00080042
+  00001776  40f2ff12     movw r2, #0x1ff                   
+  0000177a  fff7d0ec     blx #0x111c                         ; -> open
+  0000177e  e860         str r0, [r5, #0xc]                
+  00001780  fff7c8fe     bl #0x1514                        
+  00001784  eb68         ldr r3, [r5, #0xc]                
+  00001786  002b         cmp r3, #0                        
+  00001788  0cda         bge #0x17a4                       
+  0000178a  36e0         b #0x17fa                         
+  0000178c  ff22         movs r2, #0xff                    
+  0000178e  0c20         movs r0, #0xc                     
+  00001790  0321         movs r1, #3                       
+  00001792  1346         mov r3, r2                        
+  00001794  fff7dffe     bl #0x1556                        
+  00001798  6088         ldrh r0, [r4, #2]                 
+  0000179a  0021         movs r1, #0                       
+  0000179c  0026         movs r6, #0                       
+  0000179e  fff7c9fe     bl #0x1534                        
+  000017a2  2ae0         b #0x17fa                         
+  000017a4  a368         ldr r3, [r4, #8]                  
+  000017a6  2846         mov r0, r5                        
+  000017a8  07f15401     add.w r1, r7, #0x54               
+  000017ac  07f15002     add.w r2, r7, #0x50               
+  000017b0  0093         str r3, [sp]                      
+  000017b2  6368         ldr r3, [r4, #4]                  
+  000017b4  fff7a4ed     blx #0x1300                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver8set_mmapEPjPPcmm
+  000017b8  7b6d         ldr r3, [r7, #0x54]               
+  000017ba  396d         ldr r1, [r7, #0x50]               
+  000017bc  a268         ldr r2, [r4, #8]                  
+  000017be  c918         adds r1, r1, r3                   
+  000017c0  e868         ldr r0, [r5, #0xc]                
+  000017c2  fff70ced     blx #0x11dc                         ; -> write
+  000017c6  fff7a5fe     bl #0x1514                        
+  000017ca  e868         ldr r0, [r5, #0xc]                
+  000017cc  fff7ecec     blx #0x11a8                         ; -> fsync
+  000017d0  8146         mov sb, r0                        
+  000017d2  fff79ffe     bl #0x1514                        
+  000017d6  e868         ldr r0, [r5, #0xc]                
+  000017d8  fff768ed     blx #0x12ac                         ; -> close
+  000017dc  8046         mov r8, r0                        
+  000017de  fff799fe     bl #0x1514                        
+  000017e2  2846         mov r0, r5                        
+  000017e4  396d         ldr r1, [r7, #0x50]               
+  000017e6  a268         ldr r2, [r4, #8]                  
+  000017e8  fff7d2ec     blx #0x1190                         ; -> _ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver10set_munmapEPcm
+  000017ec  b9f1000f     cmp.w sb, #0                      
+  000017f0  03d1         bne #0x17fa                       
+  000017f2  d8f10106     rsbs.w r6, r8, #1                 
+  000017f6  38bf         it lo                             
+  000017f8  0026         movlo r6, #0                      
+  000017fa  3046         mov r0, r6                        
+  000017fc  07f15c07     add.w r7, r7, #0x5c               
+  00001800  bd46         mov sp, r7                        
+  00001802  bde8f083     pop.w {r4, r5, r6, r7, r8, sb, pc}
+  00001806  00bf         nop                               
+  00001808  4200         lsls r2, r0, #1                   
+  0000180a  0800         movs r0, r1                       
+  0000180c  f806         lsls r0, r7, #0x1b                
+  0000180e  0000         movs r0, r0                       
+  00001810  aa06         lsls r2, r5, #0x1a                
+  00001812  0000         movs r0, r0                       
+
+--- literal pool tail of function ---
+  0x000017dc  0xf7ff4680  
+  0x000017e0  0x4628fe99  
+  0x000017e4  0x68a26d39  
+  0x000017e8  0xecd2f7ff  
+  0x000017ec  0x0f00f1b9  
+  0x000017f0  0xf1d8d103  
+  0x000017f4  0xbf380601  
+  0x000017f8  0x46302600  
+  0x000017fc  0x075cf107  
+  0x00001800  0xe8bd46bd  
+  0x00001804  0xbf0083f0  
+  0x00001808  0x00080042  
+  0x0000180c  0x000006f8  
+  0x00001810  0x000006aa  'osal_snd_sync_direct'

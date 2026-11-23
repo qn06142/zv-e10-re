@@ -1,0 +1,26 @@
+{
+  "status": "BUILT_OFFLINE_NOT_INSTALLED",
+  "camera_current_revision": "3.8",
+  "camera_access": false,
+  "revision": "3.9",
+  "change": "Up to 8 metadata read-pairs on the same transfer; at most 7 one-ms sleeps; every original final-pair gate preserved.",
+  "root_cause_fixed": false,
+  "working_camera_frames_verified": false,
+  "ownership_and_quarantine_unchanged": true,
+  "module_md5": "0fede3f034f6cfca755f9f678d73ffe8",
+  "wrapper_md5": "cc95285c2e789f186ab5b97c9ba11fcb",
+  "kernel_md5": "388799d95bbb524ca581c66b077b6dc2",
+  "verification": {
+    "worker_cases": 33,
+    "C_records_decoded": 18,
+    "ARM_frontend": 9,
+    "SDK_loader": 17,
+    "PIC_persistent": 11,
+    "installer_rollback": 14,
+    "instructions": 6212,
+    "NEON": 0
+  },
+  "package": "outputs\\vga-v39\\zve10-v39-bounded-metadata-settle.zip",
+  "bytes": 80703,
+  "sha256": "a483f78d407776dd2dffa24bb787b24eedb6772bf6e393e0e673caa173cd49c4"
+}

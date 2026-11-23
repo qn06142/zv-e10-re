@@ -1,0 +1,20 @@
+{
+  "original_function": "libObj.so+0x95d5cc",
+  "original_code_executed": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "recording_format_enum": 0,
+      "label": "VIDEO_BIT_DEPTH_8BIT"
+    },
+    {
+      "recording_format_enum": 1,
+      "label": "VIDEO_BIT_DEPTH_10BIT"
+    },
+    {
+      "recording_format_enum": 255,
+      "label": "VIDEO_BIT_DEPTH_INVALID"
+    }
+  ],
+  "limitation": "Recording-format enum names do not prove an active YC producer, pixel precision or identity with SSYC byte0x36."
+}

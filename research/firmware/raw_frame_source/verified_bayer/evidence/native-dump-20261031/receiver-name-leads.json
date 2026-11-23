@@ -1,0 +1,14 @@
+[
+  {
+    "address": "0x63f82247",
+    "text": "FW: [Debug] Cannot get raw area for MS_DUMP_RAW_PRELIGHT_LUMINUS."
+  },
+  {
+    "address": "0x63f82289",
+    "text": "FW: [Debug] Cannot get raw area for MS_DUMP_RAW_PRELIGHT_NONLUMINUS."
+  },
+  {
+    "address": "0x63f83eda",
+    "text": "FW: ## Error : cam_util_debug_file_write(%d) %s : %d"
+  }
+]

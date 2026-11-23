@@ -1,0 +1,170 @@
+{
+  "camera_access": false,
+  "original_Linux_instructions_executed": true,
+  "core_setter": "libmpr.so+0x5420dc",
+  "cached_field": "object+0x176c+channel*0x108",
+  "record_entry_helper": "libmpr.so+0x54917e",
+  "cases": [
+    {
+      "object_state": 3,
+      "requested_depth_enum": 0,
+      "channel_state": 1,
+      "returncode": 0,
+      "stored_word": 0
+    },
+    {
+      "object_state": 3,
+      "requested_depth_enum": 1,
+      "channel_state": 1,
+      "returncode": 0,
+      "stored_word": 1
+    },
+    {
+      "object_state": 4,
+      "requested_depth_enum": 1,
+      "channel_state": 5,
+      "returncode": 0,
+      "stored_word": 1
+    },
+    {
+      "object_state": 3,
+      "requested_depth_enum": 2,
+      "channel_state": 1,
+      "returncode": 0,
+      "stored_word": 2
+    },
+    {
+      "object_state": 3,
+      "requested_depth_enum": 3,
+      "channel_state": 1,
+      "returncode": 5,
+      "stored_word": 2779096485
+    },
+    {
+      "object_state": 2,
+      "requested_depth_enum": 1,
+      "channel_state": 1,
+      "returncode": 10,
+      "stored_word": 2779096485
+    },
+    {
+      "object_state": 3,
+      "requested_depth_enum": 1,
+      "channel_state": 0,
+      "returncode": 10,
+      "stored_word": 2779096485
+    },
+    {
+      "record_entry_content": 256,
+      "requested_depth_enum": 0,
+      "entry_depth_ec": 0,
+      "entry_color_e8": 7
+    },
+    {
+      "record_entry_content": 256,
+      "requested_depth_enum": 1,
+      "entry_depth_ec": 1,
+      "entry_color_e8": 7
+    },
+    {
+      "record_entry_content": 256,
+      "requested_depth_enum": 2,
+      "entry_depth_ec": 2,
+      "entry_color_e8": 7
+    },
+    {
+      "record_entry_content": 0,
+      "requested_depth_enum": 1,
+      "entry_depth_ec": 255,
+      "entry_color_e8": 255
+    }
+  ],
+  "RecStart_cache_copy_cases": [
+    {
+      "channel": 0,
+      "depth": 0,
+      "MovieRecParam_offset_6c": 0
+    },
+    {
+      "channel": 0,
+      "depth": 1,
+      "MovieRecParam_offset_6c": 1
+    },
+    {
+      "channel": 0,
+      "depth": 2,
+      "MovieRecParam_offset_6c": 2
+    },
+    {
+      "channel": 1,
+      "depth": 0,
+      "MovieRecParam_offset_6c": 0
+    },
+    {
+      "channel": 1,
+      "depth": 1,
+      "MovieRecParam_offset_6c": 1
+    },
+    {
+      "channel": 1,
+      "depth": 2,
+      "MovieRecParam_offset_6c": 2
+    },
+    {
+      "channel": 2,
+      "depth": 0,
+      "MovieRecParam_offset_6c": 0
+    },
+    {
+      "channel": 2,
+      "depth": 1,
+      "MovieRecParam_offset_6c": 1
+    },
+    {
+      "channel": 2,
+      "depth": 2,
+      "MovieRecParam_offset_6c": 2
+    },
+    {
+      "channel": 3,
+      "depth": 0,
+      "MovieRecParam_offset_6c": 0
+    },
+    {
+      "channel": 3,
+      "depth": 1,
+      "MovieRecParam_offset_6c": 1
+    },
+    {
+      "channel": 3,
+      "depth": 2,
+      "MovieRecParam_offset_6c": 2
+    }
+  ],
+  "codec_quality_original_cases": 252,
+  "public_quality_original_cases": 504,
+  "MPR_depth_names": [
+    {
+      "value": 0,
+      "label": "8bit"
+    },
+    {
+      "value": 1,
+      "label": "10bit"
+    },
+    {
+      "value": 2,
+      "label": "12bit"
+    },
+    {
+      "value": 3,
+      "label": "unknown"
+    }
+  ],
+  "limitations": [
+    "Context/channel states and inputs are controlled fixtures.",
+    "No external hardware or IPC is invoked by these core helpers.",
+    "Named 12-bit configuration support does not prove the active camera YC producer emits 12-bit samples.",
+    "A cached field or recorder-entry parameter does not by itself prove an ISP/YC producer change."
+  ]
+}

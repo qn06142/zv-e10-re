@@ -1,0 +1,224 @@
+{
+  "camera_access": false,
+  "original_ARM_instructions_executed": true,
+  "cases": [
+    {
+      "function": "acquire",
+      "claim": 0,
+      "alloc_error": 0,
+      "reserve_error": 0,
+      "rc": 0,
+      "calls": [
+        [
+          "reserve",
+          4
+        ],
+        [
+          "allocate_resource"
+        ]
+      ]
+    },
+    {
+      "function": "acquire",
+      "claim": 1,
+      "alloc_error": 0,
+      "reserve_error": 0,
+      "rc": 0,
+      "calls": [
+        [
+          "reserve",
+          4
+        ],
+        [
+          "claim",
+          3,
+          4
+        ],
+        [
+          "allocate_resource"
+        ]
+      ]
+    },
+    {
+      "function": "acquire",
+      "claim": 0,
+      "alloc_error": 1,
+      "reserve_error": 0,
+      "rc": 2,
+      "calls": [
+        [
+          "reserve",
+          4
+        ],
+        [
+          "allocate_resource"
+        ],
+        [
+          "undo_reserve",
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "function": "acquire",
+      "claim": 0,
+      "alloc_error": 0,
+      "reserve_error": 2,
+      "rc": 2,
+      "calls": [
+        [
+          "reserve",
+          4
+        ]
+      ]
+    },
+    {
+      "function": "acquire",
+      "claim": 1,
+      "alloc_error": 0,
+      "reserve_error": 2,
+      "rc": 2,
+      "calls": [
+        [
+          "reserve",
+          4
+        ]
+      ]
+    },
+    {
+      "function": "release",
+      "optional_handle": false,
+      "handle_release_failure": false,
+      "rc": 0,
+      "calls": [
+        [
+          "release_handle",
+          4352
+        ],
+        [
+          "release_handle",
+          4353
+        ],
+        [
+          "release_handle",
+          4354
+        ],
+        [
+          "release_handle",
+          4355
+        ],
+        [
+          "release_handle",
+          4356
+        ],
+        [
+          "release_resource",
+          4660
+        ],
+        [
+          "release_resource",
+          0
+        ],
+        [
+          "undo_reserve",
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "function": "release",
+      "optional_handle": true,
+      "handle_release_failure": false,
+      "rc": 0,
+      "calls": [
+        [
+          "release_handle",
+          4352
+        ],
+        [
+          "release_handle",
+          4353
+        ],
+        [
+          "release_handle",
+          4354
+        ],
+        [
+          "release_handle",
+          4355
+        ],
+        [
+          "release_handle",
+          4356
+        ],
+        [
+          "release_handle",
+          4357
+        ],
+        [
+          "release_resource",
+          4660
+        ],
+        [
+          "release_resource",
+          0
+        ],
+        [
+          "undo_reserve",
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "function": "release",
+      "optional_handle": true,
+      "handle_release_failure": true,
+      "rc": 2,
+      "calls": [
+        [
+          "release_handle",
+          4352
+        ],
+        [
+          "release_handle",
+          4353
+        ],
+        [
+          "release_handle",
+          4354
+        ],
+        [
+          "release_handle",
+          4355
+        ],
+        [
+          "release_handle",
+          4356
+        ],
+        [
+          "release_handle",
+          4357
+        ],
+        [
+          "release_resource",
+          4660
+        ],
+        [
+          "release_resource",
+          0
+        ],
+        [
+          "undo_reserve",
+          3,
+          4
+        ]
+      ]
+    }
+  ],
+  "limitations": [
+    "Resource service, lock and hardware callbacks are mocked. Tests establish call order, rollback and parameter offsets only; no sensor pixel capture or DMA completion is simulated."
+  ]
+}

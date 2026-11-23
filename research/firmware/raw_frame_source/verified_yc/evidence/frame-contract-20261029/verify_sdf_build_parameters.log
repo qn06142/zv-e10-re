@@ -1,0 +1,39 @@
+{
+  "camera_access": false,
+  "original_api_builder_executed_to": "0x636c6254",
+  "hardware_processing_executed": false,
+  "allocations_mocked": [
+    {
+      "address": "0x40080000",
+      "bytes": 332
+    },
+    {
+      "address": "0x40080150",
+      "bytes": 308
+    },
+    {
+      "address": "0x40080290",
+      "bytes": 136
+    },
+    {
+      "address": "0x40080320",
+      "bytes": 288
+    },
+    {
+      "address": "0x40080440",
+      "bytes": 576
+    }
+  ],
+  "dmm_span_resolution_mocked": true,
+  "source_compress": 1,
+  "destination_compress": 0,
+  "source_transfer": 1,
+  "destination_transfer": 1,
+  "source_iib": 0,
+  "destination_iib": 0,
+  "limitations": [
+    "Stops before hardware module processing; does not prove driver acceptance or output packing.",
+    "Span descriptors and addresses are mocked.",
+    "The normal API forces transfer=1 and iib_number=0 for both sides; transfer=1 is not evidence of completed ISP DMA."
+  ]
+}

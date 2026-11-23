@@ -1,0 +1,113 @@
+{
+  "camera_access": false,
+  "original_kernel_instructions_executed": true,
+  "kernel_md5": "15c8f7807b291c0af3c77fe55848577f",
+  "passed": 10,
+  "cases": [
+    {
+      "case": "unshareable_state_0",
+      "status": -1,
+      "native_status": -1,
+      "references_before": 1,
+      "references_after": 1,
+      "reply_hex": "0280ffff55171a610000ffff000b0e000000000000000000",
+      "reference_state_unchanged_on_failure": true,
+      "access_info_original_code": true
+    },
+    {
+      "case": "unshareable_state_4",
+      "status": -1,
+      "native_status": -1,
+      "references_before": 1,
+      "references_after": 1,
+      "reply_hex": "0280ffff55171a610000ffff000b0e000000000000000000",
+      "reference_state_unchanged_on_failure": true,
+      "access_info_original_code": true
+    },
+    {
+      "case": "saturated_reference_count",
+      "status": -1,
+      "native_status": -1,
+      "references_before": 255,
+      "references_after": 255,
+      "reply_hex": "0280ffff55171a610000ffff000b0e000000000000000000",
+      "reference_state_unchanged_on_failure": true,
+      "access_info_original_code": true
+    },
+    {
+      "case": "active_state_1",
+      "status": 0,
+      "native_status": 0,
+      "references_before": 1,
+      "references_after": 2,
+      "reply_hex": "0280000055171a6100000000000b0e000000000000000000",
+      "reference_state_unchanged_on_failure": false,
+      "access_info_original_code": true
+    },
+    {
+      "case": "active_state_2",
+      "status": 0,
+      "native_status": 0,
+      "references_before": 1,
+      "references_after": 2,
+      "reply_hex": "0280000055171a6100000000000b0e000000000000000000",
+      "reference_state_unchanged_on_failure": false,
+      "access_info_original_code": true
+    },
+    {
+      "case": "active_state_3",
+      "status": 0,
+      "native_status": 0,
+      "references_before": 1,
+      "references_after": 2,
+      "reply_hex": "0280000055171a6100000000000b0e000000000000000000",
+      "reference_state_unchanged_on_failure": false,
+      "access_info_original_code": true
+    },
+    {
+      "case": "maximum_successful_count",
+      "status": 0,
+      "native_status": 0,
+      "references_before": 254,
+      "references_after": 255,
+      "reply_hex": "0280000055171a6100000000000b0e000000000000000000",
+      "reference_state_unchanged_on_failure": false,
+      "access_info_original_code": true
+    },
+    {
+      "case": "wrong_type",
+      "status": -3,
+      "native_status": -3,
+      "references_before": 1,
+      "references_after": 1,
+      "reply_hex": "0280fdff55171a610000fdff000b0e000000000000000000",
+      "reference_state_unchanged_on_failure": true,
+      "access_info_original_code": true
+    },
+    {
+      "case": "stale_serial",
+      "status": -5,
+      "native_status": -517,
+      "references_before": 1,
+      "references_after": 1,
+      "reply_hex": "0280fbff55171a610000fbfd000b0e000000000000000000",
+      "reference_state_unchanged_on_failure": true,
+      "access_info_original_code": true
+    },
+    {
+      "case": "invalid_index",
+      "status": -5,
+      "native_status": -261,
+      "references_before": 1,
+      "references_after": 1,
+      "reply_hex": "0280fbffffff1a610000fbfe000b0e000000000000000000",
+      "reference_state_unchanged_on_failure": true,
+      "access_info_original_code": true
+    }
+  ],
+  "conclusion": "Captured native -1 is unshareable state or reference saturation; Share does not increment a reference on these failures.",
+  "limitations": [
+    "Clock/debug-table imports mocked; access-info function executed with zero attached extents.",
+    "Which rejection condition occurred on camera is not known."
+  ]
+}

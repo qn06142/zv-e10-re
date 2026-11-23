@@ -1,0 +1,24 @@
+{
+  "camera_access": false,
+  "actual_shell_scripts_executed": true,
+  "passed": [
+    "success_exact_wrapper_and_kernel_backups_dependency_first_three_file_install",
+    "default_rollback_restores_both_previous_files",
+    "bars_rollback_restores_stable_wrapper_and_original_kernel",
+    "loaded_rejected_before_remount",
+    "sdk_rejected_before_remount",
+    "space_rejected_before_remount",
+    "corrupt-module_rejected_before_remount",
+    "corrupt-kernel_rejected_before_remount",
+    "repeat_rejected_before_remount",
+    "fail-module_restores_both_files_and_attempts_read_only",
+    "fail-kernel_restores_both_files_and_attempts_read_only",
+    "fail-kernel-activation_restores_both_files_and_attempts_read_only",
+    "fail-activation_restores_both_files_and_attempts_read_only",
+    "fail-ro_restores_both_files_and_attempts_read_only"
+  ],
+  "limitations": [
+    "Busybox, mount, process listing and space helper mocked; no power-loss or hardware-filesystem emulation.",
+    "Firmware binary payloads copied and hash verified locally."
+  ]
+}

@@ -1,0 +1,93 @@
+--- v30/vga_resize.c
++++ v31/vga_resize.c
+@@ -38,7 +38,7 @@
+ static void trace(const char *tag,unsigned a,unsigned b,unsigned c){
+  char row[160];int n=snprintf(row,sizeof(row),"VGA %s %08x %08x %08x\n",tag,a,b,c);
+  if(n<=0 || (unsigned)n>=sizeof(row) || __sync_fetch_and_add(&trace_bytes,(unsigned)n)>65536u-(unsigned)n)return;
+- int fd=open("/log/yuy2_640_v30vga/vga.log",0x441,0644);
++ int fd=open("/log/yuy2_640_v31vga/vga.log",0x441,0644);
+  if(fd>=0){if(n>0 && (unsigned)n<sizeof(row))write(fd,row,(unsigned)n);close(fd);}
+ }
+ static void barrier(void){__sync_synchronize();}
+@@ -70,13 +70,31 @@
+ }
+ static int load_calls(void){
+  void *b=dlopen("libBizFw.so",6),*o=dlopen("libObj.so",6);
+- if(!b || !o)return -1;
++ if(!b || !o){trace("LIBRARY_LOAD_FAILED",!!b,!!o,0);return -1;}
+  for(unsigned i=0;i<VG_SDK_COUNT;i++){
+   sdk[i]=dlsym(b,vg_sdk_names[i]);
+-  if(!sdk[i] || memcmp((void *)((uintptr_t)sdk[i]&~(uintptr_t)1),vg_sdk_guards[i],16))return -1;
+- }
+- int fd=open("/proc/self/maps",0);if(fd<0)return -1;
+- int n=read(fd,listing,sizeof(listing)-1);close(fd);if(n<=0 || (unsigned)n>=sizeof(listing)-1)return -1;
++  if(!sdk[i]){trace("SDK_SYMBOL_MISSING",i,0,0);return -1;}
++  if(memcmp((void *)((uintptr_t)sdk[i]&~(uintptr_t)1),vg_sdk_guards[i],16)){trace("SDK_GUARD_MISMATCH",i,0,0);return -1;}
++ }
++ int fd=open("/proc/self/maps",0);if(fd<0){trace("MAPS_OPEN_FAILED",0,0,0);return -1;}
++ /* procfs seq_file reads may return a page-sized prefix before EOF. A short
++  * read is not EOF: libObj is beyond byte 14000 in the failed target maps.
++  * Reserve the terminator, read through EOF, and reject truncated input. */
++ unsigned n=0;int r=0;
++ while(n<sizeof(listing)-1){
++  r=read(fd,listing+n,sizeof(listing)-1-n);
++  if(r<=0)break;
++  if((unsigned)r>sizeof(listing)-1-n){close(fd);trace("MAPS_READ_INVALID",n,(unsigned)r,0);return -1;}
++  n+=(unsigned)r;
++ }
++ if(r<0){close(fd);trace("MAPS_READ_FAILED",n,0,0);return -1;}
++ if(n==sizeof(listing)-1){
++  unsigned char extra; r=read(fd,&extra,1);
++  if(r!=0){close(fd);trace("MAPS_TOO_LARGE",n,0,0);return -1;}
++ }
++ close(fd);
++ if(!n){trace("MAPS_EMPTY",0,0,0);return -1;}
++ trace("MAPS_READ",n,0,0);
+  listing[n]=0;unsigned base=0;char *p=(char *)listing;
+  struct region {unsigned lo,hi;} readable[128];unsigned regions=0;
+  while(*p){char *end=p;while(*end && *end!='\n')end++;char saved=*end;*end=0;
+@@ -90,21 +108,21 @@
+   }
+   *end=saved;if(!saved)break;p=end+1;
+  }
+- if(!base)return -1;
++ if(!base){trace("OBJ_MAPPING_MISSING",n,regions,0);return -1;}
+  for(unsigned i=0;i<VG_OBJ_COUNT;i++){
+-  if(vg_obj_offsets[i]>0xffffffffu-base-16)return -1;
++  if(base>0xffffffffu-16 || vg_obj_offsets[i]>0xffffffffu-base-16){trace("OBJ_ADDRESS_OVERFLOW",i,base,0);return -1;}
+   unsigned address=base+vg_obj_offsets[i],valid=0;
+   for(unsigned j=0;j<regions;j++)if(address>=readable[j].lo && address+16<=readable[j].hi)valid=1;
+-  if(!valid)return -1;
++  if(!valid){trace("OBJ_RANGE_MISMATCH",i,address,regions);return -1;}
+   obj[i]=(void *)(uintptr_t)(address+1);
+-  if(memcmp((void *)(uintptr_t)address,vg_obj_guards[i],16))return -1;
++  if(memcmp((void *)(uintptr_t)address,vg_obj_guards[i],16)){trace("OBJ_GUARD_MISMATCH",i,address,0);return -1;}
+  }
+  /* Lazy initialization, after all guards passed, on the private worker only. */
+  ((void (*)(void *,unsigned short))sdk[VG_DMM_CTOR])(dmm,0x35);
+  ((void (*)(void *,unsigned short))sdk[VG_SDF_CTOR])(sdf,0x35);
+  ((void (*)(void *))obj[VG_ALLOC_CTOR])(allocator);
+  unsigned dq,sq,aq;memcpy(&dq,dmm+4,4);memcpy(&sq,sdf+4,4);memcpy(&aq,allocator+8,4);
+- if(!dq || !sq || !aq)return -1;
++ if(!dq || !sq || !aq){trace("QUEUE_INIT_FAILED",dq,sq,aq);return -1;}
+  trace("QUEUES",dq,sq,aq);
+  return 0;
+ }
+@@ -253,7 +271,7 @@
+   __atomic_store_n(&shared_fault,1,__ATOMIC_RELEASE);return -1;
+  }
+  if(freeze_input(source,pixels))return -1;
+- if(!generation)evidence("/log/yuy2_640_v30vga/input-ssyc.bin",input_mapping.bytes,input_sds.bytes);
++ if(!generation)evidence("/log/yuy2_640_v31vga/input-ssyc.bin",input_mapping.bytes,input_sds.bytes);
+  memcpy(command+0x18,&input_sds.type,4);memcpy(command+0x1c,&input_sds.handle,2);
+  command[0x25]=1;memcpy(command+0x38,&destination_sds.type,4);memcpy(command+0x3c,&destination_sds.handle,2);
+  trace("RESIZE",input_sds.handle,destination_sds.handle,generation);
+@@ -285,7 +303,7 @@
+   if(vga_destination_contract(&m,outpixels.ref.bytes,outpixels.ref.handle)){__atomic_store_n(&shared_fault,1,__ATOMIC_RELEASE);trace("DEST_FORMAT_REJECTED",m.yc_compress,m.canvas_size_x,m.canvas_size_y);break;}
+   if(!generation){
+    trace("DEST_FLAGS",m.yc_compress,(m.data_placement<<24)|(m.data_content<<16)|(m.data_scan<<8)|m.yc_bit_depth,m.strip_width);
+-   evidence("/log/yuy2_640_v30vga/destination-ssyc.bin",outmeta.map.bytes,outmeta.ref.bytes);
++   evidence("/log/yuy2_640_v31vga/destination-ssyc.bin",outmeta.map.bytes,outmeta.ref.bytes);
+   }
+   if(!__sync_lock_test_and_set(&lock,1)){
+    memcpy(published,outpixels.map.bytes+m.unit_data_offset,VGA_BYTES);

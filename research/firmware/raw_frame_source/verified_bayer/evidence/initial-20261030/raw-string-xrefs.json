@@ -1,0 +1,212 @@
+[
+  {
+    "load": "0x638f2050",
+    "add": "0x638f2054",
+    "literal": "0x638f2460",
+    "target": "0x63f802d1",
+    "string": "FW: Error! sa_func_DUALREC_BAYER_acquire %d"
+  },
+  {
+    "load": "0x638f2312",
+    "add": "0x638f2316",
+    "literal": "0x638f2490",
+    "target": "0x63f8044f",
+    "string": "FW: Error! sa_func_DUALREC_BAYER_start %d %08X"
+  },
+  {
+    "load": "0x638f2356",
+    "add": "0x638f235a",
+    "literal": "0x638f249c",
+    "target": "0x63f8047e",
+    "string": "FW: %s: DUALREC_BAYER_start_mbx.cha_mbx0 = 0x%x"
+  },
+  {
+    "load": "0x638f2364",
+    "add": "0x638f2368",
+    "literal": "0x638f24a4",
+    "target": "0x63f804ae",
+    "string": "FW: %s: DUALREC_BAYER_start_mbx.cha_mbx1 = 0x%x"
+  },
+  {
+    "load": "0x638f2372",
+    "add": "0x638f2376",
+    "literal": "0x638f24ac",
+    "target": "0x63f804de",
+    "string": "FW: %s: DUALREC_BAYER_start_mbx.cha_mbx2 = 0x%08x"
+  },
+  {
+    "load": "0x638f2380",
+    "add": "0x638f2384",
+    "literal": "0x638f24b4",
+    "target": "0x63f80510",
+    "string": "FW: %s: DUALREC_BAYER_start_mbx.cha_mbx3 = 0x%x"
+  },
+  {
+    "load": "0x639242cc",
+    "add": "0x639242ce",
+    "literal": "0x639245b0",
+    "target": "0x63f89290",
+    "string": "FW: 4KSuperSlowMotion[Buffering] error: SYNC_RAW_OUTPUT_SIZE=%d (enum)"
+  },
+  {
+    "load": "0x6392430c",
+    "add": "0x6392430e",
+    "literal": "0x639245b8",
+    "target": "0x63f8931c",
+    "string": "FW: 4KSuperSlowMotion[Transfer] error: SYNC_RAW_OUTPUT_SIZE=%d (enum)"
+  },
+  {
+    "load": "0x6398d91c",
+    "add": "0x6398d91e",
+    "literal": "0x6398d9f4",
+    "target": "0x63fa1eca",
+    "string": "/usr/sabin/dcv_psf_table_movie_bayer.bin"
+  },
+  {
+    "load": "0x6398d9a4",
+    "add": "0x6398d9a6",
+    "literal": "0x6398da14",
+    "target": "0x63fa1eca",
+    "string": "/usr/sabin/dcv_psf_table_movie_bayer.bin"
+  },
+  {
+    "load": "0x6398df70",
+    "add": "0x6398df72",
+    "literal": "0x6398e0ac",
+    "target": "0x63f98d1a",
+    "string": "YC: SetMakerNotePreDcv(BAYER): job_YC_GetTagPointer error: 0x%x"
+  },
+  {
+    "load": "0x6398e020",
+    "add": "0x6398e026",
+    "literal": "0x6398e0b4",
+    "target": "0x63f98d5a",
+    "string": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): ctrl_mode    = 0x%x"
+  },
+  {
+    "load": "0x6398e02c",
+    "add": "0x6398e032",
+    "literal": "0x6398e0b8",
+    "target": "0x63f98d98",
+    "string": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): coring_off   = 0x%x"
+  },
+  {
+    "load": "0x6398e038",
+    "add": "0x6398e03e",
+    "literal": "0x6398e0bc",
+    "target": "0x63f98dd6",
+    "string": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): gainmap_off  = 0x%x"
+  },
+  {
+    "load": "0x6398e044",
+    "add": "0x6398e04a",
+    "literal": "0x6398e0c0",
+    "target": "0x63f98e14",
+    "string": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): zoom_pos     = 0x%x"
+  },
+  {
+    "load": "0x6398e050",
+    "add": "0x6398e056",
+    "literal": "0x6398e0c4",
+    "target": "0x63f98e52",
+    "string": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): focus_pos    = 0x%x"
+  },
+  {
+    "load": "0x6398e05c",
+    "add": "0x6398e062",
+    "literal": "0x6398e0c8",
+    "target": "0x63f98e90",
+    "string": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): iris_pos     = 0x%x"
+  },
+  {
+    "load": "0x6399b95c",
+    "add": "0x6399b962",
+    "literal": "0x6399be04",
+    "target": "0x63f9a1ee",
+    "string": "YC: calcMovBayerSetParam: SetterValidBayer = %d, IsSplit = %d"
+  },
+  {
+    "load": "0x63b322d4",
+    "add": "0x63b322d8",
+    "literal": "0x63b32338",
+    "target": "0x63fe05d6",
+    "string": "sa_func_DUALREC_BAYER_acquire"
+  },
+  {
+    "load": "0x63b322f8",
+    "add": "0x63b322fc",
+    "literal": "0x63b32340",
+    "target": "0x63fe05d6",
+    "string": "sa_func_DUALREC_BAYER_acquire"
+  },
+  {
+    "load": "0x63b32372",
+    "add": "0x63b32376",
+    "literal": "0x63b32488",
+    "target": "0x63fe0612",
+    "string": "sa_func_DUALREC_BAYER_exit"
+  },
+  {
+    "load": "0x63b3238e",
+    "add": "0x63b32392",
+    "literal": "0x63b32490",
+    "target": "0x63fe0612",
+    "string": "sa_func_DUALREC_BAYER_exit"
+  },
+  {
+    "load": "0x63b323a6",
+    "add": "0x63b323aa",
+    "literal": "0x63b32498",
+    "target": "0x63fe0612",
+    "string": "sa_func_DUALREC_BAYER_exit"
+  },
+  {
+    "load": "0x63b323be",
+    "add": "0x63b323c2",
+    "literal": "0x63b324a0",
+    "target": "0x63fe0612",
+    "string": "sa_func_DUALREC_BAYER_exit"
+  },
+  {
+    "load": "0x63b323d8",
+    "add": "0x63b323dc",
+    "literal": "0x63b324a8",
+    "target": "0x63fe0612",
+    "string": "sa_func_DUALREC_BAYER_exit"
+  },
+  {
+    "load": "0x63b323fa",
+    "add": "0x63b323fe",
+    "literal": "0x63b324b0",
+    "target": "0x63fe0612",
+    "string": "sa_func_DUALREC_BAYER_exit"
+  },
+  {
+    "load": "0x63b32408",
+    "add": "0x63b3240c",
+    "literal": "0x63b324b4",
+    "target": "0x63fdf1e2",
+    "string": "FW: %s: `sa_func_DUALREC_BAYER_exit' error"
+  },
+  {
+    "load": "0x63b3240a",
+    "add": "0x63b3240e",
+    "literal": "0x63b324b8",
+    "target": "0x63fe05f4",
+    "string": "sa_func_DUALREC_BAYER_release"
+  },
+  {
+    "load": "0x63b32422",
+    "add": "0x63b32426",
+    "literal": "0x63b324c0",
+    "target": "0x63fe05f4",
+    "string": "sa_func_DUALREC_BAYER_release"
+  },
+  {
+    "load": "0x63b3243e",
+    "add": "0x63b32442",
+    "literal": "0x63b324cc",
+    "target": "0x63fe05f4",
+    "string": "sa_func_DUALREC_BAYER_release"
+  }
+]

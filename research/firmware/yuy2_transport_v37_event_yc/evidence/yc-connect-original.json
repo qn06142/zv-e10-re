@@ -1,0 +1,57 @@
+{
+  "camera_access": false,
+  "original_request_connect_executed": true,
+  "remote_output": [
+    0,
+    2,
+    0,
+    5832718
+  ],
+  "private_receiver": [
+    0,
+    1,
+    2147483447,
+    3498274
+  ],
+  "cases": [
+    {
+      "initial_state": 0,
+      "return_signed": -25,
+      "peer_after": [
+        0,
+        1,
+        0,
+        5701712
+      ],
+      "state_after": 0,
+      "sends": [
+        {
+          "destination": "0x356122",
+          "packet": "001001801c0002000000000002000000000000000e005900e7ffffff"
+        }
+      ]
+    },
+    {
+      "initial_state": 1,
+      "return_signed": 0,
+      "peer_after": [
+        0,
+        1,
+        2147483447,
+        3498274
+      ],
+      "state_after": 2,
+      "sends": [
+        {
+          "destination": "0x356122",
+          "packet": "00100001280001000000000002000000000000000e005900000000000100000037ffff7f22613500"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Queue IDs and initial peer are controlled fixtures, not current live camera routes.",
+    "RequestConnect only refuses a busy peer when its type/direction/index differ; changing queue alone is NOT safe.",
+    "Private index is deliberate local identity, not an existing Sony endpoint. Free output still needs active frame production and a completed handshake."
+  ]
+}

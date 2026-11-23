@@ -1,0 +1,89 @@
+{
+  "camera_access": false,
+  "original_Sony_instructions_executed": true,
+  "category2_wire_bytes": 32,
+  "category2_logical_payload_bytes": 28,
+  "getters": {
+    "GetData_CreateStartTiming": {
+      "symbol": "_ZN37C_DataflowInfra_Entry_ImageOutTimInfo25GetData_CreateStartTimingEPN19DataflowInfra_StdYc27PIN_YC_IMAGE_OUT_CREATE_TIME",
+      "bytes": 8,
+      "hex": "7919000000000000",
+      "words": [
+        6521,
+        0
+      ]
+    },
+    "GetData_DataTransTiming": {
+      "symbol": "_ZN37C_DataflowInfra_Entry_ImageOutTimInfo23GetData_DataTransTimingEPN19DataflowInfra_StdYc26PIN_YC_IMAGE_OUT_TRANS_TIME",
+      "bytes": 12,
+      "hex": "7c1900000100000000000000",
+      "words": [
+        6524,
+        1,
+        0
+      ]
+    },
+    "GetData_Id": {
+      "symbol": "_ZN37C_DataflowInfra_Entry_ImageOutTimInfo10GetData_IdEPj",
+      "bytes": 4,
+      "hex": "00760000",
+      "words": [
+        30208
+      ]
+    },
+    "GetData_RecordingState": {
+      "symbol": "_ZN37C_DataflowInfra_Entry_ImageOutTimInfo22GetData_RecordingStateEPh",
+      "bytes": 1,
+      "hex": "00",
+      "words": [
+        0
+      ]
+    },
+    "GetData_MainStreamStartTrigger": {
+      "symbol": "_ZN37C_DataflowInfra_Entry_ImageOutTimInfo30GetData_MainStreamStartTriggerEPh",
+      "bytes": 1,
+      "hex": "00",
+      "words": [
+        0
+      ]
+    },
+    "GetData_MainStreamStopTrigger": {
+      "symbol": "_ZN37C_DataflowInfra_Entry_ImageOutTimInfo29GetData_MainStreamStopTriggerEPh",
+      "bytes": 1,
+      "hex": "00",
+      "words": [
+        0
+      ]
+    },
+    "GetData_All": {
+      "symbol": "_ZN37C_DataflowInfra_Entry_ImageOutTimInfo11GetData_AllEPN19DataflowInfra_StdYc25PIN_YC_IMAGE_OUT_TIM_INFOE",
+      "bytes": 28,
+      "hex": "79190000000000007c19000001000000000000000076000000000000",
+      "words": [
+        6521,
+        0,
+        6524,
+        1,
+        0,
+        30208,
+        0
+      ]
+    }
+  },
+  "native_pin": {
+    "constructor": "libObj.so+0x6f5958 Thumb",
+    "rtti_name": "N9dmpNative6YC1PinE",
+    "property_words": [
+      1,
+      3,
+      1,
+      8388667
+    ],
+    "send_method": "libObj.so+0x6f5a38 calls DataflowInfraPin::Send",
+    "conclusion": "This object exposes an outgoing Send path; constructor alone does not establish a frame-receive subscription."
+  },
+  "limitations": [
+    "Getter names/layout do not prove VSYNC completion, monotonicity or a pixel lifetime lease.",
+    "Timing units and semantics of the three transfer words remain unresolved."
+  ]
+}

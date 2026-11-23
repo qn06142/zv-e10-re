@@ -1,0 +1,32 @@
+[
+  {
+    "name": "sa_func_DUALREC_BAYER_acquire",
+    "offset": "0x9ba2dc",
+    "address": "0x63f802dc"
+  },
+  {
+    "name": "sa_func_DUALREC_BAYER_acquire",
+    "offset": "0xa1a5d6",
+    "address": "0x63fe05d6"
+  },
+  {
+    "name": "sa_func_DUALREC_BAYER_release",
+    "offset": "0xa1a5f4",
+    "address": "0x63fe05f4"
+  },
+  {
+    "name": "ShareMem_StlRaw8",
+    "offset": "0x9b5a7e",
+    "address": "0x63f7ba7e"
+  },
+  {
+    "name": "DFE_0_STORE_RAW",
+    "offset": "0x9c2d79",
+    "address": "0x63f88d79"
+  },
+  {
+    "name": "DFE_SET_RAWB",
+    "offset": "0x9b4a54",
+    "address": "0x63f7aa54"
+  }
+]

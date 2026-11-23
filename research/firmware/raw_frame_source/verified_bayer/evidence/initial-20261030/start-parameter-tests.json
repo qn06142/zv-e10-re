@@ -1,0 +1,29 @@
+{
+  "original_instructions": true,
+  "entry": "0x63b324d4",
+  "stopped_before_hardware": true,
+  "events": [
+    {
+      "handle": 258
+    },
+    {
+      "handle": 256
+    },
+    {
+      "handle": 257
+    },
+    {
+      "handle": 259
+    },
+    {
+      "handle": 260
+    },
+    {
+      "stop": "before shared hardware submission",
+      "state_hex": "00000000000000210000012100000221000000000000000000000000000000000000032100000000000000000000000000000000000000000030002100380021004400210048002100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000421000000000000000000000000"
+    }
+  ],
+  "limitations": [
+    "Handle resolution/resource lookup mocked. Field dimensions are chosen fixture values; neither accepted sensor mode nor Bayer packing is proven."
+  ]
+}

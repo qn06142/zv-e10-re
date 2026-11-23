@@ -1,0 +1,181 @@
+{
+ "mocked": false,
+ "limitations": "static disassembly/xref only; no execution; function roles inferred from RTTI/log strings",
+ "firmware_md5": "cdcae9d4fdbf66a33704a4c7564e346d",
+ "vdf_vtables": {
+  "SystemCmdPinConnect": [
+   {
+    "typeinfo": "0x645b3fac",
+    "vtable": "0x645853e8",
+    "slots": [
+     "0x637479cd",
+     "0x63cfab8f",
+     "0x63721d99",
+     "0x63cfb2ad",
+     "0x63cfb29b",
+     "0x6374990d",
+     "0x0",
+     "0x645b3fcc",
+     "0x637479ad",
+     "0x63cfab7d",
+     "0x63721d99",
+     "0x63cfb2db"
+    ]
+   }
+  ],
+  "SystemCmdPinRequestConnect": [
+   {
+    "typeinfo": "0x645b3fcc",
+    "vtable": "0x64585408",
+    "slots": [
+     "0x637479ad",
+     "0x63cfab7d",
+     "0x63721d99",
+     "0x63cfb2db",
+     "0x63cfb2bd",
+     "0x637499f1",
+     "0x0",
+     "0x645b3fd8",
+     "0x637479ed",
+     "0x63cfaba1",
+     "0x63721d99",
+     "0x63749b29"
+    ]
+   }
+  ],
+  "SystemCmdPinDisconnect": [
+   {
+    "typeinfo": "0x645b38e4",
+    "vtable": "0x64584f68",
+    "slots": [
+     "0x637474f5",
+     "0x63cfa8e5",
+     "0x63721d99",
+     "0x63cfa8d5",
+     "0x63cfa8c3",
+     "0x63747515",
+     "0x0",
+     "0x645b38f0",
+     "0x637475b9",
+     "0x63cfa919",
+     "0x63721d99",
+     "0x63cfa909"
+    ]
+   }
+  ],
+  "SystemCmdPinRequestDisconnect": [
+   {
+    "typeinfo": "0x645b3908",
+    "vtable": "0x64584fc8",
+    "slots": [
+     "0x637476a5",
+     "0x63cfa9af",
+     "0x63721d99",
+     "0x63cfa9a1",
+     "0x63cfa983",
+     "0x637476c5",
+     "0x0",
+     "0x645b3914",
+     "0x63747819",
+     "0x63cfa9e3",
+     "0x63721d99",
+     "0x63cfa9d3"
+    ]
+   }
+  ],
+  "SystemCmdPinSend": [
+   {
+    "typeinfo": "0x645b3fd8",
+    "vtable": "0x64585428",
+    "slots": [
+     "0x637479ed",
+     "0x63cfaba1",
+     "0x63721d99",
+     "0x63749b29",
+     "0x63cfb2e9",
+     "0x6374a4bd",
+     "0x0",
+     "0x645b4074",
+     "0x6374798d",
+     "0x63cfab6b",
+     "0x63721d99",
+     "0x6374ae69"
+    ]
+   }
+  ],
+  "SystemCmdPinConnectComp": [
+   {
+    "typeinfo": "0x645b38d8",
+    "vtable": "0x64584f48",
+    "slots": [
+     "0x637474d5",
+     "0x63cfa88b",
+     "0x63721d99",
+     "0x63cfa87b",
+     "0x63cfa869",
+     "0x63cfa89d",
+     "0x0",
+     "0x645b38e4",
+     "0x637474f5",
+     "0x63cfa8e5",
+     "0x63721d99",
+     "0x63cfa8d5"
+    ]
+   }
+  ],
+  "SystemCmdPinGet": [
+   {
+    "typeinfo": "0x645b38fc",
+    "vtable": "0x64584fa8",
+    "slots": [
+     "0x637475d9",
+     "0x63cfa971",
+     "0x63721d99",
+     "0x63cfa963",
+     "0x63cfa951",
+     "0x637475f9",
+     "0x0",
+     "0x645b3908",
+     "0x637476a5",
+     "0x63cfa9af",
+     "0x63721d99",
+     "0x63cfa9a1"
+    ]
+   }
+  ]
+ },
+ "string_xrefs": {
+  "McPinMain::ExecDisconnectComp": [
+   "0x6364cb48"
+  ],
+  "McPinMain::ExecRequestConnect": [
+   "0x6364cfaa"
+  ],
+  "McPinMain::ExecRequestDisconnect": [
+   "0x6364ce70"
+  ],
+  "McPinMain::ExecConnectComp": [
+   "0x6364cc6c"
+  ],
+  "McPinMain::ExecConnect": [
+   "0x6364cd5e"
+  ],
+  "McPinMain::ExecDisconnect": [
+   "0x6364cbf8"
+  ],
+  "CdYCPinSender::SendYCPin": [
+   "0x63647422",
+   "0x63647464",
+   "0x636474be",
+   "0x636474fa",
+   "0x63647540",
+   "0x636475ae"
+  ],
+  "CdSeqCtrlEnc::SendYCPinConnect": [
+   "0x6364647c"
+  ],
+  "CdSeqCtrlEncIf::ExecYCPinConnectComp": [
+   "0x63646c34"
+  ]
+ }
+}

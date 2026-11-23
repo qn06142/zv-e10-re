@@ -1,0 +1,1056 @@
+
+_ZN16DataflowInfraPin12GetTargetPinEPN19DefDataflowInfraPin12PIN_PROPERTYE @0x220c8
+000220c8: push      {r3, r4, r7, lr} 
+000220ca: mov       r4, r1 
+000220cc: add       r7, sp, #0 
+000220ce: cbnz      r1, #0x220e4 
+000220d0: ldr       r0, [pc, #0x1c] 
+000220d2: movw      r1, #0x272 
+000220d6: mvn       r2, #0x19 
+000220da: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+000220de: mvn       r0, #0x19 
+000220e2: pop       {r3, r4, r7, pc} 
+000220e4: adds      r0, #8 
+000220e6: ldm       r0, {r0, r1, r2, r3} 
+000220e8: stm.w     r4, {r0, r1, r2, r3} 
+000220ec: movs      r0, #0 
+000220ee: pop       {r3, r4, r7, pc} 
+000220f0: ldr       r1, [pc, #0x140] 
+000220f2: movs      r0, #0x4e 
+
+_ZN16DataflowInfraPinD0Ev @0x218e0
+000218e0: push      {r3, r4, r7, lr} 
+000218e2: mov       r4, r0 
+000218e4: add       r7, sp, #0 
+000218e6: blx       #0x20240 _ZN16DataflowInfraPinD1Ev
+000218ea: mov       r0, r4 
+000218ec: blx       #0x20174 _ZdlPv
+000218f0: mov       r0, r4 
+000218f2: pop       {r3, r4, r7, pc} 
+
+_ZN16DataflowInfraPin7ConnectEPK16_MSG_PIN_CONNECT @0x22158
+00022158: push      {r4, r5, r6, r7, lr} 
+0002215a: sub.w     sp, sp, #0x25c 
+0002215e: mov       r4, r0 
+00022160: add       r7, sp, #8 
+00022162: mov       r5, r1 
+00022164: add.w     r0, r7, #0x114 
+00022168: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+0002216c: ldr       r3, [r4, #0x28] 
+0002216e: cmp       r3, #0 
+00022170: beq.w     #0x22280 
+00022174: cmp       r3, #2 
+00022176: beq.w     #0x22286 
+0002217a: mov       r0, r4 
+0002217c: add.w     r1, r5, #8 
+00022180: blx       #0x20368 _ZN16DataflowInfraPin17CheckConnectParamEPKN19DefDataflowInfraPin12PIN_PROPERTYE
+00022184: mov       r6, r0 
+00022186: cbnz      r0, #0x221ea 
+00022188: adds      r0, r7, #4 
+0002218a: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+0002218e: add.w     r0, r7, #0x224 
+00022192: blx       #0x20454 _ZN21_MSG_PIN_CONNECT_COMPC1Ev
+00022196: add.w     r3, r5, #8 
+0002219a: add.w     lr, r7, #0x22c 
+0002219e: ldm       r3, {r0, r1, r2, r3} 
+000221a0: stm.w     lr, {r0, r1, r2, r3} 
+000221a4: add.w     r3, r4, #0x18 
+000221a8: add.w     lr, r7, #0x23c 
+000221ac: ldm       r3, {r0, r1, r2, r3} 
+000221ae: stm.w     lr, {r0, r1, r2, r3} 
+000221b2: adds      r0, r7, #4 
+000221b4: add.w     r1, r7, #0x224 
+000221b8: movs      r2, #0x2c 
+000221ba: movs      r3, #0 
+000221bc: str.w     r3, [r7, #0x24c] 
+000221c0: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+000221c4: adds      r0, r7, #4 
+000221c6: ldr       r1, [r4, #0x24] 
+000221c8: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+000221cc: ldr       r0, [r4, #4] 
+000221ce: adds      r2, r7, #4 
+000221d0: ldr       r1, [r5, #0x14] 
+000221d2: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+000221d6: add.w     r3, r5, #8 
+000221da: add.w     lr, r4, #8 
+000221de: ldm       r3, {r0, r1, r2, r3} 
+000221e0: stm.w     lr, {r0, r1, r2, r3} 
+000221e4: movs      r3, #0 
+000221e6: str       r3, [r4, #0x28] 
+000221e8: b         #0x22236 
+000221ea: adds      r0, r7, #4 
+000221ec: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+000221f0: add.w     r0, r7, #0x224 
+000221f4: blx       #0x20454 _ZN21_MSG_PIN_CONNECT_COMPC1Ev
+000221f8: add.w     r3, r5, #8 
+000221fc: add.w     lr, r7, #0x22c 
+00022200: str.w     r6, [r7, #0x24c] 
+00022204: ldm       r3, {r0, r1, r2, r3} 
+00022206: stm.w     lr, {r0, r1, r2, r3} 
+0002220a: add.w     r3, r4, #0x18 
+0002220e: add.w     lr, r7, #0x23c 
+00022212: ldm       r3, {r0, r1, r2, r3} 
+00022214: stm.w     lr, {r0, r1, r2, r3} 
+00022218: adds      r0, r7, #4 
+0002221a: add.w     r1, r7, #0x224 
+0002221e: movs      r2, #0x2c 
+00022220: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+00022224: adds      r0, r7, #4 
+00022226: ldr       r1, [r4, #0x24] 
+00022228: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+0002222c: ldr       r0, [r4, #4] 
+0002222e: adds      r2, r7, #4 
+00022230: ldr       r1, [r5, #0x14] 
+00022232: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+00022236: adds      r0, r7, #4 
+00022238: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+0002223c: ldr       r3, [r4, #0x28] 
+0002223e: movs      r0, #2 
+00022240: ldr       r1, [r5, #0x14] 
+00022242: add.w     r2, r4, #0x18 
+00022246: str       r6, [sp] 
+00022248: str       r3, [sp, #4] 
+0002224a: add.w     r3, r5, #8 
+0002224e: blx       #0x20134 _ZN16DataflowInfraLog10Setlog_pinEjjPKN19DefDataflowInfraPin12PIN_PROPERTYES3_jj
+00022252: add.w     r0, r7, #0x114 
+00022256: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+0002225a: mov       r0, r6 
+0002225c: add.w     r7, r7, #0x254 
+00022260: mov       sp, r7 
+00022262: pop       {r4, r5, r6, r7, pc} 
+00022264: adds      r0, r7, #4 
+00022266: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+0002226a: b         #0x22274 
+0002226c: adds      r0, r7, #4 
+0002226e: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00022272: b         #0x22274 
+00022274: add.w     r0, r7, #0x114 
+00022278: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+0002227c: blx       #0x2024c __cxa_end_cleanup
+00022280: mvn       r6, #0x18 
+00022284: b         #0x221ea 
+00022286: mvn       r6, #0x17 
+0002228a: b         #0x221ea 
+
+_ZN16DataflowInfraPinD1Ev @0x218c4
+000218c4: ldr       r3, [pc, #0x10] 
+000218c6: ldr       r2, [pc, #0x14] 
+000218c8: add       r3, pc 
+000218ca: push      {r7, lr} 
+000218cc: add       r7, sp, #0 
+000218ce: ldr       r3, [r3, r2] 
+000218d0: adds      r3, #8 
+000218d2: str       r3, [r0] 
+000218d4: pop       {r7, pc} 
+000218d6: nop        
+000218d8: lsls      r4, r3, #2 
+000218da: movs      r1, r0 
+000218dc: lsls      r0, r7, #0xc 
+000218de: movs      r0, r0 
+
+_ZN16DataflowInfraPin17RequestDisconnectEPK27_MSG_PIN_REQUEST_DISCONNECTj @0x21ba4
+00021ba4: push      {r4, r5, r6, r7, lr} 
+00021ba6: sub       sp, #0x164 
+00021ba8: mov       r4, r0 
+00021baa: add       r7, sp, #8 
+00021bac: mov       r6, r2 
+00021bae: cbnz      r2, #0x21bc4 
+00021bb0: ldr       r0, [pc, #0xf8] 
+00021bb2: movw      r1, #0x131 
+00021bb6: mvn       r2, #0x1f 
+00021bba: mvn       r5, #0x1f 
+00021bbe: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00021bc2: b         #0x21c58 
+00021bc4: ldr       r3, [r0, #0x28] 
+00021bc6: cmp       r3, #1 
+00021bc8: beq       #0x21bd4 
+00021bca: cmp       r3, #2 
+00021bcc: bne       #0x21c74 
+00021bce: mvn       r5, #0x17 
+00021bd2: b         #0x21bd8 
+00021bd4: mvn       r5, #0x19 
+00021bd8: add.w     r0, r7, #0x13c 
+00021bdc: blx       #0x2059c _ZN32_MSG_PIN_REQUEST_DISCONNECT_COMPC1Ev
+00021be0: adds      r0, r7, #4 
+00021be2: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+00021be6: add.w     r3, r4, #0x18 
+00021bea: add.w     lr, r7, #0x144 
+00021bee: str.w     r5, [r7, #0x154] 
+00021bf2: ldm       r3, {r0, r1, r2, r3} 
+00021bf4: stm.w     lr, {r0, r1, r2, r3} 
+00021bf8: adds      r0, r7, #4 
+00021bfa: add.w     r1, r7, #0x13c 
+00021bfe: movs      r2, #0x1c 
+00021c00: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+00021c04: b         #0x21c2a 
+00021c06: adds      r0, r7, #4 
+00021c08: ldr       r1, [r4, #0x24] 
+00021c0a: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+00021c0e: ldr       r0, [r4, #4] 
+00021c10: adds      r2, r7, #4 
+00021c12: ldr       r1, [r4, #0x14] 
+00021c14: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+00021c18: movs      r3, #2 
+00021c1a: str       r6, [r4, #0x30] 
+00021c1c: str       r3, [r4, #0x28] 
+00021c1e: adds      r0, r7, #4 
+00021c20: str       r3, [r4, #0x34] 
+00021c22: movs      r5, #0 
+00021c24: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021c28: b         #0x21c42 
+00021c2a: adds      r0, r7, #4 
+00021c2c: ldr       r1, [r4, #0x24] 
+00021c2e: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+00021c32: ldr       r0, [r4, #4] 
+00021c34: mov       r1, r6 
+00021c36: adds      r2, r7, #4 
+00021c38: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+00021c3c: adds      r0, r7, #4 
+00021c3e: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021c42: ldr       r3, [r4, #0x28] 
+00021c44: movs      r0, #5 
+00021c46: mov       r1, r6 
+00021c48: add.w     r2, r4, #0x18 
+00021c4c: str       r5, [sp] 
+00021c4e: str       r3, [sp, #4] 
+00021c50: add.w     r3, r4, #8 
+00021c54: blx       #0x20134 _ZN16DataflowInfraLog10Setlog_pinEjjPKN19DefDataflowInfraPin12PIN_PROPERTYES3_jj
+00021c58: mov       r0, r5 
+00021c5a: add.w     r7, r7, #0x15c 
+00021c5e: mov       sp, r7 
+00021c60: pop       {r4, r5, r6, r7, pc} 
+00021c62: adds      r0, r7, #4 
+00021c64: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021c68: b         #0x21c70 
+00021c6a: adds      r0, r7, #4 
+00021c6c: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021c70: blx       #0x2024c __cxa_end_cleanup
+00021c74: add.w     r0, r7, #0x114 
+00021c78: add.w     r5, r7, #0x11c 
+00021c7c: blx       #0x20060 _ZN19_MSG_PIN_DISCONNECTC1Ev
+00021c80: adds      r0, r7, #4 
+00021c82: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+00021c86: add.w     r3, r4, #0x18 
+00021c8a: ldm       r3, {r0, r1, r2, r3} 
+00021c8c: stm.w     r5, {r0, r1, r2, r3} 
+00021c90: add.w     r3, r4, #8 
+00021c94: add.w     r5, r7, #0x12c 
+00021c98: ldm       r3, {r0, r1, r2, r3} 
+00021c9a: stm.w     r5, {r0, r1, r2, r3} 
+00021c9e: adds      r0, r7, #4 
+00021ca0: add.w     r1, r7, #0x114 
+00021ca4: movs      r2, #0x28 
+00021ca6: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+00021caa: b         #0x21c06 
+00021cac: ldr       r1, [pc, #0x140] 
+00021cae: movs      r0, #0x4e 
+
+_ZN16DataflowInfraPinC1Ev @0x21a9c
+00021a9c: ldr       r3, [pc, #0x14] 
+00021a9e: ldr       r1, [pc, #0x18] 
+00021aa0: add       r3, pc 
+00021aa2: push      {r7, lr} 
+00021aa4: add       r7, sp, #0 
+00021aa6: ldr       r3, [r3, r1] 
+00021aa8: adds      r3, #8 
+00021aaa: str       r3, [r0] 
+00021aac: movs      r3, #0 
+00021aae: str       r3, [r0, #4] 
+00021ab0: pop       {r7, pc} 
+00021ab2: nop        
+00021ab4: cdp2      p0, #0xc, c0, c4, c0, #0 
+00021ab8: lsls      r0, r7, #0xc 
+00021aba: movs      r0, r0 
+
+_ZN16DataflowInfraPin4SendEmtm @0x21e6c
+00021e6c: push.w    {r4, r5, r6, r7, r8, sb, lr} 
+00021e70: sub       sp, #0x18c 
+00021e72: mov       sb, r3 
+00021e74: add       r7, sp, #0 
+00021e76: mov       r4, r0 
+00021e78: ldr       r3, [r0, #0x28] 
+00021e7a: mov       r6, r1 
+00021e7c: mov       r5, r2 
+00021e7e: cmp       r3, #1 
+00021e80: bne       #0x21e96 
+00021e82: ldr       r0, [pc, #0x13c] 
+00021e84: movw      r1, #0x1e1 
+00021e88: mvn       r2, #0x19 
+00021e8c: mvn       r4, #0x19 
+00021e90: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00021e94: b         #0x21fa0 
+00021e96: cmp       r3, #2 
+00021e98: bne       #0x21eae 
+00021e9a: ldr       r0, [pc, #0x124] 
+00021e9c: movw      r1, #0x1e5 
+00021ea0: mvn       r2, #0x17 
+00021ea4: mvn       r4, #0x17 
+00021ea8: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00021eac: b         #0x21fa0 
+00021eae: ldr       r3, [r0, #0x1c] 
+00021eb0: cmp       r3, #1 
+00021eb2: bne       #0x21ec8 
+00021eb4: ldr       r0, [pc, #0x108] 
+00021eb6: movw      r1, #0x1eb 
+00021eba: mvn       r2, #0x15 
+00021ebe: mvn       r4, #0x15 
+00021ec2: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00021ec6: b         #0x21fa0 
+00021ec8: ldr       r0, [r0, #0x14] 
+00021eca: blx       #0x205b4 _ZN20DataflowInfraUtility19isPublicCpuTransferEj
+00021ece: mov       r8, r0 
+00021ed0: cbz       r0, #0x21f40 
+00021ed2: adds      r0, r7, #4 
+00021ed4: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+00021ed8: add.w     r0, r7, #0x114 
+00021edc: blx       #0x206ac _ZN23_MSG_PIN_SEND_WITH_DATAC1Ev
+00021ee0: add.w     r3, r4, #0x18 
+00021ee4: add.w     lr, r7, #0x11c 
+00021ee8: str.w     r6, [r7, #0x13c] 
+00021eec: ldm       r3, {r0, r1, r2, r3} 
+00021eee: strh.w    r5, [r7, #0x140] 
+00021ef2: str.w     sb, [r7, #0x144] 
+00021ef6: stm.w     lr, {r0, r1, r2, r3} 
+00021efa: add.w     r3, r4, #8 
+00021efe: add.w     lr, r7, #0x12c 
+00021f02: ldm       r3, {r0, r1, r2, r3} 
+00021f04: stm.w     lr, {r0, r1, r2, r3} 
+00021f08: mov.w     r1, #0xc00 
+00021f0c: movs      r2, #0x40 
+00021f0e: str.w     r1, [r7, #0x14c] 
+00021f12: adds      r0, r7, #4 
+00021f14: add.w     r1, r7, #0x114 
+00021f18: movs      r3, #0 
+00021f1a: str.w     r2, [r7, #0x148] 
+00021f1e: strh.w    r3, [r7, #0x142] 
+00021f22: str.w     r3, [r7, #0x150] 
+00021f26: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+00021f2a: adds      r0, r7, #4 
+00021f2c: ldr       r1, [r4, #0x24] 
+00021f2e: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+00021f32: ldr       r0, [r4, #4] 
+00021f34: adds      r2, r7, #4 
+00021f36: ldr       r1, [r4, #0x14] 
+00021f38: mov       r3, r5 
+00021f3a: blx       #0x20604 _ZN19DataflowInfraSender22SendASyncWithTransDataEjP16DataflowInfraMsgt
+00021f3e: b         #0x21f98 
+00021f40: adds      r0, r7, #4 
+00021f42: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+00021f46: add.w     r0, r7, #0x154 
+00021f4a: blx       #0x201c8 _ZN13_MSG_PIN_SENDC1Ev
+00021f4e: add.w     r3, r4, #0x18 
+00021f52: add.w     lr, r7, #0x15c 
+00021f56: str.w     r6, [r7, #0x17c] 
+00021f5a: ldm       r3, {r0, r1, r2, r3} 
+00021f5c: strh.w    r5, [r7, #0x180] 
+00021f60: strh.w    r8, [r7, #0x182] 
+00021f64: str.w     sb, [r7, #0x184] 
+00021f68: stm.w     lr, {r0, r1, r2, r3} 
+00021f6c: add.w     r3, r4, #8 
+00021f70: add.w     lr, r7, #0x16c 
+00021f74: ldm       r3, {r0, r1, r2, r3} 
+00021f76: stm.w     lr, {r0, r1, r2, r3} 
+00021f7a: adds      r0, r7, #4 
+00021f7c: add.w     r1, r7, #0x154 
+00021f80: movs      r2, #0x34 
+00021f82: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+00021f86: adds      r0, r7, #4 
+00021f88: ldr       r1, [r4, #0x24] 
+00021f8a: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+00021f8e: ldr       r0, [r4, #4] 
+00021f90: adds      r2, r7, #4 
+00021f92: ldr       r1, [r4, #0x14] 
+00021f94: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+00021f98: mov       r4, r0 
+00021f9a: adds      r0, r7, #4 
+00021f9c: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021fa0: mov       r0, r4 
+00021fa2: add.w     r7, r7, #0x18c 
+00021fa6: mov       sp, r7 
+00021fa8: pop.w     {r4, r5, r6, r7, r8, sb, pc} 
+00021fac: adds      r0, r7, #4 
+00021fae: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021fb2: b         #0x21fba 
+00021fb4: adds      r0, r7, #4 
+00021fb6: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021fba: blx       #0x2024c __cxa_end_cleanup
+00021fbe: nop        
+00021fc0: ldr       r1, [pc, #0x140] 
+00021fc2: movs      r0, #0x4e 
+
+_ZN16DataflowInfraPin14DisconnectCompEPK24_MSG_PIN_DISCONNECT_COMP @0x21dc8
+00021dc8: push      {r4, r5, r6, r7, lr} 
+00021dca: sub       sp, #0x13c 
+00021dcc: add       r7, sp, #8 
+00021dce: mov       r5, r1 
+00021dd0: mov       r4, r0 
+00021dd2: adds      r0, r7, #4 
+00021dd4: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+00021dd8: add.w     r0, r7, #0x114 
+00021ddc: blx       #0x2059c _ZN32_MSG_PIN_REQUEST_DISCONNECT_COMPC1Ev
+00021de0: ldr       r3, [r5, #0x28] 
+00021de2: cbz       r3, #0x21dec 
+00021de4: movs      r3, #0 
+00021de6: str       r3, [r4, #0x28] 
+00021de8: str       r3, [r4, #0x34] 
+00021dea: b         #0x21dfc 
+00021dec: movs      r2, #1 
+00021dee: str       r3, [r4, #0x34] 
+00021df0: str       r2, [r4, #0x28] 
+00021df2: adds      r2, #0xfe 
+00021df4: str       r3, [r4, #0x10] 
+00021df6: str       r2, [r4, #8] 
+00021df8: str       r2, [r4, #0xc] 
+00021dfa: str       r3, [r4, #0x14] 
+00021dfc: add.w     r3, r4, #0x18 
+00021e00: add.w     r6, r7, #0x11c 
+00021e04: ldm       r3, {r0, r1, r2, r3} 
+00021e06: stm.w     r6, {r0, r1, r2, r3} 
+00021e0a: adds      r0, r7, #4 
+00021e0c: ldr       r3, [r5, #0x28] 
+00021e0e: add.w     r1, r7, #0x114 
+00021e12: movs      r2, #0x1c 
+00021e14: str.w     r3, [r7, #0x12c] 
+00021e18: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+00021e1c: adds      r0, r7, #4 
+00021e1e: ldr       r1, [r4, #0x24] 
+00021e20: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+00021e24: ldr       r1, [r4, #0x30] 
+00021e26: cbz       r1, #0x21e34 
+00021e28: ldr       r0, [r4, #4] 
+00021e2a: adds      r2, r7, #4 
+00021e2c: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+00021e30: ldr       r5, [r5, #0x28] 
+00021e32: b         #0x21e38 
+00021e34: movw      r5, #0xffff 
+00021e38: ldr       r3, [r4, #0x28] 
+00021e3a: movs      r0, #7 
+00021e3c: ldr       r1, [r4, #0x30] 
+00021e3e: add.w     r2, r4, #0x18 
+00021e42: str       r5, [sp] 
+00021e44: str       r3, [sp, #4] 
+00021e46: add.w     r3, r4, #8 
+00021e4a: blx       #0x20134 _ZN16DataflowInfraLog10Setlog_pinEjjPKN19DefDataflowInfraPin12PIN_PROPERTYES3_jj
+00021e4e: movs      r3, #0 
+00021e50: adds      r0, r7, #4 
+00021e52: str       r3, [r4, #0x30] 
+00021e54: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021e58: mov       r0, r5 
+00021e5a: add.w     r7, r7, #0x134 
+00021e5e: mov       sp, r7 
+00021e60: pop       {r4, r5, r6, r7, pc} 
+00021e62: adds      r0, r7, #4 
+00021e64: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021e68: blx       #0x2024c __cxa_end_cleanup
+
+_ZN16DataflowInfraPin14RequestConnectEPK24_MSG_PIN_REQUEST_CONNECTj @0x2228c
+0002228c: push.w    {r4, r5, r6, r7, r8, sb, lr} 
+00022290: sub       sp, #0x18c 
+00022292: mov       r4, r0 
+00022294: add       r7, sp, #8 
+00022296: mov       r5, r1 
+00022298: mov       r8, r2 
+0002229a: cbnz      r2, #0x222ae 
+0002229c: ldr       r0, [pc, #0x1b8] 
+0002229e: movs      r1, #0x57 
+000222a0: mvn       r2, #0x1f 
+000222a4: mvn       r6, #0x1f 
+000222a8: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+000222ac: b         #0x22426 
+000222ae: ldr       r6, [r0, #0x28] 
+000222b0: cmp       r6, #0 
+000222b2: bne       #0x2235a 
+000222b4: ldr       r2, [r1, #0x18] 
+000222b6: ldr       r3, [r0, #8] 
+000222b8: cmp       r2, r3 
+000222ba: bne.w     #0x2244c 
+000222be: ldr       r2, [r1, #0x1c] 
+000222c0: ldr       r3, [r0, #0xc] 
+000222c2: cmp       r2, r3 
+000222c4: bne.w     #0x2244c 
+000222c8: ldr       r2, [r1, #0x20] 
+000222ca: ldr       r3, [r0, #0x10] 
+000222cc: cmp       r2, r3 
+000222ce: bne.w     #0x2244c 
+000222d2: mov       r0, r7 
+000222d4: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+000222d8: add.w     r0, r7, #0x110 
+000222dc: blx       #0x20454 _ZN21_MSG_PIN_CONNECT_COMPC1Ev
+000222e0: add.w     r3, r4, #0x18 
+000222e4: add.w     lr, r7, #0x118 
+000222e8: str.w     r6, [r7, #0x138] 
+000222ec: ldm       r3, {r0, r1, r2, r3} 
+000222ee: stm.w     lr, {r0, r1, r2, r3} 
+000222f2: add.w     r3, r5, #0x18 
+000222f6: add.w     lr, r7, #0x128 
+000222fa: ldm       r3, {r0, r1, r2, r3} 
+000222fc: stm.w     lr, {r0, r1, r2, r3} 
+00022300: mov       r0, r7 
+00022302: add.w     r1, r7, #0x110 
+00022306: movs      r2, #0x2c 
+00022308: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+0002230c: mov       r0, r7 
+0002230e: ldr       r1, [r4, #0x14] 
+00022310: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+00022314: ldr       r0, [r4, #4] 
+00022316: mov       r2, r7 
+00022318: ldr       r1, [r4, #0x24] 
+0002231a: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+0002231e: adds      r5, #0x18 
+00022320: add.w     ip, r4, #8 
+00022324: adds      r6, #1 
+00022326: mov.w     lr, #2 
+0002232a: ldm.w     r5, {r0, r1, r2, r3} 
+0002232e: str.w     lr, [r4, #0x28] 
+00022332: str       r6, [r4, #0x34] 
+00022334: str.w     r8, [r4, #0x2c] 
+00022338: stm.w     ip, {r0, r1, r2, r3} 
+0002233c: movs      r3, #0 
+0002233e: mov       r0, r6 
+00022340: stm.w     sp, {r3, lr} 
+00022344: mov       r1, r8 
+00022346: add.w     r2, r4, #0x18 
+0002234a: mov       r3, r5 
+0002234c: blx       #0x20134 _ZN16DataflowInfraLog10Setlog_pinEjjPKN19DefDataflowInfraPin12PIN_PROPERTYES3_jj
+00022350: mov       r0, r7 
+00022352: subs      r6, #1 
+00022354: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00022358: b         #0x22426 
+0002235a: cmp       r6, #2 
+0002235c: beq       #0x22452 
+0002235e: add.w     sb, r1, #0x18 
+00022362: mov       r1, sb 
+00022364: blx       #0x20368 _ZN16DataflowInfraPin17CheckConnectParamEPKN19DefDataflowInfraPin12PIN_PROPERTYE
+00022368: mov       r6, r0 
+0002236a: cbnz      r0, #0x223cc 
+0002236c: mov       r0, r7 
+0002236e: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+00022372: add.w     r0, r7, #0x13c 
+00022376: blx       #0x201b0 _ZN16_MSG_PIN_CONNECTC1Ev
+0002237a: add.w     r3, r4, #0x18 
+0002237e: add.w     lr, r7, #0x144 
+00022382: ldm       r3, {r0, r1, r2, r3} 
+00022384: stm.w     lr, {r0, r1, r2, r3} 
+00022388: add.w     lr, r7, #0x154 
+0002238c: ldm.w     sb, {r0, r1, r2, r3} 
+00022390: stm.w     lr, {r0, r1, r2, r3} 
+00022394: mov       r0, r7 
+00022396: add.w     r1, r7, #0x13c 
+0002239a: movs      r2, #0x28 
+0002239c: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+000223a0: mov       r0, r7 
+000223a2: ldr       r1, [r4, #0x24] 
+000223a4: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+000223a8: ldr       r0, [r4, #4] 
+000223aa: mov       r2, r7 
+000223ac: ldr       r1, [r5, #0x24] 
+000223ae: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+000223b2: movs      r3, #2 
+000223b4: str       r3, [r4, #0x28] 
+000223b6: subs      r3, #1 
+000223b8: str       r3, [r4, #0x34] 
+000223ba: ldm.w     sb, {r0, r1, r2, r3} 
+000223be: add.w     lr, r4, #8 
+000223c2: str.w     r8, [r4, #0x2c] 
+000223c6: stm.w     lr, {r0, r1, r2, r3} 
+000223ca: b         #0x2240a 
+000223cc: mov       r0, r7 
+000223ce: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+000223d2: add.w     r0, r7, #0x164 
+000223d6: blx       #0x207a8 _ZN29_MSG_PIN_REQUEST_CONNECT_COMPC1Ev
+000223da: add.w     r3, r4, #0x18 
+000223de: add.w     lr, r7, #0x16c 
+000223e2: str.w     r6, [r7, #0x17c] 
+000223e6: ldm       r3, {r0, r1, r2, r3} 
+000223e8: stm.w     lr, {r0, r1, r2, r3} 
+000223ec: mov       r0, r7 
+000223ee: add.w     r1, r7, #0x164 
+000223f2: movs      r2, #0x1c 
+000223f4: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+000223f8: mov       r0, r7 
+000223fa: ldr       r1, [r4, #0x24] 
+000223fc: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+00022400: ldr       r0, [r4, #4] 
+00022402: mov       r1, r8 
+00022404: mov       r2, r7 
+00022406: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+0002240a: mov       r0, r7 
+0002240c: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00022410: ldr       r3, [r4, #0x28] 
+00022412: movs      r0, #1 
+00022414: mov       r1, r8 
+00022416: add.w     r2, r4, #0x18 
+0002241a: str       r6, [sp] 
+0002241c: str       r3, [sp, #4] 
+0002241e: add.w     r3, r5, #0x18 
+00022422: blx       #0x20134 _ZN16DataflowInfraLog10Setlog_pinEjjPKN19DefDataflowInfraPin12PIN_PROPERTYES3_jj
+00022426: mov       r0, r6 
+00022428: add.w     r7, r7, #0x184 
+0002242c: mov       sp, r7 
+0002242e: pop.w     {r4, r5, r6, r7, r8, sb, pc} 
+00022432: mov       r0, r7 
+00022434: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00022438: b         #0x22440 
+0002243a: mov       r0, r7 
+0002243c: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00022440: blx       #0x2024c __cxa_end_cleanup
+00022444: mov       r0, r7 
+00022446: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+0002244a: b         #0x22440 
+0002244c: mvn       r6, #0x18 
+00022450: b         #0x223cc 
+00022452: mvn       r6, #0x17 
+00022456: b         #0x223cc 
+00022458: ldr       r1, [pc, #0x140] 
+0002245a: movs      r0, #0x4e 
+
+_ZN16DataflowInfraPin11ConnectCompEPK21_MSG_PIN_CONNECT_COMP @0x21b00
+00021b00: push      {r4, r5, r6, r7, lr} 
+00021b02: sub       sp, #0x13c 
+00021b04: add       r7, sp, #8 
+00021b06: mov       r5, r1 
+00021b08: mov       r4, r0 
+00021b0a: adds      r0, r7, #4 
+00021b0c: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+00021b10: add.w     r0, r7, #0x114 
+00021b14: blx       #0x207a8 _ZN29_MSG_PIN_REQUEST_CONNECT_COMPC1Ev
+00021b18: ldr.w     lr, [r5, #0x28] 
+00021b1c: cmp.w     lr, #0 
+00021b20: beq       #0x21b2e 
+00021b22: movs      r3, #0xff 
+00021b24: str       r3, [r4, #8] 
+00021b26: str       r3, [r4, #0xc] 
+00021b28: subs      r3, #0xff 
+00021b2a: str       r3, [r4, #0x10] 
+00021b2c: str       r3, [r4, #0x14] 
+00021b2e: movs      r3, #0 
+00021b30: str       r3, [r4, #0x28] 
+00021b32: str       r3, [r4, #0x34] 
+00021b34: add.w     r3, r4, #0x18 
+00021b38: add.w     r6, r7, #0x11c 
+00021b3c: str.w     lr, [r7, #0x12c] 
+00021b40: ldm       r3, {r0, r1, r2, r3} 
+00021b42: stm.w     r6, {r0, r1, r2, r3} 
+00021b46: adds      r0, r7, #4 
+00021b48: add.w     r1, r7, #0x114 
+00021b4c: movs      r2, #0x1c 
+00021b4e: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+00021b52: adds      r0, r7, #4 
+00021b54: ldr       r1, [r4, #0x24] 
+00021b56: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+00021b5a: ldr       r1, [r4, #0x2c] 
+00021b5c: cbz       r1, #0x21b6a 
+00021b5e: ldr       r0, [r4, #4] 
+00021b60: adds      r2, r7, #4 
+00021b62: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+00021b66: ldr       r5, [r5, #0x28] 
+00021b68: b         #0x21b6e 
+00021b6a: movw      r5, #0xffff 
+00021b6e: ldr       r3, [r4, #0x28] 
+00021b70: movs      r0, #3 
+00021b72: ldr       r1, [r4, #0x2c] 
+00021b74: add.w     r2, r4, #0x18 
+00021b78: str       r5, [sp] 
+00021b7a: str       r3, [sp, #4] 
+00021b7c: add.w     r3, r4, #8 
+00021b80: blx       #0x20134 _ZN16DataflowInfraLog10Setlog_pinEjjPKN19DefDataflowInfraPin12PIN_PROPERTYES3_jj
+00021b84: movs      r3, #0 
+00021b86: adds      r0, r7, #4 
+00021b88: str       r3, [r4, #0x2c] 
+00021b8a: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021b8e: mov       r0, r5 
+00021b90: add.w     r7, r7, #0x134 
+00021b94: mov       sp, r7 
+00021b96: pop       {r4, r5, r6, r7, pc} 
+00021b98: adds      r0, r7, #4 
+00021b9a: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021b9e: blx       #0x2024c __cxa_end_cleanup
+
+_ZN16DataflowInfraPin10DisconnectEPK19_MSG_PIN_DISCONNECT @0x21cb0
+00021cb0: push      {r4, r5, r6, r7, lr} 
+00021cb2: sub       sp, #0x14c 
+00021cb4: mov       r4, r0 
+00021cb6: add       r7, sp, #8 
+00021cb8: mov       r6, r1 
+00021cba: ldr       r3, [r0, #0x28] 
+00021cbc: cmp       r3, #1 
+00021cbe: beq       #0x21cd0 
+00021cc0: cmp       r3, #2 
+00021cc2: bne       #0x21d8a 
+00021cc4: ldr       r3, [r0, #0x34] 
+00021cc6: cmp       r3, #1 
+00021cc8: bne       #0x21d8a 
+00021cca: mvn       r5, #0x17 
+00021cce: b         #0x21cd4 
+00021cd0: mvn       r5, #0x19 
+00021cd4: add.w     r0, r7, #0x114 
+00021cd8: blx       #0x205cc _ZN24_MSG_PIN_DISCONNECT_COMPC1Ev
+00021cdc: adds      r0, r7, #4 
+00021cde: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+00021ce2: add.w     r3, r6, #8 
+00021ce6: add.w     lr, r7, #0x11c 
+00021cea: str.w     r5, [r7, #0x13c] 
+00021cee: ldm       r3, {r0, r1, r2, r3} 
+00021cf0: stm.w     lr, {r0, r1, r2, r3} 
+00021cf4: add.w     r3, r4, #0x18 
+00021cf8: add.w     lr, r7, #0x12c 
+00021cfc: ldm       r3, {r0, r1, r2, r3} 
+00021cfe: stm.w     lr, {r0, r1, r2, r3} 
+00021d02: adds      r0, r7, #4 
+00021d04: add.w     r1, r7, #0x114 
+00021d08: movs      r2, #0x2c 
+00021d0a: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+00021d0e: b         #0x21d40 
+00021d10: adds      r0, r7, #4 
+00021d12: ldr       r1, [r4, #0x24] 
+00021d14: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+00021d18: ldr       r0, [r4, #4] 
+00021d1a: adds      r2, r7, #4 
+00021d1c: ldr       r1, [r6, #0x14] 
+00021d1e: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+00021d22: ldr       r3, [r4, #0x28] 
+00021d24: cbnz      r3, #0x21d36 
+00021d26: movs      r2, #1 
+00021d28: str       r3, [r4, #0x34] 
+00021d2a: str       r2, [r4, #0x28] 
+00021d2c: adds      r2, #0xfe 
+00021d2e: str       r3, [r4, #0x10] 
+00021d30: str       r2, [r4, #8] 
+00021d32: str       r2, [r4, #0xc] 
+00021d34: str       r3, [r4, #0x14] 
+00021d36: adds      r0, r7, #4 
+00021d38: movs      r5, #0 
+00021d3a: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021d3e: b         #0x21d58 
+00021d40: adds      r0, r7, #4 
+00021d42: ldr       r1, [r4, #0x24] 
+00021d44: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+00021d48: ldr       r0, [r4, #4] 
+00021d4a: adds      r2, r7, #4 
+00021d4c: ldr       r1, [r6, #0x14] 
+00021d4e: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+00021d52: adds      r0, r7, #4 
+00021d54: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021d58: ldr       r3, [r4, #0x28] 
+00021d5a: movs      r0, #6 
+00021d5c: ldr       r1, [r4, #0x24] 
+00021d5e: add.w     r2, r4, #0x18 
+00021d62: str       r5, [sp] 
+00021d64: str       r3, [sp, #4] 
+00021d66: add.w     r3, r4, #8 
+00021d6a: blx       #0x20134 _ZN16DataflowInfraLog10Setlog_pinEjjPKN19DefDataflowInfraPin12PIN_PROPERTYES3_jj
+00021d6e: mov       r0, r5 
+00021d70: add.w     r7, r7, #0x144 
+00021d74: mov       sp, r7 
+00021d76: pop       {r4, r5, r6, r7, pc} 
+00021d78: adds      r0, r7, #4 
+00021d7a: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021d7e: b         #0x21d86 
+00021d80: adds      r0, r7, #4 
+00021d82: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00021d86: blx       #0x2024c __cxa_end_cleanup
+00021d8a: add.w     r0, r7, #0x114 
+00021d8e: add.w     r5, r7, #0x11c 
+00021d92: blx       #0x205cc _ZN24_MSG_PIN_DISCONNECT_COMPC1Ev
+00021d96: adds      r0, r7, #4 
+00021d98: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+00021d9c: add.w     r3, r6, #8 
+00021da0: ldm       r3, {r0, r1, r2, r3} 
+00021da2: stm.w     r5, {r0, r1, r2, r3} 
+00021da6: add.w     r3, r4, #0x18 
+00021daa: add.w     r5, r7, #0x12c 
+00021dae: ldm       r3, {r0, r1, r2, r3} 
+00021db0: stm.w     r5, {r0, r1, r2, r3} 
+00021db4: adds      r0, r7, #4 
+00021db6: add.w     r1, r7, #0x114 
+00021dba: movs      r2, #0x2c 
+00021dbc: movs      r3, #0 
+00021dbe: str.w     r3, [r7, #0x13c] 
+00021dc2: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+00021dc6: b         #0x21d10 
+
+_ZN16DataflowInfraPin11GetPinStateEPN19DefDataflowInfraPin8PinStateE @0x22088
+00022088: ldr       r3, [r0, #0x28] 
+0002208a: push      {r7, lr} 
+0002208c: add       r7, sp, #0 
+0002208e: str       r3, [r1] 
+00022090: pop       {r7, pc} 
+
+_ZN16DataflowInfraPin8SendCompEl @0x21fc4
+00021fc4: push      {r4, r5, r6, r7, lr} 
+00021fc6: sub       sp, #0x144 
+00021fc8: mov       r4, r0 
+00021fca: add       r7, sp, #0 
+00021fcc: mov       r5, r1 
+00021fce: ldr       r3, [r0, #0x28] 
+00021fd0: cmp       r3, #1 
+00021fd2: bne       #0x21fe8 
+00021fd4: ldr       r0, [pc, #0xac] 
+00021fd6: mov.w     r1, #0x220 
+00021fda: mvn       r2, #0x19 
+00021fde: mvn       r4, #0x19 
+00021fe2: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00021fe6: b         #0x2206e 
+00021fe8: cmp       r3, #2 
+00021fea: bne       #0x22000 
+00021fec: ldr       r0, [pc, #0x94] 
+00021fee: mov.w     r1, #0x224 
+00021ff2: mvn       r2, #0x17 
+00021ff6: mvn       r4, #0x17 
+00021ffa: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00021ffe: b         #0x2206e 
+00022000: ldr       r3, [r0, #0x1c] 
+00022002: cmp       r3, #2 
+00022004: bne       #0x2201a 
+00022006: ldr       r0, [pc, #0x7c] 
+00022008: movw      r1, #0x22a 
+0002200c: mvn       r2, #0x15 
+00022010: mvn       r4, #0x15 
+00022014: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00022018: b         #0x2206e 
+0002201a: adds      r0, r7, #4 
+0002201c: add.w     r6, r7, #0x11c 
+00022020: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+00022024: add.w     r0, r7, #0x114 
+00022028: blx       #0x205c0 _ZN18_MSG_PIN_SEND_COMPC1Ev
+0002202c: add.w     r3, r4, #8 
+00022030: str.w     r5, [r7, #0x13c] 
+00022034: ldm       r3, {r0, r1, r2, r3} 
+00022036: stm.w     r6, {r0, r1, r2, r3} 
+0002203a: add.w     r3, r4, #0x18 
+0002203e: add.w     r6, r7, #0x12c 
+00022042: ldm       r3, {r0, r1, r2, r3} 
+00022044: stm.w     r6, {r0, r1, r2, r3} 
+00022048: adds      r0, r7, #4 
+0002204a: add.w     r1, r7, #0x114 
+0002204e: movs      r2, #0x2c 
+00022050: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+00022054: adds      r0, r7, #4 
+00022056: ldr       r1, [r4, #0x24] 
+00022058: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+0002205c: ldr       r0, [r4, #4] 
+0002205e: adds      r2, r7, #4 
+00022060: ldr       r1, [r4, #0x14] 
+00022062: blx       #0x204f4 _ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg
+00022066: mov       r4, r0 
+00022068: adds      r0, r7, #4 
+0002206a: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+0002206e: mov       r0, r4 
+00022070: add.w     r7, r7, #0x144 
+00022074: mov       sp, r7 
+00022076: pop       {r4, r5, r6, r7, pc} 
+00022078: adds      r0, r7, #4 
+0002207a: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+0002207e: blx       #0x2024c __cxa_end_cleanup
+00022082: nop        
+00022084: ldr       r1, [pc, #0x140] 
+00022086: movs      r0, #0x4e 
+
+_ZN16DataflowInfraPinC2EPN19DefDataflowInfraPin12PIN_PROPERTYEP19DataflowInfraSender @0x21abc
+00021abc: push      {r4, r5, r7, lr} 
+00021abe: add       r7, sp, #0 
+00021ac0: ldr       r4, [pc, #0x34] 
+00021ac2: ldr       r5, [pc, #0x38] 
+00021ac4: add       r4, pc 
+00021ac6: ldr       r4, [r4, r5] 
+00021ac8: adds      r4, #8 
+00021aca: str       r4, [r0] 
+00021acc: ldr       r4, [r1] 
+00021ace: str       r4, [r0, #0x18] 
+00021ad0: ldr       r4, [r1, #4] 
+00021ad2: str       r4, [r0, #0x1c] 
+00021ad4: ldr       r4, [r1, #8] 
+00021ad6: ldr       r1, [r1, #0xc] 
+00021ad8: str       r2, [r0, #4] 
+00021ada: movs      r2, #1 
+00021adc: str       r4, [r0, #0x20] 
+00021ade: str       r1, [r0, #0x24] 
+00021ae0: movs      r1, #0xff 
+00021ae2: str       r2, [r0, #0x28] 
+00021ae4: subs      r2, #1 
+00021ae6: str       r1, [r0, #8] 
+00021ae8: str       r2, [r0, #0x2c] 
+00021aea: str       r2, [r0, #0x30] 
+00021aec: str       r2, [r0, #0x34] 
+00021aee: str       r1, [r0, #0xc] 
+00021af0: str       r2, [r0, #0x10] 
+00021af2: str       r2, [r0, #0x14] 
+00021af4: pop       {r4, r5, r7, pc} 
+00021af6: nop        
+00021af8: cdp2      p0, #0xa, c0, c0, c0, #0 
+00021afc: lsls      r0, r7, #0xc 
+00021afe: movs      r0, r0 
+
+_ZN16DataflowInfraLog10Setlog_pinEjjPKN19DefDataflowInfraPin12PIN_PROPERTYES3_jj @0x20998
+00020998: push      {r4, r5, r6, r7, lr} 
+0002099a: sub       sp, #0x34 
+0002099c: add       r7, sp, #0 
+0002099e: mov       r4, r3 
+000209a0: ldr       r5, [r7, #0x48] 
+000209a2: cbz       r5, #0x209ce 
+000209a4: stm.w     r7, {r0, r1} 
+000209a8: add.w     r6, r7, #8 
+000209ac: ldm       r2, {r0, r1, r2, r3} 
+000209ae: str       r5, [r7, #0x28] 
+000209b0: stm.w     r6, {r0, r1, r2, r3} 
+000209b4: add.w     r6, r7, #0x18 
+000209b8: ldm.w     r4, {r0, r1, r2, r3} 
+000209bc: stm.w     r6, {r0, r1, r2, r3} 
+000209c0: movs      r0, #0 
+000209c2: ldr       r3, [r7, #0x4c] 
+000209c4: mov       r1, r7 
+000209c6: movs      r2, #0x30 
+000209c8: str       r3, [r7, #0x2c] 
+000209ca: bl        #0x208c4 
+000209ce: add.w     r7, r7, #0x34 
+000209d2: mov       sp, r7 
+000209d4: pop       {r4, r5, r6, r7, pc} 
+
+_ZN16DataflowInfraPin10GetSelfPinEPN19DefDataflowInfraPin12PIN_PROPERTYE @0x22092
+00022092: push      {r4, r7, lr} 
+00022094: sub       sp, #0xc 
+00022096: mov       r3, r0 
+00022098: add       r7, sp, #8 
+0002209a: mov       r4, r1 
+0002209c: add.w     r2, r0, #0x18 
+000220a0: cbnz      r1, #0x220b8 
+000220a2: mvn       r4, #0x14 
+000220a6: str       r4, [sp] 
+000220a8: ldr       r0, [r0, #0x28] 
+000220aa: adds      r3, #8 
+000220ac: str       r0, [sp, #4] 
+000220ae: movs      r0, #4 
+000220b0: blx       #0x20134 _ZN16DataflowInfraLog10Setlog_pinEjjPKN19DefDataflowInfraPin12PIN_PROPERTYES3_jj
+000220b4: mov       r0, r4 
+000220b6: b         #0x220c0 
+000220b8: ldm       r2, {r0, r1, r2, r3} 
+000220ba: stm.w     r4, {r0, r1, r2, r3} 
+000220be: movs      r0, #0 
+000220c0: add.w     r7, r7, #4 
+000220c4: mov       sp, r7 
+000220c6: pop       {r4, r7, pc} 
+
+_ZN16DataflowInfraPin17CheckConnectParamEPKN19DefDataflowInfraPin12PIN_PROPERTYE @0x220f4
+000220f4: push      {r3, r4, r7, lr} 
+000220f6: add       r7, sp, #0 
+000220f8: ldr       r2, [r1] 
+000220fa: ldr       r3, [r0, #0x18] 
+000220fc: cmp       r2, r3 
+000220fe: beq       #0x22114 
+00022100: ldr       r0, [pc, #0x50] 
+00022102: mov.w     r1, #0x284 
+00022106: mvn       r2, #0x16 
+0002210a: mvn       r4, #0x16 
+0002210e: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00022112: b         #0x2214e 
+00022114: ldr       r3, [r1, #4] 
+00022116: cmp       r3, #2 
+00022118: beq       #0x22130 
+0002211a: cmp       r3, #3 
+0002211c: beq       #0x22124 
+0002211e: cmp       r3, #1 
+00022120: bne       #0x2213e 
+00022122: b         #0x2212a 
+00022124: ldr       r3, [r0, #0x1c] 
+00022126: cmp       r3, #3 
+00022128: b         #0x22134 
+0002212a: ldr       r3, [r0, #0x1c] 
+0002212c: cmp       r3, #2 
+0002212e: b         #0x22134 
+00022130: ldr       r3, [r0, #0x1c] 
+00022132: cmp       r3, #1 
+00022134: ite       ne 
+00022136: mvnne     r4, #0x15 
+0002213a: moveq     r4, #0 
+0002213c: b         #0x22142 
+0002213e: mvn       r4, #0x15 
+00022142: ldr       r0, [pc, #0x10] 
+00022144: movw      r1, #0x29d 
+00022148: mov       r2, r4 
+0002214a: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+0002214e: mov       r0, r4 
+00022150: pop       {r3, r4, r7, pc} 
+00022152: nop        
+00022154: ldr       r1, [pc, #0x140] 
+00022156: movs      r0, #0x4e 
+
+_ZN16DataflowInfraPin10SendByAddrEmmmm @0x2245c
+0002245c: push.w    {r4, r5, r6, r7, r8, lr} 
+00022460: sub       sp, #0x158 
+00022462: mov       r5, r3 
+00022464: add       r7, sp, #8 
+00022466: mov       r4, r0 
+00022468: ldr       r3, [r0, #0x28] 
+0002246a: mov       r8, r1 
+0002246c: mov       r6, r2 
+0002246e: cmp       r3, #1 
+00022470: bne       #0x22486 
+00022472: ldr       r0, [pc, #0xd0] 
+00022474: movw      r1, #0x2ae 
+00022478: mvn       r2, #0x19 
+0002247c: mvn       r4, #0x19 
+00022480: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+00022484: b         #0x2252e 
+00022486: cmp       r3, #2 
+00022488: bne       #0x2249e 
+0002248a: ldr       r0, [pc, #0xb8] 
+0002248c: movw      r1, #0x2b2 
+00022490: mvn       r2, #0x17 
+00022494: mvn       r4, #0x17 
+00022498: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+0002249c: b         #0x2252e 
+0002249e: ldr       r3, [r0, #0x1c] 
+000224a0: cmp       r3, #1 
+000224a2: bne       #0x224b8 
+000224a4: ldr       r0, [pc, #0x9c] 
+000224a6: mov.w     r1, #0x2b8 
+000224aa: mvn       r2, #0x15 
+000224ae: mvn       r4, #0x15 
+000224b2: blx       #0x20310 _ZN16DataflowInfraLog14Seterr_generalEjjl
+000224b6: b         #0x2252e 
+000224b8: mov       r0, r7 
+000224ba: blx       #0x20640 _ZN16DataflowInfraMsgC1Ev
+000224be: add.w     r0, r7, #0x110 
+000224c2: blx       #0x206ac _ZN23_MSG_PIN_SEND_WITH_DATAC1Ev
+000224c6: add.w     r3, r4, #0x18 
+000224ca: add.w     lr, r7, #0x118 
+000224ce: str.w     r8, [r7, #0x138] 
+000224d2: ldm       r3, {r0, r1, r2, r3} 
+000224d4: str.w     r5, [r7, #0x148] 
+000224d8: str.w     r6, [r7, #0x14c] 
+000224dc: stm.w     lr, {r0, r1, r2, r3} 
+000224e0: add.w     r3, r4, #8 
+000224e4: add.w     lr, r7, #0x128 
+000224e8: ldm       r3, {r0, r1, r2, r3} 
+000224ea: stm.w     lr, {r0, r1, r2, r3} 
+000224ee: movs      r3, #0 
+000224f0: strh.w    r3, [r7, #0x13c] 
+000224f4: movs      r2, #0x40 
+000224f6: strh.w    r3, [r7, #0x13e] 
+000224fa: mov       r0, r7 
+000224fc: ldr.w     r3, [r7, #0x168] 
+00022500: add.w     r1, r7, #0x110 
+00022504: str.w     r2, [r7, #0x144] 
+00022508: str.w     r3, [r7, #0x140] 
+0002250c: blx       #0x204c0 _ZN16DataflowInfraMsg14SetDataflowMsgEPvt
+00022510: mov       r0, r7 
+00022512: ldr       r1, [r4, #0x24] 
+00022514: blx       #0x20128 _ZN16DataflowInfraMsg8SetSrcIdEj
+00022518: str       r5, [sp] 
+0002251a: mov       r2, r7 
+0002251c: ldr       r0, [r4, #4] 
+0002251e: mov       r3, r6 
+00022520: ldr       r1, [r4, #0x14] 
+00022522: blx       #0x20610 _ZN19DataflowInfraSender28SendASyncWithTransDataByAddrEjP16DataflowInfraMsgmm
+00022526: mov       r4, r0 
+00022528: mov       r0, r7 
+0002252a: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+0002252e: mov       r0, r4 
+00022530: add.w     r7, r7, #0x150 
+00022534: mov       sp, r7 
+00022536: pop.w     {r4, r5, r6, r7, r8, pc} 
+0002253a: mov       r0, r7 
+0002253c: blx       #0x20258 _ZN16DataflowInfraMsgD1Ev
+00022540: blx       #0x2024c __cxa_end_cleanup
+00022544: ldr       r1, [pc, #0x140] 
+00022546: movs      r0, #0x4e 

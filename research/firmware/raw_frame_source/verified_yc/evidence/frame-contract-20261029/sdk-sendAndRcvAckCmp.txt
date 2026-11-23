@@ -1,0 +1,115 @@
+
+_ZN17OBJAVBBCBASECLASS5SdfCh16sendAndRcvAckCmpEPvtS1_tS1_t @0x366f0
+000366f0: push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr} 
+000366f4: sub       sp, #0x1c 
+000366f6: add       r7, sp, #0x10 
+000366f8: mov       r5, r0 
+000366fa: mov       sb, r1 
+000366fc: ldr       r4, [r7, #0x34] 
+000366fe: mov       r6, r3 
+00036700: str       r2, [r7, #4] 
+00036702: ldrh.w    fp, [r7, #0x30] 
+00036706: ldrh      r2, [r7, #0x38] 
+00036708: cbz       r4, #0x3670e 
+0003670a: cbz       r3, #0x3670e 
+0003670c: cbnz      r1, #0x3672c 
+0003670e: blx       #0x2cbc4 _ZN17OBJAVBBCBASECLASS13getPrintLevelEv
+00036712: cmp       r0, #0 
+00036714: ble       #0x367ea 
+00036716: ldr       r3, [pc, #0xe8] 
+00036718: movs      r0, #0x55 
+0003671a: movs      r1, #6 
+0003671c: movs      r2, #3 
+0003671e: add       r3, pc 
+00036720: stm.w     sp, {r3, r4, r6, sb} 
+00036724: movs      r3, #0xea 
+00036726: blx       #0x2add4 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+0003672a: b         #0x367ea 
+0003672c: ldr       r3, [pc, #0xc8] 
+0003672e: add.w     r8, r0, #0xc 
+00036732: mov       r1, r4 
+00036734: mov       r0, r8 
+00036736: str       r3, [sp] 
+00036738: ldr       r3, [r5, #4] 
+0003673a: blx       #0x2bd30 _ZN17OBJAVBBCBASECLASS15DataflowInfraCh19sndAsyncDataflowMsgEPvtjj
+0003673e: mov       r4, r0 
+00036740: cbz       r0, #0x3675a 
+00036742: blx       #0x2cbc4 _ZN17OBJAVBBCBASECLASS13getPrintLevelEv
+00036746: cmp       r0, #0 
+00036748: ble       #0x367ec 
+0003674a: ldr       r3, [pc, #0xb8] 
+0003674c: movs      r0, #0x55 
+0003674e: movs      r1, #6 
+00036750: movs      r2, #3 
+00036752: add       r3, pc 
+00036754: str       r3, [sp] 
+00036756: movs      r3, #0xf1 
+00036758: b         #0x367e4 
+0003675a: mov       r0, r8 
+0003675c: mov       r1, r6 
+0003675e: mov       r2, fp 
+00036760: ldr       r3, [r5, #4] 
+00036762: mov.w     sl, #-1 
+00036766: str.w     sl, [sp] 
+0003676a: blx       #0x2c280 _ZN17OBJAVBBCBASECLASS15DataflowInfraCh19rcvAsyncDataflowMsgEPvtjj
+0003676e: mov       r4, r0 
+00036770: cbz       r0, #0x3678a 
+00036772: blx       #0x2cbc4 _ZN17OBJAVBBCBASECLASS13getPrintLevelEv
+00036776: cmp       r0, #0 
+00036778: ble       #0x367ec 
+0003677a: ldr       r3, [pc, #0x8c] 
+0003677c: movs      r0, #0x55 
+0003677e: movs      r1, #6 
+00036780: movs      r2, #3 
+00036782: add       r3, pc 
+00036784: str       r3, [sp] 
+00036786: movs      r3, #0xfa 
+00036788: b         #0x367e4 
+0003678a: str       r0, [sp] 
+0003678c: ldrh      r1, [r5, #8] 
+0003678e: ldr       r3, [r6, #8] 
+00036790: ldr       r0, [pc, #0x68] 
+00036792: ldr       r2, [r5, #4] 
+00036794: blx       #0x2b004 _ZN17AvbbcBaseClassLog7SetLog0Ejjjjt
+00036798: ldr       r6, [r6, #8] 
+0003679a: cbz       r6, #0x367b8 
+0003679c: blx       #0x2cbc4 _ZN17OBJAVBBCBASECLASS13getPrintLevelEv
+000367a0: cmp       r0, #0 
+000367a2: ble       #0x367ec 
+000367a4: ldr       r3, [pc, #0x64] 
+000367a6: movs      r0, #0x55 
+000367a8: movs      r1, #6 
+000367aa: movs      r2, #3 
+000367ac: add       r3, pc 
+000367ae: stm.w     sp, {r3, r6} 
+000367b2: mov.w     r3, #0x104 
+000367b6: b         #0x367e4 
+000367b8: mov       r0, r8 
+000367ba: mov       r1, sb 
+000367bc: ldr       r2, [r7, #4] 
+000367be: ldr       r3, [r5, #4] 
+000367c0: str.w     sl, [sp] 
+000367c4: blx       #0x2c280 _ZN17OBJAVBBCBASECLASS15DataflowInfraCh19rcvAsyncDataflowMsgEPvtjj
+000367c8: mov       r4, r0 
+000367ca: cbz       r0, #0x367ec 
+000367cc: blx       #0x2cbc4 _ZN17OBJAVBBCBASECLASS13getPrintLevelEv
+000367d0: cmp       r0, #0 
+000367d2: ble       #0x367ec 
+000367d4: ldr       r3, [pc, #0x38] 
+000367d6: movs      r0, #0x55 
+000367d8: movs      r1, #6 
+000367da: movs      r2, #3 
+000367dc: add       r3, pc 
+000367de: str       r3, [sp] 
+000367e0: movw      r3, #0x10b 
+000367e4: blx       #0x2add4 _ZN17OBJAVBBCBASECLASS9BizPrintfEtiijPKcz
+000367e8: b         #0x367ec 
+000367ea: movs      r4, #1 
+000367ec: mov       r0, r4 
+000367ee: add.w     r7, r7, #0xc 
+000367f2: mov       sp, r7 
+000367f4: pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc} 
+000367f8: movs      r7, r1 
+000367fa: lsls      r6, r2, #1 
+000367fc: b         #0x36994 
+000367fe: lsls      r1, r0, #8 

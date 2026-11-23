@@ -1,0 +1,65 @@
+63b318ec: push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+63b318f0: sub       sp, #0x24
+63b318f2: mov       fp, r0
+63b318f4: mov       sl, r1
+63b318f6: ldrb.w    r5, [sp, #0x48]
+63b318fa: mov       sb, r2
+63b318fc: mov       r8, r3
+63b318fe: cmp       r5, #3
+63b31900: bhi       #0x63b31906
+63b31902: movs      r7, #0
+63b31904: b         #0x63b31972
+63b31906: ldr       r0, [pc, #0x78] ; [63b31980]=004ad274
+63b31908: mov       r2, r5
+63b3190a: ldr       r1, [pc, #0x78] ; [63b31984]=004aea65
+63b3190c: add       r0, pc
+63b3190e: add       r1, pc
+63b31910: bl        #0x6396f8c4
+63b31914: movs      r0, #6
+63b31916: b         #0x63b31978
+63b31918: add.w     r3, sp, #0x1e
+63b3191c: add       r2, sp, #0xc
+63b3191e: str       r3, [sp]
+63b31920: mov       r0, fp
+63b31922: movs      r1, #0x41
+63b31924: add.w     r3, sp, #0x1f
+63b31928: bl        #0x63b31828
+63b3192c: mov       r2, r0
+63b3192e: cbz       r0, #0x63b31944
+63b31930: ldr       r0, [pc, #0x54] ; [63b31988]=004ad36e
+63b31932: ldr       r1, [pc, #0x58] ; [63b3198c]=004aea39
+63b31934: add       r0, pc
+63b31936: ldrb.w    r3, [sp, #0x1e]
+63b3193a: add       r1, pc
+63b3193c: bl        #0x6396f8c4
+63b31940: movs      r0, #1
+63b31942: b         #0x63b31978
+63b31944: mov       r4, r0
+63b31946: ldrb.w    r2, [sl, r4]
+63b3194a: ldrb.w    r3, [sp, #0x1e]
+63b3194e: cmp       r2, r3
+63b31950: bne       #0x63b31966
+63b31952: add       r3, sp, #0xc
+63b31954: add.w     r6, sb, r4, lsl #4
+63b31958: ldm       r3, {r0, r1, r2, r3}
+63b3195a: stm.w     r6, {r0, r1, r2, r3}
+63b3195e: ldrb.w    r3, [sp, #0x1f]
+63b31962: strb.w    r3, [r8, r4]
+63b31966: adds      r4, #1
+63b31968: uxtb      r3, r4
+63b3196a: cmp       r3, r5
+63b3196c: blo       #0x63b31946
+63b3196e: adds      r7, #1
+63b31970: uxtb      r7, r7
+63b31972: cmp       r7, r5
+63b31974: blo       #0x63b31918
+63b31976: movs      r0, #0
+63b31978: add       sp, #0x24
+63b3197a: pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+63b3197e: nop       
+63b31980: bhs       #0x63b31a6c
+63b31982: lsls      r2, r1, #1
+63b31984: orn       r0, r5, sl, lsl #1
+63b31988: blo       #0x63b31a68
+63b3198a: lsls      r2, r1, #1
+63b3198c: bics.w    r0, sb, sl, lsl #1

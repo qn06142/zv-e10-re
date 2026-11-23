@@ -1,0 +1,32 @@
+{
+  "original_instructions": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "lookup_status": 0,
+      "span_kind": 1,
+      "result": "0x23450000",
+      "calls": [
+        "lookup",
+        "translate"
+      ]
+    },
+    {
+      "lookup_status": 0,
+      "span_kind": 2,
+      "result": "0xffffffff",
+      "calls": [
+        "lookup"
+      ]
+    },
+    {
+      "lookup_status": 1,
+      "span_kind": 1,
+      "result": "0xffffffff",
+      "calls": [
+        "lookup"
+      ]
+    }
+  ],
+  "limitations": "Lookup and address translation mocked; no live handle replay."
+}

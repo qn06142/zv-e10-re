@@ -1,0 +1,117 @@
+{
+  "mocked": false,
+  "limitations": "Static ELF disassembly and relocation resolution; no execution of kernel module or camera binaries.",
+  "usb_driver": {
+    "usbg_video_md5": "5b59c2e62c80683d754955ab5de0467d",
+    "timeout_call_addr": "0xfd4",
+    "slot_ready_stores": [
+      "0x1098",
+      "0x10b0"
+    ],
+    "submit_returns_zero_at": "0x10cc",
+    "dma_imported_symbols": [
+      "dma330_mem_transfer_async",
+      "uvc_transfer_dmac_cb"
+    ],
+    "dma_relocs_in_text": {
+      "0xf70": "dma330_mem_transfer_async",
+      "0x1ca4": "uvc_transfer_dmac_cb"
+    },
+    "has_dma_cancel": false
+  },
+  "streaming_state_machine": {
+    "lib_streaming_md5": "cde7a1b42c919706aa5f61aba5fc0d75",
+    "funcStopFuncCmd_addr": "0x80d8",
+    "stop_cmd_0x6103_loaded": true,
+    "calls_in_funcStopFuncCmd": [
+      [
+        "0x80e8",
+        "#0x7ef0"
+      ],
+      [
+        "0x80ee",
+        "#0x62d4"
+      ],
+      [
+        "0x80fe",
+        "#0x61dc"
+      ],
+      [
+        "0x8106",
+        "#0x5e58"
+      ],
+      [
+        "0x8112",
+        "#0x5f04"
+      ],
+      [
+        "0x8124",
+        "#0x61c4"
+      ],
+      [
+        "0x8144",
+        "#0x5df4"
+      ],
+      [
+        "0x8154",
+        "#0x5d54"
+      ],
+      [
+        "0x8164",
+        "#0x5df4"
+      ],
+      [
+        "0x8174",
+        "#0x5d54"
+      ],
+      [
+        "0x817c",
+        "#0x637c"
+      ],
+      [
+        "0x8188",
+        "#0x7ef0"
+      ],
+      [
+        "0x8192",
+        "#0x7ef0"
+      ],
+      [
+        "0x81a6",
+        "#0x5d94"
+      ],
+      [
+        "0x81b2",
+        "#0x7ef0"
+      ],
+      [
+        "0x81bc",
+        "#0x7ef0"
+      ],
+      [
+        "0x81ce",
+        "#0x6258"
+      ],
+      [
+        "0x81dc",
+        "#0x7ef0"
+      ],
+      [
+        "0x81e6",
+        "#0x7ef0"
+      ],
+      [
+        "0x81f8",
+        "#0x60f4"
+      ],
+      [
+        "0x8200",
+        "#0x6294"
+      ],
+      [
+        "0x8208",
+        "#0x6294"
+      ]
+    ]
+  }
+}

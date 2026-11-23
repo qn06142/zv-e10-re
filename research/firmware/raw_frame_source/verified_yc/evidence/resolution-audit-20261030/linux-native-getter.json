@@ -1,0 +1,24 @@
+{
+  "camera_access": false,
+  "original_Linux_SDK_code_executed": true,
+  "metadata_API": "C_DataflowInfra_StdData_YC::GetEntry_ImageSizeInfo then Entry_ImageSizeInfo::GetData_All",
+  "cases": [
+    {
+      "case": "actual_v39_no_image",
+      "returncode": 0,
+      "image_hex": "000000020200000000000000000000000000000000000000000000000000000080073804000000008007380400000201010102014000000067000000"
+    },
+    {
+      "case": "reference_attached_image",
+      "returncode": 0,
+      "image_hex": "0100000095020000247f0000000000000200000080073804800738040000000080073804000000008007380400000201010102014000000067000000"
+    },
+    {
+      "case": "actual_v38_malformed",
+      "returncode": 4294967282,
+      "image_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "hardware_mapping_mocked": true,
+  "conclusion": "Original exported Linux accessors resolve category0 directly from a supplied SDS mapping; no raw-memory signature search is required."
+}

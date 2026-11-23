@@ -1,0 +1,18 @@
+[
+  {
+    "stage": "pixel-stale",
+    "raw_hex": "0280fbfffc671a610000fbfd950200000000000000000000",
+    "sdk_return": 0,
+    "status_signed16": -5,
+    "native_status_signed16": -517,
+    "handle_session_only": "0x67fc"
+  },
+  {
+    "stage": "pixel-unshareable",
+    "raw_hex": "0280fffffc0f1a610000ffff950200000000000000000000",
+    "sdk_return": 0,
+    "status_signed16": -1,
+    "native_status_signed16": -1,
+    "handle_session_only": "0xffc"
+  }
+]

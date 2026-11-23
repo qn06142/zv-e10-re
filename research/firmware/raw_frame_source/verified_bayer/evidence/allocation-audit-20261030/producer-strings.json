@@ -1,0 +1,514 @@
+[
+  {
+    "address": "0x63f65388",
+    "text": "IMG:getDfeCoreResouces unknown : driveMode(%d) Zaf(%d) Snr(%d) Store(%d) Trans(%d)"
+  },
+  {
+    "address": "0x63f65c7d",
+    "text": "IMG:DfeCore::CamAif::calcMemSize encTypeErr %d"
+  },
+  {
+    "address": "0x63f65e24",
+    "text": "IMG:DfeCoreErr:setComplexCallBack CallBack Overlap."
+  },
+  {
+    "address": "0x63f65e87",
+    "text": "IMG:DfeCoreErr:setComplexCallBack CallBack full. %x %x %x %x"
+  },
+  {
+    "address": "0x63f65ee0",
+    "text": "IMG:Force clear DfeCoreCallBack cond:%x No:%d fact:%llx"
+  },
+  {
+    "address": "0x63f65fc8",
+    "text": "IMG:DfeCoreErr:judgeComplexCallBack: nowFact%llx holdingFact%llx"
+  },
+  {
+    "address": "0x63f6601d",
+    "text": "IMG:DfeCoreErr:judgeComplexCallBack: CallBack NULL fact=%llx"
+  },
+  {
+    "address": "0x63f675ef",
+    "text": "N6Camera7DFECore12DfeCoreDebugE"
+  },
+  {
+    "address": "0x63f679ab",
+    "text": "N6Camera7DFECore9CamBusselE"
+  },
+  {
+    "address": "0x63f67a03",
+    "text": "N6Camera7DFECore14DfeCoreSgcBaseE"
+  },
+  {
+    "address": "0x63f67a25",
+    "text": "N6Camera7DFECore9CamIPBaseE"
+  },
+  {
+    "address": "0x63f67a41",
+    "text": "N6Camera7DFECore6CamAifE"
+  },
+  {
+    "address": "0x63f67b5c",
+    "text": "N6Camera7DFECore4IfmtE"
+  },
+  {
+    "address": "0x63f67b73",
+    "text": "N6Camera7DFECore11Ifmt_LnkSgcE"
+  },
+  {
+    "address": "0x63f67b92",
+    "text": "N6Camera7DFECore14Ifmt_LnkSgcSubE"
+  },
+  {
+    "address": "0x63f67bb4",
+    "text": "N6Camera7DFECore7Ifmt_PgE"
+  },
+  {
+    "address": "0x63f67bce",
+    "text": "N6Camera7DFECore9IfmtPsMgrE"
+  },
+  {
+    "address": "0x63f67bea",
+    "text": "N6Camera7DFECore11Ifmt_RcvSgcE"
+  },
+  {
+    "address": "0x63f67c09",
+    "text": "N6Camera7DFECore7IfmtSubE"
+  },
+  {
+    "address": "0x63f67c23",
+    "text": "N6Camera7DFECore3ImgE"
+  },
+  {
+    "address": "0x63f67c39",
+    "text": "N6Camera7DFECore10Img_imgSgcE"
+  },
+  {
+    "address": "0x63f67c57",
+    "text": "N6Camera7DFECore14MipiCsi2TxCtrlE"
+  },
+  {
+    "address": "0x63f67c79",
+    "text": "N6Camera7DFECore15MipiDphyTxMacroE"
+  },
+  {
+    "address": "0x63f67c9c",
+    "text": "N6Camera7DFECore6MipiTxE"
+  },
+  {
+    "address": "0x63f67cb5",
+    "text": "N6Camera7DFECore2NrE"
+  },
+  {
+    "address": "0x63f67cca",
+    "text": "N6Camera7DFECore8Nr_nrSgcE"
+  },
+  {
+    "address": "0x63f67ce5",
+    "text": "N6Camera7DFECore4OfmtE"
+  },
+  {
+    "address": "0x63f67d2c",
+    "text": "N6Camera7DFECore8Ofmt_MuxE"
+  },
+  {
+    "address": "0x63f67d47",
+    "text": "N6Camera7DFECore10Ofmt_MwrapE"
+  },
+  {
+    "address": "0x63f67d65",
+    "text": "N6Camera7DFECore10Ofmt_OfSgcE"
+  },
+  {
+    "address": "0x63f67d83",
+    "text": "N6Camera7DFECore10Ofmt_SwrapE"
+  },
+  {
+    "address": "0x63f67da1",
+    "text": "N6Camera7DFECore3RdcE"
+  },
+  {
+    "address": "0x63f67db7",
+    "text": "N6Camera7DFECore5RdcR3E"
+  },
+  {
+    "address": "0x63f67dcf",
+    "text": "N6Camera7DFECore5RdcW0E"
+  },
+  {
+    "address": "0x63f67de7",
+    "text": "N6Camera7DFECore5RdcW1E"
+  },
+  {
+    "address": "0x63f67dff",
+    "text": "N6Camera7DFECore5RdcR2E"
+  },
+  {
+    "address": "0x63f67e17",
+    "text": "N6Camera7DFECore6TrsSgcE"
+  },
+  {
+    "address": "0x63f67e30",
+    "text": "N6Camera7DFECore3AifE"
+  },
+  {
+    "address": "0x63f67e46",
+    "text": "N6Camera7DFECore6DrvSgcE"
+  },
+  {
+    "address": "0x63f67e5f",
+    "text": "N6Camera7DFECore11Ofmt_OutSgcE"
+  },
+  {
+    "address": "0x63f67e7e",
+    "text": "N6Camera7DFECore6ZpdPreE"
+  },
+  {
+    "address": "0x63f67e97",
+    "text": "N6Camera7DFECore13ZpdPre_PreSgcE"
+  },
+  {
+    "address": "0x63f67eb8",
+    "text": "N6Camera7DFECore13IfmtOfsSetterE"
+  },
+  {
+    "address": "0x63f67ed9",
+    "text": "N6Camera7DFECore8DgimBaseE"
+  },
+  {
+    "address": "0x63f67ef4",
+    "text": "N6Camera7DFECore13IfmtScaSetterE"
+  },
+  {
+    "address": "0x63f67f15",
+    "text": "N6Camera7DFECore13IfmtOacSetterE"
+  },
+  {
+    "address": "0x63f67f36",
+    "text": "N6Camera7DFECore13IfmtLgaSetterE"
+  },
+  {
+    "address": "0x63f67f57",
+    "text": "N6Camera7DFECore13IfmtRpoSetterE"
+  },
+  {
+    "address": "0x63f67f78",
+    "text": "N6Camera7DFECore12ImgDdcSetterE"
+  },
+  {
+    "address": "0x63f67f98",
+    "text": "N6Camera7DFECore12ImgDdxSetterE"
+  },
+  {
+    "address": "0x63f67fb8",
+    "text": "N6Camera7DFECore12ImgGraSetterE"
+  },
+  {
+    "address": "0x63f67fd8",
+    "text": "N6Camera7DFECore12ImgGvbSetterE"
+  },
+  {
+    "address": "0x63f67ff8",
+    "text": "N6Camera7DFECore13ImgMxcmSetterE"
+  },
+  {
+    "address": "0x63f68019",
+    "text": "N6Camera7DFECore12ImgZ28SetterE"
+  },
+  {
+    "address": "0x63f68039",
+    "text": "N6Camera7DFECore13ImgSrswSetterE"
+  },
+  {
+    "address": "0x63f6805a",
+    "text": "N6Camera7DFECore12ImgMxcSetterE"
+  },
+  {
+    "address": "0x63f6807a",
+    "text": "N6Camera7DFECore12ImgShdSetterE"
+  },
+  {
+    "address": "0x63f6809a",
+    "text": "N6Camera7DFECore12ImgPgaSetterE"
+  },
+  {
+    "address": "0x63f680ba",
+    "text": "N6Camera7DFECore12ImgRpoSetterE"
+  },
+  {
+    "address": "0x63f680da",
+    "text": "N6Camera7DFECore12RnrCnrSetterE"
+  },
+  {
+    "address": "0x63f680fa",
+    "text": "N6Camera7DFECore11RnrNrSetterE"
+  },
+  {
+    "address": "0x63f68119",
+    "text": "N6Camera7DFECore12RnrPbxSetterE"
+  },
+  {
+    "address": "0x63f68139",
+    "text": "N6Camera7DFECore14RnrNrTopSetterE"
+  },
+  {
+    "address": "0x63f6815b",
+    "text": "N6Camera7DFECore11RnrWbSetterE"
+  },
+  {
+    "address": "0x63f6817a",
+    "text": "N6Camera7DFECore12RnrClpSetterE"
+  },
+  {
+    "address": "0x63f6819a",
+    "text": "N6Camera7DFECore16RnrSgcUserSetterE"
+  },
+  {
+    "address": "0x63f681be",
+    "text": "N6Camera7DFECore13IfmtPgaSetterE"
+  },
+  {
+    "address": "0x63f7a730",
+    "text": "Resource/CoreResource/Leo/dfeCoreResource.cpp"
+  },
+  {
+    "address": "0x63f7a75e",
+    "text": "FW: DFECore::getDrvParam(%d) returns NULL"
+  },
+  {
+    "address": "0x63f7a788",
+    "text": "FW: DfeCoreResource::SetDrvSgc0Nlr nlr_lut_wid Error %d"
+  },
+  {
+    "address": "0x63f7a7f7",
+    "text": "FW: DFECore::DdrPowerSaveOff err"
+  },
+  {
+    "address": "0x63f7a818",
+    "text": "FW: DFECore::DdrPowerSaveOn err"
+  },
+  {
+    "address": "0x63f7a868",
+    "text": "FW: [%d] DFECore::getDramTicket() error"
+  },
+  {
+    "address": "0x63f7a890",
+    "text": "FW: [%d] DFECore::returnDramTicket() error"
+  },
+  {
+    "address": "0x63f7bb24",
+    "text": "FW: AllocMem_Raw_Snr Err: unit_type[0x%08x]"
+  },
+  {
+    "address": "0x63f7bb50",
+    "text": "FW: AllocMem_Raw_Snr Err: unit_type[0x%08x], err[%d]"
+  },
+  {
+    "address": "0x63f807bb",
+    "text": "Stg>ReadEndBase"
+  },
+  {
+    "address": "0x63f807cb",
+    "text": "Stg<ReadEndBase"
+  },
+  {
+    "address": "0x63f8085f",
+    "text": "Stg>ReadEnd"
+  },
+  {
+    "address": "0x63f8086b",
+    "text": "Stg<ReadEnd"
+  },
+  {
+    "address": "0x63f80877",
+    "text": "Stg>TDReadEnd"
+  },
+  {
+    "address": "0x63f80885",
+    "text": "Stg<TDReadEnd"
+  },
+  {
+    "address": "0x63f808fc",
+    "text": "FW: dfecore_drive_info [0x%02x][0x%08x][0x%02x]"
+  },
+  {
+    "address": "0x63f81094",
+    "text": "FW: %s ReadEnd"
+  },
+  {
+    "address": "0x63f870b1",
+    "text": "FW: Stage_ReadEnd) FOPD_Release Error!"
+  },
+  {
+    "address": "0x63f88d79",
+    "text": "DFE_0_STORE_RAW"
+  },
+  {
+    "address": "0x63f90b18",
+    "text": "N6Camera7DFECore13IfmtOfsGetterE"
+  },
+  {
+    "address": "0x63f90b39",
+    "text": "N6Camera7DFECore13IfmtScaGetterE"
+  },
+  {
+    "address": "0x63f90b5a",
+    "text": "N6Camera7DFECore13IfmtOacGetterE"
+  },
+  {
+    "address": "0x63f90b7b",
+    "text": "N6Camera7DFECore13IfmtPgaGetterE"
+  },
+  {
+    "address": "0x63f90b9c",
+    "text": "N6Camera7DFECore13IfmtLgaGetterE"
+  },
+  {
+    "address": "0x63f90bbd",
+    "text": "N6Camera7DFECore13IfmtRpoGetterE"
+  },
+  {
+    "address": "0x63f90bde",
+    "text": "N6Camera7DFECore12ImgDdcGetterE"
+  },
+  {
+    "address": "0x63f90bfe",
+    "text": "N6Camera7DFECore12ImgDdxGetterE"
+  },
+  {
+    "address": "0x63f90c1e",
+    "text": "N6Camera7DFECore12ImgGraGetterE"
+  },
+  {
+    "address": "0x63f90c3e",
+    "text": "N6Camera7DFECore12ImgGvbGetterE"
+  },
+  {
+    "address": "0x63f90c5e",
+    "text": "N6Camera7DFECore13ImgMxcmGetterE"
+  },
+  {
+    "address": "0x63f90c7f",
+    "text": "N6Camera7DFECore12ImgZ28GetterE"
+  },
+  {
+    "address": "0x63f90c9f",
+    "text": "N6Camera7DFECore13ImgSrswGetterE"
+  },
+  {
+    "address": "0x63f90cc0",
+    "text": "N6Camera7DFECore12ImgMxcGetterE"
+  },
+  {
+    "address": "0x63f90ce0",
+    "text": "N6Camera7DFECore12ImgShdGetterE"
+  },
+  {
+    "address": "0x63f90d00",
+    "text": "N6Camera7DFECore12ImgPgaGetterE"
+  },
+  {
+    "address": "0x63f90d20",
+    "text": "N6Camera7DFECore12ImgRpoGetterE"
+  },
+  {
+    "address": "0x63f90d40",
+    "text": "N6Camera7DFECore12RnrCnrGetterE"
+  },
+  {
+    "address": "0x63f90d60",
+    "text": "N6Camera7DFECore11RnrNrGetterE"
+  },
+  {
+    "address": "0x63f90d7f",
+    "text": "N6Camera7DFECore12RnrPbxGetterE"
+  },
+  {
+    "address": "0x63f90d9f",
+    "text": "N6Camera7DFECore14RnrNrTopGetterE"
+  },
+  {
+    "address": "0x63f90dc1",
+    "text": "N6Camera7DFECore11RnrWbGetterE"
+  },
+  {
+    "address": "0x63f90de0",
+    "text": "N6Camera7DFECore12RnrClpGetterE"
+  },
+  {
+    "address": "0x63f90e00",
+    "text": "N6Camera7DFECore16RnrSgcUserGetterE"
+  },
+  {
+    "address": "0x63f913c1",
+    "text": "Stage_DfeRawTransSnrBranch"
+  },
+  {
+    "address": "0x63f913ec",
+    "text": "Stage_DfeRawTrans"
+  },
+  {
+    "address": "0x63f91b9e",
+    "text": "DfeCore_Release"
+  },
+  {
+    "address": "0x63f96207",
+    "text": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.clamp_rr = %x"
+  },
+  {
+    "address": "0x63f9623a",
+    "text": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.clamp_gr = %x"
+  },
+  {
+    "address": "0x63f9626d",
+    "text": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.clamp_gb = %x"
+  },
+  {
+    "address": "0x63f962a0",
+    "text": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.clamp_bb = %x"
+  },
+  {
+    "address": "0x63f962d3",
+    "text": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.ofstData = %x"
+  },
+  {
+    "address": "0x63f96306",
+    "text": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.us_MaxOffset_Async = %x"
+  },
+  {
+    "address": "0x63f96343",
+    "text": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.offset_sens = %x"
+  },
+  {
+    "address": "0x63f96379",
+    "text": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.offset_bus = %x"
+  },
+  {
+    "address": "0x63f963ae",
+    "text": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.offset_add = %x"
+  },
+  {
+    "address": "0x63f963e3",
+    "text": "YC: p_ycImgIns->ImgInsReadEnd.ExtOut.offset_sub = %x"
+  },
+  {
+    "address": "0x63f9e0d7",
+    "text": "YC: DBG_SHD_SignalFlow:p_DfecoreSetter != NULL"
+  },
+  {
+    "address": "0x63f9e106",
+    "text": "YC: DBG_SHD_SignalFlow:p_DfecoreSetter = NULL"
+  },
+  {
+    "address": "0x63f9e24a",
+    "text": "YC: SetAsyncParam: p_DfecoreSetter is NULL and CamcoreSetter is NULL: 0x%x"
+  },
+  {
+    "address": "0x63f9f6a3",
+    "text": "YC: job_YC_SetParamOff: p_DfecoreSetter is NULL and CamcoreSetter is NULL: 0x%x"
+  },
+  {
+    "address": "0x63ffd037",
+    "text": "YC: [ZDL] DFECore ImgSrswSetter is NULL"
+  }
+]

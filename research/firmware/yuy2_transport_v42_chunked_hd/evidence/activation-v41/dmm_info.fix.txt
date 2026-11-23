@@ -1,0 +1,5 @@
+dmm is active.
+	dmm    ver    : Mar 15 2025(03:12:06)
+	config ver    : for ilc8g-astra          2020/10/28 13:20:57
+	mudule ver    : 0.0
+	load/now time : 1525fa / ca92f17 (HZ=100)

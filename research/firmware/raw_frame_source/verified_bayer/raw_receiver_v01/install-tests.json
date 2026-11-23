@@ -1,0 +1,91 @@
+{
+  "compiled_ARM_executed": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "case": "resolved",
+      "returncode": "0x0",
+      "slot_changed": true,
+      "calls": [
+        "memcmp",
+        "memcmp",
+        "dlopen",
+        "dlsym",
+        "dlopen",
+        "getpagesize",
+        "mprotect"
+      ]
+    },
+    {
+      "case": "lazy",
+      "returncode": "0x0",
+      "slot_changed": true,
+      "calls": [
+        "memcmp",
+        "memcmp",
+        "dlopen",
+        "dlsym",
+        "dlopen",
+        "getpagesize",
+        "mprotect"
+      ]
+    },
+    {
+      "case": "bad_guard",
+      "returncode": "0xfffffffe",
+      "slot_changed": false,
+      "calls": [
+        "memcmp"
+      ]
+    },
+    {
+      "case": "bad_slot",
+      "returncode": "0xfffffffb",
+      "slot_changed": false,
+      "calls": [
+        "memcmp",
+        "memcmp",
+        "dlopen",
+        "dlsym"
+      ]
+    },
+    {
+      "case": "wrong_symbol",
+      "returncode": "0xfffffffc",
+      "slot_changed": false,
+      "calls": [
+        "memcmp",
+        "memcmp",
+        "dlopen",
+        "dlsym"
+      ]
+    },
+    {
+      "case": "pin_fail",
+      "returncode": "0xfffffffa",
+      "slot_changed": false,
+      "calls": [
+        "memcmp",
+        "memcmp",
+        "dlopen",
+        "dlsym",
+        "dlopen"
+      ]
+    },
+    {
+      "case": "protect_fail",
+      "returncode": "0xfffffff8",
+      "slot_changed": false,
+      "calls": [
+        "memcmp",
+        "memcmp",
+        "dlopen",
+        "dlsym",
+        "dlopen",
+        "getpagesize",
+        "mprotect"
+      ]
+    }
+  ],
+  "limitations": "dlopen/dlsym/mprotect/libc mocked; live module unloading, concurrency and native RAW activation not tested."
+}

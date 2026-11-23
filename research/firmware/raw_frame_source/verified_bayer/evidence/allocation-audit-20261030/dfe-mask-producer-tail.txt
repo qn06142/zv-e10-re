@@ -1,0 +1,191 @@
+6390f510: movs      r1, #0
+6390f512: b         #0x6390f516
+6390f514: movs      r1, #1
+6390f516: str       r1, [r2, #0x14]
+6390f518: and       r3, r3, #0xf
+6390f51c: add.w     r2, r4, #0x6d00
+6390f520: cmp       r3, #1
+6390f522: beq       #0x6390f52a
+6390f524: cmp       r3, #2
+6390f526: bne       #0x6390f532
+6390f528: b         #0x6390f52e
+6390f52a: movs      r3, #0
+6390f52c: b         #0x6390f530
+6390f52e: movs      r3, #1
+6390f530: str       r3, [r2, #0x18]
+6390f532: ldr       r0, [sp, #0x24]
+6390f534: bl        #0x63d09fcc
+6390f538: mov       sb, r0
+6390f53a: cbz       r0, #0x6390f550
+6390f53c: bl        #0x63d07f90
+6390f540: vmov      d9, r0, r1
+6390f544: mov       r0, sb
+6390f546: bl        #0x63d07f96
+6390f54a: vmov      d8, r0, r1
+6390f54e: b         #0x6390f558
+6390f550: vmov.f64  d8, #1.000000e+00
+6390f554: vmov.f64  d9, d8
+6390f558: cbnz      r7, #0x6390f572
+6390f55a: ldr       r3, [sp, #0x50]
+6390f55c: mov       r2, r7
+6390f55e: ldr       r0, [pc, #0x1ac] ; [6390f70c]=006760e1
+6390f560: ldr       r1, [pc, #0x1ac] ; [6390f710]=006827ad
+6390f562: str       r3, [sp, #0xa8]
+6390f564: add       r0, pc
+6390f566: add       r1, pc
+6390f568: ldr       r3, [sp, #0xc]
+6390f56a: str       r7, [sp, #0xa0]
+6390f56c: bl        #0x6396f8c4
+6390f570: b         #0x6390f5de
+6390f572: vmov      s11, r7
+6390f576: vldr      s9, [sp, #0x18]
+6390f57a: vcvt.f64.u32 d6, s9
+6390f57e: vldr      s9, [sp, #0xc]
+6390f582: add.w     r3, r4, #0x6c00
+6390f586: ldrh.w    r2, [r3, #0x82]
+6390f58a: ldrh.w    r3, [r3, #0x86]
+6390f58e: vcvt.f64.s32 d7, s11
+6390f592: vdiv.f64  d6, d6, d7
+6390f596: vldr      s15, [sp, #0x14]
+6390f59a: vcvt.f64.u32 d5, s15
+6390f59e: vcvt.f64.s32 d7, s9
+6390f5a2: vmov      s9, r2
+6390f5a6: vdiv.f64  d7, d5, d7
+6390f5aa: vcvt.f64.s32 d5, s9
+6390f5ae: vmul.f64  d5, d5, d9
+6390f5b2: vmul.f64  d5, d5, d6
+6390f5b6: vmul.f64  d5, d5, d7
+6390f5ba: vcvt.u32.f64 s9, d5
+6390f5be: vstr      s9, [sp, #0xa8]
+6390f5c2: vmov      s9, r3
+6390f5c6: vcvt.f64.s32 d5, s9
+6390f5ca: vmul.f64  d5, d5, d9
+6390f5ce: vmul.f64  d6, d5, d6
+6390f5d2: vmul.f64  d7, d6, d7
+6390f5d6: vcvt.u32.f64 s11, d7
+6390f5da: vstr      s11, [sp, #0xa0]
+6390f5de: cbnz      r5, #0x6390f5f8
+6390f5e0: ldr       r3, [sp, #0x54]
+6390f5e2: mov       r2, r5
+6390f5e4: ldr       r0, [pc, #0x12c] ; [6390f714]=00676093
+6390f5e6: ldr       r1, [pc, #0x130] ; [6390f718]=00682725
+6390f5e8: str       r3, [sp, #0xac]
+6390f5ea: add       r0, pc
+6390f5ec: ldr       r3, [sp, #0x10]
+6390f5ee: add       r1, pc
+6390f5f0: str       r5, [sp, #0xa4]
+6390f5f2: bl        #0x6396f8c4
+6390f5f6: b         #0x6390f664
+6390f5f8: vmov      s15, r6
+6390f5fc: add.w     r3, r4, #0x6c00
+6390f600: vmov      s9, r5
+6390f604: vcvt.f64.u32 d6, s15
+6390f608: ldrh.w    r2, [r3, #0x84]
+6390f60c: ldrh.w    r3, [r3, #0x88]
+6390f610: vcvt.f64.s32 d7, s9
+6390f614: vldr      s9, [sp, #0x10]
+6390f618: vdiv.f64  d6, d6, d7
+6390f61c: vmov      s15, r8
+6390f620: vcvt.f64.u32 d5, s15
+6390f624: vcvt.f64.s32 d7, s9
+6390f628: vmov      s9, r2
+6390f62c: vdiv.f64  d7, d5, d7
+6390f630: vcvt.f64.s32 d5, s9
+6390f634: vmul.f64  d5, d5, d8
+6390f638: vmul.f64  d5, d5, d6
+6390f63c: vmul.f64  d5, d5, d7
+6390f640: vcvt.u32.f64 s9, d5
+6390f644: vstr      s9, [sp, #0xac]
+6390f648: vmov      s9, r3
+6390f64c: vcvt.f64.s32 d5, s9
+6390f650: vmul.f64  d5, d5, d8
+6390f654: vmul.f64  d6, d5, d6
+6390f658: vmul.f64  d7, d6, d7
+6390f65c: vcvt.u32.f64 s11, d7
+6390f660: vstr      s11, [sp, #0xa4]
+6390f664: add       r2, sp, #0xb0
+6390f666: add       r3, sp, #0xa0
+6390f668: ldmdb     r2, {r0, r1}
+6390f66c: stm.w     sp, {r0, r1}
+6390f670: add.w     r0, r4, #0x4d00
+6390f674: ldm       r3, {r2, r3}
+6390f676: adds      r0, #0x8c
+6390f678: add.w     r1, r4, #0x20
+6390f67c: bl        #0x63d2e4ae
+6390f680: add.w     r3, r4, #0x6d00
+6390f684: ldr       r3, [r3, #0x14]
+6390f686: cbnz      r3, #0x6390f69e
+6390f688: mov       r0, r4
+6390f68a: ldr       r1, [sp, #0x1c]
+6390f68c: ldr       r2, [sp, #0x20]
+6390f68e: ldr       r3, [sp, #0xe8]
+6390f690: bl        #0x6390ed1c
+6390f694: mov       r4, r0
+6390f696: cbnz      r0, #0x6390f6c6
+6390f698: ldr       r0, [pc, #0x80] ; [6390f71c]=0067601b
+6390f69a: add       r0, pc
+6390f69c: b         #0x6390f6c0
+6390f69e: mov       r0, r4
+6390f6a0: bl        #0x638d9978
+6390f6a4: movw      r3, #0xffff
+6390f6a8: cmp       r0, r3
+6390f6aa: beq       #0x6390f6de
+6390f6ac: mov       r0, r4
+6390f6ae: ldr       r1, [sp, #0x1c]
+6390f6b0: ldr       r2, [sp, #0x20]
+6390f6b2: ldr       r3, [sp, #0xe8]
+6390f6b4: bl        #0x6390efd4
+6390f6b8: mov       r4, r0
+6390f6ba: cbnz      r0, #0x6390f6c6
+6390f6bc: ldr       r0, [pc, #0x60] ; [6390f720]=0067601d
+6390f6be: add       r0, pc
+6390f6c0: bl        #0x6396f8c4
+6390f6c4: b         #0x6390f6e4
+6390f6c6: mov       r0, sl
+6390f6c8: bl        #0x63d86f64
+6390f6cc: cmp       r0, #1
+6390f6ce: beq       #0x6390f6e2
+6390f6d0: ldr       r0, [pc, #0x50] ; [6390f724]=00676029
+6390f6d2: movs      r1, #1
+6390f6d4: movs      r4, #1
+6390f6d6: add       r0, pc
+6390f6d8: bl        #0x63909338
+6390f6dc: b         #0x6390f6e4
+6390f6de: movs      r4, #0
+6390f6e0: b         #0x6390f6e4
+6390f6e2: mov       r4, r0
+6390f6e4: mov       r0, r4
+6390f6e6: add       sp, #0xb4
+6390f6e8: vpop      {d8, d9}
+6390f6ec: pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+6390f6f0: ldrh      r4, [r1, #0x30]
+6390f6f2: lsls      r2, r2, #3
+6390f6f4: str       r6, [r7, #0x28]
+6390f6f6: lsls      r7, r4, #1
+6390f6f8: str       r0, [r0, #0x28]
+6390f6fa: lsls      r7, r4, #1
+6390f6fc: cmp       r1, #0xa9
+6390f6fe: lsls      r0, r5, #1
+6390f700: str       r1, [r5, #0x1c]
+6390f702: lsls      r7, r4, #1
+6390f704: cmp       r0, #0xd9
+6390f706: lsls      r0, r5, #1
+6390f708: ldr       r3, [pc, #0x10] ; [6390f71c]=0067601b
+6390f70a: movs      r0, r0
+6390f70c: str       r1, [r4, #0xc]
+6390f70e: lsls      r7, r4, #1
+6390f710: movs      r7, #0xad
+6390f712: lsls      r0, r5, #1
+6390f714: str       r3, [r2, #8]
+6390f716: lsls      r7, r4, #1
+6390f718: movs      r7, #0x25
+6390f71a: lsls      r0, r5, #1
+6390f71c: str       r3, [r3]
+6390f71e: lsls      r7, r4, #1
+6390f720: str       r5, [r3]
+6390f722: lsls      r7, r4, #1
+6390f724: str       r1, [r5]
+6390f726: lsls      r7, r4, #1
+6390f728: push.w    {r3, r4, r5, r6, r7, r8, sb, lr}
+6390f72c: mov       sb, r3
+6390f72e: mov       r4, r1

@@ -1,0 +1,105 @@
+{
+  "kernel_dwc3_superspeed": {
+    "dwc3_gadget_present": true,
+    "usb3_set_sel_present": true,
+    "usb3_u1_u2_power_states_present": true,
+    "otgcore_gadget_switch_present": true,
+    "status": "PASS"
+  },
+  "libInfraUsbCmn_superspeed": {
+    "speed_mapping_table_0x1280c": [
+      "0x3",
+      "0x1",
+      "0x2"
+    ],
+    "speed_3_maps_to_cusb_speed_super": true,
+    "set3_superspeed_iface_desc_addr": "0x1cca0",
+    "ep_descriptor_vaddr": "0x1ce1c",
+    "ep_address": "0x81",
+    "ep_attributes": "0x2",
+    "ep_wMaxPacketSize": 1024,
+    "ep_bMaxBurst": 2,
+    "vs_hierarchy_vaddr": "0x12625",
+    "vs_wTotalLength": 61,
+    "frame_wWidth": 1280,
+    "frame_wHeight": 720,
+    "frame_default_interval_100ns": 333333,
+    "status": "PASS"
+  },
+  "bandwidth_budget_24fps": {
+    "usb3_usable_throughput_cap_MB_s": 380.0,
+    "modes": [
+      {
+        "mode": "1080p 10-bit Bayer RAW",
+        "resolution": "1920x1080",
+        "fps": 24,
+        "frame_size_bytes": 2592000,
+        "dwFrameInterval_100ns": 416667,
+        "throughput_MB_per_sec": 59.33,
+        "bus_utilization_pct": 15.6,
+        "fits_in_usb3": true
+      },
+      {
+        "mode": "1080p 10-bit Bayer RAW @ 30fps",
+        "resolution": "1920x1080",
+        "fps": 30,
+        "frame_size_bytes": 2592000,
+        "dwFrameInterval_100ns": 333333,
+        "throughput_MB_per_sec": 74.16,
+        "bus_utilization_pct": 19.5,
+        "fits_in_usb3": true
+      },
+      {
+        "mode": "1080p 12-bit Bayer RAW",
+        "resolution": "1920x1080",
+        "fps": 24,
+        "frame_size_bytes": 3110400,
+        "dwFrameInterval_100ns": 416667,
+        "throughput_MB_per_sec": 71.19,
+        "bus_utilization_pct": 18.7,
+        "fits_in_usb3": true
+      },
+      {
+        "mode": "1080p 12-bit Bayer RAW @ 30fps",
+        "resolution": "1920x1080",
+        "fps": 30,
+        "frame_size_bytes": 3110400,
+        "dwFrameInterval_100ns": 333333,
+        "throughput_MB_per_sec": 88.99,
+        "bus_utilization_pct": 23.4,
+        "fits_in_usb3": true
+      },
+      {
+        "mode": "1280p Open Gate 3:2 10-bit RAW",
+        "resolution": "1920x1280",
+        "fps": 24,
+        "frame_size_bytes": 3072000,
+        "dwFrameInterval_100ns": 416667,
+        "throughput_MB_per_sec": 70.31,
+        "bus_utilization_pct": 18.5,
+        "fits_in_usb3": true
+      },
+      {
+        "mode": "1080p YUY2 Uncompressed",
+        "resolution": "1920x1080",
+        "fps": 24,
+        "frame_size_bytes": 4147200,
+        "dwFrameInterval_100ns": 416667,
+        "throughput_MB_per_sec": 94.92,
+        "bus_utilization_pct": 25.0,
+        "fits_in_usb3": true
+      },
+      {
+        "mode": "3.2K Open Gate 3:2 10-bit RAW",
+        "resolution": "3240x2160",
+        "fps": 24,
+        "frame_size_bytes": 8748000,
+        "dwFrameInterval_100ns": 416667,
+        "throughput_MB_per_sec": 200.23,
+        "bus_utilization_pct": 52.7,
+        "fits_in_usb3": true
+      }
+    ],
+    "status": "PASS"
+  }
+}

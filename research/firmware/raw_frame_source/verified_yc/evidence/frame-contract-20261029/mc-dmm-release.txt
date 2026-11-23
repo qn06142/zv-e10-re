@@ -1,0 +1,36 @@
+63c60c64: ldr       r3, [r0]
+63c60c66: push      {r4, r5, r6, lr}
+63c60c68: mov       r4, r0
+63c60c6a: sub       sp, #0xe0
+63c60c6c: mov       r6, r1
+63c60c6e: mov       r5, r2
+63c60c70: cbz       r3, #0x63c60cba
+63c60c72: bl        #0x6364db3c
+63c60c76: ldr       r1, [r4]
+63c60c78: bl        #0x63c60b98
+63c60c7c: cbz       r0, #0x63c60cbc
+63c60c7e: cmp       r0, #3
+63c60c80: beq       #0x63c60cba
+63c60c82: movs      r1, #0
+63c60c84: movs      r2, #0x70
+63c60c86: add       r0, sp, #0x70
+63c60c88: blx       #0x63ae8ad0
+63c60c8c: ldrh      r4, [r4]
+63c60c8e: movs      r1, #0
+63c60c90: movs      r2, #0x70
+63c60c92: mov       r0, sp
+63c60c94: movs      r3, #4
+63c60c96: strh.w    r4, [sp, #0x72]
+63c60c9a: strh.w    r3, [sp, #0x70]
+63c60c9e: movw      r3, #0x1111
+63c60ca2: strh.w    r6, [sp, #0x86]
+63c60ca6: strh.w    r3, [sp, #0x84]
+63c60caa: blx       #0x63ae8ad0
+63c60cae: add       r0, sp, #0x70
+63c60cb0: mov       r1, sp
+63c60cb2: mov       r2, r5
+63c60cb4: bl        #0x6364dac0
+63c60cb8: b         #0x63c60cbc
+63c60cba: movs      r0, #1
+63c60cbc: add       sp, #0xe0
+63c60cbe: pop       {r4, r5, r6, pc}

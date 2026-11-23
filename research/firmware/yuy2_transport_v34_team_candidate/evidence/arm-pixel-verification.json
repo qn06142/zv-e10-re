@@ -1,0 +1,107 @@
+{
+  "passed": 9,
+  "compiled_ARM_executed": true,
+  "hardware_boundaries_mocked": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "case": "exact_pixel",
+      "result": 1,
+      "fault": 0,
+      "markers": [
+        "SHARE",
+        "PIXEL_SHARE_STALE",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "required_pixel",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "pixel_transport",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "pixel_wrong_command",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "pixel_wrong_handle",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "pixel_wrong_queue",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "pixel_wrong_native",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "pixel_wrong_type",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    },
+    {
+      "case": "pixel_unexpected_address",
+      "result": 4294967295,
+      "fault": 1,
+      "markers": [
+        "SHARE",
+        "SHARE_FAILED",
+        "DMM_REPLY_04",
+        "DMM_REPLY_10"
+      ]
+    }
+  ]
+}

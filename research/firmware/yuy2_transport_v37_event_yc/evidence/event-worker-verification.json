@@ -1,0 +1,47 @@
+{
+  "camera_access": false,
+  "hardware_boundaries_mocked": true,
+  "continuous_successful_frames_per_case": 100,
+  "cases": [
+    {
+      "case": 0,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 1,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 2,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 3,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 4,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 5,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 6,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 7,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 8,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    },
+    {
+      "case": 9,
+      "result": "PASS event-driven worker: continuous publication and transferred-reference ledger"
+    }
+  ]
+}

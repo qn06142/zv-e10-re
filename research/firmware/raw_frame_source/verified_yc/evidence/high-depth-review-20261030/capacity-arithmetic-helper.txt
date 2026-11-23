@@ -1,0 +1,46 @@
+635dbae0: subs      r2, r1, #1
+635dbae2: it        eq
+635dbae4: bxeq      lr
+635dbae6: blo.w     #0x635dbd32
+635dbaea: cmp       r0, r1
+635dbaec: bls.w     #0x635dbd1c
+635dbaf0: tst       r1, r2
+635dbaf2: beq.w     #0x635dbd24
+635dbaf6: clz       r3, r0
+635dbafa: clz       r2, r1
+635dbafe: sub.w     r3, r2, r3
+635dbb02: rsb.w     r3, r3, #0x1f
+635dbb06: adr       r2, #0x10
+635dbb08: add.w     r3, r2, r3, lsl #4
+635dbb0c: mov.w     r2, #0
+635dbb10: mov       pc, r3
+635dbb12: nop       
+635dbb14: nop.w     
+635dbb18: cmp.w     r0, r1, lsl #31
+635dbb1c: nop       
+635dbb1e: adc.w     r2, r2, r2
+635dbb22: it        hs
+635dbb24: subhs.w   r0, r0, r1, lsl #31
+635dbb28: cmp.w     r0, r1, lsl #30
+635dbb2c: nop       
+635dbb2e: adc.w     r2, r2, r2
+635dbb32: it        hs
+635dbb34: subhs.w   r0, r0, r1, lsl #30
+635dbb38: cmp.w     r0, r1, lsl #29
+635dbb3c: nop       
+635dbb3e: adc.w     r2, r2, r2
+635dbb42: it        hs
+635dbb44: subhs.w   r0, r0, r1, lsl #29
+635dbb48: cmp.w     r0, r1, lsl #28
+635dbb4c: nop       
+635dbb4e: adc.w     r2, r2, r2
+635dbb52: it        hs
+635dbb54: subhs.w   r0, r0, r1, lsl #28
+635dbb58: cmp.w     r0, r1, lsl #27
+635dbb5c: nop       
+635dbb5e: adc.w     r2, r2, r2
+635dbb62: it        hs
+635dbb64: subhs.w   r0, r0, r1, lsl #27
+635dbb68: cmp.w     r0, r1, lsl #26
+635dbb6c: nop       
+635dbb6e: .byte     0x42, 0xeb

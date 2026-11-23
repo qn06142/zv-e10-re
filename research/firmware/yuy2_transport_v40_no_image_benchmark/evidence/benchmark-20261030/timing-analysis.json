@@ -1,0 +1,38 @@
+{
+  "frames_received": 15,
+  "unique_hashes": 15,
+  "received_bytes": 9216000,
+  "host_receipt_span_seconds": 5.944284200000084,
+  "host_receipt_fps": 2.3552036761633643,
+  "host_interarrival_ms": {
+    "min": 1.4979000000039377,
+    "median": 400.58060000001205,
+    "mean": 424.59172857143454,
+    "max": 765.6085999999505
+  },
+  "camera_USB_samples": [
+    {
+      "submitted": 1,
+      "camera_monotonic_us": 112594041
+    },
+    {
+      "submitted": 2,
+      "camera_monotonic_us": 113019192,
+      "gap_ms": 425.151
+    },
+    {
+      "submitted": 3,
+      "camera_monotonic_us": 113464688,
+      "gap_ms": 445.496
+    }
+  ],
+  "camera_mean_gap_first_three_ms": 435.32349999999997,
+  "camera_equivalent_rate_first_three": 2.297142240196084,
+  "backend_timing_records_recovered": 0,
+  "backend_timing_loss": "Deferred RAM telemetry lost in reported camera restart",
+  "demux_IO_error": true,
+  "capture_ended_cleanly": false,
+  "camera_crash": "User reports crash when stream ended",
+  "files_verified": 15,
+  "file_bytes": 6212377
+}

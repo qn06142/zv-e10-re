@@ -1,0 +1,113 @@
+{
+  "all_match": true,
+  "files": [
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-AccessLog.dat",
+      "bytes": 2097220,
+      "md5": "05b6579f523b8f7e3ac55e311c93cc2c",
+      "sha256": "214c1b0d89c096e033bc215b88fe5dad8ba715994feba056c3aad9655b4aaa6e"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-AccessLog.bak",
+      "bytes": 2097220,
+      "md5": "05b6579f523b8f7e3ac55e311c93cc2c",
+      "sha256": "214c1b0d89c096e033bc215b88fe5dad8ba715994feba056c3aad9655b4aaa6e"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-ThreadMonitor.bin",
+      "bytes": 0,
+      "md5": "d41d8cd98f00b204e9800998ecf8427e",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-kikilog.dat",
+      "bytes": 1957888,
+      "md5": "b7a283e7bfbeacf5465dcf6146fb22b6",
+      "sha256": "a35c96be1241e9e5aa14a07f05e5b0c4c17af297eaccdfe86470e800fab580e2"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-runtime.log",
+      "bytes": 1339,
+      "md5": "544211aed2513562dad7d3be6a5c068b",
+      "sha256": "09751ec9796723f60e8c98d61800123f34f65bb6cba81fab90c7560c886accc4"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-uptime.txt",
+      "bytes": 14,
+      "md5": "9beda1560314c3ba810d67c083dc717a",
+      "sha256": "3fbd2af9e56d30c3ae235dfe4fb9416ff920f4d44e4b12262d491a72b1715759"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-mounts.txt",
+      "bytes": 1584,
+      "md5": "5a765d627d1436f46762eb4a1e20cb8f",
+      "sha256": "d5cd11103b51417c452ae769e0da46cfc89e2acc2c2b32d2446bcc2f9c36f167"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-meminfo.txt",
+      "bytes": 924,
+      "md5": "88622065f81a8f69e9247751b4cdd915",
+      "sha256": "c90194a71e9641bf596231d71c4aff2db5b0ee93acafa01b0f18a23120cffa22"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-boot-id.txt",
+      "bytes": 37,
+      "md5": "b3aaea54820a1c2eecb6c0935d7f0003",
+      "sha256": "34823edc5aa7e9372953279304269c64e1b16ef6425475f50fa8d7072a02a1aa"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-maps.txt",
+      "bytes": 46853,
+      "md5": "a43e1d64b70ce5d7334f5a124637facc",
+      "sha256": "a1437de9e3f23ef65e9dcbec3393dc22cea28f788dbedec02536110762f9bede"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-status.txt",
+      "bytes": 702,
+      "md5": "b7864917eaa26355d25ef0cfa1b7bfc4",
+      "sha256": "82ba5735ccbbeb5e5e6bfd92182e652e6a64b29adf0dabdd39315ce78a948ffa"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-dmesg.txt",
+      "bytes": 7913,
+      "md5": "3795c18c749490841d3ca344fad99c64",
+      "sha256": "7728d20be04b9cb71264058138248b4d1251c5a8a947071ec34d0f7689c037bb"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-storage.txt",
+      "bytes": 146,
+      "md5": "68a3a704d8338880513d4532e163f633",
+      "sha256": "9128cee410ca614090ac6fd7eb3efce1d13e331efa78867c00dad5ec67ca1114"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-installed.md5",
+      "bytes": 129,
+      "md5": "e98998d288589ef1990dfb8943b0e160",
+      "sha256": "fb0a5648c3c7bed05fe046d5159b240179e7b3bcdd0fb2d61ec0dc2242acd072"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-vga.log",
+      "bytes": 42000,
+      "md5": "28c6c62ea57e232464f83bb5bc6eb8fc",
+      "sha256": "737a7b69d122fee5e497eda5ccf3737892c1df9d85908fdea7c914c8ffa1b9cb"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-input-ssyc.bin",
+      "bytes": 4096,
+      "md5": "651ad471ed3e0dfea083d912ed77bad3",
+      "sha256": "b647d952b3d8a22662631679cbb2326a13eb54c44efd6103bc11984f4d62c244"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-destination-ssyc.bin",
+      "bytes": 4096,
+      "md5": "1d09dbacf14a90358b48fbe1178c617b",
+      "sha256": "ccc5da8f8e1422d32b11bcde42098d7b57744a873769a70aeb7e71e0ce0dc4bf"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/crash-uipc_stat_kernel.txt",
+      "bytes": 18574,
+      "md5": "2e831e8fc4fa640368780e270d3f787c",
+      "sha256": "17b6118993a3fe621dcd28b2aa4401b27fdc97a5dd2c2650f76c679f1422dd43"
+    }
+  ]
+}

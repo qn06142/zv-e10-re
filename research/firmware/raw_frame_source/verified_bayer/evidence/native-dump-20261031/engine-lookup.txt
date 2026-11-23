@@ -1,0 +1,64 @@
+63a4427c: ldr       r3, [pc, #8] ; [63a44288]=00bf3e9c
+63a4427e: ldr       r2, [pc, #0xc] ; [63a4428c]=00008200
+63a44280: add       r3, pc
+63a44282: ldr       r0, [r3, r2]
+63a44284: bx        lr
+63a44286: nop       
+63a44288: subs      r6, #0x9c
+63a4428a: lsls      r7, r7, #2
+63a4428c: strh      r0, [r0, #0x10]
+63a4428e: movs      r0, r0
+63a44290: push      {r4, r5, r6, r7, lr}
+63a44292: mov       r4, r1
+63a44294: ldrh      r2, [r1, #0x2c]
+63a44296: sub       sp, #0x1c
+63a44298: ldrh      r3, [r4, #0x28]
+63a4429a: ldrh      r1, [r1, #0x24]
+63a4429c: adds      r3, r2, r3
+63a4429e: ldr       r5, [pc, #0x110] ; [63a443b0]=00bf3e7a
+63a442a0: cmp       r1, r3
+63a442a2: add       r5, pc
+63a442a4: blt       #0x63a442c6
+63a442a6: ldrh      r3, [r4, #0x2e]
+63a442a8: ldrh      r1, [r4, #0x2a]
+63a442aa: ldrh      r0, [r4, #0x26]
+63a442ac: adds      r1, r3, r1
+63a442ae: cmp       r0, r1
+63a442b0: blt       #0x63a442c6
+63a442b2: ldrh      r0, [r4, #0x34]
+63a442b4: ldrh      r1, [r4, #0x30]
+63a442b6: adds      r1, r0, r1
+63a442b8: cmp       r2, r1
+63a442ba: blt       #0x63a442c6
+63a442bc: ldrh      r1, [r4, #0x36]
+63a442be: ldrh      r2, [r4, #0x32]
+63a442c0: adds      r2, r1, r2
+63a442c2: cmp       r3, r2
+63a442c4: bge       #0x63a443aa
+63a442c6: movs      r3, #0x3e
+63a442c8: ldr       r0, [pc, #0xe8] ; [63a443b4]=0058e5c9
+63a442ca: str       r3, [sp]
+63a442cc: movs      r1, #3
+63a442ce: ldr       r2, [pc, #0xe8] ; [63a443b8]=0058f627
+63a442d0: add       r0, pc
+63a442d2: ldr       r3, [pc, #0xe8] ; [63a443bc]=0058ecfc
+63a442d4: movs      r6, #0
+63a442d6: add       r2, pc
+63a442d8: movs      r7, #3
+63a442da: add       r3, pc
+63a442dc: bl        #0x63c5fe48
+63a442e0: ldrh      r0, [r4, #0x2e]
+63a442e2: ldrh      r1, [r4, #0x24]
+63a442e4: ldrh      r2, [r4, #0x26]
+63a442e6: str       r0, [sp]
+63a442e8: ldrh      r0, [r4, #0x34]
+63a442ea: ldrh      r3, [r4, #0x2c]
+63a442ec: str       r0, [sp, #4]
+63a442ee: ldrh      r0, [r4, #0x36]
+63a442f0: str       r0, [sp, #8]
+63a442f2: ldr       r0, [pc, #0xcc] ; [63a443c0]=0058ed7f
+63a442f4: add       r0, pc
+63a442f6: bl        #0x63c5fe48
+63a442fa: movs      r3, #0xa0
+63a442fc: str       r3, [sp]
+63a442fe: subs      r3, #0x9b

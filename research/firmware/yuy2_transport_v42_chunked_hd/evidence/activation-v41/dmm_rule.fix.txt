@@ -1,0 +1,2 @@
+Information on AllocRule.
+ [0000] < ffff < ffff < ffff < ffff < ffff < ffff < ffff

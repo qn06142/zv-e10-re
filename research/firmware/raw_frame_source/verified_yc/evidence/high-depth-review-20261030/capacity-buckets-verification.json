@@ -1,0 +1,105 @@
+{
+  "camera_access": false,
+  "original_instructions_executed": true,
+  "division_helper_original": true,
+  "only_mocked_call": "0x63da5ca8 returns a controlled configuration object",
+  "cases": [
+    {
+      "bit_depth": 0,
+      "width": 1920,
+      "height": 1080,
+      "original_calculated_value": 2073600,
+      "selected_pool_or_unit_id": "0x36a",
+      "oversize": false
+    },
+    {
+      "bit_depth": 0,
+      "width": 1921,
+      "height": 1080,
+      "original_calculated_value": 2074680,
+      "selected_pool_or_unit_id": "0x3d0",
+      "oversize": false
+    },
+    {
+      "bit_depth": 0,
+      "width": 2560,
+      "height": 2025,
+      "original_calculated_value": 5184000,
+      "selected_pool_or_unit_id": "0x3d0",
+      "oversize": false
+    },
+    {
+      "bit_depth": 0,
+      "width": 2560,
+      "height": 2026,
+      "original_calculated_value": 5186560,
+      "selected_pool_or_unit_id": "0x369",
+      "oversize": false
+    },
+    {
+      "bit_depth": 0,
+      "width": 3840,
+      "height": 2160,
+      "original_calculated_value": 8294400,
+      "selected_pool_or_unit_id": "0x369",
+      "oversize": false
+    },
+    {
+      "bit_depth": 0,
+      "width": 3840,
+      "height": 2161,
+      "original_calculated_value": 8298240,
+      "selected_pool_or_unit_id": null,
+      "oversize": true
+    },
+    {
+      "bit_depth": 1,
+      "width": 1920,
+      "height": 1080,
+      "original_calculated_value": 2073600,
+      "selected_pool_or_unit_id": "0x36a",
+      "oversize": false
+    },
+    {
+      "bit_depth": 1,
+      "width": 1921,
+      "height": 1080,
+      "original_calculated_value": 2074680,
+      "selected_pool_or_unit_id": "0x3d0",
+      "oversize": false
+    },
+    {
+      "bit_depth": 1,
+      "width": 2560,
+      "height": 2025,
+      "original_calculated_value": 5184000,
+      "selected_pool_or_unit_id": "0x3d0",
+      "oversize": false
+    },
+    {
+      "bit_depth": 1,
+      "width": 2560,
+      "height": 2026,
+      "original_calculated_value": 5186560,
+      "selected_pool_or_unit_id": "0x369",
+      "oversize": false
+    },
+    {
+      "bit_depth": 1,
+      "width": 3840,
+      "height": 2160,
+      "original_calculated_value": 8294400,
+      "selected_pool_or_unit_id": "0x369",
+      "oversize": false
+    },
+    {
+      "bit_depth": 1,
+      "width": 3840,
+      "height": 2161,
+      "original_calculated_value": 8298240,
+      "selected_pool_or_unit_id": null,
+      "oversize": true
+    }
+  ],
+  "conclusion": "For both depths0and1 this block compares width*height against three bucket constants and selects0x36a/0x3d0/0x369. The constants do not prove 2.5/4 bytes per pixel, packing order, or association with output mode4/5."
+}

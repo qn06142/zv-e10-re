@@ -1,0 +1,95 @@
+{
+  "original_instructions": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "function": "allocation",
+      "existing": "0xffff",
+      "unit": "0x50505",
+      "allocator_error": 0,
+      "rc": "0x1234",
+      "calls": [
+        "select",
+        "allocate"
+      ]
+    },
+    {
+      "function": "allocation",
+      "existing": "0xffff",
+      "unit": "0x5056e",
+      "allocator_error": 0,
+      "rc": "0x1234",
+      "calls": [
+        "select",
+        "allocate"
+      ]
+    },
+    {
+      "function": "allocation",
+      "existing": "0xffff",
+      "unit": "0x236",
+      "allocator_error": 0,
+      "rc": "0x1234",
+      "calls": [
+        "select",
+        "allocate"
+      ]
+    },
+    {
+      "function": "allocation",
+      "existing": "0xffff",
+      "unit": "0x50505",
+      "allocator_error": 1,
+      "rc": "0xffff",
+      "calls": [
+        "select",
+        "allocate"
+      ]
+    },
+    {
+      "function": "allocation",
+      "existing": "0xffff",
+      "unit": "0x0",
+      "allocator_error": 0,
+      "rc": "0xffff",
+      "calls": [
+        "select"
+      ]
+    },
+    {
+      "function": "allocation",
+      "existing": "0x3456",
+      "unit": "0x50505",
+      "allocator_error": 0,
+      "rc": "0x3456",
+      "calls": []
+    },
+    {
+      "function": "open",
+      "lookup_error": 0,
+      "span_count": 0,
+      "rc": 0
+    },
+    {
+      "function": "open",
+      "lookup_error": 0,
+      "span_count": 1,
+      "rc": 0
+    },
+    {
+      "function": "open",
+      "lookup_error": 0,
+      "span_count": 2,
+      "rc": 0
+    },
+    {
+      "function": "open",
+      "lookup_error": 1,
+      "span_count": 0,
+      "rc": 1
+    }
+  ],
+  "limitations": [
+    "Selector/allocator/native lookup mocked. Confirms storage and error handling, not physical capacity or RAW production."
+  ]
+}

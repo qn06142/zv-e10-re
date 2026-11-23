@@ -1,0 +1,14 @@
+{
+  "command": [
+    "C:/WINDOWS/ffmpeg.exe",
+    "-hide_banner",
+    "-nostdin",
+    "-list_options",
+    "true",
+    "-f",
+    "dshow",
+    "-i",
+    "video=ZV-E10"
+  ],
+  "returncode": 0
+}

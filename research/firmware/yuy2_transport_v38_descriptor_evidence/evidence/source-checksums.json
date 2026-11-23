@@ -1,0 +1,150 @@
+[
+  {
+    "path": "package.py",
+    "sha256": "671dfe175bd712caef4aa85660bc54c37d6d2b4e49dd75e443a5ef17c03c12ac"
+  },
+  {
+    "path": "README.md",
+    "sha256": "5f82706cc8d527b2b4604adc2a8d1fedbf383b5c1a22994ce57150bdec871c26"
+  },
+  {
+    "path": "recipe/build.py",
+    "sha256": "6d7548eeb9dbf3d448cca09838ea58b4ff2d2da9f319ce66c24728e4cb989502"
+  },
+  {
+    "path": "recipe/capture_vga.py",
+    "sha256": "fd34d5919fb1e883bdfd9e0b053480c59483009e61624c8121565b4ecc190e65"
+  },
+  {
+    "path": "recipe/decode_rejection.py",
+    "sha256": "8361c6072e4f087cd1ef948ffd25e6227d6c1f29a45bda89f8602b09087a2a31"
+  },
+  {
+    "path": "recipe/generate_guards.py",
+    "sha256": "575d3d51b5a80804af907da5c1e0192878c6188a4a041556f094d73c9be08e05"
+  },
+  {
+    "path": "recipe/generate_port_guards.py",
+    "sha256": "6cc35d6aa1cf0b2b09587c8abdf751538a8a11e892ea024a78599ba4bca36fc6"
+  },
+  {
+    "path": "recipe/persistent_stream.py",
+    "sha256": "a74c9cf9fdac592e8ac37240daeafe03ae45f18b9d91f23d49f13588d8ccd7ca"
+  },
+  {
+    "path": "recipe/raw_frame_source.h",
+    "sha256": "404460e394051efc5800daae0854a2c6d7d3a4dd948908d315ed54c071726b1f"
+  },
+  {
+    "path": "recipe/raw_live_source.h",
+    "sha256": "5ce95053d5f4ee70e919e09366e67a8d26ef1df0f5569bccfa2d5b0f3cb9ed18"
+  },
+  {
+    "path": "recipe/sony_yc_metadata.c",
+    "sha256": "e2bbc431eef446ac02b55a1d0faefbc3c9ea4a99cb2e64e6d90ad1cb84e98cf6"
+  },
+  {
+    "path": "recipe/sony_yc_metadata.h",
+    "sha256": "f7edbdc47b0d2ffc579f09048a9915c1d1700637e962e5aa93efeff06f41168a"
+  },
+  {
+    "path": "recipe/sony_yc_sds.c",
+    "sha256": "87b1fe9dcdd7990045f50b06805ea5c0d9822b5105fbbb557391deddb24b54a6"
+  },
+  {
+    "path": "recipe/sony_yc_sds.h",
+    "sha256": "6293b81ca259bb1de87fa9db759d52483199a1860bd1f2aa77f0bdf5d73ee478"
+  },
+  {
+    "path": "recipe/test_event_worker.c",
+    "sha256": "5fc10465dfecee18df3358328ef907ba6949f055bd2cdfb6d4c6c24945383bf5"
+  },
+  {
+    "path": "recipe/test_vga_contract.c",
+    "sha256": "4c1310ea49d3b57fc2e7f3a19a153c01d031745b21493974e20fdceac858d678"
+  },
+  {
+    "path": "recipe/test_vga_worker.c",
+    "sha256": "e6844c611a4ccbf813228fbc37780cfc1e37a3341f9bd602d9ff1cbd3155bbf9"
+  },
+  {
+    "path": "recipe/test_yc_port.c",
+    "sha256": "3fd4b44602adda87af5b533e414caff066126e4a620637f127eaf92bffbb5dbd"
+  },
+  {
+    "path": "recipe/verify_isa.py",
+    "sha256": "e85e6112e80a53f1aee17dbf514d8e31d0b4f86fcaf43b0015ccafbd5199b87b"
+  },
+  {
+    "path": "recipe/verify_persistent.py",
+    "sha256": "5d044bc4dafa65522b8c77817d41b152dd17e579ec0e77c24d775da09e940f83"
+  },
+  {
+    "path": "recipe/verify_support.py",
+    "sha256": "bcd711917c358e677b2fe9128f6a62f5d7abaaae86f50e32a8d0540c20c8a02c"
+  },
+  {
+    "path": "recipe/vga_contract.c",
+    "sha256": "f10359dd1b3895f1767fe929206cb77601659a602795e681621a6eb39562c593"
+  },
+  {
+    "path": "recipe/vga_contract.h",
+    "sha256": "fb58134d3ff22a1611bc84c957a0f974fca186347a8948ff912ae719a95d96e8"
+  },
+  {
+    "path": "recipe/vga_guards.h",
+    "sha256": "e77778dec4287cc3f78f4347d9161355cda50e045936d873047a2ca4dc08b040"
+  },
+  {
+    "path": "recipe/vga_guards.json",
+    "sha256": "acf5cd52332a00e72da86cfe4609950526d9c3d477dca539cc06d568cbd368de"
+  },
+  {
+    "path": "recipe/vga_resize.c",
+    "sha256": "325f73f9f674300a269a9fa756528881ecb8894c5538f124633e78bc35bebba6"
+  },
+  {
+    "path": "recipe/vga_resize.h",
+    "sha256": "b7dc4b739da99ae67df0da5d2cc7fc77b644ff3bf987b4b9e74b5cb8c26c44ca"
+  },
+  {
+    "path": "recipe/yc_port.c",
+    "sha256": "b948944bc0384c71a54fb19328c94d7c24ea9fe61291f25bba75f9d327dd37de"
+  },
+  {
+    "path": "recipe/yc_port.h",
+    "sha256": "a21ed9886e508f6194ad5e0255065896c4a180eaee61806c825e94af165d8828"
+  },
+  {
+    "path": "recipe/yc_port_guards.h",
+    "sha256": "a4f730427f0be0c5e70a819bbcce6eec7cffebe911661ec9c8c59d083760e8b4"
+  },
+  {
+    "path": "recipe/yc_port_guards.json",
+    "sha256": "271ac6a7fff737976d50685bed093627ba9a13589d50241813b1cae015dfe6e5"
+  },
+  {
+    "path": "recipe/yc_unpack.c",
+    "sha256": "fc790370840a097dd75dff2aa40abb8dca7e4178e3148f89a94f78026ca6c37a"
+  },
+  {
+    "path": "recipe/yc_unpack.h",
+    "sha256": "8ac746f68756e1352f9c20b3eea6a0d9eb942d6d0eb19af433f0602195d4f1e2"
+  },
+  {
+    "path": "recipe/yuy2_640_v38vga.c",
+    "sha256": "5d3b5defaf724acf2c0c8d4d758b53d4b4a6b1c16af4057c8c2fe2819240143a"
+  },
+  {
+    "path": "verify_frontend.py",
+    "sha256": "7a23973a7b743a64223bed0308db2e6fd610d525b00fcb0e584752d7f661cc6a"
+  },
+  {
+    "path": "verify_installer.py",
+    "sha256": "c871f2f7fd2c3d65d47957dff103cf1336bc2e2f9611a9097902a7dd4d06b965"
+  },
+  {
+    "path": "verify_loader.py",
+    "sha256": "7b31ec9ee33ff32b8936bb8027ea0c9bedf62c0f41f23763b6216822d4fe4426"
+  }
+]

@@ -1,0 +1,16 @@
+_ZN7FeaCore19SetRecVideoBitDepthEPN5MprIf14VBitdepthParamEm
+00542128: adds r6, #8
+0054212a: cmp r8, sb
+0054212c: mla sl, r2, sl, r4
+00542130: add.w r2, sl, #0x1760
+00542134: str r3, [r2, #0xc]
+00542136: blo #0x542102
+00542138: movs r0, #0
+0054213a: pop.w {r4, r5, r6, r7, r8, sb, sl, pc}
+0054213e: movs r0, #5
+00542140: pop.w {r4, r5, r6, r7, r8, sb, sl, pc}
+00542144: movs r0, #0xa
+00542146: pop.w {r4, r5, r6, r7, r8, sb, sl, pc}
+0054214a: movs r0, #5
+0054214c: pop.w {r4, r5, r6, r7, r8, sb, sl, pc}
+00542150: adds r3, r5, r6

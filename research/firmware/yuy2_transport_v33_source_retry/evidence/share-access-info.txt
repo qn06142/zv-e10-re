@@ -1,0 +1,109 @@
+00009238: mov      ip, sp
+0000923c: push     {r4, r5, r6, r7, r8, sb, sl, fp, ip, lr, pc}
+00009240: sub      fp, ip, #4
+00009244: sub      sp, sp, #0x14
+00009248: mov      r5, r0
+0000924c: mov      r4, r1
+00009250: mov      r6, r2
+00009254: mov      r8, r3
+00009258: bl       #0x8744
+0000925c: mov      r7, r0
+00009260: mov      r0, r5
+00009264: bl       #0x8778
+00009268: cmp      r7, #0x580
+0000926c: bhs      #0x93e0
+00009270: ldr      r3, [pc, #0x170]
+00009274: mov      sl, #0x150
+00009278: uxtb     r0, r0
+0000927c: mla      sl, sl, r7, r3
+00009280: ldrb     r3, [sl, #0xb23]
+00009284: cmp      r3, r0
+00009288: bne      #0x93e0
+0000928c: bl       #0x928c
+00009290: cmp      r8, #0
+00009294: strd     r0, r1, [fp, #-0x34]
+00009298: bne      #0x92b8
+0000929c: add      r3, sl, #0xb60
+000092a0: add      sl, sl, #0xb10
+000092a4: add      sl, sl, #8
+000092a8: mov      r2, r0
+000092ac: strh     r8, [r3]
+000092b0: mov      r3, r1
+000092b4: strd     r2, r3, [sl, #0x40]
+000092b8: ldr      r3, [pc, #0x128]
+000092bc: mov      r1, #0x150
+000092c0: mov      r2, #0x2a
+000092c4: mla      r1, r1, r7, r3
+000092c8: mul      r2, r2, r7
+000092cc: add      r1, r1, #0xb60
+000092d0: ldrh     r0, [r1]
+000092d4: add      r0, r2, r0
+000092d8: add      r0, r3, r0, lsl #3
+000092dc: str      r4, [r0, #0xb68]
+000092e0: ubfx     r4, r4, #0x10, #0xc
+000092e4: ldrh     r1, [r1]
+000092e8: add      r2, r2, r1
+000092ec: add      r3, r3, r2, lsl #3
+000092f0: add      r3, r3, #0xb60
+000092f4: strh     r6, [r3, #4]
+000092f8: bl       #0x92f8
+000092fc: mov      r1, #0
+00009300: str      r8, [fp, #-0x38]
+00009304: b        #0x9398
+00009308: mov      r2, #0x54
+0000930c: ldr      r8, [fp, #-0x38]
+00009310: mla      r2, r2, r7, r1
+00009314: cmp      r8, #0
+00009318: add      r3, r3, r2, lsl #2
+0000931c: ldr      r2, [r3, #0xb28]
+00009320: ldrh     sl, [r2]
+00009324: sub      sl, sl, #1
+00009328: lsl      sl, sl, #5
+0000932c: add      r3, r0, sl
+00009330: addeq    ip, ip, #0xb10
+00009334: addeq    ip, ip, #8
+00009338: ldrdeq   r8, sb, [ip, #0x40]
+0000933c: strheq   r4, [r3, #8]
+00009340: strdeq   r8, sb, [r0, sl]
+00009344: ldr      ip, [r2, #0x28]
+00009348: mov      sl, #0x150
+0000934c: strh     r4, [r3, #0xa]
+00009350: add      r1, r1, #1
+00009354: cmp      ip, #0
+00009358: strh     r6, [r3, #0xe]
+0000935c: movne    ip, #1
+00009360: strb     ip, [r3, #0x17]
+00009364: ldr      ip, [pc, #0x7c]
+00009368: uxth     r1, r1
+0000936c: strhne   r5, [r3, #0xc]
+00009370: mla      ip, sl, r7, ip
+00009374: ldrb     ip, [ip, #0xb20]
+00009378: strb     ip, [r3, #0x16]
+0000937c: ldmib    r2, {sb, ip}
+00009380: add      ip, sb, ip
+00009384: ldrd     r8, sb, [fp, #-0x34]
+00009388: str      ip, [r3, #0x10]
+0000938c: ldrh     r2, [r2, #0x20]
+00009390: strd     r8, sb, [r3, #0x18]
+00009394: strh     r2, [r3, #0x14]
+00009398: ldr      r3, [pc, #0x48]
+0000939c: mov      ip, #0x150
+000093a0: mla      ip, ip, r7, r3
+000093a4: add      r2, ip, #0xb20
+000093a8: ldrh     r2, [r2, #6]
+000093ac: cmp      r2, r1
+000093b0: mov      r2, r3
+000093b4: bhi      #0x9308
+000093b8: mov      r1, #0x150
+000093bc: add      ip, ip, #0xb60
+000093c0: mla      r2, r1, r7, r2
+000093c4: ldrh     r3, [ip]
+000093c8: cmp      r3, #0x1e
+000093cc: addls    r3, r3, #1
+000093d0: add      r2, r2, #0xb60
+000093d4: movhi    r3, #0x1f
+000093d8: uxthls   r3, r3
+000093dc: strh     r3, [r2]
+000093e0: sub      sp, fp, #0x28
+000093e4: ldm      sp, {r4, r5, r6, r7, r8, sb, sl, fp, sp, pc}
+000093e8: andeq    r6, sb, r8, lsr #5

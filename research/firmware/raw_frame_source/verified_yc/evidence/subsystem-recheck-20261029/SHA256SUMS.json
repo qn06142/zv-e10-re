@@ -1,0 +1,147 @@
+[
+  {
+    "path": "category2-and-pin-original-execution.json",
+    "bytes": 2598,
+    "sha256": "0832016dd93a168c2f8e2f67d7639dfd7f94834fa13a0447bc73f72ff140751c"
+  },
+  {
+    "path": "claimed-consumer-regions.txt",
+    "bytes": 10413,
+    "sha256": "ca478ba898081ee64360c490c60c6234a2976f43e8df7f9c04aa8cd704d0bd71"
+  },
+  {
+    "path": "DataflowInfraMsg14SetDataflowMsg-original.txt",
+    "bytes": 2668,
+    "sha256": "80d1b9346c35f5754bf6a720061a103d27a8b3489d10bebc6abd26250e92520a"
+  },
+  {
+    "path": "DataflowInfraMsg6GetMsg-original.txt",
+    "bytes": 2450,
+    "sha256": "55050243db2eed8b5dcaebe6f569b7d8be0b12d236815294f11e72c573252d4b"
+  },
+  {
+    "path": "DataflowInfraMsg8SetSrcId-original.txt",
+    "bytes": 204,
+    "sha256": "63d06e40ad46f0d4c176a162c9e38aa714a1b767dea69c1de401cac98cadfcc8"
+  },
+  {
+    "path": "DataflowInfraPin-original.txt",
+    "bytes": 41116,
+    "sha256": "c495b5fc060d4d7371c2cdd8c8dbd818d7bd6fb78cb3ceab07d49c5b2aa80fb5"
+  },
+  {
+    "path": "DataflowInfraReceiver-original.txt",
+    "bytes": 18551,
+    "sha256": "6e5c529d47bab874bded2f7085a7ad0103c81ba3217e5c889b4bd7a970ea7f34"
+  },
+  {
+    "path": "DataflowInfraSender-original.txt",
+    "bytes": 17864,
+    "sha256": "65a4019330d84ab779b2ba2a10631ab92783f7252c7aae4d8b280d9269ccd383"
+  },
+  {
+    "path": "firmware-input-hashes.json",
+    "bytes": 791,
+    "sha256": "7f5d4bc86fcf90f88095c393c2ca1e2bbc488cdebbd938286551cafd53a0740f"
+  },
+  {
+    "path": "ImageOutTimInfo-original.txt",
+    "bytes": 6714,
+    "sha256": "f4f693eaefebf2e8f0d8ae635e94e4ed8a54f557a2b4fb0ee8fd4f5c5689885e"
+  },
+  {
+    "path": "libObj-pin-receiver-call-candidates.txt",
+    "bytes": 5804,
+    "sha256": "95a8e09cc4114c1baa176b0cb2b06b7ace1547056ea2ab83ea6218e6c0c7f81c"
+  },
+  {
+    "path": "native-pin-receiver-regions.txt",
+    "bytes": 15672,
+    "sha256": "9a18ad1e45c7b4ef639612940da15f80978db16fa066952c2ec7e70375de9f63"
+  },
+  {
+    "path": "native-receive-dispatch.txt",
+    "bytes": 7378,
+    "sha256": "fea801b835bb65769475f3436c88a6ac1407f0796739f1a42b7645ec64eee585"
+  },
+  {
+    "path": "native-receiver-rtti.json",
+    "bytes": 740,
+    "sha256": "b49b505341b292e9cd592fc0017ff62e3f883d581cac814a5962cd81a3f6854c"
+  },
+  {
+    "path": "native-type1-dispatch-execution.json",
+    "bytes": 1055,
+    "sha256": "a42db738a6200e67d82a92d07de0e92818cd3150f0e4e821c12673917f396661"
+  },
+  {
+    "path": "native-type1-endpoints.txt",
+    "bytes": 11750,
+    "sha256": "4cd7f24f32590ab81729bd1825afd515b16b835da484e83f5a5d5b5d39e36091"
+  },
+  {
+    "path": "native-type1-handler.txt",
+    "bytes": 3170,
+    "sha256": "c01bbf2790d24bc4e1bd81c2fbb0b997c0052aa48d2f200531361d5956f6bc58"
+  },
+  {
+    "path": "pin-wire-original-execution.json",
+    "bytes": 2525,
+    "sha256": "92f35396fc747d8cb90fdf2e671cbfa8b8aa1cd4b1db45e8ccae67903d3bfd4b"
+  },
+  {
+    "path": "PinMessageConstructors-original.txt",
+    "bytes": 2621,
+    "sha256": "5eac8f475591bcaa16e39f4e9913a7b5e2574119fe3bb02478fe62783d9d6fd5"
+  },
+  {
+    "path": "Receiver-original.txt",
+    "bytes": 18551,
+    "sha256": "6e5c529d47bab874bded2f7085a7ad0103c81ba3217e5c889b4bd7a970ea7f34"
+  },
+  {
+    "path": "recipe/collect_evidence.py",
+    "bytes": 2613,
+    "sha256": "4db2b787373b6201e18592a3c52d2eabbd115be283d7242738669bcf8ca6e699"
+  },
+  {
+    "path": "recipe/elf_calls.py",
+    "bytes": 2264,
+    "sha256": "bb843977df13abadd43cc6b79fcfa11a8e96262bfc5312bb5743198563ba2f94"
+  },
+  {
+    "path": "recipe/inspect_native_receive.py",
+    "bytes": 1534,
+    "sha256": "72b6d59a7cb023d61e17c5420f63d1f535470dd7b2e02396789ca1fce86cbb4c"
+  },
+  {
+    "path": "recipe/thumb_xrefs.py",
+    "bytes": 505,
+    "sha256": "4b599acfb0f12fe6d034a87097ab707c04ec1ebdeb71399ab2e2a0c2072d90ae"
+  },
+  {
+    "path": "recipe/verify_category2_and_pin.py",
+    "bytes": 5399,
+    "sha256": "dd75d072bc1aaab5e688921de747f933ffcd64b3ac58aa9d0b4b9513098ee353"
+  },
+  {
+    "path": "recipe/verify_native_type1.py",
+    "bytes": 2178,
+    "sha256": "b9bcdcd408cf2bc2dca4d0700c05500f8ede901f9f19609d7af90a5e5d83e2b1"
+  },
+  {
+    "path": "recipe/verify_pin_wire.py",
+    "bytes": 3657,
+    "sha256": "57e82d18148357b6cd6ec2db2b980288b879e3670dfcb9b26d128e5844cf34b1"
+  },
+  {
+    "path": "REPORT.md",
+    "bytes": 10178,
+    "sha256": "df7592781b77abc3979ba39eb16b091eba1ea22cdc4e11b73b533a24f5961381"
+  },
+  {
+    "path": "verification-summary.json",
+    "bytes": 437,
+    "sha256": "bf32c5d4c86b00c652919fffb218be30946ef912e083b6ed0aa75015843e1d46"
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "test": "geometry_size_check_geom_0",
+    "geom": 0,
+    "size_bytes": 2592000,
+    "expected_bytes": 2592000,
+    "status": "PASS"
+  },
+  {
+    "test": "geometry_size_check_geom_1",
+    "geom": 1,
+    "size_bytes": 3110400,
+    "expected_bytes": 3110400,
+    "status": "PASS"
+  },
+  {
+    "test": "geometry_size_check_geom_2",
+    "geom": 2,
+    "size_bytes": 3072000,
+    "expected_bytes": 3072000,
+    "status": "PASS"
+  },
+  {
+    "test": "dma330_valid_addr_0x40000000",
+    "addr": "0x40000000",
+    "valid": true,
+    "status": "PASS"
+  },
+  {
+    "test": "dma330_valid_addr_0x40000080",
+    "addr": "0x40000080",
+    "valid": true,
+    "status": "PASS"
+  },
+  {
+    "test": "dma330_valid_addr_0x40000100",
+    "addr": "0x40000100",
+    "valid": true,
+    "status": "PASS"
+  },
+  {
+    "test": "dma330_valid_addr_0x60000000",
+    "addr": "0x60000000",
+    "valid": true,
+    "status": "PASS"
+  },
+  {
+    "test": "dma330_invalid_addr_0x40000001",
+    "addr": "0x40000001",
+    "rejected": true,
+    "status": "PASS"
+  },
+  {
+    "test": "dma330_invalid_addr_0x40000010",
+    "addr": "0x40000010",
+    "rejected": true,
+    "status": "PASS"
+  },
+  {
+    "test": "dma330_invalid_addr_0x40000040",
+    "addr": "0x40000040",
+    "rejected": true,
+    "status": "PASS"
+  },
+  {
+    "test": "dma330_invalid_addr_0x4000007f",
+    "addr": "0x4000007f",
+    "rejected": true,
+    "status": "PASS"
+  },
+  {
+    "test": "continuous_24fps_100_frame_simulation",
+    "frames_produced": 100,
+    "dropped_frames": 0,
+    "last_slot": 3,
+    "status": "PASS"
+  }
+]

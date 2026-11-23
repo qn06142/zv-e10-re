@@ -1,0 +1,144 @@
+
+_ZN5FeaIf19SetRecVideoBitDepthEPN5MprIf14VBitdepthParamEm @0x5549a4
+005549a4: ldr       r3, [pc, #0x94] 
+005549a6: push.w    {r4, r5, r6, r7, r8, sb, sl, lr} 
+005549aa: mov       r4, r0 
+005549ac: ldrb      r3, [r3] 
+005549ae: add       r7, sp, #0 
+005549b0: mov       r5, r1 
+005549b2: mov       r6, r2 
+005549b4: cmp       r3, #0 
+005549b6: beq       #0x554a2c 
+005549b8: ldr.w     r0, [r0, #0x94] 
+005549bc: movs      r2, #1 
+005549be: ldr       r1, [pc, #0x80] 
+005549c0: mov.w     r8, #0 
+005549c4: bl        #0x898c34 
+005549c8: b         #0x554a28 
+005549ca: ldr.w     r0, [r4, #0x94] 
+005549ce: add.w     sl, r5, r8, lsl #3 
+005549d2: ldr       r1, [pc, #0x70] 
+005549d4: bl        #0x7ed408 
+005549d8: mov       r1, r8 
+005549da: ldr.w     r0, [r4, #0x94] 
+005549de: bl        #0x7ed384 
+005549e2: ldr.w     r0, [r4, #0x94] 
+005549e6: ldr       r1, [pc, #0x60] 
+005549e8: bl        #0x7ed408 
+005549ec: ldr.w     r1, [r5, r8, lsl #3] 
+005549f0: ldr.w     r0, [r4, #0x94] 
+005549f4: add.w     r8, r8, #1 
+005549f8: bl        #0x7ed384 
+005549fc: ldr.w     r0, [r4, #0x94] 
+00554a00: ldr       r1, [pc, #0x48] 
+00554a02: uxth.w    r8, r8 
+00554a06: bl        #0x7ed408 
+00554a0a: ldr.w     sb, [r4, #0x94] 
+00554a0e: ldr.w     r1, [sl, #4] 
+00554a12: mov       r0, sb 
+00554a14: bl        #0x899774 _ZNK10MprMonCtrl16CnvVideoBitDepthEN3MPR13VideoBitDepthE
+00554a18: mov       r1, r0 
+00554a1a: mov       r0, sb 
+00554a1c: bl        #0x7ed408 
+00554a20: ldr.w     r0, [r4, #0x94] 
+00554a24: bl        #0x7ed2e4 
+00554a28: cmp       r8, r6 
+00554a2a: blo       #0x5549ca 
+00554a2c: ldr       r0, [r4, #4] 
+00554a2e: mov       r1, r5 
+00554a30: mov       r2, r6 
+00554a32: pop.w     {r4, r5, r6, r7, r8, sb, sl, lr} 
+00554a36: b.w       #0x5420dc _ZN7FeaCore19SetRecVideoBitDepthEPN5MprIf14VBitdepthParamEm
+00554a3a: nop        
+00554a3c: ldr       r1, [r4, #0x68] 
+00554a3e: lsls      r3, r2, #5 
+
+_ZN5MprIf19SetRecVideoBitDepthEPNS_14VBitdepthParamEm @0x8aee08
+008aee08: push      {r3, r4, r5, r6, r7, lr} 
+008aee0a: mov       r6, r0 
+008aee0c: add       r7, sp, #0 
+008aee0e: mov       r5, r2 
+008aee10: mov       r4, r1 
+008aee12: cbz       r1, #0x8aee32 
+008aee14: movs      r1, #0 
+008aee16: ldr       r0, [pc, #0x38] 
+008aee18: ldrh      r2, [r4] 
+008aee1a: ldrh      r3, [r4, #4] 
+008aee1c: bl        #0x8ae246 _ZN8MprIfLog11SyncApiCallIttEEvmtT_T0_
+008aee20: cmp       r5, #1 
+008aee22: bls       #0x8aee38 
+008aee24: ldr       r0, [pc, #0x28] 
+008aee26: movs      r1, #1 
+008aee28: ldrh      r2, [r4, #8] 
+008aee2a: ldrh      r3, [r4, #0xc] 
+008aee2c: bl        #0x8ae246 _ZN8MprIfLog11SyncApiCallIttEEvmtT_T0_
+008aee30: b         #0x8aee38 
+008aee32: ldr       r0, [pc, #0x1c] 
+008aee34: bl        #0x8b24f4 _ZN8MprIfLog11SyncApiCallEmt
+008aee38: mov       r1, r4 
+008aee3a: mov       r2, r5 
+008aee3c: ldr       r0, [r6] 
+008aee3e: bl        #0x5549a4 _ZN5FeaIf19SetRecVideoBitDepthEPN5MprIf14VBitdepthParamEm
+008aee42: mov       r4, r0 
+008aee44: ldr       r0, [pc, #8] 
+008aee46: mov       r1, r4 
+008aee48: bl        #0x8b2618 _ZN8MprIfLog11SyncApiDoneEmm
+008aee4c: mov       r0, r4 
+008aee4e: pop       {r3, r4, r5, r6, r7, pc} 
+008aee50: lsls      r0, r4, #1 
+008aee52: asrs      r0, r0, #0x20 
+
+_ZN7FeaCore19SetRecVideoBitDepthEPN5MprIf14VBitdepthParamEm @0x5420dc
+005420dc: ldr.w     r3, [r0, #0x2cc] 
+005420e0: push.w    {r4, r5, r6, r7, r8, sb, sl, lr} 
+005420e4: subs      r3, #3 
+005420e6: cmp       r3, #1 
+005420e8: add       r7, sp, #0 
+005420ea: mov       r4, r0 
+005420ec: mov       r5, r1 
+005420ee: mov       sb, r2 
+005420f0: bhi       #0x542144 
+005420f2: ldr       r3, [pc, #0x68] 
+005420f4: ldrb      r6, [r3] 
+005420f6: cbnz      r6, #0x542138 
+005420f8: cbz       r1, #0x54213e 
+005420fa: cbz       r2, #0x54213e 
+005420fc: cmp       r2, #4 
+005420fe: bhi       #0x54213e 
+00542100: mov       r8, r6 
+00542102: ldr.w     sl, [r5, r6] 
+00542106: mov       r0, r4 
+00542108: mov       r1, sl 
+0054210a: bl        #0x549b08 
+0054210e: cmp       r0, #1 
+00542110: beq       #0x542150 
+00542112: mov       r0, r4 
+00542114: mov       r1, sl 
+00542116: bl        #0x549b08 
+0054211a: cmp       r0, #5 
+0054211c: bne       #0x542144 
+0054211e: b         #0x542150 
+00542120: mov.w     r2, #0x108 
+00542124: add.w     r8, r8, #1 
+00542128: adds      r6, #8 
+0054212a: cmp       r8, sb 
+0054212c: mla       sl, r2, sl, r4 
+00542130: add.w     r2, sl, #0x1760 
+00542134: str       r3, [r2, #0xc] 
+00542136: blo       #0x542102 
+00542138: movs      r0, #0 
+0054213a: pop.w     {r4, r5, r6, r7, r8, sb, sl, pc} 
+0054213e: movs      r0, #5 
+00542140: pop.w     {r4, r5, r6, r7, r8, sb, sl, pc} 
+00542144: movs      r0, #0xa 
+00542146: pop.w     {r4, r5, r6, r7, r8, sb, sl, pc} 
+0054214a: movs      r0, #5 
+0054214c: pop.w     {r4, r5, r6, r7, r8, sb, sl, pc} 
+00542150: adds      r3, r5, r6 
+00542152: ldr       r3, [r3, #4] 
+00542154: cmp       r3, #2 
+00542156: bhi       #0x54214a 
+00542158: b         #0x542120 
+0054215a: nop        
+0054215c: ldr       r0, [r5, #0x70] 
+0054215e: lsls      r3, r2, #5 

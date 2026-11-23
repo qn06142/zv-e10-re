@@ -1,0 +1,35 @@
+ifidx(20), chan_type(0) target channel(6) 
+[  225.150697] CFG80211-ERROR) wl_cfg80211_set_channel : netdev_ifidx(20), chan_type(1) target channel(6) 
+[  225.154273] CFG80211-ERROR) wl_cfg80211_del_station : Send DEAUTH request
+[  225.155349] CFG80211-ERROR) wl_cfg80211_del_station : Disconnect STA : ff:ff:ff:ff:ff:ff scb_val.val 3
+/bin/busybox sh /log/yuy2_640_v33vga/workbench-job.sh; echo YUY
+2_JOB_DONE_013-test-inventory
+252.04 712.88
+909c4ffadc9e5972b25101529d5f8773  /usr/lib/libInfraStreamingUsb.so
+87ddc16bd8e0774926e5eb6d16165d20  /usr/lib/yuy2_640_v33vga.so
+-rw-r--r--    1 0        0              220 Jan  1  1980 cleanup-inventory.md5
+-rw-r--r--    1 0        0              464 Jan  1 00:00 hashes-after-reboot.md5
+-rw-r--r--    1 0        0             3579 Jan  1  1980 install.log
+---x------    1 0        0             3438 Jan  1  1980 install.sh
+-rw-r--r--    1 0        0              247 Jan  1  1980 installed.md5
+---x------    1 0        0            72796 Jan  1  1980 libInfraStreamingUsb.persistent.so
+-rw-r--r--    1 0        0               51 Jan  1 00:00 logger-stop-after-reboot.txt
+-rw-r--r--    1 0        0            46935 Jan  1 00:00 maps-after-reboot.txt
+-rw-r--r--    1 0        0              924 Jan  1 00:00 memory-after-reboot.txt
+-rw-r--r--    1 0        0             1584 Jan  1  1980 mounts-after-install.txt
+-rw-r--r--    1 0        0             1584 Jan  1 00:00 mounts-after-reboot.txt
+-rw-r--r--    1 0        0             3604 Jan  1  1980 preflight.log
+---x------    1 0        0             2055 Jan  1  1980 preflight.sh
+---x------    1 0        0             1195 Jan  1  1980 rollback.sh
+-rw-r--r--    1 0        0              506 Jan  1 00:03 runtime.log
+-rwxr-xr-x    1 0        0             7864 Jan  1  1980 space-check.elf
+-rw-r--r--    1 0        0              146 Jan  1 00:00 storage-after-reboot.txt
+-rw-r--r--    1 0        0               13 Jan  1 00:00 uptime-after-reboot.txt
+-rw-r--r--    1 0        0             1167 Jan  1 00:03 vga.log
+---x------    1 0        0              321 Jan  1 00:04 workbench-job.sh
+---x------    1 0        0            32972 Jan  1  1980 yuy2_640_v33vga.so
+acf29bb79f29b80a46e026e27e9dedd3  /log/yuy2_640_v33vga/runtime.log
+f19cfb58c6b1339049d6b128100bb26e  /log/yuy2_640_v33vga/vga.log
+V33_TEST_LOG_INVENTORY_OK
+YUY2_JOB_DONE_013-test-inventory
+/usr/share/app # 

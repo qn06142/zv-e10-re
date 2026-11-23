@@ -1,0 +1,96 @@
+63de01b2: push      {r4, r5, r6, r7, lr}
+63de01b4: sub.w     sp, sp, #0x25c
+63de01b8: mov       r4, r0
+63de01ba: add       r7, sp, #8
+63de01bc: mov       r5, r1
+63de01be: add.w     r0, r7, #0x114
+63de01c2: bl        #0x63ac1504
+63de01c6: ldr       r3, [r4, #0x28]
+63de01c8: cmp       r3, #0
+63de01ca: beq.w     #0x63de02da
+63de01ce: cmp       r3, #2
+63de01d0: beq.w     #0x63de02e0
+63de01d4: mov       r0, r4
+63de01d6: add.w     r1, r5, #8
+63de01da: bl        #0x63ac1dd4
+63de01de: mov       r6, r0
+63de01e0: cbnz      r0, #0x63de0244
+63de01e2: adds      r0, r7, #4
+63de01e4: bl        #0x63ac1504
+63de01e8: add.w     r0, r7, #0x224
+63de01ec: bl        #0x63c55f0e
+63de01f0: add.w     r3, r5, #8
+63de01f4: add.w     lr, r7, #0x22c
+63de01f8: ldm       r3, {r0, r1, r2, r3}
+63de01fa: stm.w     lr, {r0, r1, r2, r3}
+63de01fe: add.w     r3, r4, #0x18
+63de0202: add.w     lr, r7, #0x23c
+63de0206: ldm       r3, {r0, r1, r2, r3}
+63de0208: stm.w     lr, {r0, r1, r2, r3}
+63de020c: adds      r0, r7, #4
+63de020e: add.w     r1, r7, #0x224
+63de0212: movs      r2, #0x2c
+63de0214: movs      r3, #0
+63de0216: str.w     r3, [r7, #0x24c]
+63de021a: bl        #0x63ac1694
+63de021e: adds      r0, r7, #4
+63de0220: ldr       r1, [r4, #0x24]
+63de0222: bl        #0x63ddfd9e
+63de0226: ldr       r0, [r4, #4]
+63de0228: adds      r2, r7, #4
+63de022a: ldr       r1, [r5, #0x14]
+63de022c: bl        #0x63ac26a0
+63de0230: add.w     r3, r5, #8
+63de0234: add.w     lr, r4, #8
+63de0238: ldm       r3, {r0, r1, r2, r3}
+63de023a: stm.w     lr, {r0, r1, r2, r3}
+63de023e: movs      r3, #0
+63de0240: str       r3, [r4, #0x28]
+63de0242: b         #0x63de0290
+63de0244: adds      r0, r7, #4
+63de0246: bl        #0x63ac1504
+63de024a: add.w     r0, r7, #0x224
+63de024e: bl        #0x63c55f0e
+63de0252: add.w     r3, r5, #8
+63de0256: add.w     lr, r7, #0x22c
+63de025a: str.w     r6, [r7, #0x24c]
+63de025e: ldm       r3, {r0, r1, r2, r3}
+63de0260: stm.w     lr, {r0, r1, r2, r3}
+63de0264: add.w     r3, r4, #0x18
+63de0268: add.w     lr, r7, #0x23c
+63de026c: ldm       r3, {r0, r1, r2, r3}
+63de026e: stm.w     lr, {r0, r1, r2, r3}
+63de0272: adds      r0, r7, #4
+63de0274: add.w     r1, r7, #0x224
+63de0278: movs      r2, #0x2c
+63de027a: bl        #0x63ac1694
+63de027e: adds      r0, r7, #4
+63de0280: ldr       r1, [r4, #0x24]
+63de0282: bl        #0x63ddfd9e
+63de0286: ldr       r0, [r4, #4]
+63de0288: adds      r2, r7, #4
+63de028a: ldr       r1, [r5, #0x14]
+63de028c: bl        #0x63ac26a0
+63de0290: adds      r0, r7, #4
+63de0292: bl        #0x63ac14f4
+63de0296: ldr       r3, [r4, #0x28]
+63de0298: movs      r0, #2
+63de029a: ldr       r1, [r5, #0x14]
+63de029c: add.w     r2, r4, #0x18
+63de02a0: str       r6, [sp]
+63de02a2: str       r3, [sp, #4]
+63de02a4: add.w     r3, r5, #8
+63de02a8: bl        #0x63ddfd14
+63de02ac: add.w     r0, r7, #0x114
+63de02b0: bl        #0x63ac14f4
+63de02b4: mov       r0, r6
+63de02b6: add.w     r7, r7, #0x254
+63de02ba: mov       sp, r7
+63de02bc: pop       {r4, r5, r6, r7, pc}
+63de02be: adds      r0, r7, #4
+63de02c0: bl        #0x63ac14f4
+63de02c4: b         #0x63de02ce
+63de02c6: adds      r0, r7, #4
+63de02c8: bl        #0x63ac14f4
+63de02cc: b         #0x63de02ce
+63de02ce: add.w     r0, r7, #0x114

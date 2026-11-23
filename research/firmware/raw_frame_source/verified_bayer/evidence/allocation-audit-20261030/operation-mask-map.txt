@@ -1,0 +1,42 @@
+63d8913a: mov.w     r3, #0x40000
+63d8913e: lsls.w    r0, r3, r0
+63d89142: bx        lr
+63d89144: push      {r4, lr}
+63d89146: movs      r4, #0xc
+63d89148: mla       r4, r4, r1, r0
+63d8914c: add.w     r4, r4, #0x5f0
+63d89150: adds      r4, #4
+63d89152: mov       r0, r4
+63d89154: bl        #0x63d0a678
+63d89158: cmp       r0, #0
+63d8915a: ite       ne
+63d8915c: movne     r0, r4
+63d8915e: moveq     r0, #0
+63d89160: pop       {r4, pc}
+63d89162: push.w    {r4, r5, r6, r7, r8, lr}
+63d89166: sub       sp, #0x48
+63d89168: mov       r6, r0
+63d8916a: movs      r2, #0x28
+63d8916c: add       r0, sp, #0x20
+63d8916e: movs      r1, #0
+63d89170: blx       #0x63ae8ad0
+63d89174: add.w     r3, r6, #0x4c00
+63d89178: ldrh      r7, [r3, #0xc]
+63d8917a: ldrh.w    r8, [r3, #0xe]
+63d8917e: ldrh      r2, [r3, #0x10]
+63d89180: ldrh      r4, [r3, #0x12]
+63d89182: ldr.w     r3, [r6, #0x820]
+63d89186: cmp       r3, #0xa
+63d89188: bhi       #0x63d89236
+63d8918a: tbb       [pc, r3]
+63d8918e: lsls      r5, r4, #0x18
+63d89190: asrs      r5, r4, #8
+63d89192: lsrs      r5, r4, #0xc
+63d89194: adds      r2, r2, #4
+63d89196: movs      r5, #0x31
+63d89198: movs      r5, r4
+63d8919a: movs      r3, #1
+63d8919c: movs      r4, #0
+63d8919e: str       r3, [sp, #0x34]
+63d891a0: movs      r5, #3
+63d891a2: b         #0x63d8923a

@@ -1,0 +1,227 @@
+[
+  {
+    "name": "_ZN9MprIfMcmd14ConPutRecStateEN7FeaCore8RecStateEP7MonCtrl",
+    "address": "0x8b3825",
+    "bytes": 40
+  },
+  {
+    "name": "_ZN7FeaCore17SetRecOUCrankInfoEPN5MprIf12OUCrankParamEm",
+    "address": "0x542841",
+    "bytes": 132
+  },
+  {
+    "name": "_ZN7FeaCore7RecStopEPN5MprIf14RecTargetParamEmb",
+    "address": "0x543ba1",
+    "bytes": 592
+  },
+  {
+    "name": "_ZN7FeaCore18AddMarkForMovieRecEN3MPR8MarkTypeENS0_11TriggerTypeE",
+    "address": "0x536aa1",
+    "bytes": 76
+  },
+  {
+    "name": "_ZN7FeaCore19SetSubStreamRecInfoEPN5MprIf17SubStreamRecParamEm",
+    "address": "0x5428c5",
+    "bytes": 240
+  },
+  {
+    "name": "_ZN7FeaCore16DvdIPicRecModeInEN3MPR11IPicRecTypeENS0_7VAspectENS0_8DateCodeE",
+    "address": "0x535605",
+    "bytes": 88
+  },
+  {
+    "name": "_ZN7FeaCore20SetRecLoopRecRestartEPN5MprIf19LoopRecRestartParamEm",
+    "address": "0x5443c9",
+    "bytes": 220
+  },
+  {
+    "name": "_ZN7FeaCore14SetRecDateCodeEPN5MprIf13DateCodeParamEm",
+    "address": "0x54247d",
+    "bytes": 232
+  },
+  {
+    "name": "_ZN7FeaCore11PreRecStartEPN5MprIf16PreRecStartParamE",
+    "address": "0x5444a5",
+    "bytes": 128
+  },
+  {
+    "name": "_ZN7FeaCore19SetRecAriMnfiHiDataEPN5MprIf9MnfiParamEm",
+    "address": "0x54272d",
+    "bytes": 136
+  },
+  {
+    "name": "_ZN7FeaCore16SetRecDefinitionEPN5MprIf16VResolutionParamEm",
+    "address": "0x5422f5",
+    "bytes": 148
+  },
+  {
+    "name": "_ZN7FeaCore8RecStartEPN5MprIf14RecTargetParamEm",
+    "address": "0x543325",
+    "bytes": 2140
+  },
+  {
+    "name": "_ZN13MovieRecorder17ConvMovieRecParamEPNS_17MovieRecConvParamEPN11RecorderDef13MovieRecParamEbbN3MPR11ContentTypeE",
+    "address": "0x3f6371",
+    "bytes": 1266
+  },
+  {
+    "name": "_ZN9MprIfMcmd17ConPutErrRecMediaEN7FeaCore11ErrRecMediaEP7MonCtrl",
+    "address": "0x8b384d",
+    "bytes": 40
+  },
+  {
+    "name": "_ZN7FeaCore26IsMainContentInMP4ProxyRecEN5MprIf13EnterRecParamE",
+    "address": "0x52d4d9",
+    "bytes": 56
+  },
+  {
+    "name": "_ZN7FeaCore11PostRecStopEPN5MprIf16PostRecStopParamE",
+    "address": "0x544525",
+    "bytes": 104
+  },
+  {
+    "name": "_ZN7FeaCore10DvdIPicRecEN11pub_EntryId7EntryIdEPN3MPR7CamInfoEPhPNS2_5T_LTME",
+    "address": "0x53565d",
+    "bytes": 128
+  },
+  {
+    "name": "_ZN7FeaCore8EncStartEPN5MprIf14RecTargetParamEm",
+    "address": "0x54458d",
+    "bytes": 1112
+  },
+  {
+    "name": "_ZN7FeaCore15SetRecAudioTypeEPN5MprIf14AudioTypeParamEm",
+    "address": "0x5421e5",
+    "bytes": 128
+  },
+  {
+    "name": "_ZN7FeaCore16SetCacheRecParamEPN5MprIf13CacheRecParamEm",
+    "address": "0x5429b5",
+    "bytes": 128
+  },
+  {
+    "name": "_ZN7FeaCore12SetRecSourceEPN5MprIf14RecSourceParamEm",
+    "address": "0x542389",
+    "bytes": 244
+  },
+  {
+    "name": "_ZN7FeaCore24SetRecFaceDetectionParamEPN5MprIf15FaceDetectParamEm",
+    "address": "0x542605",
+    "bytes": 128
+  },
+  {
+    "name": "_ZN7FeaCore19SetRecVideoBitDepthEPN5MprIf14VBitdepthParamEm",
+    "address": "0x5420dd",
+    "bytes": 132
+  },
+  {
+    "name": "_ZN7FeaCore24SetRecLoopFragmentNumberEPN5MprIf23LoopFragmentNumberParamEm",
+    "address": "0x544211",
+    "bytes": 220
+  },
+  {
+    "name": "_ZN7FeaCore17SetRecMediaTargetEPN5MprIf13RecMediaParamEm",
+    "address": "0x542a35",
+    "bytes": 178
+  },
+  {
+    "name": "_ZN7FeaCore19EditClipInRecordingEPN5MprIf24EditClipInRecordingParamE",
+    "address": "0x543ee9",
+    "bytes": 296
+  },
+  {
+    "name": "_ZN7FeaCore25SetEvtStillRecRemainParamEPN5MprIf16EvtStillRecParamEm",
+    "address": "0x542685",
+    "bytes": 168
+  },
+  {
+    "name": "_ZN7FeaCore31SetRecSimultRecInternalStopModeEPN5MprIf30SimultRecInternalStopModeParamE",
+    "address": "0x542bd3",
+    "bytes": 36
+  },
+  {
+    "name": "_ZN7FeaCore7EncStopEPN5MprIf14RecTargetParamEmb",
+    "address": "0x5449e5",
+    "bytes": 476
+  },
+  {
+    "name": "_ZN7FeaCore45SetColorFormatAndVideoBitDepthToEnterRecParamEPN11RecorderDef13EnterRecParamEN3MPR11ContentTypeENS3_11ColorFormatENS3_13VideoBitDepthE",
+    "address": "0x54917f",
+    "bytes": 36
+  },
+  {
+    "name": "_ZN7FeaCore17SetRecColorFormatEPN5MprIf17VColorformatParamEm",
+    "address": "0x542059",
+    "bytes": 132
+  },
+  {
+    "name": "_ZN7FeaCore21NoticeRecExternalInfoEPN5MprIf26NoticeRecExternalInfoParamE",
+    "address": "0x544011",
+    "bytes": 244
+  },
+  {
+    "name": "_ZN7FeaCore16SetRecTvScanModeEPN5MprIf11TvScanParamEm",
+    "address": "0x5427b5",
+    "bytes": 140
+  },
+  {
+    "name": "_ZN7FeaCore14NewDubbingListEmmmmmmN3MPR11DubbingTypeEbNS0_14FileSystemTypeEPNS0_15DownConRecParamE",
+    "address": "0x531591",
+    "bytes": 200
+  },
+  {
+    "name": "_ZN7FeaCore19SetRecLimitTimeInfoEPN3MPR16RecLimitTimeInfoE",
+    "address": "0x542ae7",
+    "bytes": 40
+  },
+  {
+    "name": "_ZN7FeaCore15SetRecXvYccInfoEPN5MprIf10XvYccParamEm",
+    "address": "0x542565",
+    "bytes": 160
+  },
+  {
+    "name": "_ZN7FeaCore17DvdIPicRecModeOutEN3MPR8CallTypeE",
+    "address": "0x5356dd",
+    "bytes": 88
+  },
+  {
+    "name": "_ZN7FeaCore12SetRecTargetEPN5MprIf14RecTargetParamEm",
+    "address": "0x542b0f",
+    "bytes": 196
+  },
+  {
+    "name": "_ZN9MprIfMcmd21ConPutIntStopRecMediaEN7FeaCore15IntStopRecMediaEP7MonCtrl",
+    "address": "0x8b3875",
+    "bytes": 40
+  },
+  {
+    "name": "_ZN7FeaCore13SetRecQualityEPN5MprIf13VQualityParamEm",
+    "address": "0x542161",
+    "bytes": 132
+  },
+  {
+    "name": "_ZN7FeaCore17SetRecLoopRecModeEPN5MprIf16LoopRecModeParamEm",
+    "address": "0x544139",
+    "bytes": 216
+  },
+  {
+    "name": "_ZN7FeaCore12SetRecAspectEPN5MprIf12VAspectParamEm",
+    "address": "0x542265",
+    "bytes": 144
+  },
+  {
+    "name": "_ZN7FeaCore19CreateEnterRecParamEPN5MprIf13EnterRecParamEP4MMgrS4_PN11RecorderDef13EnterRecParamE",
+    "address": "0x547985",
+    "bytes": 258
+  },
+  {
+    "name": "_ZN7FeaCore20SetRecAutoDivideTimeEPN5MprIf19AutoDivideTimeParamEm",
+    "address": "0x5442ed",
+    "bytes": 220
+  },
+  {
+    "name": "_ZN13MovieRecorder28ConvertPictureQualityMpr2PubEN3MPR8VQualityEbNS0_11ContentTypeENS0_11ColorFormatENS0_13VideoBitDepthE",
+    "address": "0x3f6283",
+    "bytes": 38
+  }
+]

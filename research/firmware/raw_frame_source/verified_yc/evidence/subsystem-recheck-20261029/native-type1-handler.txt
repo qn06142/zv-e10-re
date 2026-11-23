@@ -1,0 +1,98 @@
+
+RANGE 0x6f71e8
+006f71e8: ldrh.w    ip, [r1, #2] 
+006f71ec: push.w    {r4, r5, r6, r7, r8, lr} 
+006f71f0: mov       r8, r3 
+006f71f2: movw      r3, #0x101 
+006f71f6: add       r7, sp, #0 
+006f71f8: cmp       ip, r3 
+006f71fa: mov       r5, r0 
+006f71fc: mov       r4, r1 
+006f71fe: mov       r6, r2 
+006f7200: beq       #0x6f72a6 
+006f7202: bhi       #0x6f721a 
+006f7204: cmp.w     ip, #1 
+006f7208: beq       #0x6f7274 
+006f720a: blo       #0x6f7242 
+006f720c: cmp.w     ip, #2 
+006f7210: beq       #0x6f72ce 
+006f7212: cmp.w     ip, #0x100 
+006f7216: bne       #0x6f72e4 
+006f7218: b         #0x6f724c 
+006f721a: cmp.w     ip, #0x8100 
+006f721e: beq       #0x6f7260 
+006f7220: bhi       #0x6f7232 
+006f7222: cmp.w     ip, #0x102 
+006f7226: beq       #0x6f728a 
+006f7228: movw      r3, #0x8002 
+006f722c: cmp       ip, r3 
+006f722e: bne       #0x6f72e4 
+006f7230: b         #0x6f729a 
+006f7232: movw      r3, #0x8101 
+006f7236: cmp       ip, r3 
+006f7238: beq       #0x6f72ba 
+006f723a: adds      r3, #1 
+006f723c: cmp       ip, r3 
+006f723e: bne       #0x6f72e4 
+006f7240: b         #0x6f7292 
+006f7242: mov       r1, r2 
+006f7244: pop.w     {r4, r5, r6, r7, r8, lr} 
+006f7248: b.w       #0x6f6f64 
+006f724c: movs      r0, #4 
+006f724e: movs      r1, #7 
+006f7250: bl        #0x6fbdf8 
+006f7254: mov       r0, r5 
+006f7256: mov       r1, r4 
+006f7258: pop.w     {r4, r5, r6, r7, r8, lr} 
+006f725c: b.w       #0x6f7070 
+006f7260: movs      r0, #4 
+006f7262: mov       r1, r0 
+006f7264: bl        #0x6fbdf8 
+006f7268: mov       r0, r5 
+006f726a: mov       r1, r4 
+006f726c: pop.w     {r4, r5, r6, r7, r8, lr} 
+006f7270: b.w       #0x6f70ac 
+006f7274: movs      r0, #4 
+006f7276: mov       r1, ip 
+006f7278: bl        #0x6fbdf8 
+006f727c: mov       r0, r5 
+006f727e: mov       r1, r4 
+006f7280: mov       r2, r8 
+006f7282: pop.w     {r4, r5, r6, r7, r8, lr} 
+006f7286: b.w       #0x6f70e8 
+006f728a: pop.w     {r4, r5, r6, r7, r8, lr} 
+006f728e: b.w       #0x6f7124 
+006f7292: pop.w     {r4, r5, r6, r7, r8, lr} 
+006f7296: b.w       #0x6f712c 
+006f729a: ldr       r0, [pc, #0x58] 
+006f729c: add       r0, pc 
+006f729e: pop.w     {r4, r5, r6, r7, r8, lr} 
+006f72a2: b.w       #0x6fbe58 
+006f72a6: movs      r0, #4 
+006f72a8: movs      r1, #0x10 
+006f72aa: bl        #0x6fbdf8 
+006f72ae: mov       r0, r5 
+006f72b0: mov       r1, r4 
+006f72b2: pop.w     {r4, r5, r6, r7, r8, lr} 
+006f72b6: b.w       #0x6f7134 
+006f72ba: movs      r0, #4 
+006f72bc: movs      r1, #0xd 
+006f72be: bl        #0x6fbdf8 
+006f72c2: mov       r0, r5 
+006f72c4: mov       r1, r4 
+006f72c6: pop.w     {r4, r5, r6, r7, r8, lr} 
+006f72ca: b.w       #0x6f7170 
+006f72ce: movs      r0, #4 
+006f72d0: movs      r1, #0xa 
+006f72d2: bl        #0x6fbdf8 
+006f72d6: mov       r0, r5 
+006f72d8: mov       r1, r4 
+006f72da: mov       r2, r8 
+006f72dc: pop.w     {r4, r5, r6, r7, r8, lr} 
+006f72e0: b.w       #0x6f71ac 
+006f72e4: ldr       r0, [pc, #0x10] 
+006f72e6: mov       r1, ip 
+006f72e8: add       r0, pc 
+006f72ea: pop.w     {r4, r5, r6, r7, r8, lr} 
+006f72ee: b.w       #0x6fbe58 
+006f72f2: nop        

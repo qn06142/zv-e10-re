@@ -1,0 +1,336 @@
+
+_ZN10MprLibCore28GetPictureQualityForCodecDrvEN3MPR8VQualityEPh @0x8a43d8
+008a43d8: push      {r7, lr} 
+008a43da: add       r7, sp, #0 
+008a43dc: cmp       r0, #0xe 
+008a43de: bhi       #0x8a4430 
+008a43e0: tbb       [pc, r0] 
+008a43e4: lsrs      r0, r1, #8 
+008a43e6: lsrs      r4, r1, #0x18 
+008a43e8: asrs      r0, r2, #8 
+008a43ea: asrs      r4, r2, #0x18 
+008a43ec: subs      r0, r3, r0 
+008a43ee: subs      r4, r3, #0 
+008a43f0: movs      r2, #0x20 
+008a43f2: movs      r4, r4 
+008a43f4: movs      r3, #2 
+008a43f6: b         #0x8a4432 
+008a43f8: movs      r3, #1 
+008a43fa: b         #0x8a4432 
+008a43fc: movs      r3, #0 
+008a43fe: b         #0x8a4432 
+008a4400: movs      r3, #3 
+008a4402: b         #0x8a4432 
+008a4404: movs      r3, #4 
+008a4406: b         #0x8a4432 
+008a4408: movs      r3, #5 
+008a440a: b         #0x8a4432 
+008a440c: movs      r3, #6 
+008a440e: b         #0x8a4432 
+008a4410: movs      r3, #7 
+008a4412: b         #0x8a4432 
+008a4414: movs      r3, #8 
+008a4416: b         #0x8a4432 
+008a4418: movs      r3, #0x20 
+008a441a: b         #0x8a4432 
+008a441c: movs      r3, #0x33 
+008a441e: b         #0x8a4432 
+008a4420: movs      r3, #0x32 
+008a4422: b         #0x8a4432 
+008a4424: movs      r3, #0x31 
+008a4426: b         #0x8a4432 
+008a4428: movs      r3, #0x30 
+008a442a: b         #0x8a4432 
+008a442c: movs      r3, #0x34 
+008a442e: b         #0x8a4432 
+008a4430: movs      r3, #0xff 
+008a4432: strb      r3, [r1] 
+008a4434: movs      r0, #1 
+008a4436: pop       {r7, pc} 
+
+_ZN10MprLibCore28GetPictureQualityForCodecDrvEN3MPR8VQualityENS0_11ColorFormatENS0_13VideoBitDepthEPh @0x8a4438
+008a4438: push      {r4, r7, lr} 
+008a443a: add       r7, sp, #0 
+008a443c: cmp       r0, #0x29 
+008a443e: bhi.w     #0x8a466c 
+008a4442: tbh       [pc, r0, lsl #1] 
+008a4446: movs      r2, r5 
+008a4448: movs      r6, r5 
+008a444a: movs      r1, r6 
+008a444c: movs      r5, r6 
+008a444e: movs      r1, r7 
+008a4450: movs      r5, r7 
+008a4452: lsls      r1, r0, #1 
+008a4454: lsls      r5, r0, #1 
+008a4456: lsls      r1, r1, #1 
+008a4458: lsls      r4, r2, #1 
+008a445a: lsls      r0, r3, #1 
+008a445c: lsls      r4, r3, #1 
+008a445e: lsls      r0, r4, #1 
+008a4460: lsls      r4, r4, #1 
+008a4462: lsls      r7, r5, #1 
+008a4464: lsls      r3, r2, #4 
+008a4466: lsls      r3, r2, #4 
+008a4468: lsls      r3, r2, #4 
+008a446a: lsls      r2, r7, #1 
+008a446c: lsls      r3, r2, #4 
+008a446e: lsls      r3, r2, #4 
+008a4470: lsls      r3, r2, #4 
+008a4472: lsls      r4, r1, #2 
+008a4474: lsls      r3, r2, #4 
+008a4476: lsls      r3, r2, #4 
+008a4478: lsls      r3, r2, #4 
+008a447a: lsls      r3, r2, #4 
+008a447c: lsls      r3, r2, #4 
+008a447e: lsls      r3, r2, #4 
+008a4480: lsls      r3, r2, #4 
+008a4482: lsls      r3, r2, #4 
+008a4484: lsls      r6, r3, #2 
+008a4486: lsls      r0, r5, #2 
+008a4488: lsls      r2, r7, #2 
+008a448a: lsls      r6, r0, #3 
+008a448c: lsls      r0, r3, #3 
+008a448e: lsls      r4, r4, #3 
+008a4490: lsls      r6, r4, #3 
+008a4492: lsls      r4, r5, #3 
+008a4494: lsls      r3, r6, #3 
+008a4496: lsls      r7, r7, #3 
+008a4498: lsls      r5, r0, #4 
+008a449a: movs      r2, #2 
+008a449c: strb      r2, [r3] 
+008a449e: subs      r2, #1 
+008a44a0: b         #0x8a4672 
+008a44a2: movs      r2, #1 
+008a44a4: strb      r2, [r3] 
+008a44a6: b         #0x8a4672 
+008a44a8: movs      r2, #0 
+008a44aa: strb      r2, [r3] 
+008a44ac: adds      r2, #1 
+008a44ae: b         #0x8a4672 
+008a44b0: movs      r2, #3 
+008a44b2: strb      r2, [r3] 
+008a44b4: subs      r2, #2 
+008a44b6: b         #0x8a4672 
+008a44b8: movs      r2, #4 
+008a44ba: strb      r2, [r3] 
+008a44bc: subs      r2, #3 
+008a44be: b         #0x8a4672 
+008a44c0: movs      r2, #5 
+008a44c2: strb      r2, [r3] 
+008a44c4: subs      r2, #4 
+008a44c6: b         #0x8a4672 
+008a44c8: movs      r2, #6 
+008a44ca: strb      r2, [r3] 
+008a44cc: subs      r2, #5 
+008a44ce: b         #0x8a4672 
+008a44d0: movs      r2, #7 
+008a44d2: strb      r2, [r3] 
+008a44d4: subs      r2, #6 
+008a44d6: b         #0x8a4672 
+008a44d8: cbz       r1, #0x8a44de 
+008a44da: cmp       r1, #1 
+008a44dc: bne       #0x8a44e6 
+008a44de: cmp       r2, #1 
+008a44e0: bne       #0x8a44e6 
+008a44e2: adds      r1, #0x43 
+008a44e4: b         #0x8a4628 
+008a44e6: movs      r2, #8 
+008a44e8: strb      r2, [r3] 
+008a44ea: subs      r2, #7 
+008a44ec: b         #0x8a4672 
+008a44ee: movs      r2, #0x20 
+008a44f0: strb      r2, [r3] 
+008a44f2: subs      r2, #0x1f 
+008a44f4: b         #0x8a4672 
+008a44f6: movs      r2, #0x33 
+008a44f8: strb      r2, [r3] 
+008a44fa: subs      r2, #0x32 
+008a44fc: b         #0x8a4672 
+008a44fe: movs      r2, #0x32 
+008a4500: strb      r2, [r3] 
+008a4502: subs      r2, #0x31 
+008a4504: b         #0x8a4672 
+008a4506: movs      r2, #0x31 
+008a4508: strb      r2, [r3] 
+008a450a: subs      r2, #0x30 
+008a450c: b         #0x8a4672 
+008a450e: cbz       r1, #0x8a4514 
+008a4510: cmp       r1, #1 
+008a4512: bne       #0x8a451c 
+008a4514: cmp       r2, #1 
+008a4516: bne       #0x8a451c 
+008a4518: adds      r1, #0x54 
+008a451a: b         #0x8a4628 
+008a451c: movs      r2, #0x30 
+008a451e: strb      r2, [r3] 
+008a4520: subs      r2, #0x2f 
+008a4522: b         #0x8a4672 
+008a4524: cbz       r1, #0x8a452a 
+008a4526: cmp       r1, #1 
+008a4528: bne       #0x8a4532 
+008a452a: cmp       r2, #1 
+008a452c: bne       #0x8a4532 
+008a452e: adds      r1, #0x49 
+008a4530: b         #0x8a4628 
+008a4532: movs      r2, #0x34 
+008a4534: strb      r2, [r3] 
+008a4536: subs      r2, #0x33 
+008a4538: b         #0x8a4672 
+008a453a: cbnz      r1, #0x8a454a 
+008a453c: cbnz      r2, #0x8a4542 
+008a453e: adds      r2, #0x36 
+008a4540: b         #0x8a4558 
+008a4542: cmp       r2, #1 
+008a4544: bne       #0x8a4556 
+008a4546: movs      r1, #0x45 
+008a4548: b         #0x8a4628 
+008a454a: cmp       r1, #1 
+008a454c: bne       #0x8a4556 
+008a454e: cmp       r2, #1 
+008a4550: bne       #0x8a4556 
+008a4552: adds      r1, #0x45 
+008a4554: b         #0x8a4628 
+008a4556: movs      r2, #0x36 
+008a4558: strb      r2, [r3] 
+008a455a: subs      r2, #0x35 
+008a455c: b         #0x8a4672 
+008a455e: cbnz      r1, #0x8a456e 
+008a4560: cbnz      r2, #0x8a4566 
+008a4562: adds      r2, #0xc3 
+008a4564: b         #0x8a457c 
+008a4566: cmp       r2, #1 
+008a4568: bne       #0x8a457a 
+008a456a: movs      r1, #0x56 
+008a456c: b         #0x8a4628 
+008a456e: cmp       r1, #1 
+008a4570: bne       #0x8a457a 
+008a4572: cmp       r2, #1 
+008a4574: bne       #0x8a457a 
+008a4576: adds      r1, #0x56 
+008a4578: b         #0x8a4628 
+008a457a: movs      r2, #0xc3 
+008a457c: strb      r2, [r3] 
+008a457e: subs      r2, #0xc2 
+008a4580: b         #0x8a4672 
+008a4582: cmp       r1, #1 
+008a4584: bhi       #0x8a458e 
+008a4586: cmp       r2, #1 
+008a4588: bne       #0x8a458e 
+008a458a: adds      r2, #0xfe 
+008a458c: b         #0x8a466e 
+008a458e: movs      r2, #0x35 
+008a4590: strb      r2, [r3] 
+008a4592: subs      r2, #0x34 
+008a4594: b         #0x8a4672 
+008a4596: cbnz      r1, #0x8a45a6 
+008a4598: cbnz      r2, #0x8a459e 
+008a459a: adds      r2, #0x40 
+008a459c: b         #0x8a45b4 
+008a459e: cmp       r2, #1 
+008a45a0: bne       #0x8a45b2 
+008a45a2: movs      r1, #0x41 
+008a45a4: b         #0x8a4628 
+008a45a6: cmp       r1, #1 
+008a45a8: bne       #0x8a45b2 
+008a45aa: cmp       r2, #1 
+008a45ac: bne       #0x8a45b2 
+008a45ae: adds      r1, #0x41 
+008a45b0: b         #0x8a4628 
+008a45b2: movs      r2, #0x40 
+008a45b4: strb      r2, [r3] 
+008a45b6: subs      r2, #0x3f 
+008a45b8: b         #0x8a4672 
+008a45ba: cbnz      r1, #0x8a45ca 
+008a45bc: cbnz      r2, #0x8a45c2 
+008a45be: adds      r2, #0x47 
+008a45c0: b         #0x8a45cc 
+008a45c2: cmp       r2, #1 
+008a45c4: bne       #0x8a45ca 
+008a45c6: movs      r1, #0x48 
+008a45c8: b         #0x8a4628 
+008a45ca: movs      r2, #0x47 
+008a45cc: strb      r2, [r3] 
+008a45ce: subs      r2, #0x46 
+008a45d0: b         #0x8a4672 
+008a45d2: cbnz      r1, #0x8a45e2 
+008a45d4: cbnz      r2, #0x8a45da 
+008a45d6: adds      r2, #0x4b 
+008a45d8: b         #0x8a45f0 
+008a45da: cmp       r2, #1 
+008a45dc: bne       #0x8a45ee 
+008a45de: movs      r1, #0x4c 
+008a45e0: b         #0x8a4628 
+008a45e2: cmp       r1, #1 
+008a45e4: bne       #0x8a45ee 
+008a45e6: cmp       r2, #1 
+008a45e8: bne       #0x8a45ee 
+008a45ea: adds      r1, #0x4c 
+008a45ec: b         #0x8a4628 
+008a45ee: movs      r2, #0x4b 
+008a45f0: strb      r2, [r3] 
+008a45f2: subs      r2, #0x4a 
+008a45f4: b         #0x8a4672 
+008a45f6: cbnz      r1, #0x8a4606 
+008a45f8: cbnz      r2, #0x8a45fe 
+008a45fa: adds      r2, #0x4e 
+008a45fc: b         #0x8a4608 
+008a45fe: cmp       r2, #1 
+008a4600: bne       #0x8a4606 
+008a4602: movs      r1, #0x4f 
+008a4604: b         #0x8a4628 
+008a4606: movs      r2, #0x4e 
+008a4608: strb      r2, [r3] 
+008a460a: subs      r2, #0x4d 
+008a460c: b         #0x8a4672 
+008a460e: cbz       r1, #0x8a4616 
+008a4610: b         #0x8a466c 
+008a4612: cmp       r1, #1 
+008a4614: bne       #0x8a466c 
+008a4616: cmp       r2, #1 
+008a4618: bne       #0x8a466c 
+008a461a: adds      r1, #0x52 
+008a461c: b         #0x8a4628 
+008a461e: cmp       r1, #1 
+008a4620: bne       #0x8a466c 
+008a4622: cmp       r2, #1 
+008a4624: bne       #0x8a466c 
+008a4626: adds      r1, #0x57 
+008a4628: strb      r1, [r3] 
+008a462a: b         #0x8a4672 
+008a462c: cbnz      r1, #0x8a463c 
+008a462e: cbnz      r2, #0x8a4634 
+008a4630: adds      r2, #0x59 
+008a4632: b         #0x8a463e 
+008a4634: cmp       r2, #1 
+008a4636: bne       #0x8a463c 
+008a4638: movs      r1, #0x5a 
+008a463a: b         #0x8a4628 
+008a463c: movs      r2, #0x59 
+008a463e: strb      r2, [r3] 
+008a4640: subs      r2, #0x58 
+008a4642: b         #0x8a4672 
+008a4644: cmp       r1, #1 
+008a4646: bne       #0x8a466c 
+008a4648: cmp       r2, #1 
+008a464a: bne       #0x8a466c 
+008a464c: adds      r1, #0x5a 
+008a464e: b         #0x8a4628 
+008a4650: cbnz      r1, #0x8a4658 
+008a4652: cbnz      r2, #0x8a4664 
+008a4654: adds      r2, #0x37 
+008a4656: b         #0x8a4666 
+008a4658: cmp       r1, #1 
+008a465a: bne       #0x8a4664 
+008a465c: cmp       r2, #1 
+008a465e: bne       #0x8a4664 
+008a4660: adds      r1, #0x5b 
+008a4662: b         #0x8a4628 
+008a4664: movs      r2, #0x37 
+008a4666: strb      r2, [r3] 
+008a4668: subs      r2, #0x36 
+008a466a: b         #0x8a4672 
+008a466c: movs      r2, #0xff 
+008a466e: strb      r2, [r3] 
+008a4670: subs      r2, #0xff 
+008a4672: mov       r0, r2 
+008a4674: pop       {r4, r7, pc} 

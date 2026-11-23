@@ -1,0 +1,25 @@
+{
+  "camera_access": false,
+  "original_both_domains_executed": true,
+  "private_properties": [
+    0,
+    1,
+    2147483447,
+    3498274
+  ],
+  "output_properties": [
+    0,
+    2,
+    0,
+    5832718
+  ],
+  "request_to_linux_connect": "00100001280001000000000002000000000000000e005900000000000100000037ffff7f22613500",
+  "linux_to_rtos_connect_complete": "001000812c0001000000000002000000000000000e005900000000000100000037ffff7f2261350000000000",
+  "rtos_to_linux_request_status": "001001801c0002000000000002000000000000000e00590000000000",
+  "linux_send_complete": "001002812c0001000000000002000000000000000e005900000000000100000037ffff7f2261350000000000",
+  "both_pin_states": 0,
+  "limitations": [
+    "Transport and queue IDs are controlled fixtures; this does not prove output0 is free or generating frames on the camera.",
+    "Generic handshake does not itself acquire DMM references; producer event ownership is a separate contract."
+  ]
+}

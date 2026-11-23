@@ -1,0 +1,8 @@
+{
+  "camera_access": false,
+  "passed": [
+    "success",
+    "copy-failure",
+    "ro-failure"
+  ]
+}

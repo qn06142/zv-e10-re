@@ -1,0 +1,43 @@
+{
+  "camera_access": false,
+  "original_api_builder_executed_to": "0x636c6254",
+  "hardware_processing_executed": false,
+  "allocations_mocked": [
+    {
+      "address": "0x40080000",
+      "bytes": 332
+    },
+    {
+      "address": "0x40080150",
+      "bytes": 308
+    },
+    {
+      "address": "0x40080290",
+      "bytes": 136
+    },
+    {
+      "address": "0x40080320",
+      "bytes": 288
+    },
+    {
+      "address": "0x40080440",
+      "bytes": 576
+    }
+  ],
+  "dmm_span_resolution_mocked": true,
+  "source_info_hex": "0100000095020000247f0000000000000000024080073804800738040000000080073804000000008007380400000201010102000000000000000001",
+  "destination_info_hex": "0100000095020000452300000000000000000240800738048002e001000000008002e001000000008002e00100000200010102000000000000000001",
+  "source_hardware_image_hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000024080073804000000008007380400000000800738040000000000000000010000000100000000000000020000000100000001000000",
+  "destination_hardware_image_hex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002408002e001000000008002e001000000008002e0010000000000000000000000000100000000000000020000000100000001000000",
+  "source_compress": 1,
+  "destination_compress": 0,
+  "source_transfer": 1,
+  "destination_transfer": 1,
+  "source_iib": 0,
+  "destination_iib": 0,
+  "limitations": [
+    "Stops before hardware module processing; does not prove driver acceptance or output packing.",
+    "Span descriptors and addresses are mocked.",
+    "The normal API forces transfer=1 and iib_number=0 for both sides; transfer=1 is not evidence of completed ISP DMA."
+  ]
+}

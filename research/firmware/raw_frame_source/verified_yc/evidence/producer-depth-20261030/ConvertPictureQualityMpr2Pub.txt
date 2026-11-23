@@ -1,0 +1,443 @@
+
+_ZN7PubUtil28ConvertPictureQualityMpr2PubEN3MPR8VQualityEb @0x737f90
+00737f90: push      {r7, lr} 
+00737f92: add       r7, sp, #0 
+00737f94: cbnz      r1, #0x737f9e 
+00737f96: cmp       r0, #0x1f 
+00737f98: bhi       #0x737faa 
+00737f9a: ldr       r3, [pc, #0x18] 
+00737f9c: b         #0x737fa4 
+00737f9e: cmp       r0, #0x1f 
+00737fa0: bhi       #0x737fae 
+00737fa2: ldr       r3, [pc, #0x14] 
+00737fa4: ldr.w     r0, [r3, r0, lsl #2] 
+00737fa8: pop       {r7, pc} 
+00737faa: movs      r0, #0xff 
+00737fac: pop       {r7, pc} 
+00737fae: movs      r0, #0xff 
+00737fb0: pop       {r7, pc} 
+00737fb2: nop        
+00737fb4: str       r6, [sp, #0x3c0] 
+00737fb6: lsls      r0, r6, #2 
+00737fb8: str       r6, [sp, #0x1c0] 
+00737fba: lsls      r0, r6, #2 
+
+_ZN7PubUtil28ConvertPictureQualityMpr2PubEN3MPR8VQualityEbNS0_11ContentTypeENS0_11ColorFormatENS0_13VideoBitDepthE @0x737fbc
+00737fbc: push      {r4, r7, lr} 
+00737fbe: cmp.w     r2, #0x800 
+00737fc2: add       r7, sp, #0 
+00737fc4: ldr       r4, [r7, #0xc] 
+00737fc6: beq       #0x738038 
+00737fc8: bgt       #0x737ff8 
+00737fca: cmp       r2, #0x20 
+00737fcc: beq       #0x738038 
+00737fce: bgt       #0x737fdc 
+00737fd0: cmp       r2, #8 
+00737fd2: beq       #0x738038 
+00737fd4: cmp       r2, #0x10 
+00737fd6: beq       #0x738038 
+00737fd8: cmp       r2, #6 
+00737fda: b         #0x738034 
+00737fdc: cmp.w     r2, #0x100 
+00737fe0: beq       #0x73804e 
+00737fe2: bgt       #0x737fe8 
+00737fe4: cmp       r2, #0x80 
+00737fe6: b         #0x738034 
+00737fe8: cmp.w     r2, #0x200 
+00737fec: beq       #0x738038 
+00737fee: cmp.w     r2, #0x400 
+00737ff2: bne.w     #0x73830c 
+00737ff6: b         #0x7382ac 
+00737ff8: cmp.w     r2, #0x8000 
+00737ffc: beq       #0x738038 
+00737ffe: bgt       #0x738016 
+00738000: cmp.w     r2, #0x2000 
+00738004: beq       #0x738038 
+00738006: cmp.w     r2, #0x4000 
+0073800a: beq       #0x738038 
+0073800c: cmp.w     r2, #0x1000 
+00738010: bne.w     #0x73830c 
+00738014: b         #0x7382b6 
+00738016: cmp.w     r2, #0x20000 
+0073801a: beq.w     #0x7382ca 
+0073801e: bgt       #0x73802a 
+00738020: cmp.w     r2, #0x10000 
+00738024: bne.w     #0x73830c 
+00738028: b         #0x7382c0 
+0073802a: cmp.w     r2, #0x200000 
+0073802e: beq       #0x738038 
+00738030: cmp.w     r2, #0x400000 
+00738034: bne.w     #0x73830c 
+00738038: cbnz      r1, #0x738044 
+0073803a: cmp       r0, #0x1f 
+0073803c: bhi.w     #0x73830c 
+00738040: ldr       r3, [pc, #0x194] 
+00738042: b         #0x7382d2 
+00738044: cmp       r0, #0x1f 
+00738046: bhi.w     #0x73830c 
+0073804a: ldr       r3, [pc, #0x190] 
+0073804c: b         #0x7382d2 
+0073804e: cmp       r0, #0x29 
+00738050: bhi.w     #0x73830c 
+00738054: tbh       [pc, r0, lsl #1] 
+00738058: movs      r2, r5 
+0073805a: lsls      r0, r0, #5 
+0073805c: movs      r4, r5 
+0073805e: movs      r6, r5 
+00738060: movs      r3, r6 
+00738062: movs      r0, r7 
+00738064: movs      r2, r7 
+00738066: movs      r4, r7 
+00738068: movs      r6, r7 
+0073806a: lsls      r7, r1, #1 
+0073806c: lsls      r1, r2, #1 
+0073806e: lsls      r3, r2, #1 
+00738070: lsls      r5, r2, #1 
+00738072: lsls      r6, r4, #1 
+00738074: lsls      r7, r6, #1 
+00738076: lsls      r0, r1, #2 
+00738078: lsls      r2, r1, #2 
+0073807a: lsls      r4, r1, #2 
+0073807c: lsls      r6, r1, #2 
+0073807e: lsls      r7, r3, #2 
+00738080: lsls      r1, r4, #2 
+00738082: lsls      r3, r4, #2 
+00738084: lsls      r5, r4, #2 
+00738086: lsls      r6, r6, #2 
+00738088: lsls      r0, r7, #2 
+0073808a: lsls      r2, r7, #2 
+0073808c: lsls      r4, r7, #2 
+0073808e: lsls      r6, r7, #2 
+00738090: lsls      r4, r0, #3 
+00738092: lsls      r6, r0, #3 
+00738094: lsls      r0, r1, #3 
+00738096: lsls      r2, r1, #3 
+00738098: lsls      r4, r1, #3 
+0073809a: lsls      r3, r3, #3 
+0073809c: lsls      r4, r4, #3 
+0073809e: lsls      r3, r6, #3 
+007380a0: lsls      r4, r7, #3 
+007380a2: lsls      r3, r0, #4 
+007380a4: lsls      r2, r1, #4 
+007380a6: lsls      r1, r2, #4 
+007380a8: lsls      r2, r3, #4 
+007380aa: lsls      r1, r4, #4 
+007380ac: movs      r0, #0x12 
+007380ae: pop       {r4, r7, pc} 
+007380b0: movs      r0, #0x10 
+007380b2: pop       {r4, r7, pc} 
+007380b4: cmp       r1, #0 
+007380b6: ite       ne 
+007380b8: movne     r0, #0x11 
+007380ba: moveq     r0, #0x13 
+007380bc: pop       {r4, r7, pc} 
+007380be: cmp       r1, #0 
+007380c0: ite       ne 
+007380c2: movne     r0, #0x11 
+007380c4: moveq     r0, #0x14 
+007380c6: pop       {r4, r7, pc} 
+007380c8: movs      r0, #0x15 
+007380ca: pop       {r4, r7, pc} 
+007380cc: movs      r0, #0x16 
+007380ce: pop       {r4, r7, pc} 
+007380d0: movs      r0, #0x17 
+007380d2: pop       {r4, r7, pc} 
+007380d4: cbnz      r3, #0x7380e6 
+007380d6: cmp       r4, #0 
+007380d8: beq.w     #0x7382dc 
+007380dc: cmp       r4, #1 
+007380de: ite       eq 
+007380e0: moveq     r0, #0x43 
+007380e2: movne     r0, #0x18 
+007380e4: pop       {r4, r7, pc} 
+007380e6: cmp       r3, #1 
+007380e8: bne.w     #0x7382dc 
+007380ec: cmp       r4, #1 
+007380ee: ite       eq 
+007380f0: moveq     r0, #0x44 
+007380f2: movne     r0, #0x18 
+007380f4: pop       {r4, r7, pc} 
+007380f6: movs      r0, #0x20 
+007380f8: pop       {r4, r7, pc} 
+007380fa: movs      r0, #0x33 
+007380fc: pop       {r4, r7, pc} 
+007380fe: movs      r0, #0x32 
+00738100: pop       {r4, r7, pc} 
+00738102: cbnz      r3, #0x738114 
+00738104: cmp       r4, #0 
+00738106: beq.w     #0x7382e0 
+0073810a: cmp       r4, #1 
+0073810c: ite       eq 
+0073810e: moveq     r0, #0x50 
+00738110: movne     r0, #0x31 
+00738112: pop       {r4, r7, pc} 
+00738114: cmp       r3, #1 
+00738116: bne.w     #0x7382e0 
+0073811a: cmp       r4, #1 
+0073811c: ite       eq 
+0073811e: moveq     r0, #0x51 
+00738120: movne     r0, #0x31 
+00738122: pop       {r4, r7, pc} 
+00738124: cbnz      r3, #0x738136 
+00738126: cmp       r4, #0 
+00738128: beq.w     #0x7382e4 
+0073812c: cmp       r4, #1 
+0073812e: ite       eq 
+00738130: moveq     r0, #0x54 
+00738132: movne     r0, #0x30 
+00738134: pop       {r4, r7, pc} 
+00738136: cmp       r3, #1 
+00738138: bne.w     #0x7382e4 
+0073813c: cmp       r4, #1 
+0073813e: ite       eq 
+00738140: moveq     r0, #0x55 
+00738142: movne     r0, #0x30 
+00738144: pop       {r4, r7, pc} 
+00738146: cbnz      r3, #0x738158 
+00738148: cmp       r4, #0 
+0073814a: beq.w     #0x7382e8 
+0073814e: cmp       r4, #1 
+00738150: ite       eq 
+00738152: moveq     r0, #0x49 
+00738154: movne     r0, #0x34 
+00738156: pop       {r4, r7, pc} 
+00738158: cmp       r3, #1 
+0073815a: bne.w     #0x7382e8 
+0073815e: cmp       r4, #1 
+00738160: ite       eq 
+00738162: moveq     r0, #0x4a 
+00738164: movne     r0, #0x34 
+00738166: pop       {r4, r7, pc} 
+00738168: movs      r0, #0xbd 
+0073816a: pop       {r4, r7, pc} 
+0073816c: movs      r0, #0xbe 
+0073816e: pop       {r4, r7, pc} 
+00738170: movs      r0, #0xbf 
+00738172: pop       {r4, r7, pc} 
+00738174: cbnz      r3, #0x738186 
+00738176: cmp       r4, #0 
+00738178: beq.w     #0x7382ec 
+0073817c: cmp       r4, #1 
+0073817e: ite       eq 
+00738180: moveq     r0, #0x45 
+00738182: movne     r0, #0x36 
+00738184: pop       {r4, r7, pc} 
+00738186: cmp       r3, #1 
+00738188: bne.w     #0x7382ec 
+0073818c: cmp       r4, #1 
+0073818e: ite       eq 
+00738190: moveq     r0, #0x46 
+00738192: movne     r0, #0x36 
+00738194: pop       {r4, r7, pc} 
+00738196: movs      r0, #0xc0 
+00738198: pop       {r4, r7, pc} 
+0073819a: movs      r0, #0xc1 
+0073819c: pop       {r4, r7, pc} 
+0073819e: movs      r0, #0xc2 
+007381a0: pop       {r4, r7, pc} 
+007381a2: cbnz      r3, #0x7381b4 
+007381a4: cmp       r4, #0 
+007381a6: beq.w     #0x7382f0 
+007381aa: cmp       r4, #1 
+007381ac: ite       eq 
+007381ae: moveq     r0, #0x56 
+007381b0: movne     r0, #0xc3 
+007381b2: pop       {r4, r7, pc} 
+007381b4: cmp       r3, #1 
+007381b6: bne.w     #0x7382f0 
+007381ba: cmp       r4, #1 
+007381bc: ite       eq 
+007381be: moveq     r0, #0x57 
+007381c0: movne     r0, #0xc3 
+007381c2: pop       {r4, r7, pc} 
+007381c4: movs      r0, #0xc4 
+007381c6: pop       {r4, r7, pc} 
+007381c8: movs      r0, #0xc5 
+007381ca: pop       {r4, r7, pc} 
+007381cc: movs      r0, #0x38 
+007381ce: pop       {r4, r7, pc} 
+007381d0: movs      r0, #0xbb 
+007381d2: pop       {r4, r7, pc} 
+007381d4: movs      r0, #0xbc 
+007381d6: pop       {r4, r7, pc} 
+007381d8: str       r7, [sp, #0x1c0] 
+007381da: lsls      r0, r6, #2 
+007381dc: str       r7, [sp, #0x3c0] 
+007381de: lsls      r0, r6, #2 
+007381e0: movs      r0, #0x3a 
+007381e2: pop       {r4, r7, pc} 
+007381e4: movs      r0, #0x3e 
+007381e6: pop       {r4, r7, pc} 
+007381e8: movs      r0, #0x3f 
+007381ea: pop       {r4, r7, pc} 
+007381ec: movs      r0, #0x35 
+007381ee: pop       {r4, r7, pc} 
+007381f0: cbnz      r3, #0x738200 
+007381f2: cmp       r4, #0 
+007381f4: beq       #0x7382f4 
+007381f6: cmp       r4, #1 
+007381f8: ite       eq 
+007381fa: moveq     r0, #0x41 
+007381fc: movne     r0, #0x40 
+007381fe: pop       {r4, r7, pc} 
+00738200: cmp       r3, #1 
+00738202: bne       #0x7382f4 
+00738204: cmp       r4, #1 
+00738206: ite       eq 
+00738208: moveq     r0, #0x42 
+0073820a: movne     r0, #0x40 
+0073820c: pop       {r4, r7, pc} 
+0073820e: cmp       r3, #0 
+00738210: bne       #0x7382f8 
+00738212: cmp       r4, #0 
+00738214: beq       #0x7382f8 
+00738216: cmp       r4, #1 
+00738218: ite       eq 
+0073821a: moveq     r0, #0x48 
+0073821c: movne     r0, #0x47 
+0073821e: pop       {r4, r7, pc} 
+00738220: cbnz      r3, #0x738230 
+00738222: cmp       r4, #0 
+00738224: beq       #0x7382fc 
+00738226: cmp       r4, #1 
+00738228: ite       eq 
+0073822a: moveq     r0, #0x4c 
+0073822c: movne     r0, #0x4b 
+0073822e: pop       {r4, r7, pc} 
+00738230: cmp       r3, #1 
+00738232: bne       #0x7382fc 
+00738234: cmp       r4, #1 
+00738236: ite       eq 
+00738238: moveq     r0, #0x4d 
+0073823a: movne     r0, #0x4b 
+0073823c: pop       {r4, r7, pc} 
+0073823e: cmp       r3, #0 
+00738240: bne       #0x738300 
+00738242: cmp       r4, #0 
+00738244: beq       #0x738300 
+00738246: cmp       r4, #1 
+00738248: ite       eq 
+0073824a: moveq     r0, #0x4f 
+0073824c: movne     r0, #0x4e 
+0073824e: pop       {r4, r7, pc} 
+00738250: cmp       r3, #0 
+00738252: bne       #0x73830c 
+00738254: cmp       r4, #1 
+00738256: ite       eq 
+00738258: moveq     r0, #0x52 
+0073825a: movne     r0, #0xff 
+0073825c: pop       {r4, r7, pc} 
+0073825e: cmp       r3, #1 
+00738260: bne       #0x73830c 
+00738262: cmp       r4, #1 
+00738264: ite       eq 
+00738266: moveq     r0, #0x53 
+00738268: movne     r0, #0xff 
+0073826a: pop       {r4, r7, pc} 
+0073826c: cmp       r3, #1 
+0073826e: bne       #0x73830c 
+00738270: cmp       r4, #1 
+00738272: ite       eq 
+00738274: moveq     r0, #0x58 
+00738276: movne     r0, #0xff 
+00738278: pop       {r4, r7, pc} 
+0073827a: cmp       r3, #0 
+0073827c: bne       #0x738304 
+0073827e: cmp       r4, #0 
+00738280: beq       #0x738304 
+00738282: cmp       r4, #1 
+00738284: ite       eq 
+00738286: moveq     r0, #0x5a 
+00738288: movne     r0, #0x59 
+0073828a: pop       {r4, r7, pc} 
+0073828c: cmp       r3, #1 
+0073828e: bne       #0x73830c 
+00738290: cmp       r4, #1 
+00738292: ite       eq 
+00738294: moveq     r0, #0x5b 
+00738296: movne     r0, #0xff 
+00738298: pop       {r4, r7, pc} 
+0073829a: cmp       r3, #0 
+0073829c: beq       #0x738308 
+0073829e: cmp       r3, #1 
+007382a0: bne       #0x738308 
+007382a2: cmp       r4, #1 
+007382a4: ite       eq 
+007382a6: moveq     r0, #0x5c 
+007382a8: movne     r0, #0x37 
+007382aa: pop       {r4, r7, pc} 
+007382ac: subs      r0, #0xa 
+007382ae: cmp       r0, #0xf 
+007382b0: bhi       #0x73830c 
+007382b2: ldr       r3, [pc, #0x60] 
+007382b4: b         #0x7382d2 
+007382b6: subs      r0, #0x17 
+007382b8: cmp       r0, #1 
+007382ba: bhi       #0x73830c 
+007382bc: ldr       r3, [pc, #0x58] 
+007382be: b         #0x7382d2 
+007382c0: subs      r0, #0xf 
+007382c2: cmp       r0, #6 
+007382c4: bhi       #0x73830c 
+007382c6: ldr       r3, [pc, #0x54] 
+007382c8: b         #0x7382d2 
+007382ca: subs      r0, #0xf 
+007382cc: cmp       r0, #7 
+007382ce: bhi       #0x738310 
+007382d0: ldr       r3, [pc, #0x4c] 
+007382d2: ldr.w     r0, [r3, r0, lsl #2] 
+007382d6: pop       {r4, r7, pc} 
+007382d8: movs      r0, #0x11 
+007382da: pop       {r4, r7, pc} 
+007382dc: movs      r0, #0x18 
+007382de: pop       {r4, r7, pc} 
+007382e0: movs      r0, #0x31 
+007382e2: pop       {r4, r7, pc} 
+007382e4: movs      r0, #0x30 
+007382e6: pop       {r4, r7, pc} 
+007382e8: movs      r0, #0x34 
+007382ea: pop       {r4, r7, pc} 
+007382ec: movs      r0, #0x36 
+007382ee: pop       {r4, r7, pc} 
+007382f0: movs      r0, #0xc3 
+007382f2: pop       {r4, r7, pc} 
+007382f4: movs      r0, #0x40 
+007382f6: pop       {r4, r7, pc} 
+007382f8: movs      r0, #0x47 
+007382fa: pop       {r4, r7, pc} 
+007382fc: movs      r0, #0x4b 
+007382fe: pop       {r4, r7, pc} 
+00738300: movs      r0, #0x4e 
+00738302: pop       {r4, r7, pc} 
+00738304: movs      r0, #0x59 
+00738306: pop       {r4, r7, pc} 
+00738308: movs      r0, #0x37 
+0073830a: pop       {r4, r7, pc} 
+0073830c: movs      r0, #0xff 
+0073830e: pop       {r4, r7, pc} 
+00738310: movs      r0, #0xff 
+00738312: pop       {r4, r7, pc} 
+00738314: ldr       r0, [sp, #0x1e0] 
+00738316: lsls      r0, r6, #2 
+00738318: ldr       r0, [sp, #0x1c0] 
+0073831a: lsls      r0, r6, #2 
+0073831c: ldr       r0, [sp, #0x2e0] 
+0073831e: lsls      r0, r6, #2 
+00738320: ldr       r0, [sp, #0x3d0] 
+00738322: lsls      r0, r6, #2 
+
+_ZN13MovieRecorder28ConvertPictureQualityMpr2PubEN3MPR8VQualityEbNS0_11ContentTypeENS0_11ColorFormatENS0_13VideoBitDepthE @0x3f6282
+003f6282: mov       r0, r1 
+003f6284: mov       r1, r2 
+003f6286: mov       r2, r3 
+003f6288: push      {r4, r7, lr} 
+003f628a: cmp.w     r2, #0x100 
+003f628e: add       r7, sp, #0 
+003f6290: ldr       r3, [r7, #0xc] 
+003f6292: ldr       r4, [r7, #0x10] 
+003f6294: bne       #0x3f62a0 
+003f6296: str       r4, [r7, #0xc] 
+003f6298: pop.w     {r4, r7, lr} 
+003f629c: b.w       #0x737fbc _ZN7PubUtil28ConvertPictureQualityMpr2PubEN3MPR8VQualityEbNS0_11ContentTypeENS0_11ColorFormatENS0_13VideoBitDepthE
+003f62a0: pop.w     {r4, r7, lr} 
+003f62a4: b.w       #0x737f90 _ZN7PubUtil28ConvertPictureQualityMpr2PubEN3MPR8VQualityEb

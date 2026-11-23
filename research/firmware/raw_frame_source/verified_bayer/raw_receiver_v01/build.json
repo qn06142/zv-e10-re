@@ -1,0 +1,29 @@
+{
+  "status": "OFFLINE_RECEIVER_COMPONENT_NOT_INSTALLED",
+  "source_library_md5": "845879287112a8e3d3228897a3e23b72",
+  "component_sha256": "767a200c41900865cb0fa4bddc0215e5363e50572bdfd59a1de043f173676230",
+  "bytes": 6380,
+  "exports": [
+    "raw_v01_install",
+    "raw_v01_bind",
+    "raw_v01_dispatch",
+    "_stack",
+    "raw_v01_arm",
+    "raw_v01_status"
+  ],
+  "hook_relocation_candidates": [
+    {
+      "symbol": "_ZN18CAM_ONDEMAND_SAVER18cam_ondemand_saver10fsys_writeEPN6Camera11UTIL_MS_MGR31cam_util_ms_mgr_snd_msg_payloadE",
+      "offset": "0xa18c",
+      "type": 22
+    }
+  ],
+  "camera_access": false,
+  "sensor_activation_implemented": false,
+  "guarded_installer_implemented": true,
+  "usb_spool_implemented": false,
+  "tests": {
+    "host_copy_cases": 13,
+    "compiled_ARM_install_cases": 7
+  }
+}

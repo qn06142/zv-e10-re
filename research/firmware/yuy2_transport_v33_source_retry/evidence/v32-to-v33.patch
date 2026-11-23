@@ -1,0 +1,76 @@
+--- v32/vga_resize.c
++++ v33/vga_resize.c
+@@ -38,7 +38,7 @@
+ static void trace(const char *tag,unsigned a,unsigned b,unsigned c){
+  char row[160];int n=snprintf(row,sizeof(row),"VGA %s %08x %08x %08x\n",tag,a,b,c);
+  if(n<=0 || (unsigned)n>=sizeof(row) || __sync_fetch_and_add(&trace_bytes,(unsigned)n)>65536u-(unsigned)n)return;
+- int fd=open("/log/yuy2_640_v32vga/vga.log",0x441,0644);
++ int fd=open("/log/yuy2_640_v33vga/vga.log",0x441,0644);
+  if(fd>=0){if(n>0 && (unsigned)n<sizeof(row))write(fd,row,(unsigned)n);close(fd);}
+ }
+ static void barrier(void){__sync_synchronize();}
+@@ -139,12 +139,26 @@
+  trace("DMM_REPLY_04",reply_word(reply,4),reply_word(reply,8),reply_word(reply,12));
+  trace("DMM_REPLY_10",reply_word(reply,16),reply_word(reply,20),0);
+ }
+-static int take(lease *l,unsigned handle,unsigned type){
++/* Exact negative mode-0 Share completion verified against dmm.ko:
++ * native -1 returns BEFORE the allocation reference increment. This only
++ * skips optional source candidates; all unknown outcomes still quarantine. */
++static int source_share_declined(int rc,const unsigned char *r,unsigned handle,unsigned type){
++ unsigned q;memcpy(&q,dmm+4,4);
++ return !rc && reply_word(r,0)==0xffff8002u &&
++        (reply_word(r,4)&65535u)==handle && (reply_word(r,4)>>16)==(q&65535u) &&
++        reply_word(r,8)==0xffff0000u && reply_word(r,12)==type &&
++        !reply_word(r,16) && !reply_word(r,20);
++}
++static int take_impl(lease *l,unsigned handle,unsigned type,unsigned optional_source){
+  unsigned char reply[24]={0};l->ref.handle=handle;l->ref.type=type;
+  trace("SHARE",handle,type,0);
+  l->shared=1;
+  int rc=((int (*)(void *,void *,unsigned,unsigned short,unsigned short))sdk[VG_SHARE])(dmm,reply,type,handle,0);
+  if(dmm_status(rc,reply)){
++  if(optional_source && !l->opened && !l->map.base && source_share_declined(rc,reply,handle,type)){
++   reply_evidence("SOURCE_SHARE_DECLINED",handle,rc,reply);
++   *l=(lease){0};return 1; /* no reference acquired: do not Close/Free */
++  }
+   reply_evidence("SHARE_FAILED",handle,rc,reply);__atomic_store_n(&shared_fault,1,__ATOMIC_RELEASE);return -1;
+  }
+  trace("SHARE_OK",handle,reply_word(reply,0),reply_word(reply,4));
+@@ -164,6 +178,7 @@
+  trace("LEASE_READY",handle,l->ref.physical,l->ref.bytes);
+  return 0;
+ }
++static int take(lease *l,unsigned handle,unsigned type){return take_impl(l,handle,type,0);}
+ static int drop(lease *l){
+  unsigned char reply[24]={0};int rc;
+  if(fault)return -1;
+@@ -209,7 +224,9 @@
+   *meta=(lease){0};*pixels=(lease){0};
+   trace("SSYC_HINT",candidates[i].h,candidates[i].t,candidates[i].physical);
+   trace("SSYC_HINT_BYTES",candidates[i].bytes,0,0);
+-  if(take(meta,candidates[i].h,candidates[i].t))return -1;
++  int acquired=take_impl(meta,candidates[i].h,candidates[i].t,1);
++  if(acquired>0)continue;
++  if(acquired<0)return -1;
+   sony_yc_metadata m,m2;sony_yc_state_info state;sony_yc_multiple_segment_info multi;
+   if(meta->ref.bytes>sizeof(source_snapshot)) {if(drop(meta))return -1;continue;}
+   memcpy(source_snapshot,meta->map.bytes,meta->ref.bytes);barrier();
+@@ -294,7 +311,7 @@
+   __atomic_store_n(&shared_fault,1,__ATOMIC_RELEASE);return -1;
+  }
+  if(freeze_input(source,pixels))return -1;
+- if(!generation)evidence("/log/yuy2_640_v32vga/input-ssyc.bin",input_mapping.bytes,input_sds.bytes);
++ if(!generation)evidence("/log/yuy2_640_v33vga/input-ssyc.bin",input_mapping.bytes,input_sds.bytes);
+  memcpy(command+0x18,&input_sds.type,4);memcpy(command+0x1c,&input_sds.handle,2);
+  command[0x25]=1;memcpy(command+0x38,&destination_sds.type,4);memcpy(command+0x3c,&destination_sds.handle,2);
+  trace("RESIZE",input_sds.handle,destination_sds.handle,generation);
+@@ -326,7 +343,7 @@
+   if(vga_destination_contract(&m,outpixels.ref.bytes,outpixels.ref.handle)){__atomic_store_n(&shared_fault,1,__ATOMIC_RELEASE);trace("DEST_FORMAT_REJECTED",m.yc_compress,m.canvas_size_x,m.canvas_size_y);break;}
+   if(!generation){
+    trace("DEST_FLAGS",m.yc_compress,(m.data_placement<<24)|(m.data_content<<16)|(m.data_scan<<8)|m.yc_bit_depth,m.strip_width);
+-   evidence("/log/yuy2_640_v32vga/destination-ssyc.bin",outmeta.map.bytes,outmeta.ref.bytes);
++   evidence("/log/yuy2_640_v33vga/destination-ssyc.bin",outmeta.map.bytes,outmeta.ref.bytes);
+   }
+   if(!__sync_lock_test_and_set(&lock,1)){
+    memcpy(published,outpixels.map.bytes+m.unit_data_offset,VGA_BYTES);

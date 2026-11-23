@@ -1,0 +1,65 @@
+{
+  "original_instructions": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "send_error": 0,
+      "receive_error": 0,
+      "busy": 0,
+      "rc": "0x0",
+      "events": [
+        "allocate",
+        {
+          "send_queue": "0x12802f1",
+          "message": "010001070000002000100000050000000000000000000000"
+        },
+        {
+          "wait_queue": "0x777",
+          "timeout": 300000
+        }
+      ]
+    },
+    {
+      "send_error": 1,
+      "receive_error": 0,
+      "busy": 0,
+      "rc": "0xfffffffc",
+      "events": [
+        "allocate",
+        {
+          "send_queue": "0x12802f1",
+          "message": "010001070000002000100000050000000000000000000000"
+        },
+        {
+          "wait_queue": "0x777",
+          "timeout": 300000
+        }
+      ]
+    },
+    {
+      "send_error": 0,
+      "receive_error": 1,
+      "busy": 0,
+      "rc": "0xfffffffc",
+      "events": [
+        "allocate",
+        {
+          "send_queue": "0x12802f1",
+          "message": "010001070000002000100000050000000000000000000000"
+        },
+        {
+          "wait_queue": "0x777",
+          "timeout": 300000
+        }
+      ]
+    },
+    {
+      "send_error": 0,
+      "receive_error": 0,
+      "busy": 1,
+      "rc": "0xfffffffd",
+      "events": []
+    }
+  ],
+  "limitations": "Message pool/send/receive/release/logging mocked. Receiver durability and pixel validity not proved."
+}

@@ -1,0 +1,16 @@
+{
+  "passed": 9,
+  "camera_access": false,
+  "hardware_boundaries_mocked": true,
+  "scenarios": [
+    "successful owned-metadata publication",
+    "missing SSYC",
+    "SDF error",
+    "output compression changed",
+    "undersized output",
+    "ambiguous Open",
+    "producer descriptor changes before pin",
+    "MMIO rejection",
+    "USB overlap rejection"
+  ]
+}

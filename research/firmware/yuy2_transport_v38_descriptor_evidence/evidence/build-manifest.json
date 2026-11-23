@@ -1,0 +1,51 @@
+{
+  "status": "BUILT_NOT_HARDWARE_VERIFIED",
+  "deployment": "NOT_INSTALLED",
+  "revision": "3.8-rejected-descriptor-evidence",
+  "position_independent": true,
+  "width": 640,
+  "height": 480,
+  "advertised_fps": 10,
+  "observed_fps": null,
+  "pixel_format": "YUY2 advertised; candidate UYVY-to-YUY2 permutation, packing UNVERIFIED",
+  "source_backend": "NATIVE_VDF_PIN_SEND_PRIVATE_QUEUE_TO_SONY_SDF_OWNED_VGA220",
+  "continuous_video": true,
+  "source_pool_scanning": false,
+  "source_transfer_free_mode": 2,
+  "requested_native_output": [
+    0,
+    2,
+    0,
+    5832718
+  ],
+  "private_receiver_index": 2147483447,
+  "output_busy_behavior": "REFUSE_WITHOUT_DISCONNECTING_EXISTING_PEER",
+  "native_output_availability": "ONE_CONNECTION_AND_SEND_OBSERVED_ON_V37; V38_NOT_TESTED",
+  "diagnostic_revision": true,
+  "functional_descriptor_fix": false,
+  "reference_cleanup_changed": false,
+  "rejected_descriptor_record": "YC38RJ01",
+  "rejected_record_max_bytes": 131152,
+  "rejection_gates_unchanged": true,
+  "required_kernel_version": "yc37_fence",
+  "required_kernel_md5": "388799d95bbb524ca581c66b077b6dc2",
+  "crash_fix_verified": false,
+  "independent_usb_source_credit_retained_until_boot": true,
+  "synthetic_fallback": false,
+  "frame_bytes": 614400,
+  "packet_header_bytes": 0,
+  "cold_boot_required": true,
+  "stream_sessions_per_boot": 1,
+  "files": {
+    "yuy2_640_v38vga.so": {
+      "bytes": 42648,
+      "md5": "d577730ce4eeec70904cd4fb164580f5",
+      "sha256": "fb315178df27ae062bf31141eb282434665793c3f18bf2c9d1a2add725f904b8"
+    },
+    "libInfraStreamingUsb.so": {
+      "bytes": 72796,
+      "md5": "f5d42a08e186b0cf2f519bd105457e08",
+      "sha256": "d2b7bd08d9f0f70ca5742e4efc17b41ccf5e682f5a3625b44272af73561d0bd1"
+    }
+  }
+}

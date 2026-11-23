@@ -1,0 +1,15 @@
+
+_ZN7FeaCore45SetColorFormatAndVideoBitDepthToEnterRecParamEPN11RecorderDef13EnterRecParamEN3MPR11ContentTypeENS3_11ColorFormatENS3_13VideoBitDepthE @0x54917e
+0054917e: push      {r7, lr} 
+00549180: add       r7, sp, #0 
+00549182: cbz       r1, #0x5491a0 
+00549184: cmp.w     r2, #0x100 
+00549188: bne       #0x549196 
+0054918a: str.w     r3, [r1, #0xe8] 
+0054918e: ldr       r3, [r7, #8] 
+00549190: str.w     r3, [r1, #0xec] 
+00549194: pop       {r7, pc} 
+00549196: movs      r3, #0xff 
+00549198: str.w     r3, [r1, #0xe8] 
+0054919c: str.w     r3, [r1, #0xec] 
+005491a0: pop       {r7, pc} 

@@ -1,0 +1,15 @@
+63d893f4: push      {r3, lr}
+63d893f6: movs      r0, #1
+63d893f8: bl        #0x6396e358
+63d893fc: sub.w     r2, r0, #9
+63d89400: rsbs      r0, r2, #0
+63d89402: adc.w     r0, r0, r2
+63d89406: pop       {r3, pc}
+63d89408: push      {r4, lr}
+63d8940a: mov       r4, r0
+63d8940c: bl        #0x63d893f4
+63d89410: cbz       r0, #0x63d8941c
+63d89412: mov       r0, r4
+63d89414: pop.w     {r4, lr}
+63d89418: b.w       #0x6390878c
+63d8941c: pop       {r4, pc}

@@ -1,0 +1,1682 @@
+[
+  {
+    "MPR_quality": 0,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      18,
+      18,
+      18
+    ]
+  },
+  {
+    "MPR_quality": 0,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      18,
+      18,
+      18
+    ]
+  },
+  {
+    "MPR_quality": 0,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      18,
+      18,
+      18
+    ]
+  },
+  {
+    "MPR_quality": 0,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      18,
+      18,
+      18
+    ]
+  },
+  {
+    "MPR_quality": 1,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      17,
+      17,
+      17
+    ]
+  },
+  {
+    "MPR_quality": 1,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      17,
+      17,
+      17
+    ]
+  },
+  {
+    "MPR_quality": 1,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      17,
+      17,
+      17
+    ]
+  },
+  {
+    "MPR_quality": 1,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      17,
+      17,
+      17
+    ]
+  },
+  {
+    "MPR_quality": 2,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      16,
+      16,
+      16
+    ]
+  },
+  {
+    "MPR_quality": 2,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      16,
+      16,
+      16
+    ]
+  },
+  {
+    "MPR_quality": 2,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      16,
+      16,
+      16
+    ]
+  },
+  {
+    "MPR_quality": 2,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      16,
+      16,
+      16
+    ]
+  },
+  {
+    "MPR_quality": 3,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      19,
+      19,
+      19
+    ]
+  },
+  {
+    "MPR_quality": 3,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      17,
+      17,
+      17
+    ]
+  },
+  {
+    "MPR_quality": 3,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      19,
+      19,
+      19
+    ]
+  },
+  {
+    "MPR_quality": 3,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      17,
+      17,
+      17
+    ]
+  },
+  {
+    "MPR_quality": 4,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      20,
+      20,
+      20
+    ]
+  },
+  {
+    "MPR_quality": 4,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      17,
+      17,
+      17
+    ]
+  },
+  {
+    "MPR_quality": 4,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      20,
+      20,
+      20
+    ]
+  },
+  {
+    "MPR_quality": 4,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      17,
+      17,
+      17
+    ]
+  },
+  {
+    "MPR_quality": 5,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      21,
+      21,
+      21
+    ]
+  },
+  {
+    "MPR_quality": 5,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      21,
+      21,
+      21
+    ]
+  },
+  {
+    "MPR_quality": 5,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      21,
+      21,
+      21
+    ]
+  },
+  {
+    "MPR_quality": 5,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      21,
+      21,
+      21
+    ]
+  },
+  {
+    "MPR_quality": 6,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      22,
+      22,
+      22
+    ]
+  },
+  {
+    "MPR_quality": 6,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      22,
+      22,
+      22
+    ]
+  },
+  {
+    "MPR_quality": 6,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      22,
+      22,
+      22
+    ]
+  },
+  {
+    "MPR_quality": 6,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      22,
+      22,
+      22
+    ]
+  },
+  {
+    "MPR_quality": 7,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      23,
+      23,
+      23
+    ]
+  },
+  {
+    "MPR_quality": 7,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      23,
+      23,
+      23
+    ]
+  },
+  {
+    "MPR_quality": 7,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      23,
+      23,
+      23
+    ]
+  },
+  {
+    "MPR_quality": 7,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      23,
+      23,
+      23
+    ]
+  },
+  {
+    "MPR_quality": 8,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      24,
+      67,
+      24
+    ]
+  },
+  {
+    "MPR_quality": 8,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      24,
+      67,
+      24
+    ]
+  },
+  {
+    "MPR_quality": 8,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      24,
+      68,
+      24
+    ]
+  },
+  {
+    "MPR_quality": 8,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      24,
+      68,
+      24
+    ]
+  },
+  {
+    "MPR_quality": 9,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      32,
+      32,
+      32
+    ]
+  },
+  {
+    "MPR_quality": 9,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      32,
+      32,
+      32
+    ]
+  },
+  {
+    "MPR_quality": 9,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      32,
+      32,
+      32
+    ]
+  },
+  {
+    "MPR_quality": 9,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      32,
+      32,
+      32
+    ]
+  },
+  {
+    "MPR_quality": 10,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      51,
+      51,
+      51
+    ]
+  },
+  {
+    "MPR_quality": 10,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      51,
+      51,
+      51
+    ]
+  },
+  {
+    "MPR_quality": 10,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      51,
+      51,
+      51
+    ]
+  },
+  {
+    "MPR_quality": 10,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      51,
+      51,
+      51
+    ]
+  },
+  {
+    "MPR_quality": 11,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      50,
+      50,
+      50
+    ]
+  },
+  {
+    "MPR_quality": 11,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      50,
+      50,
+      50
+    ]
+  },
+  {
+    "MPR_quality": 11,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      50,
+      50,
+      50
+    ]
+  },
+  {
+    "MPR_quality": 11,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      50,
+      50,
+      50
+    ]
+  },
+  {
+    "MPR_quality": 12,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      49,
+      80,
+      49
+    ]
+  },
+  {
+    "MPR_quality": 12,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      49,
+      80,
+      49
+    ]
+  },
+  {
+    "MPR_quality": 12,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      49,
+      81,
+      49
+    ]
+  },
+  {
+    "MPR_quality": 12,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      49,
+      81,
+      49
+    ]
+  },
+  {
+    "MPR_quality": 13,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      48,
+      84,
+      48
+    ]
+  },
+  {
+    "MPR_quality": 13,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      48,
+      84,
+      48
+    ]
+  },
+  {
+    "MPR_quality": 13,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      48,
+      85,
+      48
+    ]
+  },
+  {
+    "MPR_quality": 13,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      48,
+      85,
+      48
+    ]
+  },
+  {
+    "MPR_quality": 14,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      52,
+      73,
+      52
+    ]
+  },
+  {
+    "MPR_quality": 14,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      52,
+      73,
+      52
+    ]
+  },
+  {
+    "MPR_quality": 14,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      52,
+      74,
+      52
+    ]
+  },
+  {
+    "MPR_quality": 14,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      52,
+      74,
+      52
+    ]
+  },
+  {
+    "MPR_quality": 15,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      189,
+      189,
+      189
+    ]
+  },
+  {
+    "MPR_quality": 15,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      189,
+      189,
+      189
+    ]
+  },
+  {
+    "MPR_quality": 15,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      189,
+      189,
+      189
+    ]
+  },
+  {
+    "MPR_quality": 15,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      189,
+      189,
+      189
+    ]
+  },
+  {
+    "MPR_quality": 16,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      190,
+      190,
+      190
+    ]
+  },
+  {
+    "MPR_quality": 16,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      190,
+      190,
+      190
+    ]
+  },
+  {
+    "MPR_quality": 16,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      190,
+      190,
+      190
+    ]
+  },
+  {
+    "MPR_quality": 16,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      190,
+      190,
+      190
+    ]
+  },
+  {
+    "MPR_quality": 17,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      191,
+      191,
+      191
+    ]
+  },
+  {
+    "MPR_quality": 17,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      191,
+      191,
+      191
+    ]
+  },
+  {
+    "MPR_quality": 17,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      191,
+      191,
+      191
+    ]
+  },
+  {
+    "MPR_quality": 17,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      191,
+      191,
+      191
+    ]
+  },
+  {
+    "MPR_quality": 18,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      54,
+      69,
+      54
+    ]
+  },
+  {
+    "MPR_quality": 18,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      54,
+      69,
+      54
+    ]
+  },
+  {
+    "MPR_quality": 18,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      54,
+      70,
+      54
+    ]
+  },
+  {
+    "MPR_quality": 18,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      54,
+      70,
+      54
+    ]
+  },
+  {
+    "MPR_quality": 19,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      192,
+      192,
+      192
+    ]
+  },
+  {
+    "MPR_quality": 19,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      192,
+      192,
+      192
+    ]
+  },
+  {
+    "MPR_quality": 19,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      192,
+      192,
+      192
+    ]
+  },
+  {
+    "MPR_quality": 19,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      192,
+      192,
+      192
+    ]
+  },
+  {
+    "MPR_quality": 20,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      193,
+      193,
+      193
+    ]
+  },
+  {
+    "MPR_quality": 20,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      193,
+      193,
+      193
+    ]
+  },
+  {
+    "MPR_quality": 20,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      193,
+      193,
+      193
+    ]
+  },
+  {
+    "MPR_quality": 20,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      193,
+      193,
+      193
+    ]
+  },
+  {
+    "MPR_quality": 21,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      194,
+      194,
+      194
+    ]
+  },
+  {
+    "MPR_quality": 21,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      194,
+      194,
+      194
+    ]
+  },
+  {
+    "MPR_quality": 21,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      194,
+      194,
+      194
+    ]
+  },
+  {
+    "MPR_quality": 21,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      194,
+      194,
+      194
+    ]
+  },
+  {
+    "MPR_quality": 22,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      195,
+      86,
+      195
+    ]
+  },
+  {
+    "MPR_quality": 22,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      195,
+      86,
+      195
+    ]
+  },
+  {
+    "MPR_quality": 22,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      195,
+      87,
+      195
+    ]
+  },
+  {
+    "MPR_quality": 22,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      195,
+      87,
+      195
+    ]
+  },
+  {
+    "MPR_quality": 23,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      196,
+      196,
+      196
+    ]
+  },
+  {
+    "MPR_quality": 23,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      196,
+      196,
+      196
+    ]
+  },
+  {
+    "MPR_quality": 23,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      196,
+      196,
+      196
+    ]
+  },
+  {
+    "MPR_quality": 23,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      196,
+      196,
+      196
+    ]
+  },
+  {
+    "MPR_quality": 24,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      197,
+      197,
+      197
+    ]
+  },
+  {
+    "MPR_quality": 24,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      197,
+      197,
+      197
+    ]
+  },
+  {
+    "MPR_quality": 24,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      197,
+      197,
+      197
+    ]
+  },
+  {
+    "MPR_quality": 24,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      197,
+      197,
+      197
+    ]
+  },
+  {
+    "MPR_quality": 25,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      56,
+      56,
+      56
+    ]
+  },
+  {
+    "MPR_quality": 25,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      56,
+      56,
+      56
+    ]
+  },
+  {
+    "MPR_quality": 25,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      56,
+      56,
+      56
+    ]
+  },
+  {
+    "MPR_quality": 25,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      56,
+      56,
+      56
+    ]
+  },
+  {
+    "MPR_quality": 26,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      187,
+      187,
+      187
+    ]
+  },
+  {
+    "MPR_quality": 26,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      187,
+      187,
+      187
+    ]
+  },
+  {
+    "MPR_quality": 26,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      187,
+      187,
+      187
+    ]
+  },
+  {
+    "MPR_quality": 26,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      187,
+      187,
+      187
+    ]
+  },
+  {
+    "MPR_quality": 27,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      188,
+      188,
+      188
+    ]
+  },
+  {
+    "MPR_quality": 27,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      188,
+      188,
+      188
+    ]
+  },
+  {
+    "MPR_quality": 27,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      188,
+      188,
+      188
+    ]
+  },
+  {
+    "MPR_quality": 27,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      188,
+      188,
+      188
+    ]
+  },
+  {
+    "MPR_quality": 28,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      58,
+      58,
+      58
+    ]
+  },
+  {
+    "MPR_quality": 28,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      58,
+      58,
+      58
+    ]
+  },
+  {
+    "MPR_quality": 28,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      58,
+      58,
+      58
+    ]
+  },
+  {
+    "MPR_quality": 28,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      58,
+      58,
+      58
+    ]
+  },
+  {
+    "MPR_quality": 29,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      62,
+      62,
+      62
+    ]
+  },
+  {
+    "MPR_quality": 29,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      62,
+      62,
+      62
+    ]
+  },
+  {
+    "MPR_quality": 29,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      62,
+      62,
+      62
+    ]
+  },
+  {
+    "MPR_quality": 29,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      62,
+      62,
+      62
+    ]
+  },
+  {
+    "MPR_quality": 30,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      63,
+      63,
+      63
+    ]
+  },
+  {
+    "MPR_quality": 30,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      63,
+      63,
+      63
+    ]
+  },
+  {
+    "MPR_quality": 30,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      63,
+      63,
+      63
+    ]
+  },
+  {
+    "MPR_quality": 30,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      63,
+      63,
+      63
+    ]
+  },
+  {
+    "MPR_quality": 31,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      53,
+      53,
+      53
+    ]
+  },
+  {
+    "MPR_quality": 31,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      53,
+      53,
+      53
+    ]
+  },
+  {
+    "MPR_quality": 31,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      53,
+      53,
+      53
+    ]
+  },
+  {
+    "MPR_quality": 31,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      53,
+      53,
+      53
+    ]
+  },
+  {
+    "MPR_quality": 32,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      64,
+      65,
+      64
+    ]
+  },
+  {
+    "MPR_quality": 32,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      64,
+      65,
+      64
+    ]
+  },
+  {
+    "MPR_quality": 32,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      64,
+      66,
+      64
+    ]
+  },
+  {
+    "MPR_quality": 32,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      64,
+      66,
+      64
+    ]
+  },
+  {
+    "MPR_quality": 33,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      71,
+      72,
+      71
+    ]
+  },
+  {
+    "MPR_quality": 33,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      71,
+      72,
+      71
+    ]
+  },
+  {
+    "MPR_quality": 33,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      71,
+      71,
+      71
+    ]
+  },
+  {
+    "MPR_quality": 33,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      71,
+      71,
+      71
+    ]
+  },
+  {
+    "MPR_quality": 34,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      75,
+      76,
+      75
+    ]
+  },
+  {
+    "MPR_quality": 34,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      75,
+      76,
+      75
+    ]
+  },
+  {
+    "MPR_quality": 34,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      75,
+      77,
+      75
+    ]
+  },
+  {
+    "MPR_quality": 34,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      75,
+      77,
+      75
+    ]
+  },
+  {
+    "MPR_quality": 35,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      78,
+      79,
+      78
+    ]
+  },
+  {
+    "MPR_quality": 35,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      78,
+      79,
+      78
+    ]
+  },
+  {
+    "MPR_quality": 35,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      78,
+      78,
+      78
+    ]
+  },
+  {
+    "MPR_quality": 35,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      78,
+      78,
+      78
+    ]
+  },
+  {
+    "MPR_quality": 36,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      82,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 36,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      82,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 36,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      255,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 36,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      255,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 37,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      255,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 37,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      255,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 37,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      83,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 37,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      83,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 38,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      255,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 38,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      255,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 38,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      88,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 38,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      88,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 39,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      89,
+      90,
+      89
+    ]
+  },
+  {
+    "MPR_quality": 39,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      89,
+      90,
+      89
+    ]
+  },
+  {
+    "MPR_quality": 39,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      89,
+      89,
+      89
+    ]
+  },
+  {
+    "MPR_quality": 39,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      89,
+      89,
+      89
+    ]
+  },
+  {
+    "MPR_quality": 40,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      255,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 40,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      255,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 40,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      91,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 40,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      255,
+      91,
+      255
+    ]
+  },
+  {
+    "MPR_quality": 41,
+    "color_enum": 0,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      55,
+      55,
+      55
+    ]
+  },
+  {
+    "MPR_quality": 41,
+    "color_enum": 0,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      55,
+      55,
+      55
+    ]
+  },
+  {
+    "MPR_quality": 41,
+    "color_enum": 1,
+    "bool_arg": 0,
+    "public_quality_by_depth_0_1_2": [
+      55,
+      92,
+      55
+    ]
+  },
+  {
+    "MPR_quality": 41,
+    "color_enum": 1,
+    "bool_arg": 1,
+    "public_quality_by_depth_0_1_2": [
+      55,
+      92,
+      55
+    ]
+  }
+]

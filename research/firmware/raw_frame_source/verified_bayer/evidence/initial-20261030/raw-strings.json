@@ -1,0 +1,110 @@
+[
+  {
+    "address": "0x63f5cf43",
+    "text": "FW:  Error  : ImagerType must be IMAGER_TYPE_BAYER_GCS or IMAGER_TYPE_BAYER_MIPI"
+  },
+  {
+    "address": "0x63f5eb07",
+    "text": "N6Camera7CamCore17SigItpBayerSetterE"
+  },
+  {
+    "address": "0x63f7aa54",
+    "text": "DFE_SET_RAWB"
+  },
+  {
+    "address": "0x63f7ba7a",
+    "text": "FW: ShareMem_StlRaw8 Err: unit_type[0x%08x], err[%d]"
+  },
+  {
+    "address": "0x63f802d1",
+    "text": "FW: Error! sa_func_DUALREC_BAYER_acquire %d"
+  },
+  {
+    "address": "0x63f8044f",
+    "text": "FW: Error! sa_func_DUALREC_BAYER_start %d %08X"
+  },
+  {
+    "address": "0x63f8047e",
+    "text": "FW: %s: DUALREC_BAYER_start_mbx.cha_mbx0 = 0x%x"
+  },
+  {
+    "address": "0x63f804ae",
+    "text": "FW: %s: DUALREC_BAYER_start_mbx.cha_mbx1 = 0x%x"
+  },
+  {
+    "address": "0x63f804de",
+    "text": "FW: %s: DUALREC_BAYER_start_mbx.cha_mbx2 = 0x%08x"
+  },
+  {
+    "address": "0x63f80510",
+    "text": "FW: %s: DUALREC_BAYER_start_mbx.cha_mbx3 = 0x%x"
+  },
+  {
+    "address": "0x63f88d79",
+    "text": "DFE_0_STORE_RAW"
+  },
+  {
+    "address": "0x63f89290",
+    "text": "FW: 4KSuperSlowMotion[Buffering] error: SYNC_RAW_OUTPUT_SIZE=%d (enum)"
+  },
+  {
+    "address": "0x63f8931c",
+    "text": "FW: 4KSuperSlowMotion[Transfer] error: SYNC_RAW_OUTPUT_SIZE=%d (enum)"
+  },
+  {
+    "address": "0x63f90a63",
+    "text": "N6Camera7CamCore17SigItpBayerGetterE"
+  },
+  {
+    "address": "0x63f98d1a",
+    "text": "YC: SetMakerNotePreDcv(BAYER): job_YC_GetTagPointer error: 0x%x"
+  },
+  {
+    "address": "0x63f98d5a",
+    "text": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): ctrl_mode    = 0x%x"
+  },
+  {
+    "address": "0x63f98d98",
+    "text": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): coring_off   = 0x%x"
+  },
+  {
+    "address": "0x63f98dd6",
+    "text": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): gainmap_off  = 0x%x"
+  },
+  {
+    "address": "0x63f98e14",
+    "text": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): zoom_pos     = 0x%x"
+  },
+  {
+    "address": "0x63f98e52",
+    "text": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): focus_pos    = 0x%x"
+  },
+  {
+    "address": "0x63f98e90",
+    "text": "YC: DCV::job_YC_SetSaCamDspParam (BAYER): iris_pos     = 0x%x"
+  },
+  {
+    "address": "0x63f9a1ee",
+    "text": "YC: calcMovBayerSetParam: SetterValidBayer = %d, IsSplit = %d"
+  },
+  {
+    "address": "0x63fa1eca",
+    "text": "/usr/sabin/dcv_psf_table_movie_bayer.bin"
+  },
+  {
+    "address": "0x63fdf1e2",
+    "text": "FW: %s: `sa_func_DUALREC_BAYER_exit' error"
+  },
+  {
+    "address": "0x63fe05d6",
+    "text": "sa_func_DUALREC_BAYER_acquire"
+  },
+  {
+    "address": "0x63fe05f4",
+    "text": "sa_func_DUALREC_BAYER_release"
+  },
+  {
+    "address": "0x63fe0612",
+    "text": "sa_func_DUALREC_BAYER_exit"
+  }
+]

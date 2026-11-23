@@ -1,0 +1,26 @@
+[
+  {
+    "file": "module-readback.so",
+    "bytes": 32632,
+    "md5": "de59485d1ad155711d81cd592ed5b821",
+    "sha256": "a582b6965f60537a52c5fe40788081f3dad09edc3b2c2397eeff371b906115a5"
+  },
+  {
+    "file": "stream-readback.so",
+    "bytes": 72796,
+    "md5": "cc3de8f0f0b710e6e2027ac78ea94c50",
+    "sha256": "9b0576bb5bcd55b1f94b4fc8843be2ed77c6a3d1ae84d1fa2602ceefb2a5da59"
+  },
+  {
+    "file": "recovery-previous.so",
+    "bytes": 72796,
+    "md5": "24bc5972c11f953ad1408f477376a877",
+    "sha256": "6deeea04e6c029dca1105f4fe9714b3f9abd4acf484b20963b2ddf49ae282edd"
+  },
+  {
+    "file": "rollback-readback.sh",
+    "bytes": 1195,
+    "md5": "7f4b4678ca05f92beba74dcd05588556",
+    "sha256": "2e80eb5195ae5b7fba6cfc9877f03d30e9d7a4fc2108878d81dac3a76f60ba62"
+  }
+]

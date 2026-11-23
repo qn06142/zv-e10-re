@@ -1,0 +1,21 @@
+[
+  {
+    "name": "N6Camera7DFECore6CamAifE",
+    "typeinfo": "0x645bad54",
+    "candidate_vtable": "0x64588788",
+    "slots": [
+      "0x63d2345b",
+      "0x63d23409",
+      "0x63d23399",
+      "0x63d23393",
+      "0x6379e1f5",
+      "0x63d233b5",
+      "0x63d233d3",
+      "0x63d233f1",
+      "0x6379e1dd",
+      "0x63d234b3",
+      "0x0",
+      "0x645bad80"
+    ]
+  }
+]

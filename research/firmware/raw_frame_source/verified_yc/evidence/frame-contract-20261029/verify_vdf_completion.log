@@ -1,0 +1,33 @@
+{
+  "camera_access": false,
+  "original_rtti_vtables_and_virtual_methods_verified": true,
+  "sendcomp": {
+    "vtable": "0x64585008",
+    "selector": [
+      4096,
+      33026
+    ],
+    "activate_calls": [
+      {
+        "value": 1
+      }
+    ],
+    "execute": "0x63cfaa17",
+    "execute_returns": 0,
+    "execute_has_no_calls": true
+  },
+  "release_pin_and_mem": {
+    "vtable": "0x645823f8",
+    "selector": [
+      8193,
+      1290
+    ],
+    "execute": "0x6372808d"
+  },
+  "conclusion": "VDF SystemCmdPinSendComp::Execute is a no-op. ReleasePinAndMem is command0x2001/0x050a, not0x1000/0x8102.",
+  "limitations": [
+    "Activation marks the message through a virtual setter; the broader scheduler may use that flag.",
+    "Does not prove all SEND_COMP handlers in all subsystems are no-ops.",
+    "No camera fault cause established."
+  ]
+}

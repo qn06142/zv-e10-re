@@ -1,0 +1,36 @@
+{
+  "all_match": true,
+  "total_bytes": 70105,
+  "files": [
+    {
+      "remote": "/log/yuy2_640_v35vga/runtime.log",
+      "bytes": 1339,
+      "md5": "544211aed2513562dad7d3be6a5c068b",
+      "sha256": "09751ec9796723f60e8c98d61800123f34f65bb6cba81fab90c7560c886accc4"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/vga.log",
+      "bytes": 42000,
+      "md5": "28c6c62ea57e232464f83bb5bc6eb8fc",
+      "sha256": "737a7b69d122fee5e497eda5ccf3737892c1df9d85908fdea7c914c8ffa1b9cb"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/input-ssyc.bin",
+      "bytes": 4096,
+      "md5": "651ad471ed3e0dfea083d912ed77bad3",
+      "sha256": "b647d952b3d8a22662631679cbb2326a13eb54c44efd6103bc11984f4d62c244"
+    },
+    {
+      "remote": "/log/yuy2_640_v35vga/destination-ssyc.bin",
+      "bytes": 4096,
+      "md5": "1d09dbacf14a90358b48fbe1178c617b",
+      "sha256": "ccc5da8f8e1422d32b11bcde42098d7b57744a873769a70aeb7e71e0ce0dc4bf"
+    },
+    {
+      "remote": "/tmp/uipc_stat_kernel.txt",
+      "bytes": 18574,
+      "md5": "2e831e8fc4fa640368780e270d3f787c",
+      "sha256": "17b6118993a3fe621dcd28b2aa4401b27fdc97a5dd2c2650f76c679f1422dd43"
+    }
+  ]
+}

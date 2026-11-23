@@ -1,0 +1,9 @@
+/usr/share/app # /bin/busybox sh /log/yuy2_640_v33vga/workbench-job.sh; echo YUY
+2_JOB_DONE_016-read-retained-snapshot
+18f20000-18f27000 r-xp 00000000 fc:0f 2182       /usr/lib/yuy2_640_v33vga.so
+2+0 records in
+2+0 records out
+5fb262c6cee2af2ba89721ac79461819  /log/yuy2_640_v33vga/source-snapshot-pages.bin
+V33_SNAPSHOT_READ_ONLY_SAVED
+YUY2_JOB_DONE_016-read-retained-snapshot
+/usr/share/app # 

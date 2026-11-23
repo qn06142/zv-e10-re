@@ -1,0 +1,48 @@
+636ac69c: movs      r2, #2
+636ac69e: sxtb.w    r3, sl
+636ac6a2: str       r3, [sp, #4]
+636ac6a4: movw      r3, #0x55f
+636ac6a8: str       r3, [sp, #0xc]
+636ac6aa: ldr.w     r3, [pc, #0x72c] ; [636acdd8]=0086df53
+636ac6ae: movs      r1, #0x57
+636ac6b0: str.w     r8, [sp, #0x14]
+636ac6b4: add       r3, pc
+636ac6b6: str       r3, [sp, #0x10]
+636ac6b8: mov       r3, r2
+636ac6ba: str       r7, [sp]
+636ac6bc: str       r5, [sp, #8]
+636ac6be: str       r0, [sp, #0x18]
+636ac6c0: mov       r0, sb
+636ac6c2: bl        #0x63daee88
+636ac6c6: bl        #0x63a062f0
+636ac6ca: ldr       r3, [r4, #4]
+636ac6cc: mov       sb, r0
+636ac6ce: ldr       r0, [r3]
+636ac6d0: bl        #0x63c602be
+636ac6d4: ldrb.w    r8, [r6, #0x36]
+636ac6d8: mov       r1, r8
+636ac6da: mov       sl, r0
+636ac6dc: mov       r0, r4
+636ac6de: bl        #0x636abc20
+636ac6e2: movs      r2, #2
+636ac6e4: sxtb.w    r3, sl
+636ac6e8: str       r3, [sp, #4]
+636ac6ea: mov.w     r3, #0x560
+636ac6ee: str       r3, [sp, #0xc]
+636ac6f0: ldr.w     r3, [pc, #0x6e8] ; [636acddc]=0087e36e
+636ac6f4: movs      r1, #0x57
+636ac6f6: str.w     r8, [sp, #0x14]
+636ac6fa: add       r3, pc
+636ac6fc: str       r3, [sp, #0x10]
+636ac6fe: mov       r3, r2
+636ac700: str       r7, [sp]
+636ac702: str       r5, [sp, #8]
+636ac704: str       r0, [sp, #0x18]
+636ac706: mov       r0, sb
+636ac708: bl        #0x63daee88
+636ac70c: bl        #0x63a062f0
+636ac710: ldr       r3, [r4, #4]
+636ac712: mov       r8, r0
+636ac714: ldr       r0, [r3]
+636ac716: bl        #0x63c602be
+636ac71a: ldrh      r3, [r6, #0x38]

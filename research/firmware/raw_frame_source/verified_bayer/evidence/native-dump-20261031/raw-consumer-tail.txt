@@ -1,0 +1,79 @@
+63908b2e: ldr       r3, [sp, #0x128]
+63908b30: cmp       r3, #2
+63908b32: beq       #0x63908b5c
+63908b34: cmp       r3, #4
+63908b36: beq       #0x63908b3c
+63908b38: cmp       r3, #1
+63908b3a: bne       #0x63908b64
+63908b3c: ldr       r2, [sp, #0xcc]
+63908b3e: ldr       r3, [sp, #0xd0]
+63908b40: muls      r3, r2, r3
+63908b42: vmov      s15, r3
+63908b46: vcvt.f64.u32 d6, s15
+63908b4a: vmov.f64  d7, #5.000000e-01
+63908b4e: vmul.f64  d7, d6, d7
+63908b52: vcvt.u32.f64 s13, d7
+63908b56: vmov      r2, s13
+63908b5a: b         #0x63908b6c
+63908b5c: ldr       r3, [sp, #0xd0]
+63908b5e: ldr       r2, [sp, #0xcc]
+63908b60: muls      r2, r3, r2
+63908b62: b         #0x63908b6c
+63908b64: ldr       r3, [sp, #0xcc]
+63908b66: ldr       r2, [sp, #0xd0]
+63908b68: muls      r2, r3, r2
+63908b6a: lsls      r2, r2, #1
+63908b6c: add.w     r4, r4, #0x7200
+63908b70: mov       r0, r6
+63908b72: mov       r1, r8
+63908b74: ldrb.w    r3, [r4, #0x79]
+63908b78: bl        #0x63908820
+63908b7c: b         #0x63908b94
+63908b7e: add.w     r4, r4, #0x7200
+63908b82: mov       r0, r6
+63908b84: mov       r1, r8
+63908b86: ldrb.w    r3, [r4, #0x79]
+63908b8a: bl        #0x63908820
+63908b8e: movw      r1, #0xffff
+63908b92: str       r1, [sp, #0x14]
+63908b94: cbz       r0, #0x63908bb4
+63908b96: ldr       r3, [sp, #0xe4]
+63908b98: mov       r1, r6
+63908b9a: ldr       r0, [pc, #0x88] ; [63908c24]=0067b4de
+63908b9c: ldr       r2, [sp, #0xcc]
+63908b9e: str       r3, [sp]
+63908ba0: add       r0, pc
+63908ba2: ldr       r3, [sp, #0xe8]
+63908ba4: str       r3, [sp, #4]
+63908ba6: ldr       r3, [sp, #0xec]
+63908ba8: str       r3, [sp, #8]
+63908baa: ldr       r3, [sp, #0xf0]
+63908bac: str       r3, [sp, #0xc]
+63908bae: ldr       r3, [sp, #0xd0]
+63908bb0: bl        #0x6396f8c4
+63908bb4: mov       r0, sb
+63908bb6: bl        #0x63d8a480
+63908bba: ldr       r2, [sp, #0x14]
+63908bbc: movw      r3, #0xffff
+63908bc0: cmp       r2, r3
+63908bc2: beq       #0x63908bd6
+63908bc4: add       r0, sp, #0x24
+63908bc6: mov       r1, r2
+63908bc8: bl        #0x63d8bb48
+63908bcc: b         #0x63908bd6
+63908bce: mov       r4, r3
+63908bd0: b         #0x63908bd8
+63908bd2: movs      r4, #0
+63908bd4: b         #0x63908bd8
+63908bd6: movs      r4, #1
+63908bd8: add       r0, sp, #0x24
+63908bda: bl        #0x63914db8
+63908bde: b         #0x63908be2
+63908be0: mov       r4, r0
+63908be2: mov       r0, r4
+63908be4: add.w     sp, sp, #0x234
+63908be8: pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+63908bec: add       r0, sp, #0x24
+63908bee: bl        #0x63914db8
+63908bf2: bl        #0x63de2ba4
+63908bf6: nop       

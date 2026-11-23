@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-30",
+  "active_target": "Native high-precision YC video transfer",
+  "minimum_native_sample_bits": 10,
+  "preferred_native_sample_bits": [
+    10,
+    12
+  ],
+  "sensor_Bayer_required": false,
+  "native_YC_accepted_by_user": true,
+  "eight_bit_fallback_allowed": false,
+  "eight_bit_padding_or_upconversion_qualifies": false,
+  "benchmark_optimization_active": false,
+  "camera_current_revision": "4.0 (8-bit reference only)",
+  "new_high_depth_patch_installed": false,
+  "native_high_depth_frame_verified": false,
+  "acceptance": [
+    "Verify producer-selected physical pixel format and native precision, not metadata advertising alone.",
+    "Resolve current frames via matched SEND, typed metadata and correlated DMM replies; preserve reference lifetimes.",
+    "Preserve full native samples or losslessly transport native bytes; no conversion through the old 8-bit YUY2 output.",
+    "Validate actual packing, chroma layout and source span before labeling the host output 10/12-bit."
+  ]
+}

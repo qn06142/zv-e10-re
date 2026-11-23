@@ -1,0 +1,134 @@
+{
+  "native_C_records_decoded": true,
+  "cases": [
+    {
+      "case": 4,
+      "bytes": 8272,
+      "reasons": [
+        "pixel_type_is_not_0x295"
+      ]
+    },
+    {
+      "case": 10,
+      "bytes": 8272,
+      "reasons": [
+        "image_category_parse_failed",
+        "state_category_parse_failed",
+        "multi_segment_present_or_malformed"
+      ]
+    },
+    {
+      "case": 11,
+      "bytes": 8272,
+      "reasons": [
+        "image_category_parse_failed",
+        "state_category_parse_failed",
+        "multi_segment_present_or_malformed"
+      ]
+    },
+    {
+      "case": 12,
+      "bytes": 8272,
+      "reasons": [
+        "image_category_parse_failed"
+      ]
+    },
+    {
+      "case": 13,
+      "bytes": 8272,
+      "reasons": [
+        "state_category_parse_failed"
+      ]
+    },
+    {
+      "case": 14,
+      "bytes": 8272,
+      "reasons": [
+        "multi_segment_present_or_malformed"
+      ]
+    },
+    {
+      "case": 15,
+      "bytes": 8272,
+      "reasons": [
+        "pixel_handle_is_zero"
+      ]
+    },
+    {
+      "case": 16,
+      "bytes": 8272,
+      "reasons": [
+        "two_reads_differ"
+      ]
+    },
+    {
+      "case": 17,
+      "bytes": 131152,
+      "reasons": [
+        "metadata_size_outside_32_to_65536"
+      ]
+    },
+    {
+      "case": 18,
+      "bytes": 112,
+      "reasons": [
+        "metadata_size_outside_32_to_65536",
+        "image_category_parse_failed",
+        "state_category_parse_failed",
+        "multi_segment_present_or_malformed"
+      ]
+    },
+    {
+      "case": 19,
+      "bytes": 8272,
+      "reasons": [
+        "pixel_handle_aliases_metadata_handle"
+      ]
+    },
+    {
+      "case": 20,
+      "bytes": 8272,
+      "reasons": [
+        "image_category_parse_failed",
+        "state_category_parse_failed",
+        "multi_segment_present_or_malformed"
+      ]
+    },
+    {
+      "case": 22,
+      "bytes": 8272,
+      "reasons": [
+        "pixel_type_is_not_0x295"
+      ]
+    },
+    {
+      "case": 24,
+      "bytes": 8272,
+      "reasons": [
+        "pixel_type_is_not_0x295"
+      ]
+    },
+    {
+      "case": 25,
+      "bytes": 8272,
+      "reasons": [
+        "pixel_type_is_not_0x295"
+      ]
+    },
+    {
+      "case": 26,
+      "bytes": 8272,
+      "reasons": [
+        "multi_segment_present_or_malformed"
+      ]
+    },
+    {
+      "case": 27,
+      "bytes": 8272,
+      "reasons": [
+        "pixel_type_is_not_0x295"
+      ]
+    }
+  ],
+  "malformed_lengths_rejected": 51
+}

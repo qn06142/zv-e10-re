@@ -1,6 +1,35 @@
-# GUI-triggered RAM handoff trial
+# ZV-E10 GUI-triggered RAM handoff & ZVOS bare-metal runtime
 
-**Current installed profile: separate RTOS display demo with stage-coded diagnostics.** Both files passed checksum verification and READY staging. [RTOS loader and ownership boundary](../../../docs/imaging/RTOS_ITERATION.md)
+**Current architecture (20–23 November 2026):** `boot.ko` (v3, `boot.c`) quiesces Linux and branches to the bare-metal ARM runtime (`crt0.S` + `zvrt_runtime.c` + `rtos_c.ld`), which takes over a self-owned 1 GiB `DDR0` L1 MMU table (`0x81000000` runtime, uncached `0x25000000..0x25ffffff` DMA/display window, `0x86000000..0x97ffffff` mode heap, optional `clip.bin` at `0x84000000`), dispatches GIC IRQs, and runs the interactive [ZVOS shell](os_shell.c) (`Bad Apple!!`, animated `Fire`, `LiveView`, and `BayerRAW`). See:
+
+- Architecture & memory map: [ZVOS_SPEC.md](../../../docs/hardware/ZVOS_SPEC.md)
+- Hardware & recovery handoff: [HANDOFF.md](../../../docs/hardware/HANDOFF.md)
+- Live-view register monitor (`rtos_live_view.c`): [LIVE_VIEW.md](LIVE_VIEW.md)
+- Bare-metal IMX284 + DFE Bayer RAW bring-up (`senser_bayer_runner.c`, `bayer_capture.h`): [BAYER_HANDOFF.md](BAYER_HANDOFF.md)
+
+## Key ZVOS & Bayer source files
+
+| File | Purpose |
+| --- | --- |
+| `boot.c`, `launcher.c`, `module_info.c` | Linux `boot.ko` v3 takeover module (`sys_sync`, `do_emergency_remount`, `kernel_restart_prepare`, `machine_shutdown`, `64 KiB` L1 arena) and Version-screen GUI launcher (`research/device/zve10_boot_bridge/` hosts the boot bridge helper). |
+| `crt0.S`, `rtos_c.ld`, `zvrt_runtime.c`, `zvrt_runtime.h`, `zvrt_font.h` | Bare-metal quiesce, private 16 KiB L1 MMU takeover, VBAR fault handlers, GIC IRQ controller, uncached `OSD0` double-buffering, `ADC0`/`ADC1`/`GPIO` input polling, and 8×8 font. |
+| `os_shell.c`, `os_mode.h`, `rtos_bad_apple.c`, `osd_fire.h` | ZVOS mode shell (`enter`/`tick`/`exit`), `Bad Apple!!` 320×240 24 fps decoder, and animated fire mode. |
+| `bayer_capture.h`, `bayer_display.h`, `bayer_sensor_tables.h`, `generate_bayer_init.py` | ZVOS `BayerRAW` capture loop, debayered LCD preview, and firmware-extracted IMX284/DFE register tables. |
+| `senser_bayer_runner.c`, `test_bayer_senser.py` | Userspace `/dev/mem` bare-metal Bayer RAW bring-up & extended register diff runner over USB Senser. |
+| `build_rtos.py`, `stage_rtos.py`, `verify_os_shell.py`, `verify_bayer_capture.py` | ARM GCC build, guarded Senser staging, and Unicorn CPU/MMIO verification tests. |
+
+```powershell
+# Build ZVOS rtos.bin and run Unicorn verification
+.venv/Scripts/python.exe research/device/zve10_ram_boot/build_rtos.py --display --source research/device/zve10_ram_boot/os_shell.c --out .local/out/zvos_shell_check
+.venv/Scripts/python.exe research/device/zve10_ram_boot/verify_os_shell.py .local/out/zvos_shell_check/rtos.bin
+.venv/Scripts/python.exe research/device/zve10_ram_boot/verify_bayer_capture.py .local/out/zvos_shell_check/rtos.bin
+```
+
+---
+
+## Historical baseline: 18 November GUI-triggered RAM handoff trial
+
+**Historical note (18 November 2026 baseline, superseded above by `ZVOS`):** Both initial reset/heartbeat files passed checksum verification and READY staging. [RTOS loader and ownership boundary](../../../docs/imaging/RTOS_ITERATION.md)
 
 Original reset-profile result, 18 November 2026: package installed and fully read back; the owner subsequently attempted the GUI trial and reported that the camera restarts properly. The flashes were too fast to count, so RAM-image entry remains **unverified**. The module reached READY and unloaded on-camera in Senser. The existing GUI user-space loader separately displayed HELLO to the owner. See [hardware evidence](hardware-20261118.json).
 

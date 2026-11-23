@@ -1,0 +1,6 @@
+{
+  "code_regions": 28,
+  "instructions": 4775,
+  "neon_instructions": 0,
+  "scope": ".text compiler mapping symbols; external libc excluded"
+}

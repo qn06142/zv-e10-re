@@ -1,0 +1,46 @@
+{
+  "segments": [
+    [
+      0,
+      0,
+      20307340
+    ],
+    [
+      20307340,
+      20340108,
+      996692
+    ]
+  ],
+  "targets": {
+    "0x1075c6c": "VIDEO_BIT_DEPTH_8BIT",
+    "0x1075c81": "VIDEO_BIT_DEPTH_10BIT",
+    "0x107ce3b": "Usage : MOVREC SetRecFormat [-VI",
+    "0x107b396": " -> PARAMID_REC_FORMAT_VIDEO_BIT_DEPTH       :"
+  },
+  "refs": [
+    {
+      "load": "0x95d5dc",
+      "add": "0x95d5de",
+      "target": "0x1075c6c",
+      "label": "VIDEO_BIT_DEPTH_8BIT"
+    },
+    {
+      "load": "0x95d5ee",
+      "add": "0x95d5f0",
+      "target": "0x1075c81",
+      "label": "VIDEO_BIT_DEPTH_10BIT"
+    },
+    {
+      "load": "0x970c2c",
+      "add": "0x970c30",
+      "target": "0x107b396",
+      "label": " -> PARAMID_REC_FORMAT_VIDEO_BIT_DEPTH       :"
+    },
+    {
+      "load": "0x975e82",
+      "add": "0x975e8a",
+      "target": "0x107ce3b",
+      "label": "Usage : MOVREC SetRecFormat [-VI"
+    }
+  ]
+}

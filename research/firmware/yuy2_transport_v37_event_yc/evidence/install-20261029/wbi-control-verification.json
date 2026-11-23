@@ -1,0 +1,64 @@
+{
+  "original_kernel_md5": "f5b6bc225e2e5158fecabead4108e9ab",
+  "original_ARM_handlers_executed": true,
+  "cases": [
+    {
+      "case": "drop_one_byte_1",
+      "return_value": 1,
+      "image_mode": 2,
+      "backend_calls": [
+        "backend_open",
+        "zero_512_byte_header",
+        "backend_write_sector_0_count_1",
+        "backend_close"
+      ]
+    },
+    {
+      "case": "invalid_byte",
+      "return_value": -22,
+      "image_mode": 2,
+      "backend_calls": []
+    },
+    {
+      "case": "empty_write",
+      "return_value": -22,
+      "image_mode": 2,
+      "backend_calls": []
+    },
+    {
+      "case": "backend_open_error",
+      "return_value": -5,
+      "image_mode": 2,
+      "backend_calls": [
+        "backend_open"
+      ]
+    },
+    {
+      "case": "backend_write_error",
+      "return_value": -5,
+      "image_mode": 2,
+      "backend_calls": [
+        "backend_open",
+        "zero_512_byte_header",
+        "backend_write_sector_0_count_1",
+        "backend_close"
+      ]
+    },
+    {
+      "case": "mode_zero_one_byte",
+      "return_value": 1,
+      "image_mode": 0,
+      "backend_calls": []
+    },
+    {
+      "case": "mode_invalid_four",
+      "return_value": -22,
+      "image_mode": 2,
+      "backend_calls": []
+    }
+  ],
+  "limitations": [
+    "Storage backend, mutex and memory-zero helpers mocked.",
+    "Live selected backend remains wbi4; no manual physical-sector write follows from this test."
+  ]
+}

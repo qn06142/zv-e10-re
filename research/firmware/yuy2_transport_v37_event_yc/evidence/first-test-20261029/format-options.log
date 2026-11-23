@@ -1,0 +1,5 @@
+[in#0 @ 0000020f25ca3640] DirectShow video device options (from video devices)
+[in#0 @ 0000020f25ca3640]  Pin "Capture" (alternative pin name "0")
+[in#0 @ 0000020f25ca3640]   pixel_format=yuyv422  min s=640x480 fps=10 max s=640x480 fps=10
+[in#0 @ 0000020f25ca3640]   pixel_format=yuyv422  min s=640x480 fps=10 max s=640x480 fps=10 (tv, bt470bg/smpte170m/unknown, topleft)
+Error opening input file video=ZV-E10.

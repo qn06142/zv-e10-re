@@ -1,0 +1,138 @@
+{
+  "original_instructions": true,
+  "camera_access": false,
+  "cases": [
+    {
+      "operation": 0,
+      "mask": "0x40000",
+      "callback_event": [
+        [
+          22,
+          262144
+        ]
+      ]
+    },
+    {
+      "operation": 1,
+      "mask": "0x80000",
+      "callback_event": [
+        [
+          22,
+          524288
+        ]
+      ]
+    },
+    {
+      "operation": 2,
+      "mask": "0x100000",
+      "callback_event": [
+        [
+          22,
+          1048576
+        ]
+      ]
+    },
+    {
+      "operation": 3,
+      "mask": "0x200000",
+      "callback_event": [
+        [
+          22,
+          2097152
+        ]
+      ]
+    },
+    {
+      "operation": 4,
+      "mask": "0x400000",
+      "callback_event": [
+        [
+          22,
+          4194304
+        ]
+      ]
+    },
+    {
+      "operation": 5,
+      "mask": "0x800000",
+      "callback_event": [
+        [
+          22,
+          8388608
+        ]
+      ]
+    },
+    {
+      "operation": 6,
+      "mask": "0x1000000",
+      "callback_event": [
+        [
+          22,
+          16777216
+        ]
+      ]
+    },
+    {
+      "operation": 7,
+      "mask": "0x2000000",
+      "callback_event": [
+        [
+          22,
+          33554432
+        ]
+      ]
+    },
+    {
+      "wait_results": [
+        0
+      ],
+      "returned": "0xbb8",
+      "waits": [
+        {
+          "event": 22,
+          "mask": "0x40000",
+          "mode": 0,
+          "timeout": "0xbb8"
+        }
+      ]
+    },
+    {
+      "wait_results": [
+        -50,
+        0
+      ],
+      "returned": "0xffffffff",
+      "waits": [
+        {
+          "event": 22,
+          "mask": "0x40000",
+          "mode": 0,
+          "timeout": "0xbb8"
+        },
+        {
+          "event": 22,
+          "mask": "0x40000",
+          "mode": 0,
+          "timeout": "0xffffffff"
+        }
+      ]
+    },
+    {
+      "wait_results": [
+        -5
+      ],
+      "returned": "0xbb8",
+      "waits": [
+        {
+          "event": 22,
+          "mask": "0x40000",
+          "mode": 0,
+          "timeout": "0xbb8"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Event system/recovery calls mocked; tests establish matching masks and wrapper behavior, not the hardware completion fact triggering callback."
+  ]
+}

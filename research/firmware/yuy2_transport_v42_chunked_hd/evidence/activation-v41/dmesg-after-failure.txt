@@ -1,0 +1,144 @@
+
+[    0.822388] NET: Registered protocol family 1
+[    0.822458] PCI: CLS 0 bytes, default 32
+[    0.823039] Trying to unpack rootfs image as initramfs...
+[    0.823777] rootfs image is not initramfs (junk in compressed archive); looks like an initrd
+[    0.921371] Freeing initrd memory: 8192K
+[    0.921487] PMU: registered new PMU device of type 0
+[    0.922245] hwtimer cpu0 OK
+[    0.922322] hwtimer cpu1 OK
+[    0.922387] hwtimer cpu2 OK
+[    0.922451] hwtimer cpu3 OK
+[    0.922500] hwtimer jitter 0
+[    0.924535] klog: initialize logging buffer: 0x00020000@0x035a5000, magic wrong nbit: 20(0x00000000)
+[    0.932578] console [klog0] enabled
+[    0.935390] ashmem: initialized
+[    0.937380] fuse init (API version 7.16)
+[    0.937944] msgmni has been set to 251
+[    0.940856] io scheduler noop registered (default)
+[    0.941433] pci_hotplug: PCI Hot Plug PCI Core version: 0.5
+[    0.941669] pciehp: PCI Express Hot Plug Controller Driver version: 0.4
+[    0.942215] uart0: ttyAM0 at MMIO 0xf2000000 (irq = 150) is a AMBA/PL011
+[    0.942666] uart3: ttyAM1 at MMIO 0xf2003000 (irq = 120) is a AMBA/PL011
+[    0.944102] console [ttynull0] enabled
+[    0.944168] ttynull: NULL console driver $Revision: 1.1.2.1 $
+[    0.957502] brd: module loaded
+[    0.964561] loop: module loaded
+[    0.964633] CompSwap: num_devices not specified. Using default: 1
+[    0.964735] CompSwap: Creating 1 devices ...
+[    0.965698] Register CompSwap LZO compressor/decompressor
+[    0.965831] tun: Universal TUN/TAP device driver, 1.6
+[    0.965917] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    0.970298] mousedev: PS/2 mouse device common for all mice
+[    0.971561] Logger@Get alog.addr: 03524fc0 & alog.size: 384K
+[    0.971667] log_main start: 63524fc0-trailer: 63564fc0-nxt addr: 63564fe0-magic: MAIN
+[    0.971802] log_events start: 63564fe0-trailer: 63584fe0-nxt addr: 63585000-magic: EVENTS
+[    0.972125] logger: created 256K log 'log_main'
+[    0.972406] logger: created 128K log 'log_events'
+[    0.972652] logger: created 64K log 'log_radio'
+[    0.973504] IPv4 over IPv4 tunneling driver
+[    0.974634] GRE over IPv4 demultiplexor driver
+[    0.974717] GRE over IPv4 tunneling driver
+[    0.975930] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    0.976577] TCP cubic registered
+[    0.976644] Initializing XFRM netlink socket
+[    0.977458] NET: Registered protocol family 10
+[    0.980410] Mobile IPv6
+[    0.980471] IPv6 over IPv4 tunneling driver
+[    0.983076] NET: Registered protocol family 17
+[    0.983240] NET: Registered protocol family 15
+[    0.983324] lib80211: common routines for IEEE802.11 drivers
+[    0.983425] lib80211_crypt: registered algorithm 'NULL'
+[    0.983462] VFP support v0.3: implementor 41 architecture 2 part 30 variant 5 rev 1
+[    0.984851] sony_usb_init: CXD4132
+[    0.985021] usb_gcore_module_init: usb_gcw_register_driver()
+[    0.985118] usb_gcw_register_driver: gcore prototype for Astra
+[    0.985541] drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+[    0.986547] RAMDISK: ext2 filesystem found at block 0
+[    0.986661] RAMDISK: Loading 2132KiB [1 disk] into ram disk... |/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/done.
+[    1.104417] VFS: Mounted root (ext2 filesystem) on device 1:0.
+[    1.105369] Freeing init memory: 176K
+[    1.105446] default_nodeorder is not valid. Force it to 0.
+[    1.123684] devno: module license 'unspecified' taints kernel.
+[    1.123793] Disabling lock debugging due to kernel taint
+[    1.139590] ALFReD (v161102p2)
+[    1.140079] eMMC: HS200 mode
+[    1.141177] eMMC: 1888MiB, Toshiba 004GA0 (rev 0x02, date 0x7b, serial 0x9888c5bd)
+[    1.143420] 
+[    1.143459]  nflasha: nflasha1 nflasha2 nflasha3 nflasha4 nflasha5 nflasha6 nflasha7 nflasha10 nflasha11 nflasha12 nflasha13 nflasha15 nflasha16 nflasha17 nflasha18 nflasha23wb_default_device: sector_size=0x200,phys_sector_size=0x200
+[    1.267094] Set MinDrv: emmc
+[    1.373354] !!! GPE HW: bar remapped 0xf1000000->0xf1000000 size 4000
+[    1.387905] p_reg 0xb0a9ed00
+[    1.431324] [MMC_OS] slot0 Bus type = 0
+[    1.431399] [MMC_OS] slot1 Bus type = 0
+[    1.431466] [MMC_OS] slot2 Bus type = 0
+[    1.431540] MMC:Failed mcmnd_api_getbkupinfo_bus_connect_type
+[    1.431634]     Force Local bus
+[    1.431690] [MMC_OS] slot3 Bus type = 0
+[    1.431757] [MMC_OS] mmc_os_init() ----IN----
+[    1.431831] [MMC_OS] Slot0 is local bus
+[    1.431898] [MMC_OS] Slot1 is local bus
+[    1.431964] [MMC_OS] Slot2 is local bus
+[    1.432030] [MMC_OS] Slot3 is local bus
+[    1.432096] [MMC_OS] mmc_os_init() ----OUT----
+[    1.432171] [MMC_DRIVER] Slot 0 is Local Bus
+[    1.432244] [MMC_DRIVER] Slot 1 is Local Bus
+[    1.432317] [MMC_DRIVER] Slot 2 is Local Bus
+[    1.432389] [MMC_DRIVER] Slot 3 is Local Bus
+[    2.357609] ----------------------------------------
+[    2.357710] LIRO (liro) rev:4-MUSASHI
+[    2.357777] Param:adrs=035c6000, debug=0, delay=0
+[    2.357935] entry point:635c6000
+[    2.358227] tsk_entry
+[    2.358278] tsk_entry - 48
+[    2.358327] API support list
+[    2.358377]   OSAL
+[    2.358413]   Backup 2
+[    2.358463] entry(pre)  - 635c6044
+[    2.358523] entry(main) - 635c6058
+[    2.358583] suspend     - 635c6068
+[    2.358642] resume      - 635c6078
+[    2.358702] exit        - 635c6088
+[    2.358762] func1       - 635c6098
+[    2.358822] func2       - 635c609c
+[    2.358881] func3       - 635c60a0
+[    2.358942] ram 64560700 + 000d7a20
+[    2.359004] bss 63fff6f3 + 004aad75
+[    2.359066] tail 6471ac00 + 00000004
+[    2.359129] limit 648c5ffc + 00000004
+[    2.359195] start entry_pre(635c6044)
+[    2.399676] end entry_pre
+[    2.399740] start entry_main(635c6058)
+[    2.414148] end entry_main
+[    2.694808] wlanMemoryAllocator: [DEBUG] DEBUG MODE enabled
+[    2.694971] wlanMemoryAllocator: Memory Allocated. g_pMemGfpAtomic[0] = 69fa0000, size = 81920
+[    2.695158] wlanMemoryAllocator: Memory Allocated. g_pMemGfpAtomic[1] = 69fc0000, size = 81920
+[    2.696309] wlanMemoryAllocator: Memory Allocated. g_pMemGfpAtomic[2] = 69fe0000, size = 81920
+[    2.696529] wlanMemoryAllocator: Memory Allocated. g_pMemGfpAtomic_S[0] = 66400000, size = 65536
+[    2.696736] wlanMemoryAllocator: Memory Allocated. g_pMemGfpAtomic_S[1] = 66410000, size = 65536
+[    2.696930] wlanMemoryAllocator: Memory Allocated. g_pMemGfpAtomic_SS[0] = 69f94000, size = 16384
+[    9.455298] [ulogio] get log addr: invalid area id 0x11 
+[   10.528844] [HW_WRAPPER] UHS2 FuncTable is NULL!! UHS2 unsupported Controller
+[   10.529008] [SD] isUSH2 = 0
+[   10.552265] mmc_mmcp_detect_uhs() hw_id:0x0, card_ocr:0xFF8000
+[   10.608669] UHS2 retry
+[   10.629658] mmc_hwip_system_off START
+[   10.720084] err 0x0
+[   10.720172] mmc_hwip_system_off END
+[   10.800207] [HW_WRAPPER] UHS2 FuncTable is NULL!! UHS2 unsupported Controller
+[   10.800431] [SD] isUSH2 = 0
+[   10.820394] mmc_mmcp_detect_uhs() hw_id:0x0, card_ocr:0xFF8000
+[   10.882426] UHS2 retry
+[   10.902821] mmc_hwip_system_off START
+[   10.993131] err 0x0
+[   10.993226] mmc_hwip_system_off END
+[   11.070213] [HW_WRAPPER] UHS2 FuncTable is NULL!! UHS2 unsupported Controller
+[   11.070470] [SD] isUSH2 = 0
+[   11.088760] mmc_mmcp_detect_uhs() hw_id:0x0, card_ocr:0xFF8000
+[   11.149946] UHS2 retry cancel
+[   11.223268]  mmca10: p1
+[  131.550879] fops_se_ioctl_receive(1030) fops_se_ioctl_receive(1044) error
+[  131.907557] [usbter usbg_ldisc_start][ 67]err=0
+[  132.398456] [usbter usbg_sen_ldisc_open][158]entry
+[  132.398747] console [usbgcon-1] enabled
+[  132.399070] [usbter usbg_sen_ldisc_open][158]exit

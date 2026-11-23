@@ -1,0 +1,21 @@
+
+_ZN19CUsbGadgetStreaming16WaitVideoReadCmpEv @0x11e7c
+00011e7c: push      {r7, lr} 
+00011e7e: movw      r1, #0xf002 
+00011e82: add       r7, sp, #0 
+00011e84: ldr.w     r0, [r0, #0x8c] 
+00011e88: pop.w     {r7, lr} 
+00011e8c: b.w       #0x8bac 
+
+_Z16WaitVideoReadCmpv @0x12020
+00012020: ldr       r3, [pc, #0x10] 
+00012022: push      {r7, lr} 
+00012024: add       r3, pc 
+00012026: add       r7, sp, #0 
+00012028: ldr       r0, [r3, #4] 
+0001202a: blx       #0x9208 _ZN19CUsbGadgetStreaming16WaitVideoReadCmpEv
+0001202e: lsrs      r0, r0, #0x1f 
+00012030: pop       {r7, pc} 
+00012032: nop        
+00012034: beq       #0x11ff0 
+00012036: movs      r0, r0 

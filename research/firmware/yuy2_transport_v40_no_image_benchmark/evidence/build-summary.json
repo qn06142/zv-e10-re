@@ -1,0 +1,21 @@
+{
+  "revision": "4.0",
+  "status": "INSTALLED_FRESH_BOOT_VERIFIED_BENCHMARK_PENDING",
+  "camera_current_revision": "4.0",
+  "package": "outputs\\vga-v40\\zve10-v40-no-image-unpaced.zip",
+  "bytes": 83090,
+  "sha256": "69c2896302f31874b2caeaaa6fe7f10625567dd0b2ddf2679bcd6e39285a7660",
+  "module_md5": "6fbc0edeab4895fbc81fd690e84a5810",
+  "wrapper_md5": "cef5b31d4abfb2374a8196e3cc6b904f",
+  "kernel_md5": "388799d95bbb524ca581c66b077b6dc2",
+  "worker_tests": 39,
+  "unpaced_ARM_cases": 6,
+  "ARM_frontend_cases": 9,
+  "SDK_loader_cases": 17,
+  "PIC_cases": 11,
+  "installer_cases": 14,
+  "record_cases": 18,
+  "instructions": 6671,
+  "neon": 0,
+  "hardware_verified": "installation/persistence only; streaming benchmark pending"
+}

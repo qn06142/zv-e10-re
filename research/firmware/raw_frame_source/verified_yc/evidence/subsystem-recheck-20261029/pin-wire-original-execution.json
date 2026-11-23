@@ -1,0 +1,82 @@
+{
+  "camera_access": false,
+  "original_pin_and_message_code_executed": true,
+  "transport_mocked": true,
+  "property_words_are_fixture_inputs": true,
+  "initial_pin_state": 1,
+  "connected_pin_state": 0,
+  "send_before_connect_rc": "0xffffffe6",
+  "records": [
+    {
+      "sender_method": "_ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg",
+      "destination_fixture": "0x59000e",
+      "source_id_fixture": "0x80003b",
+      "packet_bytes": 44,
+      "opcode": "0x8100",
+      "raw_hex": "001000812c0001000100000003000000010000000e0059000100000003000000010000003b00800000000000",
+      "self_properties": [
+        1,
+        3,
+        1,
+        5832718
+      ],
+      "peer_properties": [
+        1,
+        3,
+        1,
+        8388667
+      ]
+    },
+    {
+      "sender_method": "_ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg",
+      "destination_fixture": "0x59000e",
+      "source_id_fixture": "0x80003b",
+      "packet_bytes": 52,
+      "opcode": "0x102",
+      "raw_hex": "00100201340001000100000003000000010000003b0080000100000003000000010000000e005900d4c3b2a15713000044332211",
+      "self_properties": [
+        1,
+        3,
+        1,
+        8388667
+      ],
+      "peer_properties": [
+        1,
+        3,
+        1,
+        5832718
+      ]
+    },
+    {
+      "sender_method": "_ZN19DataflowInfraSender9SendASyncEjP16DataflowInfraMsg",
+      "destination_fixture": "0x59000e",
+      "source_id_fixture": "0x80003b",
+      "packet_bytes": 44,
+      "opcode": "0x8102",
+      "raw_hex": "001002812c0001000100000003000000010000000e0059000100000003000000010000003b00800000000000",
+      "self_properties": [
+        1,
+        3,
+        1,
+        5832718
+      ],
+      "peer_properties": [
+        1,
+        3,
+        1,
+        8388667
+      ]
+    }
+  ],
+  "conclusions": [
+    "Connect validates compatible property words and installs peer routing.",
+    "Send packs a32-bit first argument at+0x28,a16-bit second at+0x2c,and32-bit third at+0x30.",
+    "SendComp packs status and route properties, not an echoed pixel/SDS handle.",
+    "No DMM Share/Open/Free was executed by these generic pin methods."
+  ],
+  "limitations": [
+    "Fixture connection is not a real subscription or ownership lease.",
+    "Which argument is an SDS handle in a particular producer must be traced at its caller.",
+    "Actual producer registration, receive-dispatch path and buffer ownership remain unimplemented."
+  ]
+}

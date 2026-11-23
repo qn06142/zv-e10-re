@@ -1,0 +1,141 @@
+{
+  "read_only_analysis": true,
+  "volume_md5": "47884e816abcc85c17a855fd9128b82c",
+  "volume_bytes": 12582912,
+  "cluster_bytes": 16384,
+  "total_clusters": 766,
+  "free_clusters": 434,
+  "reachable_clusters": 332,
+  "unreachable_allocated_clusters": 0,
+  "unreachable_allocated_bytes": 0,
+  "bad_or_reserved_unreachable_clusters": [],
+  "errors": [],
+  "files": [
+    {
+      "path": "/CONFIG~1.SPE",
+      "bytes": 0,
+      "clusters": 0,
+      "first_cluster": 0,
+      "attributes": "0x20"
+    },
+    {
+      "path": "/IMAGES",
+      "bytes": 0,
+      "clusters": 1,
+      "first_cluster": 3,
+      "attributes": "0x10"
+    },
+    {
+      "path": "/IMAGES/MYINGH~1.LTT",
+      "bytes": 1150740,
+      "clusters": 71,
+      "first_cluster": 4,
+      "attributes": "0x20"
+    },
+    {
+      "path": "/IMAGES/MYINGH~2.LTT",
+      "bytes": 2054740,
+      "clusters": 126,
+      "first_cluster": 75,
+      "attributes": "0x20"
+    },
+    {
+      "path": "/IMAGES/SONY_D~1.TTF",
+      "bytes": 619664,
+      "clusters": 38,
+      "first_cluster": 201,
+      "attributes": "0x20"
+    },
+    {
+      "path": "/KIKILOG.DAT",
+      "bytes": 98304,
+      "clusters": 6,
+      "first_cluster": 628,
+      "attributes": "0x3"
+    },
+    {
+      "path": "/MTAB",
+      "bytes": 14,
+      "clusters": 1,
+      "first_cluster": 359,
+      "attributes": "0x4"
+    },
+    {
+      "path": "/NSSWIT~1.CON",
+      "bytes": 261,
+      "clusters": 1,
+      "first_cluster": 360,
+      "attributes": "0x20"
+    },
+    {
+      "path": "/PROTOC~1",
+      "bytes": 2859,
+      "clusters": 1,
+      "first_cluster": 361,
+      "attributes": "0x20"
+    },
+    {
+      "path": "/SERVICES",
+      "bytes": 19666,
+      "clusters": 2,
+      "first_cluster": 362,
+      "attributes": "0x20"
+    },
+    {
+      "path": "/TOPRC",
+      "bytes": 617,
+      "clusters": 1,
+      "first_cluster": 364,
+      "attributes": "0x0"
+    },
+    {
+      "path": "/RESOLV~1.CON",
+      "bytes": 23,
+      "clusters": 1,
+      "first_cluster": 366,
+      "attributes": "0x20"
+    },
+    {
+      "path": "/BBHF",
+      "bytes": 1284688,
+      "clusters": 79,
+      "first_cluster": 632,
+      "attributes": "0x0"
+    },
+    {
+      "path": "/BUSYBOX",
+      "bytes": 9,
+      "clusters": 1,
+      "first_cluster": 435,
+      "attributes": "0x4"
+    },
+    {
+      "path": "/X",
+      "bytes": 14,
+      "clusters": 1,
+      "first_cluster": 408,
+      "attributes": "0x4"
+    },
+    {
+      "path": "/BBX",
+      "bytes": 9,
+      "clusters": 1,
+      "first_cluster": 434,
+      "attributes": "0x4"
+    },
+    {
+      "path": "/IM.ELF",
+      "bytes": 12,
+      "clusters": 1,
+      "first_cluster": 417,
+      "attributes": "0x4"
+    }
+  ],
+  "unreachable_cluster_indices": [],
+  "limitations": [
+    "No filesystem repair or raw write performed.",
+    "Unreachable allocation is not itself proof of why it occurred or which camera crashes it explains.",
+    "No pre-cleanup raw FAT image exists; timing of orphan allocation cannot be assigned.",
+    "The live mounted volume was read without freezing its writers."
+  ]
+}

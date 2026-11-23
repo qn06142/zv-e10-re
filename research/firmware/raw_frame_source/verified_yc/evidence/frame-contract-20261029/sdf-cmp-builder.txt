@@ -1,0 +1,56 @@
+63cadbe4: push      {r4, r5, r6, lr}
+63cadbe6: sub       sp, #0x20
+63cadbe8: mov       r4, r0
+63cadbea: add       r0, sp, #8
+63cadbec: mov       r5, r2
+63cadbee: mov       r6, r1
+63cadbf0: bl        #0x63ca4384
+63cadbf4: add.w     r3, r4, #0x108
+63cadbf8: movs      r2, #1
+63cadbfa: ldm.w     r3, {r0, r1}
+63cadbfe: stm.w     sp, {r0, r1}
+63cadc02: movs      r1, #3
+63cadc04: ldr.w     r3, [r4, #0x104]
+63cadc08: mov       r0, r4
+63cadc0a: bl        #0x63ca48d2
+63cadc0e: mov       r0, r4
+63cadc10: bl        #0x63ca43ea
+63cadc14: strh.w    r0, [sp, #8]
+63cadc18: mov       r0, r4
+63cadc1a: bl        #0x63ca43ee
+63cadc1e: movs      r3, #0x18
+63cadc20: strh.w    r3, [sp, #0xc]
+63cadc24: strh.w    r0, [sp, #0xa]
+63cadc28: mov       r0, r4
+63cadc2a: bl        #0x63ca43f6
+63cadc2e: mov       r1, r6
+63cadc30: strh.w    r0, [sp, #0xe]
+63cadc34: mov       r0, r4
+63cadc36: bl        #0x63ca4492
+63cadc3a: ldr.w     r3, [r4, #0xa8]
+63cadc3e: str       r3, [sp, #0x14]
+63cadc40: ldrh.w    r3, [r4, #0xac]
+63cadc44: strh.w    r3, [sp, #0x18]
+63cadc48: ldr.w     r3, [r4, #0xb0]
+63cadc4c: str       r3, [sp, #0x1c]
+63cadc4e: str       r0, [sp, #0x10]
+63cadc50: mov       r0, r4
+63cadc52: bl        #0x63ca43d6
+63cadc56: mov       r6, r0
+63cadc58: mov       r0, r5
+63cadc5a: mov       r1, r6
+63cadc5c: bl        #0x63ddfd9e
+63cadc60: mov       r1, r6
+63cadc62: mov       r4, r0
+63cadc64: mov       r0, r5
+63cadc66: bl        #0x63ac1650
+63cadc6a: movs      r2, #0x18
+63cadc6c: add       r1, sp, #8
+63cadc6e: orr.w     r4, r0, r4
+63cadc72: mov       r0, r5
+63cadc74: bl        #0x63ac1694
+63cadc78: orrs      r0, r4
+63cadc7a: it        ne
+63cadc7c: movne.w   r0, #0x200
+63cadc80: add       sp, #0x20
+63cadc82: pop       {r4, r5, r6, pc}

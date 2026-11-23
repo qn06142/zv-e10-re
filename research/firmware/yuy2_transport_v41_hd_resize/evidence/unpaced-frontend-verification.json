@@ -1,0 +1,13 @@
+{
+  "passed": [
+    "unpaced_actual_ARM_producer_submits_without_sleep",
+    "undersized_HD_double_staging_refused_before_submission",
+    "pending_source_yields_without_fixed_delay_or_submission",
+    "staging_uses_elapsed_3seconds_not_30_fast_polls",
+    "host_EBUSY_preserves_inflight_source",
+    "actual_ARM_descriptor_1920x1080_8bit_YUY2_5fps_request",
+    "module_has_no_timed_sleep_import"
+  ],
+  "camera_access": false,
+  "hardware_calls_mocked": true
+}

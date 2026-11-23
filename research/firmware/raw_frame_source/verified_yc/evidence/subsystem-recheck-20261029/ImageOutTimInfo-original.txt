@@ -1,0 +1,180 @@
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo22SetData_RecordingStateEh @0x245fe
+000245fe: push      {r7, lr} 
+00024600: add       r7, sp, #0 
+00024602: strb.w    r1, [r0, #0x2c] 
+00024606: pop       {r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfoD0Ev @0x24528
+00024528: push      {r3, r4, r7, lr} 
+0002452a: mov       r4, r0 
+0002452c: add       r7, sp, #0 
+0002452e: blx       #0x201ec _ZN37C_DataflowInfra_Entry_ImageOutTimInfoD1Ev
+00024532: mov       r0, r4 
+00024534: blx       #0x20174 _ZdlPv
+00024538: mov       r0, r4 
+0002453a: pop       {r3, r4, r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfoD1Ev @0x24504
+00024504: push      {r3, r4, r7, lr} 
+00024506: mov       r4, r0 
+00024508: ldr       r3, [pc, #0x14] 
+0002450a: add       r7, sp, #0 
+0002450c: ldr       r2, [pc, #0x14] 
+0002450e: add       r3, pc 
+00024510: ldr       r3, [r3, r2] 
+00024512: adds      r3, #8 
+00024514: str       r3, [r0] 
+00024516: blx       #0x20264 _ZN26C_DataflowInfra_Entry_BaseD2Ev
+0002451a: mov       r0, r4 
+0002451c: pop       {r3, r4, r7, pc} 
+0002451e: nop        
+00024520: bmi       #0x245d0 
+00024522: movs      r0, r0 
+00024524: lsls      r4, r3, #0xc 
+00024526: movs      r0, r0 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo25GetData_CreateStartTimingEPN19DataflowInfra_StdYc27PIN_YC_IMAGE_OUT_CREATE_TIME @0x245bc
+000245bc: adds      r0, #0x14 
+000245be: mov       r3, r1 
+000245c0: push      {r7, lr} 
+000245c2: add       r7, sp, #0 
+000245c4: ldm       r0, {r0, r1} 
+000245c6: stm.w     r3, {r0, r1} 
+000245ca: pop       {r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfoC1Ev @0x2453c
+0002453c: push      {r3, r4, r5, r6, r7, lr} 
+0002453e: add       r7, sp, #0 
+00024540: ldr       r5, [pc, #0x30] 
+00024542: mov       r4, r0 
+00024544: blx       #0x20664 _ZN26C_DataflowInfra_Entry_BaseC2Ev
+00024548: ldr       r3, [pc, #0x2c] 
+0002454a: add       r5, pc 
+0002454c: movs      r6, #0x1c 
+0002454e: movs      r1, #0 
+00024550: mov       r2, r6 
+00024552: ldr       r3, [r5, r3] 
+00024554: mov       r5, r4 
+00024556: adds      r3, #8 
+00024558: str       r3, [r5], #0x14 
+0002455c: mov       r0, r5 
+0002455e: blx       #0x20228 memset
+00024562: movs      r3, #2 
+00024564: str       r5, [r4, #0xc] 
+00024566: mov       r0, r4 
+00024568: str       r3, [r4, #4] 
+0002456a: subs      r3, #2 
+0002456c: str       r6, [r4, #0x10] 
+0002456e: str       r3, [r4, #8] 
+00024570: pop       {r3, r4, r5, r6, r7, pc} 
+00024572: nop        
+00024574: bmi       #0x245ac 
+00024576: movs      r0, r0 
+00024578: lsls      r4, r3, #0xc 
+0002457a: movs      r0, r0 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo23SetData_DataTransTimingEPN19DataflowInfra_StdYc26PIN_YC_IMAGE_OUT_TRANS_TIME @0x245cc
+000245cc: push      {r7, lr} 
+000245ce: add.w     r3, r0, #0x1c 
+000245d2: ldm       r1, {r0, r1, r2} 
+000245d4: add       r7, sp, #0 
+000245d6: stm.w     r3, {r0, r1, r2} 
+000245da: pop       {r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo25SetData_CreateStartTimingEPN19DataflowInfra_StdYc27PIN_YC_IMAGE_OUT_CREATE_TIME @0x245ac
+000245ac: push      {r7, lr} 
+000245ae: add.w     r3, r0, #0x14 
+000245b2: ldm       r1, {r0, r1} 
+000245b4: add       r7, sp, #0 
+000245b6: stm.w     r3, {r0, r1} 
+000245ba: pop       {r7, pc} 
+
+_ZN26C_DataflowInfra_StdData_YC24SetEntry_ImageOutTimInfoEP37C_DataflowInfra_Entry_ImageOutTimInfo @0x235dc
+000235dc: push      {r7, lr} 
+000235de: add       r7, sp, #0 
+000235e0: pop.w     {r7, lr} 
+000235e4: b.w       #0x200e8 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo29GetData_MainStreamStopTriggerEPh @0x24634
+00024634: push      {r7, lr} 
+00024636: add       r7, sp, #0 
+00024638: ldrb.w    r3, [r0, #0x2e] 
+0002463c: strb      r3, [r1] 
+0002463e: pop       {r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo30GetData_MainStreamStartTriggerEPh @0x2461e
+0002461e: push      {r7, lr} 
+00024620: add       r7, sp, #0 
+00024622: ldrb.w    r3, [r0, #0x2d] 
+00024626: strb      r3, [r1] 
+00024628: pop       {r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo11SetData_AllEPN19DataflowInfra_StdYc25PIN_YC_IMAGE_OUT_TIM_INFOE @0x2457c
+0002457c: push      {r4, r5, r7, lr} 
+0002457e: mov       r5, r1 
+00024580: add.w     r4, r0, #0x14 
+00024584: add       r7, sp, #0 
+00024586: ldm       r5!, {r0, r1, r2, r3} 
+00024588: stm       r4!, {r0, r1, r2, r3} 
+0002458a: ldm.w     r5, {r0, r1, r2} 
+0002458e: stm.w     r4, {r0, r1, r2} 
+00024592: pop       {r4, r5, r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo10SetData_IdEj @0x245ec
+000245ec: push      {r7, lr} 
+000245ee: add       r7, sp, #0 
+000245f0: str       r1, [r0, #0x28] 
+000245f2: pop       {r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo22GetData_RecordingStateEPh @0x24608
+00024608: push      {r7, lr} 
+0002460a: add       r7, sp, #0 
+0002460c: ldrb.w    r3, [r0, #0x2c] 
+00024610: strb      r3, [r1] 
+00024612: pop       {r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo10GetData_IdEPj @0x245f4
+000245f4: ldr       r3, [r0, #0x28] 
+000245f6: push      {r7, lr} 
+000245f8: add       r7, sp, #0 
+000245fa: str       r3, [r1] 
+000245fc: pop       {r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo23GetData_DataTransTimingEPN19DataflowInfra_StdYc26PIN_YC_IMAGE_OUT_TRANS_TIME @0x245dc
+000245dc: adds      r0, #0x1c 
+000245de: mov       r3, r1 
+000245e0: push      {r7, lr} 
+000245e2: add       r7, sp, #0 
+000245e4: ldm       r0, {r0, r1, r2} 
+000245e6: stm.w     r3, {r0, r1, r2} 
+000245ea: pop       {r7, pc} 
+
+_ZN26C_DataflowInfra_StdData_YC24GetEntry_ImageOutTimInfoEP37C_DataflowInfra_Entry_ImageOutTimInfo @0x235d0
+000235d0: push      {r7, lr} 
+000235d2: add       r7, sp, #0 
+000235d4: pop.w     {r7, lr} 
+000235d8: b.w       #0x20414 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo30SetData_MainStreamStartTriggerEh @0x24614
+00024614: push      {r7, lr} 
+00024616: add       r7, sp, #0 
+00024618: strb.w    r1, [r0, #0x2d] 
+0002461c: pop       {r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo11GetData_AllEPN19DataflowInfra_StdYc25PIN_YC_IMAGE_OUT_TIM_INFOE @0x24594
+00024594: push      {r4, r5, r7, lr} 
+00024596: add.w     r5, r0, #0x14 
+0002459a: mov       r4, r1 
+0002459c: add       r7, sp, #0 
+0002459e: ldm       r5!, {r0, r1, r2, r3} 
+000245a0: stm       r4!, {r0, r1, r2, r3} 
+000245a2: ldm.w     r5, {r0, r1, r2} 
+000245a6: stm.w     r4, {r0, r1, r2} 
+000245aa: pop       {r4, r5, r7, pc} 
+
+_ZN37C_DataflowInfra_Entry_ImageOutTimInfo29SetData_MainStreamStopTriggerEh @0x2462a
+0002462a: push      {r7, lr} 
+0002462c: add       r7, sp, #0 
+0002462e: strb.w    r1, [r0, #0x2e] 
+00024632: pop       {r7, pc} 

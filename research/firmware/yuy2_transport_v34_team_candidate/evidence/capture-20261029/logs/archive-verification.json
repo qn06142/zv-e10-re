@@ -1,0 +1,62 @@
+[
+  {
+    "remote": "/log/yuy2_640_v34vga/runtime.log",
+    "bytes": 411,
+    "md5": "cd501815d917304230c806295b620840",
+    "sha256": "72aa91a967f18078f9c6bfbb55c3d63475c5e2d399e6213ec828206d2c4c2b85"
+  },
+  {
+    "remote": "/log/yuy2_640_v34vga/vga.log",
+    "bytes": 1624,
+    "md5": "9a22973fc0d2c537ce832fbd95c21622",
+    "sha256": "7274d05c949c41ce4a6aae2c4cf26cfa19ff89bb807602c8ef86a8bf6b6a8002"
+  },
+  {
+    "remote": "/log/yuy2_640_v34vga/test-dmesg.txt",
+    "bytes": 7913,
+    "md5": "cf54e85f6113b1c22234076d1bb94665",
+    "sha256": "f0351006586d86d60a12cf617fb9c72583a218fc75047de75f2ada676082e8f8"
+  },
+  {
+    "remote": "/log/yuy2_640_v34vga/test-dmm.txt",
+    "bytes": 2968,
+    "md5": "ff510038bffb824358c6df2eaee26d7c",
+    "sha256": "99ba5628c21a69099044b394725a3fc96a3f584a9ff6beaf78035e2101729f8b"
+  },
+  {
+    "remote": "/log/yuy2_640_v34vga/test-maps.txt",
+    "bytes": 46935,
+    "md5": "955047edaf301eb27c430eb0323d98ab",
+    "sha256": "a27225880d8071b427c9813d3f89e4b8479b587e78878cd0d789739ab576a3aa"
+  },
+  {
+    "remote": "/log/yuy2_640_v34vga/test-memory.txt",
+    "bytes": 924,
+    "md5": "990e5b91ecc50d4f2bf45d70b964ce21",
+    "sha256": "1f1fb02112f07f6fab0c537fa4c6192c10c9bbd88bcca1fd139fbfbac5df5837"
+  },
+  {
+    "remote": "/log/yuy2_640_v34vga/test-uptime.txt",
+    "bytes": 14,
+    "md5": "ab6d11fe84a742d9dc3741a0494d22d9",
+    "sha256": "fc1dd4da989ae664cbbfeb2ee939df3c9aefc6e207e0d8701d3a2d2b58ef80cb"
+  },
+  {
+    "remote": "/log/yuy2_640_v34vga/crash-AccessLog.dat",
+    "bytes": 2097220,
+    "md5": "0b8afdeacb08a53100021d678da8c86f",
+    "sha256": "f35da2c2efa3cde0f185b8576aa41b95820335f83d13e7393809394267662472"
+  },
+  {
+    "remote": "/log/yuy2_640_v34vga/crash-AccessLog.bak",
+    "bytes": 2097220,
+    "md5": "0b8afdeacb08a53100021d678da8c86f",
+    "sha256": "f35da2c2efa3cde0f185b8576aa41b95820335f83d13e7393809394267662472"
+  },
+  {
+    "remote": "/log/yuy2_640_v34vga/crash-ThreadMonitor.bin",
+    "bytes": 0,
+    "md5": "d41d8cd98f00b204e9800998ecf8427e",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

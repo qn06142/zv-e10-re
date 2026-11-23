@@ -1,0 +1,32 @@
+{
+  "revision": "3.3-experimental-native-vga",
+  "deployment": "INSTALLED_REBOOT_VERIFIED",
+  "date": "2026-10-28",
+  "frame_test": "NOT_YET_TESTED",
+  "change": "Skip exactly matched native -1 source-metadata Share rejection without opening/freeing; unknown outcomes quarantine",
+  "module_md5": "87ddc16bd8e0774926e5eb6d16165d20",
+  "stream_md5": "909c4ffadc9e5972b25101529d5f8773",
+  "dmm_kernel_md5": "15c8f7807b291c0af3c77fe55848577f",
+  "rollback_md5": "acb7ad03595556ff6f40f312f54a806a",
+  "cold_boot_and_postboot_verification": true,
+  "new_file_readbacks_exact": true,
+  "usr_read_only": true,
+  "modules_inactive_before_setup": true,
+  "recovery": "/usr/share/yuy2-recovery-v33vga/rollback.sh restores exact 3.2; earlier recovery chain and 2.4p retained",
+  "cleanup": {
+    "archived_hash_verified_individually_cleared_files": 3,
+    "bytes": 7234
+  },
+  "offline_cases": {
+    "kernel_share": 10,
+    "host_worker": 26,
+    "ARM_acquisition": 9,
+    "ARM_loader": 17,
+    "PIC_startup": 11,
+    "ARM_session": 3,
+    "installer": 10
+  },
+  "stream_sessions_per_boot": 1,
+  "logging": "normal error filters; bounded module logs; no sequential app capture",
+  "service_session": "Closed; job012 confirmed WORKBENCH_CLOSED/Done"
+}
