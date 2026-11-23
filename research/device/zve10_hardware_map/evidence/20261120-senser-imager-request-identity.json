@@ -1,0 +1,91 @@
+{
+  "utc": "2026-11-20T12:51:33.898956+00:00",
+  "mode": "Senser",
+  "camera_writes": false,
+  "mmio_access_performed": false,
+  "reference_file_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "pages": [
+    {
+      "va_under_reference_load_base": "0x637aa000",
+      "file_offset": "0x1e4000",
+      "length": 4096,
+      "ref_sha256": "12e224db2abb28d544d50ab2b3b617df3f515cd6f6d6209c8dd9d82312effc6b",
+      "camera_sha256": "12e224db2abb28d544d50ab2b3b617df3f515cd6f6d6209c8dd9d82312effc6b",
+      "match": true,
+      "reference_scope": "imager SetRead wrapper"
+    },
+    {
+      "va_under_reference_load_base": "0x637ac000",
+      "file_offset": "0x1e6000",
+      "length": 4096,
+      "ref_sha256": "72a220275db67172b51fd5876cfab8845d643b51c25f51ff04eb4e39dff6ff50",
+      "camera_sha256": "72a220275db67172b51fd5876cfab8845d643b51c25f51ff04eb4e39dff6ff50",
+      "match": true,
+      "reference_scope": "IMX284 per-frame SetRead implementation"
+    },
+    {
+      "va_under_reference_load_base": "0x638d0000",
+      "file_offset": "0x30a000",
+      "length": 4096,
+      "ref_sha256": "26cdb09ba8481895687df20c7b9b0cd79fe33dcd56a9c9dca13095a630b1a665",
+      "camera_sha256": "26cdb09ba8481895687df20c7b9b0cd79fe33dcd56a9c9dca13095a630b1a665",
+      "match": true,
+      "reference_scope": "per-frame scan state and imager dispatch"
+    },
+    {
+      "va_under_reference_load_base": "0x6392f000",
+      "file_offset": "0x369000",
+      "length": 4096,
+      "ref_sha256": "ff1f4378979545a34c4aab50041edd91d6b2afbb5ed26fb65499c8fbd1da6491",
+      "camera_sha256": "ff1f4378979545a34c4aab50041edd91d6b2afbb5ed26fb65499c8fbd1da6491",
+      "match": true,
+      "reference_scope": "SetImgRd marker and descriptor builder"
+    },
+    {
+      "va_under_reference_load_base": "0x6394f000",
+      "file_offset": "0x389000",
+      "length": 4096,
+      "ref_sha256": "e7a27a4625d479608deedf2a396cf9444f0f45a44c8ff10dd14ffe5c51140344",
+      "camera_sha256": "e7a27a4625d479608deedf2a396cf9444f0f45a44c8ff10dd14ffe5c51140344",
+      "match": true,
+      "reference_scope": "native context selector"
+    },
+    {
+      "va_under_reference_load_base": "0x63d29000",
+      "file_offset": "0x763000",
+      "length": 4096,
+      "ref_sha256": "64bb7d1a85878e09aa9c280f3513a1db892c3bce1cdd665c44254fff2e2396fd",
+      "camera_sha256": "64bb7d1a85878e09aa9c280f3513a1db892c3bce1cdd665c44254fff2e2396fd",
+      "match": true,
+      "reference_scope": "imager command staging"
+    },
+    {
+      "va_under_reference_load_base": "0x63d90000",
+      "file_offset": "0x7ca000",
+      "length": 4096,
+      "ref_sha256": "6f0e86309ea70c435511643af1d0e714295a3016397bc64559e29af3665de4d3",
+      "camera_sha256": "6f0e86309ea70c435511643af1d0e714295a3016397bc64559e29af3665de4d3",
+      "match": true,
+      "reference_scope": "SetImgRd request gate"
+    },
+    {
+      "va_under_reference_load_base": "0x63f8a000",
+      "file_offset": "0x9c4000",
+      "length": 4096,
+      "ref_sha256": "6a0d1648f68d4a50eb40eb45c950dd348564e3a52273aea34178ee845007a66b",
+      "camera_sha256": "6a0d1648f68d4a50eb40eb45c950dd348564e3a52273aea34178ee845007a66b",
+      "match": true,
+      "reference_scope": "SetImgRd trace literal"
+    },
+    {
+      "va_under_reference_load_base": "0x64588000",
+      "file_offset": "0xfc2000",
+      "length": 4096,
+      "ref_sha256": "52c57aa57ef0b5c25afff5cb914abb325962430d78b03c2afc567a5c606cef61",
+      "camera_sha256": "52c57aa57ef0b5c25afff5cb914abb325962430d78b03c2afc567a5c606cef61",
+      "match": true,
+      "reference_scope": "IMX284 vtable"
+    }
+  ],
+  "camera_file_sha256": "98f05bebd113cb5b4911d71384e5ae7cec21dd4494b0f0569bb2f1b2b3231c6b"
+}

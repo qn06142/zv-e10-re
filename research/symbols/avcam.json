@@ -309,12 +309,348 @@
    "source": "TABLE_PURPOSE_CORRECTION.md"
   },
   {
+   "off": 1918332,
+   "va": "0x6379a57c",
+   "name": "DFE_core_dispatch",
+   "kind": "func",
+   "comment": "Invokes vtable[4] (+0x10 setup) over active entries of 0xe8B subsystem table and applies block params",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1921552,
+   "va": "0x6379b210",
+   "name": "DFE_dump_timing_regs",
+   "kind": "func",
+   "comment": "Logs DFE/SGC timing registers",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1922076,
+   "va": "0x6379b41c",
+   "name": "DFE_dump_enable_regs",
+   "kind": "func",
+   "comment": "Logs DFE/SGC enable registers",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1924424,
+   "va": "0x6379bd48",
+   "name": "DFE_slvsec_status_dump",
+   "kind": "func",
+   "comment": "Conditionally logs DFE/SGC/SLVS-EC status via DFE_dump_timing_regs and DFE_dump_enable_regs",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1926456,
+   "va": "0x6379c538",
+   "name": "DFE_init_mode_ctrl",
+   "kind": "func",
+   "comment": "Conditional mode init helper called from DFE_driver_init",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1928040,
+   "va": "0x6379cb68",
+   "name": "DFE_mode_apply",
+   "kind": "func",
+   "comment": "Computes DFE mode timing/SGC config and dispatches via DFE_core_dispatch",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1928792,
+   "va": "0x6379ce58",
+   "name": "DFE_drv_sgc_start",
+   "kind": "func",
+   "comment": "Updates DFE windows (FUN_635c8628), programs HV (FUN_63d26acc), and calls DfeDrvSgc_start",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1930316,
+   "va": "0x6379d44c",
+   "name": "DFE_construct_subsystems",
+   "kind": "func",
+   "comment": "Constructs DFE subsystem objects into GOT table (DAT_6379dc10=0x00e9acc0) via FUN_63ae1ba4",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1933416,
+   "va": "0x6379e068",
+   "name": "DFE_resource_mask_check",
+   "kind": "func",
+   "comment": "Checks DFE resource bitmask conflict table under lock 0x24",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1936644,
+   "va": "0x6379ed04",
+   "name": "DFE_top_irq_init",
+   "kind": "func",
+   "comment": "Enables bits 5 and 6 in 0xfc0a0000 and registers IRQ callbacks 10 and 0xb",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1956272,
+   "va": "0x637a39b0",
+   "name": "DfeTrsSgc_ctor",
+   "kind": "func",
+   "comment": "Constructs DfeTrsSgc subsystem object (vtable 0x64588bd0)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1956560,
+   "va": "0x637a3ad0",
+   "name": "DfeTimer_trigger",
+   "kind": "func",
+   "comment": "Sets bit 0 of 0xfc098200+ch*0x80 (0xfc098280|=1) when channel idle to trigger timer",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1956832,
+   "va": "0x637a3be0",
+   "name": "DfeTimer_ctor",
+   "kind": "func",
+   "comment": "Constructs DfeTimer subsystem object (0xfc098000..0xfc0ac000, vtable 0x64588c00)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1956936,
+   "va": "0x637a3c48",
+   "name": "DfeTimer_wait_stop",
+   "kind": "func",
+   "comment": "Disables timer channel bit 0 (0xfc098280 for ch 1) and polls busy bit 31",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1957092,
+   "va": "0x637a3ce4",
+   "name": "DfeTimer_cfg_set_step",
+   "kind": "func",
+   "comment": "Programs timer +0x224 register (8-byte aligned)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1957208,
+   "va": "0x637a3d58",
+   "name": "DfeTimer_cfg_set_start",
+   "kind": "func",
+   "comment": "Programs timer +0x220 register (8-byte aligned)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1957668,
+   "va": "0x637a3f24",
+   "name": "DfeDrvSgc_reg08_bit0_set",
+   "kind": "func",
+   "comment": "Sets or clears bit 0 of DrvSgc+0x000a1108",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1957712,
+   "va": "0x637a3f50",
+   "name": "DfeDrvSgc_enable_set",
+   "kind": "func",
+   "comment": "Sets or clears bit 0 of DrvSgc+0x000a1110",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1957824,
+   "va": "0x637a3fc0",
+   "name": "DfeDrvSgc_sync_mode_set",
+   "kind": "func",
+   "comment": "Writes DrvSgc+0x000a112c (0=free-run, 1=SSG/Zpd sync)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1957836,
+   "va": "0x637a3fcc",
+   "name": "DfeDrvSgc_reg30_bit16_set",
+   "kind": "func",
+   "comment": "Sets or clears bit 16 of DrvSgc+0x000a1130",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1958520,
+   "va": "0x637a4278",
+   "name": "DfeDrvSgc_start",
+   "kind": "func",
+   "comment": "Sets 0xfc0a112c sync mode, 0xfc0a1130 bit 16, 0xfc0a1108 bit 0, and enables 0xfc0a1110 bit 0",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1959080,
+   "va": "0x637a44a8",
+   "name": "DfeZpd_trigger",
+   "kind": "func",
+   "comment": "Checks 0xfc099110 bit 0 and sets bit 0 via DfeZpd_trigger_bit0",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1959352,
+   "va": "0x637a45b8",
+   "name": "DfeZpdCtl_ctor",
+   "kind": "func",
+   "comment": "Constructs DfeZpdCtl (vtable 0x64588c90) wrapping DfeZpd and DfeTimer(1)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1959404,
+   "va": "0x637a45ec",
+   "name": "DfeZpdCtl_enable_0xfc098908",
+   "kind": "func",
+   "comment": "Sets 0xfc098908 bit 17 (0x20000) and calls DfeTimer_enable_0xfc098808",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1959608,
+   "va": "0x637a46b8",
+   "name": "DfeZpd_ctor",
+   "kind": "func",
+   "comment": "Constructs DfeZpd object (0xfc0991xx, vtable 0x64588c60)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1969284,
+   "va": "0x637a6c84",
+   "name": "DFE_resource_desc_get",
+   "kind": "func",
+   "comment": "Returns static DFE resource descriptor pointer by resource ID",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1969800,
+   "va": "0x637a6e88",
+   "name": "DFE_mode_table_entry",
+   "kind": "func",
+   "comment": "Returns DFE mode table entry pointer by mode ID",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1971896,
+   "va": "0x637a76b8",
+   "name": "ComboPHY_crg_reset_cfg",
+   "kind": "func",
+   "comment": "Reads (0xf292a070&0x1fff)>>8; case 1 clears clocks/resets, case 3 sets 0xf292a028/38/48/1e8",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1973300,
+   "va": "0x637a7c34",
+   "name": "SLVSEC_port_cfg",
+   "kind": "func",
+   "comment": "Programs SLVS-EC port 0 (0xfc0f00xx) or port 1 (0xfc0f01xx) registers",
+   "source": "ghidra:query59-71"
+  },
+  {
    "off": 1978876,
    "va": "0x637a91fc",
    "name": "IMG_FuncID_enable_gate",
    "kind": "func",
    "comment": "ISP per-function enable check; logs \"FuncType:%x is not enable at FuncID:%x\" and returns error 0x230 when a FuncType (0x21, 0x22, ...) is gated off",
    "source": "FEATURE_GATES.md"
+  },
+  {
+   "off": 1986476,
+   "va": "0x637aafac",
+   "name": "IMX284_factory_register",
+   "kind": "func",
+   "comment": "Constructs Imx284 via IMX284_ctor and registers via FUN_63ae1ba4",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1989116,
+   "va": "0x637ab9fc",
+   "name": "IMX284_vtable_power_off",
+   "kind": "func",
+   "comment": "Imx284 vtable +0x24: clears 0xfc029000 bit 6 and runs power-down sequence",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1989512,
+   "va": "0x637abb88",
+   "name": "IMX284_vtable_power_on",
+   "kind": "func",
+   "comment": "Imx284 vtable +0x20: invokes IMX284_power_on",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1989604,
+   "va": "0x637abbe4",
+   "name": "IMX284_ctor",
+   "kind": "func",
+   "comment": "Constructs Imx284 driver object (vtable 0x64588e88)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1990116,
+   "va": "0x637abde4",
+   "name": "IMX284_reset_gpio_0xf",
+   "kind": "func",
+   "comment": "Clears 0xfc029000 pin 0xf and releases PMIC channel 0xb",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1993948,
+   "va": "0x637accdc",
+   "name": "IMX284_mode_switch_lanes",
+   "kind": "func",
+   "comment": "Updates SLVS-EC lanes on sensor mode switch",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1994472,
+   "va": "0x637acee8",
+   "name": "IMX284_stream_ctrl",
+   "kind": "func",
+   "comment": "Imx284 vtable +0x6c: controls sensor streaming and 0xfc029000 bit 6",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1995536,
+   "va": "0x637ad310",
+   "name": "IMX284_wake",
+   "kind": "func",
+   "comment": "Imx284 vtable +0x98: runs SLVSEC_bringup, SLVSEC_reconfig_lanes, vtable+0xfc, IMX284_pmic_acquire, GPIO 0xfc029020, SPI",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 1996800,
+   "va": "0x637ad800",
+   "name": "IMX284_power_on",
+   "kind": "func",
+   "comment": "Reads Backup 0xbc0014, acquires domain 0xb (PMIC/SOC_clk 0x4e), executes power-on commands",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 2000920,
+   "va": "0x637ae818",
+   "name": "SLVSEC_phy_pll_0xfc02a010_sync",
+   "kind": "func",
+   "comment": "If 0xfc02a064==0x1111, toggles 0xfc02a010=0, calls FUN_635df684(0x910041), sets 0xfc02a010=1",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 2001280,
+   "va": "0x637ae980",
+   "name": "SLVSEC_lane_map_cfg",
+   "kind": "func",
+   "comment": "Computes SLVS-EC lane enable mask from 0x20B mode entry",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 2001632,
+   "va": "0x637aeae0",
+   "name": "SLVSEC_bringup",
+   "kind": "func",
+   "comment": "One-time-guarded ComboPHY/SLVS-EC init (0xf292a000, 0xf2931000, 0xfc02a010 sync, 0xfc02a040..5c, 0xfc0f00xx)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 2001872,
+   "va": "0x637aebd0",
+   "name": "SLVSEC_reconfig_lanes",
+   "kind": "func",
+   "comment": "Reconfigures SLVS-EC lanes and 0xfc02a040..5c/0xfc0f00xx",
+   "source": "ghidra:query59-71"
   },
   {
    "off": 3334088,
@@ -435,6 +771,30 @@
    "kind": "auto",
    "comment": "",
    "source": "RE_STATE.md:68"
+  },
+  {
+   "off": 4585748,
+   "va": "0x63a25914",
+   "name": "SOC_clk_domain_disable",
+   "kind": "func",
+   "comment": "SoC clock/reset domain disable switch",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 4588600,
+   "va": "0x63a26438",
+   "name": "SOC_clk_domain_enable",
+   "kind": "func",
+   "comment": "SoC clock/reset domain enable switch (0x0..0x55: 0xf3400xxx, 0xf2a300xx, 0xf2a000xx, 0xf29000xx)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 5032584,
+   "va": "0x63a92a88",
+   "name": "SOC_pmic_domain_enable",
+   "kind": "func",
+   "comment": "Maps domain 0..0xf to 0x43..0x52 (0xb->0x4e), calls SOC_clk_domain_enable and FUN_63a925ec",
+   "source": "ghidra:query59-71"
   },
   {
    "off": 5223508,
@@ -813,12 +1173,348 @@
    "source": "RE_STATE.md:77"
   },
   {
+   "off": 7720362,
+   "va": "0x63d22daa",
+   "name": "DFE_top_clk_gate_batch",
+   "kind": "func",
+   "comment": "Sets/clears DFE top clock gate bits 0x27, 0x30, 0x31, 0x33, 0x34, 0x35",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7720998,
+   "va": "0x63d23026",
+   "name": "DFE_core_acquire",
+   "kind": "func",
+   "comment": "Allocates DFE session handle; runs DFE_resource_mask_check + DFE_top_clk_gate_batch + vtable[0] start over 0xe8B subsystem table",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7721084,
+   "va": "0x63d2307c",
+   "name": "DFE_core_release",
+   "kind": "func",
+   "comment": "Releases DFE session handle; runs vtable[1] stop over 0xe8B subsystem table and clears top clock gates",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7721248,
+   "va": "0x63d23120",
+   "name": "DFE_core_start",
+   "kind": "func",
+   "comment": "Starts acquired DFE sub-blocks per handle bitmasks",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7721294,
+   "va": "0x63d2314e",
+   "name": "DFE_core_frame_arm",
+   "kind": "func",
+   "comment": "Calls DfeZpdCtl_set_phase on DfeZpdCtl (0xa01c) and logs via DFE_slvsec_status_dump",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7721348,
+   "va": "0x63d23184",
+   "name": "DFE_core_trigger",
+   "kind": "func",
+   "comment": "Calls DfeZpdCtl_trigger on DfeZpdCtl (0xa01c) when active and stops/logs via FUN_6379bbb0",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7721568,
+   "va": "0x63d23260",
+   "name": "IMG_gpio_0xfc029000_set",
+   "kind": "func",
+   "comment": "Sets bit (pin%8) in 0xfc029000 + (pin/8)*4",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7721616,
+   "va": "0x63d23290",
+   "name": "IMG_gpio_0xfc029000_clr",
+   "kind": "func",
+   "comment": "Clears bit (pin%8) in 0xfc029000 + (pin/8)*4",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7721664,
+   "va": "0x63d232c0",
+   "name": "IMG_gpio_0xfc029020_set",
+   "kind": "func",
+   "comment": "Sets or clears pin (active-low invert) in 0xfc029020 + (pin/8)*4",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7722632,
+   "va": "0x63d23688",
+   "name": "DFE_mode_flag_scan",
+   "kind": "func",
+   "comment": "Scans 0xba entries of DFE_mode_table_entry for nonzero +0x38/+0x3c/+0x40 flags",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7722768,
+   "va": "0x63d23710",
+   "name": "DFE_crg_clk_enable",
+   "kind": "func",
+   "comment": "Writes 0xfc020104..194 clock enables and conditional 0x14/0x22, 0x15/0x16 clocks",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7733596,
+   "va": "0x63d2615c",
+   "name": "DfeTimer_start",
+   "kind": "func",
+   "comment": "Writes IRQ clear bits in 0xfc098000 for timer channel",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7733724,
+   "va": "0x63d261dc",
+   "name": "DfeTimer_ch_trigger_bit0",
+   "kind": "func",
+   "comment": "Sets or clears bit 0 of base+0x200+ch*0x80 (0xfc098280)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7733740,
+   "va": "0x63d261ec",
+   "name": "DfeTimer_ch_mode_bits12",
+   "kind": "func",
+   "comment": "Sets bits [2:1] of base+0x200+ch*0x80",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7733820,
+   "va": "0x63d2623c",
+   "name": "DfeTimer_ch_ctrl204_bit0",
+   "kind": "func",
+   "comment": "Sets or clears bit 0 of base+0x204+ch*0x80",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7734122,
+   "va": "0x63d2636a",
+   "name": "DfeTimer_stop",
+   "kind": "func",
+   "comment": "Tail-branches to DfeTimer_wait_stop",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7734130,
+   "va": "0x63d26372",
+   "name": "DfeTimer_enable_0xfc098808",
+   "kind": "func",
+   "comment": "Sets/clears bit (ch*4) in 0xfc098808 and clears 0xfc098000 on disable",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7734192,
+   "va": "0x63d263b0",
+   "name": "DfeTimer_ch_setup_mode",
+   "kind": "func",
+   "comment": "Clears +0x204 bit 0 and sets +0x200 mode bits [2:1] and bit 4",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7734444,
+   "va": "0x63d264ac",
+   "name": "DfeTimer_ch_program_window",
+   "kind": "func",
+   "comment": "Programs 10-word timer window registers (+0x220..0x250)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7735204,
+   "va": "0x63d267a4",
+   "name": "DfeDrvSgc_init",
+   "kind": "func",
+   "comment": "Releases CRG reset 6/7 and enables 0xfc0a0000 bit 8/9 for Drv0/Drv1",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7735350,
+   "va": "0x63d26836",
+   "name": "DfeDrvSgc_stop",
+   "kind": "func",
+   "comment": "Clears 0xfc0a112c and 0xfc0a1110 bit 0, waits idle, clears 0xfc0a0000 bit 8/9, resets CRG 6/7",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7737102,
+   "va": "0x63d26f0e",
+   "name": "DfeZpd_start",
+   "kind": "func",
+   "comment": "Writes 1 to 0xfc099100 via DfeZpd_reg00_write",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7737148,
+   "va": "0x63d26f3c",
+   "name": "DfeZpd_trigger_bit0",
+   "kind": "func",
+   "comment": "Sets or clears bit 0 of 0xfc099110",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7737228,
+   "va": "0x63d26f8c",
+   "name": "DfeZpd_stop",
+   "kind": "func",
+   "comment": "Clears 0xfc09911c, 0xfc099110, 0xfc099100 and polls busy until 0",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7737390,
+   "va": "0x63d2702e",
+   "name": "DfeZpdCtl_trigger",
+   "kind": "func",
+   "comment": "Invokes DfeTimer_trigger and DfeZpd_trigger when armed (+0x14!=0); missing in cold/M5/M37",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7737550,
+   "va": "0x63d270ce",
+   "name": "DfeZpdCtl_0xfc098908_bit17",
+   "kind": "func",
+   "comment": "Sets or clears bit 17 (0x20000) in 0xfc098908",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7737560,
+   "va": "0x63d270d8",
+   "name": "DfeZpdCtl_stop",
+   "kind": "func",
+   "comment": "Clears 0xfc0a0000 bit 4 (0x10), stops DfeZpd and DfeTimer, clears 0xfc09880c and 0xfc098000",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7737610,
+   "va": "0x63d2710a",
+   "name": "DfeZpdCtl_set_phase",
+   "kind": "func",
+   "comment": "Applies param_2 + phase offset (+0x18) to DfeTimer_cfg_set_start",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7737620,
+   "va": "0x63d27114",
+   "name": "DfeZpdCtl_start",
+   "kind": "func",
+   "comment": "Writes 0xfc098808=0x20000/1, starts DfeTimer and DfeZpd, enables 0xfc098908 bit 17 and 0xfc0a0000 bit 4 (0x10)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7737688,
+   "va": "0x63d27158",
+   "name": "DfeZpdCtl_compute_window",
+   "kind": "func",
+   "comment": "Computes 10-word 0xfc0982xx window schedule and phase offset (+0x18)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7737770,
+   "va": "0x63d271aa",
+   "name": "DfeZpdCtl_setup",
+   "kind": "func",
+   "comment": "Computes window geometry and configures DfeTimer via DfeTimer_ch_program_window + DfeTimer_ch_setup_mode",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7749706,
+   "va": "0x63d2a04a",
+   "name": "SLVSEC_afe_0xf2931000_init",
+   "kind": "func",
+   "comment": "Configures 0xf2931000 analog PHY registers by link rate",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7749982,
+   "va": "0x63d2a15e",
+   "name": "ComboPHY_slvsec_init",
+   "kind": "func",
+   "comment": "Calls ComboPHY_crg_reset_cfg, configures 0xf292a000/0xf29000xx/0xf2a300xx and polls lock",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7750208,
+   "va": "0x63d2a240",
+   "name": "SLVSEC_0xfc02a008_bit12",
+   "kind": "func",
+   "comment": "Sets 0xfc02a040 mode and ORs 0x1000 into 0xfc02a008",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7750260,
+   "va": "0x63d2a274",
+   "name": "SLVSEC_0xfc02a040_lane_en",
+   "kind": "func",
+   "comment": "Configures 0xfc02a040..5c lane enables for port 0/1",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 7752734,
+   "va": "0x63d2ac1e",
+   "name": "IMX284_pmic_acquire",
+   "kind": "func",
+   "comment": "Acquires sensor power domain 0xb via FUN_63d2a018(0xa4) and SOC_pmic_domain_enable(0xb)",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 8049922,
+   "va": "0x63d73502",
+   "name": "DFE_mode_apply_wrapper",
+   "kind": "func",
+   "comment": "Builds 0x34B request and invokes DFE_mode_apply",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 8050056,
+   "va": "0x63d73588",
+   "name": "DFE_core_start_wrapper",
+   "kind": "func",
+   "comment": "Calls DFE_core_start and records result via FUN_63d7342e",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 8050080,
+   "va": "0x63d735a0",
+   "name": "DFE_core_frame_arm_and_trigger",
+   "kind": "func",
+   "comment": "Calls DFE_core_frame_arm then DFE_core_trigger",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 8050168,
+   "va": "0x63d735f8",
+   "name": "DFE_drv_sgc_start_wrapper",
+   "kind": "func",
+   "comment": "Builds descriptor and invokes DFE_drv_sgc_start",
+   "source": "ghidra:query59-71"
+  },
+  {
+   "off": 8050830,
+   "va": "0x63d7388e",
+   "name": "DFE_driver_init",
+   "kind": "func",
+   "comment": "Initializes DFE mode descriptor (0x84B); calls FUN_63d238b2, FUN_6379c538, FUN_6379ed04, DfeDrvSgc_init, FUN_63d26a42, FUN_637a3858",
+   "source": "ghidra:query59-71"
+  },
+  {
    "off": 8294024,
    "va": "0x63daee88",
    "name": "ISP_WriteRegister",
    "kind": "auto",
    "comment": "",
    "source": "RE_STATE.md:43"
+  },
+  {
+   "off": 8345322,
+   "va": "0x63dbb6ea",
+   "name": "SOC_clk_acquire",
+   "kind": "func",
+   "comment": "Checks/enables SoC clock domain and configures dividers via SOC_clk_domain_enable",
+   "source": "ghidra:query59-71"
   },
   {
    "off": 8494494,

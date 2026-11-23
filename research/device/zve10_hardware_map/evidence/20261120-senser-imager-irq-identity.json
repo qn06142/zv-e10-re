@@ -1,0 +1,64 @@
+{
+  "utc": "2026-11-20T12:53:21.800089+00:00",
+  "mode": "Senser",
+  "camera_writes": false,
+  "mmio_access_performed": false,
+  "reference_file_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "pages": [
+    {
+      "va_under_reference_load_base": "0x6376c000",
+      "file_offset": "0x1a6000",
+      "length": 4096,
+      "ref_sha256": "4b3207bdde56b93772b64e158e6a3743ffc7722fb44b6a90f45649b98966ffab",
+      "camera_sha256": "4b3207bdde56b93772b64e158e6a3743ffc7722fb44b6a90f45649b98966ffab",
+      "match": true,
+      "reference_scope": "IRQ 75 status and acknowledge accessors"
+    },
+    {
+      "va_under_reference_load_base": "0x6376d000",
+      "file_offset": "0x1a7000",
+      "length": 4096,
+      "ref_sha256": "ef05b0e772436d0b6cb8d9c0134db8107e24a1bf026f94b319bccfe9cc215a56",
+      "camera_sha256": "ef05b0e772436d0b6cb8d9c0134db8107e24a1bf026f94b319bccfe9cc215a56",
+      "match": true,
+      "reference_scope": "IRQ 75 handler and callback slots"
+    },
+    {
+      "va_under_reference_load_base": "0x63796000",
+      "file_offset": "0x1d0000",
+      "length": 4096,
+      "ref_sha256": "09930b77d43d0c9279fe6e7701f722efdc8fc5d276d9b06a3008169b1079f895",
+      "camera_sha256": "09930b77d43d0c9279fe6e7701f722efdc8fc5d276d9b06a3008169b1079f895",
+      "match": true,
+      "reference_scope": "IRQ 74 handler and status accessors"
+    },
+    {
+      "va_under_reference_load_base": "0x63d22000",
+      "file_offset": "0x75c000",
+      "length": 4096,
+      "ref_sha256": "f49fcb2bc2c825c15a094d57d13a757bd49dab0319f200a1649777a641ab5698",
+      "camera_sha256": "f49fcb2bc2c825c15a094d57d13a757bd49dab0319f200a1649777a641ab5698",
+      "match": true,
+      "reference_scope": "IRQ 74 status and acknowledge wrappers"
+    },
+    {
+      "va_under_reference_load_base": "0x63f5a000",
+      "file_offset": "0x994000",
+      "length": 4096,
+      "ref_sha256": "1ebc079b5092e2dbc62e326e973ab550ec8877182a27bfcf872977d76bae5470",
+      "camera_sha256": "1ebc079b5092e2dbc62e326e973ab550ec8877182a27bfcf872977d76bae5470",
+      "match": true,
+      "reference_scope": "IRQ 75 APL0 DMA diagnostic labels"
+    },
+    {
+      "va_under_reference_load_base": "0x64592000",
+      "file_offset": "0xfcc000",
+      "length": 4096,
+      "ref_sha256": "57731d58cbdd209096a0e0fab73507a7640843c9a65fc0c01024009dd0d30f0d",
+      "camera_sha256": "57731d58cbdd209096a0e0fab73507a7640843c9a65fc0c01024009dd0d30f0d",
+      "match": true,
+      "reference_scope": "IRQ 74 and 75 registration rows"
+    }
+  ],
+  "camera_file_sha256": "98f05bebd113cb5b4911d71384e5ae7cec21dd4494b0f0569bb2f1b2b3231c6b"
+}

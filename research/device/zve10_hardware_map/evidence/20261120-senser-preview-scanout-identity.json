@@ -1,0 +1,118 @@
+{
+  "utc": "2026-11-20T13:02:12.698953+00:00",
+  "mode": "Senser",
+  "camera_writes": false,
+  "mmio_access_performed": false,
+  "reference_file_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "pages": [
+    {
+      "va_under_reference_load_base": "0x6371e000",
+      "file_offset": "0x158000",
+      "length": 4096,
+      "ref_sha256": "1577cae08599fa72c75a64328595ccf86204a67902e9d5ada4bd5802f1d063ac",
+      "camera_sha256": "1577cae08599fa72c75a64328595ccf86204a67902e9d5ada4bd5802f1d063ac",
+      "match": true,
+      "reference_scope": "VDF video submission wrapper"
+    },
+    {
+      "va_under_reference_load_base": "0x6371f000",
+      "file_offset": "0x159000",
+      "length": 4096,
+      "ref_sha256": "2de2f56b20e56a0b04fe2c0042e425f9737a25845a1842839a1efa42bd5221f3",
+      "camera_sha256": "2de2f56b20e56a0b04fe2c0042e425f9737a25845a1842839a1efa42bd5221f3",
+      "match": true,
+      "reference_scope": "VDF DMM Open and Close wrappers"
+    },
+    {
+      "va_under_reference_load_base": "0x63723000",
+      "file_offset": "0x15d000",
+      "length": 4096,
+      "ref_sha256": "be605dc0c7d1d6394940184e6abc76f71e83ef3b58ac4970b7881173a268dbf9",
+      "camera_sha256": "be605dc0c7d1d6394940184e6abc76f71e83ef3b58ac4970b7881173a268dbf9",
+      "match": true,
+      "reference_scope": "VDF normal update object construction"
+    },
+    {
+      "va_under_reference_load_base": "0x63733000",
+      "file_offset": "0x16d000",
+      "length": 4096,
+      "ref_sha256": "b1fe336afb5c88f40124c9820f182cf2a0313f7e7957f3cd72b31dc93c6a5b4e",
+      "camera_sha256": "b1fe336afb5c88f40124c9820f182cf2a0313f7e7957f3cd72b31dc93c6a5b4e",
+      "match": true,
+      "reference_scope": "SSYC handle to VPH video descriptor"
+    },
+    {
+      "va_under_reference_load_base": "0x63735000",
+      "file_offset": "0x16f000",
+      "length": 4096,
+      "ref_sha256": "d3a7289c527638f2044bb3fe7e12fdeb213b70f10c6b9a332a2fa8e89395c949",
+      "camera_sha256": "d3a7289c527638f2044bb3fe7e12fdeb213b70f10c6b9a332a2fa8e89395c949",
+      "match": true,
+      "reference_scope": "VDF video command construction"
+    },
+    {
+      "va_under_reference_load_base": "0x639e2000",
+      "file_offset": "0x41c000",
+      "length": 4096,
+      "ref_sha256": "cf7732c5d78df5a076899acaf2e7aaf34ad8e59d976c79a8874863c1e4407076",
+      "camera_sha256": "cf7732c5d78df5a076899acaf2e7aaf34ad8e59d976c79a8874863c1e4407076",
+      "match": true,
+      "reference_scope": "AIF control read and arm bit"
+    },
+    {
+      "va_under_reference_load_base": "0x63a5c000",
+      "file_offset": "0x496000",
+      "length": 4096,
+      "ref_sha256": "80b7a44d60e8fc3af7c11bd3b36a659d7320327cf8a318164f2658cfaf988b1a",
+      "camera_sha256": "80b7a44d60e8fc3af7c11bd3b36a659d7320327cf8a318164f2658cfaf988b1a",
+      "match": true,
+      "reference_scope": "VPH shadow descriptor upload"
+    },
+    {
+      "va_under_reference_load_base": "0x63a7f000",
+      "file_offset": "0x4b9000",
+      "length": 4096,
+      "ref_sha256": "1919076812312b030acaddc5543e7f3a08b0013b57d5fee1addddf5542af5d2d",
+      "camera_sha256": "1919076812312b030acaddc5543e7f3a08b0013b57d5fee1addddf5542af5d2d",
+      "match": true,
+      "reference_scope": "VPH video AIF route starts"
+    },
+    {
+      "va_under_reference_load_base": "0x63ce6000",
+      "file_offset": "0x720000",
+      "length": 4096,
+      "ref_sha256": "bd027677c906508b6bf36e8073ed0f17df406d1535baf785162c6478aeef47b3",
+      "camera_sha256": "bd027677c906508b6bf36e8073ed0f17df406d1535baf785162c6478aeef47b3",
+      "match": true,
+      "reference_scope": "normal VPH video update method"
+    },
+    {
+      "va_under_reference_load_base": "0x63da2000",
+      "file_offset": "0x7dc000",
+      "length": 4096,
+      "ref_sha256": "856175a17eefb1bed7b3d0a76f2aaf504d7414e50eea821049f5c467a4dea6d1",
+      "camera_sha256": "856175a17eefb1bed7b3d0a76f2aaf504d7414e50eea821049f5c467a4dea6d1",
+      "match": true,
+      "reference_scope": "AIF start guard"
+    },
+    {
+      "va_under_reference_load_base": "0x63e89000",
+      "file_offset": "0x8c3000",
+      "length": 4096,
+      "ref_sha256": "19d92be62a3f00324717b7884c942e9919156f9affcb3ce23d5c8c261eecdfcd",
+      "camera_sha256": "19d92be62a3f00324717b7884c942e9919156f9affcb3ce23d5c8c261eecdfcd",
+      "match": true,
+      "reference_scope": "AIF channel map entries"
+    },
+    {
+      "va_under_reference_load_base": "0x64581000",
+      "file_offset": "0xfbb000",
+      "length": 4096,
+      "ref_sha256": "0eb77b83fed9ced0a50cbb4a239d5c61ef9005fd34bd9905d672e9e23487d45e",
+      "camera_sha256": "0eb77b83fed9ced0a50cbb4a239d5c61ef9005fd34bd9905d672e9e23487d45e",
+      "match": true,
+      "reference_scope": "normal VPH video update vtable"
+    }
+  ],
+  "camera_file_sha256": "98f05bebd113cb5b4911d71384e5ae7cec21dd4494b0f0569bb2f1b2b3231c6b"
+}

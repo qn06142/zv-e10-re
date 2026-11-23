@@ -1,0 +1,145 @@
+{
+  "utc": "2026-11-20T12:48:00.909341+00:00",
+  "mode": "Senser",
+  "camera_writes": false,
+  "mmio_access_performed": false,
+  "reference_file_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "pages": [
+    {
+      "va_under_reference_load_base": "0x637a7000",
+      "file_offset": "0x1e1000",
+      "length": 4096,
+      "ref_sha256": "a4699e8f6150a7a2e8a91bcde91ca7dda1452baaac3e555b9e9b235716902936",
+      "camera_sha256": "a4699e8f6150a7a2e8a91bcde91ca7dda1452baaac3e555b9e9b235716902936",
+      "match": true,
+      "reference_scope": "imager readout prelude and receiver mode-1 dispatch"
+    },
+    {
+      "va_under_reference_load_base": "0x637a8000",
+      "file_offset": "0x1e2000",
+      "length": 4096,
+      "ref_sha256": "96793ea7babfaf9a380d529df265d8e349d7f5fec66255748ec3c905f69b7308",
+      "camera_sha256": "96793ea7babfaf9a380d529df265d8e349d7f5fec66255748ec3c905f69b7308",
+      "match": true,
+      "reference_scope": "imager register field accessors"
+    },
+    {
+      "va_under_reference_load_base": "0x637aa000",
+      "file_offset": "0x1e4000",
+      "length": 4096,
+      "ref_sha256": "12e224db2abb28d544d50ab2b3b617df3f515cd6f6d6209c8dd9d82312effc6b",
+      "camera_sha256": "12e224db2abb28d544d50ab2b3b617df3f515cd6f6d6209c8dd9d82312effc6b",
+      "match": true,
+      "reference_scope": "imager wrapper and object binding"
+    },
+    {
+      "va_under_reference_load_base": "0x637ab000",
+      "file_offset": "0x1e5000",
+      "length": 4096,
+      "ref_sha256": "7df6951b7f7cc4cebd3910c66e6c6b45ee8af0376fd45acb584012ba2429c1a1",
+      "camera_sha256": "7df6951b7f7cc4cebd3910c66e6c6b45ee8af0376fd45acb584012ba2429c1a1",
+      "match": true,
+      "reference_scope": "IMX284 initializer and register staging"
+    },
+    {
+      "va_under_reference_load_base": "0x637ac000",
+      "file_offset": "0x1e6000",
+      "length": 4096,
+      "ref_sha256": "72a220275db67172b51fd5876cfab8845d643b51c25f51ff04eb4e39dff6ff50",
+      "camera_sha256": "72a220275db67172b51fd5876cfab8845d643b51c25f51ff04eb4e39dff6ff50",
+      "match": true,
+      "reference_scope": "IMX284 mode reservation and register staging"
+    },
+    {
+      "va_under_reference_load_base": "0x637ad000",
+      "file_offset": "0x1e7000",
+      "length": 4096,
+      "ref_sha256": "5cdc5bc0fd9c46b645d03e02aac7b67065c79eab721f8f1f4be6951de1184687",
+      "camera_sha256": "5cdc5bc0fd9c46b645d03e02aac7b67065c79eab721f8f1f4be6951de1184687",
+      "match": true,
+      "reference_scope": "IMX284 readout method"
+    },
+    {
+      "va_under_reference_load_base": "0x638c8000",
+      "file_offset": "0x302000",
+      "length": 4096,
+      "ref_sha256": "6c0c1aa84377012cac1763ce70d234ed73b6e2f38c6bec9ffcc33f4ef43bbb51",
+      "camera_sha256": "6c0c1aa84377012cac1763ce70d234ed73b6e2f38c6bec9ffcc33f4ef43bbb51",
+      "match": true,
+      "reference_scope": "native EE start sender"
+    },
+    {
+      "va_under_reference_load_base": "0x638d0000",
+      "file_offset": "0x30a000",
+      "length": 4096,
+      "ref_sha256": "26cdb09ba8481895687df20c7b9b0cd79fe33dcd56a9c9dca13095a630b1a665",
+      "camera_sha256": "26cdb09ba8481895687df20c7b9b0cd79fe33dcd56a9c9dca13095a630b1a665",
+      "match": true,
+      "reference_scope": "receiver interface transition"
+    },
+    {
+      "va_under_reference_load_base": "0x6390b000",
+      "file_offset": "0x345000",
+      "length": 4096,
+      "ref_sha256": "f737b574d6c0e9b6d32466d92b0ab28847be04e353ceea0e5b34365ad8752847",
+      "camera_sha256": "f737b574d6c0e9b6d32466d92b0ab28847be04e353ceea0e5b34365ad8752847",
+      "match": true,
+      "reference_scope": "capture-side mode wrapper"
+    },
+    {
+      "va_under_reference_load_base": "0x63d2a000",
+      "file_offset": "0x764000",
+      "length": 4096,
+      "ref_sha256": "ed365f07fc5118c112510e366bbec8357221d985a0da2fcadad78f58a288cc0d",
+      "camera_sha256": "ed365f07fc5118c112510e366bbec8357221d985a0da2fcadad78f58a288cc0d",
+      "match": true,
+      "reference_scope": "imager vtable dispatch"
+    },
+    {
+      "va_under_reference_load_base": "0x63d2b000",
+      "file_offset": "0x765000",
+      "length": 4096,
+      "ref_sha256": "dbe98877a248ffc1f1a94b654ee7ba54a8f5cc023f03b3e0a2ba786ca374cfe5",
+      "camera_sha256": "dbe98877a248ffc1f1a94b654ee7ba54a8f5cc023f03b3e0a2ba786ca374cfe5",
+      "match": true,
+      "reference_scope": "imager mode-0x11 register sequence"
+    },
+    {
+      "va_under_reference_load_base": "0x63f6d000",
+      "file_offset": "0x9a7000",
+      "length": 4096,
+      "ref_sha256": "363fa713d68cc6cdb8a1e27db969fe540af22189de38e9eb9deeef916a856377",
+      "camera_sha256": "363fa713d68cc6cdb8a1e27db969fe540af22189de38e9eb9deeef916a856377",
+      "match": true,
+      "reference_scope": "imager class names"
+    },
+    {
+      "va_under_reference_load_base": "0x64588000",
+      "file_offset": "0xfc2000",
+      "length": 4096,
+      "ref_sha256": "52c57aa57ef0b5c25afff5cb914abb325962430d78b03c2afc567a5c606cef61",
+      "camera_sha256": "52c57aa57ef0b5c25afff5cb914abb325962430d78b03c2afc567a5c606cef61",
+      "match": true,
+      "reference_scope": "IMX284 vtables"
+    },
+    {
+      "va_under_reference_load_base": "0x645bc000",
+      "file_offset": "0xff6000",
+      "length": 4096,
+      "ref_sha256": "77d09a7259fa3967a23e0dba19339d12b0bffc03f9f3482f3330922872c70239",
+      "camera_sha256": "77d09a7259fa3967a23e0dba19339d12b0bffc03f9f3482f3330922872c70239",
+      "match": true,
+      "reference_scope": "IMX284 typeinfo"
+    },
+    {
+      "va_under_reference_load_base": "0x64642000",
+      "file_offset": "0x107c000",
+      "length": 4096,
+      "ref_sha256": "5175840d664bf1596e16143779a5e6d337abf639da3468aad2ec581e925b0c7f",
+      "camera_sha256": "5175840d664bf1596e16143779a5e6d337abf639da3468aad2ec581e925b0c7f",
+      "match": true,
+      "reference_scope": "IMX284 vtable GOT pointer"
+    }
+  ],
+  "camera_file_sha256": "98f05bebd113cb5b4911d71384e5ae7cec21dd4494b0f0569bb2f1b2b3231c6b"
+}

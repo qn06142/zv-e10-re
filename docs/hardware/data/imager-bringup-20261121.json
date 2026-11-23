@@ -1,0 +1,298 @@
+{
+  "date": "2026-11-21",
+  "scope": "USB Senser identity and imager state; offline native replay",
+  "body_sha256": "98f05bebd113cb5b4911d71384e5ae7cec21dd4494b0f0569bb2f1b2b3231c6b",
+  "code_pages": [
+    {
+      "offset": "0x1e0000",
+      "sha256": "d6b5e2063a1d429dc30f31ad56e68b016f5fd312ee4591d3b5822c069b10f8a2",
+      "reference_match": true
+    },
+    {
+      "offset": "0x1e1000",
+      "sha256": "a4699e8f6150a7a2e8a91bcde91ca7dda1452baaac3e555b9e9b235716902936",
+      "reference_match": true
+    },
+    {
+      "offset": "0x1e2000",
+      "sha256": "96793ea7babfaf9a380d529df265d8e349d7f5fec66255748ec3c905f69b7308",
+      "reference_match": true
+    },
+    {
+      "offset": "0x1e3000",
+      "sha256": "37db2ba46c770fb5122222bb3eabc225058528a907a08a037c224112630e7319",
+      "reference_match": true
+    },
+    {
+      "offset": "0x1e4000",
+      "sha256": "12e224db2abb28d544d50ab2b3b617df3f515cd6f6d6209c8dd9d82312effc6b",
+      "reference_match": true
+    },
+    {
+      "offset": "0x1e5000",
+      "sha256": "7df6951b7f7cc4cebd3910c66e6c6b45ee8af0376fd45acb584012ba2429c1a1",
+      "reference_match": true
+    },
+    {
+      "offset": "0x1e6000",
+      "sha256": "72a220275db67172b51fd5876cfab8845d643b51c25f51ff04eb4e39dff6ff50",
+      "reference_match": true
+    },
+    {
+      "offset": "0x1e7000",
+      "sha256": "5cdc5bc0fd9c46b645d03e02aac7b67065c79eab721f8f1f4be6951de1184687",
+      "reference_match": true
+    },
+    {
+      "offset": "0x1e8000",
+      "sha256": "39b76f3b7e6f46af852773118e3d3db3bd9e2b6c729b203e5722554f2a27cc56",
+      "reference_match": true
+    },
+    {
+      "offset": "0x1ee000",
+      "sha256": "a762e961fc9a1a850c5f9dd87d7fcc4ea7104902e058ec8f9cf3116f778e4f6f",
+      "reference_match": true
+    },
+    {
+      "offset": "0x1ef000",
+      "sha256": "1d46b13fa38eb3c7532eb1e342576d82a704ed2f4be6af90ba4c091784b87b22",
+      "reference_match": true
+    },
+    {
+      "offset": "0x762000",
+      "sha256": "274ad748757f01a63fcbd8e1411e5219a7a99c60a892c1384fa314dde0b13609",
+      "reference_match": true
+    },
+    {
+      "offset": "0x763000",
+      "sha256": "64bb7d1a85878e09aa9c280f3513a1db892c3bce1cdd665c44254fff2e2396fd",
+      "reference_match": true
+    },
+    {
+      "offset": "0x764000",
+      "sha256": "ed365f07fc5118c112510e366bbec8357221d985a0da2fcadad78f58a288cc0d",
+      "reference_match": true
+    },
+    {
+      "offset": "0x765000",
+      "sha256": "dbe98877a248ffc1f1a94b654ee7ba54a8f5cc023f03b3e0a2ba786ca374cfe5",
+      "reference_match": true
+    },
+    {
+      "offset": "0x8b1000",
+      "sha256": "58b34af11d26c850c69c220eb3f146835c6f7391e9cf720bd61c34f2cf1f118b",
+      "reference_match": true
+    },
+    {
+      "offset": "0xfcc000",
+      "sha256": "57731d58cbdd209096a0e0fab73507a7640843c9a65fc0c01024009dd0d30f0d",
+      "reference_match": true
+    },
+    {
+      "offset": "0xffd000",
+      "sha256": "f02c57d40401923e1d9e4c051c4b2626e0c029cdd91a8406131c0b6d04b02566",
+      "reference_match": true
+    },
+    {
+      "offset": "0x1001000",
+      "sha256": "afea515a71f8e62b2fad0e106a2bb5c2052e2a32ba910c54a26e43bc79f285d4",
+      "reference_match": true
+    }
+  ],
+  "sensor_profiles": [
+    {
+      "id": "0xbc0003",
+      "native_va": "0x640ba460",
+      "bytes": 256,
+      "sha256": "d0b47600fced84c08831fb9f88c816436d848b28f8506ceb05fff7b07f2f465b"
+    },
+    {
+      "id": "0xbc0005",
+      "native_va": "0x640ba560",
+      "bytes": 256,
+      "sha256": "5c087190561d281b66983466a550d24052bcdb2ccc4edf8d26cc52bfb34754e6"
+    },
+    {
+      "id": "0xbc0006",
+      "native_va": "0x640ba660",
+      "bytes": 128,
+      "sha256": "fd96c54ca9e01b2fb5908d917288d341c06af50f2102ef1dca0470f3ab997398"
+    },
+    {
+      "id": "0xbc000f",
+      "native_va": "0x640ba6e0",
+      "bytes": 256,
+      "sha256": "df64b85a35a31ee99aaf645263edbe42aaada32cda91643c2feaf5428c8f26ca"
+    },
+    {
+      "id": "0xbc0013",
+      "native_va": "0x640ba7e0",
+      "bytes": 256,
+      "sha256": "28f100660f28adae57a544e305f719a1d4d48b6083790ef328d2851e9d71ae30"
+    },
+    {
+      "id": "0xbc0015",
+      "native_va": "0x640ba2c0",
+      "bytes": 416,
+      "sha256": "75156a68137293d0c3f46bc6e698fba4cd35eccb8b4367a529d0884bf949e156"
+    },
+    {
+      "id": "0xbc0001",
+      "native_va": "0x640bd5e0",
+      "bytes": 3040,
+      "sha256": "aec7771867fc4edbd8cd2c50117c1783056c85b79c873b46838568698558cc3a"
+    },
+    {
+      "id": "0xbc0002",
+      "native_va": "0x640ca9c0",
+      "bytes": 65280,
+      "sha256": "ac348f1e7f321b9e2729cd4c86bbc2c019cd68499334e40b62827ba8b3cceca1"
+    },
+    {
+      "id": "0xbc000d",
+      "native_va": "0x640da8c0",
+      "bytes": 61440,
+      "sha256": "a666e6ec472338130b0196a4cbe48d215c66e5b0f88595769213ee29c8781e89"
+    },
+    {
+      "id": "0xbc000e",
+      "native_va": "0x640ba8e0",
+      "bytes": 256,
+      "sha256": "5712fdc44b12fa0d67a0a35b0cd9915b02f9cb9f6ea65457a37053da3815296d"
+    },
+    {
+      "id": "0xbc0000",
+      "native_va": "0x640be1c0",
+      "bytes": 20480,
+      "sha256": "bde4c6102f6b5f4c277ffd7000d7d9cf7cda57aca57467a7b86f4ab0345410c0"
+    },
+    {
+      "id": "0xbc0010",
+      "native_va": "0x641228c0",
+      "bytes": 148,
+      "sha256": "dfde6bbbe10cb7d7c612c1143e82db0ea01645c39833586aebbb9c1e9c647dc4"
+    },
+    {
+      "id": "0x1320000",
+      "native_va": "0x640fa8c0",
+      "bytes": 61440,
+      "sha256": "93f19f18e4948a1b8cb061d5cfd88a8b57de9b971573450ef6d81bc4303926dd"
+    },
+    {
+      "id": "0x1320001",
+      "native_va": "0x641098c0",
+      "bytes": 61440,
+      "sha256": "2c3e7cbd4de505f5f6ed9293233aa02e29fa6ecf537df4af30ece3a2cbb5a62e"
+    },
+    {
+      "id": "0x1320002",
+      "native_va": "0x640ba9e0",
+      "bytes": 11264,
+      "sha256": "e708c07d021876e726d9ef4b9afd0d0936cf3c33b4e677a55da899000e5fca09"
+    },
+    {
+      "id": "0x1320003",
+      "native_va": "0x641188c0",
+      "bytes": 40960,
+      "sha256": "5acd2700bacfed75f41c8f0df2dd7e9f11b3a214677ce2ef525a369c151e60da"
+    },
+    {
+      "id": "0x1320004",
+      "native_va": "0x640e98c0",
+      "bytes": 61440,
+      "sha256": "80f4819b0b21a1a54a66564f167a3dce7f585fa5ef4644dbe042dd030c154a8a"
+    },
+    {
+      "id": "0x1320005",
+      "native_va": "0x640f88c0",
+      "bytes": 8192,
+      "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+    },
+    {
+      "id": "0x1320006",
+      "native_va": "0x640c31c0",
+      "bytes": 30720,
+      "sha256": "8c137fabea2260099d7c477a420c36651244c7b6a8e04ef6be110d33f7009815"
+    }
+  ],
+  "scalar_profile_count": 16,
+  "changed_vs_archived_profiles": [
+    "0xbc000e",
+    "0xbc0010"
+  ],
+  "imager_mode": {
+    "requested": "0x11",
+    "previous": "0x11",
+    "timing_block_0x22c_to_0x257_all_zero": true
+  },
+  "native_upload_lengths": [
+    251,
+    45,
+    124
+  ],
+  "native_replay_completed": true,
+  "hardware_sensor_initialized": false,
+  "live_frame_completed": false,
+  "installed_files": {
+    "/log/zve10-ram-boot/rtos.bin": {
+      "bytes": 10012,
+      "sha256": "532ac45e2a51ac7771d6b6695dc987387371d285b5a10734198d354b90b7a06e"
+    },
+    "/log/zve10-ram-boot/boot.ko": {
+      "bytes": 10900,
+      "sha256": "42eade699fb1dbe1c1b90c88e79c168e4c8e6f47d8a61d6c63ea78d29cd590bf"
+    }
+  },
+  "native_payload_replaced": false,
+  "camera_changes": [
+    "Uploaded /log/zvlv21.sh after syntax and byte-readback checks",
+    "Started bounded setsid recorder; observed WAITING_FOR_SHOOTING and running process"
+  ],
+  "shooting_capture": {
+    "retrieved": true,
+    "status": "DONE",
+    "samples": 3,
+    "uptime_seconds": [
+      73.45,
+      75.33,
+      77.22
+    ],
+    "imager_modes": [
+      "0x01",
+      "0x01",
+      "0x01"
+    ],
+    "irq_deltas": {
+      "83": 565,
+      "84": 2709,
+      "102": 188,
+      "132": 0,
+      "194": 226
+    },
+    "fopd_w0": {
+      "programmed_bases": [
+        "0xfe442e80",
+        "0xfe413e80",
+        "0xfe413e80"
+      ],
+      "transfer_word": "0x29400"
+    },
+    "yuv1_plane0": {
+      "programmed_base": "0x16a00000",
+      "fetch_bytes": 1024,
+      "line_gap_bytes": 128,
+      "rows": 570
+    },
+    "offline_mode1_upload_lengths": [
+      251,
+      45,
+      124
+    ],
+    "completed_frame_bound": false
+  },
+  "limits": [
+    "Senser state is not shooting state",
+    "YUV address movement is not a completed-frame proof",
+    "No sensor-start/MMIO writes or bootloader/RTOS replacement were performed"
+  ]
+}

@@ -1,0 +1,558 @@
+{
+  "libobj_sha256": "bc0deb2f0e94218752e42ce6f5a3576d7456971eb63fbde705ffbd9b3a7fdeea",
+  "backup_property": "0x01120000",
+  "backup_property_sha256": "4677230bc7ae6773807aa482f63658412ca3658c417994188728301d442e5efd",
+  "records": [
+    {
+      "record_offset": "0x18",
+      "type": 1,
+      "selector": "0xc",
+      "sub": 0,
+      "active": 0,
+      "limits": [
+        "0x0",
+        "0x5b"
+      ],
+      "code": "0x1f8",
+      "name_records": [
+        {
+          "name": "KEY_TACT_DELETE",
+          "file_offset": "0x144e470",
+          "string_va": "0x103f61a"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x58",
+      "type": 1,
+      "selector": "0xc",
+      "sub": 0,
+      "active": 0,
+      "limits": [
+        "0x1b8",
+        "0x257"
+      ],
+      "code": "0x7095",
+      "name_records": [
+        {
+          "name": "KEY_TACT_FN",
+          "file_offset": "0x144e7c0",
+          "string_va": "0x103fd76"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x98",
+      "type": 1,
+      "selector": "0xc",
+      "sub": 0,
+      "active": 0,
+      "limits": [
+        "0x258",
+        "0x304"
+      ],
+      "code": "0x66",
+      "name_records": [
+        {
+          "name": "KEY_TACT_CUSTOM",
+          "file_offset": "0x144e3c8",
+          "string_va": "0x103f4b7"
+        }
+      ]
+    },
+    {
+      "record_offset": "0xd8",
+      "type": 1,
+      "selector": "0xd",
+      "sub": 0,
+      "active": 0,
+      "limits": [
+        "0x0",
+        "0xc1"
+      ],
+      "code": "0x1f3",
+      "name_records": [
+        {
+          "name": "KEY_TACT_WIDE",
+          "file_offset": "0x144e450",
+          "string_va": "0x103f5e1"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x118",
+      "type": 1,
+      "selector": "0xd",
+      "sub": 0,
+      "active": 0,
+      "limits": [
+        "0xc2",
+        "0x199"
+      ],
+      "code": "0x1f5",
+      "name_records": [
+        {
+          "name": "KEY_TACT_TELE",
+          "file_offset": "0x144e460",
+          "string_va": "0x103f5fe"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x158",
+      "type": 1,
+      "selector": "0xf",
+      "sub": 0,
+      "active": 0,
+      "limits": [
+        "0x0",
+        "0x5b"
+      ],
+      "code": "0x1ac",
+      "name_records": [
+        {
+          "name": "KEY_TACT_ENTER",
+          "file_offset": "0x144e3f8",
+          "string_va": "0x103f525"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x198",
+      "type": 1,
+      "selector": "0xf",
+      "sub": 0,
+      "active": 0,
+      "limits": [
+        "0x5c",
+        "0x111"
+      ],
+      "code": "0x3",
+      "name_records": [
+        {
+          "name": "KEY_TACT_UP",
+          "file_offset": "0x144e368",
+          "string_va": "0x103f3df"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x1d8",
+      "type": 1,
+      "selector": "0xf",
+      "sub": 0,
+      "active": 0,
+      "limits": [
+        "0x112",
+        "0x1b7"
+      ],
+      "code": "0x15",
+      "name_records": [
+        {
+          "name": "KEY_TACT_LEFT",
+          "file_offset": "0x144e378",
+          "string_va": "0x103f3fe"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x218",
+      "type": 1,
+      "selector": "0xf",
+      "sub": 0,
+      "active": 0,
+      "limits": [
+        "0x1b8",
+        "0x257"
+      ],
+      "code": "0x30",
+      "name_records": [
+        {
+          "name": "KEY_TACT_DOWN",
+          "file_offset": "0x144e388",
+          "string_va": "0x103f41c"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x258",
+      "type": 1,
+      "selector": "0xf",
+      "sub": 0,
+      "active": 0,
+      "limits": [
+        "0x258",
+        "0x304"
+      ],
+      "code": "0x1af",
+      "name_records": [
+        {
+          "name": "KEY_TACT_RIGHT",
+          "file_offset": "0x144e408",
+          "string_va": "0x103f54d"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x298",
+      "type": 2,
+      "selector": "0x0",
+      "sub": 2,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x7100",
+      "name_records": [
+        {
+          "name": "KEY_TACT_EXPOSURE_MODE",
+          "file_offset": "0x144eb18",
+          "string_va": "0x1040651"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x2d8",
+      "type": 2,
+      "selector": "0x0",
+      "sub": 4,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x70ff",
+      "name_records": [
+        {
+          "name": "KEY_PANEL_VARI_ANGLE",
+          "file_offset": "0x144eb10",
+          "string_va": "0x104063c"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x318",
+      "type": 2,
+      "selector": "0x0",
+      "sub": 4,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x7102",
+      "name_records": [
+        {
+          "name": "KEY_PANEL_VALI_ANGLE_FLIP_HORIZONTAL",
+          "file_offset": "0x144eb28",
+          "string_va": "0x1040689"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x358",
+      "type": 2,
+      "selector": "0x0",
+      "sub": 10,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x1f0",
+      "name_records": [
+        {
+          "name": "KEY_TACT_STARTSTOP",
+          "file_offset": "0x144e438",
+          "string_va": "0x103f5af"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x398",
+      "type": 2,
+      "selector": "0x2",
+      "sub": 6,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x70ff",
+      "name_records": [
+        {
+          "name": "KEY_PANEL_VARI_ANGLE",
+          "file_offset": "0x144eb10",
+          "string_va": "0x104063c"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x3d8",
+      "type": 2,
+      "selector": "0x2",
+      "sub": 6,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x7103",
+      "name_records": [
+        {
+          "name": "KEY_PANEL_VALI_ANGLE_FLIP_VERTICAL",
+          "file_offset": "0x144eb30",
+          "string_va": "0x10406ae"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x418",
+      "type": 2,
+      "selector": "0x2",
+      "sub": 14,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x70ff",
+      "name_records": [
+        {
+          "name": "KEY_PANEL_VARI_ANGLE",
+          "file_offset": "0x144eb10",
+          "string_va": "0x104063c"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x458",
+      "type": 2,
+      "selector": "0x2",
+      "sub": 14,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x7104",
+      "name_records": [
+        {
+          "name": "KEY_PANEL_VALI_ANGLE_POS_CLOSE",
+          "file_offset": "0x144eb38",
+          "string_va": "0x10406d1"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x498",
+      "type": 2,
+      "selector": "0x5",
+      "sub": 4,
+      "active": 0,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x4c",
+      "name_records": [
+        {
+          "name": "KEY_JACK_MICJACK_OUT",
+          "file_offset": "0x144e3a8",
+          "string_va": "0x103f466"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x4d8",
+      "type": 2,
+      "selector": "0x5",
+      "sub": 4,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x4b",
+      "name_records": [
+        {
+          "name": "KEY_JACK_MICJACK_IN",
+          "file_offset": "0x144e3a0",
+          "string_va": "0x103f452"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x518",
+      "type": 2,
+      "selector": "0x9",
+      "sub": 16,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x4d",
+      "name_records": [
+        {
+          "name": "KEY_JACK_HP_IN",
+          "file_offset": "0x144e3b0",
+          "string_va": "0x103f47b"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x558",
+      "type": 2,
+      "selector": "0x9",
+      "sub": 16,
+      "active": 0,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x47",
+      "name_records": [
+        {
+          "name": "KEY_JACK_HP_OUT",
+          "file_offset": "0x144e398",
+          "string_va": "0x103f442"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x598",
+      "type": 4,
+      "selector": "0x6000",
+      "sub": 0,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x2",
+      "name_records": [
+        {
+          "name": "KEY_TACT_POWER",
+          "file_offset": "0x144e360",
+          "string_va": "0x103f3d0"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x5d8",
+      "type": 4,
+      "selector": "0x6000",
+      "sub": 1,
+      "active": 0,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x1f7",
+      "name_records": [
+        {
+          "name": "KEY_TACT_PLAY",
+          "file_offset": "0x144e468",
+          "string_va": "0x103f60c"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x618",
+      "type": 4,
+      "selector": "0x6000",
+      "sub": 2,
+      "active": 0,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x1ab",
+      "name_records": [
+        {
+          "name": "KEY_TACT_MENU",
+          "file_offset": "0x144e3f0",
+          "string_va": "0x103f517"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x658",
+      "type": 4,
+      "selector": "0x6000",
+      "sub": 5,
+      "active": 0,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x70d5",
+      "name_records": [
+        {
+          "name": "KEY_UM_CONNECTOR_POWER",
+          "file_offset": "0x144e9c0",
+          "string_va": "0x104026e"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x698",
+      "type": 4,
+      "selector": "0x6000",
+      "sub": 9,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x7094",
+      "name_records": [
+        {
+          "name": "KEY_TACT_FLASH_POPUP",
+          "file_offset": "0x144e7b8",
+          "string_va": "0x103fd61"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x6d8",
+      "type": 4,
+      "selector": "0x6000",
+      "sub": 10,
+      "active": 1,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x70f2",
+      "name_records": [
+        {
+          "name": "KEY_BTLE_PWR_ON",
+          "file_offset": "0x144eaa8",
+          "string_va": "0x10404d8"
+        }
+      ]
+    },
+    {
+      "record_offset": "0x718",
+      "type": 4,
+      "selector": "0x6000",
+      "sub": 11,
+      "active": 0,
+      "limits": [
+        "0x0",
+        "0x0"
+      ],
+      "code": "0x7105",
+      "name_records": [
+        {
+          "name": "KEY_PANEL_PWR_ON_CHECK",
+          "file_offset": "0x144eb40",
+          "string_va": "0x10406f0"
+        }
+      ]
+    }
+  ]
+}

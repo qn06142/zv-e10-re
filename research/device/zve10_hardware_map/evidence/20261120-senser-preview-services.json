@@ -1,0 +1,40 @@
+{
+  "mode": "runtime switch from USB Mass Storage to Senser",
+  "camera_file_writes": false,
+  "mmio_access": false,
+  "im_process": {
+    "pid": 152,
+    "threads": 195,
+    "matched_maps": [
+      "/usr/bin/im.elf",
+      "/usr/lib/dataflowInfraFramework.so"
+    ],
+    "mapped_path_filter": "flow|scenario|im.elf (case insensitive)",
+    "selected_open_files": [
+      "/dev/stream",
+      "/dev/stream2",
+      "/dev/uipc",
+      "/dev/usb/sen",
+      "/dev/usb/ter",
+      "/usr/share/app/viewUsbMassStorage.uxc"
+    ]
+  },
+  "osal": {
+    "version": "4.2",
+    "msgqs_fields_in_order": [
+      857,
+      419,
+      0
+    ],
+    "sems_fields_in_order": [
+      196,
+      134,
+      0
+    ],
+    "matching_section_labels": [
+      "LMSGQ",
+      "LSEM"
+    ],
+    "im_name_grep_exit_status": 1
+  }
+}

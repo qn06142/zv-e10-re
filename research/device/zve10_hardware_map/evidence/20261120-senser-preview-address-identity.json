@@ -1,0 +1,82 @@
+{
+  "utc": "2026-11-20T13:08:30.524361+00:00",
+  "mode": "Senser",
+  "camera_writes": false,
+  "mmio_access_performed": false,
+  "reference_file_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "pages": [
+    {
+      "va_under_reference_load_base": "0x635d3000",
+      "file_offset": "0xd000",
+      "length": 4096,
+      "ref_sha256": "fbcb1d43277ac56f266d7f80526a92e19b98a4f38331a42676303ad02e25766e",
+      "camera_sha256": "fbcb1d43277ac56f266d7f80526a92e19b98a4f38331a42676303ad02e25766e",
+      "match": true,
+      "reference_scope": "Primary YUV address descriptor construction"
+    },
+    {
+      "va_under_reference_load_base": "0x639e1000",
+      "file_offset": "0x41b000",
+      "length": 4096,
+      "ref_sha256": "92bf7d87dfb01d9e037975113488b215971cb8a316fbe0fb5d69d40c47388d8f",
+      "camera_sha256": "92bf7d87dfb01d9e037975113488b215971cb8a316fbe0fb5d69d40c47388d8f",
+      "match": true,
+      "reference_scope": "AIF configuration writer entry"
+    },
+    {
+      "va_under_reference_load_base": "0x639e2000",
+      "file_offset": "0x41c000",
+      "length": 4096,
+      "ref_sha256": "cf7732c5d78df5a076899acaf2e7aaf34ad8e59d976c79a8874863c1e4407076",
+      "camera_sha256": "cf7732c5d78df5a076899acaf2e7aaf34ad8e59d976c79a8874863c1e4407076",
+      "match": true,
+      "reference_scope": "AIF address and control writes"
+    },
+    {
+      "va_under_reference_load_base": "0x639e3000",
+      "file_offset": "0x41d000",
+      "length": 4096,
+      "ref_sha256": "0fb5577a07d353091e0f45bdd983a6560e37df371b70a5245b58bcc4e9343502",
+      "camera_sha256": "0fb5577a07d353091e0f45bdd983a6560e37df371b70a5245b58bcc4e9343502",
+      "match": true,
+      "reference_scope": "AIF configuration validation"
+    },
+    {
+      "va_under_reference_load_base": "0x63a5d000",
+      "file_offset": "0x497000",
+      "length": 4096,
+      "ref_sha256": "e38d650418ec2f62ad9d456e08a3f5d1cea937a3db85363ea84613c5cdfbb780",
+      "camera_sha256": "e38d650418ec2f62ad9d456e08a3f5d1cea937a3db85363ea84613c5cdfbb780",
+      "match": true,
+      "reference_scope": "VPH queue producer and route dispatch"
+    },
+    {
+      "va_under_reference_load_base": "0x63a5e000",
+      "file_offset": "0x498000",
+      "length": 4096,
+      "ref_sha256": "42e60b7f6284ff1a07736e2dfd87a19c3d4ef01fc380ae7be5aebc3469641c45",
+      "camera_sha256": "42e60b7f6284ff1a07736e2dfd87a19c3d4ef01fc380ae7be5aebc3469641c45",
+      "match": true,
+      "reference_scope": "VPH queue receive and route fan-out"
+    },
+    {
+      "va_under_reference_load_base": "0x63a7f000",
+      "file_offset": "0x4b9000",
+      "length": 4096,
+      "ref_sha256": "1919076812312b030acaddc5543e7f3a08b0013b57d5fee1addddf5542af5d2d",
+      "camera_sha256": "1919076812312b030acaddc5543e7f3a08b0013b57d5fee1addddf5542af5d2d",
+      "match": true,
+      "reference_scope": "VPH YUV geometry setup and AIF enable"
+    },
+    {
+      "va_under_reference_load_base": "0x63dcb000",
+      "file_offset": "0x805000",
+      "length": 4096,
+      "ref_sha256": "1ba394fa89c6f9874ec89bb8f44797bebe85846b926bf69c4a77518586b376cd",
+      "camera_sha256": "1ba394fa89c6f9874ec89bb8f44797bebe85846b926bf69c4a77518586b376cd",
+      "match": true,
+      "reference_scope": "YUV plane address calculation and AIF configuration"
+    }
+  ],
+  "camera_file_sha256": "98f05bebd113cb5b4911d71384e5ae7cec21dd4494b0f0569bb2f1b2b3231c6b"
+}

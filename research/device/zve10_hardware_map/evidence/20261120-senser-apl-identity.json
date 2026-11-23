@@ -1,0 +1,109 @@
+{
+  "utc": "2026-11-20T12:56:14.314036+00:00",
+  "mode": "Senser",
+  "camera_writes": false,
+  "mmio_access_performed": false,
+  "reference_file_sha256": "bc6cba98c1ce5ef9c7692b9701ed855c25958d285a646ef90dc3fdf398f5c4fa",
+  "pages": [
+    {
+      "va_under_reference_load_base": "0x6376b000",
+      "file_offset": "0x1a5000",
+      "length": 4096,
+      "ref_sha256": "c7124e6de8764baa08eefd62c520ada7709db6e2b02f40a128af436376c5d49b",
+      "camera_sha256": "c7124e6de8764baa08eefd62c520ada7709db6e2b02f40a128af436376c5d49b",
+      "match": true,
+      "reference_scope": "APL address register accessor bank"
+    },
+    {
+      "va_under_reference_load_base": "0x6376e000",
+      "file_offset": "0x1a8000",
+      "length": 4096,
+      "ref_sha256": "ab282751b6e0be6b8cf8eee329cb7b5be7fc07b82192d185c3c04c03877f3d03",
+      "camera_sha256": "ab282751b6e0be6b8cf8eee329cb7b5be7fc07b82192d185c3c04c03877f3d03",
+      "match": true,
+      "reference_scope": "APL kick, register writes and diagnostic mapping"
+    },
+    {
+      "va_under_reference_load_base": "0x6376f000",
+      "file_offset": "0x1a9000",
+      "length": 4096,
+      "ref_sha256": "59dc59804b718ab8a8cccf5823051b49cd0ee6a475a9a7dd73bb53a553fb5358",
+      "camera_sha256": "59dc59804b718ab8a8cccf5823051b49cd0ee6a475a9a7dd73bb53a553fb5358",
+      "match": true,
+      "reference_scope": "APL DMA request and launch tail"
+    },
+    {
+      "va_under_reference_load_base": "0x63796000",
+      "file_offset": "0x1d0000",
+      "length": 4096,
+      "ref_sha256": "09930b77d43d0c9279fe6e7701f722efdc8fc5d276d9b06a3008169b1079f895",
+      "camera_sha256": "09930b77d43d0c9279fe6e7701f722efdc8fc5d276d9b06a3008169b1079f895",
+      "match": true,
+      "reference_scope": "PRC request and callback slot"
+    },
+    {
+      "va_under_reference_load_base": "0x63932000",
+      "file_offset": "0x36c000",
+      "length": 4096,
+      "ref_sha256": "f087b351d8d112f39bd8bcdd835e485e1c22cdf3fe63be035a9b12a1d1034950",
+      "camera_sha256": "f087b351d8d112f39bd8bcdd835e485e1c22cdf3fe63be035a9b12a1d1034950",
+      "match": true,
+      "reference_scope": "Face sequence PRC callback"
+    },
+    {
+      "va_under_reference_load_base": "0x63933000",
+      "file_offset": "0x36d000",
+      "length": 4096,
+      "ref_sha256": "b816548e1e128081e962fc7e63ff84279a5d107871518e5e8712f9381bdc489e",
+      "camera_sha256": "b816548e1e128081e962fc7e63ff84279a5d107871518e5e8712f9381bdc489e",
+      "match": true,
+      "reference_scope": "Face sequence PRC request"
+    },
+    {
+      "va_under_reference_load_base": "0x63959000",
+      "file_offset": "0x393000",
+      "length": 4096,
+      "ref_sha256": "d031356e353de01272c54b0e86d49c6ba469bfaf084c3fdcb8992a23504db729",
+      "camera_sha256": "d031356e353de01272c54b0e86d49c6ba469bfaf084c3fdcb8992a23504db729",
+      "match": true,
+      "reference_scope": "Movie sequence APL caller"
+    },
+    {
+      "va_under_reference_load_base": "0x63f5b000",
+      "file_offset": "0x995000",
+      "length": 4096,
+      "ref_sha256": "6633a56e58e6a29921b4ab75890433dc6747d3ace969ac4e1cd233ee234c8549",
+      "camera_sha256": "6633a56e58e6a29921b4ab75890433dc6747d3ace969ac4e1cd233ee234c8549",
+      "match": true,
+      "reference_scope": "APL DMA target, reference and motion-vector labels"
+    },
+    {
+      "va_under_reference_load_base": "0x63f64000",
+      "file_offset": "0x99e000",
+      "length": 4096,
+      "ref_sha256": "8be7c4ee0dd1115aabc5cd2ab240e9cfc6fc42a2ba6997ed8304e0b500e76624",
+      "camera_sha256": "8be7c4ee0dd1115aabc5cd2ab240e9cfc6fc42a2ba6997ed8304e0b500e76624",
+      "match": true,
+      "reference_scope": "PRC route diagnostics"
+    },
+    {
+      "va_under_reference_load_base": "0x63f8a000",
+      "file_offset": "0x9c4000",
+      "length": 4096,
+      "ref_sha256": "6a0d1648f68d4a50eb40eb45c950dd348564e3a52273aea34178ee845007a66b",
+      "camera_sha256": "6a0d1648f68d4a50eb40eb45c950dd348564e3a52273aea34178ee845007a66b",
+      "match": true,
+      "reference_scope": "Face sequence PRC diagnostic"
+    },
+    {
+      "va_under_reference_load_base": "0x63f8e000",
+      "file_offset": "0x9c8000",
+      "length": 4096,
+      "ref_sha256": "180fe0cd8b65e793336622fb7d010b671a34082eec63ee8ac63fdb3d150a496d",
+      "camera_sha256": "180fe0cd8b65e793336622fb7d010b671a34082eec63ee8ac63fdb3d150a496d",
+      "match": true,
+      "reference_scope": "Movie sequence APL diagnostics"
+    }
+  ],
+  "camera_file_sha256": "98f05bebd113cb5b4911d71384e5ae7cec21dd4494b0f0569bb2f1b2b3231c6b"
+}
