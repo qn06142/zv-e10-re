@@ -1,8 +1,5 @@
 # Sony ZV-E10 research
 
-> **Project status (24 November 2026): On hiatus.**  
-> Active hardware experiments and development are paused for now. The codebase, emulator, and research notes are left at a clean checkpoint below — see [current status](docs/CURRENT_STATUS.md) and the [Bayer handoff](research/device/zve10_ram_boot/BAYER_HANDOFF.md) for where work stopped.
-
 Reverse engineering, bare-metal OS runtime (`ZVOS`), standalone QEMU emulation, and tooling for the Sony ZV-E10 (firmware 2.02/2.03). The project goal is native Bayer RAW acquisition and USB delivery.
 
 Start with the [camera overview](docs/CAMERA_OVERVIEW.md), [current status](docs/CURRENT_STATUS.md), [hardware handoff](docs/hardware/HANDOFF.md), and [access and tools](docs/ACCESS_AND_TOOLS.md).
