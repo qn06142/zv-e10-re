@@ -10,6 +10,7 @@ For the paused display and Bayer RAW checkpoint, see the [research handoff](HAND
 | --- | --- |
 | Physical windows, clocks, reset, GPIO and interrupt namespaces | [Platform](PLATFORM.md) |
 | Sensor control, DFE, memory and distinct DMA engines | [Sensor and DMA](SENSOR_DMA.md) |
+| End-to-end IMX284 / DFE / SGC0 / SLVS-EC sensor pipeline & a6400 parity | [Sensor pipeline](SENSOR_PIPELINE.md) |
 | Electrical/controller protocols versus firmware messages and host transports | [Protocols and accessories](PROTOCOLS.md) |
 | Display pipeline and the failed v03 assumption | [Display](DISPLAY.md) |
 | Body-bound panel settings, GPIO lookup, six-stage sequence and API limits | [Native LCD reconstruction](DISPLAY_RECONSTRUCTION.md) |

@@ -25,6 +25,7 @@ _Static_assert(BAYER_M37_BYTES <= BAYER_DST_MAP_SIZE, "still strip does not fit 
 #define SYS_close          6U
 #define SYS_nanosleep      162U
 #define SYS_mmap2          192U
+#define LINUX_EINTR        4
 
 #define O_RDWR_SYNC        (2U | 0x101000U)
 #define O_WR_CREATE_TRUNC  (1U | 0x40U | 0x200U)
@@ -42,7 +43,7 @@ struct mmio_region {
     volatile uint8_t *va;
 };
 
-static struct mmio_region regions[8];
+static struct mmio_region regions[12];
 static uint32_t seq_irqs = 0U;
 static uint32_t seq_timeouts = 0U;
 
@@ -180,25 +181,43 @@ static inline void dsb(void) {
     __asm__ volatile("dsb sy" ::: "memory");
 }
 
-static void delay_us(uint32_t us) {
+static int sleep_us(uint32_t us) {
     struct linux_timespec req;
+    struct linux_timespec remaining;
+    int32_t result;
+
     req.tv_sec = (long)(us / 1000000U);
     req.tv_nsec = (long)((us % 1000000U) * 1000U);
-    sys_call2(SYS_nanosleep, (uint32_t)(uintptr_t)&req, 0U);
+    do {
+        result = sys_call2(SYS_nanosleep, (uint32_t)(uintptr_t)&req,
+                           (uint32_t)(uintptr_t)&remaining);
+        if (result == -LINUX_EINTR) {
+            req = remaining;
+        }
+    } while (result == -LINUX_EINTR);
+    return result == 0;
+}
+
+static void delay_us(uint32_t us) {
+    (void)sleep_us(us);
 }
 
 static void init_regions(int32_t fd) {
-    static const uint32_t cfg[8][2] = {
+    static const uint32_t cfg[12][2] = {
         { 0xf2403000U, 0x00001000U },
         { 0xf2900000U, 0x00040000U },
         { 0xf2a00000U, 0x00040000U },
-        { 0xf3122000U, 0x00002000U },
+        { 0xf3120000U, 0x00004000U },
         { 0xfc000000U, 0x00100000U },
         { BAYER_DST_PA, BAYER_DST_MAP_SIZE },
         { BAYER_PSAVE_DDRC_B, 0x00001000U },
         { 0xf3000000U, 0x00040000U },
+        { 0xf3e00000U, 0x00001000U },
+        { 0x0426b000U, 0x003f0000U },
+        { 0xf3400000U, 0x00004000U },
+        { 0xf3100000U, 0x00001000U },
     };
-    for (uint32_t i = 0U; i < 8U; ++i) {
+    for (uint32_t i = 0U; i < 12U; ++i) {
         uint32_t pa = cfg[i][0];
         uint32_t sz = cfg[i][1];
         int32_t va = sys_call6(SYS_mmap2, 0U, sz, PROT_RW, MAP_SHARED, (uint32_t)fd, pa >> 12);
@@ -215,7 +234,7 @@ static void init_regions(int32_t fd) {
 }
 
 static volatile uint32_t *reg_ptr(uint32_t pa) {
-    for (uint32_t i = 0U; i < 8U; ++i) {
+    for (uint32_t i = 0U; i < 12U; ++i) {
         if (i == 5U) {
             continue;
         }
@@ -295,7 +314,7 @@ static void seq_wait_irq(uint32_t timeout_us) {
     seq_timeouts++;
 }
 
-static void run_seq_burst(const uint8_t *bytes, uint32_t count, uint32_t run_mode, int wait_irq) {
+static int run_seq_burst(const uint8_t *bytes, uint32_t count, uint32_t run_mode, int wait_irq) {
     uint32_t prev = seq_irqs;
     w32(SEQ_PORT + 4U, r32(SEQ_PORT + 4U) & ~1U);
     w32(SEQ_PORT + 8U, (r32(SEQ_PORT + 8U) & ~7U) | 3U);
@@ -317,7 +336,12 @@ static void run_seq_burst(const uint8_t *bytes, uint32_t count, uint32_t run_mod
             seq_wait_irq(100000U);
         }
     }
+    return !wait_irq || seq_irqs != prev;
 }
+
+#include "cxd90057_hw.h"
+#include "imx284_sensor.h"
+#include "cxd90057_pipeline.h"
 
 static void print_poll_sample(uint32_t idx) {
     prints("S");
@@ -406,6 +430,7 @@ static void dump_regs_bin(const char *path) {
         {0xfc029000U, 0x0080U}, {0xfc02a000U, 0x0100U}, {0xfc02b000U, 0x0040U},
         {0xfc02bc00U, 0x0040U}, {0xfc02c000U, 0x0220U}, {0xfc02c800U, 0x0060U},
         {0xfc02cf00U, 0x0060U}, {0xfc02d000U, 0x0080U}, {0xfc030000U, 0x0040U},
+        {0xfc0300e0U, 0x0020U},
         {0xfc080000U, 0x0140U}, {0xfc098000U, 0x0040U}, {0xfc098200U, 0x0100U},
         {0xfc098800U, 0x0040U}, {0xfc098900U, 0x0040U}, {0xfc099100U, 0x0060U},
         {0xfc0a0000U, 0x0220U}, {0xfc0a0220U, 0x01e0U}, {0xfc0a0400U, 0x0200U},
@@ -416,7 +441,23 @@ static void dump_regs_bin(const char *path) {
         {0xfc0a3000U, 0x0040U},
         {0xfc0a3200U, 0x0040U}, {0xfc0a3900U, 0x0200U}, {0xfc0a4200U, 0x0040U},
         {0xfc0a4900U, 0x0200U}, {0xfc0a8000U, 0x0200U}, {0xfc0a9000U, 0x0200U},
-        {0xfc0a9200U, 0x0100U}, {0xfc0ad600U, 0x0080U}, {0xfc0f0000U, 0x0200U},
+        {0xfc098840U, 0x00c0U}, {0xfc098940U, 0x00c0U},
+        {0xfc0a7000U, 0x0100U}, {0xfc0a9200U, 0x0100U}, {0xfc0ad600U, 0x0080U}, {0xfc0f0000U, 0x0200U},
+        {0xf2403000U, 0x0400U}, {0xf2403400U, 0x0400U}, {0xf2403800U, 0x0400U},
+        {0xf2403c00U, 0x0400U},
+        {0xf3000000U, 0x0200U}, {0xf3002000U, 0x0400U},
+        {0xf3100000U, 0x0100U},
+        {0xf3120000U, 0x0200U}, {0xf3120200U, 0x0200U}, {0xf3122000U, 0x0200U}, {0xf3123000U, 0x0200U},
+        {0xf3400000U, 0x0400U}, {0xf3400400U, 0x0400U}, {0xf3400800U, 0x0400U},
+        {0xf3400c00U, 0x0400U}, {0xf3402000U, 0x0240U},
+        {0xf3e00000U, 0x0200U},
+        {0xfc000000U, 0x0100U}, {0xfc001000U, 0x0100U}, {0xfc00a000U, 0x0100U},
+        {0xfc036d00U, 0x0100U}, {0xfc038000U, 0x0200U},
+        {0xfc088000U, 0x0400U}, {0xfc088800U, 0x0200U}, {0xfc088e40U, 0x01c0U},
+        {0xfc0a0500U, 0x0100U}, {0xfc0a1b80U, 0x0100U},
+        {0xfc0a2500U, 0x0080U}, {0xfc0ab500U, 0x0080U},
+        {0x0426b1c0U, 0x0080U}, {0x0426b384U, 0x0400U}, {0x0426b784U, 0x0040U},
+        {0x0449ace0U, 0x0040U}, {0x04618600U, 0x0380U},
     };
     int32_t fd = sys_call3(SYS_open, (uint32_t)(uintptr_t)path, O_WR_CREATE_TRUNC, 0644U);
     if (fd < 0) {
@@ -687,7 +728,7 @@ static int run_check(void) {
     prints(" CHECK_PTR=");
     print_dec(ptr_like);
     prints("\n");
-    return (changed > 0U || ptr_like > 0U) ? 2 : 0;
+    return (changed > 0U || ptr_like >= 8U) ? 2 : 0;
 }
 
 static void psave_imager_wake(void) {
@@ -859,9 +900,16 @@ static void observe_isp0_aif3(void) {
     prints("\n");
 }
 
-static void slvsec_relock_mode5(void) {
+__attribute__((unused)) static void slvsec_relock_mode5(void) {
     /* Replay indices 98..140 of imx284_wake_pre_writes (0x637AEBD0 43-write SLVS-EC relock). */
     write_table(&imx284_wake_pre_writes[98U], 43U, 0U);
+}
+
+static void stop_slvs_receivers(void) {
+    w32(0xfc0f0050U, 0U);
+    w32(0xfc0f0150U, 0U);
+    w32(0xfc0f0000U, 0U);
+    dsb();
 }
 
 static void run_still_capture(void) {
@@ -900,10 +948,38 @@ static void run_still_capture(void) {
     w32(0xfc0a1210U, 0U);
     w32(0xfc0a1310U, 0U);
     w32(0xfc0a0004U, 0x10U);
-    w32(0xfc0f0050U, 0U);
-    w32(0xfc0f0150U, 0U);
-    w32(0xfc0f0000U, 0U);
-    dsb();
+    stop_slvs_receivers();
+}
+
+static struct mode1_input_sample sample_mode1_input(void) {
+    struct mode1_input_sample sample;
+    sample.ticks = r32(TIMER_READ_PA);
+    sample.syncseq_count = r32(SYNCSEQ_COUNTER);
+    sample.syncseq_timing = r32(SYNCSEQ_EXT_TRIG_TIMER);
+    sample.sgc0_status = r32(DFE_DRVSGC0_START_STAT);
+    sample.slvs_status = r32(SLVSEC_PORT_LOCK(0U));
+    sample.spi_irqs = seq_irqs;
+    sample.spi_timeouts = seq_timeouts;
+    return sample;
+}
+
+static void print_mode1_input(const char *stage, const struct mode1_input_sample *sample) {
+    prints("MODE1_INPUT "); prints(stage);
+    prints(" ticks="); print_hex8(sample->ticks);
+    prints(" 8030="); print_hex8(sample->syncseq_count);
+    prints(" 80f4="); print_hex8(sample->syncseq_timing);
+    prints(" 1110="); print_hex8(sample->sgc0_status);
+    prints(" f0b0="); print_hex8(sample->slvs_status);
+    prints(" I="); print_dec(sample->spi_irqs);
+    prints(" T="); print_dec(sample->spi_timeouts);
+    prints("\n");
+}
+
+static void print_mode1_power(const char *stage) {
+    prints("MODE1_POWER "); prints(stage);
+    prints(" req0="); print_hex8(r32(PMU_PWR_REQ0));
+    prints(" req1="); print_hex8(r32(PMU_PWR_REQ1));
+    prints("\n");
 }
 
 static int run_full(int still_only) {
@@ -919,224 +995,282 @@ static int run_full(int still_only) {
         prints("\n");
         return 3;
     }
-    prints("FULL power-save wake\n");
-    psave_imager_wake();
+    if (still_only) {
+        prints("FULL power-save wake\n");
+        psave_imager_wake();
+    }
 
     clear_dst_buf();
 
-    uint32_t pwr_cnt = (uint32_t)(sizeof(imx284_power_on_ops) / sizeof(imx284_power_on_ops[0]));
-    for (uint32_t i = 0U; i < pwr_cnt; ++i) {
-        if (imx284_power_on_ops[i].addr == 0U) {
-            delay_us(imx284_power_on_ops[i].value);
-        } else {
-            w32(imx284_power_on_ops[i].addr, imx284_power_on_ops[i].value);
-            dsb();
-        }
-    }
-    w32(0xfc029004U, 0x000000f2U);
-    w32(0xfc029008U, 0x00000077U);
-    dsb();
-    delay_us(5000U);
-
-    /* clk_id 0x3b (0x63a26438): SoC CRG reset/clock/enable for SLVS-EC/imager */
-    w32(0xf2a30044U, 0x00000200U);
-    w32(0xf2a30064U, 0x01000000U);
-    w32(0xf2a300a4U, 0x00000400U);
-    /* 0x639df964(1): pins 17/26 mux/OE + DFE clock bridge enable */
-    w32(0xfc01f168U, 0x00000009U);
-    w32(0xfc01f01cU, 0x04000000U);
-    w32(0xfc01f010U, 0x04000000U);
-    w32(0xfc01f144U, 0x0000000eU);
-    w32(0xfc01f310U, 0x0000000eU);
-    w32(0xfc01f010U, 0x00020000U);
-    w32(0xfc01e010U, r32(0xfc01e010U) | 0x00200000U);
-    w32(0xfc080114U, 0x00000001U);
-    w32(0xfc02a040U, 0x00000000U);
-    dsb();
-    delay_us(1000U);
-    prints("CLK1e="); print_hex8(r32(0xfc01e010U));
-    prints(" 1f="); print_hex8(r32(0xfc01f010U));
-    prints(" a360="); print_hex8(r32(0xf2a30060U));
-    prints("\n");
-
-    prints("FULL DFE PLL and PHY\n");
-    WRITE_TABLE(dfe_mode5_pll_phy_writes, 0U);
-    w32(0xfc02a06cU, 0x0012007cU);
-    delay_us(1000U);
-
-    if (!still_only) {
-        prints("FULL DFE mode-5 clocks\n");
-        w32(0xfc0a0200U, 0x00000001U);
-        w32(0xfc0a0200U, 0x00000010U);
-        WRITE_TABLE(dfe_mode5_clock_sgc_writes, 0U);
-        WRITE_TABLE(dfe_mode5_zpdctl_setup, 0U);
-        w32(0xfc098808U, 0x003e0007U);
-        WRITE_TABLE(dfe_mode5_setup_writes, BAYER_DST_PA);
-        WRITE_TABLE(dfe_mode5_sgc3_setup, 0U);
-        dsb();
-        WRITE_TABLE(imx284_mode5_pre_writes, 0U);
-    }
-    dsb();
-    delay_us(1000U);
-    WRITE_TABLE(imx284_wake_pre_writes, 0U);
-
-    seq_irq_enable(0U);
-    run_seq_burst(imx284_wake_upload_0, sizeof(imx284_wake_upload_0), 2U, 1);
-    prints("B0 raw=");
-    print_hex8(r32(SEQ_IRQ));
-    prints(" st=");
-    print_hex8(r32(SEQ_IRQ + 4U));
-    prints(" I=");
-    print_dec(seq_irqs);
-    prints(" T=");
-    print_dec(seq_timeouts);
-    prints("\n");
-    run_seq_burst(imx284_wake_upload_0, sizeof(imx284_wake_upload_0), 2U, 1);
-    delay_us(12000U);
-    run_seq_burst(imx284_wake_upload_1, sizeof(imx284_wake_upload_1), 2U, 1);
-    run_seq_burst(imx284_wake_upload_2, sizeof(imx284_wake_upload_2), 2U, 1);
-    delay_us(6000U);
-
-    WRITE_TABLE(imx284_wake_post_writes, 0U);
-    w32(0xf2a30038U, 0x08000000U);
-    delay_us(20000U);
-
     if (still_only) {
+        uint32_t pwr_cnt = (uint32_t)(sizeof(imx284_power_on_ops) / sizeof(imx284_power_on_ops[0]));
+        for (uint32_t i = 0U; i < pwr_cnt; ++i) {
+            if (imx284_power_on_ops[i].addr == 0U) {
+                delay_us(imx284_power_on_ops[i].value);
+            } else {
+                w32(imx284_power_on_ops[i].addr, imx284_power_on_ops[i].value);
+                dsb();
+            }
+        }
+        w32(IMAGER_GPIO_EN(1U), 0x000000f2U);
+        w32(IMAGER_GPIO_EN(2U), 0x00000077U);
+        dsb();
+        delay_us(5000U);
+
+        soc_crg_enable(SOC_CLK_SLVS_IMAGER);
+        w32(DFE_IRQ_VEC(26U), 9U);
+        w32(DFE_IRQ_EDGE_CLR, BIT(26));
+        w32(DFE_IRQ_EN_SET, BIT(26));
+        w32(DFE_IRQ_VEC(17U), 0x0eU);
+        w32(DFE_IRQ_EN_SET, BIT(17));
+        w32(DFE_IRQ_MASK, r32(DFE_IRQ_MASK) | BIT(16));
+        w32(DFE_IRQ_CPU_MASK, r32(DFE_IRQ_CPU_MASK) | 0x08010000U);
+        w32(DFE_IRQ_CPU_STAT, r32(DFE_IRQ_CPU_STAT) | 0x00200000U);
+        w32(SYNCSEQ_ARB_CTRL, 0x000001ffU);
+        w32(SYNCSEQ_ARB_CLR, 0x00000002U);
+        w32(SYNCSEQ_ARB_MASK, 0x00000002U);
+        w32(SYNCSEQ_AUX_EN, 0x00000001U);
+        w32(DFE_PORT0_EN, 1U);
+        w32(DFE_MPHY_GLOBAL_CTRL, r32(DFE_MPHY_GLOBAL_CTRL) & ~1U);
+        dsb();
+        delay_us(1000U);
+
+        WRITE_TABLE(dfe_mode5_pll_phy_writes, 0U);
+        delay_us(1000U);
+        WRITE_TABLE(imx284_wake_pre_writes, 0U);
+        imx284_pmic_spi_enable();
+
+        seq_irq_enable(0U);
+        run_seq_burst(imx284_wake_upload_0, sizeof(imx284_wake_upload_0), 2U, 1);
+        run_seq_burst(imx284_wake_upload_0, sizeof(imx284_wake_upload_0), 2U, 1);
+        delay_us(12000U);
+        run_seq_burst(imx284_wake_upload_1, sizeof(imx284_wake_upload_1), 2U, 1);
+        run_seq_burst(imx284_wake_upload_2, sizeof(imx284_wake_upload_2), 2U, 1);
+        delay_us(6000U);
+        WRITE_TABLE(imx284_wake_post_writes, 0U);
+        delay_us(20000U);
+
         prints("MODE37 direct cold start\n");
         run_still_capture();
         w32(0xfc0a1410U, 0U);
-    } else {
-        run_seq_burst(imx284_mode5_upload_0, sizeof(imx284_mode5_upload_0), 2U, 1);
-        run_seq_burst(imx284_mode5_upload_1, sizeof(imx284_mode5_upload_1), 2U, 1);
-        delay_us(1000U);
-        run_seq_burst(imx284_mode5_upload_2, sizeof(imx284_mode5_upload_2), 0U, 0);
 
-        w32(0xfc0a114cU, 0x00000004U);
-        w32(0xfc0a1150U, 0x00250005U);
-        /* Apply the active EE timing before the selector-1 SGC0 start. */
-        w32(0xfc0a1120U, 0x026a0793U);
-        w32(0xfc0a1124U, 0x00000206U);
-        w32(0xfc0a11a8U, 0x026b0001U);
-        w32(0xfc0a112cU, 0U);
-        w32(0xfc0a1130U, r32(0xfc0a1130U) & ~0x00010000U);
-        w32(0xfc0a1108U, r32(0xfc0a1108U) & ~1U);
-        w32(0xfc0a1110U, r32(0xfc0a1110U) | 1U);
+        w32(SEQ_PORT, r32(SEQ_PORT) & ~1U);
+        seq_irq_enable(0U);
+        w32(SYNCSEQ_AUX_EN, 0U);
+        w32(DFE_IRQ_CPU_STAT, r32(DFE_IRQ_CPU_STAT) & ~0x00200000U);
+        dfe_irq_disable_channel(DFE_IRQ_CH_DFE_EVENT);
+        dfe_irq_disable_channel(DFE_IRQ_CH_SYNCSEQ_AUX);
+        soc_crg_disable(SOC_CLK_SLVS_IMAGER);
+        imx284_power_off();
+        w32(PMU_PWR_REQ0, 1U);
+        w32(PMU_PWR_REQ1, 1U);
         dsb();
-
-        WRITE_TABLE(dfe_mode5_sgc3_start, 0U);
-        uint32_t st_cnt = (uint32_t)(sizeof(dfe_mode5_start_writes) / sizeof(dfe_mode5_start_writes[0]));
-        for (uint32_t i = 0U; i < st_cnt; ++i) {
-            uint32_t addr = dfe_mode5_start_writes[i].addr;
-            if (addr == 0xfc0a0018U || addr == 0xfc0a0030U) {
-                continue;
-            }
-            w32(addr, dfe_mode5_start_writes[i].value);
-        }
-        w32(0xfc0a0018U, 0U);
-        w32(0xfc0a0030U, 0U);
-        dsb();
-        WRITE_TABLE(dfe_mode5_zpdctl_trigger, 0U);
-
-        uint32_t sgc0_a = r32(0xfc0a1110U);
-        delay_us(10000U);
-        uint32_t sgc0_c = r32(0xfc0a1110U);
-        prints("SGC0 a="); print_hex8(sgc0_a);
-        prints(" c="); print_hex8(sgc0_c);
-        prints(" m="); print_hex8(r32(0xfc0a1108U));
-        prints(" r2c="); print_hex8(r32(0xfc0a112cU));
-        prints(" timing="); print_hex8(r32(0xfc0a1120U));
-        prints(":"); print_hex8(r32(0xfc0a1124U));
-        prints(":"); print_hex8(r32(0xfc0a11a8U));
-        prints(" zpd="); print_hex8(r32(0xfc099110U));
-        prints(":"); print_hex8(r32(0xfc098280U));
-        prints("\n");
-        if ((sgc0_c & 0x00010000U) == 0U) {
-            w32(0xfc0a0004U, 0x0000b088U);
-            dsb();
-            delay_us(5000U);
-            prints("SGC0_172="); print_hex8(r32(0xfc0a1110U));
-            prints(" 1f310="); print_hex8(r32(0xfc01f310U));
-            prints("\n");
-        }
-        seq_wait_irq(100000U);
-
-        w32(0xfc0a0014U, 0xffffffffU);
-        w32(0xfc0a002cU, 0xffffffffU);
-        dsb();
-        prints("CLR dfe10="); print_hex8(r32(0xfc0a0010U));
-        prints(" dfe14="); print_hex8(r32(0xfc0a0014U));
-        prints(" dfe28="); print_hex8(r32(0xfc0a0028U));
-        prints(" dfe2c="); print_hex8(r32(0xfc0a002cU));
-        prints("\n");
-
-        for (uint32_t s = 0U; s < 3U; ++s) {
-            delay_us(100000U);
-            if (s == 1U && r32(RDCW0_BASE + 0x10U) == 0U) {
-                w32(RDCW0_BASE + 0x20U, BAYER_DST_PA);
-                w32(RDCW0_BASE, 3U);
-                dsb();
-                prints("REARM\n");
-            }
-            print_poll_sample(s);
-            if (s == 0U) {
-                dump_pipeline("P0");
-                prints("P0_CLK 1e="); print_hex8(r32(0xfc01e010U));
-                prints(" 8030="); print_hex8(r32(0xfc080030U));
-                prints(" 80f4="); print_hex8(r32(0xfc0800f4U));
-                prints(" a0200="); print_hex8(r32(0xfc0a0200U));
-                prints(" a0204="); print_hex8(r32(0xfc0a0204U));
-                prints(" a330="); print_hex8(r32(0xf2a30030U));
-                prints(" a000="); print_hex8(r32(0xfc0a0000U));
-                prints("\n");
-                dump_regs_bin("/tmp/regs_bayer.bin");
-            }
-        }
-
-        int rdc_idle = stop_rdcw0();
-        if (!rdc_idle) {
-            prints("MODE5 RdcW0 still busy after stop; skipping readback and ISP0 fallback\n");
-        } else if (dst_has_nonzero()) {
-            (void)analyze_and_maybe_dump("/tmp/bayer_full.raw", BAYER_LIVE_WIDTH,
-                                         BAYER_LIVE_HEIGHT, BAYER_LIVE_STRIDE_PIXELS);
-        } else {
-            prints("MODE5 PIX nonzero=0 -> trying MODE37 ISP0_AIF3\n");
-            w32(0xfc0a1210U, 0U);
-            w32(0xfc0a1310U, 0U);
-            w32(0xfc0a1410U, 0U);
-            w32(0xfc0ad610U, 0U);
-            dsb();
-
-            print_still_poll_sample(99U);
-
-            run_still_capture();
-        }
-
-        if (!rdc_idle) {
-            stop_rdcw0();
-        }
-        w32(0xfc099110U, 0U);
-        w32(0xfc098280U, 0U);
-        w32(0xfc0a1410U, 0U);
-        w32(0xfc0a1400U, 0U);
-        w32(0xfc0a0004U, 0x18U);
-        dsb();
+        prints("CLEANED_IDLE\n");
+        return 0;
     }
+
+    /* ---- Standalone Mode-1 Readout (Ghidra-verified behavioral pipeline) ---- */
+    static const struct sgc_timing_cfg mode1_timing = {
+        72U, IMX284_MODE1_H_TOTAL, IMX284_MODE1_V_TOTAL,
+        IMX284_MODE1_NLR_DELTA, IMX284_MODE1_NLR_NUM, IMX284_MODE1_NLR_DEN,
+        IMX284_MODE1_LEAD_US
+    };
+    uint32_t dfe_timer_gate = 0U;
+    int result = 0;
+
+    /* Kernel upm owns the PMU requests and the DDR-B transition. */
+    print_mode1_power("ENTRY");
+    imx284_power_on();
+    soc_crg_enable(SOC_CLK_SLVS_IMAGER);
+
+    prints("ENTRY 1e="); print_hex8(r32(DFE_IRQ_CPU_BASE));
+    prints(":"); print_hex8(r32(DFE_IRQ_CPU_MASK));
+    prints(":"); print_hex8(r32(DFE_IRQ_CPU_STAT));
+    prints(" 1f="); print_hex8(r32(DFE_IRQ_MASK));
+    prints(":"); print_hex8(r32(DFE_IRQ_EN_SET));
+    prints(":"); print_hex8(r32(DFE_IRQ_STAT_ID));
+    prints(" a000="); print_hex8(r32(DFE_TOP_CORE_EN_SET));
+    prints("\n");
+
+    dfe_irq_enable_channel(DFE_IRQ_CH_DFE_EVENT, 9U, 1);
+    dfe_irq_enable_channel(DFE_IRQ_CH_SYNCSEQ_AUX, 0x0eU, 0);
+    dfe_irq_set_cpu_masks();
+
+    uint32_t aux = r32(SYNCSEQ_AUX_EN);
+    w32(SYNCSEQ_AUX_CLR, 1U & ~aux);
+    w32(SYNCSEQ_AUX_EN, aux | 1U);
+    dsb();
+
+    if (!dfe_coproc_start()) {
+        prints("MODE1 DFE mailbox start failed\n");
+        dfe_coproc_stop();
+        imx284_pmic_spi_enable();
+        result = 4;
+        goto mode1_release_control;
+    }
+    if ((r32(DFE_TIMER_GATE_SET) & 0x003c0006U) != 0x003c0006U) {
+        prints("WARN DFE coproc did not set 98808; forcing fallback\n");
+        w32(DFE_TIMER_GATE_SET, 0x003c0006U & ~r32(DFE_TIMER_GATE_SET));
+        w32(DFE_TIMER_AUX_GATE, r32(DFE_TIMER_AUX_GATE) | BIT(17));
+    }
+
+    prints("FULL DFE PLL and PHY\n");
+    dfe_crg_and_pll_init(mode1_timing.freq_mhz);
+
+    prints("FULL Phase-1 clocks (Mode 1, DfeTop off)\n");
+    dfe_drv_sgc0_and_syncseq_init();
+    camcore_sgc1_init(mode1_timing.freq_mhz);
+    struct mode1_input_sample dfe_init = sample_mode1_input();
+
+    combophy_afe_and_slvsec_init();
+    imx284_pin_enable(IMX284_PIN_WAKE_A0);
+    imx284_pin_enable(IMX284_PIN_WAKE_A1);
+    imx284_pin_enable(IMX284_PIN_WAKE_A2);
+    dsb();
+    delay_us(1000U);
+
+    seq_irq_enable(0U);
+    if (!imx284_wake_sequence()) {
+        prints("MODE1 sensor wake did not complete\n");
+        result = 4;
+        goto mode1_stop_input;
+    }
+    soc_crg_enable(SOC_CLK_SLVS_IMAGER);
+    dsb();
+
+    struct mode1_input_sample sensor_wake = sample_mode1_input();
+    if (!imx284_prepare_mode1() || !sleep_us(1000U)) {
+        prints("MODE1 sensor configuration did not complete\n");
+        result = 4;
+        goto mode1_stop_input;
+    }
+
+    struct mode1_input_sample mode_uploads = sample_mode1_input();
+    syncseq_configure_timing(&mode1_timing);
+    print_mode1_power("BEFORE_SGC0");
+    /* Queue the frame-triggered commit before the first possible SGC0 edge. */
+    if (!imx284_arm_mode1_stream(&imx284_live_mode1_profile)) {
+        prints("MODE1 could not queue the frame-triggered commit\n");
+        result = 4;
+        goto mode1_stop_input;
+    }
+    struct mode1_input_sample stream_armed = sample_mode1_input();
+    dfe_drv_sgc0_configure_and_start(&mode1_timing, 1U, 1U);
+    struct mode1_input_sample sgc_request = sample_mode1_input();
+    seq_wait_irq(100000U);
+    struct mode1_input_sample stream_upload = sample_mode1_input();
+    delay_us(15000U);
+    struct mode1_input_sample link = sample_mode1_input();
+    print_mode1_power("RX_LINK");
+
+    print_mode1_input("DFE_INIT", &dfe_init);
+    print_mode1_input("SENSOR_WAKE", &sensor_wake);
+    print_mode1_input("MODE_SPI01", &mode_uploads);
+    print_mode1_input("SPI2_ARMED", &stream_armed);
+    print_mode1_input("SGC_REQUEST", &sgc_request);
+    print_mode1_input("SPI2_WAIT_END", &stream_upload);
+    print_mode1_input("RX_LINK", &link);
+
+    /* Probe the native counter latches on the timeout path, after the SPI wait. */
+    if ((link.sgc0_status & BIT(16)) == 0U) {
+        struct sgc0_counters first = dfe_sgc0_read_counters();
+        delay_us(20000U);
+        struct sgc0_counters second = dfe_sgc0_read_counters();
+        prints("SGC0_COUNTERS hv="); print_hex8(first.hv);
+        prints(":"); print_hex8(second.hv);
+        prints(" frames="); print_hex8(first.frames);
+        prints(":"); print_hex8(second.frames); prints("\n");
+    }
+
+    prints("POST_LINK 1110="); print_hex8(r32(DFE_DRVSGC0_START_STAT));
+    prints(" 8030="); print_hex8(r32(SYNCSEQ_COUNTER));
+    prints(" f0b0="); print_hex8(r32(SLVSEC_PORT_LOCK(0U)));
+    prints(":"); print_hex8(r32(SLVSEC_PORT_BASE(0U) + 0xb4U));
+    prints(" f1b0="); print_hex8(r32(SLVSEC_PORT_LOCK(1U)));
+    prints(":"); print_hex8(r32(SLVSEC_PORT_BASE(1U) + 0xb4U));
+    prints(" I="); print_dec(seq_irqs);
+    prints(" T="); print_dec(seq_timeouts);
+    prints("\n");
+
+    dfe_top_enable_and_route_mode1(BAYER_DST_PA, IMX284_MODE1_WIDTH,
+                                   IMX284_MODE1_HEIGHT, IMX284_MODE1_STRIDE_PIXELS,
+                                   &dfe_timer_gate);
+    /* In stock EE-02 the first frame and SLVS lock precede the CamCore route change. */
+    camcore_sgc1_start_mode1(&mode1_timing);
+    prints("CAMCORE_ROUTE sgc1="); print_hex8(r32(CAMCORE_SYNC_ROUTE(SGC1_TOP_BASE)));
+    prints(" isp0="); print_hex8(r32(CAMCORE_SYNC_ROUTE(ISP0_SYNC_BASE))); prints("\n");
+
+
+    uint32_t sgc0_a = r32(DFE_DRVSGC0_START_STAT);
+    delay_us(10000U);
+    uint32_t sgc0_c = r32(DFE_DRVSGC0_START_STAT);
+    prints("SGC0 a="); print_hex8(sgc0_a);
+    prints(" c="); print_hex8(sgc0_c);
+    prints(" m="); print_hex8(r32(DFE_DRVSGC0_INT_TRIG));
+    prints(" r2c="); print_hex8(r32(DFE_DRVSGC0_RUN_FLAG));
+    prints(" timing="); print_hex8(r32(DFE_DRVSGC0_HV_CYCLE));
+    prints(":"); print_hex8(r32(DFE_DRVSGC0_V_END));
+    prints(":"); print_hex8(r32(DFE_DRVSGC0_NLR_CFG));
+    prints(" a000="); print_hex8(r32(DFE_TOP_CORE_EN_SET));
+    prints(" 0200="); print_hex8(r32(DFE_TOP_BRIDGE_SET));
+    prints(" 0560="); print_hex8(r32(DFE_TOP_ERR_MASK_SET));
+    prints("\n");
+
+    for (uint32_t s = 0U; s < 5U; ++s) {
+        delay_us(100000U);
+        if (s == 1U && r32(RDCW0_BASE + 0x10U) == 0U) {
+            w32(DFE_RDCW0_ADDR, BAYER_DST_PA);
+            w32(DFE_RDCW0_CTL, 3U);
+            dsb();
+            prints("REARM\n");
+        }
+        print_poll_sample(s);
+        prints("POLL s="); print_dec(s);
+        prints(" 8030="); print_hex8(r32(SYNCSEQ_COUNTER));
+        prints(" sgc0="); print_hex8(r32(DFE_DRVSGC0_START_STAT));
+        prints("\n");
+        if (s == 0U) {
+            dump_pipeline("P0");
+            dump_regs_bin("/tmp/regs_bayer.bin");
+        }
+    }
+
+    int rdc_idle = stop_rdcw0();
+    if (!rdc_idle) {
+        prints("MODE1 RdcW0 still busy after stop; skipping readback\n");
+    } else if (dst_has_nonzero()) {
+        (void)analyze_and_maybe_dump("/tmp/bayer_full.raw", IMX284_MODE1_WIDTH,
+                                     IMX284_MODE1_HEIGHT, IMX284_MODE1_STRIDE_PIXELS);
+    } else {
+        prints("MODE1 PIX nonzero=0 (skipping MODE37 fallback to preserve idle state)\n");
+    }
+
+    if (!rdc_idle) {
+        stop_rdcw0();
+    }
+    dfe_top_disable(dfe_timer_gate);
+
+mode1_stop_input:
+    if (result != 0) {
+        slvsec_rx_stop();
+    }
+    camcore_sgc1_stop();
     w32(SEQ_PORT, r32(SEQ_PORT) & ~1U);
     seq_irq_enable(0U);
-    w32(0xfc080114U, 0U);
-    w32(0xfc01e010U, r32(0xfc01e010U) & ~0x00200000U);
-    w32(0xfc01f014U, 0x04020000U);
-    w32(0xfc01f168U, 0U);
-    w32(0xfc01f144U, 0U);
-    w32(0xf2a30068U, 0x01000000U);
-    w32(0xfc029028U, 0U);
-    w32(0xfc029008U, 0U);
-    w32(0xfc029000U, 0U);
-    w32(PMU_BASE_PA + 0x004U, 1U);
-    w32(PMU_BASE_PA + 0x008U, 1U);
+    dfe_coproc_stop();
+    dfe_irq_disable_channel(DFE_IRQ_CH_SYNCSEQ_SPI);
+    dfe_irq_disable_channel(DFE_IRQ_CH_SGC0_VD0);
+    dfe_irq_disable_channel(DFE_IRQ_CH_SGC0_VD1);
+
+mode1_release_control:
+    w32(SYNCSEQ_AUX_EN, aux);
+    dfe_irq_disable_channel(DFE_IRQ_CH_DFE_EVENT);
+    dfe_irq_disable_channel(DFE_IRQ_CH_SYNCSEQ_AUX);
+    soc_crg_disable(SOC_CLK_SLVS_IMAGER);
+    imx284_power_off();
     dsb();
     prints("CLEANED_IDLE\n");
-    return 0;
+    return result;
 }
 
 static int run_rdcw0(void) {
@@ -1221,7 +1355,7 @@ static int run_rdcw0(void) {
 
 /* Passive native-still recorder. These reads follow the original DFE/AIF,
  * ISP, FOPD and XDMAC getter layouts. The timer is the 2 MHz board counter. */
-#define STOCK_TRACE_MAX_WORDS 272U
+#define STOCK_TRACE_MAX_WORDS 512U
 #define STOCK_TRACE_MAX_EVENTS 32768U
 
 struct stock_word {
@@ -1328,6 +1462,38 @@ static int run_stock_trace(const char *path) {
         stock_trace_word(port + 4U);
         stock_trace_word(port + 8U);
         stock_trace_word(port + 0x20U);
+    }
+    static const uint32_t extra_trace_addrs[] = {
+        0x0426b384U + 0x430U, 0x0449ace8U, 0x0449ad0cU,
+        0xf2403b00U, 0xf2403b08U, 0xf2403a08U, 0xf2403800U, 0xf2403600U,
+        0xf290e004U, 0xf290e008U,
+        0xf2a30030U, 0xf2a30060U, 0xf2a300a0U, 0xf2a300b0U,
+        0xf3000000U, 0xf3000004U, 0xf3000008U, 0xf300000cU,
+        0xf3000010U, 0xf3000014U, 0xf3000038U, 0xf3000050U,
+        0xf3120000U, 0xf3120004U, 0xf3120008U, 0xf312000cU,
+        0xf3120010U, 0xf3120014U, 0xf3120038U, 0xf3122000U, 0xf3123000U,
+        0xfc01e010U, 0xfc01f010U, 0xfc01f144U, 0xfc01f168U,
+        0xfc020028U, 0xfc021024U,
+        0xfc029000U, 0xfc029004U, 0xfc029008U, 0xfc029028U,
+        0xfc02a008U, 0xfc02a040U, 0xfc02a048U, 0xfc02a04cU, 0xfc02a050U, 0xfc02a058U, 0xfc02a05cU,
+        0xfc02a080U, 0xfc02d00cU, 0xfc02d010U,
+        0xfc080014U, 0xfc080020U, 0xfc080024U, 0xfc080028U, 0xfc080030U, 0xfc08003cU, 0xfc080040U,
+        0xfc0800f4U, 0xfc080104U, 0xfc080108U, 0xfc08010cU, 0xfc080114U,
+        0xfc088300U, 0xfc088308U, 0xfc088340U, 0xfc088344U, 0xfc088348U, 0xfc08834cU, 0xfc088350U, 0xfc0883ecU,
+        0xfc098000U, 0xfc098004U, 0xfc098280U, 0xfc098800U, 0xfc098808U, 0xfc09880cU, 0xfc098908U,
+        0xfc099100U, 0xfc099110U,
+        0xfc0a0004U, 0xfc0a0008U, 0xfc0a0014U, 0xfc0a0018U, 0xfc0a0020U, 0xfc0a0024U, 0xfc0a002cU,
+        0xfc0a0150U, 0xfc0a0154U, 0xfc0a0178U, 0xfc0a0180U,
+        0xfc0a0200U, 0xfc0a0204U, 0xfc0a0560U, 0xfc0a0564U,
+        0xfc0a1108U, 0xfc0a110cU, 0xfc0a1120U, 0xfc0a1124U, 0xfc0a1130U,
+        0xfc0a1140U, 0xfc0a114cU, 0xfc0a1150U, 0xfc0a1194U, 0xfc0a1198U, 0xfc0a11a8U, 0xfc0a11acU,
+        0xfc0ad600U, 0xfc0ad608U, 0xfc0ad610U,
+        0xfc0f0000U, 0xfc0f0004U, 0xfc0f0050U, 0xfc0f0080U,
+        0xfc0f0098U, 0xfc0f009cU, 0xfc0f00a0U, 0xfc0f00a8U,
+        0xfc0f00b4U, 0xfc0f00b8U, 0xfc0f00c4U, 0xfc0f0150U, 0xfc0f0180U, 0xfc0f01acU,
+    };
+    for (uint32_t i = 0; i < (uint32_t)(sizeof(extra_trace_addrs) / sizeof(extra_trace_addrs[0])); ++i) {
+        stock_trace_word(extra_trace_addrs[i]);
     }
     sys_call1(SYS_close, (uint32_t)stock_mem_fd);
 

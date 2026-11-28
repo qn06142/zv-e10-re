@@ -4,8 +4,9 @@
 
 - Architecture & memory map: [ZVOS_SPEC.md](../../../docs/hardware/ZVOS_SPEC.md)
 - Hardware & recovery handoff: [HANDOFF.md](../../../docs/hardware/HANDOFF.md)
+- Canonical sensor pipeline reference: [docs/hardware/SENSOR_PIPELINE.md](../../../docs/hardware/SENSOR_PIPELINE.md)
 - Live-view register monitor (`rtos_live_view.c`): [LIVE_VIEW.md](LIVE_VIEW.md)
-- Bare-metal IMX284 + DFE Bayer RAW bring-up (`senser_bayer_runner.c`, `bayer_capture.h`): [BAYER_HANDOFF.md](BAYER_HANDOFF.md)
+- Bare-metal IMX284 + DFE Bayer RAW bring-up (`senser_bayer_runner.c`, `bayer_capture.h`): [BAYER_HANDOFF.md](BAYER_HANDOFF.md) · [SENSOR_PIPELINE.md](SENSOR_PIPELINE.md)
 
 ## Key ZVOS & Bayer source files
 
@@ -15,6 +16,7 @@
 | `crt0.S`, `rtos_c.ld`, `zvrt_runtime.c`, `zvrt_runtime.h`, `zvrt_font.h` | Bare-metal quiesce, private 16 KiB L1 MMU takeover, VBAR fault handlers, GIC IRQ controller, uncached `OSD0` double-buffering, `ADC0`/`ADC1`/`GPIO` input polling, and 8×8 font. |
 | `os_shell.c`, `os_mode.h`, `rtos_bad_apple.c`, `osd_fire.h` | ZVOS mode shell (`enter`/`tick`/`exit`), `Bad Apple!!` 320×240 24 fps decoder, and animated fire mode. |
 | `bayer_capture.h`, `bayer_display.h`, `bayer_sensor_tables.h`, `generate_bayer_init.py` | ZVOS `BayerRAW` capture loop, debayered LCD preview, and firmware-extracted IMX284/DFE register tables. |
+| `cxd90057_hw.h`, `cxd90057_pipeline.h`, `imx284_sensor.h` | Behavioral `CXD90057` MMIO/CRG/DFE/ComboPHY/SLVS-EC drivers, coalescing P2S SPI builder, and decoded `IMX284` register arrays. |
 | `senser_bayer_runner.c`, `test_bayer_senser.py` | Userspace `/dev/mem` bare-metal Bayer RAW bring-up & extended register diff runner over USB Senser. |
 | `build_rtos.py`, `stage_rtos.py`, `verify_os_shell.py`, `verify_bayer_capture.py` | ARM GCC build, guarded Senser staging, and Unicorn CPU/MMIO verification tests. |
 

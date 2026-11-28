@@ -1,6 +1,6 @@
 # Sensor, DFE and DMA hardware contracts
 
-The priority route is sensor → acquisition/DFE → a completed Bayer buffer → an independently owned USB transfer. Each boundary needs a physical register/transaction contract. Linux driver APIs and firmware stage names are leads, not substitutes for that contract.
+The priority route is sensor → acquisition/DFE → a completed Bayer buffer → an independently owned USB transfer. Each boundary needs a physical register/transaction contract. Linux driver APIs and firmware stage names are leads, not substitutes for that contract. For the recovered IMX284 power/SPI, DFE PLL/SGC0/SyncSeq, ComboPHY/SLVS-EC RX, RdcW0 (`0xfc0a9200`), and a6400 cross-check details, see [Sensor pipeline bring-up and register map](SENSOR_PIPELINE.md).
 
 ## Pipeline and feature insertion points
 
@@ -144,9 +144,9 @@ The pin-connect helper sends a 40-byte dataflow request to `0x00050004` and expe
 
 | Item | Established evidence | Still missing |
 | --- | --- | --- |
-| Sensor model and electrical control link | The installed firmware carries the `C_ImagerCtrl_IMX284` implementation and its SoC-side readout control code. | Physical sensor ID and revision, control-bus instance/pins, bus timing, device addressing and reset/standby/power order. |
-| Mode programming | Earlier mode/geometry table extraction exists. | Actual serial transaction sequence, sensor register addresses/widths/bank selection, documented reset/required values and validated readout mode. An image-size table is not proof of sensor support or open-gate operation. |
-| Sensor-to-SoC data link | Native acquisition and DFE stage leads. | Physical receiver, lane/pin mapping, clocking, packet or parallel format, sync polarity and receiver programming. Do not assume a particular CSI/MIPI/SLVS link. |
+| Sensor model and electrical control link | The installed firmware implements `C_ImagerCtrl_IMX284` over P2S SPI (`0xfc088300`/`e00`/`f00`), PMIC SPI (`clk_id 0x4e`), and Imager GPIO (`0xfc029000..2c`). Stepped rail power-on (`0x637ad800`), wake (`0x637ad310`), and power-off (`0x637ab9fc`) sequences and packet builders are recovered and hardware-verified for 6/7 bursts in [Sensor pipeline](SENSOR_PIPELINE.md). | Physical sensor ID/revision readback and non-Mode-1 PMIC/gain datasheet semantics. |
+| Mode programming | Mode pointer arrays (`0x645bc738`/`0x645bc804`), `wake_regs_0..2`, Mode-1/`0x37` P2S bursts, `0x0832` stream-latch rule (`0x637abea4`), and `SetImgRd` exposure descriptor construction (`0x63c047c8 -> 0x63bbe150 -> 0x637aca24`) recovered. | Runtime AE/gain inputs feeding `SetImgRd` for live still/movie shots and Open-Gate tuning. |
+| Sensor-to-SoC data link | ComboPHY (`0xf292a000`), AFE (`0xf2931100`), D-PHY/SLVS PHY (`0xfc02a060..80`, `0xfc02d000`), MPHY (`0xfc02a040..5c`), 8-lane dual-port `SLVS-EC` RX (`0xfc0f0000/0100`), `DrvSGC0` (`0xfc0a11xx`), `SyncSeq` (`0xfc0800xx`), and `CamCore SGC1` (`0xf3120000`) recovered in [Sensor pipeline](SENSOR_PIPELINE.md). | Bare-metal `SGC0` start qualification / local clock gate (`0xfc0a1110[16]=0`, frozen `HVcnt`) and pre-start `SyncTask` (`0x635ce230`) actions. |
 | DFE setup | The reference image enters DfeAcqSet at 0x6390b93c and StrtRdrawRd at 0x6390a014. Selected FOPD MMIO writes and routing fields are verified below. | These are firmware virtual addresses, not hardware registers. Trace their actual base-address providers, descriptor words, start and completion conditions. |
 | DFE callbacks | Native slots 3, 9, 10, 11 and 14 are registration leads; slot 10 signals event 0x16. | Callback slot → hardware fact → IRQ/status/ack mapping, and exact frame-buffer ownership. |
 | Runtime cadence | SetImgRd about 41.6–41.8 ms and other preview markers about 20.8 ms in saved sessions. | Marker-to-frame association, exposure/readout timing, Bayer packing and usable completion-to-reuse interval. |
